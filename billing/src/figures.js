@@ -32,6 +32,7 @@ export const SERVER_IDS = [
   "dunning-letters",
   "expense-tracker",
   "goods-receipt",
+  "hourly-rate",
   "image",
   "invoice",
   "job-card",
@@ -90,6 +91,7 @@ export const CHILD_IDS = [
   "dunning-letters",
   "expense-tracker",
   "goods-receipt",
+  "hourly-rate",
   "image",
   "invoice",
   "job-card",
@@ -197,6 +199,7 @@ export const TOOLS = {
   "dunning-letters": 9,
   "expense-tracker": 12,
   "goods-receipt": 9,
+  "hourly-rate": 3,
   "image": 10,
   "invoice": 11,
   "job-card": 9,
@@ -225,7 +228,7 @@ export const TOOLS = {
   "stripe-billing": 2,
   "supplier-list": 8,
   "tax-calc": 1,
-  "time-tracker": 12,
+  "time-tracker": 18,
   "timezone": 9,
   "work-order": 10,
   "zip": 7
@@ -235,12 +238,12 @@ export const TOOLS = {
 export const LICENSE_TOOLS = 2;
 
 /** Sum of TOOLS over CHILD_IDS. */
-export const OWN_TOOLS_TOTAL = 436;
+export const OWN_TOOLS_TOTAL = 445;
 
 /** Distinct tool names office-suite exposes: every child's own tools, plus the shared
  * license pair once. Reconciles with the independently measured OFFICE_SUITE_TOOLS in
  * billing/src/index.js, taken over stdio from the running bundle on 2026-09-07. */
-export const OFFICE_SUITE_TOOLS = 438;
+export const OFFICE_SUITE_TOOLS = 447;
 
 /** Servers the site actually lists, i.e. those with a README that becomes a /s/ page. */
 export const LISTED_IDS = [
@@ -266,6 +269,7 @@ export const LISTED_IDS = [
   "dunning-letters",
   "expense-tracker",
   "goods-receipt",
+  "hourly-rate",
   "image",
   "invoice",
   "job-card",
@@ -322,6 +326,7 @@ export const LISTED_CHILD_IDS = [
   "dunning-letters",
   "expense-tracker",
   "goods-receipt",
+  "hourly-rate",
   "image",
   "invoice",
   "job-card",
@@ -358,6 +363,7 @@ export const LISTED_CHILD_IDS = [
 /** Free standalone servers (R32): listed, pageable, sold through the bundle alias. */
 export const FREE_IDS = [
   "budget",
+  "hourly-rate",
   "loan-calculator",
   "payroll",
   "pomodoro",
@@ -368,10 +374,10 @@ export const FREE_IDS = [
 
 /** Counts, computed so prose cannot go stale. LISTED_COUNT is the one a visitor should
  * ever see: SERVER_DIR_COUNT can be ahead of it while a new server is being built. */
-export const LISTED_COUNT = 54;
-export const LISTED_CHILD_COUNT = 53;
-export const SERVER_DIR_COUNT = 54;
-export const CHILD_COUNT = 53;
+export const LISTED_COUNT = 55;
+export const LISTED_CHILD_COUNT = 54;
+export const SERVER_DIR_COUNT = 55;
+export const CHILD_COUNT = 54;
 export const HOSTED_COUNT = 46;
 
 /** Hosted limits, read from remote/src/index.ts. */
@@ -387,7 +393,7 @@ export const SINGLE_USD = 19;
 export const BUNDLE_USD = 39;
 
 /** Published version, read from servers/<id>/server.json. */
-export const VERSION = "0.22.0";
+export const VERSION = "0.22.5";
 
 /** The free-tier sentence for each server, verbatim from data/facts.json. */
 export const FREE = {
@@ -413,6 +419,7 @@ export const FREE = {
   "dunning-letters": "Three unpaid invoices chased at once, with all three letters in both formats, the aging summary, the day's chase list and payment recording free on every tier. An invoice that gets paid frees its slot, because the cap is on how many chases run at once, never on the letters or the aging.",
   "expense-tracker": "Unlimited logging; list and summary cover the last 30 days; 3 projects; 5 rules; CSV export up to 200 rows, never partial.",
   "goods-receipt": "Full receiving: create receipts, list them, per-line outstanding quantities and the receipt history are all free. Over-receipt needs the explicit flag on every tier.",
+  "hourly-rate": "The whole server, unlimited, local — three tools, no metering, no key.",
   "image": "Info, resize, convert, compress, crop, strip metadata on images up to 4 MP; batches of 5.",
   "invoice": "3 invoices per calendar month; overdue report free; PDF carries a small footer line.",
   "job-card": "Ten active job cards, with labor and material entries unlimited per card and the running totals, list, get, the printable card and the daily and weekly summaries all free on every tier. A card stops counting the moment it is archived, so the record is never metered.",
@@ -470,6 +477,7 @@ export const PRO = {
   "dunning-letters": "Unlimited concurrent chases.",
   "expense-tracker": "Full history, unlimited projects and rules, xlsx export, unlimited rebill items with markup.",
   "goods-receipt": "Unlimited receipts per period and the CSV export of received-vs-ordered for the supplier scorecard.",
+  "hourly-rate": "Not gated — this server is entirely free; the $39 bundle key covers the 47 paid servers.",
   "image": "Unlimited size and batches, custom watermark text, dominant colours.",
   "invoice": "Unlimited invoices, no branding, logo, custom prefix.",
   "job-card": "Unlimited active job cards.",
