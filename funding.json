@@ -1,0 +1,90 @@
+{
+  "$schema": "https://fundingjson.org/schema/v1.1.0.json",
+  "version": "v1.1.0",
+  "entity": {
+    "type": "organisation",
+    "role": "owner",
+    "name": "AUTOM8 LLC (Zovo)",
+    "email": "support@zovo.one",
+    "phone": "",
+    "description": "Zovo is a bootstrapped software product studio that builds and sells privacy-first Chrome extensions and local-first developer tools. The studio is owned and run by Michael Lip, a Polish engineer and EU citizen. All code is written by one person. Zovo has raised no outside money and is funded by the founder's own engineering work and product sales. Products live at https://zovo.one and the source is published under OSI licences at https://github.com/theluckystrike. The funding requested here pays for maintenance and new releases of the two open source projects below, so the free tiers stay free and the code stays public.",
+    "webpageUrl": {
+      "url": "https://github.com/theluckystrike",
+      "wellKnown": ""
+    }
+  },
+  "projects": [
+    {
+      "guid": "zovo-mcp-servers",
+      "name": "Zovo MCP servers",
+      "description": "A collection of 54 local-first Model Context Protocol servers for everyday back-office work: invoices, VAT, PDFs, spreadsheets, Word documents, time tracking and expenses. Each server runs locally over stdio and keeps the user's data on their own machine. 45 of the servers are also reachable as a hosted endpoint at https://mcp.zovo.one. The code is MIT licensed. The project is maintained by one developer. Funding would pay for maintenance, new servers, tests across client versions and user documentation.",
+      "webpageUrl": {
+        "url": "https://github.com/theluckystrike/mcp-servers",
+        "wellKnown": ""
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/theluckystrike/mcp-servers",
+        "wellKnown": ""
+      },
+      "licenses": [
+        "spdx:MIT"
+      ],
+      "tags": [
+        "mcp",
+        "developer-tools",
+        "local-first",
+        "privacy",
+        "automation",
+        "accounting",
+        "productivity"
+      ]
+    },
+    {
+      "guid": "tab-suspender",
+      "name": "Tab Suspender for Chrome",
+      "description": "An open source Manifest V3 Chrome extension that suspends inactive tabs to free memory. It protects audio tabs, pinned tabs, the active tab and tabs with unsaved form data, and it runs with no tracking and no telemetry. The code is MIT licensed and every line is inspectable in the repository. The extension ships the same code to the Chrome Web Store. Funding would pay for maintenance against Chrome platform changes, regression tests and accessibility work, so a free tab suspender without trackers stays available to users.",
+      "webpageUrl": {
+        "url": "https://github.com/theluckystrike/tab-suspender-chrome-extension",
+        "wellKnown": ""
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/theluckystrike/tab-suspender-chrome-extension",
+        "wellKnown": ""
+      },
+      "licenses": [
+        "spdx:MIT"
+      ],
+      "tags": [
+        "chrome-extension",
+        "browser",
+        "privacy",
+        "productivity",
+        "memory"
+      ]
+    }
+  ],
+  "funding": {
+    "channels": [
+      {
+        "guid": "bank-autom8",
+        "type": "bank",
+        "address": "",
+        "description": "Direct bank transfer to AUTOM8 LLC, the entity behind Zovo. E-mail support@zovo.one and the receiving account details are sent back."
+      }
+    ],
+    "plans": [
+      {
+        "guid": "oss-maintenance-2026",
+        "status": "active",
+        "name": "Open source maintenance 2026",
+        "description": "One year of maintenance for the two projects above: platform fixes, regression tests, accessibility work and documentation. The founder is the only paid person. No hardware, no travel, no subcontractors.",
+        "amount": 10000,
+        "currency": "USD",
+        "frequency": "yearly",
+        "channels": [
+          "bank-autom8"
+        ]
+      }
+    ]
+  }
+}
