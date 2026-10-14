@@ -13,6 +13,19 @@ const STATUS_KEY = "monitor:status";
 const WEBHOOK_PREFIX = "monitor:webhook-status:";
 const encoder = new TextEncoder();
 
+function b64url(bytes) {
+  let s = btoa(String.fromCharCode(...bytes));
+  return s.replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+
+async function unsubUrl(origin, env, email) {
+  const secret = env.UNSUB_SECRET || env.STRIPE_WEBHOOK_SECRET || "";
+  if (!secret) return null;
+  const key = await crypto.subtle.importKey("raw", encoder.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const sigBuf = await crypto.subtle.sign("HMAC", key, encoder.encode(`unsub:${email.toLowerCase()}`));
+  return `${origin}/api/unsub?e=${encodeURIComponent(b64url(encoder.encode(email.toLowerCase())))}&s=${b64url(new Uint8Array(sigBuf))}`;
+}
+
 function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
@@ -286,17 +299,27 @@ export async function runDripSweep(env, now = Date.now()) {
       let record;
       try { record = JSON.parse(await env.LICENSES.get(name) || "null"); } catch { continue; }
       if (!record?.at || !record.email) continue;
+      if (await env.LICENSES.get(`unsub:${record.email}`)) continue;
       const ageH = (now - Date.parse(record.at)) / 3600_000;
       for (const step of DRIP_STEPS) {
         const stepKey = `${name}:${step.key}`;
         if (await env.LICENSES.get(stepKey)) continue;
         if (ageH < step.ageHours) continue;
         try {
+          const email = record.email.toLowerCase();
+          const unsub = await unsubUrl("https://mcp.zovo.one", env, email);
           const res = await fetch("https://api.resend.com/emails", {
             method: "POST",
             headers: { "authorization": `Bearer ${env.RESEND_API_KEY}`, "content-type": "application/json" },
             body: JSON.stringify({ from: "MCP Servers <hello@zovo.one>", to: [record.email],
-              subject: step.subject, text: step.text, reply_to: "support@zovo.one" }),
+              subject: step.subject, text: `${step.text}\n\nUnsubscribe: ${unsub ?? "(reply STOP and we'll remove you)"}`,
+              ...(unsub ? {
+                headers: {
+                  "List-Unsubscribe": `<${unsub}>`,
+                  "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+                },
+              } : {}),
+              reply_to: "support@zovo.one" }),
           });
           if (res.ok) {
             await env.LICENSES.put(stepKey, new Date().toISOString());
