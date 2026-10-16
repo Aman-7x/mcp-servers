@@ -1,0 +1,611 @@
+[
+  {
+    "id": "twm1",
+    "args": {
+      "po": {
+        "reference": "PO-42",
+        "supplier": "Supply Co",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "A",
+            "quantity": 10,
+            "unit_price_minor": 100
+          },
+          {
+            "sku": "B",
+            "quantity": 10,
+            "unit_price_minor": 100
+          }
+        ]
+      },
+      "receipts": [
+        {
+          "reference": "GR-1",
+          "po_reference": "PO-42",
+          "supplier": "Supply Co",
+          "date": "2026-10-15",
+          "lines": [
+            {
+              "sku": "A",
+              "accepted_quantity": 5,
+              "rejected_quantity": 0
+            },
+            {
+              "sku": "B",
+              "accepted_quantity": 15,
+              "rejected_quantity": 0
+            }
+          ]
+        }
+      ],
+      "invoice": {
+        "reference": "INV-4",
+        "po_reference": "PO-42",
+        "supplier": "Supply Co",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "A",
+            "quantity": 10,
+            "unit_price_minor": 100
+          },
+          {
+            "sku": "B",
+            "quantity": 10,
+            "unit_price_minor": 100
+          }
+        ],
+        "total_minor": 2000
+      },
+      "prior_invoiced": [],
+      "save": false
+    },
+    "result": {
+      "report": {
+        "schema_version": 1,
+        "status": "exceptions",
+        "scope": "Structured goods evidence only; no payment approval. Prior billing history is caller-supplied, not independently verified.",
+        "po_reference": "PO-42",
+        "invoice_reference": "INV-4",
+        "currency": "USD",
+        "totals": {
+          "po_total_minor": 2000,
+          "invoice_lines_total_minor": 2000,
+          "declared_invoice_total_minor": 2000
+        },
+        "issues": [
+          {
+            "code": "invoiced_above_accepted",
+            "severity": "error",
+            "source": "invoice.lines",
+            "sku": "A",
+            "message": "Prior 0 + current 10 exceeds accepted 5 by 5."
+          },
+          {
+            "code": "accepted_above_order",
+            "severity": "error",
+            "source": "receipts",
+            "sku": "B",
+            "message": "Accepted 15; ordered 10."
+          }
+        ],
+        "lines": [
+          {
+            "sku": "A",
+            "po_line": 1,
+            "invoice_line": 1,
+            "ordered_quantity": 10,
+            "po_unit_price_minor": 100,
+            "accepted_quantity": 5,
+            "rejected_quantity": 0,
+            "prior_invoiced_quantity": 0,
+            "invoice_quantity": 10,
+            "invoice_unit_price_minor": 100,
+            "cumulative_invoiced_quantity": 10,
+            "remaining_order_quantity": 5,
+            "available_to_invoice_quantity": 5,
+            "invoice_line_total_minor": 1000,
+            "receipts": [
+              {
+                "reference": "GR-1",
+                "line": 1,
+                "accepted_quantity": 5,
+                "rejected_quantity": 0,
+                "included": true
+              }
+            ],
+            "issue_codes": [
+              "invoiced_above_accepted"
+            ]
+          },
+          {
+            "sku": "B",
+            "po_line": 2,
+            "invoice_line": 2,
+            "ordered_quantity": 10,
+            "po_unit_price_minor": 100,
+            "accepted_quantity": 15,
+            "rejected_quantity": 0,
+            "prior_invoiced_quantity": 0,
+            "invoice_quantity": 10,
+            "invoice_unit_price_minor": 100,
+            "cumulative_invoiced_quantity": 10,
+            "remaining_order_quantity": 0,
+            "available_to_invoice_quantity": 10,
+            "invoice_line_total_minor": 1000,
+            "receipts": [
+              {
+                "reference": "GR-1",
+                "line": 2,
+                "accepted_quantity": 15,
+                "rejected_quantity": 0,
+                "included": true
+              }
+            ],
+            "issue_codes": [
+              "accepted_above_order"
+            ]
+          }
+        ],
+        "documents": {
+          "po": {
+            "reference": "PO-42",
+            "supplier": "Supply Co",
+            "currency": "USD",
+            "lines": [
+              {
+                "sku": "A",
+                "quantity": 10,
+                "unit_price_minor": 100
+              },
+              {
+                "sku": "B",
+                "quantity": 10,
+                "unit_price_minor": 100
+              }
+            ]
+          },
+          "receipts": [
+            {
+              "reference": "GR-1",
+              "po_reference": "PO-42",
+              "supplier": "Supply Co",
+              "date": "2026-10-15",
+              "lines": [
+                {
+                  "sku": "A",
+                  "accepted_quantity": 5,
+                  "rejected_quantity": 0
+                },
+                {
+                  "sku": "B",
+                  "accepted_quantity": 15,
+                  "rejected_quantity": 0
+                }
+              ]
+            }
+          ],
+          "invoice": {
+            "reference": "INV-4",
+            "po_reference": "PO-42",
+            "supplier": "Supply Co",
+            "currency": "USD",
+            "lines": [
+              {
+                "sku": "A",
+                "quantity": 10,
+                "unit_price_minor": 100
+              },
+              {
+                "sku": "B",
+                "quantity": 10,
+                "unit_price_minor": 100
+              }
+            ],
+            "total_minor": 2000
+          },
+          "prior_invoiced": [],
+          "save": false
+        }
+      },
+      "saved": false
+    }
+  },
+  {
+    "id": "twm2",
+    "args": {
+      "po": {
+        "reference": "PO-42",
+        "supplier": "Supply Co",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "A",
+            "quantity": 10,
+            "unit_price_minor": 100
+          }
+        ]
+      },
+      "receipts": [
+        {
+          "reference": "GR-1",
+          "po_reference": "PO-42",
+          "supplier": "Supply Co",
+          "date": "2026-10-15",
+          "lines": [
+            {
+              "sku": "A",
+              "accepted_quantity": 5,
+              "rejected_quantity": 0
+            }
+          ]
+        }
+      ],
+      "invoice": {
+        "reference": "INV-4",
+        "po_reference": "PO-42",
+        "supplier": "Supply Co",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "A",
+            "quantity": 5,
+            "unit_price_minor": 100
+          }
+        ],
+        "total_minor": 500
+      },
+      "prior_invoiced": [],
+      "save": false
+    },
+    "result": {
+      "report": {
+        "schema_version": 1,
+        "status": "matched",
+        "scope": "Structured goods evidence only; no payment approval. Prior billing history is caller-supplied, not independently verified.",
+        "po_reference": "PO-42",
+        "invoice_reference": "INV-4",
+        "currency": "USD",
+        "totals": {
+          "po_total_minor": 1000,
+          "invoice_lines_total_minor": 500,
+          "declared_invoice_total_minor": 500
+        },
+        "issues": [],
+        "lines": [
+          {
+            "sku": "A",
+            "po_line": 1,
+            "invoice_line": 1,
+            "ordered_quantity": 10,
+            "po_unit_price_minor": 100,
+            "accepted_quantity": 5,
+            "rejected_quantity": 0,
+            "prior_invoiced_quantity": 0,
+            "invoice_quantity": 5,
+            "invoice_unit_price_minor": 100,
+            "cumulative_invoiced_quantity": 5,
+            "remaining_order_quantity": 5,
+            "available_to_invoice_quantity": 5,
+            "invoice_line_total_minor": 500,
+            "receipts": [
+              {
+                "reference": "GR-1",
+                "line": 1,
+                "accepted_quantity": 5,
+                "rejected_quantity": 0,
+                "included": true
+              }
+            ],
+            "issue_codes": []
+          }
+        ],
+        "documents": {
+          "po": {
+            "reference": "PO-42",
+            "supplier": "Supply Co",
+            "currency": "USD",
+            "lines": [
+              {
+                "sku": "A",
+                "quantity": 10,
+                "unit_price_minor": 100
+              }
+            ]
+          },
+          "receipts": [
+            {
+              "reference": "GR-1",
+              "po_reference": "PO-42",
+              "supplier": "Supply Co",
+              "date": "2026-10-15",
+              "lines": [
+                {
+                  "sku": "A",
+                  "accepted_quantity": 5,
+                  "rejected_quantity": 0
+                }
+              ]
+            }
+          ],
+          "invoice": {
+            "reference": "INV-4",
+            "po_reference": "PO-42",
+            "supplier": "Supply Co",
+            "currency": "USD",
+            "lines": [
+              {
+                "sku": "A",
+                "quantity": 5,
+                "unit_price_minor": 100
+              }
+            ],
+            "total_minor": 500
+          },
+          "prior_invoiced": [],
+          "save": false
+        }
+      },
+      "saved": false
+    }
+  },
+  {
+    "id": "twm3",
+    "args": {
+      "po": {
+        "reference": "PO-42",
+        "supplier": "Supply Co",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "A",
+            "quantity": 10,
+            "unit_price_minor": 100
+          },
+          {
+            "sku": "B",
+            "quantity": 10,
+            "unit_price_minor": 100
+          }
+        ]
+      },
+      "receipts": [
+        {
+          "reference": "GR-1",
+          "po_reference": "PO-42",
+          "supplier": "Supply Co",
+          "date": "2026-10-15",
+          "lines": [
+            {
+              "sku": "A",
+              "accepted_quantity": 10,
+              "rejected_quantity": 0
+            },
+            {
+              "sku": "B",
+              "accepted_quantity": 10,
+              "rejected_quantity": 0
+            }
+          ]
+        }
+      ],
+      "invoice": {
+        "reference": "INV-4",
+        "po_reference": "PO-42",
+        "supplier": "Supply Co",
+        "currency": "USD",
+        "lines": [
+          {
+            "sku": "A",
+            "quantity": 10,
+            "unit_price_minor": 110
+          },
+          {
+            "sku": "B",
+            "quantity": 10,
+            "unit_price_minor": 90
+          }
+        ],
+        "total_minor": 2000
+      },
+      "prior_invoiced": [],
+      "save": true
+    },
+    "result": {
+      "report": {
+        "schema_version": 1,
+        "status": "exceptions",
+        "scope": "Structured goods evidence only; no payment approval. Prior billing history is caller-supplied, not independently verified.",
+        "po_reference": "PO-42",
+        "invoice_reference": "INV-4",
+        "currency": "USD",
+        "totals": {
+          "po_total_minor": 2000,
+          "invoice_lines_total_minor": 2000,
+          "declared_invoice_total_minor": 2000
+        },
+        "issues": [
+          {
+            "code": "unit_price_mismatch",
+            "severity": "error",
+            "source": "invoice.lines",
+            "sku": "A",
+            "message": "PO unit price 100; invoice unit price 110."
+          },
+          {
+            "code": "unit_price_mismatch",
+            "severity": "error",
+            "source": "invoice.lines",
+            "sku": "B",
+            "message": "PO unit price 100; invoice unit price 90."
+          }
+        ],
+        "lines": [
+          {
+            "sku": "A",
+            "po_line": 1,
+            "invoice_line": 1,
+            "ordered_quantity": 10,
+            "po_unit_price_minor": 100,
+            "accepted_quantity": 10,
+            "rejected_quantity": 0,
+            "prior_invoiced_quantity": 0,
+            "invoice_quantity": 10,
+            "invoice_unit_price_minor": 110,
+            "cumulative_invoiced_quantity": 10,
+            "remaining_order_quantity": 0,
+            "available_to_invoice_quantity": 10,
+            "invoice_line_total_minor": 1100,
+            "receipts": [
+              {
+                "reference": "GR-1",
+                "line": 1,
+                "accepted_quantity": 10,
+                "rejected_quantity": 0,
+                "included": true
+              }
+            ],
+            "issue_codes": [
+              "unit_price_mismatch"
+            ]
+          },
+          {
+            "sku": "B",
+            "po_line": 2,
+            "invoice_line": 2,
+            "ordered_quantity": 10,
+            "po_unit_price_minor": 100,
+            "accepted_quantity": 10,
+            "rejected_quantity": 0,
+            "prior_invoiced_quantity": 0,
+            "invoice_quantity": 10,
+            "invoice_unit_price_minor": 90,
+            "cumulative_invoiced_quantity": 10,
+            "remaining_order_quantity": 0,
+            "available_to_invoice_quantity": 10,
+            "invoice_line_total_minor": 900,
+            "receipts": [
+              {
+                "reference": "GR-1",
+                "line": 2,
+                "accepted_quantity": 10,
+                "rejected_quantity": 0,
+                "included": true
+              }
+            ],
+            "issue_codes": [
+              "unit_price_mismatch"
+            ]
+          }
+        ],
+        "documents": {
+          "po": {
+            "reference": "PO-42",
+            "supplier": "Supply Co",
+            "currency": "USD",
+            "lines": [
+              {
+                "sku": "A",
+                "quantity": 10,
+                "unit_price_minor": 100
+              },
+              {
+                "sku": "B",
+                "quantity": 10,
+                "unit_price_minor": 100
+              }
+            ]
+          },
+          "receipts": [
+            {
+              "reference": "GR-1",
+              "po_reference": "PO-42",
+              "supplier": "Supply Co",
+              "date": "2026-10-15",
+              "lines": [
+                {
+                  "sku": "A",
+                  "accepted_quantity": 10,
+                  "rejected_quantity": 0
+                },
+                {
+                  "sku": "B",
+                  "accepted_quantity": 10,
+                  "rejected_quantity": 0
+                }
+              ]
+            }
+          ],
+          "invoice": {
+            "reference": "INV-4",
+            "po_reference": "PO-42",
+            "supplier": "Supply Co",
+            "currency": "USD",
+            "lines": [
+              {
+                "sku": "A",
+                "quantity": 10,
+                "unit_price_minor": 110
+              },
+              {
+                "sku": "B",
+                "quantity": 10,
+                "unit_price_minor": 90
+              }
+            ],
+            "total_minor": 2000
+          },
+          "prior_invoiced": [],
+          "save": true
+        }
+      },
+      "saved": true,
+      "id": "ffbe6bee-b740-4eb1-9c69-71eff7ad0fc0",
+      "created_at": "2026-10-16T00:42:58.619Z"
+    }
+  },
+  {
+    "id": "page",
+    "result": {
+      "id": "ffbe6bee-b740-4eb1-9c69-71eff7ad0fc0",
+      "section": "lines",
+      "offset": 0,
+      "limit": 1,
+      "total": 2,
+      "next_offset": 1,
+      "rows": [
+        {
+          "sku": "A",
+          "po_line": 1,
+          "invoice_line": 1,
+          "ordered_quantity": 10,
+          "po_unit_price_minor": 100,
+          "accepted_quantity": 10,
+          "rejected_quantity": 0,
+          "prior_invoiced_quantity": 0,
+          "invoice_quantity": 10,
+          "invoice_unit_price_minor": 110,
+          "cumulative_invoiced_quantity": 10,
+          "remaining_order_quantity": 0,
+          "available_to_invoice_quantity": 10,
+          "invoice_line_total_minor": 1100,
+          "issue_codes": [
+            "unit_price_mismatch"
+          ],
+          "receipt_count": 1
+        }
+      ]
+    }
+  },
+  {
+    "id": "csv",
+    "result": {
+      "id": "ffbe6bee-b740-4eb1-9c69-71eff7ad0fc0",
+      "currency": "USD",
+      "status": "exceptions",
+      "document_issue_codes": [],
+      "csv": "\"sku\",\"ordered_quantity\",\"po_unit_price_minor\",\"accepted_quantity\",\"rejected_quantity\",\"prior_invoiced_quantity\",\"invoice_quantity\",\"invoice_unit_price_minor\",\"cumulative_invoiced_quantity\",\"available_to_invoice_quantity\",\"invoice_line_total_minor\",\"issue_codes\"\r\n\"A\",\"10\",\"100\",\"10\",\"0\",\"0\",\"10\",\"110\",\"10\",\"10\",\"1100\",\"unit_price_mismatch\"\r\n\"B\",\"10\",\"100\",\"10\",\"0\",\"0\",\"10\",\"90\",\"10\",\"10\",\"900\",\"unit_price_mismatch\"\r\n"
+    }
+  }
+]

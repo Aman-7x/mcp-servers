@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import worker from "../src/index.js";
+import worker, { PRODUCTS, SERVER_COUNT } from "../src/index.js";
+import { LISTED_COUNT, RATE_LIMIT_FREE } from "../src/figures.js";
 import { runDripSweep } from "../src/scheduled-monitor.js";
 
 /** KV stub with list() + per-key get/put so both the route and the drip sweep are testable. */
@@ -46,6 +47,12 @@ test("POST /api/subscribe stores the sub record and sends the welcome email", as
     assert.equal(f.sent.length, 1);
     assert.match(f.sent[0].init.body, /buyer@example\.com/);
     assert.match(f.sent[0].init.headers.authorization, /^Bearer re_test$/);
+    const welcome = JSON.parse(f.sent[0].init.body);
+    assert.equal(welcome.subject, `${LISTED_COUNT} MCP servers with free tiers — start here`);
+    assert.ok(welcome.text.includes(`${RATE_LIMIT_FREE} calls/hour`));
+    assert.ok(welcome.text.includes(`$${PRODUCTS.bundle.usd} for all ${SERVER_COUNT} Pro servers`));
+    assert.match(welcome.text, /https:\/\/mcp\.zovo\.one\/mcp\/connect/);
+    assert.doesNotMatch(welcome.text, /unlimited in daily use|most people|\/servers/);
   } finally { f.restore(); }
 });
 
@@ -99,6 +106,11 @@ test("the shared page footer carries the subscribe form pointing at /api/subscri
   assert.match(html, /id="subform"/);
   assert.match(html, /action="\/api\/subscribe"/);
   assert.match(html, /type="email"/);
+  assert.match(html, /bundle offer after about a week/);
+  const privacy = await (await worker.fetch(new Request("https://mcp.zovo.one/privacy"), {}, { waitUntil() {} })).text();
+  assert.match(privacy, /Resend/);
+  assert.match(privacy, /suppression record for five years/);
+  assert.doesNotMatch(privacy, /Nothing is emailed from here|There is no support mailbox/);
 });
 
 test("runDripSweep sends E2 once past 48h and E3 once past 168h, stamping each step", async () => {
@@ -119,6 +131,11 @@ test("runDripSweep sends E2 once past 48h and E3 once past 168h, stamping each s
     const bodies = f.sent.map((s) => s.init.body);
     assert.match(bodies[0], /mid@example\.com/);
     assert.match(bodies[1], /old@example\.com/);
+    const messages = bodies.map((body) => JSON.parse(body));
+    assert.match(messages[0].text, /\/mcp\/connect/);
+    assert.equal(messages[1].subject, `One lifetime key for ${SERVER_COUNT} Pro servers`);
+    assert.ok(messages[1].text.includes(`$${PRODUCTS.bundle.usd}`));
+    for (const mail of messages) assert.doesNotMatch(mail.subject + mail.text, /most people|installed longest|founding|2026-11-08|\$59|all 47 servers/i);
     assert.ok(kv._map.has("sub:mid@example.com:e2"));
     assert.ok(!kv._map.has("sub:mid@example.com:e3"));
     assert.ok(!kv._map.has("sub:fresh@example.com:e2"));

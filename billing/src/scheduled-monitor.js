@@ -1,6 +1,6 @@
 // Scheduled, read-only checkout reconciliation. Only aggregate counts and hashed
 // Session references are logged; customer data and license values stay in memory.
-import app, { PRODUCTS, PRODUCT_ALIASES } from "./index.js";
+import app, { PRODUCTS, PRODUCT_ALIASES, SERVER_COUNT } from "./index.js";
 import { FREE_IDS } from "./figures.js";
 
 const ORIGIN = "https://mcp.zovo.one";
@@ -257,25 +257,25 @@ export async function runScheduledMonitor(env, scheduledTime, ctx, route = app.f
 }
 
 const DRIP_STEPS = [
-  { key: "e2", ageHours: 48, subject: "The one server most people keep installed",
+  { key: "e2", ageHours: 48, subject: "Create your first invoice from chat",
     text: [
-      "Two days ago you signed up for the MCP server fleet.",
+      "Here is the invoice setup tip you signed up for.",
       "",
-      "The server people keep installed longest is MCP Invoice Pro: it turns a job card into a real invoice — client, line items, totals, currency — and prints a PDF with a signature line.",
+      "MCP Invoice creates invoices from chat with client details, line items, totals, currency and PDF export.",
       "",
-      "Free tier, no key needed: run it locally with npx, or paste the hosted URL:",
+      "Start with the free tier. The product page lists its limits and the install options:",
       "  https://mcp.zovo.one/s/invoice",
       "",
-      "Setup in Claude Desktop takes 30 seconds (copy-paste JSON is on that page).",
+      "For a hosted connection, create a token and copy the invoice URL from https://mcp.zovo.one/mcp/connect. No install is needed.",
       "",
       "If invoices are not your bottleneck, reply with the paperwork you hate most and I'll point you at the right server.",
     ].join("\n") },
-  { key: "e3", ageHours: 168, subject: "One key, all 47 servers — founding tier ends soon",
+  { key: "e3", ageHours: 168, subject: `One lifetime key for ${SERVER_COUNT} Pro servers`,
     text: [
-      "A week ago you signed up for the MCP server fleet.",
+      "Here is the bundle offer you signed up for.",
       "",
-      "If you have been using the free tiers, the bundle is the step up: one license key, every Pro tier unlocked, 47 servers, one-time $39 — no subscription.",
-      "Founding pricing ends 2026-11-08; after that the bundle goes to $59.",
+      `If the free-tier limits are getting in the way, the bundle unlocks all ${SERVER_COUNT} Pro servers with one lifetime key for $${PRODUCTS.bundle.usd}, paid once. No subscription.`,
+      "You can keep using the free tiers for light use; they do not expire.",
       "",
       "  https://mcp.zovo.one/pricing",
       "",

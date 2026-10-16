@@ -2,9 +2,12 @@
 // MCP product KPIs, collected from live and local sources into data/kpi.json. Free endpoints only.
 // Categories follow the funnel a server lives in: discovered -> installed -> first call -> repeat use -> paid.
 import { execFileSync } from "node:child_process";
+import { kvPopulation, stripePopulation, paidProTenants, latestBlindInstrument, blindKpiRows } from "./kpi-populations.mjs";
 import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 const ROOT = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const js = (p, d) => { try { return JSON.parse(readFileSync(`${ROOT}/${p}`, "utf8")); } catch { return d; } };
+const blind = latestBlindInstrument(readdirSync(`${ROOT}/data`).filter(n => /^blind_recommendation_r\d+\.json$/.test(n)).map(n => ({ source: `data/${n}`, record: js(`data/${n}`, null) })), js("data/blind_questions.json", null));
+const currentBlindRows = blindKpiRows(blind);
 const sh = (cmd, args, opts = {}) => { try { return execFileSync(cmd, args, { encoding: "utf8", timeout: 180000, maxBuffer: 64 * 1024 * 1024, stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, PATH: `/opt/homebrew/bin:${process.env.HOME}/.npm-global/bin:${process.env.HOME}/.local/bin:${process.env.PATH}` }, ...opts }); } catch (e) { if (process.env.KPI_DEBUG) console.error("sh fail", cmd, args.slice(0, 3).join(" "), String(e.stderr || e.message).slice(0, 200)); return ""; } };
 
 // wrangler is the only subprocess that talks to a remote KV store over the network, and it
@@ -31,6 +34,46 @@ const shWrangler = (args) => {
 
 // Previous run's rows, keyed by name: the fallback source when a wrangler-backed row fails.
 const prevKpi = js("data/kpi.json", { kpis: [] });
+// Refresh only measured commercial/traffic rows from the bounded, reviewed audit.
+// This mode performs no network calls or signed-key probes and preserves other rows as stale.
+if (process.argv.includes("--from-audit")) {
+  const a = js("data/r36_kpi_audit.json", null);
+  if (!a?.audit || Date.now() - Date.parse(a.audit.generated_at) > 24 * 3600e3) throw new Error("missing/stale R36 audit");
+  if (!a.stripe?.seven_day_coverage_proven || a.search_console?.status !== "OK" || a.activation?.status !== "OK") throw new Error("audit channel not verified");
+  const now = new Date().toISOString();
+  const out = { ...prevKpi, generated_at: now, audit_source: "data/r36_kpi_audit.json", windows: { traffic: a.cloudflare.window, stripe: a.stripe.window_7d, search: { start: a.search_console.startDate, end: a.search_console.endDate } }, kpis: prevKpi.kpis.map(k => ({ ...k, stale: true, stale_reason: "not refreshed by R36 audit" })) };
+  function set(old, name, value, unit, how, measured_at, window) {
+    const prior = out.kpis.find(k => k.name === old || k.name === name) || {};
+    const row = { ...prior, name, value, unit, how, measured_at, window, stale: false, status: value === null ? "unmeasured" : value === 0 ? "zero" : "measured" };
+    delete row.stale_reason;
+    if (old !== name) delete row.why;
+    if (name === "Ephemeral hosted download records" || name === "Live anonymous hosted token records") row.target = null;
+    const idx = out.kpis.indexOf(prior);
+    if (idx < 0) out.kpis.push(row); else out.kpis[idx] = row;
+  }
+  const trafficWindow = a.cloudflare.window, stripeWindow = a.stripe.window_7d, searchWindow = out.windows.search;
+  set("Google impressions, storefront", "Google impressions, storefront", a.search_console.mcp.impressions, "impressions, 29 dates", "GSC host-filtered date query, HTTP/API errors checked; control zovo.one: 5486 impressions/49 clicks", a.search_console.fetched_at, searchWindow);
+  set("Human requests, storefront (assets included)", "Render-qualified browser requests (assets included)", a.human_evidence.requests_render_proven, "requests, 7d", "Cloudflare UA + rendering-resource heuristic; includes automation/operator; not people or page views", a.generated_at, trafficWindow);
+  set("GitHub unique visitors", "GitHub unique visitors", a.github_traffic.unique_visitors_14d, "GitHub uniques, 14d", a.github_traffic.api + "; not independently verified humans", a.generated_at, { start: a.github_traffic.views_daily[0].date, end: a.github_traffic.views_daily.at(-1).date });
+  set("Anonymous hosted tokens minted", "Live anonymous hosted token records", a.activation.remote.live_token_records, "records now", "KV tok:anon_*; 30-day refreshed TTL; includes probes; not lifetime mints", a.activation.fetched_at, null);
+  set("Hosted tenants with stored data", "Anonymous tenants with stored data (includes probes)", a.activation.remote.distinct_anonymous_tenants_with_stored_data, "tenant IDs now", "Distinct IDs in anon:<id>:<server>, deduplicated across servers/profile; no human claim", a.activation.fetched_at, null);
+  set("Hosted downloads served", "Ephemeral hosted download records", a.activation.remote.ephemeral_download_records, "records now, 1h TTL", "KV dl: rows; not cumulative downloads served", a.activation.fetched_at, null);
+  set("Checkout sessions from humans (last 100)", "Untagged MCP checkout sessions (7d)", a.stripe.mcp_7d.untagged_sessions, "sessions, 7d", "Stripe latest 100 cover entire seven-day period; MCP success_url filter; untagged != verified human", a.stripe.fetched_at, stripeWindow);
+  set("Paid sessions", "Paid MCP checkout sessions (7d)", a.stripe.mcp_7d.paid, "paid sessions, 7d", "MCP storefront scope, tagged probes excluded; historical lifetime remains unmeasured", a.stripe.fetched_at, stripeWindow);
+  set("License keys minted", "Paid checkout license records", a.activation.licenses.minted_session_records === 0 ? 0 : null, "records now", "LICENSES session: keys only; sub:/unsub: email rows excluded", a.activation.fetched_at, null);
+  set("Upgrade link clicks (humans, 7d)", "Guard-passing upgrade clicks (7d)", a.upgrade_clicks.clicks_7d, "clicks, 7d", "stats/clicks instrument 3; legacy excluded; headers do not prove human identity", a.upgrade_clicks.fetched_at, { start: new Date(Date.parse(a.upgrade_clicks.fetched_at)-7*86400e3).toISOString(), end: a.upgrade_clicks.fetched_at });
+  set("Click to checkout-session ratio", "Click to checkout-session ratio", null, "%", "Undefined: zero seven-day guard-passing clicks. No cross-window or person-level conversion claim.", now, stripeWindow);
+  set("Pro tenants on hosted endpoints", "Paid Pro tenants verified by minted checkout key", a.activation.licenses.minted_session_records === 0 ? 0 : null, "paid-linked tenant IDs", "Zero minted checkout license records; all raw lic: IDs remain excluded as unproven probes", a.activation.fetched_at, null);
+  // Use the same validated selector as the full collector; never preserve a stale R1 zero.
+  out.kpis = out.kpis.filter(k => !["Named by a blind assistant", "Our share of recommendation citations", "Storefront host surfaced in raw search results"].includes(k.name));
+  out.kpis.push(...currentBlindRows);
+  out.raw = { ...out.raw, blind_instrument: blind, stripe: a.stripe, pro_tenants: { source: "R36 audit", probe_ids_excluded: a.activation.remote.distinct_license_ids } };
+  // Old raw KV names can contain token/session identifiers; the audit uses aggregates.
+  delete out.raw.remote_kv; delete out.raw.license_kv;
+  writeFileSync(`${ROOT}/data/kpi.json`, JSON.stringify(out, null, 2) + "\n");
+  console.log(`kpi: refreshed from audit; ${out.kpis.filter(k => !k.stale).length} measured rows; other rows explicitly stale`);
+  process.exit(0);
+}
 const prevByName = new Map((prevKpi.kpis || []).map((k) => [k.name, k]));
 const staleAt = new Date().toISOString();
 /** Replace a KPI row's value with its previous value, stale and noted, when a wrangler call failed. */
@@ -46,32 +89,46 @@ const uvi = js("data/user_value_index.json", { rounds: [], counts: {} });
 const org = js("data/organic.json", { surfaces: [], fleet: {} });
 const ledger = js("data/ledger.json", { servers: [] });
 const dist = js("data/distribution.json", { surfaces: {}, per_server: {} });
-const blind = js("data/blind_recommendation_r1.json", null);
 const baseline33 = js("data/baselines/loop33_baseline.json", null);
-// Named-in-answer count out of 18 for the blind recommendation KPI. The instrument records
-// per-question results; count a question as won only when one of OUR servers is named in the
-// assistant's answer, not merely present in the raw result list. Absent file => null, not 0.
-const blindNamed = blind ? (blind.summary?.named_ours_in_answer ?? 0) : null;
-const blindHostSeen = blind ? (blind.summary?.host_appeared_count ?? null) : null;
-const blindQ = blind ? (blind.questions?.length ?? 18) : 18;
 const remoteToml = existsSync(`${ROOT}/remote/wrangler.toml`) ? readFileSync(`${ROOT}/remote/wrangler.toml`, "utf8") : "";
 const licToml = existsSync(`${ROOT}/billing/wrangler.toml`) ? readFileSync(`${ROOT}/billing/wrangler.toml`, "utf8") : "";
 const nsOf = (t) => (t.match(/kv_namespaces[\s\S]*?\bid\s*=\s*"([0-9a-f]{32})"/) || [])[1];
 
-// Stripe: checkout sessions created (last 100), split by probe tag
-let stripe = { sessions_last100: null, probe_sessions: null, human_sessions: null, paid: null, note: "" };
-const sess = sh("stripe", ["checkout", "sessions", "list", "--live", "--limit", "100"]);
-if (sess) { try { const d = JSON.parse(sess).data; stripe.sessions_last100 = d.length; stripe.probe_sessions = d.filter((s) => (s.metadata || {}).probe === "1").length; const TAG_SINCE = Date.UTC(2026, 8, 3, 8, 55) / 1000; // R-FUNNELFIX 2026-10-12: human_sessions previously counted every untagged session on the
-// account. The account also serves other storefronts (zovo.one/extension-engine,
-// backend.belikenative.com), so 77 of the "97 human checkout sessions" were other sites'
-// checkouts and the 13 paid sessions on the account were theirs too. Scope every human/paid
-// count to the mcp.zovo.one storefront the same way `paid` already is, via success_url.
-const MCP_STOREFRONT = "https://mcp.zovo.one/";
-const onMcpStorefront = (s) => String(s.success_url || "").startsWith(MCP_STOREFRONT);
-stripe.human_sessions = d.filter((s) => (s.metadata || {}).probe !== "1" && onMcpStorefront(s) && s.created >= TAG_SINCE).length;
-stripe.human_sessions_account_wide = d.filter((s) => (s.metadata || {}).probe !== "1").length; stripe.untagged_before_tagging = d.filter((s) => s.created < TAG_SINCE).length; stripe.paid = d.filter((s) => s.payment_status === "paid" && String(s.success_url || "").startsWith("https://mcp.zovo.one/")).length; stripe.paid_scope = "mcp.zovo.one storefront only (success_url filter) — account-wide paid sessions include other storefronts"; stripe.note = "sessions created before 2026-09-03 08:55 UTC predate probe tagging and are excluded"; } catch {} }
-const bal = sh("stripe", ["balance_transactions", "list", "--live", "--limit", "100"]);
-let sales = null; if (bal) { try { const d = JSON.parse(bal).data; sales = d.filter((t) => t.type === "charge" && /MCP/i.test(t.description || "")).length; } catch {} }
+// Stripe: fully paginate the read-only checkout list. Never interpret an API failure as zero.
+const stripeRows = [];
+let stripeComplete = false;
+let stripeHistoryComplete = false;
+const stripeSince = Date.now() / 1000 - 7 * 86400;
+const seenStripeCursors = new Set();
+for (let page = 0, cursor = ""; page < 50; page++) {
+  const raw = sh("stripe", ["checkout", "sessions", "list", "--live", "--limit", "100", ...(cursor ? ["--starting-after", cursor] : [])]);
+  try {
+    const j = JSON.parse(raw);
+    if (!Array.isArray(j.data)) break;
+    stripeRows.push(...j.data);
+    if (!j.has_more) { stripeComplete = true; stripeHistoryComplete = true; break; }
+    if (j.data.length && j.data.at(-1).created <= stripeSince) { stripeComplete = true; break; }
+    if (!j.data.length) break;
+    cursor = j.data.at(-1).id;
+    if (seenStripeCursors.has(cursor)) break;
+    seenStripeCursors.add(cursor);
+  } catch { break; }
+}
+const population = stripeComplete ? stripePopulation(stripeRows) : null;
+const stripe = {
+  fetched_at: new Date().toISOString(), seven_day_coverage_complete: stripeComplete, history_pagination_complete: stripeHistoryComplete,
+  sessions_fetched: stripeRows.length,
+  sessions_last100: Math.min(100, stripeRows.length),
+  probe_sessions: stripeComplete ? stripeRows.filter(s => s.metadata?.probe === "1").length : null,
+  human_sessions: population?.untaggedSessions7d ?? null,
+  untagged_mcp_sessions_7d: population?.untaggedSessions7d ?? null,
+  paid: population?.paid7d ?? null, paid_7d: population?.paid7d ?? null,
+  window_7d: { start: new Date(Date.now() - 7 * 86400e3).toISOString(), end: new Date().toISOString() },
+  paid_scope: "non-probe MCP storefront only; last seven days; lifetime unmeasured unless history_pagination_complete",
+  note: "untagged sessions are not verified humans; complete pagination required for values",
+};
+const paidSessionIds = new Set(population?.paidSessionIds || []);
+const sales = null; // Account-wide balance transactions mix unrelated storefronts.
 
 // KV populations (hosted usage): wrangler needs --remote
 const kvCount = (ns) => {
@@ -103,17 +160,39 @@ const mintedIds = new Set();
 let mintLookupFailed = false;
 if (licKv.names && nsOf(licToml)) {
   for (const name of licKv.names.filter((n) => n.startsWith("session:"))) {
+    const sessionId = name.slice(8);
+    let session = stripeRows.find(s => s.id === sessionId);
+    if (!session) {
+      try { session = JSON.parse(sh("stripe", ["checkout", "sessions", "retrieve", sessionId, "--live"])); }
+      catch { mintLookupFailed = true; continue; }
+      if (!session?.id) { mintLookupFailed = true; continue; }
+    }
+    if (session.payment_status !== "paid" || session.metadata?.probe === "1" || !String(session.success_url || "").startsWith("https://mcp.zovo.one/")) continue;
+    paidSessionIds.add(sessionId);
     const { out, failed } = shWrangler(["kv", "key", "get", name, "--namespace-id", nsOf(licToml), "--remote"]);
     if (failed) mintLookupFailed = true;
     const id = licenseKeyId(out.trim());
     if (id) mintedIds.add(id);
   }
 }
+const boundIds = [];
+if (remoteKv.names && nsOf(remoteToml)) {
+  for (const name of remoteKv.names.filter(n => n.startsWith("bind:"))) {
+    const { out, failed } = shWrangler(["kv", "key", "get", name, "--namespace-id", nsOf(remoteToml), "--remote"]);
+    if (failed) mintLookupFailed = true;
+    const id = licenseKeyId(out.trim());
+    if (id) boundIds.push(id);
+  }
+}
 const proTenantsFailed = remoteKv.failed || licKv.failed || mintLookupFailed;
-const licTenants = remoteKv.names ? [...new Set(remoteKv.names.filter((n) => n.startsWith("lic:")).map((n) => n.split(":")[1]))] : null;
-const boundTenants = remoteKv.names ? [...new Set(remoteKv.names.filter((n) => n.startsWith("bind:")).map((n) => n.slice(5)))] : null;
-const proTenants = licTenants === null ? null : new Set([...boundTenants, ...licTenants.filter((id) => mintedIds.has(id))]).size;
-const proTenantDetail = { lic_keys: remoteKv.by.lic ?? null, lic_distinct_ids: licTenants ? licTenants.length : null, minted_key_ids: mintedIds.size, stripe_bound_tenants: boundTenants ? boundTenants.length : null, probe_ids_excluded: licTenants ? licTenants.filter((id) => !mintedIds.has(id)).length : null };
+const remotePopulation = kvPopulation(remoteKv.names);
+const licTenants = remotePopulation?.licenseIds ?? null;
+const proTenants = proTenantsFailed ? null : paidProTenants(remoteKv.names, mintedIds, boundIds);
+const proTenantDetail = {
+  lic_keys: remoteKv.by.lic ?? null, lic_distinct_ids: licTenants?.length ?? null,
+  minted_key_ids: mintedIds.size, stripe_bound_tenants: boundIds.filter(id => mintedIds.has(id)).length,
+  probe_ids_excluded: licTenants?.filter(id => !mintedIds.has(id)).length ?? null,
+};
 
 // Hosted latency: three tools/list calls with a signed Pro key
 let latency = { p50_ms: null, samples: [] };
@@ -128,8 +207,8 @@ try {
 let clickStats = null;
 try { clickStats = await (await fetch("https://mcp.zovo.one/stats/clicks")).json(); } catch {}
 const clicks7d = clickStats?.clicks_7d ?? null;
-const clickToSession = clicks7d && stripe.human_sessions !== null && clicks7d > 0
-  ? Math.round((1000 * stripe.human_sessions) / clicks7d) / 10
+const clickToSession = clicks7d && stripe.untagged_mcp_sessions_7d !== null && clicks7d > 0
+  ? Math.round((1000 * stripe.untagged_mcp_sessions_7d) / clicks7d) / 10
   : null;
 
 // Sitemap size and registry entries
@@ -168,7 +247,8 @@ const regFind = (org.surfaces || []).find((s) => /Official MCP registry/i.test(s
 // (Cloudflare GraphQL, 7-day cap on this Pro zone); data/gsc.json by the same script from
 // Search Console. Both fail loudly rather than writing zeros, so a null here means the
 // pull did not run, not that the number is zero.
-const traffic = js("data/traffic.json", null);
+const auditTraffic = js("data/r36_kpi_audit.json", null);
+const traffic = auditTraffic?.audit && Date.now() - Date.parse(auditTraffic.audit.generated_at) < 24 * 3600e3 ? auditTraffic : js("data/traffic.json", null);
 const gsc = js("data/gsc.json", null);
 const cov = traffic?.crawler_url_coverage || {};
 const covOf = (n) => { const v = cov[n]; if (typeof v === "number") return v; return v && typeof v.urls_fetched === "number" ? v.urls_fetched : null; };
@@ -176,19 +256,20 @@ const covOf = (n) => { const v = cov[n]; if (typeof v === "number") return v; re
 // be real render engines (that exact UA also fetched favicon, cdn-cgi or assets). A
 // spoofed UA that never loads an asset is excluded.
 const humanViews7d = traffic?.human_evidence?.requests_render_proven ?? null;
-const gscImpr = gsc?.mcp_pages?.impressions ?? gsc?.totals?.mcp_impressions ?? (gsc?.status === "OK" ? 0 : null);
+const audit = js("data/r36_kpi_audit.json", null);
+const freshAuditSearch = audit?.search_console?.status === "OK" && Date.now() - Date.parse(audit.search_console.fetched_at) < 24 * 3600e3 ? audit.search_console : null;
+const gscImpr = freshAuditSearch?.mcp?.impressions ?? gsc?.mcp_pages?.impressions ?? gsc?.totals?.mcp_impressions ?? null;
 let ghUniques = null;
 try { ghUniques = JSON.parse(sh("gh", ["api", "repos/theluckystrike/mcp-servers/traffic/views"])).uniques; } catch {}
 
 const kpis = [
   // Discovery
-  { cat: "Discovery", name: "Registry entries at latest version", value: registryLatest?.entries ?? null, target: registryLatest?.names ?? servers + 1, unit: "of all published names", how: "one exact GET /v0.1/servers/<name>/versions/latest per manifest name, compared with the release version. NOT a substring search: with 30,395 servers in the registry a search can push the exact match off page one, which is how this read 41 of 91 while a direct sample of 12 returned 12 of 12 present", why: "The official registry is the index Claude, Cursor and VS Code pickers read." },
+  { cat: "Discovery", name: "Registry entries at latest version", value: registryLatest?.entries ?? null, target: registryLatest?.names ?? servers + 1, unit: "of all published names", how: "one exact GET /v0.1/servers/<name>/versions per manifest name, compared with the release version. NOT a substring search: with 30,395 servers in the registry a search can push the exact match off page one, which is how this read 41 of 91 while a direct sample of 12 returned 12 of 12 present", why: "The official registry is the index Claude, Cursor and VS Code pickers read." },
   { cat: "Discovery", name: "Registry findable share", value: regFind ? Math.round(regFind.findable * 100) : null, target: 60, unit: "% of tracked tokens", how: "data/organic.json (name-substring search probes)", why: "Search is name-only; a server nobody can find by the words they type does not exist." },
   { cat: "Discovery", name: "Distribution surfaces live", value: surfacesLive, target: surfacesTotal, unit: `of ${surfacesTotal}`, how: "data/distribution.json", why: "Each free registry or catalog is a compounding source of installs." },
   { cat: "Discovery", name: "URLs offered in the sitemap", value: sitemapUrls, target: null, unit: "URLs", how: "curl mcp.zovo.one/sitemap.xml", why: "Not a score to maximise. It was 312, of which 216 were client-by-product setup permutations measuring 73.6-77.5% similar to each other; Googlebot read the sitemap 7 times and then crawled 2 pages. Cut to 96 on 2026-09-07 and the permutations marked noindex,follow. See docs/SEO_INDEXATION_R1.md." },
-  { cat: "Discovery", name: "Google impressions, storefront", value: gscImpr, target: 1, unit: "impressions, 28d", how: "data/gsc.json, Search Console sc-domain:zovo.one filtered to //mcp.zovo.one/ pages, with a positive control on //zovo.one/ returning 63 clicks and 4,392 impressions to prove the filter works", why: "Zero here across 99+ days means Google has never shown this site to anyone. It is the single most important organic number." },
-  { cat: "Discovery", name: "Named by a blind assistant", value: blindNamed, target: blindQ, unit: `of ${blindQ} buyer questions`, how: "docs/BLIND_RECOMMENDATION_PROCEDURE.md: a subagent with no knowledge of this estate researches 18 frozen buyer-intent questions from data/blind_questions.json with web search and names the server it would recommend. Baseline run 2026-09-10 named 47 distinct MCP servers and none were ours.", why: "The buyer does not browse a registry, they ask an assistant and install what it names. This is the only discovery number that maps to revenue." },
-  { cat: "Discovery", name: "Our share of recommendation citations", value: blindHostSeen, target: blindQ, unit: `of ${blindQ} questions where our host was cited at all`, how: "data/blind_recommendation_r1.json, host extracted from every URL the instrument cited. Baseline: github.com 21, glama.ai 7, ours 4, apify.com 4, mcpservers.org 3, registry.modelcontextprotocol.io 0. See docs/RECOMMENDATION_SOURCES_R1.md.", why: "Separates a retrieval failure from a citation failure. Retrieved-but-not-cited is a content defect; never retrieved is an indexation defect. They have different fixes." },
+  { cat: "Discovery", name: "Google impressions, storefront", value: gscImpr, target: 1, unit: "impressions, 28d", how: "Search Console sc-domain:zovo.one filtered to //mcp.zovo.one/, paired with the same query for //zovo.one/ as a positive control; source date/window retained separately", why: "Search exposure; impressions do not prove indexed-page counts or buyer intent." },
+  ...currentBlindRows,
   { cat: "Discovery", name: "Repo clone-to-view ratio", value: baseline33?.github?.clone_to_view_ratio ?? null, target: null, unit: "machine reads per human view", how: "data/baselines/loop33_baseline.json, gh api traffic/clones vs traffic/views. Baseline 2026-09-10: 3,410 clones from 502 unique clients against 54 views from 31 humans.", why: "Not a score to maximise. It states who the repo front door is actually serving, which is machines by about 63 to 1, and it is why the repo is written for a reader that is mostly not a person." },
   { cat: "Discovery", name: "Googlebot URL coverage", value: covOf("Googlebot"), target: sitemapUrls, unit: "of the sitemap, 7d", how: "data/traffic.json crawler_url_coverage, Cloudflare GraphQL by user agent", why: "Googlebot fetched robots.txt 4x and sitemap.xml 7x in the same window and then crawled 2 pages. It is declining, not blocked." },
   { cat: "Discovery", name: "ClaudeBot URL coverage", value: covOf("ClaudeBot"), target: sitemapUrls, unit: "of the sitemap, 7d", how: "data/traffic.json crawler_url_coverage", why: "Assistant crawlers have this catalogue even though Google does not. This is the discovery channel that is actually working." },
@@ -199,9 +280,9 @@ const kpis = [
   { cat: "Install", name: "npm weekly downloads", value: metrics.npm_weekly_downloads?.invoice === "not published" ? 0 : (metrics.npm_weekly_downloads?.invoice ?? null), target: 100, unit: "per package per week", how: "api.npmjs.org", why: "npx is the default install path in every client guide; blocked on npm login." },
   { cat: "Install", name: "Hosted endpoints coverage", value: hostedServers, target: servers, unit: `of ${servers} servers`, how: "data/distribution.json per_server.hosted", why: "Hosted use is the only kind directories and registries count." },
   // Activation
-  { cat: "Activation", name: "Anonymous hosted tokens minted", value: remoteKv.by.anon ?? null, target: 100, unit: "tokens", how: "wrangler kv key list --remote (prefix anon)", why: "Someone reached a hosted endpoint without a key: a zero-friction first call." },
-  { cat: "Activation", name: "Hosted tenants with stored data", value: remoteKv.by.tok ?? null, target: 100, unit: "tenants", how: "wrangler kv key list --remote (prefix tok)", why: "A tenant document exists only after a mutating call succeeded." },
-  { cat: "Activation", name: "Hosted downloads served", value: remoteKv.by.dl ?? null, target: 200, unit: "files (1h TTL)", how: "wrangler kv key list --remote (prefix dl)", why: "A produced document is a completed job, not just a call." },
+  { cat: "Activation", name: "Live anonymous hosted token records", value: remotePopulation?.liveTokens ?? null, target: 100, unit: "records now", how: "remote KV tok:anon_* records; 30-day TTL refreshed by calls; includes probes", why: "Token population only; not lifetime mints or verified people." },
+  { cat: "Activation", name: "Anonymous tenants with stored data (includes probes)", value: remotePopulation?.anonymousTenants ?? null, target: 100, unit: "tenants", how: "distinct tenant IDs in anon:<id>:<server> KV keys, deduplicated across servers and profile", why: "Stored-data population includes operator and test tenants; not human activation." },
+  { cat: "Activation", name: "Ephemeral hosted download records", value: remotePopulation?.downloads ?? null, target: 200, unit: "records now (1h TTL)", how: "remote KV dl: key population", why: "Current download artifacts; not downloads served or cumulative completed jobs." },
   { cat: "Activation", name: "First-prompt tool reach (latest round)", value: (() => { const r = js(`data/user_value_r${latestRound.round}.json`, {}); const ts = r.totals?.tool_selection; if (ts && typeof ts.right === "number" && typeof ts.total === "number") return Math.round((100 * ts.right) / ts.total); if (typeof ts === "string") { const m = ts.match(/(\d+)\s*(?:of|\/)\s*(\d+)/); if (m) return Math.round((100 * Number(m[1])) / Number(m[2])); } return latestRound.round >= 8 ? 98 : null; })(), target: 95, unit: "% of calls on the right tool", how: `data/user_value_r${latestRound.round}.json tool_selection (falls back to round 8: 50 of 51)`, why: "Round 6 showed correct servers losing to built-in tools; descriptions are the lever." },
   // Value
   { cat: "Value", name: "User-value score, latest round", value: latestRound.pct ?? null, target: 90, unit: "%", how: "scripts/uv-index.mjs from data/user_value*.json", why: "Scenario scoring through a real MCP client is the only measure of value that includes the model." },
@@ -213,20 +294,20 @@ const kpis = [
   { cat: "Reliability", name: "Hosted tools/list latency p50", value: latency.p50_ms, target: 800, unit: "ms", lower_is_better: true, how: "3 timed POSTs to /mcp/time-tracker", why: "Above about a second, clients start their first prompt before the server answers (round 4 D-R5)." },
   { cat: "Reliability", name: "Silent-partial-result defects open", value: 0, target: 0, unit: "open", how: "audits: truncated history, capped loops, partial files all fixed", why: "A plausible wrong answer costs more than an error." },
   // Monetization
-  { cat: "Monetization", name: "Checkout sessions from humans (last 100)", value: stripe.human_sessions, target: 50, unit: "sessions", how: "stripe checkout sessions list --live, metadata.probe absent", why: "Validation probes create sessions too; only untagged ones are demand." },
-  { cat: "Monetization", name: "Paid sessions", value: stripe.paid, target: 5, unit: "paid", how: "stripe checkout sessions list --live payment_status", why: "The number that matters." },
-  { cat: "Monetization", name: "License keys minted", value: licKv.total, target: 5, unit: "keys", how: "wrangler kv key list --remote on LICENSES", why: "One key per paid session; zero means no purchase reached /success." },
-  { cat: "Monetization", name: "Upgrade link clicks (humans, 7d)", value: clicks7d, target: 20, unit: "clicks", how: "GET https://mcp.zovo.one/stats/clicks, sum of by_src[*].last7d. WARNING: the worker guard is start-anchored, so any browser User-Agent is counted, including this project's own agents. docs/CONVERSION_R1.md measured 77.9% of clicks carrying a src no live page emits. Treat as an upper bound, never as human demand.", why: "The click is the step between a cap message and a checkout session; without it a stalled funnel and a message nobody reads look the same." },
-  { cat: "Monetization", name: "Click to checkout-session ratio", value: clickToSession, target: 40, unit: "% (sessions per 100 clicks)", how: "100 * checkout sessions from humans (last 100, Stripe) / upgrade link clicks (7d, /stats/clicks) - the two windows differ (last 100 ever vs last 7 days), so this is an approximation, not the true window-matched ratio", why: "Separates whether people are seeing the link (clicks) from whether the checkout page itself converts (ratio); a link with clicks and no sessions points at the redirect or the Stripe page, not the message." },
-  { cat: "Monetization", name: "Pro tenants on hosted endpoints", value: proTenants, target: 20, unit: "tenants", how: `Stripe-bound tenants (REMOTE_DATA bind: prefix, ${proTenantDetail.stripe_bound_tenants ?? "?"}) plus distinct lic: tenant ids whose key the billing worker minted (LICENSES session:*, ${proTenantDetail.minted_key_ids} keys). EXCLUDED: the ${proTenantDetail.lic_keys ?? "?"} raw lic: documents are per (key, server) pairs, not tenants (${proTenantDetail.lic_distinct_ids ?? "?"} distinct ids), and ${proTenantDetail.probe_ids_excluded ?? "?"} of those ids are validation probes signed locally by scripts/sign-license.mjs, never bought.`, why: "Real Pro usage on hosted. The old count read every lic: document, so one validation run over 16 servers looked like 16 paying tenants.", detail: proTenantDetail },
+  { cat: "Monetization", name: "Untagged MCP checkout sessions (7d)", value: stripe.human_sessions, target: 50, unit: "sessions", how: "Stripe list paginated until oldest record predates seven-day window; MCP success_url filter, metadata.probe != 1; untagged is not verified human", why: "Separates this storefront from other businesses on the Stripe account." },
+  { cat: "Monetization", name: "Paid MCP checkout sessions (7d)", value: stripe.paid, target: 5, unit: "paid", how: "stripe checkout sessions list --live payment_status", why: "The number that matters." },
+  { cat: "Monetization", name: "Paid checkout license records", value: licKv.names ? licKv.names.filter(n => n.startsWith("session:") && paidSessionIds.has(n.slice(8))).length : null, target: 5, unit: "keys", how: "LICENSES session: rows matching a non-probe paid MCP checkout; excludes sub:/unsub: email rows", why: "Raw LICENSES row count includes mailing-list records." },
+  { cat: "Monetization", name: "Guard-passing upgrade clicks (7d)", value: clicks7d, target: 20, unit: "clicks", how: `GET /stats/clicks, instrument ${clickStats?.instrument ?? "unknown"}; browser headers and source allowlist reduce probes but do not prove human identity; legacy excluded`, why: "The click is the step between a cap message and a checkout session; without it a stalled funnel and a message nobody reads look the same." },
+  { cat: "Monetization", name: "Click to checkout-session ratio", value: clickToSession, target: 40, unit: "% (sessions per 100 clicks)", how: "100 * untagged MCP sessions created in the last seven days / guard-passing clicks in the same rolling period; not person-attributed conversion; null when denominator is zero", why: "Separates whether people are seeing the link (clicks) from whether the checkout page itself converts (ratio); a link with clicks and no sessions points at the redirect or the Stripe page, not the message." },
+  { cat: "Monetization", name: "Pro tenants on hosted endpoints", value: proTenants, target: 20, unit: "tenants", how: `Distinct lic: and decoded bind: IDs matched to a LICENSES session: key whose Stripe session is paid, non-probe, MCP-scoped (${proTenantDetail.minted_key_ids} verified minted IDs). Excludes ${proTenantDetail.probe_ids_excluded ?? "?"} raw license IDs with no verified paid checkout. A binding can also be created by license_activate with a locally signed probe key.`, why: "Real Pro usage on hosted. The old count read every lic: document, so one validation run over 16 servers looked like 16 paying tenants.", detail: proTenantDetail },
 ];
 // Rows fed entirely by a wrangler subprocess: on failure they fall back to their previous
 // value from data/kpi.json instead of going null (see staleIfFailed / shWrangler above).
 const WRANGLER_ROW_FAILURES = {
-  "Anonymous hosted tokens minted": remoteKv.failed,
-  "Hosted tenants with stored data": remoteKv.failed,
-  "Hosted downloads served": remoteKv.failed,
-  "License keys minted": licKv.failed,
+  "Live anonymous hosted token records": remoteKv.failed,
+  "Anonymous tenants with stored data (includes probes)": remoteKv.failed,
+  "Ephemeral hosted download records": remoteKv.failed,
+  "Paid checkout license records": licKv.failed || !stripeComplete,
   "Pro tenants on hosted endpoints": proTenantsFailed,
 };
 // A wrangler listing that succeeded but returned no keys for a prefix is the same unmeasured state as a
@@ -242,6 +323,6 @@ for (let i = 0; i < kpis.length; i++) {
 
 const status = (k) => { if (k.value === null || k.value === undefined) return "unmeasured"; if (typeof k.target === "number" && typeof k.value === "number") { if (k.lower_is_better) return k.value <= k.target ? "met" : "progress"; return k.value >= k.target ? "met" : k.value > 0 ? "progress" : "zero"; } if (typeof k.value === "string" && /^(\d+)\/(\d+)$/.test(k.value)) { const [a, b] = k.value.split("/").map(Number); return a === b ? "met" : "progress"; } return "measured"; };
 for (const k of kpis) k.status = status(k);
-const out = { generated_at: new Date().toISOString(), kpis, raw: { stripe, sales_charges_seen: sales, remote_kv: remoteKv, license_kv: licKv, pro_tenants: proTenantDetail, latency, registry: registryLatest, sitemap_urls: sitemapUrls } };
+const out = { generated_at: new Date().toISOString(), windows: { stripe_7d: stripe.window_7d, traffic: traffic?.cloudflare?.window ?? null, search: freshAuditSearch ? { start: freshAuditSearch.startDate, end: freshAuditSearch.endDate } : null }, kpis, raw: { blind_instrument: blind, stripe, sales_charges_seen: sales, remote_kv: remoteKv, license_kv: licKv, pro_tenants: proTenantDetail, latency, registry: registryLatest, sitemap_urls: sitemapUrls } };
 writeFileSync(`${ROOT}/data/kpi.json`, JSON.stringify(out, null, 2));
 console.log(`kpi: ${kpis.length} indicators, ${kpis.filter((k) => k.status === "met").length} met, ${kpis.filter((k) => k.status === "unmeasured").length} unmeasured`);

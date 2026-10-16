@@ -61,6 +61,7 @@ export const SERVER_IDS = [
   "stripe-billing",
   "supplier-list",
   "tax-calc",
+  "three-way-match",
   "time-tracker",
   "timezone",
   "work-order",
@@ -119,6 +120,7 @@ export const CHILD_IDS = [
   "stripe-billing",
   "supplier-list",
   "tax-calc",
+  "three-way-match",
   "time-tracker",
   "timezone",
   "work-order",
@@ -228,6 +230,7 @@ export const TOOLS = {
   "stripe-billing": 2,
   "supplier-list": 8,
   "tax-calc": 1,
+  "three-way-match": 6,
   "time-tracker": 18,
   "timezone": 9,
   "work-order": 10,
@@ -238,12 +241,11 @@ export const TOOLS = {
 export const LICENSE_TOOLS = 2;
 
 /** Sum of TOOLS over CHILD_IDS. */
-export const OWN_TOOLS_TOTAL = 445;
+export const OWN_TOOLS_TOTAL = 451;
 
-/** Distinct tool names office-suite exposes: every child's own tools, plus the shared
- * license pair once. Reconciles with the independently measured OFFICE_SUITE_TOOLS in
- * billing/src/index.js, taken over stdio from the running bundle on 2026-09-07. */
-export const OFFICE_SUITE_TOOLS = 447;
+/** Actual distinct proxy tool names, measured by tools/list from the built bundle.
+ * Source: data/office-suite-tool-inventory.json; includes collision prefixes. */
+export const OFFICE_SUITE_TOOLS = 441;
 
 /** Servers the site actually lists, i.e. those with a README that becomes a /s/ page. */
 export const LISTED_IDS = [
@@ -298,6 +300,7 @@ export const LISTED_IDS = [
   "stripe-billing",
   "supplier-list",
   "tax-calc",
+  "three-way-match",
   "time-tracker",
   "timezone",
   "work-order",
@@ -354,6 +357,7 @@ export const LISTED_CHILD_IDS = [
   "stripe-billing",
   "supplier-list",
   "tax-calc",
+  "three-way-match",
   "time-tracker",
   "timezone",
   "work-order",
@@ -374,10 +378,10 @@ export const FREE_IDS = [
 
 /** Counts, computed so prose cannot go stale. LISTED_COUNT is the one a visitor should
  * ever see: SERVER_DIR_COUNT can be ahead of it while a new server is being built. */
-export const LISTED_COUNT = 55;
-export const LISTED_CHILD_COUNT = 54;
-export const SERVER_DIR_COUNT = 55;
-export const CHILD_COUNT = 54;
+export const LISTED_COUNT = 56;
+export const LISTED_CHILD_COUNT = 55;
+export const SERVER_DIR_COUNT = 56;
+export const CHILD_COUNT = 55;
 export const HOSTED_COUNT = 46;
 
 /** Hosted limits, read from remote/src/index.ts. */
@@ -448,6 +452,7 @@ export const FREE = {
   "stripe-billing": "Both tools; you supply your own Stripe (restricted) key.",
   "supplier-list": "Ten suppliers, with adding, listing, reading, updating, removing, review stamps and CSV export free and unlimited on every tier. Removing a supplier you no longer use frees its slot, so the directory itself is never metered.",
   "tax-calc": "The whole tool, unlimited, local.",
+  "three-way-match": "Full previews up to 500 PO/invoice lines, including free pages of all large-report evidence; store 3 reports at a time. Listing, retrieval, deletion and CSV export stay free.",
   "time-tracker": "Unlimited timers and entries; reports, lists and CSV cover the last 7 days; 2 projects with rates. Currency per entry (EUR, USD, GBP, PLN).",
   "timezone": "Conversions, overlap, DST, business days, slots for up to 3 participants over 5 days, 5 contacts, 3 ics per month.",
   "work-order": "Five OPEN work orders, which is a one-van trade, and 200 lines each on every tier. The cap counts open jobs (draft, scheduled, in progress) rather than jobs ever raised, so finishing one frees its slot, and work_order_delete on a draft with no lines is free on every tier because a way back that only a Pro key can reach is not a way back. The text completion report is free: handing the customer what was done is the thing the job was for. A byte-identical work order is refused BEFORE the cap is consulted, so the refusal names the id already stored rather than selling an upgrade, and burns neither a slot nor a WO number.",
@@ -506,6 +511,7 @@ export const PRO = {
   "stripe-billing": "Not gated — this server is entirely free; the $39 bundle key covers the forty-seven paid servers.",
   "supplier-list": "Unlimited suppliers, Markdown export, and the due-review report that keeps a bigger directory honest.",
   "tax-calc": "Not gated — this server is entirely free; the $39 bundle key covers the forty-seven paid servers.",
+  "three-way-match": "Unlimited saved reports. The same per-check safety bounds apply on both tiers.",
   "time-tracker": "Full history, invoice_summary, group by tag, unlimited rated projects.",
   "timezone": "Unlimited participants, days, contacts and ics files, recurring slot search.",
   "work-order": "Unlimited open work orders, the A4 completion report PDF with the sign-off block, work_order_invoice_payload with VAT at the shared profile rate and rounding_drift_minor asserted to zero, and work_orders_report: the whole board by status, hours logged this month, and unbilled value per currency.",

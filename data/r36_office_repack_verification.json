@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-16T01:06:37.365192+00:00",
+  "sha256": "5221f20c51572f8da17808a8f03097a76d4d48b72c7d0c2509708297129277bc",
+  "archive_bytes": 32000493,
+  "crc": "pass",
+  "byte_equivalent_to_runtime_tree": true,
+  "files": 5614,
+  "manifest_tools": 441,
+  "runtime_tools": 441,
+  "runtime_inventory": "data/office-suite-tool-inventory.json",
+  "original_runtime_evidence": "data/r36_artifact_verification.json",
+  "repack_change": "manifest tool names/descriptions corrected from runtime inventory; all archive files compared to verified built tree"
+}

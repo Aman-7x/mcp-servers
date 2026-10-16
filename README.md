@@ -3,7 +3,7 @@
 <!-- gen:badge -->
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![MCP Registry](https://img.shields.io/badge/MCP%20registry-listed-brightgreen)
-![Release](https://img.shields.io/badge/release-v0.22.5-informational)
+![Release](https://img.shields.io/badge/release-v0.22.6-informational)
 <!-- /gen:badge -->
 
 Practical Model Context Protocol servers for people who work inside Claude, Cursor and other MCP clients.
@@ -11,7 +11,7 @@ Every server runs locally over stdio, keeps all data on your machine, and has a 
 Pro unlocks the limits for a one-time payment: $19 per server or $39 for the bundle, lifetime.
 
 <!-- gen:counts -->
-54 servers plus the office-suite aggregator, 45 of them also reachable as a hosted endpoint with no install.
+55 servers plus the office-suite aggregator, 45 of them also reachable as a hosted endpoint with no install.
 <!-- /gen:counts -->
 
 No install? Use any server instantly as a hosted endpoint: `https://mcp.zovo.one/mcp/<server>` — or browse the catalog at [mcp.zovo.one](https://mcp.zovo.one).
@@ -84,6 +84,7 @@ returns 404 today. The commands below are written for the day it is published; u
 | [mcp-stripe-billing](servers/stripe-billing/README.md) |  | Check your Stripe balance and build payment links from chat. | `stripe-billing.mcpb` |
 | [mcp-supplier-list](servers/supplier-list/README.md) |  | A supplier directory that does not rot: contacts, terms, lead times, and when each record was last reviewed. | `supplier-list.mcpb` |
 | [mcp-tax-calc](servers/tax-calc/README.md) |  | 2026 US federal brackets, computed in the conversation. | `tax-calc.mcpb` |
+| [mcp-three-way-match](servers/three-way-match/README.md) | ![three-way-match](assets/demo-three-way-match.gif) | Supplier invoice, purchase order and receipt checks by exact SKU. | `three-way-match.mcpb` |
 | [mcp-time-tracker](servers/time-tracker/README.md) | ![time-tracker](assets/demo-time-tracker.gif) | Track billable time without leaving the chat. | `time-tracker.mcpb` |
 | [mcp-timezone](servers/timezone/README.md) | ![timezone](assets/demo-timezone.gif) | Find meeting slots inside everyone's working hours. | `timezone.mcpb` |
 | [mcp-work-order](servers/work-order/README.md) | ![work-order](assets/demo-work-order.gif) | Job orders for trades and field work, priced the way the invoice will be. | `work-order.mcpb` |

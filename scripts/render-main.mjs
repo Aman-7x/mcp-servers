@@ -7,7 +7,11 @@ import { join, relative } from "node:path";
 const ROOT = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const rd = (p) => existsSync(join(ROOT, p)) ? readFileSync(join(ROOT, p), "utf8") : "";
 const js = (p, d) => { try { return JSON.parse(rd(p)); } catch { return d; } };
-const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const esc = (s) => String(s ?? "")
+  .replace(/anon_[0-9a-f]{32}/g, '[tenant redacted]')
+  .replace(/MCPL1\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/g, '[license redacted]')
+  .replace(/cs_(?:live|test)_[A-Za-z0-9]+/g, '[checkout redacted]')
+  .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 const ledger = js("data/ledger.json", { servers: [], session: { count: 0, history: [] } });
 const facts = js("data/facts.json", {});
@@ -42,6 +46,9 @@ const uv7 = js("data/user_value_r7.json", null);
 const uv8 = js("data/user_value_r8.json", null);
 const uvi = js("data/user_value_index.json", null);
 const kpi = js("data/kpi.json", null);
+const currentSession = js("data/current_session.json", null);
+const paymentMetric = currentSession?.metrics?.find(x => x.label === "Paid checkout amount");
+const watch = js("data/r36_watch.json", null);
 const slog = js("data/sprint_log.json", null);
 const metrics = js("data/metrics.json", { snapshots: [] });
 const m = metrics.snapshots.at(-1);
@@ -87,12 +94,26 @@ const pill = (s) => { const f = String(s).match(/^(\d+)\/(\d+)$/); const c = (f 
 
 // ---- next actions (derived) ----
 const next = [];
+if (currentSession?.next_levers?.length) next.push(...currentSession.next_levers);
+else {
 if ((dist.surfaces?.npm?.status) !== "published") next.push("Run `npm login --auth-type=web` (about one minute, human step), then `scripts/publish-all.sh --go`.");
 if ((dist.surfaces?.registry?.status) !== "published") next.push("After npm publish: `mcp-publisher login github` and publish each server.json to the official registry.");
 if ((dist.surfaces?.smithery?.status) !== "published") next.push("Connect the GitHub repo on Smithery and claim the four servers on Glama.");
 if (!existsSync(join(ROOT, "data/sales.json"))) next.push("Make one real $19 purchase to prove /success end to end; record it in data/sales.json.");
 if (!existsSync(join(ROOT, "docs/AUDIT.md"))) next.push("Adversarial audit pending (docs/AUDIT.md).");
 next.push("Submit the .mcpb bundles to the Claude Desktop extensions directory and open the awesome-mcp-servers PR.");
+}
+
+// Counts with different windows/populations are independent observations.
+const currentPanel = currentSession ? `
+<div class="card" id="current-session"><h2 style="margin-top:0">${esc(currentSession.title)}</h2>
+<p>${esc(currentSession.conclusion)}</p>
+<p class="dim">Updated ${esc(currentSession.updated_at)}. ${esc(currentSession.status_note || "")}</p>
+<div class="kpis">${(currentSession.metrics || []).map(x => `<div class="kpi"><div class="n">${esc(x.value ?? "unavailable")}</div><div class="k">${esc(x.label)}</div><div class="dim">${esc(x.window)}<br>${esc(x.note || "")}<br><a href="${esc(x.source)}">Evidence</a></div></div>`).join("")}</div>
+<p class="dim">These are separate observations. Requests, tokens, documents and checkout sessions have different populations and time windows; no conversion rate is inferred from them.</p>
+<h2>Delivered this session</h2><ul>${(currentSession.shipped || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+<h2>Highest return next actions</h2><ol>${(currentSession.next_levers || []).map(x => `<li>${esc(x)}</li>`).join("")}</ol>
+<p><a href="${esc(currentSession.report || "session-log.md")}">Full session report</a> · <a href="docs/OUTREACH_RESEND_SETUP.md">Outreach access and sending setup</a></p></div>` : "";
 
 const serverRows = servers.map(s => {
   const d = dist.per_server?.[s.id] || {};
@@ -142,7 +163,10 @@ details summary{cursor:pointer;color:var(--acc);font-size:12.5px}
 
 <div class="tabs"><button class="on" data-tab="truth">Reality check</button><button data-tab="overview">Overview</button><button data-tab="servers">What each server does</button><button data-tab="validation">Validation database${lastRun ? ` (${lastRun.pass}/${lastRun.total})` : ""}</button><button data-tab="promotion">Promotion playbook</button><button data-tab="uservalue">User value${uv7 ? ` (R7 ${uv7.totals?.score}/${uv7.totals?.max})` : uv5 ? ` (R5 ${uv5.totals?.score ?? uv5.totals?.r5}/${uv5.totals?.max})` : uv4 ? ` (R4 ${uv4.totals?.r4 ?? uv4.totals?.score}/${uv4.totals?.max})` : uv2 ? ` (${uv2.totals.score}/${uv2.totals.max})` : ""}</button><button data-tab="organic">Organic distribution (${orgHeadline}/100)</button><button data-tab="sprints">Sprint log${slog ? ` (${slog.sessions})` : ""}</button><button data-tab="kpi">KPIs${kpi ? ` (${kpi.kpis.filter(k => k.status === "met").length}/${kpi.kpis.length} met)` : ""}</button></div>
 <div class="tab on" id="tab-truth">
-<div class="card"><b>What this panel is for.</b> Every number here was measured on 2026-09-07 by a command named beside it. It exists because the dashboard previously reported 5,105 bundle downloads against a target of 1,000 and read that as met, when those fetches are automated. Read this tab before any other.</div>
+${currentPanel}
+${watch ? `<div class="card"><b>Four-hour observation loop: ${esc(watch.status)}</b><p class="dim">Last observation ${esc(watch.last_observed_at || 'pending')}; deadline ${esc(watch.deadline_at)}. ${watch.snapshots.length} production observations. This panel is an observation record; a live process must be confirmed with its terminal handle.</p><p>Latest: approved version ${watch.snapshots.at(-1)?.pin_matches === true ? 'matches production' : 'not verified'}, scheduled monitor ${watch.snapshots.at(-1)?.cron?.ok === true ? 'passed' : 'not verified'}, public health HTTP ${esc(watch.snapshots.at(-1)?.public_health_status ?? 'unknown')}. ${esc(watch.snapshots.at(-1)?.health_note || '')}</p><a href="data/r36_watch.json">Observation evidence</a></div>` : ''}
+<details><summary>Historical research and experiments, September 2026 (superseded where newer evidence exists)</summary>
+<div class="card"><b>Historical panel.</b> The observations below retain their original dates and were not refreshed by regenerating this page. Read the current session panel above for recent measurements.</div>
 ${l34 ? `<div class="card"><b>Loop 34, ${esc(l34.date)}.</b> ${esc(l34.headline)}
 <div class="tw" style="margin-top:10px"><table><tr><th>Measure</th><th>Reading</th></tr>
 <tr><td>${esc(l34.primary_kpi.name)}</td><td><b>${esc(l34.primary_kpi.value)}</b>. ${esc(l34.primary_kpi.how)}</td></tr>
@@ -242,6 +266,7 @@ ${Object.entries(l30.namespace.measured_live).map(([k, v]) => `<tr><td>${esc(k)}
 <li><b>Claim the Glama listing.</b> It is the only remaining blocker on the awesome-mcp-servers pull request, which is the highest-traffic directory this project can reach for free.</li>
 <li><b>Decide on the namespace experiment.</b> The registry sorts strict ASCII on the whole namespace string, so <code>io.github.theluckystrike</code> can never reach page one on a contested token. A namespace from a .com domain already on the operator's Cloudflare account would sort 10 to 45 places earlier. See the addendum in docs/SEO_INDEXATION_R1.md.</li>
 </ol></div>
+</details>
 </div>
 
 <div class="tab" id="tab-overview">
@@ -253,7 +278,7 @@ ${Object.entries(l30.namespace.measured_live).map(([k, v]) => `<tr><td>${esc(k)}
 <div class="kpi"><div class="n">${locTotal.toLocaleString()}</div><div class="k">lines of TypeScript</div></div>
 <div class="kpi"><div class="n">${live}/${surfaces.length}</div><div class="k">distribution surfaces live</div></div>
 <div class="kpi"><div class="n">$${facts.pricing?.single_usd ?? 19} / $${facts.pricing?.bundle_usd ?? 39}</div><div class="k">Pro price, single / bundle</div></div>
-<div class="kpi"><div class="n">$${revenue}</div><div class="k">Stripe live sales (${esc(ledger.revenue?.note || "")})</div></div>
+<div class="kpi"><div class="n">${paymentMetric ? esc(paymentMetric.value) : "unmeasured"}</div><div class="k">${paymentMetric ? esc(paymentMetric.label + ", " + paymentMetric.window) : "Revenue: no current verified measurement"}</div></div>
 <div class="kpi"><div class="n">${sprints.length}</div><div class="k">sprint units reported</div></div>
 ${m ? `<div class="kpi"><div class="n">${m.release_downloads_total}</div><div class="k">bundle downloads (GitHub releases)</div></div><div class="kpi"><div class="n">${m.github.views_14d ?? 0} / ${m.github.uniques_14d ?? 0}</div><div class="k">repo views / uniques, 14d</div></div><div class="kpi"><div class="n">${m.github.stars ?? 0}</div><div class="k">stars</div></div>` : ""}
 </div>
@@ -311,7 +336,7 @@ ${Object.entries(facts.servers || {}).map(([id, v]) => {
   return `<div class="srv"><h3>${esc(v.title)} <span class="mono dim">@theluckystrike/mcp-${esc(id)}</span></h3><div class="tag">${esc(v.tagline)}</div>
 <p><b>What it does.</b> ${esc(v.does)}</p><p><b>Who it is for.</b> ${esc(v.for)}</p><p><b>Example.</b> <span class="dim">${esc(v.example)}</span></p>
 <div class="kv"><b>Free</b><span>${esc(v.free)}</span><b>Pro $${facts.pricing?.single_usd ?? 19}</b><span>${esc(v.pro)} <a href="https://mcp.zovo.one/buy/${esc(id)}">Buy</a></span><b>Data stays</b><span>${esc(v.storage)}</span>
-<b>Install</b><span class="mono">claude mcp add ${esc(id)} -- npx -y @theluckystrike/mcp-${esc(id)}</span>
+<b>Install</b><span><a href="servers/${esc(id)}/README.md#install">Working installation instructions</a>; npm publication remains pending.</span>
 <b>Status</b><span>npm ${pill(d.npm || "unknown")} registry ${pill(d.registry || "unknown")} github ${pill(d.github || "unknown")} validation ${pill(lastRun ? (() => { const r = lastRun.results.find(x => x.id === id); return r ? `${r.pass}/${r.total}` : "pending"; })() : "pending")}</span></div>
 <div class="tw"><table><tr><th>Tool</th><th>What it does</th></tr>${tools.map(t => `<tr><td class="mono">${esc(t.name)}</td><td class="dim">${esc(t.description)}</td></tr>`).join("")}</table></div>
 <p class="dim"><a href="servers/${esc(id)}/README.md">README</a> &middot; <a href="servers/${esc(id)}/RESULT.md">build sprint</a> &middot; <a href="servers/${esc(id)}/src/index.ts">source</a></p></div>`; }).join("")}
@@ -389,9 +414,9 @@ ${slog ? `<p class="dim">Every dashboard update is a session note in data/ledger
 </div>
 
 <div class="tab" id="tab-kpi">
-${kpi ? `<p class="dim">What an MCP product owner should measure, in funnel order: discovered, installed, first call, value delivered, reliable, paid. Every indicator names its instrument so it can be re-collected with <code>node scripts/kpi.mjs</code>. Collected ${esc(kpi.generated_at)}. Status: met = at or past target; progress = non-zero and below target; zero = instrument works and reads zero; unmeasured = instrument not yet wired.</p>
+${kpi ? `<p class="dim">Indicators track discovery, usage, reliability and payment with separate populations and windows. Generated ${esc(kpi.generated_at)}; each row retains its observation date. Rows marked stale were not refreshed by the current audit. Status: met = at or past target; progress = non-zero and below target; zero = instrument works and reads zero; unmeasured = unavailable. Regeneration does not make old evidence current.</p>
 <div class="kpis">${["Discovery", "Install", "Activation", "Value", "Reliability", "Monetization"].map(c => { const g = kpi.kpis.filter(k => k.cat === c); return `<div class="kpi"><div class="n">${g.filter(k => k.status === "met").length}/${g.length}</div><div class="k">${c} indicators met</div></div>`; }).join("")}</div>
-${["Discovery", "Install", "Activation", "Value", "Reliability", "Monetization"].map(c => `<h2>${c}</h2><div class="tw"><table><tr><th>Indicator</th><th>Now</th><th>Target</th><th>Status</th><th>Instrument</th><th>Why it matters</th></tr>${kpi.kpis.filter(k => k.cat === c).map(k => `<tr><td><b>${esc(k.name)}</b></td><td class="num">${k.value === null || k.value === undefined ? "<span class=dim>n/a</span>" : esc(String(k.value))} <span class="dim">${esc(k.unit)}</span></td><td class="num">${esc(String(k.target ?? ""))}${k.lower_is_better ? " <span class=dim>(lower)</span>" : ""}</td><td>${pill(k.status === "met" ? "met" : k.status === "unmeasured" ? "unmeasured" : k.status === "zero" ? "zero" : "progress")}</td><td class="mono dim">${esc(k.how)}</td><td class="dim">${esc(k.why)}</td></tr>`).join("")}</table></div>`).join("")}
+${["Discovery", "Install", "Activation", "Value", "Reliability", "Monetization"].map(c => `<h2>${c}</h2><div class="tw"><table><tr><th>Indicator</th><th>Now</th><th>Target</th><th>Status</th><th>Instrument</th><th>Why it matters</th></tr>${kpi.kpis.filter(k => k.cat === c).map(k => `<tr><td><b>${esc(k.name)}</b></td><td class="num">${k.value === null || k.value === undefined ? "<span class=dim>n/a</span>" : esc(String(k.value))} <span class="dim">${esc(k.unit)}</span></td><td class="num">${esc(String(k.target ?? ""))}${k.lower_is_better ? " <span class=dim>(lower)</span>" : ""}</td><td>${pill(k.stale ? "stale" : k.status)}${k.measured_at ? `<br><span class="dim">${esc(k.measured_at.slice(0, 16))}</span>` : ""}</td><td class="mono dim">${esc(k.how)}${k.stale ? `<br><b>Stale:</b> ${esc(k.stale_reason || "not refreshed")}` : ""}${k.window ? `<br>${esc(JSON.stringify(k.window))}` : ""}</td><td class="dim">${esc(k.why)}</td></tr>`).join("")}</table></div>`).join("")}
 <h2>Reading the KPIs as a specialist</h2>
 <div class="card"><ul>
 <li><b>Hosted activation is the leading indicator.</b> Registries and directories only count hosted use, and an anonymous token is the cheapest possible first call. Watch anon tokens and tenant documents before downloads.</li>
@@ -422,5 +447,5 @@ if (location.hash) { const b = document.querySelector('.tabs button[data-tab="' 
 <div class="foot">Regenerate: <code>node scripts/validate.mjs &amp;&amp; node scripts/update-dashboard.mjs --note "..." &amp;&amp; node scripts/render-main.mjs</code>. Data: data/ledger.json, data/facts.json, data/distribution.json. Built by theluckystrike. https://github.com/theluckystrike</div>
 </div></body></html>`;
 
-writeFileSync(join(ROOT, "index.html"), html);
+writeFileSync(join(ROOT, "index.html"), html.replace(/\r\n?/g, '\n').replace(/[\t ]+$/gm, ''));
 console.log(`main dashboard written: ${join(ROOT, "index.html")} (${html.length} bytes, ${servers.length} servers, ${sprints.length} sprint units)`);

@@ -6,6 +6,7 @@
 // that names the count and the price and links to /buy/bundle, tagged with the same src
 // as the single-server link plus ".bundle", so the two offers on one message are counted
 // apart.
+import { PRODUCTS } from "../../../billing/src/index.js";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readdirSync, existsSync, readFileSync } from "node:fs";
@@ -20,25 +21,28 @@ const REPO = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
 
 /**
  * SERVER_COUNT cannot be derived at runtime: the published package has no view of
- * servers/. So it is a constant, and this is the alarm on it. A server sells Pro exactly
- * when it builds a licence gate of its own - that is the same set whose cap messages
- * carry this sentence. servers/office-suite is the one directory with a package.json and
+ * servers/. So it is a constant, and this is the alarm on it. A server sells Pro when the billing catalogue offers its own product. A licence
+ * gate alone is insufficient: hourly-rate registers licence tools but every calculator
+ * is free and it deliberately has no paid product. servers/office-suite is the one directory with a package.json and
  * no gate: it proxies the others and sells nothing itself.
  */
 function sellableServers() {
   const dir = join(REPO, "servers");
   return readdirSync(dir).filter((id) => {
     if (!existsSync(join(dir, id, "package.json"))) return false;
+    if (!Object.hasOwn(PRODUCTS, id)) return false;
     const src = join(dir, id, "src", "index.ts");
     return existsSync(src) && readFileSync(src, "utf8").includes("createLicenseGate");
   });
 }
 
 test("SERVER_COUNT matches the number of servers that actually sell Pro", () => {
+  assert.equal(Object.hasOwn(PRODUCTS, "hourly-rate"), false, "hourly-rate stays entirely free");
   const ids = sellableServers();
+  assert.deepEqual(ids.sort(), Object.keys(PRODUCTS).filter((id) => id !== "bundle").sort());
   assert.equal(
     SERVER_COUNT, ids.length,
-    `SERVER_COUNT is ${SERVER_COUNT} but ${ids.length} servers build a licence gate ` +
+    `SERVER_COUNT is ${SERVER_COUNT} but ${ids.length} servers actually sell a Pro product ` +
     `(${ids.join(", ")}). Update SERVER_COUNT in packages/mcp-license/src/index.ts and ` +
     `remote/src/shims/license.ts together, or every cap message names a stale count.`,
   );

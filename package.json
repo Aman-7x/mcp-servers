@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present && node --test test/*.test.mjs",
-    "prebuild": "node scripts/sync-versions.mjs",
+    "prebuild": "node scripts/bootstrap-timezone.mjs && node scripts/sync-versions.mjs",
     "release:check": "node scripts/release-check.mjs",
     "digest": "node scripts/digest.mjs"
   },

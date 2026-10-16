@@ -103,6 +103,13 @@ const OWN_TOOLS_TOTAL = LISTED_CHILD_IDS.reduce((n, id) => {
   const base = ALIAS_BASE[id] ?? id;
   return n + (TOOLS[base] ?? TOOLS[id] ?? 0);
 }, 0);
+// The proxy's collision prefixes and helper registrations require a real tools/list;
+// adding source counts also included seven standalone servers it does not spawn.
+const officeInventory = JSON.parse(read('data/office-suite-tool-inventory.json'));
+const officeChildren = [...read('servers/office-suite/src/index.ts').matchAll(/\{ id: "([a-z0-9-]+)", pkg:/g)].map(m => m[1]).sort();
+if (JSON.stringify(officeChildren) !== JSON.stringify(officeInventory.children)) throw Error('Rebuild office-suite: runtime inventory child list is stale');
+const OFFICE_SUITE_TOOLS = officeInventory.tools.length;
+if (!OFFICE_SUITE_TOOLS || new Set(officeInventory.tools.map(t => t.name)).size !== OFFICE_SUITE_TOOLS) throw Error('Invalid office runtime tool inventory');
 
 // ---------------------------------------------------------------------------
 // remote/  (the hosted endpoints and their limits)
@@ -200,10 +207,9 @@ export const LICENSE_TOOLS = ${LICENSE_TOOLS};
 /** Sum of TOOLS over CHILD_IDS. */
 export const OWN_TOOLS_TOTAL = ${OWN_TOOLS_TOTAL};
 
-/** Distinct tool names office-suite exposes: every child's own tools, plus the shared
- * license pair once. Reconciles with the independently measured OFFICE_SUITE_TOOLS in
- * billing/src/index.js, taken over stdio from the running bundle on 2026-09-07. */
-export const OFFICE_SUITE_TOOLS = ${OWN_TOOLS_TOTAL + LICENSE_TOOLS};
+/** Actual distinct proxy tool names, measured by tools/list from the built bundle.
+ * Source: data/office-suite-tool-inventory.json; includes collision prefixes. */
+export const OFFICE_SUITE_TOOLS = ${OFFICE_SUITE_TOOLS};
 
 /** Servers the site actually lists, i.e. those with a README that becomes a /s/ page. */
 export const LISTED_IDS = ${j(LISTED_IDS)};

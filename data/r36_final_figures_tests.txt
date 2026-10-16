@@ -1,0 +1,163 @@
+TAP version 13
+# Subtest: catalogue leads to working setup and labels free-only calculators as free
+ok 1 - catalogue leads to working setup and labels free-only calculators as free
+  ---
+  duration_ms: 31.162291
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"bundle","source":"store.buy.invoice","probe":false,"request_method":"POST"}
+# Subtest: single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+ok 2 - single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+  ---
+  duration_ms: 3.990584
+  type: 'test'
+  ...
+# Subtest: Stripe's bundle cross-sell carries only a validated hosted token
+ok 3 - Stripe's bundle cross-sell carries only a validated hosted token
+  ---
+  duration_ms: 0.191958
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"checkout.cancel","probe":false,"request_method":"POST"}
+# Subtest: cancelling an expired checkout keeps hosted activation when starting a replacement
+ok 4 - cancelling an expired checkout keeps hosted activation when starting a replacement
+  ---
+  duration_ms: 7.748458
+  type: 'test'
+  ...
+# Subtest: purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+ok 5 - purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+  ---
+  duration_ms: 1.993917
+  type: 'test'
+  ...
+# Subtest: pricing presents current prices without an unconfigured price deadline or inferred human demand
+ok 6 - pricing presents current prices without an unconfigured price deadline or inferred human demand
+  ---
+  duration_ms: 1.528459
+  type: 'test'
+  ...
+# Subtest: the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+ok 7 - the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+  ---
+  duration_ms: 1.425125
+  type: 'test'
+  ...
+# Subtest: billing/src/figures.js is what the manifests currently say
+ok 8 - billing/src/figures.js is what the manifests currently say
+  ---
+  duration_ms: 131.918875
+  type: 'test'
+  ...
+# Subtest: the catalogue counts agree with each other
+ok 9 - the catalogue counts agree with each other
+  ---
+  duration_ms: 0.157792
+  type: 'test'
+  ...
+# Subtest: no count of servers on the home page is typed, spelled out, or wrong
+ok 10 - no count of servers on the home page is typed, spelled out, or wrong
+  ---
+  duration_ms: 27.572625
+  type: 'test'
+  ...
+# Subtest: the home page names servers and gives a URL rather than deferring
+ok 11 - the home page names servers and gives a URL rather than deferring
+  ---
+  duration_ms: 2.041375
+  type: 'test'
+  ...
+# Subtest: every round 4 page exists
+ok 12 - every round 4 page exists
+  ---
+  duration_ms: 0.189916
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/which-mcp-servers-work-by-pasting-a-url comes from a file in this repository
+ok 13 - every figure on /guides/which-mcp-servers-work-by-pasting-a-url comes from a file in this repository
+  ---
+  duration_ms: 1.068
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/paid-mcp-servers-and-how-you-pay-for-one comes from a file in this repository
+ok 14 - every figure on /guides/paid-mcp-servers-and-how-you-pay-for-one comes from a file in this repository
+  ---
+  duration_ms: 0.331583
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/fill-a-quote-or-estimate-template-from-chat comes from a file in this repository
+ok 15 - every figure on /guides/fill-a-quote-or-estimate-template-from-chat comes from a file in this repository
+  ---
+  duration_ms: 0.143083
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/petty-cash-book-and-cash-ledger-mcp-servers comes from a file in this repository
+ok 16 - every figure on /guides/petty-cash-book-and-cash-ledger-mcp-servers comes from a file in this repository
+  ---
+  duration_ms: 0.332333
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/currency-conversion-mcp-servers-compared comes from a file in this repository
+ok 17 - every figure on /guides/currency-conversion-mcp-servers-compared comes from a file in this repository
+  ---
+  duration_ms: 0.42775
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/zip-and-unzip-mcp-servers-compared comes from a file in this repository
+ok 18 - every figure on /guides/zip-and-unzip-mcp-servers-compared comes from a file in this repository
+  ---
+  duration_ms: 0.22075
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/delivery-schedule-and-work-order-documents-from-mcp comes from a file in this repository
+ok 19 - every figure on /guides/delivery-schedule-and-work-order-documents-from-mcp comes from a file in this repository
+  ---
+  duration_ms: 0.207542
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/will-an-mcp-server-email-the-invoice-to-my-client comes from a file in this repository
+ok 20 - every figure on /guides/will-an-mcp-server-email-the-invoice-to-my-client comes from a file in this repository
+  ---
+  duration_ms: 0.143708
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/can-an-mcp-server-read-a-photo-of-a-receipt comes from a file in this repository
+ok 21 - every figure on /guides/can-an-mcp-server-read-a-photo-of-a-receipt comes from a file in this repository
+  ---
+  duration_ms: 0.139792
+  type: 'test'
+  ...
+# Subtest: every round 4 page states what it cannot do
+ok 22 - every round 4 page states what it cannot do
+  ---
+  duration_ms: 0.374625
+  type: 'test'
+  ...
+# Subtest: every round 4 page carries a paste-in URL or says why it cannot
+ok 23 - every round 4 page carries a paste-in URL or says why it cannot
+  ---
+  duration_ms: 0.338041
+  type: 'test'
+  ...
+# Subtest: no guide spells out a count of servers
+ok 24 - no guide spells out a count of servers
+  ---
+  duration_ms: 5.595125
+  type: 'test'
+  ...
+# Subtest: no rendered page spells out a count of servers
+ok 25 - no rendered page spells out a count of servers
+  ---
+  duration_ms: 12.68575
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 286.026167

@@ -1,0 +1,230 @@
+TAP version 13
+# Subtest: no product is waiting on a human, and the 503 that said so is gone
+ok 1 - no product is waiting on a human, and the 503 that said so is gone
+  ---
+  duration_ms: 0.706209
+  type: 'test'
+  ...
+# Subtest: every product produces one complete, correctly-priced line item
+ok 2 - every product produces one complete, correctly-priced line item
+  ---
+  duration_ms: 0.385875
+  type: 'test'
+  ...
+# Subtest: the three formerly human-gated products are now priced inline, at $19, under their own names
+ok 3 - the three formerly human-gated products are now priced inline, at $19, under their own names
+  ---
+  duration_ms: 0.065459
+  type: 'test'
+  ...
+# Subtest: firstSentences never cuts a word and never returns more than asked
+ok 4 - firstSentences never cuts a word and never returns more than asked
+  ---
+  duration_ms: 0.149583
+  type: 'test'
+  ...
+# Subtest: a payment for an inline-priced product is fulfillable, and the amount is still checked
+ok 5 - a payment for an inline-priced product is fulfillable, and the amount is still checked
+  ---
+  duration_ms: 0.431
+  type: 'test'
+  ...
+# Subtest: office-suite sells the bundle, because only the bundle key can activate it
+ok 6 - office-suite sells the bundle, because only the bundle key can activate it
+  ---
+  duration_ms: 0.122167
+  type: 'test'
+  ...
+# Subtest: opening a Buy link is side-effect free and renders the explicit checkout step
+ok 7 - opening a Buy link is side-effect free and renders the explicit checkout step
+  ---
+  duration_ms: 14.776583
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+# Subtest: a bounded form order token is carried into Stripe metadata and its idempotency key
+ok 8 - a bounded form order token is carried into Stripe metadata and its idempotency key
+  ---
+  duration_ms: 8.176208
+  type: 'test'
+  ...
+# Subtest: a forged or incomplete POST creates no Stripe Checkout Session
+ok 9 - a forged or incomplete POST creates no Stripe Checkout Session
+  ---
+  duration_ms: 1.424042
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"bundle","source":"store.office-suite","probe":false,"request_method":"POST"}
+# Subtest: /buy/office-suite reaches a Stripe checkout for the bundle, priced at $39
+ok 10 - /buy/office-suite reaches a Stripe checkout for the bundle, priced at $39
+  ---
+  duration_ms: 1.631875
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"catalogue","source":"store.home.table.catalogue","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"change-order","source":"store.home.table.change-order","probe":false,"request_method":"POST"}
+# Subtest: each formerly 503 product now reaches Stripe with its own inline price
+ok 11 - each formerly 503 product now reaches Stripe with its own inline price
+  ---
+  duration_ms: 1.720375
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"synthetic-server-r1","source":"store.home.table.synthetic","probe":false,"request_method":"POST"}
+# Subtest: a server added tomorrow gets a checkout on deploy, with no Stripe dashboard step
+ok 12 - a server added tomorrow gets a checkout on deploy, with no Stripe dashboard step
+  ---
+  duration_ms: 1.533584
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.home.table.invoice","probe":false,"request_method":"POST"}
+# Subtest: a browser that sends no User-Agent still reaches checkout
+ok 13 - a browser that sends no User-Agent still reaches checkout
+  ---
+  duration_ms: 0.657792
+  type: 'test'
+  ...
+# Subtest: a crawler with no User-Agent still creates no Stripe session
+ok 14 - a crawler with no User-Agent still creates no Stripe session
+  ---
+  duration_ms: 0.168958
+  type: 'test'
+  ...
+# Subtest: a crawler on an alias sees an intent page but creates no Stripe Session
+ok 15 - a crawler on an alias sees an intent page but creates no Stripe Session
+  ---
+  duration_ms: 0.969542
+  type: 'test'
+  ...
+# Subtest: an unknown product is a dead end no longer: it names the bundle and charges nothing
+ok 16 - an unknown product is a dead end no longer: it names the bundle and charges nothing
+  ---
+  duration_ms: 0.3445
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+# Subtest: a real click is recorded before the redirect, and a probe is not
+ok 17 - a real click is recorded before the redirect, and a probe is not
+  ---
+  duration_ms: 2.961625
+  type: 'test'
+  ...
+# Subtest: the IndexNow key file serves its key and nothing else
+ok 18 - the IndexNow key file serves its key and nothing else
+  ---
+  duration_ms: 0.8915
+  type: 'test'
+  ...
+# Subtest: robots.txt keeps every crawler allowed
+ok 19 - robots.txt keeps every crawler allowed
+  ---
+  duration_ms: 0.230542
+  type: 'test'
+  ...
+# Subtest: GSC + Bing verification routes serve a code when one is supplied, and 404 when unset
+ok 20 - GSC + Bing verification routes serve a code when one is supplied, and 404 when unset
+  ---
+  duration_ms: 0.232125
+  type: 'test'
+  ...
+# Subtest: llms.txt lists every product with a URL and a description
+ok 21 - llms.txt lists every product with a URL and a description
+  ---
+  duration_ms: 2.588583
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+# Subtest: a probe reads back what Stripe stored, and a buyer sees none of it
+ok 22 - a probe reads back what Stripe stored, and a buyer sees none of it
+  ---
+  duration_ms: 1.062417
+  type: 'test'
+  ...
+# Subtest: no page links a pinned release tag: v0.1.1 carried 4 bundles, the current release carries 31
+ok 23 - no page links a pinned release tag: v0.1.1 carried 4 bundles, the current release carries 31
+  ---
+  duration_ms: 0.158375
+  type: 'test'
+  ...
+# Subtest: VALIDATION and BILLING_TEST_COUNT match the files they claim to report
+ok 24 - VALIDATION and BILLING_TEST_COUNT match the files they claim to report
+  ---
+  duration_ms: 45.302291
+  type: 'test'
+  ...
+# Subtest: the home page and /bundle no longer state the npx line without the disclosure
+ok 25 - the home page and /bundle no longer state the npx line without the disclosure
+  ---
+  duration_ms: 4.060417
+  type: 'test'
+  ...
+# Subtest: the success page leads with an install path that works, not with a command that 404s
+ok 26 - the success page leads with an install path that works, not with a command that 404s
+  ---
+  duration_ms: 0.159709
+  type: 'test'
+  ...
+# Subtest: a click on a dead /buy/ link is counted, so the leak is measurable
+ok 27 - a click on a dead /buy/ link is counted, so the leak is measurable
+  ---
+  duration_ms: 0.353417
+  type: 'test'
+  ...
+# Subtest: catalogue leads to working setup and labels free-only calculators as free
+ok 28 - catalogue leads to working setup and labels free-only calculators as free
+  ---
+  duration_ms: 18.033834
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"bundle","source":"store.buy.invoice","probe":false,"request_method":"POST"}
+# Subtest: single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+ok 29 - single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+  ---
+  duration_ms: 3.119708
+  type: 'test'
+  ...
+# Subtest: Stripe's bundle cross-sell carries only a validated hosted token
+ok 30 - Stripe's bundle cross-sell carries only a validated hosted token
+  ---
+  duration_ms: 0.17275
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"checkout.cancel","probe":false,"request_method":"POST"}
+# Subtest: cancelling an expired checkout keeps hosted activation when starting a replacement
+ok 31 - cancelling an expired checkout keeps hosted activation when starting a replacement
+  ---
+  duration_ms: 2.940584
+  type: 'test'
+  ...
+# Subtest: purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+ok 32 - purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+  ---
+  duration_ms: 0.995083
+  type: 'test'
+  ...
+# Subtest: pricing presents current prices without an unconfigured price deadline or inferred human demand
+ok 33 - pricing presents current prices without an unconfigured price deadline or inferred human demand
+  ---
+  duration_ms: 0.817
+  type: 'test'
+  ...
+# Subtest: the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+ok 34 - the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+  ---
+  duration_ms: 0.881625
+  type: 'test'
+  ...
+1..34
+# tests 34
+# suites 0
+# pass 34
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 153.130917

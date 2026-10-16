@@ -1,0 +1,12 @@
+{"at": "2026-10-16T00:37:28.253837+00:00", "path": "/Users/mike/mcp-servers-work/match-round", "bytes": 0, "open_handles": false, "scope": "task-created local round storage"}
+{"at": "2026-10-16T00:38:37.710064+00:00", "path": "/Users/mike/mcp-servers-work/match-billing-tests.log", "bytes": 20751, "open_handles": false, "scope": "task-created integration scratch"}
+{"at": "2026-10-16T00:38:37.937708+00:00", "path": "/Users/mike/mcp-servers-work/match-all-adjacent-tests.log", "bytes": 70047, "open_handles": false, "scope": "task-created integration scratch"}
+{"at": "2026-10-16T00:38:38.128275+00:00", "path": "/Users/mike/mcp-servers-work/match-demo-preview.png", "bytes": 41614, "open_handles": false, "scope": "task-created integration scratch"}
+{"at": "2026-10-16T00:38:38.342090+00:00", "path": "/Users/mike/mcp-servers-work/match-release-check-current.log", "bytes": 32796, "open_handles": false, "scope": "task-created integration scratch"}
+{"at": "2026-10-16T00:38:38.546355+00:00", "path": "/Users/mike/mcp-servers-work/match-pages.log", "bytes": 949, "open_handles": false, "scope": "task-created integration scratch"}
+{"at": "2026-10-16T00:38:38.766503+00:00", "path": "/Users/mike/mcp-servers-work/match-release-check-initial.log", "bytes": 0, "open_handles": false, "scope": "task-created integration scratch"}
+{"at": "2026-10-16T00:38:38.973128+00:00", "path": "/Users/mike/mcp-servers-work/match-release-check-final.log", "bytes": 32430, "open_handles": false, "scope": "task-created integration scratch"}
+{"at": "2026-10-16T00:43:37.715528+00:00", "path": "/Users/mike/mcp-servers-work/match-pagination-release.log", "bytes": 27593, "open_handles": false, "scope": "pagination integration task scratch"}
+{"at": "2026-10-16T00:43:38.040696+00:00", "path": "/Users/mike/mcp-servers-work/match-pagination-tests.log", "bytes": 71831, "open_handles": false, "scope": "pagination integration task scratch"}
+{"at": "2026-10-16T00:43:38.321384+00:00", "path": "/Users/mike/mcp-servers-work/match-pages.log", "bytes": 949, "open_handles": false, "scope": "pagination integration task scratch"}
+{"at": "2026-10-16T00:43:38.691645+00:00", "path": "/Users/mike/mcp-servers-work/match-round", "bytes": 0, "open_handles": false, "scope": "pagination integration task scratch"}

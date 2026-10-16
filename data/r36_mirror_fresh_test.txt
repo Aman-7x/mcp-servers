@@ -1,0 +1,171 @@
+buildslot[11539] 08:09:16: slot 2 acquired: /opt/homebrew/bin/bash -c npm install --ignore-scripts --no-audit --no-fund --prefer-offline && npm run build && npm test
+
+added 100 packages in 4s
+
+> @theluckystrike/mcp-three-way-match@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-three-way-match@0.22.6 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: package, runtime version and all local registry descriptors agree
+ok 1 - package, runtime version and all local registry descriptors agree
+  ---
+  duration_ms: 1.873417
+  type: 'test'
+  ...
+# Subtest: release and operational files are present; source does not open network connections
+ok 2 - release and operational files are present; source does not open network connections
+  ---
+  duration_ms: 1.591542
+  type: 'test'
+  ...
+# Subtest: matched goods are deterministic and carry source evidence
+ok 3 - matched goods are deterministic and carry source evidence
+  ---
+  duration_ms: 6.51975
+  type: 'test'
+  ...
+# Subtest: offsetting receipt SKUs cannot hide behind equal totals
+ok 4 - offsetting receipt SKUs cannot hide behind equal totals
+  ---
+  duration_ms: 0.841083
+  type: 'test'
+  ...
+# Subtest: offsetting unit price changes cannot hide behind equal totals
+ok 5 - offsetting unit price changes cannot hide behind equal totals
+  ---
+  duration_ms: 0.669667
+  type: 'test'
+  ...
+# Subtest: rejected units never support billing; multiple receipts accumulate accepted separately
+ok 6 - rejected units never support billing; multiple receipts accumulate accepted separately
+  ---
+  duration_ms: 0.983292
+  type: 'test'
+  ...
+# Subtest: partial invoice can match and omitted PO SKU is allowed
+ok 7 - partial invoice can match and omitted PO SKU is allowed
+  ---
+  duration_ms: 1.368333
+  type: 'test'
+  ...
+# Subtest: zero receipts and explicit zero acceptance cannot produce matched billing
+ok 8 - zero receipts and explicit zero acceptance cannot produce matched billing
+  ---
+  duration_ms: 1.1185
+  type: 'test'
+  ...
+# Subtest: prior quantities stop repeat billing within supplied history
+ok 9 - prior quantities stop repeat billing within supplied history
+  ---
+  duration_ms: 1.503458
+  type: 'test'
+  ...
+# Subtest: currency, supplier, PO and receipt reference mismatch are explicit
+ok 10 - currency, supplier, PO and receipt reference mismatch are explicit
+  ---
+  duration_ms: 0.20575
+  type: 'test'
+  ...
+# Subtest: duplicate SKU in each source or duplicate receipt ref invalidates without double counting
+ok 11 - duplicate SKU in each source or duplicate receipt ref invalidates without double counting
+  ---
+  duration_ms: 0.820916
+  type: 'test'
+  ...
+# Subtest: unknown SKU, missing exact SKU and document ref collisions cannot silently match
+ok 12 - unknown SKU, missing exact SKU and document ref collisions cannot silently match
+  ---
+  duration_ms: 0.532333
+  type: 'test'
+  ...
+# Subtest: calendar dates, whitespace, decimals, negative money and bounds are rejected
+ok 13 - calendar dates, whitespace, decimals, negative money and bounds are rejected
+  ---
+  duration_ms: 0.528125
+  type: 'test'
+  ...
+# Subtest: money arithmetic accepts safe boundary and rejects unsafe products and sums
+ok 14 - money arithmetic accepts safe boundary and rejects unsafe products and sums
+  ---
+  duration_ms: 1.276333
+  type: 'test'
+  ...
+# Subtest: declared invoice amount is checked; CSV quotes commas and blocks formula interpretation
+ok 15 - declared invoice amount is checked; CSV quotes commas and blocks formula interpretation
+  ---
+  duration_ms: 0.864666
+  type: 'test'
+  ...
+# Subtest: 500-line diagnostic is free of any licensing dependency
+ok 16 - 500-line diagnostic is free of any licensing dependency
+  ---
+  duration_ms: 177.856417
+  type: 'test'
+  ...
+# Subtest: 100 receipts with 500 distinct unordered SKUs preserve every line of evidence
+ok 17 - 100 receipts with 500 distinct unordered SKUs preserve every line of evidence
+  ---
+  duration_ms: 824.151166
+  type: 'test'
+  ...
+# Subtest: default SDK transport retrieves every issue and SKU from 50,000 receipt rows, saved and free previews
+ok 18 - default SDK transport retrieves every issue and SKU from 50,000 receipt rows, saved and free previews
+  ---
+  duration_ms: 15451.7455
+  type: 'test'
+  ...
+# Subtest: large CSV automatically paginates through the default SDK instead of overflowing its receive buffer
+ok 19 - large CSV automatically paginates through the default SDK instead of overflowing its receive buffer
+  ---
+  duration_ms: 3040.7645
+  type: 'test'
+  ...
+# Subtest: 50,000 receipt entries for a single ambiguous SKU page without oversized line rows; expired previews fail clearly
+ok 20 - 50,000 receipt entries for a single ambiguous SKU page without oversized line rows; expired previews fail clearly
+  ---
+  duration_ms: 844.724625
+  type: 'test'
+  ...
+# Subtest: stdio initializes, exposes exact tools, diagnoses offsets, gates only saving and supports report CRUD/CSV
+ok 21 - stdio initializes, exposes exact tools, diagnoses offsets, gates only saving and supports report CRUD/CSV
+  ---
+  duration_ms: 1860.881209
+  type: 'test'
+  ...
+# Subtest: file lock serializes concurrent saves; Pro removes only save cap, with safe IDs
+ok 22 - file lock serializes concurrent saves; Pro removes only save cap, with safe IDs
+  ---
+  duration_ms: 795.145667
+  type: 'test'
+  ...
+# Subtest: independent processes cannot exceed the free saved-report cap
+ok 23 - independent processes cannot exceed the free saved-report cap
+  ---
+  duration_ms: 1215.459542
+  type: 'test'
+  ...
+# Subtest: saved evidence is private and atomic; reads recompute edited derived fields and reject invalid sources
+ok 24 - saved evidence is private and atomic; reads recompute edited derived fields and reject invalid sources
+  ---
+  duration_ms: 418.033958
+  type: 'test'
+  ...
+# Subtest: relative paths, non-directories and symlink directory ancestry fail without writes
+ok 25 - relative paths, non-directories and symlink directory ancestry fail without writes
+  ---
+  duration_ms: 325.981625
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18934.114167

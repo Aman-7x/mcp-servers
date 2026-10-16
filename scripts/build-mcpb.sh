@@ -11,6 +11,8 @@
 # own package.json: the whole @theluckystrike closure is vendored into
 # server/node_modules/@theluckystrike/<pkg>/, and their non-@theluckystrike runtime deps
 # are merged into the temporary server/package.json so one npm install covers everything.
+# Pass --only <server> to build one standalone bundle, or --only office-suite
+# to rebuild only the aggregator with every available child.
 set -euo pipefail
 
 ROOT="/Users/mike/mcp-servers"
@@ -42,12 +44,13 @@ done
 BUNDLES="$ROOT/bundles"
 mkdir -p "$BUNDLES"
 
-MCPB="npx -y @anthropic-ai/mcpb"
+MCPB="npx -y @anthropic-ai/mcpb@2.1.2"
 LIC_SRC="$ROOT/packages/mcp-license"
 
-SERVERS="time-tracker price-tracker spreadsheet invoice expense-tracker currency timezone docx resume recurring clauses pdf calendar kanban image bank-statement quotes barcode zip billing-docs deposits per-diem asset-register statement-of-account cash-book amortization petty-cash work-order catalogue change-order delivery-schedule packing-list checklist bill-of-sale credit-note job-card dunning-letters supplier-list service-agreement maintenance-log mileage-log purchase-requisition goods-receipt onboarding leave backlink-checker hourly-rate"
+SERVERS="time-tracker price-tracker spreadsheet invoice expense-tracker currency timezone docx resume recurring clauses pdf calendar kanban image bank-statement quotes barcode zip billing-docs deposits per-diem asset-register statement-of-account cash-book amortization petty-cash work-order catalogue change-order delivery-schedule packing-list checklist bill-of-sale credit-note job-card dunning-letters supplier-list service-agreement maintenance-log mileage-log purchase-requisition goods-receipt onboarding leave backlink-checker hourly-rate three-way-match"
 
 declare -A DISPLAY_NAME=(
+  [three-way-match]="Three-Way Invoice Match"
   [time-tracker]="Time Tracker"
   [price-tracker]="Price Tracker"
   [spreadsheet]="Spreadsheet"
@@ -98,6 +101,7 @@ declare -A DISPLAY_NAME=(
 )
 
 declare -A KEYWORDS=(
+  [three-way-match]='["mcp","three-way-matching","supplier-invoice","purchase-order","goods-receipt","accounts-payable"]'
   [time-tracker]='["mcp","model-context-protocol","time-tracking","timesheet","invoicing","freelance"]'
   [price-tracker]='["mcp","model-context-protocol","price-tracking","price-drop","shopping","deals"]'
   [spreadsheet]='["mcp","spreadsheet","xlsx","csv","excel","modelcontextprotocol"]'
@@ -196,7 +200,7 @@ closure_of() {
 vendor_one() {
   local pkg="$1" src="$2" nm="$3"
   local dest="$nm/@theluckystrike/${pkg#@theluckystrike/}"
-  rm -rf "$dest"
+  node "$ROOT/scripts/remove-build-output.mjs" "$dest"
   mkdir -p "$dest"
   cp -R "$src/dist" "$dest/dist"
   node -e '
@@ -241,9 +245,29 @@ merged_deps_json() {
   ' "$@"
 }
 
+# Select a single known server before any bundle directory is changed. The default
+# remains the full fleet plus office-suite. Never publish an office suite containing
+# only the selected child.
+SINGLE_BUNDLE=0
+if [ "$#" -gt 0 ]; then
+  if [ "$#" -ne 2 ] || [ "$1" != "--only" ]; then
+    echo "Usage: $0 [--only <server>]" >&2; exit 2
+  fi
+  if [ "$2" = "office-suite" ]; then
+    SINGLE_BUNDLE=2
+  else
+  case " $SERVERS " in
+    *" $2 "*) SERVERS="$2"; SINGLE_BUNDLE=1 ;;
+    *) echo "Unknown standalone server: $2" >&2; exit 2 ;;
+  esac
+  fi
+fi
+BUILD_SERVERS="$SERVERS"
+if [ "$SINGLE_BUNDLE" = "2" ]; then BUILD_SERVERS=""; fi
+
 # ------------------------------------------------------------ per-server bundles
 
-for NAME in $SERVERS; do
+for NAME in $BUILD_SERVERS; do
   SRC_DIR="$ROOT/servers/$NAME"
   OUT_DIR="$BUNDLES/$NAME"
   PKG_JSON="$SRC_DIR/package.json"
@@ -267,7 +291,7 @@ for NAME in $SERVERS; do
   done <<< "$CLOSURE"
   echo "    vendored siblings: ${CLOSURE_PKGS:-none}"
 
-  rm -rf "$OUT_DIR"
+  node "$ROOT/scripts/remove-build-output.mjs" "$OUT_DIR"
   mkdir -p "$OUT_DIR/server"
 
   # 1. Copy dist -> server/
@@ -307,13 +331,15 @@ for NAME in $SERVERS; do
 
   # 7. Validate + pack
   ( cd "$OUT_DIR" && $MCPB validate manifest.json ) 2>&1 | tee "$OUT_DIR/.validate.log"
-  rm -f "$BUNDLES/$NAME.mcpb"
+  node "$ROOT/scripts/remove-build-output.mjs" "$BUNDLES/$NAME.mcpb"
   ( cd "$OUT_DIR" && $MCPB pack . "$BUNDLES/$NAME.mcpb" ) 2>&1 | tee "$OUT_DIR/.pack.log"
 
   echo "--- $NAME done: $(du -h "$BUNDLES/$NAME.mcpb" | cut -f1) ---"
 done
 
 # ------------------------------------------------------------------ office-suite
+
+if [ "$SINGLE_BUNDLE" = "1" ]; then exit 0; fi
 
 echo "=== office-suite ==="
 # office-suite proxies the servers above as stdio children, resolved by
@@ -346,7 +372,7 @@ echo "office-suite children: $CHILDREN"
 OS_VERSION=$(node -e "console.log(require('$OS_PKG_JSON').version)")
 OS_DESCRIPTION=$(node -e "console.log(require('$OS_PKG_JSON').description)")
 
-rm -rf "$OS_OUT_DIR"
+node "$ROOT/scripts/remove-build-output.mjs" "$OS_OUT_DIR"
 mkdir -p "$OS_OUT_DIR/server"
 
 # 1. Copy office-suite's own dist -> server/
@@ -393,32 +419,21 @@ vendor_closure "$OS_OUT_DIR/server/node_modules" "$OS_CLOSURE"
 # npm install may have removed/altered the vendored @theluckystrike/* dirs; restore them last.
 vendor_closure "$OS_OUT_DIR/server/node_modules" "$OS_CLOSURE"
 
-# 5. Extract tool name/description pairs: union of every child's registerTool() calls in
-#    src/index.ts, plus the two shared license tools once (extract-tools.mjs appends them
-#    for each child; dedupe here).
-OS_TOOL_ARGS=()
-for CHILD in $CHILDREN; do
-  OS_TOOL_ARGS+=("$(node "$ROOT/scripts/extract-tools.mjs" "$ROOT/servers/$CHILD/src/index.ts" "$LIC_SRC/dist/index.js")")
-done
-OS_TOOLS_JSON=$(node -e "
-  const seen = new Map();
-  for (const json of process.argv.slice(1)) {
-    for (const tool of JSON.parse(json)) {
-      if (!seen.has(tool.name)) seen.set(tool.name, tool);
-    }
-  }
-  process.stdout.write(JSON.stringify([...seen.values()]));
-" "${OS_TOOL_ARGS[@]}")
+# 5. Measure the built proxy itself: collisions receive child prefixes at runtime,
+#    and several child tools register through helpers that source regexes omit.
+OS_TOOLS_JSON=$(node "$ROOT/scripts/runtime-tool-inventory.mjs" "$OS_OUT_DIR/server/index.js")
+node -e 'const fs=require("fs"); fs.writeFileSync(process.argv[1],JSON.stringify({measured_at:new Date().toISOString(),method:"MCP stdio tools/list from the built office-suite entry",children:process.argv[3].trim().split(/\s+/).sort(),tools:JSON.parse(process.argv[2])},null,2)+"\n")' \
+  "$ROOT/data/office-suite-tool-inventory.json" "$OS_TOOLS_JSON" "$CHILDREN"
 
 # 6. Write manifest.json
 node "$ROOT/scripts/gen-manifest.mjs" \
-  "office-suite" "Office Suite (all five servers)" "$OS_VERSION" "$OS_DESCRIPTION" \
+  "office-suite" "Office Suite ($(wc -w <<< "$CHILDREN" | tr -d ' ') local servers)" "$OS_VERSION" "$OS_DESCRIPTION" \
   '["mcp","model-context-protocol","office","bundle","time-tracking","timesheet","price-tracking","price-drop","shopping","deals","spreadsheet","xlsx","csv","excel","invoice","invoicing","pdf","vat","expenses","receipts","mileage","freelance"]' \
   "$OS_TOOLS_JSON" "$OS_OUT_DIR/manifest.json"
 
 # 7. Validate + pack
 ( cd "$OS_OUT_DIR" && $MCPB validate manifest.json ) 2>&1 | tee "$OS_OUT_DIR/.validate.log"
-rm -f "$BUNDLES/office-suite.mcpb"
+node "$ROOT/scripts/remove-build-output.mjs" "$BUNDLES/office-suite.mcpb"
 ( cd "$OS_OUT_DIR" && $MCPB pack . "$BUNDLES/office-suite.mcpb" ) 2>&1 | tee "$OS_OUT_DIR/.pack.log"
 
 echo "--- office-suite done: $(du -h "$BUNDLES/office-suite.mcpb" | cut -f1) ---"

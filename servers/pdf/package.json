@@ -46,7 +46,7 @@
   "homepage": "https://github.com/theluckystrike/mcp-servers/tree/main/servers/pdf",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
-    "@theluckystrike/mcp-license": "^0.22.5",
+    "@theluckystrike/mcp-license": "^0.22.6",
     "pdf-lib": "^1.17.1",
     "zod": "^3.25.0"
   },

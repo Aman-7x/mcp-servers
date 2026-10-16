@@ -1,0 +1,123 @@
+sync-versions: 0 file(s) written
+=== three-way-match ===
+    vendored siblings: @theluckystrike/mcp-license @theluckystrike/mcp-timezone
+Manifest schema validation passes!
+Validating manifest...
+Manifest schema validation passes!
+
+📦  mcp-three-way-match@0.22.6
+Archive Contents
+   3.1kB manifest.json
+  10.1kB server/core.js
+   6.1kB server/index.js
+  41.6kB server/node_modules/.package-lock.json
+   4.8kB server/output.js
+    185B server/package.json
+   4.1kB server/store.js
+    122B server/version.js
+    985B server/node_modules/.bin/node-which
+ 135.1kB server/node_modules/@hono/ [and 29 more files]
+   1.6MB server/node_modules/@modelcontextprotocol/ [and 179 more files]
+ 126.8kB server/node_modules/@theluckystrike/ [and 12 more files]
+  16.5kB server/node_modules/accepts/ [and 5 more files]
+  42.6kB server/node_modules/ajv-formats/ [and 9 more files]
+ 660.8kB server/node_modules/ajv/ [and 254 more files]
+  51.8kB server/node_modules/body-parser/ [and 14 more files]
+  12.0kB server/node_modules/bytes/ [and 5 more files]
+  12.2kB server/node_modules/call-bind-apply-helpers/ [and 12 more files]
+  11.8kB server/node_modules/call-bound/ [and 7 more files]
+  21.7kB server/node_modules/content-disposition/ [and 4 more files]
+  10.2kB server/node_modules/content-type/ [and 5 more files]
+   4.9kB server/node_modules/cookie-signature/ [and 5 more files]
+  22.8kB server/node_modules/cookie/ [and 5 more files]
+  19.5kB server/node_modules/cors/ [and 4 more files]
+  15.7kB server/node_modules/cross-spawn/ [and 9 more files]
+  41.8kB server/node_modules/debug/ [and 7 more files]
+  26.5kB server/node_modules/depd/ [and 6 more files]
+  12.1kB server/node_modules/dunder-proto/ [and 10 more files]
+   6.1kB server/node_modules/ee-first/ [and 4 more files]
+   6.8kB server/node_modules/encodeurl/ [and 4 more files]
+   9.5kB server/node_modules/es-define-property/ [and 7 more files]
+   8.4kB server/node_modules/es-errors/ [and 13 more files]
+  10.7kB server/node_modules/es-object-atoms/ [and 10 more files]
+   3.6kB server/node_modules/escape-html/ [and 4 more files]
+  10.6kB server/node_modules/etag/ [and 5 more files]
+  60.0kB server/node_modules/eventsource-parser/ [and 15 more files]
+  74.6kB server/node_modules/eventsource/ [and 10 more files]
+ 129.3kB server/node_modules/express-rate-limit/ [and 7 more files]
+  85.1kB server/node_modules/express/ [and 14 more files]
+  12.4kB server/node_modules/fast-deep-equal/ [and 7 more files]
+ 214.0kB server/node_modules/fast-uri/ [and 42 more files]
+  17.7kB server/node_modules/finalhandler/ [and 5 more files]
+   5.7kB server/node_modules/forwarded/ [and 5 more files]
+  10.0kB server/node_modules/fresh/ [and 5 more files]
+  30.1kB server/node_modules/function-bind/ [and 9 more files]
+  44.7kB server/node_modules/get-intrinsic/ [and 7 more files]
+   9.9kB server/node_modules/get-proto/ [and 9 more files]
+   9.1kB server/node_modules/gopd/ [and 8 more files]
+  22.3kB server/node_modules/has-symbols/ [and 11 more files]
+   9.7kB server/node_modules/hasown/ [and 7 more files]
+ 887.9kB server/node_modules/hono/ [and 385 more files]
+  18.6kB server/node_modules/http-errors/ [and 5 more files]
+ 325.5kB server/node_modules/iconv-lite/ [and 25 more files]
+   3.9kB server/node_modules/inherits/ [and 5 more files]
+ 155.2kB server/node_modules/ip-address/ [and 12 more files]
+  38.3kB server/node_modules/ipaddr.js/ [and 5 more files]
+   2.8kB server/node_modules/is-promise/ [and 5 more files]
+  10.7kB server/node_modules/isexe/ [and 8 more files]
+ 130.2kB server/node_modules/jose/ [and 49 more files]
+  21.0kB server/node_modules/json-schema-traverse/ [and 11 more files]
+  43.9kB server/node_modules/json-schema-typed/ [and 6 more files]
+  15.9kB server/node_modules/math-intrinsics/ [and 21 more files]
+   9.1kB server/node_modules/media-typer/ [and 5 more files]
+   3.7kB server/node_modules/merge-descriptors/ [and 4 more files]
+ 220.3kB server/node_modules/mime-db/ [and 6 more files]
+  22.3kB server/node_modules/mime-types/ [and 6 more files]
+   6.6kB server/node_modules/ms/ [and 4 more files]
+  34.1kB server/node_modules/negotiator/ [and 13 more files]
+   5.4kB server/node_modules/object-assign/ [and 4 more files]
+  99.0kB server/node_modules/object-inspect/ [and 32 more files]
+  13.4kB server/node_modules/on-finished/ [and 5 more files]
+   4.0kB server/node_modules/once/ [and 4 more files]
+  10.1kB server/node_modules/parseurl/ [and 5 more files]
+   3.4kB server/node_modules/path-key/ [and 4 more files]
+  24.3kB server/node_modules/path-to-regexp/ [and 4 more files]
+  16.2kB server/node_modules/pkce-challenge/ [and 8 more files]
+  15.9kB server/node_modules/proxy-addr/ [and 5 more files]
+ 408.2kB server/node_modules/qs/ [and 18 more files]
+   8.8kB server/node_modules/range-parser/ [and 5 more files]
+  15.8kB server/node_modules/raw-body/ [and 4 more files]
+   3.3kB server/node_modules/require-from-string/ [and 4 more files]
+  45.8kB server/node_modules/router/ [and 7 more files]
+  41.3kB server/node_modules/safer-buffer/ [and 7 more files]
+  31.4kB server/node_modules/send/ [and 4 more files]
+  14.0kB server/node_modules/serve-static/ [and 4 more files]
+   3.8kB server/node_modules/setprototypeof/ [and 5 more files]
+   2.5kB server/node_modules/shebang-command/ [and 4 more files]
+   2.3kB server/node_modules/shebang-regex/ [and 4 more files]
+  14.9kB server/node_modules/side-channel-list/ [and 7 more files]
+  12.0kB server/node_modules/side-channel-map/ [and 7 more files]
+  13.3kB server/node_modules/side-channel-weakmap/ [and 7 more files]
+  21.2kB server/node_modules/side-channel/ [and 7 more files]
+  12.2kB server/node_modules/statuses/ [and 6 more files]
+   4.6kB server/node_modules/toidentifier/ [and 5 more files]
+  31.0kB server/node_modules/type-is/ [and 9 more files]
+   4.2kB server/node_modules/unpipe/ [and 5 more files]
+   8.5kB server/node_modules/vary/ [and 5 more files]
+   9.7kB server/node_modules/which/ [and 6 more files]
+   2.9kB server/node_modules/wrappy/ [and 4 more files]
+ 194.2kB server/node_modules/zod-to-json-schema/ [and 91 more files]
+   3.2MB server/node_modules/zod/ [and 508 more files]
+
+Archive Details
+name: mcp-three-way-match
+version: 0.22.6
+filename: mcp-three-way-match-0.22.6.mcpb
+package size: 3.1MB
+unpacked size: 9.8MB
+shasum: 5da7da72765de996577912e28327b433aee60a51
+total files: 2177
+ignored (.mcpbignore) files: 1264
+
+Output: /Users/mike/mcp-servers/bundles/three-way-match.mcpb
+--- three-way-match done: 3.1M ---

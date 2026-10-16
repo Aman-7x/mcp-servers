@@ -1,0 +1,84 @@
+{
+  "manifest_version": "0.2",
+  "name": "mcp-three-way-match",
+  "display_name": "Three-Way Invoice Match",
+  "version": "0.22.6",
+  "description": "Match supplier invoice lines to purchase orders and accepted receipts by SKU with local evidence.",
+  "author": {
+    "name": "theluckystrike",
+    "url": "https://github.com/theluckystrike"
+  },
+  "privacy_policies": [
+    "https://mcp.zovo.one/privacy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/mcp-servers"
+  },
+  "homepage": "https://mcp.zovo.one",
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "MCP_LICENSE_KEY": "${user_config.license_key}"
+      }
+    }
+  },
+  "user_config": {
+    "license_key": {
+      "type": "string",
+      "title": "License key",
+      "description": "Optional Pro license key (format MCPL1.xxx.yyy). Leave blank to use the free tier.",
+      "sensitive": true,
+      "required": false
+    }
+  },
+  "tools": [
+    {
+      "name": "three_way_match",
+      "description": "Compare up to 500 PO/invoice lines by exact SKU, accepted receipts and prior billed quantities. Returns source evidence and exceptions, including offsetting errors. All diagnosis is free; save optionally."
+    },
+    {
+      "name": "report_list",
+      "description": "List saved report ids, timestamps, document references, status and issue counts. Free on both tiers; paginated, up to 100 reports per call."
+    },
+    {
+      "name": "report_get",
+      "description": "Read a saved report with source documents, per-SKU evidence and all exceptions. Free on both tiers."
+    },
+    {
+      "name": "report_page",
+      "description": "Read free pages of large report issues, SKU rows or original source rows. Use report_id from the paginated overview. Unsaved previews expire after 30 minutes and keep only the last two large checks."
+    },
+    {
+      "name": "report_delete",
+      "description": "Delete one saved report by id, freeing a free-tier storage slot. Does not alter source documents or prior invoice history."
+    },
+    {
+      "name": "report_export_csv",
+      "description": "Return CSV of saved SKU quantities, prices and issues. Large CSVs paginate; follow next_offset with offset. Formula-like text is escaped. Full source evidence uses report_get/report_page."
+    },
+    {
+      "name": "license_status",
+      "description": "Report this server's licence state: product, tier free or pro, licence id, expiry, the key source and the upgrade URL. No arguments, no network. Explains a free-tier refusal; license_activate installs a key."
+    },
+    {
+      "name": "license_activate",
+      "description": "Activate a Pro key (MCPL1.xxx.yyy) from checkout: verified offline against a built-in public key, saved to your config file. A wrong, malformed or expired key is refused, unsaved. license_status reads it back."
+    }
+  ],
+  "keywords": [
+    "mcp",
+    "three-way-matching",
+    "supplier-invoice",
+    "purchase-order",
+    "goods-receipt",
+    "accounts-payable"
+  ]
+}

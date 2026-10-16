@@ -1,3 +1,9 @@
+# Historical directory submission copy
+
+Use these drafts only in an invited submission form or a contribution PR that
+accepts entries. They do not establish email consent. For any requested email,
+record the recipient's actual request first; Resend prohibits cold outreach.
+
 # Directory outreach templates — mike@zovo.one
 
 Plain text. Personalize {{directory}} and {{server}} (pick ONE concrete server per directory, matched to that directory's strongest category — e.g. invoice/expense servers for business directories). Send 10/day max in week 1. Keep the unsubscribe line in every email.
