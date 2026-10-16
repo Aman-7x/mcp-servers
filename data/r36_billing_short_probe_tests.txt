@@ -1,0 +1,1184 @@
+TAP version 13
+# Subtest: validTenant accepts only anon_ + 32 lowercase hex
+ok 1 - validTenant accepts only anon_ + 32 lowercase hex
+  ---
+  duration_ms: 2.397416
+  type: 'test'
+  ...
+# Subtest: bindDecision only binds a valid tenant on an already-fulfilled session
+ok 2 - bindDecision only binds a valid tenant on an already-fulfilled session
+  ---
+  duration_ms: 0.912334
+  type: 'test'
+  ...
+# Subtest: bindDecision refuses when fulfilment itself was not ok, regardless of tenant
+ok 3 - bindDecision refuses when fulfilment itself was not ok, regardless of tenant
+  ---
+  duration_ms: 0.197833
+  type: 'test'
+  ...
+# Subtest: bindDecision refuses a missing or malformed tenant
+ok 4 - bindDecision refuses a missing or malformed tenant
+  ---
+  duration_ms: 0.169625
+  type: 'test'
+  ...
+# Subtest: bindDecision never binds a spoofed tenant carried outside metadata
+ok 5 - bindDecision never binds a spoofed tenant carried outside metadata
+  ---
+  duration_ms: 0.13
+  type: 'test'
+  ...
+# Subtest: success page shows the hosted-bound note only when a tenant was actually bound
+ok 6 - success page shows the hosted-bound note only when a tenant was actually bound
+  ---
+  duration_ms: 0.8095
+  type: 'test'
+  ...
+# Subtest: pending hosted binding never claims activation is complete
+ok 7 - pending hosted binding never claims activation is complete
+  ---
+  duration_ms: 0.852375
+  type: 'test'
+  ...
+# Subtest: success page always shows the key regardless of binding
+ok 8 - success page always shows the key regardless of binding
+  ---
+  duration_ms: 0.226667
+  type: 'test'
+  ...
+# Subtest: /bundle is routed
+ok 9 - /bundle is routed
+  ---
+  duration_ms: 0.560875
+  type: 'test'
+  ...
+# Subtest: bundle page title, price math and one CTA
+ok 10 - bundle page title, price math and one CTA
+  ---
+  duration_ms: 0.550584
+  type: 'test'
+  ...
+# Subtest: bundle page lists every server, each linking to its /s/<id> page
+ok 11 - bundle page lists every server, each linking to its /s/<id> page
+  ---
+  duration_ms: 0.365667
+  type: 'test'
+  ...
+# Subtest: bundle page meta description is under 160 chars
+ok 12 - bundle page meta description is under 160 chars
+  ---
+  duration_ms: 0.152
+  type: 'test'
+  ...
+# Subtest: bundle page carries a Product/Offer JSON-LD block
+ok 13 - bundle page carries a Product/Offer JSON-LD block
+  ---
+  duration_ms: 0.182375
+  type: 'test'
+  ...
+# Subtest: sitemap.xml and llms.txt derivation both cover /bundle
+ok 14 - sitemap.xml and llms.txt derivation both cover /bundle
+  ---
+  duration_ms: 34.724625
+  type: 'test'
+  ...
+# Subtest: every generated server page's CTA block cross-sells the bundle, tagged per server
+ok 15 - every generated server page's CTA block cross-sells the bundle, tagged per server
+  ---
+  duration_ms: 0.277625
+  type: 'test'
+  ...
+# Subtest: the home hero links to /bundle
+ok 16 - the home hero links to /bundle
+  ---
+  duration_ms: 0.054125
+  type: 'test'
+  ...
+# Subtest: every release version under docs/ appears on the changelog page
+ok 17 - every release version under docs/ appears on the changelog page
+  ---
+  duration_ms: 44.644375
+  type: 'test'
+  ...
+# Subtest: the newest version renders first in CHANGELOG.releases and on the page
+ok 18 - the newest version renders first in CHANGELOG.releases and on the page
+  ---
+  duration_ms: 4.713208
+  type: 'test'
+  ...
+# Subtest: no sentence on the changelog page is invented: evidence and insight text trace to the release file
+ok 19 - no sentence on the changelog page is invented: evidence and insight text trace to the release file
+  ---
+  duration_ms: 1.858833
+  type: 'test'
+  ...
+# Subtest: meta description is under 160 chars
+ok 20 - meta description is under 160 chars
+  ---
+  duration_ms: 6.496625
+  type: 'test'
+  ...
+# Subtest: footer, sitemap and llms.txt all link to /changelog
+ok 21 - footer, sitemap and llms.txt all link to /changelog
+  ---
+  duration_ms: 8.641167
+  type: 'test'
+  ...
+# Subtest: no product is waiting on a human, and the 503 that said so is gone
+ok 22 - no product is waiting on a human, and the 503 that said so is gone
+  ---
+  duration_ms: 2.530709
+  type: 'test'
+  ...
+# Subtest: every product produces one complete, correctly-priced line item
+ok 23 - every product produces one complete, correctly-priced line item
+  ---
+  duration_ms: 0.44225
+  type: 'test'
+  ...
+# Subtest: the three formerly human-gated products are now priced inline, at $19, under their own names
+ok 24 - the three formerly human-gated products are now priced inline, at $19, under their own names
+  ---
+  duration_ms: 0.070042
+  type: 'test'
+  ...
+# Subtest: firstSentences never cuts a word and never returns more than asked
+ok 25 - firstSentences never cuts a word and never returns more than asked
+  ---
+  duration_ms: 0.176583
+  type: 'test'
+  ...
+# Subtest: a payment for an inline-priced product is fulfillable, and the amount is still checked
+ok 26 - a payment for an inline-priced product is fulfillable, and the amount is still checked
+  ---
+  duration_ms: 0.453083
+  type: 'test'
+  ...
+# Subtest: office-suite sells the bundle, because only the bundle key can activate it
+ok 27 - office-suite sells the bundle, because only the bundle key can activate it
+  ---
+  duration_ms: 0.1155
+  type: 'test'
+  ...
+# Subtest: opening a Buy link is side-effect free and renders the explicit checkout step
+ok 28 - opening a Buy link is side-effect free and renders the explicit checkout step
+  ---
+  duration_ms: 26.407208
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+# Subtest: a bounded form order token is carried into Stripe metadata and its idempotency key
+ok 29 - a bounded form order token is carried into Stripe metadata and its idempotency key
+  ---
+  duration_ms: 15.044458
+  type: 'test'
+  ...
+# Subtest: a forged or incomplete POST creates no Stripe Checkout Session
+ok 30 - a forged or incomplete POST creates no Stripe Checkout Session
+  ---
+  duration_ms: 4.708709
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"bundle","source":"store.office-suite","probe":false,"request_method":"POST"}
+# Subtest: /buy/office-suite reaches a Stripe checkout for the bundle, priced at $39
+ok 31 - /buy/office-suite reaches a Stripe checkout for the bundle, priced at $39
+  ---
+  duration_ms: 5.903083
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"catalogue","source":"store.home.table.catalogue","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"change-order","source":"store.home.table.change-order","probe":false,"request_method":"POST"}
+# Subtest: each formerly 503 product now reaches Stripe with its own inline price
+ok 32 - each formerly 503 product now reaches Stripe with its own inline price
+  ---
+  duration_ms: 4.141
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"synthetic-server-r1","source":"store.home.table.synthetic","probe":false,"request_method":"POST"}
+# Subtest: a server added tomorrow gets a checkout on deploy, with no Stripe dashboard step
+ok 33 - a server added tomorrow gets a checkout on deploy, with no Stripe dashboard step
+  ---
+  duration_ms: 5.711542
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.home.table.invoice","probe":false,"request_method":"POST"}
+# Subtest: a browser that sends no User-Agent still reaches checkout
+ok 34 - a browser that sends no User-Agent still reaches checkout
+  ---
+  duration_ms: 2.08325
+  type: 'test'
+  ...
+# Subtest: a crawler with no User-Agent still creates no Stripe session
+ok 35 - a crawler with no User-Agent still creates no Stripe session
+  ---
+  duration_ms: 0.269083
+  type: 'test'
+  ...
+# Subtest: a crawler on an alias sees an intent page but creates no Stripe Session
+ok 36 - a crawler on an alias sees an intent page but creates no Stripe Session
+  ---
+  duration_ms: 4.622958
+  type: 'test'
+  ...
+# Subtest: an unknown product is a dead end no longer: it names the bundle and charges nothing
+ok 37 - an unknown product is a dead end no longer: it names the bundle and charges nothing
+  ---
+  duration_ms: 1.46875
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+# Subtest: a real click is recorded before the redirect, and a probe is not
+ok 38 - a real click is recorded before the redirect, and a probe is not
+  ---
+  duration_ms: 10.787416
+  type: 'test'
+  ...
+# Subtest: the IndexNow key file serves its key and nothing else
+ok 39 - the IndexNow key file serves its key and nothing else
+  ---
+  duration_ms: 0.898291
+  type: 'test'
+  ...
+# Subtest: robots.txt keeps every crawler allowed
+ok 40 - robots.txt keeps every crawler allowed
+  ---
+  duration_ms: 0.281083
+  type: 'test'
+  ...
+# Subtest: GSC + Bing verification routes serve a code when one is supplied, and 404 when unset
+ok 41 - GSC + Bing verification routes serve a code when one is supplied, and 404 when unset
+  ---
+  duration_ms: 0.251083
+  type: 'test'
+  ...
+# Subtest: llms.txt lists every product with a URL and a description
+ok 42 - llms.txt lists every product with a URL and a description
+  ---
+  duration_ms: 2.763125
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+# Subtest: a probe reads back what Stripe stored, and a buyer sees none of it
+ok 43 - a probe reads back what Stripe stored, and a buyer sees none of it
+  ---
+  duration_ms: 5.25675
+  type: 'test'
+  ...
+# Subtest: install links use the asset catalog rather than assuming latest contains every bundle
+ok 44 - install links use the asset catalog rather than assuming latest contains every bundle
+  ---
+  duration_ms: 0.541458
+  type: 'test'
+  ...
+# Subtest: VALIDATION and BILLING_TEST_COUNT match the files they claim to report
+ok 45 - VALIDATION and BILLING_TEST_COUNT match the files they claim to report
+  ---
+  duration_ms: 129.957458
+  type: 'test'
+  ...
+# Subtest: the home page and /bundle no longer state the npx line without the disclosure
+ok 46 - the home page and /bundle no longer state the npx line without the disclosure
+  ---
+  duration_ms: 4.293375
+  type: 'test'
+  ...
+# Subtest: the success page leads with an install path that works, not with a command that 404s
+ok 47 - the success page leads with an install path that works, not with a command that 404s
+  ---
+  duration_ms: 0.419375
+  type: 'test'
+  ...
+# Subtest: a click on a dead /buy/ link is counted, so the leak is measurable
+ok 48 - a click on a dead /buy/ link is counted, so the leak is measurable
+  ---
+  duration_ms: 0.983625
+  type: 'test'
+  ...
+# Subtest: the catalogue is the single servers plus the bundle, and the saving is their sum less $39
+ok 49 - the catalogue is the single servers plus the bundle, and the saving is their sum less $39
+  ---
+  duration_ms: 0.589458
+  type: 'test'
+  ...
+# Subtest: the bundle description names the count, the one key and the saving
+ok 50 - the bundle description names the count, the one key and the saving
+  ---
+  duration_ms: 2.71875
+  type: 'test'
+  ...
+# Subtest: every single-server description names the product and prices the bundle
+ok 51 - every single-server description names the product and prices the bundle
+  ---
+  duration_ms: 0.162833
+  type: 'test'
+  ...
+# Subtest: an unknown product cannot silently produce empty checkout copy
+ok 52 - an unknown product cannot silently produce empty checkout copy
+  ---
+  duration_ms: 0.724709
+  type: 'test'
+  ...
+# Subtest: custom_text.submit cross-sells the bundle on a single-server session, tagged
+ok 53 - custom_text.submit cross-sells the bundle on a single-server session, tagged
+  ---
+  duration_ms: 0.139833
+  type: 'test'
+  ...
+# Subtest: the cross-sell tags are shapes the /buy route's validSrc will accept
+ok 54 - the cross-sell tags are shapes the /buy route's validSrc will accept
+  ---
+  duration_ms: 0.572542
+  type: 'test'
+  ...
+# Subtest: custom_text.after_submit says how the key arrives and that hosted tenants are bound
+ok 55 - custom_text.after_submit says how the key arrives and that hosted tenants are bound
+  ---
+  duration_ms: 0.123167
+  type: 'test'
+  ...
+# Subtest: Stripe caps a custom_text message at 1200 characters
+ok 56 - Stripe caps a custom_text message at 1200 characters
+  ---
+  duration_ms: 0.156875
+  type: 'test'
+  ...
+# Subtest: the session builder sends both custom_text messages
+ok 57 - the session builder sends both custom_text messages
+  ---
+  duration_ms: 0.308084
+  type: 'test'
+  ...
+# Subtest: promotion codes are off and a Customer is always created for the email
+ok 58 - promotion codes are off and a Customer is always created for the email
+  ---
+  duration_ms: 0.390333
+  type: 'test'
+  ...
+# Subtest: optional_items is never sent: an added item would break the one-line-item rule
+ok 59 - optional_items is never sent: an added item would break the one-line-item rule
+  ---
+  duration_ms: 0.324083
+  type: 'test'
+  ...
+# Subtest: success and cancellation stay on our own host
+ok 60 - success and cancellation stay on our own host
+  ---
+  duration_ms: 0.125584
+  type: 'test'
+  ...
+# Subtest: metadata includes the portfolio attribution contract, probe tag and hosted tenant
+ok 61 - metadata includes the portfolio attribution contract, probe tag and hosted tenant
+  ---
+  duration_ms: 0.245917
+  type: 'test'
+  ...
+# Subtest: validSrc accepts <product>.<slug> and rejects anything that could break a KV key
+ok 62 - validSrc accepts <product>.<slug> and rejects anything that could break a KV key
+  ---
+  duration_ms: 2.806
+  type: 'test'
+  ...
+# Subtest: recordClick increments both the daily bucket and the running total
+ok 63 - recordClick increments both the daily bucket and the running total
+  ---
+  duration_ms: 3.383708
+  type: 'test'
+  ...
+# Subtest: clickStats aggregates per-src totals and the trailing 7-day window, ignoring older daily buckets
+ok 64 - clickStats aggregates per-src totals and the trailing 7-day window, ignoring older daily buckets
+  ---
+  duration_ms: 0.454333
+  type: 'test'
+  ...
+# Subtest: clickStats returns an empty aggregate when no clicks were ever recorded
+ok 65 - clickStats returns an empty aggregate when no clicks were ever recorded
+  ---
+  duration_ms: 0.3585
+  type: 'test'
+  ...
+# Subtest: buyer guide serves the same engine compiled for the browser with fresh source provenance
+ok 66 - buyer guide serves the same engine compiled for the browser with fresh source provenance
+  ---
+  duration_ms: 42.003
+  type: 'test'
+  ...
+# Subtest: download catalog covers every listed server with an explicit release asset
+ok 67 - download catalog covers every listed server with an explicit release asset
+  ---
+  duration_ms: 4.256208
+  type: 'test'
+  ...
+# Subtest: catalogue leads to working setup and labels free-only calculators as free
+ok 68 - catalogue leads to working setup and labels free-only calculators as free
+  ---
+  duration_ms: 6.546708
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":true,"request_method":"POST"}
+# Subtest: short operator probes expire consistently across retries and cannot leave stale cache entries
+ok 69 - short operator probes expire consistently across retries and cannot leave stale cache entries
+  ---
+  duration_ms: 14.807083
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"bundle","source":"store.buy.invoice","probe":false,"request_method":"POST"}
+# Subtest: single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+ok 70 - single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+  ---
+  duration_ms: 3.507917
+  type: 'test'
+  ...
+# Subtest: Stripe's bundle cross-sell carries only a validated hosted token
+ok 71 - Stripe's bundle cross-sell carries only a validated hosted token
+  ---
+  duration_ms: 0.384209
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"checkout.cancel","probe":false,"request_method":"POST"}
+# Subtest: cancelling an expired checkout keeps hosted activation when starting a replacement
+ok 72 - cancelling an expired checkout keeps hosted activation when starting a replacement
+  ---
+  duration_ms: 3.843875
+  type: 'test'
+  ...
+# Subtest: purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+ok 73 - purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+  ---
+  duration_ms: 0.883792
+  type: 'test'
+  ...
+# Subtest: pricing presents current prices without an unconfigured price deadline or inferred human demand
+ok 74 - pricing presents current prices without an unconfigured price deadline or inferred human demand
+  ---
+  duration_ms: 0.906125
+  type: 'test'
+  ...
+# Subtest: the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+ok 75 - the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+  ---
+  duration_ms: 2.047709
+  type: 'test'
+  ...
+# Subtest: the copy-button script is defined exactly once in the page shell
+ok 76 - the copy-button script is defined exactly once in the page shell
+  ---
+  duration_ms: 1.474666
+  type: 'test'
+  ...
+# Subtest: the page shell sets no Content-Security-Policy header (inline script needs none)
+ok 77 - the page shell sets no Content-Security-Policy header (inline script needs none)
+  ---
+  duration_ms: 0.332542
+  type: 'test'
+  ...
+# Subtest: every First five minutes prompt renders as pre.prompt
+ok 78 - every First five minutes prompt renders as pre.prompt
+  ---
+  duration_ms: 1.275542
+  type: 'test'
+  ...
+# Subtest: month-end-close guide: every quoted prompt is a pre.prompt with its paste line
+ok 79 - month-end-close guide: every quoted prompt is a pre.prompt with its paste line
+  ---
+  duration_ms: 0.235
+  type: 'test'
+  ...
+# Subtest: no code sample (install command, JSON config, tool-call syntax) is tagged pre.prompt
+ok 80 - no code sample (install command, JSON config, tool-call syntax) is tagged pre.prompt
+  ---
+  duration_ms: 2.332875
+  type: 'test'
+  ...
+# Subtest: the bundle page carries no unclassed prompt pre
+ok 81 - the bundle page carries no unclassed prompt pre
+  ---
+  duration_ms: 1.57475
+  type: 'test'
+  ...
+# Subtest: content pages carry a live strong ETag header
+ok 82 - content pages carry a live strong ETag header
+  ---
+  duration_ms: 51.815
+  type: 'test'
+  ...
+# Subtest: etag is content-derived: it changes when the body changes
+ok 83 - etag is content-derived: it changes when the body changes
+  ---
+  duration_ms: 3.791292
+  type: 'test'
+  ...
+# Subtest: billing/src/figures.js is what the manifests currently say
+ok 84 - billing/src/figures.js is what the manifests currently say
+  ---
+  duration_ms: 124.516459
+  type: 'test'
+  ...
+# Subtest: the catalogue counts agree with each other
+ok 85 - the catalogue counts agree with each other
+  ---
+  duration_ms: 0.133875
+  type: 'test'
+  ...
+# Subtest: no count of servers on the home page is typed, spelled out, or wrong
+ok 86 - no count of servers on the home page is typed, spelled out, or wrong
+  ---
+  duration_ms: 26.807833
+  type: 'test'
+  ...
+# Subtest: the home page names servers and gives a URL rather than deferring
+ok 87 - the home page names servers and gives a URL rather than deferring
+  ---
+  duration_ms: 2.905625
+  type: 'test'
+  ...
+# Subtest: every round 4 page exists
+ok 88 - every round 4 page exists
+  ---
+  duration_ms: 0.144667
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/which-mcp-servers-work-by-pasting-a-url comes from a file in this repository
+ok 89 - every figure on /guides/which-mcp-servers-work-by-pasting-a-url comes from a file in this repository
+  ---
+  duration_ms: 1.836084
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/paid-mcp-servers-and-how-you-pay-for-one comes from a file in this repository
+ok 90 - every figure on /guides/paid-mcp-servers-and-how-you-pay-for-one comes from a file in this repository
+  ---
+  duration_ms: 0.797625
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/fill-a-quote-or-estimate-template-from-chat comes from a file in this repository
+ok 91 - every figure on /guides/fill-a-quote-or-estimate-template-from-chat comes from a file in this repository
+  ---
+  duration_ms: 1.101833
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/petty-cash-book-and-cash-ledger-mcp-servers comes from a file in this repository
+ok 92 - every figure on /guides/petty-cash-book-and-cash-ledger-mcp-servers comes from a file in this repository
+  ---
+  duration_ms: 6.921
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/currency-conversion-mcp-servers-compared comes from a file in this repository
+ok 93 - every figure on /guides/currency-conversion-mcp-servers-compared comes from a file in this repository
+  ---
+  duration_ms: 1.727
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/zip-and-unzip-mcp-servers-compared comes from a file in this repository
+ok 94 - every figure on /guides/zip-and-unzip-mcp-servers-compared comes from a file in this repository
+  ---
+  duration_ms: 0.275583
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/delivery-schedule-and-work-order-documents-from-mcp comes from a file in this repository
+ok 95 - every figure on /guides/delivery-schedule-and-work-order-documents-from-mcp comes from a file in this repository
+  ---
+  duration_ms: 0.237625
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/will-an-mcp-server-email-the-invoice-to-my-client comes from a file in this repository
+ok 96 - every figure on /guides/will-an-mcp-server-email-the-invoice-to-my-client comes from a file in this repository
+  ---
+  duration_ms: 0.277583
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/can-an-mcp-server-read-a-photo-of-a-receipt comes from a file in this repository
+ok 97 - every figure on /guides/can-an-mcp-server-read-a-photo-of-a-receipt comes from a file in this repository
+  ---
+  duration_ms: 0.589542
+  type: 'test'
+  ...
+# Subtest: every round 4 page states what it cannot do
+ok 98 - every round 4 page states what it cannot do
+  ---
+  duration_ms: 0.42375
+  type: 'test'
+  ...
+# Subtest: every round 4 page carries a paste-in URL or says why it cannot
+ok 99 - every round 4 page carries a paste-in URL or says why it cannot
+  ---
+  duration_ms: 0.157084
+  type: 'test'
+  ...
+# Subtest: no guide spells out a count of servers
+ok 100 - no guide spells out a count of servers
+  ---
+  duration_ms: 3.731
+  type: 'test'
+  ...
+# Subtest: no rendered page spells out a count of servers
+ok 101 - no rendered page spells out a count of servers
+  ---
+  duration_ms: 17.952791
+  type: 'test'
+  ...
+# Subtest: a page carries a First five minutes section exactly when a round has exercised it
+ok 102 - a page carries a First five minutes section exactly when a round has exercised it
+  ---
+  duration_ms: 1.061375
+  type: 'test'
+  ...
+# Subtest: every measured page quotes one to three prompts
+ok 103 - every measured page quotes one to three prompts
+  ---
+  duration_ms: 0.166875
+  type: 'test'
+  ...
+# Subtest: every quoted prompt string exists verbatim in some data/user_value_r*.json
+ok 104 - every quoted prompt string exists verbatim in some data/user_value_r*.json
+  ---
+  duration_ms: 2.163583
+  type: 'test'
+  ...
+# Subtest: the metadata prompts and the rendered prompts are the same list
+ok 105 - the metadata prompts and the rendered prompts are the same list
+  ---
+  duration_ms: 0.466625
+  type: 'test'
+  ...
+# Subtest: each quoted prompt carries the score the round file recorded, in the round the page names
+ok 106 - each quoted prompt carries the score the round file recorded, in the round the page names
+  ---
+  duration_ms: 0.753875
+  type: 'test'
+  ...
+# Subtest: the sentence under each prompt is a substring of that scenario's evidence
+ok 107 - the sentence under each prompt is a substring of that scenario's evidence
+  ---
+  duration_ms: 1.75275
+  type: 'test'
+  ...
+# Subtest: the round each page names is one that scored at least as well as any other round for that server
+ok 108 - the round each page names is one that scored at least as well as any other round for that server
+  ---
+  duration_ms: 0.526292
+  type: 'test'
+  ...
+# Subtest: a page quoting anything below 3 states the score, a page quoting only 3s does not
+ok 109 - a page quoting anything below 3 states the score, a page quoting only 3s does not
+  ---
+  duration_ms: 0.3135
+  type: 'test'
+  ...
+# Subtest: each section names its round and date, and quotes the free tier from data/facts.json
+ok 110 - each section names its round and date, and quotes the free tier from data/facts.json
+  ---
+  duration_ms: 0.633083
+  type: 'test'
+  ...
+# Subtest: the section is plain text a reader can copy, with no unescaped markup from the round data
+ok 111 - the section is plain text a reader can copy, with no unescaped markup from the round data
+  ---
+  duration_ms: 0.582334
+  type: 'test'
+  ...
+# {"event":"checkout_payment_verified","source":"webhook","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","stripe_mode":"unknown","amount_total":1900,"currency":"usd","probe":false}
+# {"event":"checkout_fulfillment","source":"webhook","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","payment_status":"paid","stripe_mode":"unknown","fulfillment_status":"retrying","license_saved":true,"hosted_binding":"retrying"}
+# {"event":"checkout_payment_verified","source":"success_page","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","stripe_mode":"unknown","amount_total":1900,"currency":"usd","probe":false}
+# {"event":"checkout_fulfillment","source":"success_page","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","payment_status":"paid","stripe_mode":"unknown","fulfillment_status":"retrying","license_saved":true,"hosted_binding":"retrying"}
+# {"event":"checkout_payment_verified","source":"success_page","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","stripe_mode":"unknown","amount_total":1900,"currency":"usd","probe":false}
+# {"event":"checkout_fulfillment","source":"success_page","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","payment_status":"paid","stripe_mode":"unknown","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: a hosted bind failure cannot yield a successful webhook or falsely activated page
+ok 112 - a hosted bind failure cannot yield a successful webhook or falsely activated page
+  ---
+  duration_ms: 60.127875
+  type: 'test'
+  ...
+# Subtest: one paid Session keeps the same key when Stripe later supplies customer email
+ok 113 - one paid Session keeps the same key when Stripe later supplies customer email
+  ---
+  duration_ms: 4.434709
+  type: 'test'
+  ...
+# Subtest: Session-derived key identity is stable across workers and unique by Session
+ok 114 - Session-derived key identity is stable across workers and unique by Session
+  ---
+  duration_ms: 5.670084
+  type: 'test'
+  ...
+# {"kind":"fulfillment_retry_scheduled","session_ref":"cd4750efce1a","attempts":1,"error":"bind unavailable"}
+# Subtest: failed hosted bind remains durable and is retried without repeating key persistence
+ok 115 - failed hosted bind remains durable and is retried without repeating key persistence
+  ---
+  duration_ms: 2.134666
+  type: 'test'
+  ...
+# Subtest: a replay cannot replace the durable key or tenant for a Session
+ok 116 - a replay cannot replace the durable key or tenant for a Session
+  ---
+  duration_ms: 0.56825
+  type: 'test'
+  ...
+# {"kind":"fulfillment_retry_scheduled","session_ref":"cd4750efce1a","attempts":1,"error":"license cache unavailable"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"cd4750efce1a","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: license cache failure is retried before a hosted bind is attempted
+ok 117 - license cache failure is retried before a hosted bind is attempted
+  ---
+  duration_ms: 3.3815
+  type: 'test'
+  ...
+# Subtest: \#3 a correctly paid session for the right price is fulfilled
+ok 118 - \#3 a correctly paid session for the right price is fulfilled
+  ---
+  duration_ms: 0.560417
+  type: 'test'
+  ...
+# Subtest: \#3 the cheaper price of another product cannot mint a different entitlement
+ok 119 - \#3 the cheaper price of another product cannot mint a different entitlement
+  ---
+  duration_ms: 0.161042
+  type: 'test'
+  ...
+# Subtest: \#3 a foreign price id in this Stripe account is rejected
+ok 120 - \#3 a foreign price id in this Stripe account is rejected
+  ---
+  duration_ms: 0.065083
+  type: 'test'
+  ...
+# Subtest: \#3 amount_total must equal the expected unit_amount
+ok 121 - \#3 amount_total must equal the expected unit_amount
+  ---
+  duration_ms: 0.055875
+  type: 'test'
+  ...
+# Subtest: \#3 mode, status, currency, quantity and item count are all bound
+ok 122 - \#3 mode, status, currency, quantity and item count are all bound
+  ---
+  duration_ms: 0.140083
+  type: 'test'
+  ...
+# Subtest: \#3 metadata product must match the product being minted
+ok 123 - \#3 metadata product must match the product being minted
+  ---
+  duration_ms: 0.057625
+  type: 'test'
+  ...
+# Subtest: \#3 an unpaid or unhandled payment_status is not fulfilled
+ok 124 - \#3 an unpaid or unhandled payment_status is not fulfilled
+  ---
+  duration_ms: 0.093
+  type: 'test'
+  ...
+# Subtest: \#8 a 100% promotion code is fulfilled only when the discount covers the full price
+ok 125 - \#8 a 100% promotion code is fulfilled only when the discount covers the full price
+  ---
+  duration_ms: 0.121167
+  type: 'test'
+  ...
+# Subtest: \#8 the bundle price binds to 3900
+ok 126 - \#8 the bundle price binds to 3900
+  ---
+  duration_ms: 0.259625
+  type: 'test'
+  ...
+# Subtest: \#9 every v1 value is kept and any match is accepted
+ok 127 - \#9 every v1 value is kept and any match is accepted
+  ---
+  duration_ms: 48.5855
+  type: 'test'
+  ...
+# Subtest: \#10 a nonnumeric timestamp is rejected instead of passing the replay window
+ok 128 - \#10 a nonnumeric timestamp is rejected instead of passing the replay window
+  ---
+  duration_ms: 0.437083
+  type: 'test'
+  ...
+# Subtest: \#10 a stale timestamp is outside the 300 s window
+ok 129 - \#10 a stale timestamp is outside the 300 s window
+  ---
+  duration_ms: 0.083083
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"probe.funnel-r1.control","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"probe.funnel-r1.control","probe":true,"request_method":"POST"}
+# Subtest: CONTROL: one identifiable human click moves the counter by exactly one, and nothing else does
+ok 130 - CONTROL: one identifiable human click moves the counter by exactly one, and nothing else does
+  ---
+  duration_ms: 38.600834
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+# Subtest: a named crawler never has a live Stripe Checkout Session created for it
+ok 131 - a named crawler never has a live Stripe Checkout Session created for it
+  ---
+  duration_ms: 3.037416
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+# Subtest: a /buy hit with no ?src= is bucketed as unattributed and kept out of the headline totals
+ok 132 - a /buy hit with no ?src= is bucketed as unattributed and kept out of the headline totals
+  ---
+  duration_ms: 2.483
+  type: 'test'
+  ...
+# Subtest: v1 click counters are reported apart from v2 and never summed into it
+ok 133 - v1 click counters are reported apart from v2 and never summed into it
+  ---
+  duration_ms: 0.182417
+  type: 'test'
+  ...
+# Subtest: isHumanNavigation is not start-anchored and cannot be defeated by forgetting a header
+ok 134 - isHumanNavigation is not start-anchored and cannot be defeated by forgetting a header
+  ---
+  duration_ms: 0.140167
+  type: 'test'
+  ...
+# Subtest: instrument v3: no Referer means not counted, any-origin Referer counts
+ok 135 - instrument v3: no Referer means not counted, any-origin Referer counts
+  ---
+  duration_ms: 0.085375
+  type: 'test'
+  ...
+# Subtest: instrument v4 (S137): no Sec-Fetch-Site means not counted — the curl walker of 2026-09-23
+ok 136 - instrument v4 (S137): no Sec-Fetch-Site means not counted — the curl walker of 2026-09-23
+  ---
+  duration_ms: 0.272625
+  type: 'test'
+  ...
+# Subtest: no page tells anyone to paste a hosted URL that answers every tool call with 401
+ok 137 - no page tells anyone to paste a hosted URL that answers every tool call with 401
+  ---
+  duration_ms: 6.270916
+  type: 'test'
+  ...
+# Subtest: every free-tier count the storefront advertises is the number the server enforces
+ok 138 - every free-tier count the storefront advertises is the number the server enforces
+  ---
+  duration_ms: 13.50075
+  type: 'test'
+  ...
+# Subtest: the sitemap offers the page that mints the token
+ok 139 - the sitemap offers the page that mints the token
+  ---
+  duration_ms: 2.524625
+  type: 'test'
+  ...
+# Subtest: the product page keeps the price comparison above the fold
+ok 140 - the product page keeps the price comparison above the fold
+  ---
+  duration_ms: 10.877917
+  type: 'test'
+  ...
+# Subtest: the month-end-close guide exists
+ok 141 - the month-end-close guide exists
+  ---
+  duration_ms: 0.424875
+  type: 'test'
+  ...
+# Subtest: every figure in the guide appears in data/user_value_r27.json
+ok 142 - every figure in the guide appears in data/user_value_r27.json
+  ---
+  duration_ms: 10.145792
+  type: 'test'
+  ...
+# Subtest: the old guide slug is gone from GUIDES and the new one replaces it
+ok 143 - the old guide slug is gone from GUIDES and the new one replaces it
+  ---
+  duration_ms: 0.818125
+  type: 'test'
+  ...
+# Subtest: GET /guides/<old slug> 301s to /guides/<new slug>
+ok 144 - GET /guides/<old slug> 301s to /guides/<new slug>
+  ---
+  duration_ms: 41.918416
+  type: 'test'
+  ...
+# Subtest: GET /guides/<new slug> serves the guide directly
+ok 145 - GET /guides/<new slug> serves the guide directly
+  ---
+  duration_ms: 18.36125
+  type: 'test'
+  ...
+# Subtest: the redirect map is source-level wired for the old slug
+ok 146 - the redirect map is source-level wired for the old slug
+  ---
+  duration_ms: 0.202291
+  type: 'test'
+  ...
+# Subtest: /sitemap.xml lists only the new slug, never the old one
+ok 147 - /sitemap.xml lists only the new slug, never the old one
+  ---
+  duration_ms: 3.266041
+  type: 'test'
+  ...
+# Subtest: /llms.txt lists only the new slug, never the old one
+ok 148 - /llms.txt lists only the new slug, never the old one
+  ---
+  duration_ms: 1.353458
+  type: 'test'
+  ...
+# Subtest: HOSTED_SERVERS is exactly the set of servers whose manifest declares a remote
+ok 149 - HOSTED_SERVERS is exactly the set of servers whose manifest declares a remote
+  ---
+  duration_ms: 9.2705
+  type: 'test'
+  ...
+# Subtest: office-suite is never hosted: it spawns local child processes
+ok 150 - office-suite is never hosted: it spawns local child processes
+  ---
+  duration_ms: 0.076625
+  type: 'test'
+  ...
+# Subtest: a well-formed key for the product verifies
+ok 151 - a well-formed key for the product verifies
+  ---
+  duration_ms: 13.0595
+  type: 'test'
+  ...
+# Subtest: a bundle (*) key verifies for any single product
+ok 152 - a bundle (*) key verifies for any single product
+  ---
+  duration_ms: 2.150042
+  type: 'test'
+  ...
+# Subtest: a key for another product is refused with the product named
+ok 153 - a key for another product is refused with the product named
+  ---
+  duration_ms: 0.66925
+  type: 'test'
+  ...
+# Subtest: a signature tampered by one bit is refused
+ok 154 - a signature tampered by one bit is refused
+  ---
+  duration_ms: 1.3775
+  type: 'test'
+  ...
+# Subtest: a payload swapped after signing is refused (the '*' escalation case)
+ok 155 - a payload swapped after signing is refused (the '*' escalation case)
+  ---
+  duration_ms: 0.820167
+  type: 'test'
+  ...
+# Subtest: an expired key is refused; a lifetime key is not
+ok 156 - an expired key is refused; a lifetime key is not
+  ---
+  duration_ms: 2.091167
+  type: 'test'
+  ...
+# Subtest: malformed inputs all fail closed
+ok 157 - malformed inputs all fail closed
+  ---
+  duration_ms: 0.5075
+  type: 'test'
+  ...
+# Subtest: payloadShapeError rejects wrong shapes (review \#19 hardening)
+ok 158 - payloadShapeError rejects wrong shapes (review \#19 hardening)
+  ---
+  duration_ms: 0.480459
+  type: 'test'
+  ...
+# Subtest: extract prefers Authorization header, then path segment, then query
+ok 159 - extract prefers Authorization header, then path segment, then query
+  ---
+  duration_ms: 11.760584
+  type: 'test'
+  ...
+# Subtest: gate denies a tokenless request and names /mcp/connect
+ok 160 - gate denies a tokenless request and names /mcp/connect
+  ---
+  duration_ms: 0.42575
+  type: 'test'
+  ...
+# Subtest: gate allows tools/call with a valid bearer key and reports the license id
+ok 161 - gate allows tools/call with a valid bearer key and reports the license id
+  ---
+  duration_ms: 2.564
+  type: 'test'
+  ...
+# Subtest: a minted key cross-verifies against the fleet's real public key and a real sign-license.mjs key
+ok 162 - a minted key cross-verifies against the fleet's real public key and a real sign-license.mjs key
+  ---
+  duration_ms: 35.349542
+  type: 'test'
+  ...
+# Subtest: public key constant matches the shipped package
+ok 163 - public key constant matches the shipped package
+  ---
+  duration_ms: 1.243709
+  type: 'test'
+  ...
+# Subtest: pemToDer strips armor and decodes PKCS8
+ok 164 - pemToDer strips armor and decodes PKCS8
+  ---
+  duration_ms: 0.645958
+  type: 'test'
+  ...
+# Subtest: per-product key verifies with the shipped verifier
+ok 165 - per-product key verifies with the shipped verifier
+  ---
+  duration_ms: 16.36275
+  type: 'test'
+  ...
+# Subtest: bundle key ('*') unlocks every product
+ok 166 - bundle key ('*') unlocks every product
+  ---
+  duration_ms: 2.556041
+  type: 'test'
+  ...
+# Subtest: tampered payload is rejected by both verifiers
+ok 167 - tampered payload is rejected by both verifiers
+  ---
+  duration_ms: 0.7745
+  type: 'test'
+  ...
+# Subtest: same inputs mint the same key (deterministic per session)
+ok 168 - same inputs mint the same key (deterministic per session)
+  ---
+  duration_ms: 0.918417
+  type: 'test'
+  ...
+# Subtest: every /buy href rendered by the billing worker carries a src=store.<page> tag
+ok 169 - every /buy href rendered by the billing worker carries a src=store.<page> tag
+  ---
+  duration_ms: 12.0145
+  type: 'test'
+  ...
+# Subtest: the pages generated from the READMEs are tagged with the product page that shows them
+ok 170 - the pages generated from the READMEs are tagged with the product page that shows them
+  ---
+  duration_ms: 3.490959
+  type: 'test'
+  ...
+# Subtest: the tags the storefront emits are shapes the /buy route will accept
+ok 171 - the tags the storefront emits are shapes the /buy route will accept
+  ---
+  duration_ms: 22.178084
+  type: 'test'
+  ...
+# {"event":"subscribe","source":"test","outcome":"sent"}
+# {"event":"subscribe","source":"footer","outcome":"stored_no_email"}
+# Subtest: POST /api/subscribe stores the sub record and sends the welcome email
+ok 172 - POST /api/subscribe stores the sub record and sends the welcome email
+  ---
+  duration_ms: 19.85675
+  type: 'test'
+  ...
+# Subtest: duplicate subscribe is idempotent and does not re-send the welcome email
+ok 173 - duplicate subscribe is idempotent and does not re-send the welcome email
+  ---
+  duration_ms: 0.460875
+  type: 'test'
+  ...
+# Subtest: invalid email is rejected without storing or sending
+ok 174 - invalid email is rejected without storing or sending
+  ---
+  duration_ms: 1.117708
+  type: 'test'
+  ...
+# Subtest: missing RESEND_API_KEY still stores the subscriber (email is best-effort)
+ok 175 - missing RESEND_API_KEY still stores the subscriber (email is best-effort)
+  ---
+  duration_ms: 0.517625
+  type: 'test'
+  ...
+# {"event":"drip_sweep","e2":1,"e3":1,"errors":0}
+# Subtest: the shared page footer carries the subscribe form pointing at /api/subscribe
+ok 176 - the shared page footer carries the subscribe form pointing at /api/subscribe
+  ---
+  duration_ms: 6.4235
+  type: 'test'
+  ...
+# Subtest: runDripSweep sends E2 once past 48h and E3 once past 168h, stamping each step
+ok 177 - runDripSweep sends E2 once past 48h and E3 once past 168h, stamping each step
+  ---
+  duration_ms: 0.616083
+  type: 'test'
+  ...
+# Subtest: runDripSweep without an API key is a no-op skip
+ok 178 - runDripSweep without an API key is a no-op skip
+  ---
+  duration_ms: 0.121834
+  type: 'test'
+  ...
+# Subtest: home page renders Organization JSON-LD
+ok 179 - home page renders Organization JSON-LD
+  ---
+  duration_ms: 23.187875
+  type: 'test'
+  ...
+# Subtest: home page renders WebSite JSON-LD with a publisher
+ok 180 - home page renders WebSite JSON-LD with a publisher
+  ---
+  duration_ms: 1.15825
+  type: 'test'
+  ...
+# Subtest: web site has no /search route, so no SearchAction is emitted
+ok 181 - web site has no /search route, so no SearchAction is emitted
+  ---
+  duration_ms: 1.233834
+  type: 'test'
+  ...
+# Subtest: every rendered HTML page carries a twitter:card summary tag
+ok 182 - every rendered HTML page carries a twitter:card summary tag
+  ---
+  duration_ms: 6.441083
+  type: 'test'
+  ...
+# Subtest: a page with OG still keeps its OG tags (additive only)
+ok 183 - a page with OG still keeps its OG tags (additive only)
+  ---
+  duration_ms: 0.641625
+  type: 'test'
+  ...
+# Subtest: no new twitter/og markup uses a banned em-dash
+ok 184 - no new twitter/og markup uses a banned em-dash
+  ---
+  duration_ms: 1.744959
+  type: 'test'
+  ...
+# Subtest: guide pages render the featured-servers strip with unique server links
+ok 185 - guide pages render the featured-servers strip with unique server links
+  ---
+  duration_ms: 18.004833
+  type: 'test'
+  ...
+# Subtest: featured strip omits the guide's own product page when it would duplicate the cross block
+ok 186 - featured strip omits the guide's own product page when it would duplicate the cross block
+  ---
+  duration_ms: 1.877667
+  type: 'test'
+  ...
+# Subtest: non-guide pages do not carry the featured strip
+ok 187 - non-guide pages do not carry the featured strip
+  ---
+  duration_ms: 1.118875
+  type: 'test'
+  ...
+# Subtest: priority guide nav is the first element inside body
+ok 188 - priority guide nav is the first element inside body
+  ---
+  duration_ms: 17.203
+  type: 'test'
+  ...
+# Subtest: priority guide nav on home has 10 unique real guide links
+ok 189 - priority guide nav on home has 10 unique real guide links
+  ---
+  duration_ms: 2.453583
+  type: 'test'
+  ...
+# Subtest: guide pages carry the priority nav too
+ok 190 - guide pages carry the priority nav too
+  ---
+  duration_ms: 0.97225
+  type: 'test'
+  ...
+1..190
+# tests 190
+# suites 0
+# pass 190
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 440.37025

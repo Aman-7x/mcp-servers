@@ -261,7 +261,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 180;
+export const BILLING_TEST_COUNT = 181;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -979,12 +979,18 @@ export function validOrderToken(token, now = Date.now()) {
   const age = now - Number(match[1]);
   return age >= -60_000 && age <= ORDER_TOKEN_MAX_AGE_MS;
 }
+export function shortProbeExpiry(orderToken, now = Date.now()) {
+  if (!validOrderToken(orderToken, now) || now - Number(orderToken.split('.')[0]) > 30_000) throw Error('Refresh the purchase form before a short-lived probe');
+  // Stable across same-order retries, with margin above Stripe's thirty-minute minimum.
+  return Math.floor(Number(orderToken.split('.')[0]) / 1000) + 31 * 60;
+}
 
-async function createCheckout(env, host, productId, probeTag = "", tenant = "", askedId = productId, source = "direct", orderToken = newOrderToken()) {
+async function createCheckout(env, host, productId, probeTag = "", tenant = "", askedId = productId, source = "direct", orderToken = newOrderToken(), shortProbe = false) {
   const p = PRODUCTS[productId];
   const ct = checkoutCustomText(productId, askedId, tenant);
   const s = await stripe(env, "checkout/sessions", {
     mode: "payment",
+    ...(probeTag && shortProbe ? { expires_at: shortProbeExpiry(orderToken) } : {}),
     ...checkoutLineItem(p),
     success_url: `https://${host}/success?session_id={CHECKOUT_SESSION_ID}`,
     // S129: cancelling returns to the /buy intent page for the same product with the
@@ -1205,6 +1211,11 @@ export function purchasePromiseHtml(paidUsd = PRODUCTS.bundle.usd, productId = "
 }
 /** Probe Checkout Sessions are reused for 23h; Stripe expires a Session after 24h. */
 const PROBE_SESSION_TTL = 23 * 60 * 60;
+export function probeCacheTtl(session, now = Math.floor(Date.now() / 1000)) {
+  if (!Number.isFinite(session?.expires_at)) return PROBE_SESSION_TTL;
+  const remaining = Math.floor(session.expires_at - now - 60);
+  return remaining < 60 ? 0 : Math.min(PROBE_SESSION_TTL, remaining);
+}
 
 /**
  * Count one human click on an upgrade link, before the redirect to Stripe. Two counters
@@ -1735,7 +1746,7 @@ ${relatedGuidesBlock("invoice")}`;
       const meta = `<meta name="description" content="${esc(pg.description).slice(0, 155)}"><link rel="canonical" href="https://mcp.zovo.one/s/${esc(id)}">${og(pg.title, pg.description, `https://mcp.zovo.one/s/${id}`, "product")}
 <script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "SoftwareApplication", name: pg.title, applicationCategory: "DeveloperApplication", operatingSystem: "macOS, Windows, Linux", description: pg.description, url: `https://mcp.zovo.one/s/${id}`, author: { "@type": "Person", name: "theluckystrike", url: "https://github.com/theluckystrike" }, offers: [{ "@type": "Offer", price: "0", priceCurrency: "USD", name: "Free tier" }, { "@type": "Offer", price: String(soldUsd), priceCurrency: "USD", name: "Pro, lifetime", url: `https://mcp.zovo.one/buy/${id}?src=store.s.${id}` }] })}</script>`;
       const setupLinks = SETUP_SERVERS[id]
-        ? CLIENT_ORDER.map((c) => `<a href="/setup/${c}/${id}">${esc(CLIENTS[c].name)}</a>`).join(" &middot; ")
+        ? CLIENT_ORDER.filter((c) => serversFor(c).includes(id)).map((c) => `<a href="/setup/${c}/${id}">${esc(CLIENTS[c].name)}</a>`).join(" &middot; ")
         : null;
       // Two ways to run this actually work today, and until now the page led with the price
       // and buried the zero-install one at character 20,676 of 21,905. The registry is the
@@ -2291,6 +2302,7 @@ const LLM_USE_WHEN = {
       const scripted = botUa || !looksLikeNavigation;
       const explicitProbe = request.headers.get("x-mcp-probe") === "1";
       const probeTag = explicitProbe ? "1" : "";
+      const shortProbe = explicitProbe && request.headers.get('x-mcp-probe-expiry') === 'short';
       // Counting is a stricter question than "may this request reach Stripe". A request
       // that is merely not-obviously-a-robot may still start a Session, because turning a
       // real buyer away costs more than a wasted Stripe object; but it is only COUNTED
@@ -2336,6 +2348,7 @@ const LLM_USE_WHEN = {
             "content-type": "text/html; charset=utf-8",
             "cache-control": "no-store",
             "x-mcp-buy": "checkout-intent-required",
+            ...(shortProbe ? { 'x-mcp-probe-short-expiry': '1860' } : {}),
           },
         });
       }
@@ -2378,7 +2391,7 @@ const LLM_USE_WHEN = {
       const src = validSrc(srcParam) ? srcParam : `${UNATTRIBUTED_PREFIX}${validSrc(asked) ? asked : id}`;
       if (counted) ctx.waitUntil(recordClick(env, src));
       try {
-        const probeKey = probeTag && !tenant ? `probe-session:v2:${asked}` : "";
+        const probeKey = probeTag && !tenant ? `probe-session:v2:${asked}${shortProbe ? ':short' : ''}` : "";
         if (probeKey) {
           const cached = await env.REMOTE_DATA.get(probeKey);
           if (cached) {
@@ -2386,9 +2399,10 @@ const LLM_USE_WHEN = {
             return new Response(null, { status: 303, headers: { Location: c.url, "cache-control": "no-store", "x-mcp-buy": "probe-session-reused", ...c.headers } });
           }
         }
-        const session = await createCheckout(env, host, id, probeTag, tenant, asked, src, orderToken);
+        const session = await createCheckout(env, host, id, probeTag, tenant, asked, src, orderToken, shortProbe);
         const headers = { Location: session.url, "cache-control": "no-store", ...(probeTag ? probeHeaders(session) : {}) };
-        if (probeKey) ctx.waitUntil(env.REMOTE_DATA.put(probeKey, JSON.stringify({ url: session.url, headers: probeHeaders(session) }), { expirationTtl: PROBE_SESSION_TTL }));
+        const probeTtl = probeCacheTtl(session);
+        if (probeKey && probeTtl > 0) ctx.waitUntil(env.REMOTE_DATA.put(probeKey, JSON.stringify({ url: session.url, headers: probeHeaders(session) }), { expirationTtl: probeTtl }));
         return new Response(null, { status: 303, headers });
       } catch (e) {
         return new Response(page("Checkout error", `<h1>Checkout could not start</h1><p>${esc(e.message)}</p><p><a href="/">Back</a></p>`), { status: 502, headers: { "content-type": "text/html; charset=utf-8" } });

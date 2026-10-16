@@ -60,3 +60,9 @@ The v0.22.6 office proxy has 48 children, while the broader catalog has 55 stand
 Older immutable office registry descriptors can still point at the older v0.22.0 archive. This sprint does not silently rewrite or claim to republish those versions. The download catalog and office README pin the new verified archive; both newly published matcher names point at their exact new hash.
 
 Mirror sync was rehearsed against an isolated local bare repository, including repeat/no-change behavior and a changed-tree fast-forward preserving prior history. Unsupported optional config files now receive lsof checks and size/path deletion records. Office mirror publication remains pending this final source merge.
+
+## Provider pricing and lifecycle verification
+
+A read-only Stripe Price audit verifies all 28 configured Price IDs: active, USD, advertised amount and product name all match. Twenty additional products use inline price_data. The CLI key cannot expire live Sessions; the preflight stopped with zero Sessions created. No write credential was found in this project's configuration. Explicit operator probes now have an opt-in 31-minute expiry, stable across order retries, with an advertised capability and cache lifetime capped before Stripe expiry. Ordinary checkout keeps its existing timing. Billing tests pass 190/190; two cleanup-ownership tests also pass. The two marked unpaid handoff checks will run after this opt-in ships and will be closed by read-only automatic-expiry verification.
+
+The office mirror's first fresh-clone CI failed because three test files imported a shared monorepo temp helper that was not copied. The publisher now ports those imports and supplies a standalone helper. Its open-file and symlink-escape guards passed on real local files, with lsof and deletion manifests. This preserves the actual proxy tests rather than skipping them; the new mirror CI will verify the fix.

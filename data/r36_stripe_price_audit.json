@@ -1,0 +1,464 @@
+{
+  "at": "2026-10-16T02:18:06.113Z",
+  "method": "Stripe live Price GET only, configured IDs from owned MCP catalog",
+  "rows": [
+    {
+      "product": "time-tracker",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Time Tracker Pro",
+      "expected_name": "MCP Time Tracker Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "price-tracker",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Price Tracker Pro",
+      "expected_name": "MCP Price Tracker Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "spreadsheet",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Spreadsheet Pro",
+      "expected_name": "MCP Spreadsheet Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "invoice",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Invoice Pro",
+      "expected_name": "MCP Invoice Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "expense-tracker",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Expense Tracker Pro",
+      "expected_name": "MCP Expense Tracker Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "currency",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Currency Converter Pro",
+      "expected_name": "MCP Currency Converter Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "docx",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Docx Pro",
+      "expected_name": "MCP Docx Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "timezone",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Timezone Planner Pro",
+      "expected_name": "MCP Timezone Planner Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "resume",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Resume and Cover Letter Pro",
+      "expected_name": "MCP Resume and Cover Letter Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "recurring",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Recurring Invoices Pro",
+      "expected_name": "MCP Recurring Invoices Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "clauses",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Clause Library Pro",
+      "expected_name": "MCP Clause Library Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "calendar",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Calendar Pro",
+      "expected_name": "MCP Calendar Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "pdf",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP PDF Tools Pro",
+      "expected_name": "MCP PDF Tools Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "image",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Image Tools Pro",
+      "expected_name": "MCP Image Tools Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "bank-statement",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Bank Statement Pro",
+      "expected_name": "MCP Bank Statement Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "kanban",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Kanban Pro",
+      "expected_name": "MCP Kanban Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "quotes",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Quotes Pro",
+      "expected_name": "MCP Quotes Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "barcode",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Barcode Pro",
+      "expected_name": "MCP Barcode Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "zip",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Zip Pro",
+      "expected_name": "MCP Zip Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "billing-docs",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Billing Docs Pro",
+      "expected_name": "MCP Billing Docs Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "deposits",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Deposits Pro",
+      "expected_name": "MCP Deposits Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "per-diem",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Per Diem Pro",
+      "expected_name": "MCP Per Diem Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "asset-register",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Asset Register Pro",
+      "expected_name": "MCP Asset Register Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "statement-of-account",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Statement of Account Pro",
+      "expected_name": "MCP Statement of Account Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "cash-book",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Cash Book Pro",
+      "expected_name": "MCP Cash Book Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "amortization",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Amortization Pro",
+      "expected_name": "MCP Amortization Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "petty-cash",
+      "configured_usd": 19,
+      "status": "measured",
+      "provider_amount_minor": 1900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Petty Cash Pro",
+      "expected_name": "MCP Petty Cash Pro",
+      "amount_matches": true,
+      "name_matches": true
+    },
+    {
+      "product": "work-order",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "catalogue",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "change-order",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "delivery-schedule",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "packing-list",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "checklist",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "bill-of-sale",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "credit-note",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "job-card",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "dunning-letters",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "supplier-list",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "service-agreement",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "maintenance-log",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "mileage-log",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "onboarding",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "backlink-checker",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "goods-receipt",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "purchase-requisition",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "leave",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "three-way-match",
+      "configured_usd": 19,
+      "pricing": "inline price_data",
+      "status": "requires checkout probe"
+    },
+    {
+      "product": "bundle",
+      "configured_usd": 39,
+      "status": "measured",
+      "provider_amount_minor": 3900,
+      "currency": "usd",
+      "active": true,
+      "provider_name": "MCP Servers Bundle (all servers, lifetime)",
+      "expected_name": "MCP Servers Bundle (all servers, lifetime)",
+      "amount_matches": true,
+      "name_matches": true
+    }
+  ],
+  "measured": 28,
+  "mismatches": []
+}

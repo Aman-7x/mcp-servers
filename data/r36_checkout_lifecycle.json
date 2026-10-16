@@ -1,0 +1,13 @@
+{
+  "started_at": "2026-10-16T02:23:46.832Z",
+  "expected_version": "1d348008-e89c-4eeb-8226-fdc9e57488a1",
+  "method": "Real browser intent form; explicit probe header; synthetic tenant reference; Stripe page blocked; immediate scoped expiry",
+  "rows": [],
+  "created": 0,
+  "expired": 0,
+  "charged_minor": null,
+  "payment_details_submitted": false,
+  "status": "failed",
+  "failure": "Expiry permission could not be established\n+ actual - expected\n\n+ 'more_permissions_required'\n- 'resource_missing'\n",
+  "finished_at": "2026-10-16T02:23:47.651Z"
+}
