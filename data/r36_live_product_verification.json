@@ -1,0 +1,60 @@
+{
+  "method": "GET only; probe headers; no checkout creation",
+  "rows": [
+    {
+      "path": "/downloads",
+      "status": 200,
+      "checked_at": "2026-10-16T01:16:50.106Z"
+    },
+    {
+      "path": "/s/three-way-match",
+      "status": 200,
+      "checked_at": "2026-10-16T01:16:50.189Z"
+    },
+    {
+      "path": "/compare/three-way-match",
+      "status": 200,
+      "checked_at": "2026-10-16T01:16:50.275Z"
+    },
+    {
+      "path": "/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude",
+      "status": 200,
+      "checked_at": "2026-10-16T01:16:50.363Z"
+    },
+    {
+      "path": "/setup/claude-desktop/three-way-match",
+      "status": 200,
+      "checked_at": "2026-10-16T01:16:50.439Z"
+    },
+    {
+      "path": "/setup/claude-code/three-way-match",
+      "status": 200,
+      "checked_at": "2026-10-16T01:16:50.512Z"
+    },
+    {
+      "path": "/setup/cursor/three-way-match",
+      "status": 200,
+      "checked_at": "2026-10-16T01:16:50.582Z"
+    },
+    {
+      "path": "/setup/vscode/three-way-match",
+      "status": 200,
+      "checked_at": "2026-10-16T01:16:50.656Z"
+    },
+    {
+      "path": "/setup/windsurf/three-way-match",
+      "status": 200,
+      "checked_at": "2026-10-16T01:16:50.727Z"
+    },
+    {
+      "path": "/setup/cline/three-way-match",
+      "status": 200,
+      "checked_at": "2026-10-16T01:16:50.824Z"
+    },
+    {
+      "path": "/buy/three-way-match?tenant=[synthetic]",
+      "status": 200,
+      "checked_at": "2026-10-16T01:16:50.896Z"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-16T01:28:04.483Z",
+  "origin": "local read-only Worker bridge",
+  "browser": "155.0.8059.80",
+  "cases": [
+    "offsetting receipt quantities",
+    "offsetting unit prices",
+    "valid partial with rejected units",
+    "prior billing exceeds accepted",
+    "fractional input rejected",
+    "unsafe invoice money rejected"
+  ],
+  "passed": 6,
+  "diagnostic_network_requests": 0,
+  "page_errors": [],
+  "field_values_uploaded": false,
+  "screenshots": [
+    "intel/R36-browser-demo-desktop.png",
+    "intel/R36-browser-demo-mobile.png"
+  ]
+}

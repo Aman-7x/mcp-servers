@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: KV distinguishes expiring token records from per-server data and email rows
+ok 1 - KV distinguishes expiring token records from per-server data and email rows
+  ---
+  duration_ms: 0.719333
+  type: 'test'
+  ...
+# Subtest: Stripe excludes other storefronts and tagged probes and uses a bounded seven-day window
+ok 2 - Stripe excludes other storefronts and tagged probes and uses a bounded seven-day window
+  ---
+  duration_ms: 0.154125
+  type: 'test'
+  ...
+# Subtest: signed probes and bindings without a paid checkout never become paid Pro tenants
+ok 3 - signed probes and bindings without a paid checkout never become paid Pro tenants
+  ---
+  duration_ms: 0.08825
+  type: 'test'
+  ...
+# Subtest: latest comparable blind instrument selects explicit estate scores and raw-host presence
+ok 4 - latest comparable blind instrument selects explicit estate scores and raw-host presence
+  ---
+  duration_ms: 1.476583
+  type: 'test'
+  ...
+# Subtest: blind selector rejects primed, unknown estate scores, and mismatched frozen questions
+ok 5 - blind selector rejects primed, unknown estate scores, and mismatched frozen questions
+  ---
+  duration_ms: 4.25625
+  type: 'test'
+  ...
+# Subtest: R7 all-server count is never manufactured into estate wins
+ok 6 - R7 all-server count is never manufactured into estate wins
+  ---
+  duration_ms: 0.515792
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 49.062709

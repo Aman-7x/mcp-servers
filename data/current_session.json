@@ -1,7 +1,7 @@
 {
-  "title": "R36 — revenue and organic distribution, 2026-10-16",
-  "updated_at": "2026-10-16T00:49:44.801Z",
-  "status_note": "Session in progress. Only verified outcomes are added to delivered work.",
+  "title": "R36 \u2014 revenue and organic distribution, 2026-10-16",
+  "updated_at": "2026-10-16T01:19:43.600150+00:00",
+  "status_note": "Core release is live and verified. The requested four-hour read-only watch remains active until 04:22:43 UTC.",
   "conclusion": "Search visibility and qualified demand remain the constraint: Google showed this host 34 times in 29 dates and generated no clicks. The complete seven-day Stripe window contains no MCP checkouts or paid amount; lifetime revenue is not established by that window.",
   "metrics": [
     {
@@ -55,16 +55,19 @@
     }
   ],
   "shipped": [
-    "Quotes GitHub metadata published with verified quote-to-invoice capability and public topic. First follow-up query mcp quote invoice moved rank 5 to 3; a snapshot does not prove durable ranking or buyer traffic.",
-    "Billing production224b0a2a released through full gate; 58 purchase routes verified without new liveStripe sessions. Bundle upgrade/cancel flows retain hosted activation, and unsupported delivery, pricing and bank PDF promises were corrected.",
-    "Resend sender hardened and tested; legacy filename-sending bypass retired. Read-only dry-run found18 manual research rows and0 eligible email recipients. No email was sent.",
-    "Fresh unprimed R8 search instrument completed on all18 frozen questions; parent-scored9estate recommendations and15raw host appearances. Older R7 score12 describes any credible server, not estate recommendations.",
-    "Independent matcher release review fixed an MCP message-size failure with free evidence pagination and strict root input validation;25tests and5000independent arithmetic cases passed."
+    "Shipped the local eight-tool supplier invoice matcher, a self-contained public repository, two registry names for the same capability, and a worked buyer guide. $19 Pro removes the three-saved-report cap; $39 bundle also unlocks it.",
+    "Published standalone and office-suite v0.22.6 archives. Both unauthenticated downloads match their tested SHA-256; the corrected office manifest agrees with all 441 runtime tools across 48 children.",
+    "Replaced incomplete latest-release install links with a 56-entry download catalog. Every listed server has a direct versioned asset; all 56 public links are reachable. Older bundles retain their actual release versions.",
+    "Billing version 75afcc7c deployed through the gate: 59 live GET purchase paths, zero new Stripe sessions. Bundle/cancel activation carry, key delivery language and CSV guide claims corrected. Eleven live product/guide/setup/purchase pages pass.",
+    "Root tests: 2,241 passed, 32 skipped, zero failed. Matcher: 25 tests, 5,000 independent arithmetic cases and 1,022 real artifact calls. Source Docker CI and self-contained mirror CI pass.",
+    "New repository ranks first in three narrow GitHub queries in one immediate snapshot. Quotes metadata also published. IndexNow accepted four URLs; none of these observations establishes traffic or sales.",
+    "Resend access already works at the account/domain level. Sender has idempotency, locks, suppression and consent checks; 30 assertions pass. No messages sent; 18 research targets yield zero eligible recipients.",
+    "Fresh unprimed R8 search trial names the estate in 9 of 18 answers, six first-listed. Raw host URLs appear in 15. Model/search conditions differ from older trials; this is visibility evidence, not a causal revenue estimate."
   ],
   "next_levers": [
-    "Finalize standalone and office-suite bundles, verify both from isolated downloaded archives, then publish the matcher mirror and official registry entries.",
-    "Deploy the matcher storefront and buyer workflow guide with a working $19checkout and $39bundle.",
-    "Complete the requested four-hour read-only production/payment observation loop, which is live until04:22:43UTC; then audit finalhealth and deliver results."
+    "Complete the active four-hour production/payment watch and record final health at 04:22:43 UTC.",
+    "Measure qualified clicks and actual tool use before treating narrow query rankings as commercial demand.",
+    "Use existing Resend with consented recipients and suppression records; no new email platform is needed."
   ],
   "report": "intel/R36-session.md"
 }

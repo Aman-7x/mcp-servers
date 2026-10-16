@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-16T01:16:50.958Z",
+  "note": "Two registry names, one actual capability and identical asset hash",
+  "published": [
+    "io.github.theluckystrike/three-way-match@0.22.6",
+    "io.github.theluckystrike/supplier-invoice-matching@0.22.6"
+  ],
+  "duplicate": [],
+  "failed": []
+}

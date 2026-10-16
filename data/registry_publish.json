@@ -1,8 +1,7 @@
 {
-  "at": "2026-10-14T09:05:34.252Z",
+  "at": "2026-10-16T01:16:29.156Z",
   "published": [
-    "io.github.theluckystrike/onboarding-purchase-requisition-inspection-runs@0.22.8",
-    "io.github.theluckystrike/purchase-requisition@0.22.8"
+    "io.github.theluckystrike/supplier-invoice-matching@0.22.6"
   ],
   "duplicate": [],
   "failed": []

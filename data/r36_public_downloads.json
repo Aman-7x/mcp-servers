@@ -1,0 +1,20 @@
+[
+  {
+    "name": "three-way-match",
+    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.6/three-way-match.mcpb",
+    "status": 200,
+    "bytes": 3276647,
+    "sha256": "22a7b3fa21624cacd644ab90d62b42c85b7067960dee26efd185dd751a816012",
+    "verified_at": "2026-10-16T01:14:29.121Z",
+    "authenticated": false
+  },
+  {
+    "name": "office-suite",
+    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.6/office-suite.mcpb",
+    "status": 200,
+    "bytes": 32000493,
+    "sha256": "5221f20c51572f8da17808a8f03097a76d4d48b72c7d0c2509708297129277bc",
+    "verified_at": "2026-10-16T01:14:46.521Z",
+    "authenticated": false
+  }
+]

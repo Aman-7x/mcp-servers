@@ -35,4 +35,18 @@ The useful next input is an opted-in buyer/partner list with address, consent so
 
 ## Release status
 
-Matcher and corrected office artifacts are built and verified locally. PR #65 passed both billing and Docker/runtime preflight. A later conversion audit found that latest v0.22.5 contains only hourly-rate, despite estate-wide install links. A 56-entry explicit download catalog now preserves old asset versions and includes the two new archives; billing tests cover every listed server. Its follow-up CI, public downloads, standalone mirror, two official registry names for the same capability, and final matcher storefront deployment remain in progress. The next update will record public identifiers and exact verification results. Main dashboard: `../index.html`; live watch evidence: `../data/r36_watch.json`.
+Source merged in [PR #65](https://github.com/theluckystrike/mcp-servers/pull/65), commit `8c7f724ed3f16364fd819ed14e97d7e3d9522e60`. Both billing and Docker/runtime checks passed. [v0.22.6](https://github.com/theluckystrike/mcp-servers/releases/tag/v0.22.6) is public with standalone and office-suite archives and SHA256SUMS. Unauthenticated public downloads exactly match the tested hashes. The [matcher mirror](https://github.com/theluckystrike/mcp-three-way-match) is public; fresh install/build/test and its GitHub CI pass.
+
+The final storefront deployment is `75afcc7c-8bb9-4bf2-8e2a-ac331c8e8b94`: 59 purchase GET shapes pass without creating Stripe sessions. Eleven live product/guide/comparison/setup/purchase pages pass. Both official registry names are verified at 0.22.6 with the exact matcher hash and no hosted endpoint. They describe one capability, not two products.
+
+A follow-up conversion audit found that “latest” v0.22.5 contains only hourly-rate, while older install links sent every product there. The new [download catalog](https://mcp.zovo.one/downloads) gives all 56 listed servers explicit versioned assets. All 56 public HEAD requests return 200; that proves reachability, not feature tests of the older fleet. The full billing suite now passes 188/188.
+
+Immediately after publication, `mcp three way matching` (2 results), `mcp supplier invoice matching` (3) and `mcp invoice matching` (7) place the new repository first. This is a single snapshot, with no search volume or buyer-traffic inference. IndexNow returned 200 for the product, guide, comparison and download catalog; accepted submission does not mean indexed.
+
+Public checkout health recovered to 200 by 01:14:07 UTC after the existing cooldown; deployment/pin matched and read errors were zero. The four-hour watch remains active until 04:22:43 UTC. It has not yet established a completed four-hour result. Main dashboard: `../index.html`; evidence: `../data/r36_watch.json`.
+
+## Interactive buyer proof (follow-up, pending deployment)
+
+The buyer guide now includes an editable browser example compiled from the same pure matching engine as the MCP server. It demonstrates offsetting quantities, offsetting unit prices and a valid partial delivery, and lets the reader vary accepted, rejected, billed and prior-billed quantities. It is an example for assessment, not a hosted MCP endpoint or PDF parser. No input values are uploaded or saved.
+
+Local Chrome QA passes six scenarios with zero diagnostic network requests and zero page errors. Desktop and mobile screenshots were inspected; mobile evidence uses labeled SKU cards so values are visible without sideways scrolling. Browser profiles were isolated under the task work folder, closed and deleted only after lsof showed no handles; a short helper-exit race in cleanup now has bounded retries. Full billing tests pass 189/189. CI now checks the generated browser asset and runs the real browser smoke test before the Docker checks. Publication and production deployment of this follow-up remain pending.

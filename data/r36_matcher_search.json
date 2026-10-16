@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-16T01:17:36.150Z",
+  "note": "Immediate post-publication repository search; single snapshot, no search volume or buyer-traffic inference",
+  "rows": [
+    {
+      "query": "mcp three way matching",
+      "total": 2,
+      "rank": 1,
+      "top": [
+        "theluckystrike/mcp-three-way-match",
+        "akhilkrishnankv/Procure"
+      ]
+    },
+    {
+      "query": "mcp supplier invoice matching",
+      "total": 3,
+      "rank": 1,
+      "top": [
+        "theluckystrike/mcp-three-way-match",
+        "pranavshankar1221/Retail-AI-Agent",
+        "akhilkrishnankv/Procure"
+      ]
+    },
+    {
+      "query": "mcp invoice matching",
+      "total": 7,
+      "rank": 1,
+      "top": [
+        "theluckystrike/mcp-three-way-match",
+        "kenhuangus/ledgerun",
+        "ashevilleislove/ardaro-agent-examples",
+        "talha410900/agent-lab",
+        "ahmeddyounis/apilot",
+        "pranavshankar1221/Retail-AI-Agent",
+        "akhilkrishnankv/Procure"
+      ]
+    }
+  ]
+}

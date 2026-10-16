@@ -3,6 +3,24 @@ import assert from "node:assert/strict";
 import worker, { PRODUCTS, checkoutCustomText, successPage, bindDecision } from "../src/index.js";
 import { BUNDLE_DOWNLOADS } from "../src/downloads.js";
 import { LISTED_IDS } from "../src/figures.js";
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { MATCHER_DEMO_INPUT_SHA256, MATCHER_DEMO_JAVASCRIPT } from '../src/matcher-demo-bundle.js';
+
+test('buyer guide serves the same engine compiled for the browser with fresh source provenance', async () => {
+  const hash = createHash('sha256');
+  for (const file of ['servers/three-way-match/src/core.ts', 'billing/browser/matcher-demo.mjs']) {
+    hash.update(file); hash.update(readFileSync(new URL('../../' + file, import.meta.url)));
+  }
+  assert.equal(hash.digest('hex'), MATCHER_DEMO_INPUT_SHA256, 'Rebuild the browser asset after engine or UI changes');
+  const ctx = { waitUntil() {} };
+  const asset = await worker.fetch(new Request('https://mcp.zovo.one/assets/matcher-demo.js'), {}, ctx);
+  assert.equal(asset.status, 200);
+  assert.match(asset.headers.get('content-type'), /javascript/);
+  assert.equal(await asset.text(), MATCHER_DEMO_JAVASCRIPT);
+  const guide = await worker.fetch(new Request('https://mcp.zovo.one/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude'), {}, ctx);
+  assert.match(await guide.text(), /id="matcher-demo-form"/);
+});
 
 test("download catalog covers every listed server with an explicit release asset", async () => {
   assert.deepEqual(Object.keys(BUNDLE_DOWNLOADS).sort(), [...LISTED_IDS].sort());

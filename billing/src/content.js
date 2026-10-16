@@ -3,6 +3,7 @@
 
 // The FAQ section, the related links and the footer are appended by index.js.
 const FOOT = "";
+import { MATCHER_DEMO_HTML } from './matcher-demo-markup.js';
 const BASE = "https://mcp.zovo.one";
 const RELEASES = "https://mcp.zovo.one/downloads";
 
@@ -103,6 +104,7 @@ export const GUIDES = {
     html: `<h1>Check a supplier invoice against a purchase order and delivery note in Claude</h1>
 <p>A supplier bills ten units of A and ten of B. The order says ten of each, but the delivery note records five A and fifteen B. The aggregate is twenty units everywhere. Comparing only totals misses five billed units of A that were never accepted.</p>
 <p><a href="/s/three-way-match">MCP Three-Way Invoice Match</a> compares the lines by exact SKU and returns ordered, accepted, previously invoiced and currently billed quantities beside every exception. It takes structured data from your conversation; it does not extract PDFs, connect to an ERP, read sibling MCP stores or approve payment.</p>
+${MATCHER_DEMO_HTML}
 <h2>Install the local server</h2>
 <p>Download <code>three-way-match.mcpb</code> from the <a href="${RELEASES}">bundle catalog</a> and open it in Claude Desktop. For a terminal client, build the self-contained mirror:</p>
 <pre><code>git clone https://github.com/theluckystrike/mcp-three-way-match.git

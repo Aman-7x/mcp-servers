@@ -1,0 +1,57 @@
+
+> mcp-billing@1.0.0 deploy
+> node ../scripts/deploy-billing-gated.mjs
+
+PASS: local GET-to-Stripe guard, billing tests, Wrangler dry-run
+
+  wrangler 4.80.0 (update available 4.151.0)
+──────────────────────────────────────────────
+Total Upload: 2278.90 KiB / gzip: 632.02 KiB
+Worker Startup Time: 9 ms
+Your Worker has access to the following bindings:
+Binding                                                         Resource
+env.FULFILLMENT (FulfillmentState)                              Durable Object
+env.LICENSES (75f8bf4872a0433285d11575cece8641)                 KV Namespace
+env.REMOTE_DATA (cf848cc5c07d4e0a9c7c65ad1c70055c)              KV Namespace
+env.CF_VERSION_METADATA                                         Worker Version Metadata
+
+Uploaded mcp-billing (9.79 sec)
+Deployed mcp-billing triggers (5.86 sec)
+  https://mcp-billing.lipmichal.workers.dev
+  mcp.zovo.one (custom domain)
+  schedule: */5 * * * *
+Current Version ID: 75afcc7c-8bb9-4bf2-8e2a-ac331c8e8b94
+▲ [WARNING] Duplicate key "bank-statement" in object literal [duplicate-object-key]
+
+    src/content.js:10099:2:
+      10099 │   "bank-statement": ["bank-statement-csv-categorize-reconcile",...
+            ╵   ~~~~~~~~~~~~~~~~
+
+  The original key "bank-statement" is here:
+
+    src/content.js:10071:2:
+      10071 │   "bank-statement": ["bank-statement-csv-categorize-reconcile",...
+            ╵   ~~~~~~~~~~~~~~~~
+
+
+▲ [WARNING] Duplicate key "barcode" in object literal [duplicate-object-key]
+
+    src/content.js:10100:2:
+      10100 │   barcode: ["barcode-and-qr-code-generation-from-chat", "barcod...
+            ╵   ~~~~~~~
+
+  The original key "barcode" is here:
+
+    src/content.js:10074:2:
+      10074 │   barcode: ["sepa-payment-qr-codes-on-invoices-from-chat"],
+            ╵   ~~~~~~~
+
+
+PASS: deployed version 75afcc7c-8bb9-4bf2-8e2a-ac331c8e8b94; 59 GET /buy paths returned intent pages; zero new live Stripe Sessions
+
+  wrangler 4.80.0 (update available 4.151.0)
+──────────────────────────────────────────────
+Resource location: remote
+
+Writing the value "75afcc7c-8bb9-4bf2-8e2a-ac331c8e8b94" to key "monitor:approved-version" on namespace binding: "REMOTE_DATA" (id: "cf848cc5c07d4e0a9c7c65ad1c70055c").
+Billing release verified: 75afcc7c-8bb9-4bf2-8e2a-ac331c8e8b94
