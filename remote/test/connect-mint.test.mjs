@@ -89,7 +89,7 @@ test("the page served without a token is still a complete page, with one link th
   const i = src.indexOf("function connectPage(");
   assert.ok(i > 0);
   const page = src.slice(i, src.indexOf("\nconst ", i + 10) > 0 ? src.indexOf("\n/**", i + 10) : src.length);
-  assert.ok(page.includes('href="${base}/mcp/connect?mint=1"'), "the tokenless page has no way to mint");
+  assert.ok(page.includes('href="${base}/mcp/connect?mint=1&amp;acq='), "the tokenless page has no way to mint while preserving its bounded acquisition label");
   assert.ok(page.includes("Get my free token"), "the mint link has no label a reader would click");
   assert.ok(page.includes("&lt;token&gt;"), "the tokenless page does not show where the token goes");
 });

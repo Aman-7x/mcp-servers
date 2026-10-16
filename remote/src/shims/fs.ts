@@ -289,21 +289,24 @@ export function readdirSync(p: string, _opts?: unknown): string[] {
 export function rmdirSync(p: string): void { ctx().dirs.delete(p); }
 export function chmodSync(_p: string, _m: number): void { /* no permissions here */ }
 
-export interface VStat { mtimeMs: number; size: number; isFile(): boolean; isDirectory(): boolean }
+export interface VStat { mtimeMs: number; size: number; isFile(): boolean; isDirectory(): boolean; isSymbolicLink(): boolean }
 
 export function statSync(p: string): VStat {
   const c = ctx();
   const v = c.files.get(p);
   if (v === undefined) {
-    if (c.dirs.has(p)) return { mtimeMs: Date.now(), size: 0, isFile: () => false, isDirectory: () => true };
+    if (p === "/" || c.dirs.has(p)) return { mtimeMs: Date.now(), size: 0, isFile: () => false, isDirectory: () => true, isSymbolicLink: () => false };
     throw enoent(p);
   }
-  return { mtimeMs: Date.now(), size: byteLen(v), isFile: () => true, isDirectory: () => false };
+  return { mtimeMs: Date.now(), size: byteLen(v), isFile: () => true, isDirectory: () => false, isSymbolicLink: () => false };
 }
+
+// This virtual filesystem has no symlinks; lstat and stat describe the same entry.
+export const lstatSync = statSync;
 
 export default {
   existsSync, mkdirSync, readFileSync, writeFileSync, appendFileSync,
-  renameSync, unlinkSync, rmSync, rmdirSync, chmodSync, statSync, readdirSync,
+  renameSync, unlinkSync, rmSync, rmdirSync, chmodSync, statSync, lstatSync, readdirSync,
 };
 
 // fd emulation for chunked readers (spreadsheet readCsvHead). Descriptors live in the

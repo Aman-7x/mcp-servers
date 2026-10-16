@@ -9,12 +9,39 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 
+const deploymentVersionPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
+
+export function probeProducts(state) {
+  const products = state.products ?? ['three-way-match', 'bundle'];
+  assert.ok(Array.isArray(products) && products.length === 2 && ['three-way-match', 'duplicate-invoice-check'].includes(products[0]) && products[1] === 'bundle', 'Invalid probe product scope');
+  return products;
+}
+export function parseProbeArgs(args) {
+  const rest = [...args];
+  let session = 'r36', single = 'three-way-match';
+  for (const flag of ['--session', '--single']) {
+    const at = rest.indexOf(flag);
+    if (at < 0) continue;
+    const value = rest[at + 1];
+    assert.ok(value && !rest.slice(at + 1).includes(flag), 'Invalid probe option');
+    if (flag === '--session') session = value; else single = value;
+    rest.splice(at, 2);
+  }
+  assert.match(session, /^r[0-9]+$/);
+  assert.ok(single !== 'duplicate-invoice-check' || session !== 'r36', 'A new product requires a separate session evidence path');
+  const products = probeProducts({ products: [single, 'bundle'] });
+  const verify = rest.length === 1 && rest[0] === '--verify-expiry';
+  const execute = rest.length === 3 && rest[0] === '--execute-unpaid-probe' && rest[1] === '--expected-version' && deploymentVersionPattern.test(rest[2]);
+  assert.ok(verify || execute, 'Usage: checkout-lifecycle-probe.mjs [--session rN] [--single three-way-match|duplicate-invoice-check] --execute-unpaid-probe --expected-version <UUID> | --verify-expiry');
+  return { args: rest, session, products };
+}
+
 export function ownsProbeSession(session, state) {
   return session?.livemode === true && /^cs_live_[A-Za-z0-9]+$/.test(session.id || '') &&
     Number.isFinite(session.created) && session.created >= state.started_unix - 5 &&
     session.metadata?.probe === '1' && session.metadata?.source === state.source &&
     session.metadata?.tenant === state.tenant && session.client_reference_id === state.tenant &&
-    state.submitted.some(row => ['three-way-match', 'bundle'].includes(row.product) &&
+    state.submitted.some(row => probeProducts(state).includes(row.product) &&
       row.product === session.metadata?.product && row.order_token === session.metadata?.order_token);
 }
 export function canExpireProbeSession(session, state) {
@@ -68,7 +95,7 @@ export function verifyExpiryEvidence(state, report, sessions, now = new Date().t
   const handoff = report.handoff_complete === true && report.profile_cleanup_complete === true
     && Number.isFinite(Date.parse(report.submission_finished_at || report.finished_at))
     && rows.length === 2 && owned.length === 2
-    && state.submitted.length === 2 && ['three-way-match', 'bundle'].every(product => {
+    && state.submitted.length === 2 && probeProducts(state).every(product => {
       const submitted = state.submitted.find(r => r.product === product);
       const row = rows.find(r => r.product === product);
       const session = owned.find(s => s.metadata.product === product);
@@ -96,10 +123,11 @@ function stripe(method, path, extra = [], allowError = false) {
   if (result.error || result.status !== 0 || body.error) throw Error('Stripe API operation failed: ' + (body.error?.code || 'request_error'));
   return body;
 }
-async function runProbe(args, root, work, stateFile) {
+async function runProbe(args, root, work, stateFile, config) {
+  const reportFile = join(root, `data/${config.session}_checkout_lifecycle.json`);
   if (args.length === 1 && args[0] === '--verify-expiry') {
     const state = JSON.parse(readFileSync(stateFile, 'utf8'));
-    const reportFile = join(root, 'data/r36_checkout_lifecycle.json');
+    assert.deepEqual(probeProducts(state), config.products, 'Requested verification product scope differs from stored run');
     const report = JSON.parse(readFileSync(reportFile, 'utf8'));
     const latest = stripe('get', '/v1/checkout/sessions', ['-d', 'limit=100']);
     assert.ok(!latest.has_more || latest.data.at(-1)?.created < state.started_unix - 5, 'Incomplete verification window');
@@ -114,24 +142,23 @@ async function runProbe(args, root, work, stateFile) {
     if (result.report.status === 'failed') process.exitCode = 1;
     return;
   }
-  if (args[0] !== '--execute-unpaid-probe' || args.length !== 3 || args[1] !== '--expected-version' || !/^[a-f0-9-]{36}$/.test(args[2])) {
+  if (args[0] !== '--execute-unpaid-probe' || args.length !== 3 || args[1] !== '--expected-version' || !deploymentVersionPattern.test(args[2])) {
     console.log('Usage: checkout-lifecycle-probe.mjs --execute-unpaid-probe --expected-version <deployed UUID> | --verify-expiry\nCreates at most two marked unpaid sessions with bounded expiry; never submits payment.');
     return;
   }
   const expectedVersion = args[2];
   mkdirSync(work, { recursive: true });
   if (existsSync(stateFile) && JSON.parse(readFileSync(stateFile, 'utf8')).status !== 'complete') throw Error('An earlier probe needs scoped verification before another run');
-  const state = { run_id: randomUUID(), expected_version: expectedVersion, started_unix: Math.floor(Date.now() / 1000), source: 'probe.r36.' + randomUUID().replaceAll('-', '').slice(0, 16), tenant: 'anon_' + randomBytes(16).toString('hex'), submitted: [], status: 'active' };
+  const state = { run_id: randomUUID(), expected_version: expectedVersion, started_unix: Math.floor(Date.now() / 1000), products: config.products, source: `probe.${config.session}.` + randomUUID().replaceAll('-', '').slice(0, 16), tenant: 'anon_' + randomBytes(16).toString('hex'), submitted: [], status: 'active' };
   const save = () => writeJson(stateFile, state, true);
   save();
-  const reportFile = join(root, 'data/r36_checkout_lifecycle.json');
   const report = { run_id: state.run_id, started_unix: state.started_unix, source_reference: reference(state.source), tenant_reference: reference(state.tenant), handoff_complete: false, profile_cleanup_complete: false, started_at: new Date().toISOString(), expected_version: expectedVersion, method: 'Real browser intent form; explicit probe header; synthetic tenant reference; Stripe page blocked; bounded expiry', rows: [], created: 0, expired: 0, charged_minor: null, payment_details_submitted: false, status: 'running' };
   writeJson(reportFile, report);
   let browser, profile, failure, immediateExpiry = false;
   const ids = new Set();
   try {
     // Establish cleanup write access before creating anything. This ID cannot exist.
-    const permission = stripe('post', '/v1/checkout/sessions/cs_live_r36_permission_probe/expire', [], true);
+    const permission = stripe('post', `/v1/checkout/sessions/cs_live_${config.session}_permission_probe/expire`, [], true);
     assert.ok(['resource_missing', 'more_permissions_required'].includes(permission.error?.code), 'Unexpected expiry permission response');
     immediateExpiry = permission.error.code === 'resource_missing';
     report.expiry_mode = immediateExpiry ? 'immediate' : 'automatic_31_minutes';
@@ -139,11 +166,11 @@ async function runProbe(args, root, work, stateFile) {
     const control = before.data.find(s => s.payment_status === 'unpaid');
     assert.ok(control, 'No safe unpaid read control found');
     const origin = 'https://mcp.zovo.one';
-    const headers = { 'x-mcp-probe': '1', 'user-agent': 'mcp-r36-account-control/1' };
+    const headers = { 'x-mcp-probe': '1', 'user-agent': `mcp-${config.session}-account-control/1` };
     const accountControl = await fetch(origin + '/success?session_id=' + encodeURIComponent(control.id), { headers, signal: AbortSignal.timeout(20000) });
     assert.equal(accountControl.status, 402, 'Worker and CLI could not retrieve the same unpaid account control');
     report.account_read_control = 'Worker retrieved a CLI-visible unpaid session and refused fulfillment with 402';
-    const capability = await fetch(origin + '/buy/three-way-match', { headers: { ...headers, 'x-mcp-probe-expiry': 'short' }, signal: AbortSignal.timeout(20000) });
+    const capability = await fetch(origin + '/buy/' + config.products[0], { headers: { ...headers, 'x-mcp-probe-expiry': 'short' }, signal: AbortSignal.timeout(20000) });
     assert.equal(capability.headers.get('x-mcp-probe-short-expiry'), '1860', 'Deployed Worker does not advertise bounded probe expiry; nothing will be created');
     const { chromium } = await import('@playwright/test');
     const { PRODUCTS } = await import('../billing/src/index.js');
@@ -153,7 +180,7 @@ async function runProbe(args, root, work, stateFile) {
     browser = await chromium.launchPersistentContext(profile, { executablePath: chrome, headless: true, userAgent: ua, extraHTTPHeaders: { 'x-mcp-probe': '1', 'x-mcp-probe-expiry': 'short' }, args: ['--disk-cache-size=1'] });
     await browser.route('**/*', route => route.request().url().startsWith(origin + '/') ? route.continue() : route.abort());
     const page = browser.pages()[0];
-    for (const product of ['three-way-match', 'bundle']) {
+    for (const product of config.products) {
       const url = `${origin}/buy/${product}?src=${state.source}&tenant=${state.tenant}`;
       await page.goto(url, { waitUntil: 'networkidle' });
       const orderToken = await page.locator('form[action^="/buy/"] input[name="order_token"]').inputValue();
@@ -227,20 +254,16 @@ async function runProbe(args, root, work, stateFile) {
     else report.finished_at = report.last_updated_at;
     writeJson(reportFile, report); save();
   }
-  if (failure) throw Error('Unpaid checkout probe failed; see sanitized data/r36_checkout_lifecycle.json');
+  if (failure) throw Error(`Unpaid checkout probe failed; see sanitized data/${config.session}_checkout_lifecycle.json`);
   console.log(report.status === 'awaiting_expiry' ? 'PASS: marked unpaid $19/$39 handoffs, replay and refusal verified; automatic expiry awaits read-only verification at ' + report.expiry_due_at : 'PASS: both marked unpaid handoffs verified and expired');
 }
 async function main() {
-  const args = process.argv.slice(2);
-  const verify = args.length === 1 && args[0] === '--verify-expiry';
-  const execute = args.length === 3 && args[0] === '--execute-unpaid-probe' && args[1] === '--expected-version' && /^[a-f0-9-]{36}$/.test(args[2]);
-  if (!verify && !execute) {
-    console.log('Usage: checkout-lifecycle-probe.mjs --execute-unpaid-probe --expected-version <deployed UUID> | --verify-expiry'); return;
-  }
+  const config = parseProbeArgs(process.argv.slice(2));
+  const args = config.args;
   const root = fileURLToPath(new URL('../', import.meta.url)), work = join(homedir(), 'mcp-servers-work');
   mkdirSync(work, { recursive: true });
-  const release = acquireProbeLock(join(work, 'r36-checkout-probe.lock'));
-  try { await runProbe(args, root, work, join(work, 'r36-checkout-probe-state.json')); }
+  const release = acquireProbeLock(join(work, `${config.session}-checkout-probe.lock`));
+  try { await runProbe(args, root, work, join(work, `${config.session}-checkout-probe-state.json`), config); }
   finally { release(); }
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

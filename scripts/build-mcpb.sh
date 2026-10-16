@@ -22,24 +22,39 @@ mkdir -p "$npm_config_cache"
 # First step, before anything is built: fail the release when a server is only half wired
 # (missing registry name, over-length description, unmerged remotes, absent from a list).
 # Set RELEASE_CHECK=0 to build bundles anyway while iterating on a server.
-if [ "${RELEASE_CHECK:-1}" != "0" ]; then node "$ROOT/scripts/release-check.mjs"; fi
+if [ "$#" -eq 0 ]; then
+  if [ "${RELEASE_CHECK:-1}" != "0" ]; then node "$ROOT/scripts/release-check.mjs"; fi
+elif [ "$#" -eq 2 ] && [ "$1" = "--only" ]; then
+  # Targeted builds always gate; RELEASE_CHECK=0 cannot disable their checks.
+  if [ "$2" = "office-suite" ]; then
+    node "$ROOT/scripts/check-office-build-inputs.mjs"
+  else
+    node "$ROOT/scripts/release-check.mjs" --only "$2"
+  fi
+else
+  echo "Usage: $0 [--only <server>]" >&2; exit 2
+fi
 
 # serverInfo.version is compiled in from src/version.ts; regenerate it from each
 # package.json so a bundle can never announce a version its manifest disagrees with.
 node "$ROOT/scripts/sync-versions.mjs"
 # Refuse to bundle a server whose compiled version.js disagrees with its generated version.ts:
 # a stale dist would ship a bundle whose handshake contradicts its manifest (seen at v0.18.0 on kanban).
-for d in "$ROOT"/servers/*/; do
-  # Only gate servers that actually have a compiled dist; plain-JS servers under
-  # construction (no dist/) ship bundles from their last good build and must not
-  # kill the whole build here (grep exits 1 on no match, which set -e escalates).
-  [ -f "$d/dist/version.js" ] || continue
-  src=$(grep -o '"[0-9][0-9.]*"' "$d/src/version.ts" 2>/dev/null | head -1)
-  dist=$(grep -o 'VERSION = "[0-9][0-9.]*"' "$d/dist/version.js" 2>/dev/null | grep -o '"[0-9][0-9.]*"')
-  if [ -n "$src" ] && [ -n "$dist" ] && [ "$src" != "$dist" ]; then
-    echo "stale dist: $(basename "$d") src=$src dist=$dist (run npm run build -w servers/$(basename "$d"))" >&2; exit 1
-  fi
-done
+node --input-type=module - "$ROOT" <<'NODE'
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+const root = process.argv[2];
+for (const name of readdirSync(join(root, 'servers'))) {
+  const dir = join(root, 'servers', name), dist = join(dir, 'dist/version.js');
+  if (!existsSync(dist)) continue;
+  const version = p => /VERSION\s*=\s*["'](\d+\.\d+\.\d+)["']/.exec(readFileSync(p, 'utf8'))?.[1];
+  const srcVersion = version(join(dir, 'src/version.ts')), distVersion = version(dist);
+  const actual = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf8')).version;
+  if (!srcVersion || !distVersion || srcVersion !== actual || distVersion !== actual) {
+    throw Error(`stale dist: ${name} src=${srcVersion} dist=${distVersion} package=${actual}; rebuild this server`);
+  }
+}
+NODE
 
 BUNDLES="$ROOT/bundles"
 mkdir -p "$BUNDLES"
@@ -47,9 +62,10 @@ mkdir -p "$BUNDLES"
 MCPB="npx -y @anthropic-ai/mcpb@2.1.2"
 LIC_SRC="$ROOT/packages/mcp-license"
 
-SERVERS="time-tracker price-tracker spreadsheet invoice expense-tracker currency timezone docx resume recurring clauses pdf calendar kanban image bank-statement quotes barcode zip billing-docs deposits per-diem asset-register statement-of-account cash-book amortization petty-cash work-order catalogue change-order delivery-schedule packing-list checklist bill-of-sale credit-note job-card dunning-letters supplier-list service-agreement maintenance-log mileage-log purchase-requisition goods-receipt onboarding leave backlink-checker hourly-rate three-way-match"
+SERVERS="time-tracker price-tracker spreadsheet invoice expense-tracker currency timezone docx resume recurring clauses pdf calendar kanban image bank-statement quotes barcode zip billing-docs deposits per-diem asset-register statement-of-account cash-book amortization petty-cash work-order catalogue change-order delivery-schedule packing-list checklist bill-of-sale credit-note job-card dunning-letters supplier-list service-agreement maintenance-log mileage-log purchase-requisition goods-receipt onboarding leave backlink-checker hourly-rate three-way-match duplicate-invoice-check"
 
 declare -A DISPLAY_NAME=(
+  [duplicate-invoice-check]="Duplicate Invoice Check"
   [three-way-match]="Three-Way Invoice Match"
   [time-tracker]="Time Tracker"
   [price-tracker]="Price Tracker"
@@ -101,6 +117,7 @@ declare -A DISPLAY_NAME=(
 )
 
 declare -A KEYWORDS=(
+  [duplicate-invoice-check]='["mcp","duplicate-invoice","supplier-invoice","accounts-payable","local"]'
   [three-way-match]='["mcp","three-way-matching","supplier-invoice","purchase-order","goods-receipt","accounts-payable"]'
   [time-tracker]='["mcp","model-context-protocol","time-tracking","timesheet","invoicing","freelance"]'
   [price-tracker]='["mcp","model-context-protocol","price-tracking","price-drop","shopping","deals"]'
@@ -322,7 +339,7 @@ for NAME in $BUILD_SERVERS; do
 
   # 5. Extract tool name/description pairs from src/index.ts (registerTool calls)
   #    plus the two shared license tools from the vendored mcp-license package.
-  TOOLS_JSON=$(node "$ROOT/scripts/extract-tools.mjs" "$SRC_DIR/src/index.ts" "$LIC_SRC/dist/index.js")
+  TOOLS_JSON=$(node "$ROOT/scripts/runtime-tool-inventory.mjs" "$OUT_DIR/server/index.js")
 
   # 6. Write manifest.json
   node "$ROOT/scripts/gen-manifest.mjs" \

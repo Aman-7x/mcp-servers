@@ -173,7 +173,7 @@ test("free tier: a 4th participant is refused, Pro allows it", async (t) => {
 
   const four = [...THREE, { name: "PM", zone: "Lisbon" }];
   const blocked = await free.call("find_meeting_slots", { participants: four, earliest_date: "2026-09-07" });
-  assert.equal(blocked.isError, false, "a gate must not be an error result");
+  assert.equal(blocked.isError, true, "a refused operation is an error result");
   assert.match(blocked.text, /free tier plans up to 3/i);
   assert.match(blocked.text, /mcp\.zovo\.one\/buy\/timezone/);
 
@@ -219,7 +219,7 @@ test("contacts_set / contacts_list, the resource and the free contact limit", as
 
   for (const n of ["C3", "C4", "C5"]) await c.call("contacts_set", { name: n, zone: "UTC" });
   const sixth = await c.call("contacts_set", { name: "C6", zone: "UTC" });
-  assert.equal(sixth.isError, false);
+  assert.equal(sixth.isError, true);
   assert.match(sixth.text, /free tier keeps 5/i);
   assert.match((await c.call("contacts_list", {})).text, /5 contact\(s\)/);
 });
@@ -246,6 +246,6 @@ test("ics_create writes a valid file and the free monthly cap holds", async (t) 
   await c.call("ics_create", { title: "Two", start: "2026-09-11 15:00", zone: "Warsaw", duration_minutes: 30, out_path: join(c.home, "b.ics") });
   await c.call("ics_create", { title: "Three", start: "2026-09-12 15:00", zone: "Warsaw", duration_minutes: 30, out_path: join(c.home, "c.ics") });
   const fourth = await c.call("ics_create", { title: "Four", start: "2026-09-13 15:00", zone: "Warsaw", duration_minutes: 30, out_path: join(c.home, "d.ics") });
-  assert.equal(fourth.isError, false);
+  assert.equal(fourth.isError, true);
   assert.match(fourth.text, /free tier writes 3/i);
 });

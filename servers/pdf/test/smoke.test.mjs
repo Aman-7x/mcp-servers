@@ -71,7 +71,7 @@ test("free tier: six files are refused with the upgrade line, Pro merges them", 
     await free.init();
     const out = join(dir, "six.pdf");
     const r = await free.call("pdf_merge", { paths, out_path: out });
-    assert.notEqual(r.result.isError, true, "a tier limit is an answer, not a protocol error");
+    assert.equal(r.result.isError, true, "a refused operation is an error result");
     const text = r.result.content[0].text;
     assert.match(text, /free tier merges up to 5 files/);
     assert.match(text, /mcp\.zovo\.one\/buy\/pdf/);

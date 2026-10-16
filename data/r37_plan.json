@@ -1,0 +1,91 @@
+{
+  "session": "R37",
+  "status": "in_progress",
+  "started_at": "2026-10-16T07:34:06Z",
+  "deadline_at": "2026-10-16T11:34:06Z",
+  "attachment": {
+    "bytes": 1969,
+    "sha256": "608df8b4d2b51b0e981bf20447b9713540e2c369832034dab80837ea3d2b6d9b",
+    "read_full": true
+  },
+  "requirements": [
+    {
+      "id": "agents",
+      "requirement": "Use five to ten specialists with other models where useful",
+      "status": "passed"
+    },
+    {
+      "id": "research",
+      "requirement": "Revalidate requested research and act on relevant findings",
+      "status": "passed"
+    },
+    {
+      "id": "measurement",
+      "requirement": "Measure current money, usage and distribution with scoped positive controls",
+      "status": "passed"
+    },
+    {
+      "id": "conversion",
+      "requirement": "Fix success upsell semantics and ship privacy-preserving successful-call and handoff observation",
+      "status": "in_progress"
+    },
+    {
+      "id": "product",
+      "requirement": "Ship one useful additional local workflow with useful free diagnostics and paid storage-cap removal",
+      "status": "in_progress"
+    },
+    {
+      "id": "distribution",
+      "requirement": "Publish exact tested artifacts, install instructions, buyer proof and available free distribution",
+      "status": "in_progress"
+    },
+    {
+      "id": "verification",
+      "requirement": "Verify actual installed behavior, license boundaries, public bytes and payment-entry integration through unchanged gates",
+      "status": "in_progress"
+    },
+    {
+      "id": "outreach",
+      "requirement": "Explain available Resend access and actionable next input without sending unrequested messages",
+      "status": "pending"
+    },
+    {
+      "id": "dashboard",
+      "requirement": "Update the main HTML dashboard with accurate current evidence and preserved history",
+      "status": "in_progress"
+    },
+    {
+      "id": "duration",
+      "requirement": "Complete the requested four-hour work loop and record final checks",
+      "status": "pending"
+    },
+    {
+      "id": "report",
+      "requirement": "Publish results, biggest cumulative win, commercial limits and next action",
+      "status": "pending"
+    },
+    {
+      "id": "sound",
+      "requirement": "Make a sound when ready",
+      "status": "pending"
+    },
+    {
+      "id": "cleanup",
+      "requirement": "Close owned browsers, remove owned temp work with lsof/manifest evidence and check disk",
+      "status": "pending"
+    }
+  ],
+  "scope_notes": [
+    "Zero paid APIs/listings; no account creation/sign-ins; no outreach email or live paid purchase.",
+    "Publications and deployments are authorized and performed by root after concrete verification.",
+    "Local MCPs must remain local: no added phone-home telemetry.",
+    "No people/install/revenue claims from platform counters, signed IDs, probes or documentary search trials."
+  ],
+  "updated_at": "2026-10-16T08:17:30.999485+00:00",
+  "agent_execution": {
+    "working_specialists": 8,
+    "spawn_attempts": 9,
+    "capacity_failure": "gpt-6-sol product reviewer unavailable; independent product audit reassigned to existing gpt-6-astra reviewer",
+    "note": "Counts are for this R37 sprint, not prior R36 agents or simultaneous workers."
+  }
+}

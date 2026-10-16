@@ -263,7 +263,7 @@ test("the free monthly cap counts the register and refuses the 21st code", async
   t.after(() => { c.close(); cleanup(box.dir); });
   await c.init();
   const r = await c.call("qr_create", { text: "one too many" });
-  assert.equal(r.isError, false, "a tier limit is an answer, not a protocol error");
+  assert.equal(r.isError, true, "a refused operation is an error result");
   assert.match(r.text, /20 codes per calendar month and 20 have been generated/);
   assert.match(r.text, /mcp\.zovo\.one\/buy\/barcode/);
 

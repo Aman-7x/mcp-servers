@@ -213,8 +213,8 @@ test("cap: an output over the free megapixel limit writes no file at all", async
   const out = join(b.dir, "huge.png");
   const r = await c.call("image_resize", { path: src, width: 3000, height: 3000, fit: "exact", out_path: out });
 
-  // A tier limit is an answer, not a protocol error.
-  assert.equal(r.isError, false, r.text.slice(0, 300));
+  // A refused operation is an error, with the upgrade path still visible.
+  assert.equal(r.isError, true, r.text.slice(0, 300));
   assert.match(r.text, /free/i, r.text.slice(0, 300));
   assert.equal(existsSync(out), false, "a refused resize must leave no file behind");
   assert.equal(readdirSync(b.dir).filter((f) => f.includes(".tmp")).length, 0, "no tmp file may survive a refusal");

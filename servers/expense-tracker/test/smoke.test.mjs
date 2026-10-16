@@ -196,7 +196,7 @@ test("stdio: initialize, tools/list, expenses, rules, summary, mileage, rebill",
   // free tier: xlsx refused, nothing written
   const xlsxPath = join(c.home, "out.xlsx");
   r = await c.call("expense_export", { from: daysAgo(10), to: today, format: "xlsx", path: xlsxPath });
-  assert.equal(r.isError, false, "a limit is not a transport error");
+  assert.equal(r.isError, true, "a refused export is an error result");
   assert.match(r.text, /Pro/);
   assert.equal(existsSync(xlsxPath), false, "no file may be written when the export is refused");
 

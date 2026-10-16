@@ -205,7 +205,7 @@ test("free tier: 3 proposals or contracts a month, the 4th is refused; Pro allow
     assert.match(r.text, /Created proposal PROP-\d{4}-000\d/);
   }
   const blocked = await mk(free, 4);
-  assert.equal(blocked.isError, false, "a gate must not be an error result");
+  assert.equal(blocked.isError, true, "a refused operation must be an error result");
   assert.match(blocked.text, /free tier allows 3 proposals or contracts per calendar month/i);
   assert.match(blocked.text, /mcp\.zovo\.one\/buy\/docx/);
   // Free tools stay free after the gate closes.

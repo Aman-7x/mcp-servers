@@ -1,0 +1,62 @@
+{
+  "server": "duplicate-invoice-check",
+  "round": 46,
+  "at": "2026-10-16T08:04:38.471Z",
+  "scenarios": [
+    {
+      "server": "duplicate-invoice-check",
+      "id": "dup1",
+      "prompt": "The same supplier sent INV-001 twice with different dates and totals. Preserve both values and show why review is needed.",
+      "score": 3,
+      "tool_calls": 1,
+      "seconds": 0.009906,
+      "note": "Two distinct candidate records in exact and normalized groups; Original dates and amounts preserved as explicit conflicting fields"
+    },
+    {
+      "server": "duplicate-invoice-check",
+      "id": "dup2",
+      "prompt": "Find INV-001 versus inv /001 but keep INV-1 separate: leading zeros matter.",
+      "score": 3,
+      "tool_calls": 1,
+      "seconds": 0.001351,
+      "note": "Formatting change produces one two-record review group; Leading-zero difference excluded; All three original records retained"
+    },
+    {
+      "server": "duplicate-invoice-check",
+      "id": "dup3",
+      "prompt": "These identical references belong to another entity, supplier, currency or a credit note. Do not merge them.",
+      "score": 3,
+      "tool_calls": 1,
+      "seconds": 0.000783,
+      "note": "Five source records retained; Zero candidate groups across distinct exact scopes; Zero means no candidates in supplied batch, not payment clearance"
+    },
+    {
+      "server": "duplicate-invoice-check",
+      "id": "dup4",
+      "prompt": "Two different service invoices have the same amount and date. Show a weak review signal without calling either fraudulent.",
+      "score": 3,
+      "tool_calls": 1,
+      "seconds": 0.000562,
+      "note": "Only same_amount_date group emitted; No reference collision inferred; Two source records retained for human review"
+    },
+    {
+      "server": "duplicate-invoice-check",
+      "id": "dup5",
+      "prompt": "Save a review with overlapping reasons, hit the free save cap, then export every source record without paying and remove the saved snapshots.",
+      "score": 3,
+      "tool_calls": 10,
+      "seconds": 0.007926,
+      "note": "Four candidate records counted once despite overlapping groups; Three saves succeed, fourth preserves full diagnosis with free_saved_report_cap; Complete four-row CSV and source paging remain free; Three created saved snapshots deleted and saved list returns zero"
+    }
+  ],
+  "totals": {
+    "scenarios": 5,
+    "passed": 5,
+    "avg_seconds": 0.004106
+  },
+  "method": "Fixed structured arguments and expected outcomes written before running actual MCP stdio. No model translation, real customers, client install timing, or competitor runtime.",
+  "score_definition": "3 only when every frozen expected-output and workflow assertion passes; 0 on any failure. An operator acceptance score, not subjective quality or customer preference.",
+  "frozen_source": "data/r37_user_value_frozen.json",
+  "evidence": "data/r37_user_value_evidence.json",
+  "bottom_line": "Five specified synthetic buyer tasks returned the independently expected review evidence. No customer study, search visibility measurement, time saving estimate or revenue claim."
+}

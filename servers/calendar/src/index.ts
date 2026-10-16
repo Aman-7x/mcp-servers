@@ -59,8 +59,8 @@ const LOCK = lockPath();
 
 const ok = (t: string) => ({ content: [{ type: "text" as const, text: t }] });
 const err = (t: string) => ({ content: [{ type: "text" as const, text: `Error: ${t}` }], isError: true });
-/** A gated feature is not an error: the user must see the upgrade path. */
-const gated = (feature: string, toolName?: string) => ok(gate.upgradeText(feature, toolName));
+/** A refused operation is an MCP error with its upgrade path preserved. */
+const gated = (feature: string, toolName?: string) => err(gate.upgradeText(feature, toolName));
 
 function guard<A>(fn: (a: A) => Promise<{ content: { type: "text"; text: string }[]; isError?: boolean }>) {
   return async (a: A) => {
@@ -356,7 +356,7 @@ server.registerTool("ics_import", { annotations: { readOnlyHint: false, destruct
     // "Pro feature" and stops: url only adds fetching the feed, and text stores the same
     // events for nothing (D-R58).
     if (!gate.isPro())
-      return ok(
+      return err(
         gate.upgradeText("importing a calendar from a URL", "ics_import") +
           `\n\nFree alternative, same result: open the feed in a browser or download the .ics, then paste the ` +
           `file contents - ics_import {name: "${name}", text: "<the .ics contents>"}. url only adds fetching the ` +

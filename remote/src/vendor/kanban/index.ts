@@ -67,7 +67,7 @@ function save(db: DB): void {
 
 const ok = (text: string) => ({ content: [{ type: "text" as const, text }] });
 const err = (text: string) => ({ content: [{ type: "text" as const, text: `Error: ${text}` }], isError: true });
-const gated = (feature: string, toolName?: string) => ok(gate.upgradeText(feature, toolName));
+const gated = (feature: string, toolName?: string) => err(gate.upgradeText(feature, toolName));
 
 /**
  * D-K1. Bounded free text at the schema, the way expense-tracker does it, so an oversized
@@ -305,7 +305,7 @@ server.registerTool("task_add", { annotations: { readOnlyHint: false, destructiv
     let board = db.boards[key];
     if (!board) {
       if (!gate.isPro() && Object.keys(db.boards).length >= FREE_PROJECTS) {
-        return ok(`The free tier keeps ${FREE_PROJECTS} project boards (${knownProjects(db).sort().join(", ")}). ` +
+        return err(`The free tier keeps ${FREE_PROJECTS} project boards (${knownProjects(db).sort().join(", ")}). ` +
           `"${r.project}" would be the ${Object.keys(db.boards).length + 1}th.\n` + gate.upgradeText("unlimited projects", "task_add"));
       }
       board = { name: r.project, slug: slugFor(r.project, Object.values(db.boards).map(b => b.slug)), columns: [...DEFAULT_COLUMNS], counter: 0 };
@@ -328,7 +328,7 @@ server.registerTool("task_add", { annotations: { readOnlyHint: false, destructiv
         `or change something in this call if you really want a second copy.`);
     }
     if (!gate.isPro() && openTaskCount(db) >= FREE_OPEN_TASKS) {
-      return ok(`The free tier holds ${FREE_OPEN_TASKS} open tasks and you have ${openTaskCount(db)}. Finish or delete some, or go Pro.\n` + gate.upgradeText("unlimited tasks", "task_add"));
+      return err(`The free tier holds ${FREE_OPEN_TASKS} open tasks and you have ${openTaskCount(db)}. Finish or delete some, or go Pro.\n` + gate.upgradeText("unlimited tasks", "task_add"));
     }
     const now = new Date().toISOString();
     board.counter += 1;

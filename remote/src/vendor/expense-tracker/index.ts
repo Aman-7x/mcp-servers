@@ -37,8 +37,8 @@ function locked<T>(fn: () => T | Promise<T>): Promise<T> {
 const ok = (text: string) => ({ content: [{ type: "text" as const, text }] });
 const fail = (text: string) => ({ content: [{ type: "text" as const, text: `Error: ${text}` }], isError: true as const });
 const json = (v: unknown) => ok(JSON.stringify(v, null, 2));
-/** A limit hit is information, not a transport error: isError stays false. */
-const gated = (text: string) => ok(text);
+/** A refused operation is an MCP error with its upgrade path preserved. */
+const gated = (text: string) => fail(text);
 
 function newId(): string { return randomBytes(4).toString("hex"); }
 

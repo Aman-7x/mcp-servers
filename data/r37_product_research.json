@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-10-16T07:40:00Z",
+  "status": "research_complete_implementation_spec_only",
+  "selected_product": "duplicate-invoice-check",
+  "decision_basis": "Explicit supplied-history duplicate gap in existing matcher; deterministic explainable review complements PO/receipt line matching.",
+  "ranked_options": [
+    {
+      "rank": 1,
+      "id": "duplicate-invoice-check",
+      "reason": "Narrow local diagnostic of a documented AP control and explicit estate gap."
+    },
+    {
+      "rank": 2,
+      "id": "13-week-cash-forecast",
+      "reason": "Useful but more timing assumptions, partial estate overlap in recurring revenue forecast, and a directly documented competing 13-week cash MCP."
+    }
+  ],
+  "estate_sources": [
+    "servers/three-way-match/README.md",
+    "servers/three-way-match/src/core.ts",
+    "servers/bank-statement/src/index.ts",
+    "servers/recurring/src/index.ts",
+    "servers/invoice/src/index.ts",
+    "servers/cash-book/src/index.ts",
+    "servers/supplier-list/src/index.ts",
+    "servers/statement-of-account/src/index.ts"
+  ],
+  "primary_sources": [
+    {
+      "url": "https://docs.oracle.com/en/cloud/saas/financials/26a/fappp/how-can-i-find-duplicate-invoices-without-considering-the.html",
+      "observed": "Supplier/type/amount/currency/date checks independent of invoice number."
+    },
+    {
+      "url": "https://docs.oracle.com/cd/A60725_05/html/comnls/us/ap/duplinv.htm",
+      "observed": "Case-varied invoice numbers and separate supplier records can evade an exact-reference check; audits support review."
+    },
+    {
+      "url": "https://docs.cashrunway.ai/agent/mcp",
+      "observed": "Existing first-party MCP exposes 13-week forecast and requires connected account/API token."
+    },
+    {
+      "url": "https://business.gov.au/finance/cash-flow/set-up-a-cash-flow-statement",
+      "observed": "Cash-flow forecasts estimate future receipts/costs to anticipate shortages."
+    },
+    {
+      "url": "https://github.com/ajoys24/invoice-triage-copilot/blob/main/WRITEUP.md",
+      "observed": "Existing public project documents duplicate-reference check over MCP; no uniqueness claim warranted."
+    }
+  ],
+  "qualitative_user_source": {
+    "url": "https://www.reddit.com/r/Netsuite/comments/1ti01jb/invoice_number_exists_but_i_dont_actually_have_a/",
+    "observed": "User reports apparent false duplicate block; replies describe subsidiary boundaries and recycled references.",
+    "limitation": "Anecdotal problem evidence only, not representative demand or buyer willingness."
+  },
+  "contract": {
+    "primary_tool": "duplicate_invoice_check",
+    "entity_scope": "Required entity_id, one legal entity per supplied batch",
+    "required_record_fields": [
+      "record_id",
+      "supplier_id",
+      "document_type",
+      "invoice_number",
+      "invoice_date",
+      "currency",
+      "total_minor"
+    ],
+    "optional_record_fields": [
+      "supplier_name"
+    ],
+    "comparison_scope": [
+      "exact supplier_id",
+      "same document_type",
+      "same currency"
+    ],
+    "reasons": [
+      "exact_reference_collision",
+      "normalized_reference_collision",
+      "same_amount_same_date_review"
+    ],
+    "normalization": "ASCII a-z uppercase; remove only ASCII spaces, hyphens, slash and period; retain leading zeros/all other characters; empty normalized keys never match",
+    "different_amount_behavior": "Reference collisions remain candidates and expose both different positive amounts; amount difference is never silently discarded.",
+    "max_records": 500,
+    "max_page_records": 100,
+    "max_encoded_response_bytes": 8388608,
+    "sdk_incoming_ceiling_bytes": 10485760,
+    "saved_report_integrity_ceiling_bytes": 67108864,
+    "free_saved_reports": 3,
+    "pro_saved_reports": "no count cap",
+    "pro_price_usd": 19,
+    "bundle_price_usd": 39,
+    "all_diagnostics_paging_and_csv_free": true,
+    "large_unsaved_preview_slots": 2,
+    "large_unsaved_preview_ttl_minutes": 30,
+    "non_claims": [
+      "no payment approval",
+      "no recoverable-money total",
+      "no probability score",
+      "no fuzzy vendor joins",
+      "no cross-currency duplicate detection",
+      "no automatic history completeness verification",
+      "not an accounting ledger"
+    ],
+    "max_candidate_groups_formula": "3 * floor(500 / 2) = 750",
+    "max_group_memberships_formula": "3 * 500 = 1500",
+    "representation": "Groups by exact equality keys; source rows retained once; overlapping groups never imply transitive duplicate clusters"
+  },
+  "buyer_phrases": [
+    "check duplicate supplier invoices",
+    "find duplicate vendor bills",
+    "same invoice number different amount",
+    "invoice numbers with different formatting",
+    "duplicate invoice check before payment run",
+    "compare accounts payable invoice history locally"
+  ],
+  "demand_measurement": {
+    "search_volume": null,
+    "willingness_to_pay": null,
+    "revenue_projection": null,
+    "note": "No numerical demand or ROI estimate inferred from search results."
+  },
+  "external_data": {
+    "treg_catalog_endpoint": "tinyfish.web.search",
+    "catalog_price_usd": 0,
+    "successful_calls": 0,
+    "call_outcome": "grant team a-14 unavailable",
+    "fallback": "native public web search and primary page inspection",
+    "paid_calls": 0
+  },
+  "operations": {
+    "accounts_created": 0,
+    "outreach_sent": 0,
+    "publications": 0,
+    "runtime_source_modified": false,
+    "customer_financial_data_used": false,
+    "temporary_files_created": 0
+  },
+  "acceptance_spec_path": "intel/R37-product-choice.md"
+}

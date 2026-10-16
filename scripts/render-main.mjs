@@ -50,7 +50,7 @@ const uvi = js("data/user_value_index.json", null);
 const kpi = js("data/kpi.json", null);
 const currentSession = js("data/current_session.json", null);
 const paymentMetric = currentSession?.metrics?.find(x => x.label === "Paid checkout amount");
-const watch = js("data/r36_watch.json", null);
+const watch = js(currentSession?.watch_path || "data/r36_watch.json", null);
 const slog = js("data/sprint_log.json", null);
 const metrics = js("data/metrics.json", { snapshots: [] });
 const m = metrics.snapshots.at(-1);

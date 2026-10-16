@@ -352,7 +352,7 @@ test("the free monthly cap refuses the 21st archive, writes no file and costs no
   const src = seed(join(box.dir, "src"), { "a.txt": "a" });
   const out = join(box.dir, "capped.zip");
   const r = await c.call("zip_create", { dir: src, out_path: out });
-  assert.equal(r.isError, false, "a tier limit is an answer, not a protocol error");
+  assert.equal(r.isError, true, "a refused operation is an error result");
   assert.match(r.text, /free tier creates 20 archives per calendar month/);
   assert.match(r.text, /mcp\.zovo\.one\/buy\/zip/);
   assert.equal(existsSync(out), false, "a capped call leaves no file, not even the 0-byte reservation");
@@ -492,7 +492,7 @@ test("the free entry cap sits exactly at 200: 200 files pack, 201 are refused", 
   const src201 = seed(join(box.dir, "src201"), overFiles);
   const out201 = join(box.dir, "exactly201.zip");
   const r201 = await c.call("zip_create", { dir: src201, out_path: out201 });
-  assert.equal(r201.isError, false, "a tier limit is an answer, not a protocol error");
+  assert.equal(r201.isError, true, "a refused operation is an error result");
   assert.match(r201.text, /That is 201 files. The free tier writes archives of up to 200 entries/);
   assert.equal(existsSync(out201), false, "one file over the cap writes nothing");
 });
@@ -510,7 +510,7 @@ test("a 26 MB archive is refused on the free tier by its written size, not its i
   writeFileSync(join(src, "random.bin"), big);
   const out = join(box.dir, "big.zip");
   const r = await c.call("zip_create", { dir: src, out_path: out });
-  assert.equal(r.isError, false, "a tier limit is an answer, not a protocol error");
+  assert.equal(r.isError, true, "a refused operation is an error result");
   assert.match(r.text, /The free tier writes archives up to 25\.0 MB/, r.text.slice(0, 300));
   assert.equal(existsSync(out), false, "nothing on disk from a size-capped write");
 

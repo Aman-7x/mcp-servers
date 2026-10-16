@@ -3,7 +3,7 @@
 <!-- gen:badge -->
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![MCP Registry](https://img.shields.io/badge/MCP%20registry-listed-brightgreen)
-![Release](https://img.shields.io/badge/release-v0.22.6-informational)
+![Release](https://img.shields.io/badge/release-v0.22.7-informational)
 <!-- /gen:badge -->
 
 Practical Model Context Protocol servers for people who work inside Claude, Cursor and other MCP clients.
@@ -11,7 +11,7 @@ Every server runs locally over stdio, keeps all data on your machine, and has a 
 Pro unlocks the limits for a one-time payment: $19 per server or $39 for the bundle, lifetime.
 
 <!-- gen:counts -->
-55 servers plus the office-suite aggregator, 46 of them also reachable as a hosted endpoint with no install.
+56 servers plus the office-suite aggregator, 46 of them also reachable as a hosted endpoint with no install.
 <!-- /gen:counts -->
 
 No install? Use any server instantly as a hosted endpoint: `https://mcp.zovo.one/mcp/<server>` — or browse the catalog at [mcp.zovo.one](https://mcp.zovo.one).
@@ -53,6 +53,7 @@ The npm packages are not published. Use a bundle or the source build below rathe
 | [mcp-deposits](servers/deposits/README.md) | ![deposits](assets/demo-deposits.gif) | Security and retainer deposits, held per client, on the same engine as your invoices. | [`deposits.mcpb`](https://mcp.zovo.one/downloads#deposits) |
 | [mcp-docx](servers/docx/README.md) | ![docx](assets/demo-docx.gif) | Real Word documents from chat: proposals, contracts, quotes. | [`docx.mcpb`](https://mcp.zovo.one/downloads#docx) |
 | [mcp-dunning-letters](servers/dunning-letters/README.md) | ![dunning-letters](assets/demo-dunning-letters.gif) | Chase overdue invoices on a ladder anchored to the due date: reminder 1, reminder 2, the final notice, with the aging and the day's chase list. | [`dunning-letters.mcpb`](https://mcp.zovo.one/downloads#dunning-letters) |
+| [mcp-duplicate-invoice-check](servers/duplicate-invoice-check/README.md) | ![duplicate-invoice-check](assets/demo-duplicate-invoice-check.gif) | Review duplicate supplier invoice candidates in supplied local history. | [`duplicate-invoice-check.mcpb`](https://mcp.zovo.one/downloads#duplicate-invoice-check) |
 | [mcp-expense-tracker](servers/expense-tracker/README.md) | ![expense-tracker](assets/demo-expense-tracker.gif) | Receipts, mileage and expenses that turn into invoice lines. | [`expense-tracker.mcpb`](https://mcp.zovo.one/downloads#expense-tracker) |
 | [mcp-goods-receipt](servers/goods-receipt/README.md) | ![goods-receipt](assets/demo-goods-receipt.gif) | The receiving record for purchase orders: what arrived, against which line, in what quantity and condition. | [`goods-receipt.mcpb`](https://mcp.zovo.one/downloads#goods-receipt) |
 | [mcp-hourly-rate](servers/hourly-rate/README.md) | ![hourly-rate](assets/demo-hourly-rate.gif) | Price your hours from income, expenses, and tax, with what-if scenarios. | [`hourly-rate.mcpb`](https://mcp.zovo.one/downloads#hourly-rate) |
@@ -105,7 +106,7 @@ The ready URL has the form `https://mcp.zovo.one/mcp/<server>/t/<token>`. If you
 
 Hosted file tools accept inline data/uploads and return temporary download URLs instead of reading your local disk. Read the server-specific setup guide for supported formats. A local install is the path for files on your machine.
 
-Office Suite and Three-Way Match are local stdio servers. Do not substitute a hosted URL for their executable. See each server page and the [client setup guides](https://mcp.zovo.one/setup).
+Office Suite, Three-Way Match and Duplicate Invoice Check are local stdio servers. Do not substitute a hosted URL for their executable. See each server page and the [client setup guides](https://mcp.zovo.one/setup).
 <!-- /gen:hosted -->
 
 ## Registry names

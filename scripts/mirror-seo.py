@@ -88,6 +88,7 @@ def repo_name(name):
 # The capability, in the words a buyer types. Each is a statement about what the server
 # does, taken from its manifest and README -- not a positioning claim.
 CAPABILITY = {
+    "duplicate-invoice-check": "duplicate supplier invoice review: supplied-batch exact and normalized reference evidence with free CSV reports",
     "three-way-match": "three way matching: supplier invoice matching against purchase orders and accepted receipts by SKU",
     "amortization": "loan and lease amortization schedules",
     "asset-register": "a fixed asset register with depreciation schedules",
@@ -152,6 +153,7 @@ SHARED_TOPICS = [
 # Per-server topics. GitHub allows 20 topics per repository; shared list is 11, so at
 # most 9 here. Topics must be lowercase, digits and hyphens only.
 SPECIFIC_TOPICS = {
+    "duplicate-invoice-check": ["duplicate-invoices", "invoice-review", "vendor-bills", "accounts-payable", "local-first"],
     "three-way-match": ["three-way-matching", "invoice-matching", "supplier-invoice", "purchase-order", "accounts-payable"],
     "time-tracker": ["time-tracking", "timesheet", "billable-hours", "freelance"],
     "price-tracker": ["price-tracking", "price-drop", "price-monitoring", "shopping"],
@@ -364,6 +366,9 @@ def header(name, demo, monorepo, raw):
         L.append("Product page: <https://mcp.zovo.one/s/%s> — what it does, the tools it "
                  "exposes, and a live token endpoint." % name)
         L.append("")
+    if name == "duplicate-invoice-check":
+        L.append("[Try the editable duplicate-invoice review in your browser](https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo) before installing. Synthetic fields are checked locally in your browser without uploads. Candidates require review; they are not payment decisions.")
+        L.append("")
     if name == "three-way-match":
         L.append("[Try the editable matching example in your browser](https://mcp.zovo.one/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo) before installing. No account is needed; the example checks run in your browser without uploading field values.")
         L.append("")
@@ -371,7 +376,7 @@ def header(name, demo, monorepo, raw):
     L.append("")
     if hosted(name):
         L.append("**Hosted, nothing to install.** Get a token from "
-                 "<https://mcp.zovo.one/mcp/connect> (the connect page) or "
+                 "<https://mcp.zovo.one/mcp/connect?acq=github> (the connect page) or "
                  "<https://mcp.zovo.one/mcp/token> (the same token as JSON); a free anonymous "
                  "one is issued on the spot and a Pro key works the same way. Then point an "
                  "MCP client at `https://mcp.zovo.one/mcp/%s` over streamable-http and send "

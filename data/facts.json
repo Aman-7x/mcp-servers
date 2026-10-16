@@ -263,7 +263,7 @@
     "office-suite": {
       "title": "MCP Office Suite (bundle server)",
       "tagline": "One local config entry for invoicing, documents, time tracking and supplier checks.",
-      "does": "A local stdio proxy for 48 child servers, exposing 441 measured tools in v0.22.6 on 2026-10-16. Includes the three-way supplier-invoice matcher. The runtime office://tools_map resource gives exact child ownership and collision-prefixed names. It forwards tools, resources and prompts and reports license state per child; it does not independently reimplement their work.",
+      "does": "A local stdio proxy for 49 child servers, exposing 447 measured tools in the v0.22.7 integration on 2026-10-16. Includes supplier three-way matching and supplied-history duplicate invoice review. The runtime office://tools_map resource gives exact child ownership and collision-prefixed names. It forwards tools, resources and prompts; full child functionality is not certified by tool discovery.",
       "for": "People who want the local office workflow through one MCP config entry.",
       "example": "\"Start a timer for Acme\" ... \"Invoice Acme for this week's hours plus the USB hub receipt.\"",
       "free": "Each child's free tier.",
@@ -787,6 +787,16 @@
       "free": "Full previews up to 500 PO/invoice lines, including free pages of all large-report evidence; store 3 reports at a time. Listing, retrieval, deletion and CSV export stay free.",
       "pro": "Unlimited saved reports. The same per-check safety bounds apply on both tiers.",
       "storage": "~/.local/share/mcp-servers/three-way-match/"
+    },
+    "duplicate-invoice-check": {
+      "title": "MCP Duplicate Invoice Check \u2014 Supplier Invoice History Review",
+      "tagline": "Review duplicate supplier invoice candidates in supplied local history.",
+      "does": "Compare structured invoice history within exact entity, supplier, currency and document-type boundaries. Show repeated references, conservative formatting collisions and same-amount/date review candidates with complete source evidence. Runs locally; no ERP or PDF parsing.",
+      "for": "Small-business accounts payable reviewing an exported invoice-history batch before investigating possible duplicate vendor bills.",
+      "example": "\"Review these supplied supplier invoice records. Preserve leading zeros, separate invoices from credits, and show conflicting amounts behind repeated references without approving or rejecting payment.\"",
+      "free": "Full diagnostics for up to 1000 supplied records, complete free paging and CSV export; store 3 reports at a time.",
+      "pro": "Unlimited saved report count. The same input, response and 64 MiB aggregate storage safety bounds apply on both tiers.",
+      "storage": "~/.local/share/mcp-servers/duplicate-invoice-check/"
     }
   },
   "version": "0.1.1",

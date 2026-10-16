@@ -1,79 +1,58 @@
 {
-  "title": "R36 \u2014 revenue and organic distribution, 2026-10-16",
-  "updated_at": "2026-10-16T04:24:56.807797+00:00",
-  "status_note": "Four-hour session complete. Final sampled production checks pass, both unpaid probes expired without charges, and final report/dashboard evidence is published. Earlier failures remain recorded.",
-  "conclusion": "Qualified demand remains the constraint: the MCP host has 34 Google impressions and no clicks across 29 dates. Exhaustive completed-only Stripe pagination finds zero MCP paid checkouts among 182 paid account Sessions. Recorded MCP checkout gross is $0; profit and other payment channels are not measured.",
+  "title": "R37 \u2014 useful workflows, conversion evidence and distribution, 2026-10-16",
+  "updated_at": "2026-10-16T08:17:30.999485+00:00",
+  "status_note": "Four-hour sprint in progress, deadline 11:34:06 UTC. Product, buyer proof and protocol fixes are implemented; independent artifact review is resolving Windows storage and CSV wire-budget blockers before publication.",
+  "conclusion": "Fresh completed-history and fully covered seven-day Stripe checks still show $0 MCP Checkout gross and zero untagged paid demand. Platform traffic counts remain separate from people or installs. Success attribution is being rebuilt around actual response outcomes and atomic counters.",
   "metrics": [
     {
       "value": "$0",
       "label": "Paid checkout amount",
-      "window": "2026-10-09T04:22:45.439Z to 2026-10-16T04:22:45.439Z (7d)",
-      "note": "MCP storefront only; completed-history audit also finds $0 checkout gross",
-      "source": "data/r36_watch.json"
+      "window": "2026-10-09T07:37:09.441Z to 2026-10-16T07:37:09.441Z",
+      "note": "MCP only; available completed-history MCP gross also $0. Two tagged R36 probes excluded.",
+      "source": "data/r37_kpi_baseline.json"
     },
     {
       "value": 0,
       "label": "Untagged MCP checkout sessions",
-      "window": "2026-10-09T04:22:45.439Z to 2026-10-16T04:22:45.439Z (7d)",
-      "note": "Operator probes and other storefronts excluded",
-      "source": "data/r36_watch.json"
+      "window": "Same complete seven-day Stripe window",
+      "note": "Ordinary/unmarked does not prove a person.",
+      "source": "data/r37_kpi_baseline.json"
     },
     {
       "value": 34,
       "label": "Google search impressions",
       "window": "2026-09-15 through 2026-10-13 (29 dates)",
-      "note": "0 clicks; root-domain positive control passed",
-      "source": "intel/R36-kpi-audit.md"
-    },
-    {
-      "value": 25,
-      "label": "GitHub unique visitors",
-      "window": "2026-10-01 through 2026-10-14",
-      "note": "As reported by GitHub; not confirmed people",
-      "source": "intel/R36-kpi-audit.md"
+      "note": "0 clicks; prior same-day finalized GSC snapshot retained, not post-launch results.",
+      "source": "data/r37_kpi_baseline.json"
     },
     {
       "value": 32,
-      "label": "Anonymous IDs with stored data",
-      "window": "KV population at 2026-10-16 snapshot",
-      "note": "Includes probes and operator activity",
-      "source": "intel/R36-kpi-audit.md"
+      "label": "GitHub reported unique visitors",
+      "window": "2026-10-02 through 2026-10-15",
+      "note": "58 views; reported clients, not confirmed people or installs.",
+      "source": "data/r37_kpi_baseline.json"
     },
     {
-      "value": 0,
-      "label": "Checkout license records stored",
-      "window": "KV population at 2026-10-16 snapshot",
-      "note": "5 LICENSES keys are mailing-list records",
-      "source": "intel/R36-kpi-audit.md"
-    },
-    {
-      "value": "9 / 18",
-      "label": "Named in fresh blind recommendations",
-      "window": "2026-10-16, single documentary trial",
-      "note": "6 first-listed; conditional/companion names included; no runtime certification",
-      "source": "docs/BLIND_RECOMMENDATION_R8.md"
+      "value": "11/11",
+      "label": "Browser proof cases passed",
+      "window": "Local real Chrome at 2026-10-16T07:55:18Z",
+      "note": "Zero diagnostic requests or browser storage writes; synthetic operator examples.",
+      "source": "data/r37_duplicate_browser_verification.json"
     }
   ],
   "shipped": [
-    "Shipped the local eight-tool supplier invoice matcher, a self-contained public repository, two registry names for the same capability, and a worked buyer guide. $19 Pro removes the three-saved-report cap; $39 bundle also unlocks it.",
-    "Published standalone and office-suite v0.22.6 archives. Both unauthenticated downloads match their tested SHA-256; the corrected office manifest agrees with all 441 runtime tools across 48 children.",
-    "Replaced incomplete latest-release install links with a 56-entry download catalog. Every listed server has a direct versioned asset; all 56 public links are reachable. Older bundles retain their actual release versions.",
-    "Billing a2d71ca6 passed the unchanged release gate and all 59 live GET purchase paths. Two marked live unpaid Sessions verify $19 matcher/$39 bundle amounts, idempotent replay and 402 unpaid refusal. Both expired and remained unpaid, with zero customers, payment intents or charges; verified 03:37:04 UTC.",
-    "Root tests: 2,241 passed, 32 skipped, zero failed at the full-suite checkpoint. Matcher: 25 tests, 5,000 independent arithmetic cases and 1,022 real archive calls. Matcher source Docker and self-contained mirror CI pass. Office source tests 8/8; office mirror install/build/runtime tests pass (5 pass, 3 monorepo-only skips).",
-    "New repository ranks first in three narrow GitHub queries in one immediate snapshot. Quotes metadata also published. IndexNow accepted four URLs; none of these observations establishes traffic or sales.",
-    "Resend access already works at the account/domain level. Sender has idempotency, locks, suppression and consent checks; 30 assertions pass. No outreach messages sent; 18 research targets yield zero eligible recipients.",
-    "Fresh unprimed R8 search trial names the estate in 9 of 18 answers, six first-listed. Raw host URLs appear in 15. Model/search conditions differ from older trials; this is visibility evidence, not a causal revenue estimate.",
-    "Editable buyer proof is linked from the product page and passes six real Chrome production scenarios: zero diagnostic network requests or page errors. Desktop/mobile layouts verified. Billing suite passes 190 tests; both bounded unpaid checkout Sessions are verified expired with zero charges.",
-    "Submitted the matcher through the free mcpservers.org Finance form: success receipt captured, $0 fee, pending curator review. Submission is not approval, indexing or traffic. This directory supplies 239/242 measured registry-referral requests.",
-    "Exhausted available completed Stripe Checkout history using two read-only pages: 182 paid account Sessions, zero exact MCP-host sessions. Recorded MCP checkout gross is $0; no claim about profit or other payment channels.",
-    "Corrected dashboard tool counts and canonical offers: office 441 tools/$39, matcher eight/$19, free utilities no separate Pro. Runtime inventory covers 49/56 existing builds; seven missing builds are unmeasured. Historical tests and stale KPI rows are labeled explicitly.",
-    "Completed the four-hour session and 44 sampled production observations. Final approved pin, cron, HTTP 200 and complete seven-day Stripe read pass; all eight earlier 503 samples and one transient pin mismatch remain recorded."
+    "Built the new eight-tool local supplied-history duplicate invoice review and editable same-core browser proof. Full candidate diagnostics, paging and CSV stay free; $19 Pro removes the three-saved-report cap. Archives are held until independent blockers are fixed.",
+    "Seventeen existing server sources now return explicit MCP errors for refusal-only cap branches; useful partial results remain successful. Actual-stdio controls and rebuilds are recorded separately; hosted deployment is pending.",
+    "Office proxy integration measures 447 tools across 49 children. Arbitrary tool-name rewriting no longer mutates source evidence, CSV, HTML or prose; collision maps are separate metadata.",
+    "Atomic daily counter service passed source controls and real workerd/SQLite transaction rollback, alarm, retry and concurrency checks. It is privately deployed; billing/remote bindings and live controls are still pending.",
+    "Added six local-client setup routes, source-backed comparison, mirror metadata and five frozen operator buyer tasks. Fourteen actual MCP calls pass; these are synthetic workflow checks, not customer evidence."
   ],
   "next_levers": [
-    "Measure source-tagged qualified visits and successful jobs for the published matcher before attributing commercial demand to rankings or listing totals.",
-    "Follow the pending free directory review and preserve its status as pending until actually listed.",
-    "Use existing Resend with opted-in recipients, consent/suppression records and an explicit campaign instruction; no new provider is needed."
+    "Correct success-only upsell behavior and measure tagged hosted business-tool success without local telemetry.",
+    "Build an explainable local duplicate-invoice review for a supplied invoice-history batch.",
+    "Publish tested artifacts and buyer proof, then evaluate recorded demand without attributing operator traffic to customers."
   ],
-  "report": "intel/R36-session.md",
+  "report": "intel/R37-session.md",
+  "watch_path": "data/r37_watch.json",
   "known_limits": "The older fleet still has 126 release-check failures and 28 gaps; the new matcher passes all 30 release checks. Older office registry descriptors can still point to v0.22.0; the current catalog pins the verified v0.22.6 archive. Completed live paid fulfillment and inbox delivery were not exercised."
 }

@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-16T08:04:39.275Z",
+  "source": "Exact production duplicate-demo-markup.js and duplicate-demo-bundle.js served on loopback; browser-computed results captured as PNG frames and encoded as GIF.",
+  "core_ui_source_sha256": "4e8663e6b97fd4d2b6486760fe60e9d4bb8f1a4eafb538e12574690bfa3a64ce",
+  "synthetic_inputs": true,
+  "frames": [
+    {
+      "label": "Editable synthetic input",
+      "expected": "Four structured records visible",
+      "summary": "4 supplied records; 4 distinct candidate records; 0 unflagged records; 3 reason groups. A record can appear in more than one group and is counted once as a candidate. No recoverable amount is calculated.",
+      "status": "Candidates for review in the supplied records."
+    },
+    {
+      "label": "Computed overlapping evidence",
+      "expected": "Four candidate records, three groups",
+      "summary": "4 supplied records; 4 distinct candidate records; 0 unflagged records; 3 reason groups. A record can appear in more than one group and is counted once as a candidate. No recoverable amount is calculated.",
+      "status": "Candidates for review in the supplied records."
+    },
+    {
+      "label": "Formatting variants",
+      "expected": "Two candidates, one normalized reference group",
+      "summary": "2 supplied records; 2 distinct candidate records; 0 unflagged records; 1 reason groups. A record can appear in more than one group and is counted once as a candidate. No recoverable amount is calculated.",
+      "status": "Candidates for review in the supplied records."
+    },
+    {
+      "label": "Leading zeros preserved",
+      "expected": "Zero candidates with supplied-batch limitation",
+      "summary": "2 supplied records; 0 distinct candidate records; 2 unflagged records; 0 reason groups. A record can appear in more than one group and is counted once as a candidate. No recoverable amount is calculated.",
+      "status": "No candidates in the supplied batch. This does not establish uniqueness or approval to pay."
+    },
+    {
+      "label": "Potentially legitimate equal totals",
+      "expected": "Same amount/date review evidence; no payment decision",
+      "summary": "2 supplied records; 2 distinct candidate records; 0 unflagged records; 1 reason groups. A record can appear in more than one group and is counted once as a candidate. No recoverable amount is calculated.",
+      "status": "Candidates for review in the supplied records."
+    }
+  ],
+  "diagnostic_network_requests": 0,
+  "page_errors": [],
+  "browser": "155.0.8059.80",
+  "gif": {
+    "path": "assets/demo-duplicate-invoice-check.gif",
+    "bytes": 427288,
+    "sha256": "541e56aa3a2059dd8b0edb29e4cda9aa0ddf547cbf7863e516726be1cc5e0e43",
+    "frames": 5,
+    "width": 800,
+    "height": 656
+  },
+  "status": "passed"
+}

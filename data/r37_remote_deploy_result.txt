@@ -1,0 +1,71 @@
+buildslot[40393] 15:24:52: slot 1 acquired: npm run deploy
+
+> deploy
+> node build-vendor.mjs && wrangler deploy
+
+vendored time-tracker: index.ts, version.ts, day.ts, jsonstore.ts
+vendored price-tracker: index.ts, version.ts, extract.ts, fetch.ts, redirect.ts, store.ts
+vendored invoice: index.ts, version.ts, money.ts, store.ts, lib.ts
+vendored expense-tracker: index.ts, version.ts, money.ts, store.ts
+vendored spreadsheet: index.ts, version.ts, csv.ts, expr.ts, sheet.ts, num.ts, lib.ts
+vendored currency: index.ts, version.ts, ecb.ts, money.ts, rates.ts, store.ts
+vendored timezone: index.ts, version.ts, jsonstore.ts, tz.ts, zones.ts, lib.ts
+vendored docx: index.ts, version.ts, blocks.ts, build.ts, md.ts, store.ts, wordxml.ts, zip.ts, lib.ts
+vendored resume: index.ts, version.ts, letter.ts, profile.ts, read.ts, render.ts, tailor.ts
+vendored recurring: index.ts, version.ts, currency.ts, period.ts, store.ts
+vendored clauses: index.ts, version.ts, assemble.ts, library.ts, starter.ts, store.ts
+vendored pdf: index.ts, version.ts, pdfio.ts, store.ts, text.ts
+vendored calendar: index.ts, version.ts, ics.ts, fetch.ts, store.ts
+vendored kanban: index.ts, version.ts, board.ts, day.ts, jsonstore.ts
+vendored image: index.ts, version.ts, imageio.ts, store.ts
+vendored bank-statement: index.ts, version.ts, detect.ts, money.ts, store.ts
+vendored quotes: index.ts, version.ts, day.ts, store.ts, lib.ts
+vendored barcode: index.ts, version.ts, payloads.ts, render.ts, store.ts, symbology.ts
+vendored zip: index.ts, version.ts, lib.ts, paths.ts, store.ts, zipfile.ts
+vendored billing-docs: index.ts, version.ts, lib.ts, store.ts, text.ts
+vendored deposits: index.ts, version.ts, lib.ts, store.ts
+vendored per-diem tables: pl-domestic.json, pl-foreign.json, uk-domestic.json, uk-overseas.json, us-gsa.json
+vendored per-diem: index.ts, version.ts, lib.ts, schemes.ts, store.ts, tables.ts
+vendored asset-register tables: pl-kst.json, uk-capital-allowances.json, us-macrs.json
+vendored asset-register: index.ts, version.ts, lib.ts, depreciation.ts, store.ts, tables.ts
+vendored statement-of-account: index.ts, version.ts, lib.ts, sources.ts, statement.ts, store.ts
+vendored cash-book: index.ts, version.ts, lib.ts, ledger.ts, sources.ts, store.ts
+vendored amortization: index.ts, version.ts, lib.ts, accounts.ts, schedule.ts, store.ts
+vendored petty-cash: index.ts, version.ts, lib.ts, accounts.ts, float.ts, store.ts
+vendored work-order: index.ts, version.ts, lib.ts, order.ts, store.ts
+vendored catalogue: index.ts, version.ts, lib.ts, catalogue.ts, store.ts
+vendored change-order: index.ts, version.ts, lib.ts, order.ts, store.ts
+vendored bill-of-sale: index.ts, version.ts, lib.ts, render.ts, store.ts
+vendored credit-note: index.ts, version.ts, jsonstore.ts, lib.ts, money.ts, note.ts, render.ts, store.ts
+vendored job-card: index.ts, version.ts, card.ts, store.ts
+vendored dunning-letters: index.ts, version.ts, engine.ts, letters.ts, lib.ts, store.ts
+vendored checklist: index.ts, version.ts, checklist.ts, lib.ts, store.ts
+vendored packing-list: index.ts, version.ts, lib.ts, packing.ts, store.ts
+vendored delivery-schedule: index.ts, version.ts, lib.ts, schedule.ts, store.ts
+vendored supplier-list: index.ts, version.ts, supplier.ts, store.ts
+vendored service-agreement: index.ts, version.ts, agreement.ts, store.ts
+vendored maintenance-log: index.ts, version.ts, maintenance.ts, store.ts
+vendored mileage-log: index.ts, version.ts, log.ts, store.ts
+vendored goods-receipt: index.ts, version.ts, lib.ts, store.ts
+vendored onboarding: index.ts, version.ts, lib.ts, onboarding.ts, store.ts
+vendored leave: index.ts, version.ts, lib.ts, leave.ts, store.ts
+vendored purchase-requisition: index.ts, version.ts, lib.ts, purchase_requisition.ts, store.ts
+vendored backlink-checker: index.ts, version.ts
+
+ ⛅️ wrangler 4.80.0 (update available 4.151.0)
+──────────────────────────────────────────────
+Total Upload: 7169.48 KiB / gzip: 1620.59 KiB
+Worker Startup Time: 156 ms
+Your Worker has access to the following bindings:
+Binding                                                   Resource
+env.FUNNEL (FunnelState, defined in mcp-funnel)           Durable Object
+env.REMOTE_DATA (cf848cc5c07d4e0a9c7c65ad1c70055c)        KV Namespace
+
+Uploaded mcp-remote (10.62 sec)
+Deployed mcp-remote triggers (4.70 sec)
+  https://mcp-remote.lipmichal.workers.dev
+  mcp.zovo.one/mcp* (zone name: zovo.one)
+  mcp.zovo.one/.well-known/* (zone name: zovo.one)
+  mcp.zovo.one/oauth* (zone name: zovo.one)
+  schedule: 0 4 * * *
+Current Version ID: fce85227-ab19-4bb3-98f7-3d7cd4891f54

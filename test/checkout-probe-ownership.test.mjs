@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { ownsProbeSession, canExpireProbeSession, reference, verifyExpiryEvidence, acquireProbeLock } from '../scripts/checkout-lifecycle-probe.mjs';
+import { ownsProbeSession, canExpireProbeSession, reference, verifyExpiryEvidence, acquireProbeLock, parseProbeArgs } from '../scripts/checkout-lifecycle-probe.mjs';
 const state = { started_unix: 1000, source: 'probe.unique', tenant: 'synthetic', submitted: [{ product: 'three-way-match', order_token: 'order-unique' }] };
 const session = { id: 'cs_live_example123', livemode: true, created: 1001, status: 'open', payment_status: 'unpaid', client_reference_id: state.tenant, metadata: { probe: '1', source: state.source, tenant: state.tenant, product: 'three-way-match', order_token: 'order-unique' } };
 test('expiry requires exact ownership and an open unpaid live session', () => {
@@ -94,4 +94,57 @@ test('OS exclusion blocks another process and automatically releases on process 
   assert.equal(crashed.signal, 'SIGKILL');
   // Abrupt death also releases the inherited-description lock without cleanup code.
   const recovered = acquireProbeLock(path); recovered();
+});
+
+
+test('session options isolate new product evidence and refuse malformed scopes', () => {
+  const uuid = '11111111-1111-4111-8111-111111111111';
+  assert.deepEqual(parseProbeArgs(['--execute-unpaid-probe', '--expected-version', uuid]).products, ['three-way-match', 'bundle']);
+  const args = ['--session', 'r37', '--single', 'duplicate-invoice-check', '--verify-expiry'];
+  assert.equal(parseProbeArgs(args).session, 'r37');
+  assert.deepEqual(parseProbeArgs(args).products, ['duplicate-invoice-check', 'bundle']);
+  for (const bad of [
+    ['--single', 'duplicate-invoice-check', '--verify-expiry'],
+    ['--session', '../r36', '--verify-expiry'],
+    ['--single', 'invoice', '--verify-expiry'],
+    ['--session', 'r37', '--session', 'r38', '--verify-expiry'],
+    ['--session', 'r37', '--verify-expiry', '--unknown'],
+  ]) assert.throws(() => parseProbeArgs(bad));
+});
+
+test('new product expiry keeps exact ownership, evidence and legacy product exclusion', () => {
+  const { run, report, sessions } = evidence();
+  run.products = ['duplicate-invoice-check', 'bundle'];
+  run.submitted[0].product = 'duplicate-invoice-check';
+  sessions[0].metadata.product = 'duplicate-invoice-check';
+  report.rows[0].product = 'duplicate-invoice-check';
+  assert.equal(verifyExpiryEvidence(run, report, sessions).report.status, 'passed');
+  assert.equal(ownsProbeSession(sessions[0], { ...run, products: undefined }), false);
+  assert.equal(ownsProbeSession({ ...sessions[0], metadata: { ...sessions[0].metadata, product: 'three-way-match' } }, run), false);
+  assert.throws(() => verifyExpiryEvidence({ ...run, products: ['invoice', 'bundle'] }, report, sessions), /Invalid probe product scope/);
+});
+
+test('a malformed deployment UUID is rejected before the execute path can perform IO', () => {
+  const args = version => ['--session', 'r37', '--single', 'duplicate-invoice-check', '--execute-unpaid-probe', '--expected-version', version];
+  const version = '11111111-1111-4111-8111-111111111111';
+  assert.equal(parseProbeArgs(args(version)).args[2], version);
+  for (const malformed of ['-'.repeat(36), 'a'.repeat(36), '11111111-11114111-8111-111111111111-', 'gggggggg-1111-4111-8111-111111111111', version + '/']) {
+    assert.throws(() => parseProbeArgs(args(malformed)), /Usage/);
+  }
+});
+
+test('new product verification fails closed for a different deployed version or unbounded expiry', () => {
+  const { run, report, sessions } = evidence();
+  run.products = ['duplicate-invoice-check', 'bundle'];
+  run.submitted[0].product = 'duplicate-invoice-check';
+  sessions[0].metadata.product = 'duplicate-invoice-check';
+  report.rows[0].product = 'duplicate-invoice-check';
+  const foreignVersion = structuredClone(sessions);
+  foreignVersion[0].metadata.worker_version = 'other-deployment';
+  assert.equal(verifyExpiryEvidence(run, report, foreignVersion).report.status, 'failed');
+  for (const lifetime of [1799, 1866, 86400]) {
+    const changed = structuredClone(sessions);
+    changed[0].expires_at = changed[0].created + lifetime;
+    assert.throws(() => verifyExpiryEvidence(run, report, changed), /expiry is not bounded/);
+  }
 });

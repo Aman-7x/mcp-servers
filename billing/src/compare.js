@@ -41,6 +41,27 @@ is what the config becomes the day that changes:</p>
 <pre><code>claude mcp add ${slug} -- npx -y @theluckystrike/mcp-${slug}</code></pre>`;
 
 export const COMPARE = {
+  "duplicate-invoice-check": {
+    title: "Duplicate supplier invoice checks: local MCP, Oracle and Invoice Triage Copilot",
+    description: "Compare supplied-batch equality evidence with Oracle duplicate checks and Invoice Triage Copilot's documented workflow. Source inspection, not competitor runtime testing.",
+    html: `<h1>Duplicate supplier invoice checks compared</h1>
+<p><a href="/s/duplicate-invoice-check">Our local MCP server</a> reviews a supplied batch of up to 1000 structured invoice records. It groups exact references, conservatively normalized references, and equal amount/date records within exact entity, supplier, type and currency boundaries. Original fields and overlapping reasons remain visible. Candidates require review; no fraud score, loss estimate or payment decision is returned.</p>
+<h2>Oracle: use the control inside an existing payables system</h2>
+<p><a href="https://docs.oracle.com/en/cloud/saas/financials/26a/fappp/how-can-i-find-duplicate-invoices-without-considering-the.html">Oracle Financials 26A documentation, inspected 2026-10-16</a>, describes an optional check combining supplier, invoice type, amount, currency and date across invoices processed for that supplier. It identifies the lookup configuration needed to enable it. Choose that integrated control when your invoice history is already in Oracle; our standalone batch tool does not connect to it. This comparison does not establish equivalent rule behavior or runtime performance.</p>
+<h2>Invoice Triage Copilot: a broader author-described workflow</h2>
+<p>The <a href="https://github.com/ajoys24/invoice-triage-copilot/blob/main/WRITEUP.md">project author's write-up, inspected 2026-10-16</a>, describes extracting raw invoice text, reviewing purchase orders and routing exceptions. Its read-only MCP interface includes a duplicate-number tool; its current database is an in-memory demonstration. An offline stub mode is available; the live model workflow uses Gemini. Those are documentary claims, not results we independently ran. Choose that project to explore agent orchestration and extraction; choose ours for explicit structured batch inputs, deterministic equality evidence and local report pages.</p>
+<h2>Free evidence; a storage upgrade</h2>
+<p>Our full check, original records, pages and CSV are free. Three concurrent saved reports fit the free tier; $19 once removes the count cap, or $39 buys the bundle. Every tier retains the 64 MiB aggregate storage bound. A zero result covers only these rules and the supplied records, not missing history or payment safety. No ERP connection, PDF/OCR, hosted endpoint or published npm package is provided.</p>
+<h2>Install locally</h2>
+<p>Download <code>duplicate-invoice-check.mcpb</code> from the <a href="${RELEASES}">versioned bundle catalog</a>, or build the <a href="https://github.com/theluckystrike/mcp-servers/tree/main/servers/duplicate-invoice-check">source checkout</a> and point your client at its absolute <code>dist/index.js</code> path.</p>
+<p><a href="/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo">Try the editable browser example</a> · <a href="/setup/claude-code/duplicate-invoice-check">Claude Code setup</a> · <a href="/buy/duplicate-invoice-check?src=store.compare.duplicate-invoice-check">Get Pro</a></p>`,
+    faq: [
+      {q: "Is duplicate invoice checking a new category?", a: "No. Oracle and an existing invoice-triage MCP project document related checks. The linked sources describe their respective scope."},
+      {q: "Did you run these competitors?", a: "No. This comparison uses current primary documentation inspected on 2026-10-16; it is not a competitor benchmark."},
+      {q: "Can a candidate prove duplicate payment?", a: "No. Identical date and amount can have legitimate explanations. Review the original evidence; no payment execution or recoverable-money estimate is provided."},
+    ],
+  },
+
   "three-way-match": {
     title: "Three-way invoice matching MCP servers: line evidence and installation compared",
     description: "Compare local supplier invoice matching with zavora-ai/mcp-procurement and invoice-reconciliation-agent. Source-backed matching differences and setup requirements.",

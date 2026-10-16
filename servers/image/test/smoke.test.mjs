@@ -79,7 +79,7 @@ test("free tier: a six-file batch is refused with the checkout URL, Pro runs it"
   try {
     await free.init();
     const r = await free.call("image_thumbnails", { paths, out_dir: outDir });
-    assert.notEqual(r.result.isError, true, "a tier limit is an answer, not a protocol error");
+    assert.equal(r.result.isError, true, "a refused operation is an error result");
     const text = r.result.content[0].text;
     assert.match(text, /free tier processes up to 5 files/);
     assert.match(text, /mcp\.zovo\.one\/buy\/image/);

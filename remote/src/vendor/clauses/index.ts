@@ -215,7 +215,7 @@ server.registerTool("clause_add", { annotations: { readOnlyHint: false, destruct
       const db = load();
       const own = db.clauses.filter((c) => !c.starter).length;
       if (!gate.isPro() && own >= FREE_OWN_CLAUSES) {
-        return ok(`The free tier holds ${FREE_OWN_CLAUSES} of your own clauses on top of the 25 starter clauses, and you have ${own}. ` +
+        return fail(`The free tier holds ${FREE_OWN_CLAUSES} of your own clauses on top of the 25 starter clauses, and you have ${own}. ` +
           gate.upgradeText("an unlimited clause library", "clause_add"));
       }
       // D-R80. The 25 starter clauses ship with this server and occupy the obvious titles
@@ -383,7 +383,7 @@ server.registerTool("clause_import", { annotations: { readOnlyHint: false, destr
       "Add clauses one at a time with clause_add, or install the clauses server locally to import a file: download clauses.mcpb from https://github.com/theluckystrike/mcp-servers/releases/latest and open it in Claude Desktop.");
     const isJson = file.toLowerCase().endsWith(".json");
     if (isJson && !gate.isPro()) {
-      return ok("JSON import and export are Pro features. Markdown import works in the free tier. " + gate.upgradeText("JSON import and export", "clause_import"));
+      return fail("JSON import and export are Pro features. Markdown import works in the free tier. " + gate.upgradeText("JSON import and export", "clause_import"));
     }
     const raw = readFileSync(file, "utf8");
     const parsed = isJson ? parseClauseJson(raw) : parseMarkdown(raw);
@@ -435,7 +435,7 @@ server.registerTool("clause_export", { annotations: { readOnlyHint: true, destru
 }, async (a) => {
   try {
     if (a.format === "json" && !gate.isPro()) {
-      return ok("JSON export is a Pro feature. Markdown export works in the free tier. " + gate.upgradeText("JSON import and export", "clause_export"));
+      return fail("JSON export is a Pro feature. Markdown export works in the free tier. " + gate.upgradeText("JSON import and export", "clause_export"));
     }
     const db = load();
     const list = orderByCategory(db.clauses);
@@ -501,7 +501,7 @@ server.registerTool("contract_assemble", { annotations: { readOnlyHint: false, d
     if (error || !picked) return fail(error ?? "no clauses selected");
     const pro = gate.isPro();
     if (!pro && picked.length > FREE_ASSEMBLE_CLAUSES) {
-      return ok(`The free tier assembles up to ${FREE_ASSEMBLE_CLAUSES} clauses per document and this selection has ${picked.length}. ` +
+      return fail(`The free tier assembles up to ${FREE_ASSEMBLE_CLAUSES} clauses per document and this selection has ${picked.length}. ` +
         gate.upgradeText("unlimited clauses per document", "contract_assemble"));
     }
     const format = a.format ?? "docx";

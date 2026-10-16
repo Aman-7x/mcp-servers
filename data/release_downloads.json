@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T01:11:04.323794+00:00",
-  "note": "Explicit public asset URLs; office-suite and three-way-match v0.22.6 publish with this release. Older asset versions are preserved, not relabeled.",
+  "updated_at": "2026-10-16T08:28:00Z",
+  "note": "Explicit versioned assets; duplicate-invoice-check and office-suite runtime0.22.7, corrected three-way-match runtime0.22.6 under releasev0.22.7. Older products retain their actual asset versions. Publication verification is recorded separately in data/r37_public_downloads.json.",
   "bundles": {
     "amortization": {
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/amortization.mcpb",
@@ -82,6 +82,10 @@
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/dunning-letters.mcpb",
       "bytes": 3287442
     },
+    "duplicate-invoice-check": {
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/duplicate-invoice-check.mcpb",
+      "bytes": 3276192
+    },
     "expense-tracker": {
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/expense-tracker.mcpb",
       "bytes": 7460493
@@ -126,8 +130,8 @@
       "bytes": 3258511
     },
     "office-suite": {
-      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.6/office-suite.mcpb",
-      "bytes": 32000493
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/office-suite.mcpb",
+      "bytes": 32011115
     },
     "onboarding": {
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb",
@@ -206,8 +210,8 @@
       "bytes": 2527455
     },
     "three-way-match": {
-      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.6/three-way-match.mcpb",
-      "bytes": 3276647
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/three-way-match.mcpb",
+      "bytes": 3276937
     },
     "time-tracker": {
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/time-tracker.mcpb",

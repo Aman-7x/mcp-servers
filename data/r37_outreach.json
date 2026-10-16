@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "sprint": "R37",
+  "started_at": "2026-10-16T08:23:24.257Z",
+  "scope": "Read-only sending-account/domain/config check and local dry-run only. No email send, key creation/rotation, contacts API, customer objects or sender source changes.",
+  "local_environment_key_present": true,
+  "resend_domains": {
+    "status": "OK",
+    "http_status": 200,
+    "project_domain": {
+      "name": "zovo.one",
+      "status": "verified",
+      "region": "ap-northeast-1",
+      "capabilities": {
+        "sending": "enabled",
+        "receiving": "disabled"
+      }
+    },
+    "account_nonempty_read_control": true,
+    "domain_count": 3,
+    "fetched_at": "2026-10-16T08:23:24.854Z",
+    "method": "GET https://api.resend.com/domains; persist project domain configuration only, no domain IDs or DNS record values."
+  },
+  "billing_worker": {
+    "status": "OK",
+    "http_status": 200,
+    "resend_secret_name_present": true,
+    "positive_read_control": true,
+    "fetched_at": "2026-10-16T08:23:25.431Z",
+    "method": "Cloudflare GET Worker secrets inventory; names only; no secret values returned or retrieved."
+  },
+  "research_targets": {
+    "source": "data/outreach_targets.json",
+    "rows": 18,
+    "manual_rows": 18,
+    "email_rows": 0,
+    "explicit_opt_in_rows": 0,
+    "current_verified_mailbox_evidence_rows": 0,
+    "suppression_snapshot_present": false,
+    "dry_run": {
+      "candidates": 0,
+      "manual": 18,
+      "skipped": 18,
+      "eligible": 0,
+      "attempts": 0,
+      "accepted": 0,
+      "failures": 0,
+      "mode": "dry-run",
+      "capped": false
+    },
+    "source_and_outbox_unchanged": true
+  },
+  "delivery_verified": false,
+  "outreach_sent": 0,
+  "new_account_needed": false,
+  "missing_campaign_inputs": [
+    "Recipients with actual matching opt-in source/date/purpose; public contact details alone are not consent.",
+    "Current mailbox checks and reconciled unsubscribe/bounce/complaint suppressions.",
+    "An explicit campaign/message/batch instruction and tested opt-out URL."
+  ],
+  "limitations": [
+    "Domain and secret existence prove configuration, not successful email acceptance or inbox delivery.",
+    "Read-only domain permission does not establish the exact local API-key scope; no key-management or send operation was attempted.",
+    "The 18 manual research targets are not an eligible subscriber campaign."
+  ],
+  "checked_at": "2026-10-16T08:23:25.462Z",
+  "provider_policy": {
+    "reviewed_at": "2026-10-16T08:24:23.382Z",
+    "acceptable_use": "https://resend.com/legal/acceptable-use",
+    "page_last_updated": "2026-10-13",
+    "summary": "Explicit opt-in required; unsolicited cold outreach and purchased/scraped contact lists prohibited.",
+    "api_key_documentation": "https://resend.com/docs/api-reference/api-keys/create-api-key",
+    "new_key_created": false
+  }
+}

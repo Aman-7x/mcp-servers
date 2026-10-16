@@ -107,3 +107,193 @@
 {"at":"2026-10-16T03:54:05.923Z","path":"/Users/mike/mcp-servers-work/tool-inventory-SzKzEb","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
 {"at":"2026-10-16T03:56:31.599Z","path":"/Users/mike/mcp-servers-work/inventory-fingerprint-control-r1AUJO","bytes":77,"reason":"runtime inventory fingerprint control","lsof":"no open handles"}
 {"at": "2026-10-16T04:24:24.688017+00:00", "path": "/Users/mike/mcp-servers-work/r36-results-pr-body.md", "bytes": 1911, "reason": "final PR description published successfully", "lsof": "no open handles"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-RzHSeg","bytes":11295,"lsof":"no open handles","at":"2026-10-16T07:43:59.435Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-XZv0Du","bytes":11229,"lsof":"no open handles","at":"2026-10-16T07:43:59.652Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-QGGVGv","bytes":11229,"lsof":"no open handles","at":"2026-10-16T07:43:59.933Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-HyXejl","bytes":0,"lsof":"no open handles","at":"2026-10-16T07:44:00.202Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-HaUhzo","bytes":72,"lsof":"no open handles","at":"2026-10-16T07:44:00.493Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-T30FD1","bytes":11295,"lsof":"no open handles","at":"2026-10-16T07:46:31.701Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-2UUl5A","bytes":11229,"lsof":"no open handles","at":"2026-10-16T07:46:32.455Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-oHY60t","bytes":11229,"lsof":"no open handles","at":"2026-10-16T07:46:32.784Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-qnGoe0","bytes":0,"lsof":"no open handles","at":"2026-10-16T07:46:33.182Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-D2LdQ3","bytes":72,"lsof":"no open handles","at":"2026-10-16T07:46:33.582Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-htcQdW","bytes":14972,"lsof":"no open handles","at":"2026-10-16T07:46:33.664Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-1uHq0x","bytes":14972,"lsof":"no open handles","at":"2026-10-16T07:46:34.148Z","purpose":"duplicate-invoice-check test"}
+{"at":"2026-10-16T07:52:51.509Z","path":"/Users/mike/mcp-servers-work/tool-inventory-HUzLAO","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T07:55:19.488Z","path":"/Users/mike/mcp-servers-work/r37-duplicate-browser-fe6ysv","bytes":8549402,"reason":"completed isolated R37 duplicate browser QA profile","lsof":"no open handles"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-WW19BF","bytes":1285,"lsof":"no open handles","at":"2026-10-16T07:55:28.509Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ffeqAc","bytes":251,"lsof":"no open handles","at":"2026-10-16T07:55:28.514Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-9oYw4q","bytes":1417,"lsof":"no open handles","at":"2026-10-16T07:55:28.518Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-SeuNK7","bytes":23959,"lsof":"no open handles","at":"2026-10-16T07:55:28.563Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-FMKrHe","bytes":32891,"lsof":"no open handles","at":"2026-10-16T07:55:28.722Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ugopd4","bytes":1247,"lsof":"no open handles","at":"2026-10-16T07:55:28.852Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-UooFhA","bytes":3328,"lsof":"no open handles","at":"2026-10-16T07:55:28.852Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-GYPQbp","bytes":26953,"lsof":"no open handles","at":"2026-10-16T07:56:17.530Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-C8Tldp","bytes":23961,"lsof":"no open handles","at":"2026-10-16T07:56:17.530Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-YA9EDV","bytes":3328,"lsof":"no open handles","at":"2026-10-16T07:56:17.530Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-YWVjBv","bytes":52549,"lsof":"no open handles","at":"2026-10-16T07:56:17.531Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-J6yLnf","bytes":1662,"lsof":"no open handles","at":"2026-10-16T07:56:17.530Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-KldfxT","bytes":6865,"lsof":"no open handles","at":"2026-10-16T07:56:17.530Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-VV6eAn","bytes":52692,"lsof":"no open handles","at":"2026-10-16T07:56:17.554Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-RMHoOT","bytes":26953,"lsof":"no open handles","at":"2026-10-16T07:56:57.110Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-2wQI5C","bytes":6865,"lsof":"no open handles","at":"2026-10-16T07:56:57.108Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-9Gx2PC","bytes":23961,"lsof":"no open handles","at":"2026-10-16T07:56:57.109Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-f8hoSB","bytes":42729,"lsof":"no open handles","at":"2026-10-16T07:56:57.120Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-l49oLt","bytes":1662,"lsof":"no open handles","at":"2026-10-16T07:56:57.133Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-dqMhv7","bytes":5659,"lsof":"no open handles","at":"2026-10-16T07:56:57.146Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-yXUxJc","bytes":52692,"lsof":"no open handles","at":"2026-10-16T07:56:57.336Z","purpose":"R37 real free-cap stdio regression"}
+{"deleted_at":"2026-10-16T07:57:32.281Z","path":"/Users/mike/mcp-servers-work/r37-funnel-runtime-6ETqXZ","size_bytes":611632,"task":"R37 funnel local workerd verification","lsof_clear":true}
+{"deleted_at":"2026-10-16T07:57:57.485Z","path":"/Users/mike/mcp-servers-work/r37-funnel-runtime-4lGdUa","size_bytes":648712,"task":"R37 funnel local workerd verification","lsof_clear":true}
+{"deleted_at":"2026-10-16T07:58:15.809Z","path":"/Users/mike/mcp-servers-work/r37-funnel-runtime-1AEOe3","size_bytes":652864,"task":"R37 funnel local workerd verification","lsof_clear":true}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-M5EmuZ","bytes":23961,"lsof":"no open handles","at":"2026-10-16T07:58:29.390Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-MH47LG","bytes":6865,"lsof":"no open handles","at":"2026-10-16T07:58:29.417Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-n2dGSJ","bytes":42729,"lsof":"no open handles","at":"2026-10-16T07:58:29.812Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-M9qVGh","bytes":26953,"lsof":"no open handles","at":"2026-10-16T07:58:29.825Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-43BwzZ","bytes":5659,"lsof":"no open handles","at":"2026-10-16T07:58:29.837Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-EHpTG6","bytes":1662,"lsof":"no open handles","at":"2026-10-16T07:58:29.889Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Zcn6NQ","bytes":52692,"lsof":"no open handles","at":"2026-10-16T07:58:30.214Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-XCadtA","bytes":1288,"lsof":"no open handles","at":"2026-10-16T07:58:30.276Z","purpose":"R37 real free-cap stdio regression"}
+{"deleted_at":"2026-10-16T07:59:54.787Z","path":"/Users/mike/mcp-servers-work/r37-funnel-runtime-r9k2kI","size_bytes":669344,"task":"R37 funnel local workerd verification","lsof_clear":true}
+{"deleted_at":"2026-10-16T08:00:36.499Z","path":"/Users/mike/mcp-servers-work/r37-funnel-runtime-ZsRHLl","size_bytes":665224,"task":"R37 funnel local workerd verification","lsof_clear":true}
+{"at":"2026-10-16T08:01:22.891Z","path":"/Users/mike/mcp-servers-work/r37-office-source-tools.json","bytes":110930,"lsof":"no open handles","reason":"initial R37 release integration work output captured in permanent data/report"}
+{"at":"2026-10-16T08:01:23.146Z","path":"/Users/mike/mcp-servers-work/r37-scoped-check-initial.txt","bytes":2405,"lsof":"no open handles","reason":"initial R37 release integration work output captured in permanent data/report"}
+{"at":"2026-10-16T08:02:21.214Z","path":"/Users/mike/mcp-servers-work/tool-inventory-gf4zSq","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:03:22.009Z","path":"/Users/mike/mcp-servers-work/r37-value-Kxil6A","bytes":7258,"lsof":"no open handles","reason":"R37 synthetic operator user-value round46 complete"}
+{"at":"2026-10-16T08:03:36.747Z","path":"/Users/mike/mcp-servers-work/r37-value-7zM8C9","bytes":0,"lsof":"no open handles","reason":"R37 synthetic operator user-value round46 complete"}
+{"at":"2026-10-16T08:04:39.035Z","path":"/Users/mike/mcp-servers-work/r37-value-fH8GRX","bytes":0,"lsof":"no open handles","reason":"R37 synthetic operator user-value round46 complete"}
+{"at":"2026-10-16T08:04:42.540Z","path":"/Users/mike/mcp-servers-work/r37-demo-gif-R4DtGN","bytes":9138572,"lsof":"no open handles","reason":"R37 actual browser GIF synthetic frame source and owned fresh browser profile"}
+{"at":"2026-10-16T08:06:53.759Z","path":"/Users/mike/mcp-servers-work/r37-gif-review.png","bytes":474648,"lsof":"no open handles","reason":"R37 actual GIF contact sheet visually reviewed"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-U5d6ae","bytes":3247,"lsof":"no open handles","at":"2026-10-16T08:08:38.711Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-82tF7h","bytes":1122,"lsof":"no open handles","at":"2026-10-16T08:08:38.814Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-yCpLmJ","bytes":1827,"lsof":"no open handles","at":"2026-10-16T08:08:38.814Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-XszOHy","bytes":1047,"lsof":"no open handles","at":"2026-10-16T08:08:38.842Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-PAMIYe","bytes":194,"lsof":"no open handles","at":"2026-10-16T08:08:38.986Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-kVNVJG","bytes":31304,"lsof":"no open handles","at":"2026-10-16T08:08:39.005Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ZEBFFl","bytes":4558,"lsof":"no open handles","at":"2026-10-16T08:08:39.028Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-lDAfM6","bytes":744,"lsof":"no open handles","at":"2026-10-16T08:08:39.095Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-yNPjjk","bytes":52965,"lsof":"no open handles","at":"2026-10-16T08:08:39.294Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-hF530M","bytes":9421,"lsof":"no open handles","at":"2026-10-16T08:09:37.794Z","purpose":"R37 real free-cap stdio regression","note":"Cleanup retried after child closure; first lsof guard retained directory."}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Sjgema","bytes":9421,"lsof":"no open handles","at":"2026-10-16T08:09:38.523Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-10-16T08:10:49.714Z","path":"/Users/mike/mcp-servers-work/tool-inventory-b4HY2g","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:11:16.638Z","path":"/Users/mike/mcp-servers/bundles/office-suite","bytes":116819343,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-t5C4Ac","bytes":3247,"lsof":"no open handles","at":"2026-10-16T08:11:34.604Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-uM04Po","bytes":1122,"lsof":"no open handles","at":"2026-10-16T08:11:34.695Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-CyZNvV","bytes":23961,"lsof":"no open handles","at":"2026-10-16T08:11:34.695Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-IZtl7X","bytes":194,"lsof":"no open handles","at":"2026-10-16T08:11:34.983Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-8mfytS","bytes":42723,"lsof":"no open handles","at":"2026-10-16T08:11:35.079Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-xkb51h","bytes":1047,"lsof":"no open handles","at":"2026-10-16T08:11:35.203Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-j65LQZ","bytes":5659,"lsof":"no open handles","at":"2026-10-16T08:11:35.232Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-wSDu05","bytes":744,"lsof":"no open handles","at":"2026-10-16T08:11:35.291Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Xn34za","bytes":52692,"lsof":"no open handles","at":"2026-10-16T08:11:35.705Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-9wz2mE","bytes":6865,"lsof":"no open handles","at":"2026-10-16T08:11:35.950Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-BDH9p9","bytes":52965,"lsof":"no open handles","at":"2026-10-16T08:11:35.962Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-CacTqR","bytes":1662,"lsof":"no open handles","at":"2026-10-16T08:11:36.019Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-EQSC36","bytes":4558,"lsof":"no open handles","at":"2026-10-16T08:11:36.080Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-m1CuNL","bytes":31304,"lsof":"no open handles","at":"2026-10-16T08:11:36.151Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Tg2FEF","bytes":1827,"lsof":"no open handles","at":"2026-10-16T08:11:36.157Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-UToBYf","bytes":9421,"lsof":"no open handles","at":"2026-10-16T08:11:36.232Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Mzf8ms","bytes":26953,"lsof":"no open handles","at":"2026-10-16T08:11:36.279Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-nDldPZ","bytes":1288,"lsof":"no open handles","at":"2026-10-16T08:11:36.427Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-10-16T08:11:46.301Z","path":"/Users/mike/mcp-servers-work/tool-inventory-SENwYQ","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:11:48.254Z","path":"/Users/mike/mcp-servers/bundles/office-suite.mcpb","bytes":32000493,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T08:12:31.170Z","path":"/Users/mike/mcp-servers-work/r37-artifact-l696BA","bytes":98987094,"reason":"completed exact archive verification, derived artifacts and synthetic records","lsof":"no open handles"}
+{"at":"2026-10-16T07:53:50.272Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-53982-4YGpQm/office-duplicates-joBtzh","bytes":3265,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:53:50.489Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-53982-4YGpQm","bytes":0,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:59:11.735Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-91635-z3N8Rw/mcp-office-r7-HOUuL2","bytes":33390,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:59:11.737Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-91634-heuzio/mcp-office-proxy-ko1Q3q","bytes":33220,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:59:12.818Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-91635-z3N8Rw/mcp-office-r7-Y3rfTl","bytes":33390,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:59:13.067Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-91635-z3N8Rw","bytes":0,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:59:13.107Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-91634-heuzio/mcp-office-proxy-r4i9ww","bytes":33219,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:59:13.670Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-91634-heuzio/mcp-office-proxy-ndPDcR","bytes":33220,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:59:13.906Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-91634-heuzio","bytes":0,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:59:21.783Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-91636-krMVJV/mcp-office-suite-5czuPJ","bytes":1597,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:59:22.011Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-91636-krMVJV","bytes":0,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:59:23.545Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-91633-s2X3DS/office-duplicates-unmSxy","bytes":3291,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T07:59:23.759Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-91633-s2X3DS","bytes":0,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:00:42.684Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-94475-jKIZTj/mcp-office-proxy-BYjeLP","bytes":32664,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:00:42.689Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-94476-x0VB1h/mcp-office-r7-OZeAbm","bytes":34974,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:00:43.968Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-94476-x0VB1h/mcp-office-r7-ffMhzf","bytes":34974,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:00:44.299Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-94476-x0VB1h","bytes":0,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:00:44.299Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-94475-jKIZTj/mcp-office-proxy-VgQj7t","bytes":32663,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:00:44.837Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-94475-jKIZTj/mcp-office-proxy-jN3vqn","bytes":32664,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:00:45.085Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-94475-jKIZTj","bytes":0,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:00:54.722Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-94477-qQaGel/mcp-office-suite-MfJRlL","bytes":1597,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:00:54.951Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-94477-qQaGel","bytes":0,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:00:55.477Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-94474-1BgGxW/office-duplicates-QvjmmF","bytes":3291,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:00:55.701Z","path":"/Users/mike/mcp-servers-work/mcp-test-run-94474-1BgGxW","bytes":0,"lsof":"no open handles","reason":"completed standalone test scope","source_manifest":"office-suite test helper"}
+{"at":"2026-10-16T08:13:50.599Z","path":"/Users/mike/mcp-servers/servers/office-suite/cleanup-manifest.jsonl","bytes":4630,"lsof":"no open handles","reason":"office test helper deletion evidence consolidated into data/build-deletions.jsonl"}
+{"at":"2026-10-16T08:14:48.578Z","path":"/Users/mike/mcp-servers/bundles/SHA256SUMS-r37.txt","bytes":179,"lsof":"no open handles","reason":"withdraw superseded pre-Windows-fix release checksums; checkpoint evidence retained in data/r37_release_integration_pre_fix.json"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-6JyxoD","bytes":0,"lsof":"no open handles","at":"2026-10-16T08:16:11.874Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-xOUdm6","bytes":11295,"lsof":"no open handles","at":"2026-10-16T08:16:29.839Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-U5Rg5c","bytes":11229,"lsof":"no open handles","at":"2026-10-16T08:16:30.184Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-MWqqGo","bytes":11229,"lsof":"no open handles","at":"2026-10-16T08:16:30.273Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-WQcFmP","bytes":0,"lsof":"no open handles","at":"2026-10-16T08:16:30.517Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-XOFCvv","bytes":14972,"lsof":"no open handles","at":"2026-10-16T08:16:30.606Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-sqICu5","bytes":72,"lsof":"no open handles","at":"2026-10-16T08:16:30.819Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-yE0VCu","bytes":14972,"lsof":"no open handles","at":"2026-10-16T08:16:31.030Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-IOnptz","bytes":0,"lsof":"no open handles","at":"2026-10-16T08:16:31.105Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-y0a3ai","bytes":0,"lsof":"no open handles","at":"2026-10-16T08:16:56.053Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-9EBBbg","bytes":0,"lsof":"no open handles","at":"2026-10-16T08:18:02.004Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-jO0Lck","bytes":0,"lsof":"no open handles","at":"2026-10-16T08:19:27.576Z","purpose":"duplicate-invoice-check test"}
+{"at":"2026-10-16T08:22:44.553Z","path":"/Users/mike/mcp-servers/bundles/duplicate-invoice-check","bytes":14918584,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T08:22:48.695Z","path":"/Users/mike/mcp-servers-work/tool-inventory-iFV87a","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:22:51.413Z","path":"/Users/mike/mcp-servers/bundles/duplicate-invoice-check.mcpb","bytes":3275536,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T08:23:12.892Z","path":"/Users/mike/mcp-servers/bundles/three-way-match","bytes":14924727,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T08:23:15.394Z","path":"/Users/mike/mcp-servers-work/tool-inventory-7ejy3D","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:23:17.875Z","path":"/Users/mike/mcp-servers/bundles/three-way-match.mcpb","bytes":3276647,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-jlvgmn","bytes":0,"lsof":"no open handles","at":"2026-10-16T08:23:31.447Z","purpose":"duplicate-invoice-check test"}
+{"at":"2026-10-16T08:23:33.247Z","path":"/Users/mike/mcp-servers/bundles/office-suite","bytes":116841682,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T08:24:02.478Z","path":"/Users/mike/mcp-servers-work/tool-inventory-nYFKDP","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:24:05.249Z","path":"/Users/mike/mcp-servers/bundles/office-suite.mcpb","bytes":32010183,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T08:24:35.723Z","path":"/Users/mike/mcp-servers-work/r37-artifact-dh9rwK","bytes":109349305,"reason":"completed exact archive verification, derived artifacts and synthetic records","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:11.517Z","path":"/Users/mike/mcp-servers-work/r37-independent-product-vRMOPP","bytes":30918938,"reason":"independent R37 product review completed; derived archive extractions, guard scripts, synthetic records","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:14.990Z","path":"/Users/mike/mcp-servers-work/tool-inventory-EwMXfl","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:15.361Z","path":"/Users/mike/mcp-servers-work/tool-inventory-ZBvC9F","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:15.734Z","path":"/Users/mike/mcp-servers-work/tool-inventory-NURQ3g","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:16.149Z","path":"/Users/mike/mcp-servers-work/tool-inventory-oiXObR","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:16.760Z","path":"/Users/mike/mcp-servers-work/tool-inventory-CpLUYh","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:17.174Z","path":"/Users/mike/mcp-servers-work/tool-inventory-aUrBEN","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:17.625Z","path":"/Users/mike/mcp-servers-work/tool-inventory-4yXFKe","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:17.975Z","path":"/Users/mike/mcp-servers-work/tool-inventory-KyhYPm","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:18.429Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Fnit9K","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:18.833Z","path":"/Users/mike/mcp-servers-work/tool-inventory-jTyEJr","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:19.232Z","path":"/Users/mike/mcp-servers-work/tool-inventory-euZeTq","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:19.636Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Kw4Ude","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:19.998Z","path":"/Users/mike/mcp-servers-work/tool-inventory-36iZaP","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:20.366Z","path":"/Users/mike/mcp-servers-work/tool-inventory-ovV5EA","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:20.731Z","path":"/Users/mike/mcp-servers-work/tool-inventory-wpEa3y","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:21.127Z","path":"/Users/mike/mcp-servers-work/tool-inventory-05QM6H","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:21.545Z","path":"/Users/mike/mcp-servers-work/tool-inventory-GWb1wn","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:21.897Z","path":"/Users/mike/mcp-servers-work/tool-inventory-U7EQiG","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:22.226Z","path":"/Users/mike/mcp-servers-work/tool-inventory-neZfdu","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:22.565Z","path":"/Users/mike/mcp-servers-work/tool-inventory-jqoVrs","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:23.002Z","path":"/Users/mike/mcp-servers-work/tool-inventory-XfgtcD","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:23.349Z","path":"/Users/mike/mcp-servers-work/tool-inventory-JMdLII","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:23.695Z","path":"/Users/mike/mcp-servers-work/tool-inventory-jMn8R5","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:24.127Z","path":"/Users/mike/mcp-servers-work/tool-inventory-8YEk9o","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:24.533Z","path":"/Users/mike/mcp-servers-work/tool-inventory-rPM4ph","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:24.876Z","path":"/Users/mike/mcp-servers-work/tool-inventory-zQA2Ec","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:25.208Z","path":"/Users/mike/mcp-servers-work/tool-inventory-IWfn3c","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:25.627Z","path":"/Users/mike/mcp-servers-work/tool-inventory-5VggYD","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:25.973Z","path":"/Users/mike/mcp-servers-work/tool-inventory-oxFac0","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:26.319Z","path":"/Users/mike/mcp-servers-work/tool-inventory-b0wBBh","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:37.195Z","path":"/Users/mike/mcp-servers-work/tool-inventory-2lWimp","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:37.610Z","path":"/Users/mike/mcp-servers-work/tool-inventory-nzN0mO","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:38.022Z","path":"/Users/mike/mcp-servers-work/tool-inventory-eKFBFX","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:38.466Z","path":"/Users/mike/mcp-servers-work/tool-inventory-pXXxVO","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:38.822Z","path":"/Users/mike/mcp-servers-work/tool-inventory-pBAPZH","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:39.258Z","path":"/Users/mike/mcp-servers-work/tool-inventory-J1lNGQ","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:39.597Z","path":"/Users/mike/mcp-servers-work/tool-inventory-vWhW5r","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:40.018Z","path":"/Users/mike/mcp-servers-work/tool-inventory-NQfPn3","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:40.477Z","path":"/Users/mike/mcp-servers-work/tool-inventory-aotMDg","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:40.905Z","path":"/Users/mike/mcp-servers-work/tool-inventory-NsMi1n","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:41.263Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Y2ed7R","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:41.609Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Nq8QPL","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:42.059Z","path":"/Users/mike/mcp-servers-work/tool-inventory-6TFq7C","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:42.496Z","path":"/Users/mike/mcp-servers-work/tool-inventory-gMlOU0","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:42.858Z","path":"/Users/mike/mcp-servers-work/tool-inventory-DheM39","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:43.269Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Bcy8g0","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:43.645Z","path":"/Users/mike/mcp-servers-work/tool-inventory-NhuWNa","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:44.008Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Tr91qi","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:44.427Z","path":"/Users/mike/mcp-servers-work/tool-inventory-ksx06c","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T08:25:44.772Z","path":"/Users/mike/mcp-servers-work/tool-inventory-uBRK2T","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}

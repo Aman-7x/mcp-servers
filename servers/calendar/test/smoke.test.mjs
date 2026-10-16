@@ -256,11 +256,11 @@ test("initialize, tools/list, and the whole free-tier flow", async () => {
     assert.match(pr.result.messages[0].content.text, /events_list/);
     assert.match(pr.result.messages[0].content.text, /event_to_time_entry/);
 
-    // free tier: a third calendar is refused with the upgrade path, not an error
+    // free tier: a third calendar is refused with an error and upgrade path
     const second = await c.call("ics_import", { path: s.second, name: "family" });
     assert.equal(second.isError, false, second.text);
     const third = await c.call("ics_import", { text: SECOND, name: "third" });
-    assert.equal(third.isError, false, third.text);
+    assert.equal(third.isError, true, third.text);
     assert.match(third.text, /Pro feature/);
     assert.match(third.text, /mcp\.zovo\.one\/buy\/calendar/);
     const after = await c.call("calendars_list", {});

@@ -4,6 +4,7 @@
 // The FAQ section, the related links and the footer are appended by index.js.
 const FOOT = "";
 import { MATCHER_DEMO_HTML } from './matcher-demo-markup.js';
+import { DUPLICATE_DEMO_HTML } from './duplicate-demo-markup.js';
 const BASE = "https://mcp.zovo.one";
 const RELEASES = "https://mcp.zovo.one/downloads";
 
@@ -70,7 +71,7 @@ function install(slug) {
     .map((id) => `    "${id}": {\n      "command": "node",\n      "args": ["/absolute/path/to/mcp-servers/servers/${id}/dist/index.js"]\n    }`)
     .join(",\n");
   const hostedBlock = hosted.length === 0 ? "" : `
-<p>Or a URL, with nothing installed. <a href="/mcp/connect">/mcp/connect</a> mints a free
+<p>Or a URL, with nothing installed. <a href="/mcp/connect?acq=guide">/mcp/connect</a> mints a free
 anonymous token and prints the ready line${hosted.length > 1 ? "s" : ""}:</p>
 <pre><code>${hosted.map((id) => `claude mcp add --transport http ${id.padEnd(width)} https://mcp.zovo.one/mcp/${id}/t/&lt;token&gt;`).join("\n")}</code></pre>`;
   return `<p>One click, with no JSON. Download ${files} from the
@@ -98,6 +99,57 @@ has the whole picture.</p>
 }
 
 export const GUIDES = {
+  "check-duplicate-supplier-invoice-references-in-claude": {
+    title: "Review duplicate supplier invoice references in Claude",
+    description: "Review exact references, formatting variants and equal amount/date records within supplied invoice history. An editable local example shows the evidence and its limits.",
+    html: `<h1>Review duplicate supplier invoice references in Claude</h1>
+<p>The same supplier reference appears twice in an invoice register. One copy has a different date and amount. A check that requires reference, date and total to match simultaneously can miss that conflict. A check that treats every equal total as a duplicate can wrongly group legitimate bills.</p>
+<p><a href="/s/duplicate-invoice-check">MCP Duplicate Invoice Check</a> gives these review reasons separately. You supply structured records, including the history you want compared. It reports exact-reference collisions, a deliberately narrow reference-formatting comparison, and records sharing an amount and date. It does not decide that any candidate is a confirmed duplicate.</p>
+${DUPLICATE_DEMO_HTML}
+<h2>Read the four-record example</h2>
+<p>The initial example puts all four records in entity <code>ENTITY-1</code>, supplier <code>SUPPLIER-1</code>, currency <code>USD</code> and document type <code>invoice</code>. R1 and R2 both use <code>INV-001</code>, date <code>2026-10-16</code> and total <code>10000</code> minor units. R3 uses <code>inv /001</code>, date <code>2026-10-17</code> and total <code>15000</code>. R4 uses <code>RENT-9</code> with R1's amount and date.</p>
+<p>The report gives three independent reasons to review:</p>
+<ul><li><code>exact_reference</code>: R1 and R2 have the identical supplied reference.</li><li><code>normalized_reference</code>: R1, R2 and R3 become <code>INV001</code> under the stated formatting policy. The conflicting reference, amount and date fields remain visible.</li><li><code>same_amount_date</code>: R1, R2 and R4 have exactly the same total and invoice date. R4 could be a legitimate separate bill.</li></ul>
+<p>Four distinct records are candidates even though the reason groups overlap. Group memberships are not additional invoices. The report keeps each original record once, identifies its groups, and calculates no recoverable or duplicate-payment amount. Check the original documents, supplier statements and your existing accounting controls before deciding what any group means.</p>
+<h2>A changed amount must not hide the reference</h2>
+<p>Choose “Same reference, conflicting amount and date.” Both records still use <code>INV-001</code>, while the second date and total change. The exact-reference and normalized-reference reasons remain. The amount/date rule does not match. Conflicting fields appear alongside the reference evidence rather than suppressing it.</p>
+<p>This is supplied-record review. A changed reference, amount and date can escape all three rules. No output establishes that the supplied history is complete, that the supplier sent a duplicate, that a payment occurred or that an unflagged record is safe to pay.</p>
+<h2>Know exactly what formatting changes</h2>
+<p>The normalization rule uppercases ASCII <code>a–z</code> and removes only ASCII space, hyphen, slash and dot. It preserves leading zeros, other punctuation and all Unicode characters. <code>INV-001</code> and <code>inv /001</code> therefore collide. <code>INV-001</code> and <code>INV-1</code> do not collide under this rule. The browser's leading-zero example changes date and amount too, so the separate amount/date rule cannot obscure that boundary.</p>
+<p>This policy can create a false positive when a supplier uses punctuation as a meaningful reference distinction. Normalization is evidence for review, not proof that two numbers identify one invoice. It is not fuzzy matching, numeric coercion, Unicode folding or supplier-name inference.</p>
+<h2>Keep entity, supplier, currency and document type exact</h2>
+<p>All three rules compare records only within the same exact <code>entity_id</code>, <code>supplier_id</code>, <code>document_type</code> and <code>currency</code>. Scope identifiers are case sensitive. Display labels are optional and never merge entities or suppliers. Reconcile your identifiers before checking; two IDs for the same real supplier remain separate.</p>
+<p>The boundary example keeps reference, date and amount identical while changing one scope field on each additional record. It yields no candidates because no two rows share a full scope. This is an explicit comparison boundary, not evidence that those rows are unrelated in the real world. Currency codes are uppercase three-letter syntax, not an exchange-rate or currency-registry check. Credit notes use positive absolute minor-unit totals and compare only with credit notes.</p>
+<h2>Supply the history rather than assuming a connection</h2>
+<p>The tool accepts one batch with up to 1,000 records. Include both the invoice you are reviewing and the prior records you want it checked against. Each row requires a unique <code>record_id</code>, exact scope identifiers, document type, reference, real ISO date, currency and a positive safe-integer <code>total_minor</code>. For USD, <code>10000</code> means $100.00. Choose the correct minor-unit convention for your currency; the tool does not infer it.</p>
+<pre class="prompt">Review these structured supplier invoice records together with this
+supplied prior history. Preserve entity_id, supplier_id, currency and
+document_type exactly. Run duplicate_invoice_check with save false.
+Show each reason group, conflicting fields and the original record IDs.
+Do not classify candidates as confirmed duplicates or approve payment.</pre>
+<p>The server does not connect to an ERP, query a supplier master, read another MCP server's stores, extract PDFs or perform OCR. If a model transcribes documents first, review that transcription before checking. The local comparison server makes no network calls; your MCP client or model provider has its own data handling.</p>
+<h2>Install the local server</h2>
+<p>Open <code>duplicate-invoice-check.mcpb</code> from the <a href="${RELEASES}#duplicate-invoice-check">versioned download catalog</a> in Claude Desktop. For a terminal client, build from the source repository:</p>
+<pre><code>git clone https://github.com/theluckystrike/mcp-servers.git
+cd mcp-servers
+npm install
+npm run build -w packages/mcp-license -w servers/duplicate-invoice-check
+claude mcp add --scope user duplicate-invoice-check -- node /absolute/path/to/mcp-servers/servers/duplicate-invoice-check/dist/index.js</code></pre>
+<p>Replace the absolute path with yours. The <a href="/setup/claude-desktop/duplicate-invoice-check">Claude Desktop</a>, <a href="/setup/cursor/duplicate-invoice-check">Cursor</a> and <a href="/setup/vscode/duplicate-invoice-check">VS Code</a> setup pages show the local configuration. There is no hosted endpoint for this product. Its npm package is not published, so an npx package command is not an installation route.</p>
+<h2>Pay for retained reports when you need more of them</h2>
+<p>Full checks, candidate evidence, original records and free evidence paging do not require Pro. Saving is optional. ${freeText("duplicate-invoice-check")} <a href="/buy/duplicate-invoice-check?src=store.guide.duplicate-invoice-check">$${SINGLE_USD} Pro once</a> removes the saved-report-count cap; the <a href="/bundle">$${BUNDLE_USD} bundle</a> includes the same unlock. Both tiers keep the same input and safety bounds.</p>
+<p>In the MCP server, pass <code>save: true</code> to retain a local report. Use <code>report_list</code>, <code>report_get</code> and <code>report_delete</code> to manage saved copies. The response's <code>retrieval.report_id</code> also supports free <code>report_page</code> sections for records, groups, record summaries and a group's members. Follow <code>next_offset</code> until it is null. <code>report_export_csv</code> returns one row per record with reasons and group IDs, not a sum of overlapping groups. CSV pages repeat the header; keep one header when joining pages.</p>
+<p>Unsaved MCP previews last 30 minutes for the last two checks in that server process. After eviction, expiry or restart, resubmit the structured input. The browser example above saves neither previews nor reports; closing its page discards the values.</p>
+<p>Choose the separate <a href="/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude">three-way matching workflow</a> when the question is whether billed goods agree with an order and accepted delivery. That workflow does not inspect this supplied history automatically. Duplicate-reference review and goods matching answer different questions, and neither approves a payment.</p>`,
+    faq: [
+      { q: "Can a repeated invoice reference be flagged when its amount or date changes?", a: "Yes. Exact-reference and normalized-reference groups do not require equal totals or dates. Conflicting fields stay visible. The output is a candidate for review, not a confirmed duplicate." },
+      { q: "Does it ignore leading zeros in invoice numbers?", a: "No. Normalization preserves leading zeros and all Unicode. It changes only ASCII letter case and removes ASCII space, hyphen, slash and dot. Other matching reasons can still apply independently." },
+      { q: "Can two legitimate invoices have the same date and amount?", a: "Yes. That is why same_amount_date is a review reason, not a duplicate verdict. Compare references and source documents before deciding." },
+      { q: "Does it search all my accounting history or read invoice PDFs?", a: "No. It reviews only the structured records you supply, up to 1,000 per batch. It has no ERP access, PDF extraction, OCR or completeness guarantee." },
+      { q: "What does Pro unlock?", a: `Pro removes the saved-report-count cap. Full checks, evidence and paging are free. It costs $${SINGLE_USD} once, or is included in the $${BUNDLE_USD} bundle.` },
+    ],
+  },
+
   "match-supplier-invoice-purchase-order-delivery-note-in-claude": {
     title: "Check a supplier invoice against a purchase order and delivery note in Claude",
     description: "Compare supplier invoice lines, ordered units and accepted delivery quantities by SKU. Catch mismatches hidden by equal totals, with a local MCP server.",
@@ -195,7 +247,7 @@ lifetime key covering all of them, this one included, is $39.</p>
 
 <h2>Connect without installing</h2>
 <p>Claude.ai, the Claude Desktop connector dialog and several IDE pickers take a remote URL and nothing
-else, so the command above is not the only way in. <a href="/mcp/connect">mcp/connect</a> mints a token
+else, so the command above is not the only way in. <a href="/mcp/connect?acq=guide">mcp/connect</a> mints a token
 and prints a ready-to-paste URL for every server, including time-tracker, and the
 <a href="/setup/claude-web/time-tracker">claude.ai and Claude Desktop setup page</a> has the exact steps.</p>
 
@@ -281,7 +333,7 @@ number prefix. Details on <a href="/s/invoice">the MCP Invoice page</a> and in
 
 <h2>Connect without installing</h2>
 <p>Claude.ai, the Claude Desktop connector dialog and several IDE pickers take a remote URL and nothing
-else, so the command above is not the only way in. <a href="/mcp/connect">mcp/connect</a> mints a token
+else, so the command above is not the only way in. <a href="/mcp/connect?acq=guide">mcp/connect</a> mints a token
 and prints a ready-to-paste URL for every server, including invoice, and the
 <a href="/setup/claude-web/invoice">claude.ai and Claude Desktop setup page</a> has the exact steps.</p>
 
@@ -610,7 +662,7 @@ in <a href="/guides/mcp-server-free-vs-pro">free versus Pro</a>. Product page:
 
 <h2>Connect without installing</h2>
 <p>Claude.ai, the Claude Desktop connector dialog and several IDE pickers take a remote URL and nothing
-else, so the command above is not the only way in. <a href="/mcp/connect">mcp/connect</a> mints a token
+else, so the command above is not the only way in. <a href="/mcp/connect?acq=guide">mcp/connect</a> mints a token
 and prints a ready-to-paste URL for every server, including expense-tracker, and the
 <a href="/setup/claude-web/expense-tracker">claude.ai and Claude Desktop setup page</a> has the exact
 steps.</p>
@@ -1227,7 +1279,7 @@ That gap is what a remote MCP connector closes.</p>
 <p>An MCP server does not have to run as a local process talking over stdio. It can run as an HTTP endpoint
 that speaks the MCP streamable HTTP transport, and a client that supports remote servers connects to it
 the same way a browser connects to a website: with a URL. No process starts on your machine, nothing is
-installed, and there is nothing to keep updated. <a href="${BASE}/mcp/connect">${BASE}/mcp/connect</a>
+installed, and there is nothing to keep updated. <a href="${BASE}/mcp/connect?acq=guide">${BASE}/mcp/connect</a>
 mints an anonymous token and prints one such URL per server, shaped like
 <code>${BASE}/mcp/&lt;server&gt;/t/&lt;token&gt;</code>. Paste it where a client asks for a remote server
 URL and the connection works with no headers: the token is already in the path, not in an Authorization
@@ -3680,7 +3732,7 @@ they will surface at once, so a large bundle can crowd out a small server. The o
 this repository exposes every child at once, which is convenient and is also the fastest way to hit
 that ceiling; install the two or three servers you actually use instead. Second, a server that starts
 and then exits: that is a crash, not a config problem, and the log file names it.</p>
-<p>You can also sidestep local processes completely. <a href="/mcp/connect">mcp/connect</a> mints a
+<p>You can also sidestep local processes completely. <a href="/mcp/connect?acq=guide">mcp/connect</a> mints a
 free anonymous token and prints an HTTPS URL per server that any client taking a remote URL will
 accept. Nothing is installed and no PATH is consulted.</p>
 
@@ -3798,7 +3850,7 @@ no restart step in Claude Code at all, which is the main practical difference fr
 <h2>Adding a remote server with no local process</h2>
 <pre><code>claude mcp add --transport http invoice https://mcp.zovo.one/mcp/invoice/t/YOUR_TOKEN</code></pre>
 <p>Get the token and the ready-made URL for each server from
-<a href="/mcp/connect">mcp/connect</a>. The free anonymous token allows 600 calls an hour and keeps
+<a href="/mcp/connect?acq=guide">mcp/connect</a>. The free anonymous token allows 600 calls an hour and keeps
 your data space for 30 days, refreshed for another 30 on every write, which the connect page states on
 its face. Nothing is installed and no build step is involved.</p>
 ${FOOT}`,
@@ -3911,7 +3963,7 @@ it. The result is <code>servers/invoice/dist/index.js</code>, which you point a 
 absolute.</p>
 
 <h2>3. A URL, with nothing installed</h2>
-<p>Every server also runs behind streamable HTTP. Open <a href="/mcp/connect">mcp/connect</a> and it
+<p>Every server also runs behind streamable HTTP. Open <a href="/mcp/connect?acq=guide">mcp/connect</a> and it
 mints a free anonymous token and prints a ready URL per server. Paste one into any client that takes a
 remote server URL, which includes the Claude connector dialog and several IDE pickers. There is no
 header to set, because the token is already in the path.</p>
@@ -3984,7 +4036,7 @@ over when you convert a local entry into a remote one and the key silently stops
     }
   }
 }</code></pre>
-<p><a href="/mcp/connect">mcp/connect</a> prints the URL with the token already in the path, so there
+<p><a href="/mcp/connect?acq=guide">mcp/connect</a> prints the URL with the token already in the path, so there
 is no header to configure and nothing to install. Free terms are on that page: 600 calls an hour and a
 data space kept 30 days, refreshed on every write.</p>
 
@@ -4048,7 +4100,7 @@ across a server's source is a five-second audit that does not require reading an
 JSON. You can read it with any editor, back it up with anything, and delete it by deleting the folder.
 The file-handling servers, spreadsheet, pdf, image and zip, keep nothing at all beyond a recent-files
 list: they work on the files you name and leave the results where you asked for them.</p>
-<p>The one exception to all of this is the hosted endpoints. <a href="/mcp/connect">mcp/connect</a>
+<p>The one exception to all of this is the hosted endpoints. <a href="/mcp/connect?acq=guide">mcp/connect</a>
 gives you a URL instead of an install, and a hosted server necessarily sees what you send it. That is
 a genuine trade and the page says which one you are making.</p>
 ${FOOT}`,
@@ -5090,7 +5142,7 @@ one is worth setting deliberately: it decides which tools run without asking you
 if its tools do not appear.</p>
 
 <h2>Where the URLs come from</h2>
-<p><a href="/mcp/connect">mcp/connect</a> mints a free anonymous token and prints a ready URL per
+<p><a href="/mcp/connect?acq=guide">mcp/connect</a> mints a free anonymous token and prints a ready URL per
 server, token already in the path. Free terms are stated there: 600 calls an hour, free-tier server
 limits, and a data space kept 30 days and refreshed for another 30 on every write.</p>
 <p>Client facts on this page were read off each client's own documentation on 2026-09-02 and are
@@ -5133,7 +5185,7 @@ time-tracker and expense servers hold their own data, so a hosted install of tho
 from a browser with nothing installed at all.</p>
 
 <h2>What the hosted token is</h2>
-<p>Open <a href="/mcp/connect">mcp/connect</a> and it mints one, in the form
+<p>Open <a href="/mcp/connect?acq=guide">mcp/connect</a> and it mints one, in the form
 <code>anon_</code> plus 32 hex characters, and prints a ready URL per server with the token in the
 path. There is no header to configure and no sign-up. Two things that page states plainly and this one
 repeats: anyone holding the URL holds that data space, so treat it as a secret; and reloading the page
@@ -7856,7 +7908,7 @@ catches people. Probed on 2026-09-10, an unauthenticated <code>initialize</code>
 ${VERSION}, and an unauthenticated <code>tools/call</code> against the same URL returned 401 with a body
 naming both credential forms. So the bare URL is enough for a directory to introspect and not enough to
 run a tool. Use the token form.</p>
-<p><a href="/mcp/connect">/mcp/connect</a> does the mint and prints one ready line per server if you would
+<p><a href="/mcp/connect?acq=guide">/mcp/connect</a> does the mint and prints one ready line per server if you would
 rather not run curl. The client-by-client detail, including the Claude.ai custom connector dialog and the
 Cursor and VS Code entries, is on
 <a href="/guides/connect-mcp-servers-without-installing">connect without installing</a>.</p>
@@ -8495,7 +8547,7 @@ hours at what rate, any VAT and the due date, and it allocates a number that nev
 tax lines and renders a single-page A4 PDF on your own disk. No web app, no form, no upload.</p>
 
 <h2>The direct try-it path</h2>
-<p>You do not have to install anything to try it. <a href="/mcp/connect">/mcp/connect</a> mints a free
+<p>You do not have to install anything to try it. <a href="/mcp/connect?acq=guide">/mcp/connect</a> mints a free
 anonymous token and prints a ready URL per server. Paste that URL into the Claude Desktop connector
 dialog, Claude.ai or Cursor as a remote server, and it is live: no npm, no PATH, no config file.</p>
 ${install("invoice")}
@@ -8559,7 +8611,7 @@ bank only hands you a PDF, the path is: export the underlying data as CSV if the
 one of the dedicated PDF-reading tools named below.</p>
 
 <h2>Try it first, free, with a URL</h2>
-<p><a href="/mcp/connect">/mcp/connect</a> mints a free anonymous token and prints a ready URL per
+<p><a href="/mcp/connect?acq=guide">/mcp/connect</a> mints a free anonymous token and prints a ready URL per
 server. Paste the bank-statement URL into Claude Desktop, Claude.ai or Cursor as a remote server, and
 you can hand it a CSV export in the same session: no install, no account.</p>
 ${install("bank-statement")}
@@ -8650,7 +8702,7 @@ practice actually runs.</p>
 
 <h2>Try it before you pay</h2>
 <p>Every server here has a working free tier, and most of them answer at a URL with nothing installed:
-<a href="/mcp/connect">/mcp/connect</a> mints a free anonymous token and prints a ready URL per server,
+<a href="/mcp/connect?acq=guide">/mcp/connect</a> mints a free anonymous token and prints a ready URL per server,
 which you paste into Claude Desktop, Claude.ai or Cursor as a remote server. The free tiers are not
 demos; several are the real workflow at a small scale (three invoices a month, five open quotes, two
 bank accounts, one petty cash float).</p>
@@ -8742,7 +8794,7 @@ servers in total; one lifetime key covering all of them, this one included, is $
 
 <h2>Connect without installing</h2>
 <p>Claude.ai, the Claude Desktop connector dialog and several IDE pickers take a remote URL and nothing
-else. <a href="/mcp/connect">mcp/connect</a> mints a token and prints a ready-to-paste URL for every
+else. <a href="/mcp/connect?acq=guide">mcp/connect</a> mints a token and prints a ready-to-paste URL for every
 hosted server, including this one at <code>https://mcp.zovo.one/mcp/supplier-list</code>.${FOOT}`,
     faq: [
       { q: "What is the best MCP server for supplier lists?", a: `MCP Supplier List is the one made for it: it stores contacts, payment terms and lead times per supplier, keeps a review date on every record, and answers which suppliers have gone stale with supplier_due_review. It is $${SINGLE_USD} once for unlimited suppliers, and ten suppliers with CSV export are free on every tier.` },
@@ -8810,7 +8862,7 @@ servers in total; one lifetime key covering all of them, this one included, is $
 
 <h2>Connect without installing</h2>
 <p>Claude.ai, the Claude Desktop connector dialog and several IDE pickers take a remote URL and nothing
-else. <a href="/mcp/connect">mcp/connect</a> mints a token and prints a ready-to-paste URL for every
+else. <a href="/mcp/connect?acq=guide">mcp/connect</a> mints a token and prints a ready-to-paste URL for every
 hosted server, including this one at <code>https://mcp.zovo.one/mcp/service-agreement</code>.${FOOT}`,
     faq: [
       { q: "What is the best MCP server for service agreements?", a: `MCP Service Agreement writes a scope, deliverables, rate, payment terms, termination notice, liability cap and governing jurisdiction into a rendered agreement numbered SA-YYYY-NNNN, and checks it for missing fields and one-sided gaps before you send it. Three active agreements are free; Pro is $${SINGLE_USD} once for unlimited.` },
@@ -8879,7 +8931,7 @@ servers in total; one lifetime key covering all of them, this one included, is $
 
 <h2>Connect without installing</h2>
 <p>Claude.ai, the Claude Desktop connector dialog and several IDE pickers take a remote URL and nothing
-else. <a href="/mcp/connect">mcp/connect</a> mints a token and prints a ready-to-paste URL for every
+else. <a href="/mcp/connect?acq=guide">mcp/connect</a> mints a token and prints a ready-to-paste URL for every
 hosted server, including this one at <code>https://mcp.zovo.one/mcp/maintenance-log</code>.${FOOT}`,
     faq: [
       { q: "What is the best MCP server for equipment maintenance?", a: `MCP Maintenance Log keeps one register of assets and the work done on them, and answers what is overdue or coming due from the stored dates the moment you ask. Three assets with CSV export are free; Pro is $${SINGLE_USD} once for unlimited assets and the due report.` },
@@ -8949,7 +9001,7 @@ total; one lifetime key covering all of them, this one included, is $${BUNDLE_US
 
 <h2>Connect without installing</h2>
 <p>Claude.ai, the Claude Desktop connector dialog and several IDE pickers take a remote URL and nothing
-else. <a href="/mcp/connect">mcp/connect</a> mints a token and prints a ready-to-paste URL for every
+else. <a href="/mcp/connect?acq=guide">mcp/connect</a> mints a token and prints a ready-to-paste URL for every
 hosted server, including this one at <code>https://mcp.zovo.one/mcp/mileage-log</code>.${FOOT}`,
     faq: [
       { q: "What is the best MCP server to track vehicle mileage?", a: `MCP Mileage Log logs each trip with date, route, distance, purpose and category, prices it by the effective-dated rate in force on that day, and exports a CSV for the accountant. Twenty trips a month with one rate per category are free; Pro is $${SINGLE_USD} once for unlimited trips and the priced export.` },
@@ -9244,7 +9296,7 @@ the server answers over the network.</p>
 
 <h2>How the hosted route works</h2>
 <p>Every hosted server answers at <code>https://mcp.zovo.one/mcp/&lt;name&gt;/t/&lt;token&gt;</code>.
-<a href="/mcp/connect">/mcp/connect</a> mints a free anonymous token and prints the ready line for your
+<a href="/mcp/connect?acq=guide">/mcp/connect</a> mints a free anonymous token and prints the ready line for your
 client. The token is anonymous, so there is no account and no sign-up. Files a hosted call generates, such
 as an invoice PDF or a filled Word document, come back as a download link that expires after an hour,
 because the hosted route has no filesystem to write to.</p>
@@ -10017,6 +10069,7 @@ ${LISTED_CHILD_COUNT}-server set.</p>`,
 };
 
 export const GUIDE_PRODUCT_LINKS = {
+  "check-duplicate-supplier-invoice-references-in-claude": ["duplicate-invoice-check"],
   "bill-of-sale-from-chat": ["bill-of-sale", "invoice"],
   "change-orders-and-contract-value-from-chat": ["change-order", "service-agreement"],
   "price-a-job-with-a-rate-card-and-a-change-order": ["change-order", "job-card", "work-order"],
@@ -10056,6 +10109,7 @@ export const GUIDE_PRODUCT_LINKS = {
  * cover. Every guide slug here must exist in GUIDES (validated at build).
  */
 export const PRODUCT_GUIDE_LINKS = {
+  "duplicate-invoice-check": ["check-duplicate-supplier-invoice-references-in-claude"],
   "time-tracker": ["track-time-in-claude-code", "freelancer-invoice-and-billable-hours-in-chat", "kanban-board-in-claude-with-time-tracking", "project-profitability-hours-versus-budget"],
   "price-tracker": ["price-drop-alerts-with-claude", "price-drop-alerts-and-pdf-cleanup-from-chat", "price-lists-and-rate-cards-from-chat", "supplier-directory-from-chat"],
   spreadsheet: ["read-excel-in-cursor", "csv-to-excel-and-back-in-claude", "answer-questions-about-a-spreadsheet-without-formulas", "ask-a-spreadsheet-questions-in-chat"],
@@ -10103,6 +10157,8 @@ export const PRODUCT_GUIDE_LINKS = {
 };
 
 export const GUIDE_RELATED = {
+  "check-duplicate-supplier-invoice-references-in-claude": ["match-supplier-invoice-purchase-order-delivery-note-in-claude", "credit-notes-and-purchase-orders-from-chat"],
+  "match-supplier-invoice-purchase-order-delivery-note-in-claude": ["check-duplicate-supplier-invoice-references-in-claude", "credit-notes-and-purchase-orders-from-chat"],
   "answer-questions-about-a-spreadsheet-without-formulas": ["combine-receipts-into-one-pdf-for-your-accountant", "csv-to-excel-and-back-in-claude", "pdf-merge-split-stamp-from-chat"],
   "bank-statement-csv-categorize-reconcile": ["how-to-categorize-bank-transactions", "month-end-close-with-mcp-servers", "reconcile-a-bank-export-with-your-invoices"],
   "best-mcp-servers-for-small-business-accounting": ["self-employed-tax-year-pack-from-chat", "vat-and-reverse-charge-invoices-from-chat", "vehicle-mileage-log-from-chat"],

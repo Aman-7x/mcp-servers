@@ -1,6 +1,6 @@
 {
   "name": "@theluckystrike/mcp-office-suite",
-  "version": "0.22.6",
+  "version": "0.22.7",
   "description": "One install for the whole freelancer office suite: time tracking, price watching, spreadsheets and PDF invoicing, proxied behind a single MCP server.",
   "type": "module",
   "bin": {
@@ -52,7 +52,8 @@
     "@theluckystrike/mcp-recurring": "^0.22.6",
     "@theluckystrike/mcp-clauses": "^0.22.6",
     "@theluckystrike/mcp-pdf": "^0.22.6",
-    "@theluckystrike/mcp-calendar": "^0.22.6"
+    "@theluckystrike/mcp-calendar": "^0.22.6",
+    "@theluckystrike/mcp-duplicate-invoice-check": "^0.22.7"
   },
   "devDependencies": {
     "typescript": "^5.6.0",

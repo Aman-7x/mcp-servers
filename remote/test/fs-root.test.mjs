@@ -35,6 +35,7 @@ registerHooks({
   },
 });
 
+const virtualFs = await import("../src/shims/fs.ts");
 const { existsSync, mkdirSync } = await import("../src/shims/fs.ts");
 const { STORE } = await import("../src/shims/ctx.ts");
 
@@ -71,4 +72,27 @@ test("a path with no reachable ancestor is still refused", () => {
     // The guard must not have been loosened into "anything is creatable".
     assert.equal(existsSync("/out/nested/deep"), false);
   });
+});
+
+
+test("lstat describes only entries in the current virtual filesystem", () => {
+  assert.equal(typeof virtualFs.lstatSync, 'function', 'required by resume bounded directory creation');
+  const first = ctx();
+  first.files.set('/file', 'é');
+  first.dirs.add('/out');
+  runWithCtx(first, () => {
+    for (const path of ['/', '/out']) {
+      const stat = virtualFs.lstatSync(path);
+      assert.equal(stat.isDirectory(), true);
+      assert.equal(stat.isFile(), false);
+      assert.equal(stat.isSymbolicLink(), false);
+    }
+    const file = virtualFs.lstatSync('/file');
+    assert.equal(file.isFile(), true);
+    assert.equal(file.isDirectory(), false);
+    assert.equal(file.isSymbolicLink(), false);
+    assert.equal(file.size, 2);
+    assert.throws(() => virtualFs.lstatSync('/missing'), { code: 'ENOENT' });
+  });
+  runWithCtx(ctx(), () => assert.throws(() => virtualFs.lstatSync('/file'), { code: 'ENOENT' }));
 });

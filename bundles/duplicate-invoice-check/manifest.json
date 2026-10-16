@@ -1,0 +1,83 @@
+{
+  "manifest_version": "0.2",
+  "name": "mcp-duplicate-invoice-check",
+  "display_name": "Duplicate Invoice Check",
+  "version": "0.22.7",
+  "description": "Review explainable duplicate supplier invoice candidates in a supplied local batch.",
+  "author": {
+    "name": "theluckystrike",
+    "url": "https://github.com/theluckystrike"
+  },
+  "privacy_policies": [
+    "https://mcp.zovo.one/privacy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/mcp-servers"
+  },
+  "homepage": "https://mcp.zovo.one",
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "MCP_LICENSE_KEY": "${user_config.license_key}"
+      }
+    }
+  },
+  "user_config": {
+    "license_key": {
+      "type": "string",
+      "title": "License key",
+      "description": "Optional Pro license key (format MCPL1.xxx.yyy). Leave blank to use the free tier.",
+      "sensitive": true,
+      "required": false
+    }
+  },
+  "tools": [
+    {
+      "name": "duplicate_invoice_check",
+      "description": "Group up to 1000 supplied records by exact/normalized reference or exact amount/date within exact entity, supplier, type and currency. All evidence is free. Candidates require review; no payment approval."
+    },
+    {
+      "name": "report_list",
+      "description": "List saved report ids, timestamps and unique candidate counts. Free on both tiers. Up to 100 reports per page."
+    },
+    {
+      "name": "report_get",
+      "description": "Read a saved report with source records, reason groups and overlap-safe candidate counts. Large reports return free paging instructions."
+    },
+    {
+      "name": "report_page",
+      "description": "Read free pages of records, group summaries, record reasons or one group’s members. Unsaved preview ids last 30 minutes for the last two checks in this process."
+    },
+    {
+      "name": "report_delete",
+      "description": "Delete one local saved report and free a storage slot. Does not change accounting records."
+    },
+    {
+      "name": "report_export_csv",
+      "description": "Export free CSV pages from a saved report or unsaved preview. One row per record with reasons and group ids. Formula-like cells are escaped; no financial-loss total is calculated."
+    },
+    {
+      "name": "license_status",
+      "description": "Report this server's licence state: product, tier free or pro, licence id, expiry, the key source and the upgrade URL. No arguments, no network. Explains a free-tier refusal; license_activate installs a key."
+    },
+    {
+      "name": "license_activate",
+      "description": "Activate a Pro key (MCPL1.xxx.yyy) from checkout: verified offline against a built-in public key, saved to your config file. A wrong, malformed or expired key is refused, unsaved. license_status reads it back."
+    }
+  ],
+  "keywords": [
+    "mcp",
+    "duplicate-invoice",
+    "supplier-invoice",
+    "accounts-payable",
+    "local"
+  ]
+}
