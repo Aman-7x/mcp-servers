@@ -215,6 +215,25 @@ for NAME in $SERVERS; do
       --exclude dist --exclude node_modules --exclude RESULT.md --exclude cleanup-manifest.jsonl --exclude .git . ) \
     | ( cd "$MIRROR" && tar -xf - )
 
+  # Shared run-scope imports are outside a server folder in the monorepo. Port
+  # them to a standalone helper, retaining real tests and safe fixture cleanup.
+  python3 - "$ROOT" "$MIRROR" <<'PY'
+import os, pathlib, re, shutil, sys
+root, mirror = map(pathlib.Path, sys.argv[1:])
+target = mirror / 'test' / '_tmp-scope.mjs'
+pattern = re.compile(r'(?:\.\./)+test/_tmp-scope\.mjs')
+for path in list((mirror / 'test').rglob('*.mjs')):
+    text = path.read_text()
+    if not pattern.search(text):
+        continue
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(root / 'scripts' / 'mirror-test-tmp-scope.mjs', target)
+    relative = os.path.relpath(target, path.parent).replace(os.sep, '/')
+    if not relative.startswith('.'):
+        relative = './' + relative
+    path.write_text(pattern.sub(relative, text))
+PY
+
   # 1b. Overwrite the monorepo Dockerfile with one that can actually build here.
   #     The copied file does `COPY servers ./servers`, a directory a mirror does not have,
   #     so every mirror shipped a Dockerfile that failed on its first COPY. Measured and

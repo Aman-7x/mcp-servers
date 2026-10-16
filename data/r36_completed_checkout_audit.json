@@ -1,0 +1,28 @@
+{
+  "started_at": "2026-10-16T02:59:06.890Z",
+  "fetched_at": "2026-10-16T02:59:10.368Z",
+  "status": "OK",
+  "method": "Stripe live GET /v1/checkout/sessions?status=complete&limit=100, cursor pagination until has_more=false",
+  "documentation": "https://docs.stripe.com/api/checkout/sessions/list",
+  "pages": 2,
+  "complete_history_of_matching_sessions": true,
+  "oldest_completed_session": "2024-10-09T14:18:09.000Z",
+  "newest_completed_session": "2026-10-15T13:47:49.000Z",
+  "counts": {
+    "completed_sessions": 182,
+    "paid_sessions": 182,
+    "mcp_completed_sessions": 0,
+    "mcp_tagged_probes": 0,
+    "mcp_untagged_completed_sessions": 0,
+    "mcp_untagged_paid_sessions": 0
+  },
+  "mcp_untagged_paid_checkout_gross_minor_by_currency": {},
+  "scope": "Success URL hostname exactly mcp.zovo.one; metadata.probe=1 excluded from commercial totals",
+  "limitations": [
+    "All available completed Checkout Sessions at the snapshot, not all Stripe payment channels or business revenue.",
+    "Paid checkout gross amount precedes refunds, fees, disputes and taxes; no net revenue or profit claim.",
+    "Complete sessions can still be unpaid; payment_status=paid is separately required.",
+    "Untagged activity is not independently verified as human."
+  ],
+  "privacy": "Only aggregates persisted. No raw session IDs, customer identities, payment intents, checkout URLs or credentials exported."
+}

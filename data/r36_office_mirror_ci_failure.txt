@@ -1,0 +1,118 @@
+install, build, test	Run npm test	﻿2026-10-16T02:23:49.4318341Z ##[group]Run npm test
+install, build, test	Run npm test	2026-10-16T02:23:49.4318717Z npm test
+install, build, test	Run npm test	2026-10-16T02:23:49.4357528Z shell: /usr/bin/bash -e {0}
+install, build, test	Run npm test	2026-10-16T02:23:49.4358013Z ##[endgroup]
+install, build, test	Run npm test	2026-10-16T02:23:49.5312772Z
+install, build, test	Run npm test	2026-10-16T02:23:49.5313892Z > @theluckystrike/mcp-office-suite@0.22.6 test
+install, build, test	Run npm test	2026-10-16T02:23:49.5314916Z > node --test test/*.test.mjs
+install, build, test	Run npm test	2026-10-16T02:23:49.5315411Z
+install, build, test	Run npm test	2026-10-16T02:23:49.5886267Z TAP version 13
+install, build, test	Run npm test	2026-10-16T02:23:49.6326683Z # Subtest: CHILDREN covers every stdio server in the estate
+install, build, test	Run npm test	2026-10-16T02:23:49.6327857Z ok 1 - CHILDREN covers every stdio server in the estate # SKIP
+install, build, test	Run npm test	2026-10-16T02:23:49.6328628Z   ---
+install, build, test	Run npm test	2026-10-16T02:23:49.6346209Z   duration_ms: 0.971247
+install, build, test	Run npm test	2026-10-16T02:23:49.6366469Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T02:23:49.6367268Z   ...
+install, build, test	Run npm test	2026-10-16T02:23:49.6368234Z # Subtest: every CHILDREN entry names the package that server actually publishes
+install, build, test	Run npm test	2026-10-16T02:23:49.6369583Z ok 2 - every CHILDREN entry names the package that server actually publishes # SKIP
+install, build, test	Run npm test	2026-10-16T02:23:49.6370466Z   ---
+install, build, test	Run npm test	2026-10-16T02:23:49.6371491Z   duration_ms: 0.192509
+install, build, test	Run npm test	2026-10-16T02:23:49.6372059Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T02:23:49.6372582Z   ...
+install, build, test	Run npm test	2026-10-16T02:23:49.6373651Z # Subtest: control: the completeness assertion fails when an entry is removed
+install, build, test	Run npm test	2026-10-16T02:23:49.6375362Z ok 3 - control: the completeness assertion fails when an entry is removed # SKIP
+install, build, test	Run npm test	2026-10-16T02:23:49.6376270Z   ---
+install, build, test	Run npm test	2026-10-16T02:23:49.6376827Z   duration_ms: 0.141197
+install, build, test	Run npm test	2026-10-16T02:23:49.6377405Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T02:23:49.6377981Z   ...
+install, build, test	Run npm test	2026-10-16T02:23:49.6389636Z # node:internal/modules/esm/resolve:275
+install, build, test	Run npm test	2026-10-16T02:23:49.6390650Z #     throw new ERR_MODULE_NOT_FOUND(
+install, build, test	Run npm test	2026-10-16T02:23:49.6391436Z #           ^
+install, build, test	Run npm test	2026-10-16T02:23:49.6393096Z # Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/runner/work/test/_tmp-scope.mjs' imported from /home/runner/work/mcp-office-suite/mcp-office-suite/test/proxy.test.mjs
+install, build, test	Run npm test	2026-10-16T02:23:49.6396072Z #     at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+install, build, test	Run npm test	2026-10-16T02:23:49.6397236Z #     at moduleResolve (node:internal/modules/esm/resolve:865:10)
+install, build, test	Run npm test	2026-10-16T02:23:49.6398300Z #     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+install, build, test	Run npm test	2026-10-16T02:23:49.6399355Z #     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+install, build, test	Run npm test	2026-10-16T02:23:49.6400641Z #     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+install, build, test	Run npm test	2026-10-16T02:23:49.6401523Z #     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+install, build, test	Run npm test	2026-10-16T02:23:49.6402234Z #     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+install, build, test	Run npm test	2026-10-16T02:23:49.6402795Z #   code: 'ERR_MODULE_NOT_FOUND',
+install, build, test	Run npm test	2026-10-16T02:23:49.6403350Z #   url: 'file:///home/runner/work/test/_tmp-scope.mjs'
+install, build, test	Run npm test	2026-10-16T02:23:49.6403831Z # }
+install, build, test	Run npm test	2026-10-16T02:23:49.6404267Z # Node.js v22.23.3
+install, build, test	Run npm test	2026-10-16T02:23:49.6405084Z # Subtest: test/proxy.test.mjs
+install, build, test	Run npm test	2026-10-16T02:23:49.6405934Z not ok 2 - test/proxy.test.mjs
+install, build, test	Run npm test	2026-10-16T02:23:49.6406505Z   ---
+install, build, test	Run npm test	2026-10-16T02:23:49.6406880Z   duration_ms: 35.512956
+install, build, test	Run npm test	2026-10-16T02:23:49.6407251Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T02:23:49.6407767Z   location: '/home/runner/work/mcp-office-suite/mcp-office-suite/test/proxy.test.mjs:1:1'
+install, build, test	Run npm test	2026-10-16T02:23:49.6408648Z   failureType: 'testCodeFailure'
+install, build, test	Run npm test	2026-10-16T02:23:49.6408981Z   exitCode: 1
+install, build, test	Run npm test	2026-10-16T02:23:49.6409300Z   signal: ~
+install, build, test	Run npm test	2026-10-16T02:23:49.6409596Z   error: 'test failed'
+install, build, test	Run npm test	2026-10-16T02:23:49.6409932Z   code: 'ERR_TEST_FAILURE'
+install, build, test	Run npm test	2026-10-16T02:23:49.6410261Z   ...
+install, build, test	Run npm test	2026-10-16T02:23:49.6410607Z # node:internal/modules/esm/resolve:275
+install, build, test	Run npm test	2026-10-16T02:23:49.6411026Z #     throw new ERR_MODULE_NOT_FOUND(
+install, build, test	Run npm test	2026-10-16T02:23:49.6411585Z #           ^
+install, build, test	Run npm test	2026-10-16T02:23:49.6412928Z # Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/runner/work/test/_tmp-scope.mjs' imported from /home/runner/work/mcp-office-suite/mcp-office-suite/test/round7.test.mjs
+install, build, test	Run npm test	2026-10-16T02:23:49.6414144Z #     at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+install, build, test	Run npm test	2026-10-16T02:23:49.6415170Z #     at moduleResolve (node:internal/modules/esm/resolve:865:10)
+install, build, test	Run npm test	2026-10-16T02:23:49.6416360Z #     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+install, build, test	Run npm test	2026-10-16T02:23:49.6417237Z #     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+install, build, test	Run npm test	2026-10-16T02:23:49.6418071Z #     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+install, build, test	Run npm test	2026-10-16T02:23:49.6418884Z #     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+install, build, test	Run npm test	2026-10-16T02:23:49.6419531Z #     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+install, build, test	Run npm test	2026-10-16T02:23:49.6419993Z #   code: 'ERR_MODULE_NOT_FOUND',
+install, build, test	Run npm test	2026-10-16T02:23:49.6420471Z #   url: 'file:///home/runner/work/test/_tmp-scope.mjs'
+install, build, test	Run npm test	2026-10-16T02:23:49.6420820Z # }
+install, build, test	Run npm test	2026-10-16T02:23:49.6421142Z # Node.js v22.23.3
+install, build, test	Run npm test	2026-10-16T02:23:49.6431126Z # Subtest: test/round7.test.mjs
+install, build, test	Run npm test	2026-10-16T02:23:49.6432025Z not ok 3 - test/round7.test.mjs
+install, build, test	Run npm test	2026-10-16T02:23:49.6432694Z   ---
+install, build, test	Run npm test	2026-10-16T02:23:49.6433306Z   duration_ms: 48.143618
+install, build, test	Run npm test	2026-10-16T02:23:49.6433905Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T02:23:49.6434852Z   location: '/home/runner/work/mcp-office-suite/mcp-office-suite/test/round7.test.mjs:1:1'
+install, build, test	Run npm test	2026-10-16T02:23:49.6435691Z   failureType: 'testCodeFailure'
+install, build, test	Run npm test	2026-10-16T02:23:49.6436108Z   exitCode: 1
+install, build, test	Run npm test	2026-10-16T02:23:49.6436377Z   signal: ~
+install, build, test	Run npm test	2026-10-16T02:23:49.6436746Z   error: 'test failed'
+install, build, test	Run npm test	2026-10-16T02:23:49.6437087Z   code: 'ERR_TEST_FAILURE'
+install, build, test	Run npm test	2026-10-16T02:23:49.6437414Z   ...
+install, build, test	Run npm test	2026-10-16T02:23:49.6526933Z # node:internal/modules/esm/resolve:275
+install, build, test	Run npm test	2026-10-16T02:23:49.6527896Z #     throw new ERR_MODULE_NOT_FOUND(
+install, build, test	Run npm test	2026-10-16T02:23:49.6528768Z #           ^
+install, build, test	Run npm test	2026-10-16T02:23:49.6530487Z # Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/home/runner/work/test/_tmp-scope.mjs' imported from /home/runner/work/mcp-office-suite/mcp-office-suite/test/smoke.test.mjs
+install, build, test	Run npm test	2026-10-16T02:23:49.6532276Z #     at finalizeResolution (node:internal/modules/esm/resolve:275:11)
+install, build, test	Run npm test	2026-10-16T02:23:49.6533400Z #     at moduleResolve (node:internal/modules/esm/resolve:865:10)
+install, build, test	Run npm test	2026-10-16T02:23:49.6534436Z #     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+install, build, test	Run npm test	2026-10-16T02:23:49.6535396Z #     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+install, build, test	Run npm test	2026-10-16T02:23:49.6536083Z #     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+install, build, test	Run npm test	2026-10-16T02:23:49.6537199Z #     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+install, build, test	Run npm test	2026-10-16T02:23:49.6538172Z #     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+install, build, test	Run npm test	2026-10-16T02:23:49.6539070Z #   code: 'ERR_MODULE_NOT_FOUND',
+install, build, test	Run npm test	2026-10-16T02:23:49.6539915Z #   url: 'file:///home/runner/work/test/_tmp-scope.mjs'
+install, build, test	Run npm test	2026-10-16T02:23:49.6540625Z # }
+install, build, test	Run npm test	2026-10-16T02:23:49.6541227Z # Node.js v22.23.3
+install, build, test	Run npm test	2026-10-16T02:23:49.6551527Z # Subtest: test/smoke.test.mjs
+install, build, test	Run npm test	2026-10-16T02:23:49.6552745Z not ok 4 - test/smoke.test.mjs
+install, build, test	Run npm test	2026-10-16T02:23:49.6553291Z   ---
+install, build, test	Run npm test	2026-10-16T02:23:49.6553707Z   duration_ms: 36.094322
+install, build, test	Run npm test	2026-10-16T02:23:49.6554329Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T02:23:49.6555425Z   location: '/home/runner/work/mcp-office-suite/mcp-office-suite/test/smoke.test.mjs:1:1'
+install, build, test	Run npm test	2026-10-16T02:23:49.6556339Z   failureType: 'testCodeFailure'
+install, build, test	Run npm test	2026-10-16T02:23:49.6556812Z   exitCode: 1
+install, build, test	Run npm test	2026-10-16T02:23:49.6557182Z   signal: ~
+install, build, test	Run npm test	2026-10-16T02:23:49.6557664Z   error: 'test failed'
+install, build, test	Run npm test	2026-10-16T02:23:49.6558191Z   code: 'ERR_TEST_FAILURE'
+install, build, test	Run npm test	2026-10-16T02:23:49.6558646Z   ...
+install, build, test	Run npm test	2026-10-16T02:23:49.6559025Z 1..6
+install, build, test	Run npm test	2026-10-16T02:23:49.6559401Z # tests 6
+install, build, test	Run npm test	2026-10-16T02:23:49.6565476Z # suites 0
+install, build, test	Run npm test	2026-10-16T02:23:49.6575700Z # pass 0
+install, build, test	Run npm test	2026-10-16T02:23:49.6576232Z # fail 3
+install, build, test	Run npm test	2026-10-16T02:23:49.6576717Z # cancelled 0
+install, build, test	Run npm test	2026-10-16T02:23:49.6577176Z # skipped 3
+install, build, test	Run npm test	2026-10-16T02:23:49.6644789Z # todo 0
+install, build, test	Run npm test	2026-10-16T02:23:49.6645229Z # duration_ms 92.16125
+install, build, test	Run npm test	2026-10-16T02:23:49.6654836Z ##[error]Process completed with exit code 1.

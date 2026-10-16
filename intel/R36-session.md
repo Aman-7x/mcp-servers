@@ -4,7 +4,7 @@ Started 2026-10-16 00:22:43 UTC. The requested four-hour session ends at 04:22:4
 
 ## Business conclusion
 
-Qualified discovery is the binding constraint. In a complete seven-day MCP storefront Stripe window there are zero checkout sessions and $0 gross paid amount. Lifetime revenue is unmeasured. Google showed the exact MCP host 34 times across September 15–October 13 and generated zero clicks. Those populations and windows cannot form a conversion funnel. There is no measured revenue lift from this sprint.
+Qualified discovery is the binding constraint. In a complete seven-day MCP storefront Stripe window there are zero checkout sessions and $0 gross paid amount. Completed-only pagination now exhausts 182 paid account Sessions and finds zero from the MCP storefront, establishing $0 recorded MCP Checkout gross across available history. This does not measure every payment channel or net profit. Google showed the exact MCP host 34 times across September 15–October 13 and generated zero clicks. Those populations and windows cannot form a conversion funnel. There is no measured revenue lift from this sprint.
 
 The largest durable win across the work is a discoverable, verifiable path from a concrete buyer task to a useful free tool and a working paid upgrade. More registry aliases or raw crawler counts do not establish buyers. The current unprimed search trial names the estate in 9/18 answers (six first-listed), compared with zero in the original R1 instrument. Model/search conditions differ and many intervening sprints occurred: this supports improved discoverability, not a causal return-on-investment claim. Revenue remains the unresolved test.
 
@@ -60,3 +60,9 @@ The v0.22.6 office proxy has 48 children, while the broader catalog has 55 stand
 Older immutable office registry descriptors can still point at the older v0.22.0 archive. This sprint does not silently rewrite or claim to republish those versions. The download catalog and office README pin the new verified archive; both newly published matcher names point at their exact new hash.
 
 Mirror sync was rehearsed against an isolated local bare repository, including repeat/no-change behavior and a changed-tree fast-forward preserving prior history. Unsupported optional config files now receive lsof checks and size/path deletion records. Office mirror publication remains pending this final source merge.
+
+## Provider pricing and lifecycle verification
+
+A read-only Stripe Price audit verifies all 28 configured Price IDs: active, USD, advertised amount and product name all match. Twenty additional products use inline price_data. The CLI key cannot expire live Sessions; the preflight stopped with zero Sessions created. No write credential was found in this project's configuration. Explicit operator probes now have an opt-in 31-minute expiry, stable across order retries, with an advertised capability and cache lifetime capped before Stripe expiry. Ordinary checkout keeps its existing timing. Billing tests pass 190/190; two cleanup-ownership tests also pass. The two marked unpaid handoff checks will run after this opt-in ships and will be closed by read-only automatic-expiry verification.
+
+The office mirror's first fresh-clone CI failed because three test files imported a shared monorepo temp helper that was not copied. The publisher now ports those imports and supplies a standalone helper. Its open-file and symlink-escape guards passed on real local files, with lsof and deletion manifests. This preserves the actual proxy tests rather than skipping them; the new mirror CI will verify the fix.

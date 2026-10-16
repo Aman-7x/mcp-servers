@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-16T02:45:45.003Z",
+  "held_file_preserved": true,
+  "closed_file_removed": true,
+  "symlink_escape_rejected": true,
+  "outside_sentinel_preserved": true,
+  "fixture_cleanup": "lsof verified and manifest recorded"
+}

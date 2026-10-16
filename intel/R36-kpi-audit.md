@@ -2,7 +2,7 @@
 
 status: DONE
 
-Measured demand remains small. Google now reports impressions, overturning the stale zero-impression narrative, but no storefront clicks. Seven-day MCP checkouts and gross paid checkout amount are zero. Lifetime revenue is unmeasured: the shared Stripe account exceeds 5,000 checkout sessions.
+Measured demand remains small. Google now reports impressions, overturning the stale zero-impression narrative, but no storefront clicks. Seven-day MCP checkouts and gross paid checkout amount are zero. A separate completed-only audit now exhausts all available Checkout history: 182 paid account sessions, zero MCP storefront sessions. Recorded MCP checkout gross is therefore $0; other payment channels and net business revenue are outside this measurement.
 
 ## Current measurements
 
@@ -25,9 +25,9 @@ Raw evidence and query metadata: `data/r36_kpi_audit.json`. No credential values
 
 ## Instrument repairs
 
-`scripts/kpi.mjs` previously treated `anon:` per-server documents as token mints, `tok:` token records as stored-data tenants, and every LICENSES row as a minted license. It also mixed account-wide and storefront checkout signals and used cross-window conversion ratios. The collector now deduplicates anonymous tenant IDs, labels current expiring populations, restricts minted license records to paid non-probe MCP sessions, excludes signed test IDs and unverified bindings, and bounds session-to-click comparison to seven days. Historical revenue remains unmeasured when pagination is incomplete.
+`scripts/kpi.mjs` previously treated `anon:` per-server documents as token mints, `tok:` token records as stored-data tenants, and every LICENSES row as a minted license. It also mixed account-wide and storefront checkout signals and used cross-window conversion ratios. The collector now deduplicates anonymous tenant IDs, labels current expiring populations, restricts minted license records to paid non-probe MCP sessions, excludes signed test IDs and unverified bindings, and bounds session-to-click comparison to seven days. The original unfiltered scan remains explicitly incomplete; completed-only checkout history is separately exhausted.
 
-`node scripts/kpi.mjs --from-audit` refreshes only the 12 currently verified KPI rows, retains per-channel timestamps/windows, and explicitly marks other rows stale. It performs no network calls or signed-key probes. This command produced the current `data/kpi.json`; the collector's full network path was not run.
+`node scripts/kpi.mjs --from-audit` refreshes only the currently verified KPI rows, retains per-channel timestamps/windows, and explicitly marks other rows stale. It performs no network calls or signed-key probes. This command produced the current `data/kpi.json`; the collector's full network path was not run.
 
 Validation: `node --check scripts/kpi.mjs`; `node --test test/kpi-populations.test.mjs` → 3/3 pass. Fixtures cover token/document/email separation, cross-storefront/probe/window separation, and signed probes with bindings never becoming paid tenants. Additional assertions verified seven-day coverage, positive controls, absence of credential-like identifiers, the current KPI values, and undefined conversion with a zero denominator.
 
@@ -39,6 +39,6 @@ Validation: `node --check scripts/kpi.mjs`; `node --test test/kpi-populations.te
 4. Treat render-qualified traffic as a browser heuristic. Proof is associated with a UA string across the whole window, so automation and unrelated clients sharing the UA can pass. The historical PL country exclusion cannot reliably remove this operator (task timezone is Asia/Ho_Chi_Minh). GitHub uniques also lack independent human verification.
 5. Do not label every assistant-UA fetch user initiated: the instrument combines Claude-User with Claude-SearchBot/anthropic-ai, and combines Perplexity scheduled/user crawlers. No new blind recommendation test or full URL-index inspection census was performed.
 
-Failure: a full Stripe-account pagination attempt reached the 50-page guard. A two-page cursor control proved pages advance; full account history exceeds the bounded scan. Current seven-day zeros remain supported by the latest-100 oldest timestamp; lifetime totals are null.
+The unfiltered Stripe-account pagination attempt reached its 50-page guard because the shared account has more than 5,000 Sessions. A follow-up query filters status=complete, then paginates to has_more=false: two pages cover all 182 completed Sessions, all paid, spanning October 2024–October 2026. Exact success_url hostname mcp.zovo.one matches zero. This establishes zero recorded MCP Checkout gross across available completed history without exporting raw customer/session objects. It does not establish profit or revenue from other channels. Evidence: data/r36_completed_checkout_audit.json; reproducible read-only script: scripts/audit-completed-checkouts.mjs. API semantics: https://docs.stripe.com/api/checkout/sessions/list.
 
 No publishing, deployments, outreach, paid API calls, or account creation occurred. No temporary folders were created.

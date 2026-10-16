@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T00:46:05.871Z",
+  "generated_at": "2026-10-16T03:00:09.359Z",
   "kpis": [
     {
       "cat": "Discovery",
@@ -323,7 +323,7 @@
       "value": 0,
       "target": 5,
       "unit": "paid sessions, 7d",
-      "how": "MCP storefront scope, tagged probes excluded; historical lifetime remains unmeasured",
+      "how": "MCP storefront scope, tagged probes excluded; completed-history audit separately verifies zero MCP paid checkout sessions",
       "status": "zero",
       "stale": false,
       "measured_at": "2026-10-16T00:24:11.711Z",
@@ -369,7 +369,7 @@
       "why": "Separates whether people are seeing the link (clicks) from whether the checkout page itself converts (ratio); a link with clicks and no sessions points at the redirect or the Stripe page, not the message.",
       "status": "unmeasured",
       "stale": false,
-      "measured_at": "2026-10-16T00:46:05.871Z",
+      "measured_at": "2026-10-16T03:00:09.359Z",
       "window": {
         "start": "2026-10-09T00:24:11.711Z",
         "end": "2026-10-16T00:24:11.711Z"
@@ -537,17 +537,28 @@
         "currencies": [],
         "by_day": {}
       },
-      "limitation": "Untagged sessions are not verified humans. Last-100 sample is not lifetime; seven-day coverage proven only if oldest sample predates window or has_more false.",
+      "limitation": "Latest-100 sample is not lifetime. Separate status=complete pagination exhausts all available completed Checkout Sessions and finds zero MCP sessions. This measures checkout gross only, not every payment channel or net business revenue.",
       "window_7d": {
         "start": "2026-10-09T00:24:11.711Z",
         "end": "2026-10-16T00:24:11.711Z"
       },
       "seven_day_coverage_proven": true,
-      "lifetime_paid_sessions": null,
+      "lifetime_paid_sessions": 0,
       "full_history_attempt": {
         "status": "INCOMPLETE",
         "pages_fetched": 50,
         "reason": "Account history exceeded 5000 sessions; stopped at pagination guard. No lifetime revenue claim."
+      },
+      "completed_history_audit": {
+        "source": "data/r36_completed_checkout_audit.json",
+        "fetched_at": "2026-10-16T02:59:10.368Z",
+        "pages": 2,
+        "complete": true,
+        "mcp_completed_sessions": 0,
+        "mcp_paid_sessions": 0,
+        "mcp_paid_checkout_gross_minor_by_currency": {},
+        "account_completed_sessions_control": 182,
+        "scope": "Success URL hostname exactly mcp.zovo.one; metadata.probe=1 excluded from commercial totals"
       }
     },
     "sales_charges_seen": 0,

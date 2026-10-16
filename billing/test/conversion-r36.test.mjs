@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import worker, { PRODUCTS, checkoutCustomText, successPage, bindDecision } from "../src/index.js";
+import worker, { PRODUCTS, checkoutCustomText, successPage, bindDecision, shortProbeExpiry, probeCacheTtl } from "../src/index.js";
 import { BUNDLE_DOWNLOADS } from "../src/downloads.js";
 import { LISTED_IDS } from "../src/figures.js";
 import { readFileSync } from 'node:fs';
@@ -25,6 +25,7 @@ test('buyer guide serves the same engine compiled for the browser with fresh sou
   const html = await product.text();
   const position = html.indexOf('#matcher-demo');
   assert.ok(position >= 0 && position < html.indexOf('Install it in one click'), 'Show the editable proof before the install path');
+  assert.doesNotMatch(html, /\/setup\/claude-web\/three-way-match/, 'A local stdio server must not link a missing web setup page');
 });
 
 test("download catalog covers every listed server with an explicit release asset", async () => {
@@ -72,6 +73,32 @@ function bundleHref(html) {
   assert.ok(link, "single-server checkout offers the bundle");
   return link[1].replaceAll("&amp;", "&");
 }
+
+test('short operator probes expire consistently across retries and cannot leave stale cache entries', async () => {
+  const now = Date.now(), token = `${now}.11111111-1111-4111-8111-111111111111`;
+  assert.equal(shortProbeExpiry(token, now), shortProbeExpiry(token, now + 15000));
+  assert.throws(() => shortProbeExpiry(token, now + 31000), /Refresh/);
+  const unix = Math.floor(now / 1000);
+  assert.equal(probeCacheTtl({ expires_at: unix + 1860 }, unix), 1800);
+  assert.equal(probeCacheTtl({ expires_at: unix + 30 }, unix), 0);
+  assert.equal(probeCacheTtl({ expires_at: unix + 86400 }, unix), 23 * 3600);
+  for (const marked of [false, true]) {
+    const offer = request(`/buy/invoice?tenant=${TENANT}`);
+    offer.headers.set('x-mcp-probe-expiry', 'short');
+    if (marked) offer.headers.set('x-mcp-probe', '1');
+    const offered = await worker.fetch(offer, env, ctx);
+    assert.equal(offered.headers.get('x-mcp-probe-short-expiry'), marked ? '1860' : null);
+    const req = request(`/buy/invoice?tenant=${TENANT}`, 'POST');
+    req.headers.set('x-mcp-probe-expiry', 'short');
+    if (marked) req.headers.set('x-mcp-probe', '1');
+    const { value, calls } = await stubStripe(() => worker.fetch(req, env, ctx));
+    assert.equal(value.status, 303);
+    if (marked) {
+      const expiry = Number(calls[0].params.expires_at);
+      assert.ok(expiry >= unix + 1800 && expiry <= unix + 1862);
+    } else assert.equal(calls[0].params.expires_at, undefined);
+  }
+});
 
 test("single-to-bundle checkout keeps the hosted connection bound without creating a session on GET", async () => {
   const { value: html, calls: getCalls } = await stubStripe(async () =>

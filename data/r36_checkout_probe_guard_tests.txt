@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: expiry requires exact ownership and an open unpaid live session
+ok 1 - expiry requires exact ownership and an open unpaid live session
+  ---
+  duration_ms: 0.461041
+  type: 'test'
+  ...
+# Subtest: another product, operator, order or tenant is never a cleanup target
+ok 2 - another product, operator, order or tenant is never a cleanup target
+  ---
+  duration_ms: 0.113833
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 41.965333

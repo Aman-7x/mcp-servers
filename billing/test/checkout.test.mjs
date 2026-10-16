@@ -157,7 +157,7 @@ test("metadata includes the portfolio attribution contract, probe tag and hosted
   assert.match(INDEX, /"metadata\[source\]": source/);
   assert.match(INDEX, /"metadata\[campaign\]": "mcp_lifetime_checkout"/);
   assert.match(INDEX, /"payment_intent_data\[metadata\]\[product_name\]": p\.name/);
-  assert.match(INDEX, /createCheckout\(env, host, id, probeTag, tenant, asked, src, orderToken\)/);
+  assert.match(INDEX, /createCheckout\(env, host, id, probeTag, tenant, asked, src, orderToken, shortProbe\)/);
   assert.match(INDEX, /"metadata\[order_token\]": orderToken/);
   assert.match(INDEX, /"metadata\[probe\]": "1"/);
   assert.match(INDEX, /"metadata\[tenant\]": tenant/);
