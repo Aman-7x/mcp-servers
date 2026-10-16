@@ -192,7 +192,7 @@ const body = `${banner}
 /** Every server directory with a TypeScript entry point, sorted. */
 export const SERVER_IDS = ${j(SERVER_IDS)};
 
-/** Servers that register tools of their own, i.e. everything office-suite spawns. */
+/** Standalone server directories; the proxy spawns its separately measured subset. */
 export const CHILD_IDS = ${j(CHILD_IDS)};
 
 /** Servers answering at https://mcp.zovo.one/mcp/<id>, read from remote/src/index.ts. */
@@ -210,6 +210,7 @@ export const OWN_TOOLS_TOTAL = ${OWN_TOOLS_TOTAL};
 /** Actual distinct proxy tool names, measured by tools/list from the built bundle.
  * Source: data/office-suite-tool-inventory.json; includes collision prefixes. */
 export const OFFICE_SUITE_TOOLS = ${OFFICE_SUITE_TOOLS};
+export const OFFICE_SUITE_CHILD_COUNT = ${officeInventory.children.length};
 
 /** Servers the site actually lists, i.e. those with a README that becomes a /s/ page. */
 export const LISTED_IDS = ${j(LISTED_IDS)};

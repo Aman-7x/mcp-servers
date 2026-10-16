@@ -364,6 +364,9 @@ def header(name, demo, monorepo, raw):
         L.append("Product page: <https://mcp.zovo.one/s/%s> — what it does, the tools it "
                  "exposes, and a live token endpoint." % name)
         L.append("")
+    if name == "three-way-match":
+        L.append("[Try the editable matching example in your browser](https://mcp.zovo.one/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo) before installing. No account is needed; the example checks run in your browser without uploading field values.")
+        L.append("")
     L.append("## Install")
     L.append("")
     if hosted(name):

@@ -15,7 +15,7 @@ import {
   LISTED_COUNT, LISTED_CHILD_COUNT, HOSTED_COUNT, HOSTED_IDS as HOSTED_ID_LIST, TOOLS, LICENSE_TOOLS,
   RATE_LIMIT_FREE, RATE_LIMIT_PRO, DISCOVERY_LIMIT, TOKEN_MINTS_PER_IP,
   ANON_TOKEN_DAYS, SWEEP_AFTER_DAYS, SINGLE_USD, BUNDLE_USD, VERSION, FREE, Word,
-  CHILD_COUNT, OFFICE_SUITE_TOOLS,
+  OFFICE_SUITE_CHILD_COUNT, OFFICE_SUITE_TOOLS,
 } from "./figures.js";
 
 /**
@@ -3299,7 +3299,7 @@ ${FOOT}`,
     title: "One install, every server: the office-suite bundle",
     description: "One stdio server proxies 31 sibling servers as 292 tools in one tools/list, measured off a built v0.20.0 bundle on 2026-09-07. What it is, how to install it, the four prefixed tool names, and when a single server is the better choice.",
     html: `<h1>One install, every server: the office-suite bundle</h1>
-<p><strong>One config entry, ${CHILD_COUNT} servers, ${OFFICE_SUITE_TOOLS} tools.</strong> That is what office-suite is, and both
+<p><strong>One config entry, ${OFFICE_SUITE_CHILD_COUNT} servers, ${OFFICE_SUITE_TOOLS} tools.</strong> That is what office-suite is, and both
 numbers were read off a built v0.20.0 bundle on 2026-09-07 rather than off any document: one MCP
 client connected over stdio, one <code>tools/list</code> returning 292 distinct names, and the
 bundle's own <code>office://tools_map</code> resource naming 31 children and mapping 290 of those
@@ -3415,7 +3415,7 @@ list of clients or contacts before writing to it, not a wrong pick. This was mea
 against the nineteen-server build with 186 tools, 1.7x the 108 tools measured when this bundle held
 five children; tool selection did not get worse: 20 of 20 correct against 50 of 51 at the smaller
 count. The total score was 13 of 18 across six prompts, 226.5 seconds of wall clock. The bundle has
-since grown to ${CHILD_COUNT} servers and ${OFFICE_SUITE_TOOLS} tools; that growth has not been re-measured
+since grown to ${OFFICE_SUITE_CHILD_COUNT} servers and ${OFFICE_SUITE_TOOLS} tools; that growth has not been re-measured
 against this six-prompt audit.</p>
 <p>Three defects came out of the same round and are already fixed in the shipped server: a URL handed
 to a tool that expects a local file path used to be silently resolved against the server's own
@@ -3448,7 +3448,7 @@ ${FOOT}`,
       { q: "What exactly is office-suite?", a: "One MCP server, run over stdio, that starts all 31 sibling servers as child processes and proxies their tools, resources and prompts under one connection. Each child stores its data exactly as it does standalone; the bundle adds no storage of its own." },
       { q: "How many tools does it expose?", a: "292 distinct names on one tools/list, and 31 children, both read off a built v0.20.0 bundle on 2026-09-07 by connecting an MCP client to it. The bundle's office://tools_map resource maps 290 of those to the child that owns them; the other two are the merged license_status and license_activate pair, one for the whole bundle rather than one per child. If a page or a README anywhere gives a different figure, this measurement is the one to trust, because it came from the running server." },
       { q: "Which tool names needed a prefix?", a: "Four out of 292: invoice and docx both register business_set, and expense-tracker and bank-statement both register category_rules. The bundle exposes invoice_business_set, docx_business_set, expense-tracker_category_rules and bank-statement_category_rules, and rewrites each child's own replies to match. Every other tool keeps its bare name. That list is the renamed array of office://tools_map, read on 2026-09-07." },
-      { q: "Does adding more children make tool selection worse?", a: "Not as of the last measurement. A six-prompt audit needing two or more children per sentence, run on 2026-09-04 against the nineteen-server build with 186 tools, put 20 of 20 tool calls in the correct child and the correct tool, against 50 of 51 at 108 tools with five children. Every remaining defect was a tool declining to say something it already knew, not a wrong pick. The bundle has since grown to ${CHILD_COUNT} servers and ${OFFICE_SUITE_TOOLS} tools; that growth has not been re-measured against this audit." },
+      { q: "Does adding more children make tool selection worse?", a: "Not as of the last measurement. A six-prompt audit needing two or more children per sentence, run on 2026-09-04 against the nineteen-server build with 186 tools, put 20 of 20 tool calls in the correct child and the correct tool, against 50 of 51 at 108 tools with five children. Every remaining defect was a tool declining to say something it already knew, not a wrong pick. The bundle has since grown to ${OFFICE_SUITE_CHILD_COUNT} servers and ${OFFICE_SUITE_TOOLS} tools; that growth has not been re-measured against this audit." },
       { q: "When should I install a single server instead of the whole bundle?", a: "When a client caps total tools, such as Windsurf's Cascade agent at 100, 292 tools in one entry is nearly three times the ceiling. It is also the better choice when you already know you only need two or three of the 31: same free tier, fewer license checks, no dormant sibling processes started for servers you never call." },
       { q: "How do I buy it?", a: "One bundle key, 39 dollars once, at /buy/office-suite, which routes to the same bundle checkout as /bundle. It activates Pro on every child at once instead of buying each server's own 19 dollar key, and activation is all-or-nothing with a per-child OK or FAILED table printed, so a bundle that is half Pro cannot look like a full success." },
     ],

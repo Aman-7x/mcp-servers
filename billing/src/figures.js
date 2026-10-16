@@ -68,7 +68,7 @@ export const SERVER_IDS = [
   "zip"
 ];
 
-/** Servers that register tools of their own, i.e. everything office-suite spawns. */
+/** Standalone server directories; the proxy spawns its separately measured subset. */
 export const CHILD_IDS = [
   "amortization",
   "asset-register",
@@ -246,6 +246,7 @@ export const OWN_TOOLS_TOTAL = 451;
 /** Actual distinct proxy tool names, measured by tools/list from the built bundle.
  * Source: data/office-suite-tool-inventory.json; includes collision prefixes. */
 export const OFFICE_SUITE_TOOLS = 441;
+export const OFFICE_SUITE_CHILD_COUNT = 48;
 
 /** Servers the site actually lists, i.e. those with a README that becomes a /s/ page. */
 export const LISTED_IDS = [
@@ -491,7 +492,7 @@ export const PRO = {
   "loan-calculator": "Not gated — this server is entirely free; the $39 bundle key covers the forty-seven paid servers.",
   "maintenance-log": "Unlimited assets, the due report (overdue and due-within-N-days) and the Markdown summaries.",
   "mileage-log": "Unlimited trips, the year-over-year rate series, and the CSV export for the accountant.",
-  "office-suite": "The $39 bundle key unlocks every child.",
+  "office-suite": "The $39 bundle key unlocks the applicable Pro features across its children.",
   "onboarding": "Unlimited template applies, including applying one template to many hires in a single call, and the CSV export of progress for the HR spreadsheet. A license key unlocks it in place; no reinstall.",
   "packing-list": "Unlimited open packing lists, and packing_slip writing the slip to a .txt file at a path you name. The path goes through a bounded ancestor walk rather than mkdirSync with recursive, so a caller-supplied path under /proc, /sys or /dev fails in milliseconds instead of retrying forever; a URL is refused by name before any resolution, so the refusal never leaks the server's working directory; and an existing file is refused unless overwrite is passed.",
   "payroll": "Not gated — this server is entirely free; the $39 bundle key covers the forty-seven paid servers.",

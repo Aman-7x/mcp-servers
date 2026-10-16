@@ -1,16 +1,9 @@
 {
   "title": "R36 \u2014 revenue and organic distribution, 2026-10-16",
-  "updated_at": "2026-10-16T01:19:43.600150+00:00",
-  "status_note": "Core release is live and verified. The requested four-hour read-only watch remains active until 04:22:43 UTC.",
+  "updated_at": "2026-10-16T01:37:29.325694+00:00",
+  "status_note": "Matcher, downloads, checkout corrections and interactive buyer proof are live. Observation continues through 04:22:43 UTC, the end of the requested four-hour session.",
   "conclusion": "Search visibility and qualified demand remain the constraint: Google showed this host 34 times in 29 dates and generated no clicks. The complete seven-day Stripe window contains no MCP checkouts or paid amount; lifetime revenue is not established by that window.",
   "metrics": [
-    {
-      "value": "9 / 18",
-      "label": "Named in fresh blind recommendations",
-      "window": "2026-10-16, single documentary trial",
-      "note": "6 first-listed; conditional/companion names included; no runtime certification",
-      "source": "docs/BLIND_RECOMMENDATION_R8.md"
-    },
     {
       "value": "$0",
       "label": "Paid checkout amount",
@@ -52,6 +45,13 @@
       "window": "KV population at 2026-10-16 snapshot",
       "note": "5 LICENSES keys are mailing-list records",
       "source": "intel/R36-kpi-audit.md"
+    },
+    {
+      "value": "9 / 18",
+      "label": "Named in fresh blind recommendations",
+      "window": "2026-10-16, single documentary trial",
+      "note": "6 first-listed; conditional/companion names included; no runtime certification",
+      "source": "docs/BLIND_RECOMMENDATION_R8.md"
     }
   ],
   "shipped": [
@@ -61,11 +61,12 @@
     "Billing version 75afcc7c deployed through the gate: 59 live GET purchase paths, zero new Stripe sessions. Bundle/cancel activation carry, key delivery language and CSV guide claims corrected. Eleven live product/guide/setup/purchase pages pass.",
     "Root tests: 2,241 passed, 32 skipped, zero failed. Matcher: 25 tests, 5,000 independent arithmetic cases and 1,022 real artifact calls. Source Docker CI and self-contained mirror CI pass.",
     "New repository ranks first in three narrow GitHub queries in one immediate snapshot. Quotes metadata also published. IndexNow accepted four URLs; none of these observations establishes traffic or sales.",
-    "Resend access already works at the account/domain level. Sender has idempotency, locks, suppression and consent checks; 30 assertions pass. No messages sent; 18 research targets yield zero eligible recipients.",
-    "Fresh unprimed R8 search trial names the estate in 9 of 18 answers, six first-listed. Raw host URLs appear in 15. Model/search conditions differ from older trials; this is visibility evidence, not a causal revenue estimate."
+    "Resend access already works at the account/domain level. Sender has idempotency, locks, suppression and consent checks; 30 assertions pass. No outreach messages sent; 18 research targets yield zero eligible recipients.",
+    "Fresh unprimed R8 search trial names the estate in 9 of 18 answers, six first-listed. Raw host URLs appear in 15. Model/search conditions differ from older trials; this is visibility evidence, not a causal revenue estimate.",
+    "Editable buyer proof is live in the guide and passes six real Chrome scenarios in production: zero diagnostic network requests, zero page errors and no field uploads. Desktop/mobile layouts are verified; full billing suite passes 189 tests."
   ],
   "next_levers": [
-    "Complete the active four-hour production/payment watch and record final health at 04:22:43 UTC.",
+    "Complete observation through the end of the requested four-hour session at 04:22:43 UTC; report actual sampled coverage and final service/payment state.",
     "Measure qualified clicks and actual tool use before treating narrow query rankings as commercial demand.",
     "Use existing Resend with consented recipients and suppression records; no new email platform is needed."
   ],
