@@ -12,7 +12,13 @@ test("every production GET /buy shape serves the intent page without any Stripe 
   const calls = [];
   globalThis.fetch = async (url) => { calls.push(String(url)); throw new Error("GET called Stripe"); };
   try {
-    const count = await probeBuyPages((url, options) => worker.fetch(new Request(url, options), env(), ctx));
+    let marked = 0;
+    const count = await probeBuyPages((url, options) => {
+      assert.equal(new Headers(options.headers).get('x-mcp-probe'), '1', 'every production QA GET must be excluded from ordinary observations');
+      marked++;
+      return worker.fetch(new Request(url, options), env(), ctx);
+    });
+    assert.equal(marked, count);
     assert.equal(count, Object.keys(PRODUCTS).length + Object.keys(PRODUCT_ALIASES).length + 2);
     assert.deepEqual(calls, [], "GET must make zero outbound fetches, including Stripe reads and creates");
   } finally {

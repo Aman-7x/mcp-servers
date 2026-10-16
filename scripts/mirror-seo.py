@@ -360,12 +360,10 @@ def header(name, demo, monorepo, raw):
                  "Protocol client. Runs on your own machine: this one has no hosted "
                  "endpoint, so install it from the bundle or from source.")
     L.append("")
-    # Every hosted server links its own product page on the site: an external crawl
-    # seed (GitHub is crawled constantly) pointing at the one URL that should rank.
-    if hosted(name):
-        L.append("Product page: <https://mcp.zovo.one/s/%s> — what it does, the tools it "
-                 "exposes, and a live token endpoint." % name)
-        L.append("")
+    # Every mirror links its own product page, including local-only servers.
+    L.append("Product page: <https://mcp.zovo.one/s/%s> — capabilities, free limits "
+             "and supported installation paths." % name)
+    L.append("")
     if name == "duplicate-invoice-check":
         L.append("[Try the editable duplicate-invoice review in your browser](https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo) before installing. Synthetic fields are checked locally in your browser without uploads. Candidates require review; they are not payment decisions.")
         L.append("")
