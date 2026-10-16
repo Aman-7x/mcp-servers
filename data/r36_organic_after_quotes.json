@@ -1,0 +1,180 @@
+{
+  "measured_at": "2026-10-16T00:30:12.487Z",
+  "top_n": 10,
+  "positive_control": {
+    "query": "modelcontextprotocol",
+    "total": 1346,
+    "first": "modelcontextprotocol/modelcontextprotocol"
+  },
+  "rows": [
+    {
+      "query": "mcp quote estimate proposal",
+      "total": 1,
+      "target": "theluckystrike/mcp-quotes",
+      "rank": 1,
+      "top": [
+        {
+          "repo": "theluckystrike/mcp-quotes",
+          "stars": 0,
+          "description": "Model Context Protocol (MCP) server for quote-to-invoice conversion: create price quotes, estimates and proposals, then convert an accepted quote to an invoice. Priced, VAT-correct quotes from chat, and the yes turns into an invoice. Works with Claude Desktop, Claude Code and Cursor."
+        }
+      ]
+    },
+    {
+      "query": "mcp quote invoice",
+      "total": 30,
+      "target": "theluckystrike/mcp-quotes",
+      "rank": 3,
+      "top": [
+        {
+          "repo": "ambaloo/invoiceninja-mcp",
+          "stars": 2,
+          "description": "MCP server for Invoice Ninja v5 API - manage clients, invoices, quotes via AI"
+        },
+        {
+          "repo": "Onsite-Intelligence/Jobber-mcp",
+          "stars": 3,
+          "description": "MCP server for Jobber field service management — client management, job scheduling, quoting, invoicing, and service request intake. Built for AI agents working in home services."
+        },
+        {
+          "repo": "theluckystrike/mcp-quotes",
+          "stars": 0,
+          "description": "Model Context Protocol (MCP) server for quote-to-invoice conversion: create price quotes, estimates and proposals, then convert an accepted quote to an invoice. Priced, VAT-correct quotes from chat, and the yes turns into an invoice. Works with Claude Desktop, Claude Code and Cursor."
+        },
+        {
+          "repo": "auto1225/quotebill-mcp",
+          "stars": 0,
+          "description": "QuoteBill MCP server: draft quotations and invoices from ChatGPT, Claude, Gemini and any MCP client. 250 templates, tax rules for 195 countries."
+        },
+        {
+          "repo": "friendlygeorge/jobber-mcp-server",
+          "stars": 0,
+          "description": "MCP server for Jobber — job scheduling, quotes, invoices, clients. Mock mode included."
+        },
+        {
+          "repo": "kochfreiburg/weclapp-mcp-server",
+          "stars": 0,
+          "description": "weclapp MCP server: connect weclapp Cloud ERP to Claude & ChatGPT. Customers, orders, invoices, quotes and opportunities."
+        },
+        {
+          "repo": "todah-zg/mcp-jobber",
+          "stars": 0,
+          "description": "Secure, multi-tenant MCP server for the Jobber field-service platform: clients, jobs, quotes, invoices, and scheduling."
+        },
+        {
+          "repo": "Lioncap-Ventures/umbra-mcp",
+          "stars": 0,
+          "description": "MCP server for Umbra ERP — enables AI agents to manage customers, invoices, products, quotes, payments, employees, and webhooks"
+        },
+        {
+          "repo": "Marceltov/invoiceninja-plugin",
+          "stars": 0,
+          "description": "Claude Code plugin for InvoiceNinja: skills for clients, invoices, quotes, payments and reports, on top of the invoiceninja-mcp server."
+        },
+        {
+          "repo": "bikashnayak36331-pixel/bizdesk-mcp",
+          "stars": 0,
+          "description": "MCP server that gives Claude a small-business back office: clients, quotes, invoices (PDF), payments and reports. Local SQLite, 21 tools."
+        }
+      ]
+    },
+    {
+      "query": "mcp quote conversion",
+      "total": 1,
+      "target": "theluckystrike/mcp-quotes",
+      "rank": 1,
+      "top": [
+        {
+          "repo": "theluckystrike/mcp-quotes",
+          "stars": 0,
+          "description": "Model Context Protocol (MCP) server for quote-to-invoice conversion: create price quotes, estimates and proposals, then convert an accepted quote to an invoice. Priced, VAT-correct quotes from chat, and the yes turns into an invoice. Works with Claude Desktop, Claude Code and Cursor."
+        }
+      ]
+    },
+    {
+      "query": "mcp convert quote invoice",
+      "total": 1,
+      "target": "theluckystrike/mcp-quotes",
+      "rank": 1,
+      "top": [
+        {
+          "repo": "theluckystrike/mcp-quotes",
+          "stars": 0,
+          "description": "Model Context Protocol (MCP) server for quote-to-invoice conversion: create price quotes, estimates and proposals, then convert an accepted quote to an invoice. Priced, VAT-correct quotes from chat, and the yes turns into an invoice. Works with Claude Desktop, Claude Code and Cursor."
+        }
+      ]
+    },
+    {
+      "query": "mcp work order field service",
+      "total": 3,
+      "target": "theluckystrike/mcp-work-order",
+      "rank": 1,
+      "top": [
+        {
+          "repo": "theluckystrike/mcp-work-order",
+          "stars": 0,
+          "description": "Model Context Protocol (MCP) server for work orders and job cards for trades and field service. Job orders for trades and field work, priced the way the invoice will be. Works with Claude Desktop, Claude Code and Cursor."
+        },
+        {
+          "repo": "NoBanks/workwave-mcp",
+          "stars": 0,
+          "description": "MCP server for WorkWave RouteManager: 5 tools (list_territories, list_orders, create_order, list_approved_routes, fit_unassigned_orders) wrapping the enterprise route-based field service REST API for AI dispatchers, route planners, and fleet operators."
+        },
+        {
+          "repo": "zenschedmcp/zensched-property-preservation-kit",
+          "stars": 0,
+          "description": "ZenSched property-preservation reference kit: MCP inspector dispatch + GPS-verified vacant-property visits + photo inspection reports + local SQLite servicer/work-order/billing for 1-5 person mortgage field-service shops"
+        }
+      ]
+    },
+    {
+      "query": "mcp accounts receivable aging",
+      "total": 2,
+      "target": "theluckystrike/mcp-statement-of-account",
+      "rank": 2,
+      "top": [
+        {
+          "repo": "Denymbird/accounts-receivable-skills",
+          "stars": 2,
+          "description": "Open-source agent skills for accounts receivable in Xero and QuickBooks. Aged receivables, DSO, late fee schedules, customer statements, and chase email briefs. Every figure is computed by a tested script, never by the model. Works with Claude, Claude Code, Codex and Cursor."
+        },
+        {
+          "repo": "theluckystrike/mcp-statement-of-account",
+          "stars": 0,
+          "description": "Model Context Protocol (MCP) server for customer statements of account, accounts receivable and invoice aging. The one document that answers what a client actually owes you, aged as at any date, with the chaser drafted. Works with Claude Desktop, Claude Code and Cursor."
+        }
+      ]
+    },
+    {
+      "query": "mcp three way matching",
+      "total": 1,
+      "target": null,
+      "rank": null,
+      "top": [
+        {
+          "repo": "akhilkrishnankv/Procure",
+          "stars": 0,
+          "description": "Autonomous AI agent for three way invoice matching: extracts supplier PDFs from email, matches with POs and receipts in Odoo ERP, auto-approves high confidence cases, and routes edge cases for human review. Built as a multi agent system using LangGraph, GPT 4o Vision, fuzzy ontology, and MCP abstraction with real time ERP integration."
+        }
+      ]
+    },
+    {
+      "query": "mcp supplier invoice matching",
+      "total": 2,
+      "target": null,
+      "rank": null,
+      "top": [
+        {
+          "repo": "pranavshankar1221/Retail-AI-Agent",
+          "stars": 0,
+          "description": "RetailPilot AI is an enterprise-grade, multi-agent autonomous inventory processing platform designed for departmental stores and retail chains. It automates supplier invoice ingestion, text OCR, semantic product matching, stock validation, Human-in-the-Loop manager approval, and transactional database updates via the Model Context Protocol (MCP)."
+        },
+        {
+          "repo": "akhilkrishnankv/Procure",
+          "stars": 0,
+          "description": "Autonomous AI agent for three way invoice matching: extracts supplier PDFs from email, matches with POs and receipts in Odoo ERP, auto-approves high confidence cases, and routes edge cases for human review. Built as a multi agent system using LangGraph, GPT 4o Vision, fuzzy ontology, and MCP abstraction with real time ERP integration."
+        }
+      ]
+    }
+  ]
+}

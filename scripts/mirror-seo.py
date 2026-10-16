@@ -88,6 +88,7 @@ def repo_name(name):
 # The capability, in the words a buyer types. Each is a statement about what the server
 # does, taken from its manifest and README -- not a positioning claim.
 CAPABILITY = {
+    "three-way-match": "three way matching: supplier invoice matching against purchase orders and accepted receipts by SKU",
     "amortization": "loan and lease amortization schedules",
     "asset-register": "a fixed asset register with depreciation schedules",
     "bank-statement": "reading bank statement CSV exports to read, categorise and reconcile transactions",
@@ -128,7 +129,7 @@ CAPABILITY = {
     "per-diem": "per diem travel allowances",
     "petty-cash": "a petty cash book and voucher ledger: a cash float on the imprest system",
     "price-tracker": "price tracking, a price tracker and price drop watcher for shop pages",
-    "quotes": "price quotes, estimates and proposals: create a quote or an estimate for a customer",
+    "quotes": "quote-to-invoice conversion: create price quotes, estimates and proposals, then convert an accepted quote to an invoice",
     "recurring": "recurring invoices and subscription billing: handles scheduled invoice documents",
     "resume": "resume and cover letter writing, CV documents in Word format",
     "spreadsheet": "spreadsheets: read, query, edit and convert xlsx, csv and Excel files, and builds a new spreadsheet from rows in a chat",
@@ -151,6 +152,7 @@ SHARED_TOPICS = [
 # Per-server topics. GitHub allows 20 topics per repository; shared list is 11, so at
 # most 9 here. Topics must be lowercase, digits and hyphens only.
 SPECIFIC_TOPICS = {
+    "three-way-match": ["three-way-matching", "invoice-matching", "supplier-invoice", "purchase-order", "accounts-payable"],
     "time-tracker": ["time-tracking", "timesheet", "billable-hours", "freelance"],
     "price-tracker": ["price-tracking", "price-drop", "price-monitoring", "shopping"],
     "spreadsheet": ["spreadsheet", "xlsx", "csv", "excel"],
@@ -164,7 +166,7 @@ SPECIFIC_TOPICS = {
     "checklist": ["checklist", "sign-off", "inspection", "quality-control"],
     "purchaseRequisition": ["purchase-order", "requisition", "approval", "procurement"],
     "clauses": ["contract", "clause", "clause-library", "proposal"],
-    "quotes": ["quote", "estimate", "proposal", "freelance"],
+    "quotes": ["quote", "estimate", "proposal", "quote-to-invoice", "freelance"],
     "barcode": ["qr-code", "qrcode", "barcode", "ean13"],
     "zip": ["zip", "archive", "compression", "unzip"],
     "billing-docs": ["credit-note", "purchase-order", "invoicing", "vat"],

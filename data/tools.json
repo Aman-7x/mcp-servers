@@ -1874,5 +1874,39 @@
     "$schema": "http://json-schema.org/draft-07/schema#"
    }
   }
+ ],
+ "three-way-match": [
+  {
+   "name": "three_way_match",
+   "description": "Compare up to 500 PO/invoice lines by exact SKU, accepted receipts and prior billed quantities. Returns source evidence and exceptions, including offsetting errors. All diagnosis is free; save optionally."
+  },
+  {
+   "name": "report_list",
+   "description": "List saved report ids, timestamps, document references, status and issue counts. Free on both tiers; paginated, up to 100 reports per call."
+  },
+  {
+   "name": "report_get",
+   "description": "Read a saved report with source documents, per-SKU evidence and all exceptions. Free on both tiers."
+  },
+  {
+   "name": "report_page",
+   "description": "Read free pages of large report issues, SKU rows or original source rows. Use report_id from the paginated overview. Unsaved previews expire after 30 minutes and keep only the last two large checks."
+  },
+  {
+   "name": "report_delete",
+   "description": "Delete one saved report by id, freeing a free-tier storage slot. Does not alter source documents or prior invoice history."
+  },
+  {
+   "name": "report_export_csv",
+   "description": "Return CSV of saved SKU quantities, prices and issues. Large CSVs paginate; follow next_offset with offset. Formula-like text is escaped. Full source evidence uses report_get/report_page."
+  },
+  {
+   "name": "license_status",
+   "description": "Report this server's licence state: product, tier free or pro, licence id, expiry, the key source and the upgrade URL. No arguments, no network. Explains a free-tier refusal; license_activate installs a key."
+  },
+  {
+   "name": "license_activate",
+   "description": "Activate a Pro key (MCPL1.xxx.yyy) from checkout: verified offline against a built-in public key, saved to your config file. A wrong, malformed or expired key is refused, unsaved. license_status reads it back."
+  }
  ]
 }

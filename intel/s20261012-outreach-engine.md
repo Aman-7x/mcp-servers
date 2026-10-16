@@ -1,6 +1,6 @@
 # mcp.zovo.one Outreach Send Engine — s20261012
 
-STATUS: complete
+STATUS: historical implementation report; sending advice superseded by docs/OUTREACH_RESEND_SETUP.md (2026-10-16). A successful dry-run does not prove inbox delivery or recipient eligibility.
 
 ## Usage / How to approve+send a batch
 

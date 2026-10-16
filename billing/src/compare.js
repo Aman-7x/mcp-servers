@@ -41,6 +41,29 @@ is what the config becomes the day that changes:</p>
 <pre><code>claude mcp add ${slug} -- npx -y @theluckystrike/mcp-${slug}</code></pre>`;
 
 export const COMPARE = {
+  "three-way-match": {
+    title: "Three-way invoice matching MCP servers: line evidence and installation compared",
+    description: "Compare local supplier invoice matching with zavora-ai/mcp-procurement and invoice-reconciliation-agent. Source-backed matching differences and setup requirements.",
+    html: `<h1>Three-way invoice matching MCP servers compared</h1>
+<p>Choose on the documents you have and the evidence you need. Our <a href="/s/three-way-match">Three-Way Invoice Match</a> accepts structured PO, receipt and priced invoice lines. It runs locally, needs no API key and makes no payment decision.</p>
+<h2>Aggregate checks and line evidence</h2>
+<p><a href="https://github.com/zavora-ai/mcp-procurement">zavora-ai/mcp-procurement</a> already provides a local procurement MCP server with a three-way matching tool. Its <a href="https://github.com/zavora-ai/mcp-procurement/blob/e6241639bc0ba04dc66b657c575cd9569d453bf9/src/server.rs#L281-L300">matching source, inspected 2026-10-16</a>, sums quantities across SKUs and compares one invoice amount with the PO total. An amount within two percent selects within_tolerance even when the quantity check fails. This is source inspection, not a competitor runtime test.</p>
+<p>For PO A10/B10, receipt A5/B15 and invoice A10/B10 at the same prices, aggregate quantities and value agree. That algorithm cannot expose the offsetting SKU mismatch. Ours reports A billed above accepted receipts and B received above the order, showing each source quantity. Our strict input uses whole quantities and integer minor units, with no tolerance that hides exceptions.</p>
+<h2>Document parsing versus a structured data contract</h2>
+<p><a href="https://github.com/nicolaltafini/invoice-reconciliation-agent">invoice-reconciliation-agent</a> describes parsing and deterministic reconciliation for invoices, delivery notes and POs. Its <a href="https://github.com/nicolaltafini/invoice-reconciliation-agent#readme">README, inspected 2026-10-16</a>, requires Docker, PostgreSQL and an Anthropic API key. Choose that workflow when its document ingestion and infrastructure fit. We do not provide ingestion: you supply the document fields.</p>
+<h2>Choose the scope you need</h2>
+<ul><li>Choose procurement tooling when you want a broader purchasing workflow and its own records.</li><li>Choose document reconciliation infrastructure when parsing files is part of your requirement.</li><li>Choose ours when you already have structured line values and want a small local check with per-SKU exception evidence, explicit prior-invoiced quantities and CSV reports.</li></ul>
+<p>Our full previews up to 500 PO/invoice lines are free, with complete large-report evidence available through free pages. Three saved reports fit the free tier; Pro removes that storage cap for $19 once, or through the $39 bundle. No API credentials or ERP connection are required. It cannot discover earlier invoices or authorize payment.</p>
+<h2>Install ours locally</h2>
+<p>Open <code>three-way-match.mcpb</code> from the <a href="${RELEASES}">latest release</a> in Claude Desktop, or clone <a href="https://github.com/theluckystrike/mcp-three-way-match">the self-contained mirror</a> and run <code>npm install &amp;&amp; npm run build</code>. Point your MCP client at the built <code>dist/index.js</code> with an absolute path. No hosted endpoint is provided; npm publication is pending.</p>
+<p><a href="/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude">Worked example</a> · <a href="/setup/claude-code/three-way-match">Claude Code setup</a> · <a href="/buy/three-way-match?src=store.compare.three-way-match">Get Pro</a></p>`,
+    faq: [
+      { q: "Is this the first local MCP matcher?", a: "No. zavora-ai/mcp-procurement already has a local three_way_match tool. Our distinction is the priced invoice-line contract and per-SKU source evidence." },
+      { q: "Did you run the competitor?", a: "No. The aggregate-matching distinction comes from the linked source at a pinned commit, inspected 2026-10-16. It is not a runtime benchmark." },
+      { q: "Does ours parse PDFs?", a: "No. Pass structured PO, receipt and invoice values, including explicit prior-invoiced quantities." },
+    ],
+  },
+
   "time-tracker": {
     title: "MCP Time Tracker vs clockify-mcp and timesheet-mcp - which MCP server to pick",
     description: "Local JSON timer against two MCP servers that front a time tracking SaaS. Tool counts, licences, accounts required and where the hours are stored.",

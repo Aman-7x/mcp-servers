@@ -1,0 +1,209 @@
+
+> mcp-servers-monorepo@0.1.0 prebuild
+> node scripts/sync-versions.mjs
+
+sync-versions: 0 file(s) written
+
+> mcp-servers-monorepo@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @theluckystrike/mcp-license@0.22.6 build
+> tsc -p tsconfig.json
+
+
+> @theluckystrike/mcp-amortization@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-asset-register@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "const f=require('node:fs');f.cpSync('src/tables','dist/tables',{recursive:true});f.chmodSync('dist/index.js',0o755)"
+
+
+> @theluckystrike/mcp-backlink-checker@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-bank-statement@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-barcode@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-bill-of-sale@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-billing-docs@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-calendar@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-cash-book@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-catalogue@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-change-order@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-checklist@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-clauses@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-credit-note@0.22.8 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-currency@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-delivery-schedule@0.22.7 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-deposits@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-docx@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-dunning-letters@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-expense-tracker@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-goods-receipt@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-hourly-rate@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-image@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-invoice@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-job-card@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-kanban@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-leave@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-maintenance-log@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-mileage-log@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-office-suite@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-onboarding@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-packing-list@0.22.8 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-pdf@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-per-diem@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "const f=require('node:fs');f.cpSync('src/tables','dist/tables',{recursive:true});f.chmodSync('dist/index.js',0o755)"
+
+
+> @theluckystrike/mcp-petty-cash@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-price-tracker@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-purchase-requisition@0.22.8 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-quotes@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-recurring@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-resume@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-service-agreement@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-spreadsheet@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-statement-of-account@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-supplier-list@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-three-way-match@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-time-tracker@0.22.6 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-timezone@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-work-order@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-zip@0.22.6 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+

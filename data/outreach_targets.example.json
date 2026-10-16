@@ -1,24 +1,39 @@
 {
-  "generated": "2026-10-12",
-  "note": "EXAMPLE input showing the shape of an email-eligible row. Copy rows like this into data/outreach_targets.json (channel:email + to + subject + body) when a target with a public email is confirmed. This fixture is for --dry-run testing only.",
+  "note": "Schema example only. The email row is deliberately not ready and contains no real consent evidence. A public email address is not permission to send. Replace placeholders using an actual subscription request and current verification, reconcile opt-outs/bounces/complaints into suppressions, verify the unsubscribe endpoint works, then dry-run. Do not use invented timestamps or evidence.",
+  "suppressions": {
+    "checked_at": null,
+    "recipients": []
+  },
   "targets": [
     {
-      "draft_ref": "EXAMPLE/email-row",
+      "draft_ref": "EXAMPLE/subscriber-setup",
       "channel": "email",
-      "target": "Example maintainer (public email on repo README)",
-      "to": "someone@example.com",
-      "subject": "invoice",
-      "status": "ready",
-      "campaign": "invoice",
-      "body": "<p>Hi — saw your issue about invoice PDF generation. We maintain a free browser tool for exactly this: <a href=\"https://mcp.zovo.one\">mcp.zovo.one</a>.</p>"
+      "target": "Person who explicitly requested setup emails",
+      "to": "subscriber@example.com",
+      "subject": "Your requested MCP setup guide",
+      "status": "example-only",
+      "campaign": "subscriber-setup-1",
+      "purpose": "mcp-setup",
+      "body_text": "Here is the MCP setup guide you requested: https://mcp.zovo.one/",
+      "consent": {
+        "status": "REPLACE_WITH_ACTUAL_OPT_IN_STATUS",
+        "source": "REPLACE_WITH_SUBSCRIPTION_RECEIPT_REFERENCE",
+        "at": null,
+        "purposes": ["mcp-setup"]
+      },
+      "verification": {
+        "status": "REPLACE_WITH_ACTUAL_VERIFICATION_STATUS",
+        "source": "REPLACE_WITH_CONFIRMATION_RECEIPT_REFERENCE",
+        "at": null
+      },
+      "unsubscribe_url": "https://example.com/replace-with-working-recipient-opt-out"
     },
     {
       "draft_ref": "EXAMPLE/manual-row",
       "channel": "manual",
-      "target": "GitHub Issue: example/repo #1 (comment only)",
-      "subject": "invoice",
+      "target": "Invited directory contribution or public discussion; research only",
       "status": "ready",
-      "campaign": "invoice"
+      "campaign": "manual-research"
     }
   ]
 }

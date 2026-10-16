@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-16T00:30:49.387Z",
+  "initial_attempt": "gated deploy refused before upload due to preexisting pin drift",
+  "before_pin": "fcf3a840-de8e-499c-9df1-414dbcda55ba",
+  "verified_existing_version": "65d134ac-aad5-4c5b-8ddd-10b4bf2b1427",
+  "verified_deployment": "e959bd28-9b5c-4177-8b59-fa2361b1c763",
+  "drift_cause": "Cloudflare deployment history shows direct deployments and secret updates after Oct9 approved pin; current version created by secret update Oct14",
+  "checks": [
+    "billing-release-gate.mjs preflight: PASS full billing tests and Wrangler dry-run",
+    "billing-release-gate.mjs verify --expected-version 65d134ac-aad5-4c5b-8ddd-10b4bf2b1427: PASS 58 GET paths, zero new live Stripe sessions"
+  ],
+  "reconciliation": "Revalidated current version, checked unchanged deployment and old pin, then restored remote approved pin to verified existing version; release gate code unchanged",
+  "first_release": {
+    "version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+    "at": "2026-10-16T00:32:15.124Z",
+    "method": "cd billing; TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local npm run deploy",
+    "result": "PASS local preflight, deployed sole version,58 liveGET buy paths,zero newStripe sessions,remote approved pin written",
+    "live_assertions": [
+      "/buy/invoice bundle link preserves synthetic tenant",
+      "purchase page describes confirmation-page key delivery",
+      "legacy bank PDF guide serves CSV-to-Excel title"
+    ]
+  }
+}

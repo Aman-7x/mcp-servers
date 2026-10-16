@@ -148,7 +148,7 @@ export const CLIENT_ORDER = Object.keys(CLIENTS);
 
 /** Servers that get a page for this client. claude-web skips office-suite: it starts
  * 31 child processes and has no single connector URL. */
-const WEB_EXCLUDED = ["office-suite", "pomodoro", "budget", "loan-calculator", "payroll", "receipts", "stripe-billing", "tax-calc", "hourly-rate"];
+const WEB_EXCLUDED = ["three-way-match", "office-suite", "pomodoro", "budget", "loan-calculator", "payroll", "receipts", "stripe-billing", "tax-calc", "hourly-rate"];
 export function serversFor(clientId) {
   return clientId === "claude-web" ? SERVER_ORDER.filter((id) => !WEB_EXCLUDED.includes(id)) : SERVER_ORDER;
 }
@@ -165,6 +165,21 @@ export function serversFor(clientId) {
  * entry here without one, because it spawns every sibling as a local child process.
  */
 export const SETUP_SERVERS = {
+  "three-way-match": {
+    title: "MCP Three-Way Invoice Match", slug: "three-way-match", toolCount: "8 tools",
+    pkg: "@theluckystrike/mcp-three-way-match", sPage: "/s/three-way-match", hosted: null,
+    tagline: "Compare supplier invoice lines with purchase orders and accepted receipt quantities by exact SKU.",
+    does: "Pass a structured PO, dated receipt notes, one invoice and an explicit prior_invoiced array. Every exception shows the ordered, accepted, previously billed and currently billed quantities alongside the PO and invoice unit prices. Money uses integer minor units and quantities use whole units. The server does not read PDFs, query an ERP, infer past bills or approve payment.",
+    prompts: [
+      ["Check PO A10/B10 at 100 minor units each against accepted receipts A5/B15 and invoice A10/B10. Prior invoiced is empty: find the hidden SKU mismatch.", "three_way_match"],
+      ["Now invoice only A5/B10 against the same order and receipts; explain any over-receipt still reported on B.", "three_way_match"],
+      ["Save this exception report and export its CSV for review.", "report_export_csv"],
+    ],
+    free: "Every full preview up to 500 PO/invoice lines, free pages of large reports, three simultaneous saved reports, retrieval, deletion and CSV export.",
+    pro: "Unlimited saved reports for $19 once. Both tiers keep the same per-check safety bounds.",
+    measured: "The offsetting-SKU example and partial-delivery acceptance case are documented in the server README and tests.",
+  },
+
   "time-tracker": {
     title: "MCP Time Tracker",
     slug: "time-tracker",
@@ -1166,6 +1181,15 @@ export const SERVER_ORDER = Object.keys(SETUP_SERVERS);
  * it is what is actually different about running that server in that client.
  */
 const ANGLE = {
+  "three-way-match": {
+    "claude-desktop": "Use the local extension or a built absolute node path. Review the PO, delivery note and invoice values before passing them: the matcher takes structured data and does no PDF extraction.",
+    "claude-code": "Add the built dist/index.js at user scope to keep one local report store. Send prior_invoiced explicitly, including an empty array for a first invoice; the server cannot discover earlier bills.",
+    cursor: "Keep three_way_match with save false available for repeat previews. Matching uses exact SKUs, so preserve the identifiers from the documents instead of asking the agent to merge similar names.",
+    vscode: "Use the servers top-level key in .vscode/mcp.json. Have the tool report per-SKU exceptions before considering totals: one short delivery can be hidden by another SKU's over-delivery.",
+    windsurf: "This local server exposes eight tools. It reads no sibling stores, so receipt and PO data must be passed explicitly even if other procurement servers are installed.",
+    cline: "Preview calls write nothing when save is false. Saving creates a local report; report_delete removes the named saved report, while report_export_csv returns its exception evidence.",
+  },
+
   "time-tracker": {
     "claude-desktop": "Claude Desktop is the client people leave open all day, which is the one that a stopwatch needs: the timer keeps running while the window sits in the background, and stopping it is a sentence, not a form.",
     "claude-code": "You are already in the terminal when the work starts, so the timer starts in the same place the work does, and `claude mcp add --scope project` puts the entry in the repository the hours belong to.",

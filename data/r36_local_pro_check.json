@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-16T00:50:38.801Z",
+  "checks": 5,
+  "pass": true,
+  "scope": "Local MCP stdio with task-created one-hour single-product and bundle evaluation licenses; no purchase, hosted call, email or production KV write",
+  "verified": [
+    "Free3-report cap retains full diagnosis",
+    "license_activate accepts signed product license and permits fourth save",
+    "license_activate accepts signed bundle license and permits fifth save",
+    "All5savedreports listed"
+  ],
+  "limitations": [
+    "This does not prove real paid Stripe purchase or license email delivery"
+  ]
+}

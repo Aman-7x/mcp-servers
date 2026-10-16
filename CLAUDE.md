@@ -6,21 +6,13 @@ code and that has been expensive to learn.
 
 ## What this project is, stated honestly
 
-32 local-first MCP servers for freelance and small-business paperwork, 30 of them also hosted
-at `https://mcp.zovo.one/mcp/<server>`, sold at 19 dollars for one and 39 for the set. The
-engineering is in good shape: root `npm test` is green, live validation runs 951 checks, and
-the estate has real honesty gates. **Revenue to date is zero and the audience is about ten
-humans per fortnight.** Audience is the binding constraint by two orders of magnitude, and
-every plan should be judged against that and nothing else.
+Current audit (2026-10-16, R36): 56 listed server pages, 47 paid single products, 46 hosted servers, and 48 children in the local office proxy. The proxy exposes 441 measured tools. Prices remain $19 single / $39 bundle. Seven older free standalone skeletons still fail integration/release checks; do not describe the full estate as release-green.
 
-## The one number that matters
+The complete rolling seven-day MCP Stripe window has zero checkout sessions and $0 gross paid amount. Lifetime revenue remains unmeasured. Google Search Console for the exact MCP host reports 34 impressions and zero clicks for September 15 through October 13 (29 dates). Stored anonymous IDs and GitHub unique visitors include probes/bots and are not proven customers. Audience remains the constraint. See `intel/R36-kpi-audit.md` and `intel/R36-session.md`.
 
-A subagent with no knowledge of this estate is given
-18 frozen buyer-intent questions from `data/blind_questions.json`, researches each with web
-search, and names the server it would recommend. It named 47 servers and none were ours.
+## Blind recommendation measurement
 
-Procedure in `docs/BLIND_RECOMMENDATION_PROCEDURE.md`. It must be run by a FRESH agent that
-has never seen this repo, or it degenerates into checking whether the site exists.
+Use the 18 frozen buyer-intent questions from `data/blind_questions.json` with a fresh unprimed agent, following `docs/BLIND_RECOMMENDATION_PROCEDURE.md`. R8 (2026-10-16) named an estate server in 9/18 answers, six first-listed; conditional/companion recommendations count. Raw host URLs appeared in 15/18. This is a single documentary search trial, not runtime testing, buyer conversion, or a causal estimate of this sprint's changes. R7's `named_by_blind_assistant:12` meant any credible server, not 12 estate recommendations; do not compare that field directly. Full evidence: `docs/BLIND_RECOMMENDATION_R8.md`.
 
 ## Where recommendations actually come from
 

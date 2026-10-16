@@ -1,0 +1,56 @@
+{
+  "https://zovo.one/": {
+    "verdict": "PASS",
+    "coverage": "Submitted and indexed",
+    "googlebot": [],
+    "crawled_at": "2026-10-14T12:50:41Z",
+    "robots": "ALLOWED",
+    "canonical": "https://zovo.one/"
+  },
+  "https://mcp.zovo.one/": {
+    "verdict": "PASS",
+    "coverage": "Submitted and indexed",
+    "googlebot": [],
+    "crawled_at": "2026-09-29T11:44:31Z",
+    "robots": "ALLOWED",
+    "canonical": "https://mcp.zovo.one/"
+  },
+  "https://mcp.zovo.one/s/invoice": {
+    "verdict": "NEUTRAL",
+    "coverage": "Discovered - currently not indexed",
+    "googlebot": [],
+    "crawled_at": null,
+    "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "canonical": ""
+  },
+  "https://mcp.zovo.one/s/quotes": {
+    "verdict": "NEUTRAL",
+    "coverage": "URL is unknown to Google",
+    "googlebot": [],
+    "crawled_at": null,
+    "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "canonical": ""
+  },
+  "https://mcp.zovo.one/guides/quotes-and-estimates-to-invoice-in-claude": {
+    "verdict": "NEUTRAL",
+    "coverage": "Discovered - currently not indexed",
+    "googlebot": [],
+    "crawled_at": null,
+    "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+    "canonical": ""
+  },
+  "https://mcp.zovo.one/mcp/time-tracker": {
+    "verdict": "PASS",
+    "coverage": "Submitted and indexed",
+    "googlebot": [],
+    "crawled_at": "2026-09-25T22:50:23Z",
+    "robots": "ALLOWED",
+    "canonical": "https://mcp.zovo.one/mcp/time-tracker"
+  },
+  "_meta": {
+    "measured_at": "2026-10-16T00:42:03.294Z",
+    "command": "python3 scripts/gsc_inspect_r3.py <six listed URLs>",
+    "scope": "Six sampled URLs, not a fleet census",
+    "finding": "Invoice discovered not indexed; quotes unknown; quotes guide discovered not indexed; root control and MCP homepage/time-tracker indexed."
+  }
+}

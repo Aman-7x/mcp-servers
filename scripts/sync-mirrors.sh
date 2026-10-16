@@ -48,7 +48,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OWNER="theluckystrike"
 MONOREPO="https://github.com/${OWNER}/mcp-servers"
 RAW="https://raw.githubusercontent.com/${OWNER}/mcp-servers/main"
-ALL_SERVERS="time-tracker price-tracker spreadsheet invoice expense-tracker currency timezone docx resume recurring clauses pdf calendar kanban image bank-statement quotes barcode zip billing-docs deposits per-diem asset-register statement-of-account cash-book amortization petty-cash work-order catalogue change-order delivery-schedule checklist packing-list bill-of-sale credit-note job-card dunning-letters supplier-list service-agreement maintenance-log mileage-log purchase-requisition goods-receipt leave backlink-checker hourly-rate office-suite onboarding"
+ALL_SERVERS="time-tracker price-tracker spreadsheet invoice expense-tracker currency timezone docx resume recurring clauses pdf calendar kanban image bank-statement quotes barcode zip billing-docs deposits per-diem asset-register statement-of-account cash-book amortization petty-cash work-order catalogue change-order delivery-schedule checklist packing-list bill-of-sale credit-note job-card dunning-letters supplier-list service-agreement maintenance-log mileage-log purchase-requisition goods-receipt leave backlink-checker hourly-rate office-suite onboarding three-way-match"
 DRY_RUN="${DRY_RUN:-0}"
 SQUASH="${SQUASH:-0}"
 NO_RELEASE="${NO_RELEASE:-0}"
@@ -212,7 +212,7 @@ for NAME in $SERVERS; do
 
   # 1. server folder content at the mirror root (no dist, no node_modules, no RESULT.md)
   ( cd "$SRC" && tar -cf - \
-      --exclude dist --exclude node_modules --exclude RESULT.md --exclude .git . ) \
+      --exclude dist --exclude node_modules --exclude RESULT.md --exclude cleanup-manifest.jsonl --exclude .git . ) \
     | ( cd "$MIRROR" && tar -xf - )
 
   # 1b. Overwrite the monorepo Dockerfile with one that can actually build here.

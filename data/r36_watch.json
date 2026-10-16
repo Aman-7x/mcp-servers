@@ -1,0 +1,132 @@
+{
+  "schema": 1,
+  "pid": 61590,
+  "status": "running",
+  "started_at": "2026-10-16T00:48:50.811Z",
+  "deadline_at": "2026-10-16T04:22:43.000Z",
+  "interval_seconds": 300,
+  "purpose": "Verify release/pin/cron recovery and observe storefront-scoped payments without generating demand",
+  "snapshots": [
+    {
+      "at": "2026-10-16T00:48:53.073Z",
+      "errors": [],
+      "deployed_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+      "approved_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+      "cron": {
+        "ok": true,
+        "version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+        "checked_at": "2026-10-16T00:45:51.560Z",
+        "operations_checked_at": "2026-10-16T00:35:23.430Z",
+        "last_failure_at": "2026-10-16T00:30:21.261Z",
+        "operations_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 503,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-09T00:48:53.073Z",
+          "end": "2026-10-16T00:48:53.073Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true,
+      "health_note": "Cron passed; public health is in its existing forty-minute recovery cooldown"
+    },
+    {
+      "at": "2026-10-16T00:53:55.156Z",
+      "errors": [],
+      "deployed_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+      "approved_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+      "cron": {
+        "ok": true,
+        "version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+        "checked_at": "2026-10-16T00:50:51.565Z",
+        "operations_checked_at": "2026-10-16T00:35:23.430Z",
+        "last_failure_at": "2026-10-16T00:30:21.261Z",
+        "operations_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 503,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-09T00:53:55.156Z",
+          "end": "2026-10-16T00:53:55.156Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true,
+      "health_note": "Cron passed; public health is in its existing forty-minute recovery cooldown"
+    },
+    {
+      "at": "2026-10-16T00:58:58.267Z",
+      "errors": [],
+      "deployed_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+      "approved_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+      "cron": {
+        "ok": true,
+        "version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+        "checked_at": "2026-10-16T00:55:51.559Z",
+        "operations_checked_at": "2026-10-16T00:35:23.430Z",
+        "last_failure_at": "2026-10-16T00:30:21.261Z",
+        "operations_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 503,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-09T00:58:58.267Z",
+          "end": "2026-10-16T00:58:58.267Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true,
+      "health_note": "Cron passed; public health is in its existing forty-minute recovery cooldown"
+    },
+    {
+      "at": "2026-10-16T01:04:01.219Z",
+      "errors": [],
+      "deployed_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+      "approved_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+      "cron": {
+        "ok": true,
+        "version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+        "checked_at": "2026-10-16T01:00:51.573Z",
+        "operations_checked_at": "2026-10-16T00:35:23.430Z",
+        "last_failure_at": "2026-10-16T00:30:21.261Z",
+        "operations_version": "224b0a2a-dc67-4e06-8cb3-0f9b91237ddd",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 503,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-09T01:04:01.219Z",
+          "end": "2026-10-16T01:04:01.219Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true,
+      "health_note": "Cron passed; public health is in its existing forty-minute recovery cooldown"
+    }
+  ],
+  "last_observed_at": "2026-10-16T01:04:01.219Z"
+}

@@ -1,0 +1,70 @@
+{
+  "title": "R36 — revenue and organic distribution, 2026-10-16",
+  "updated_at": "2026-10-16T00:49:44.801Z",
+  "status_note": "Session in progress. Only verified outcomes are added to delivered work.",
+  "conclusion": "Search visibility and qualified demand remain the constraint: Google showed this host 34 times in 29 dates and generated no clicks. The complete seven-day Stripe window contains no MCP checkouts or paid amount; lifetime revenue is not established by that window.",
+  "metrics": [
+    {
+      "value": "9 / 18",
+      "label": "Named in fresh blind recommendations",
+      "window": "2026-10-16, single documentary trial",
+      "note": "6 first-listed; conditional/companion names included; no runtime certification",
+      "source": "docs/BLIND_RECOMMENDATION_R8.md"
+    },
+    {
+      "value": "$0",
+      "label": "Paid checkout amount",
+      "window": "2026-10-09 to 2026-10-16 (7d)",
+      "note": "MCP storefront only; lifetime unmeasured",
+      "source": "intel/R36-kpi-audit.md"
+    },
+    {
+      "value": 0,
+      "label": "MCP checkout sessions",
+      "window": "Same complete seven-day window",
+      "note": "Other Stripe storefronts excluded",
+      "source": "intel/R36-kpi-audit.md"
+    },
+    {
+      "value": 34,
+      "label": "Google search impressions",
+      "window": "2026-09-15 through 2026-10-13 (29 dates)",
+      "note": "0 clicks; root-domain positive control passed",
+      "source": "intel/R36-kpi-audit.md"
+    },
+    {
+      "value": 25,
+      "label": "GitHub unique visitors",
+      "window": "2026-10-01 through 2026-10-14",
+      "note": "As reported by GitHub; not confirmed people",
+      "source": "intel/R36-kpi-audit.md"
+    },
+    {
+      "value": 32,
+      "label": "Anonymous IDs with stored data",
+      "window": "KV population at 2026-10-16 snapshot",
+      "note": "Includes probes and operator activity",
+      "source": "intel/R36-kpi-audit.md"
+    },
+    {
+      "value": 0,
+      "label": "Checkout license records stored",
+      "window": "KV population at 2026-10-16 snapshot",
+      "note": "5 LICENSES keys are mailing-list records",
+      "source": "intel/R36-kpi-audit.md"
+    }
+  ],
+  "shipped": [
+    "Quotes GitHub metadata published with verified quote-to-invoice capability and public topic. First follow-up query mcp quote invoice moved rank 5 to 3; a snapshot does not prove durable ranking or buyer traffic.",
+    "Billing production224b0a2a released through full gate; 58 purchase routes verified without new liveStripe sessions. Bundle upgrade/cancel flows retain hosted activation, and unsupported delivery, pricing and bank PDF promises were corrected.",
+    "Resend sender hardened and tested; legacy filename-sending bypass retired. Read-only dry-run found18 manual research rows and0 eligible email recipients. No email was sent.",
+    "Fresh unprimed R8 search instrument completed on all18 frozen questions; parent-scored9estate recommendations and15raw host appearances. Older R7 score12 describes any credible server, not estate recommendations.",
+    "Independent matcher release review fixed an MCP message-size failure with free evidence pagination and strict root input validation;25tests and5000independent arithmetic cases passed."
+  ],
+  "next_levers": [
+    "Finalize standalone and office-suite bundles, verify both from isolated downloaded archives, then publish the matcher mirror and official registry entries.",
+    "Deploy the matcher storefront and buyer workflow guide with a working $19checkout and $39bundle.",
+    "Complete the requested four-hour read-only production/payment observation loop, which is live until04:22:43UTC; then audit finalhealth and deliver results."
+  ],
+  "report": "intel/R36-session.md"
+}

@@ -1,0 +1,41 @@
+{
+  "server": "three-way-match",
+  "round": 45,
+  "at": "2026-10-16T00:42:58.627Z",
+  "scenarios": [
+    {
+      "server": "three-way-match",
+      "id": "twm1",
+      "prompt": "Check PO A10/B10 at100 each against accepted A5/B15 and invoice A10/B10 total2000. Prior invoiced is empty. Find mismatches hidden by totals.",
+      "score": 3,
+      "tool_calls": 1,
+      "seconds": 0.003816,
+      "note": "Equal 2000-minor-unit PO and invoice totals still produced two per-SKU exceptions: A has 10 billed against 5 accepted, and B has 15 accepted against 10 ordered. No payment was approved."
+    },
+    {
+      "server": "three-way-match",
+      "id": "twm2",
+      "prompt": "The order is A10 at100. Five arrived and five are billed for500. There were no previous invoices. Is this partial delivery supported?",
+      "score": 3,
+      "tool_calls": 1,
+      "seconds": 0.001395,
+      "note": "A partial delivery matched: 5 currently invoiced, 5 accepted, 10 ordered and zero previously invoiced at the same 100-minor-unit price. The unused order balance did not produce a false short-delivery exception."
+    },
+    {
+      "server": "three-way-match",
+      "id": "twm3",
+      "prompt": "PO A10/B10 at100 each was fully delivered. Invoice A10 at110 and B10 at90 still totals2000. Flag both price changes and save the report.",
+      "score": 3,
+      "tool_calls": 1,
+      "seconds": 0.010515,
+      "note": "The unchanged 2000-minor-unit invoice total did not hide the two unit-price mismatches: A110 vs PO100, B90 vs PO100. The report retained the source prices for review."
+    }
+  ],
+  "totals": {
+    "scenarios": 3,
+    "passed": 3,
+    "avg_seconds": 0.005
+  },
+  "method": "Direct MCP stdio calls with fixed structured input; deterministic expected results asserted. Excludes model transcription and client install time.",
+  "bottom_line": "Equal totals did not hide per-SKU quantity or price mismatches; a supported partial delivery matched. Saved CSV evidence was retrieved and the task-created report deleted."
+}

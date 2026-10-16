@@ -9,7 +9,7 @@ import { setupPage, clientHub, setupIndex, setupUrls, serversFor, CLIENTS, CLIEN
 // validation line (the number of server directories), and "The 31 servers" over a table.
 // `ls servers/ | wc -l` is 32. Every count on the page now comes from here, as a numeral,
 // and billing/test/figures.test.mjs fails if a count on the rendered page is not one of them.
-import { LISTED_IDS, HOSTED_IDS as HOSTED_ID_LIST, LISTED_COUNT, LISTED_CHILD_COUNT, HOSTED_COUNT, ANON_TOKEN_DAYS, RATE_LIMIT_FREE, RATE_LIMIT_PRO, FREE as FREE_TIER } from "./figures.js";
+import { LISTED_IDS, HOSTED_IDS as HOSTED_ID_LIST, LISTED_COUNT, LISTED_CHILD_COUNT, HOSTED_COUNT, ANON_TOKEN_DAYS, RATE_LIMIT_FREE, RATE_LIMIT_PRO, FREE_IDS, FREE as FREE_TIER, OFFICE_SUITE_TOOLS } from "./figures.js";
 
 export const PRODUCTS = {
   "time-tracker": { desc: "Track billable time from chat: timers, entries, reports, CSV, invoice-ready totals.", free: "Free: unlimited timers, last 7 days of reports, 2 rated projects, currency per entry.", pro: "Pro: full history, invoice summaries, group by tag, unlimited projects.", name: "MCP Time Tracker Pro", price: "price_1UBDU5JKCamubEm1wPMZI8Zf", usd: 19, pkg: "@theluckystrike/mcp-time-tracker", bin: "mcp-time-tracker", payload: "time-tracker" },
@@ -58,6 +58,7 @@ export const PRODUCTS = {
   "goods-receipt": { desc: "The receiving record for purchase orders: what arrived, against which line, in what quantity and condition, with the outstanding balance per line derived on every call.", free: "Free: full receiving: create receipts, list them, per-line outstanding quantities and the receipt history.", pro: "Pro: unlimited receipts per period and the CSV export of received-vs-ordered.", name: "MCP Goods Receipt Pro", usd: 19, pkg: "@theluckystrike/mcp-goods-receipt", bin: "mcp-goods-receipt", payload: "goods-receipt" },
   "purchase-requisition": { desc: "Purchase requisitions and dated runs of them: a requisition is built once, each run copies its steps, every step is answered pass, fail or not applicable, and a completed run is signed off.", free: "Free: create requisitions and runs, record pass/fail/n-a results, and read the run summary and sign-off state.", pro: "Pro: unlimited requisitions and runs and the CSV export of results.", name: "MCP Purchase Requisition Pro", usd: 19, pkg: "@theluckystrike/mcp-purchase-requisition", bin: "mcp-purchase-requisition", payload: "purchase-requisition" },
   leave: { desc: "Employee leave and PTO requests: balances, approvals, calendars, and who-is-out summaries.", free: "Free: request and approve leave, balances, who-is-out, the leave calendar and the annual report.", pro: "Pro: unlimited policies and the CSV export of requests and balances.", name: "MCP Leave Pro", usd: 19, pkg: "@theluckystrike/mcp-leave", bin: "mcp-leave", payload: "leave" },
+  "three-way-match": { desc: "Match supplier invoice lines against a purchase order and accepted goods receipts by exact SKU, with exception evidence.", free: "Free: full previews up to 500 lines, 3 saved reports, report retrieval and CSV export.", pro: "Pro: unlimited saved reports; per-check safety bounds stay the same.", name: "MCP Three-Way Invoice Match Pro", usd: 19, pkg: "@theluckystrike/mcp-three-way-match", bin: "mcp-three-way-match", payload: "three-way-match" },
   bundle: { desc: "Every one of the MCP servers in a single lifetime key: finance, documents, tracking and utilities, with all future servers included. Paying for four Pro servers separately costs more than the bundle.", free: "Each server keeps its own free tier.", get pro() { return `Unlimited use of all ${SINGLE_PRODUCT_IDS.length} servers, lifetime, one key.`; }, name: "MCP Servers Bundle (all servers, lifetime)", price: "price_1UBDU9JKCamubEm1dWgRjtoW", usd: 39, pkg: null, bin: null, payload: "*" },
 };
 
@@ -154,7 +155,6 @@ export const HOSTED_SERVERS = new Set([
  * (tools/list returned 380 distinct names across 41 children; the asset_add, trip_list and
  * rate_set pairs collided and are prefixed with their server ids by the proxy). The README
  * claimed four children for weeks; this constant exists so the number has one home. */
-const OFFICE_SUITE_TOOLS = 380;
 
 const MCP_REGISTRY_AUTH = "v=MCPv1; k=ed25519; p=KY+O0ut45badUE3n6TtwlXj09gkKnTd+/pkY56Y0A9Q=";
 
@@ -172,7 +172,7 @@ export const SERVER_COUNT = SINGLE_PRODUCT_IDS.length;
 export const BUNDLE_SAVING_USD =
   SINGLE_PRODUCT_IDS.reduce((n, id) => n + PRODUCTS[id].usd, 0) - PRODUCTS.bundle.usd;
 
-const NUMBER_WORD = { 19: "Nineteen", 20: "Twenty", 21: "Twenty-one", 22: "Twenty-two", 23: "Twenty-three", 24: "Twenty-four", 25: "Twenty-five", 26: "Twenty-six", 27: "Twenty-seven", 28: "Twenty-eight", 29: "Twenty-nine", 30: "Thirty" , 31: "Thirty-one", 32: "Thirty-two", 33: "Thirty-three", 34: "Thirty-four", 35: "Thirty-five", 36: "Thirty-six", 37: "Thirty-seven", 38: "Thirty-eight", 39: "Thirty-nine", 40: "Forty", 41: "Forty-one", 42: "Forty-two", 43: "Forty-three", 44: "Forty-four", 45: "Forty-five", 46: "Forty-six" };
+const NUMBER_WORD = { 19: "Nineteen", 20: "Twenty", 21: "Twenty-one", 22: "Twenty-two", 23: "Twenty-three", 24: "Twenty-four", 25: "Twenty-five", 26: "Twenty-six", 27: "Twenty-seven", 28: "Twenty-eight", 29: "Twenty-nine", 30: "Thirty" , 31: "Thirty-one", 32: "Thirty-two", 33: "Thirty-three", 34: "Thirty-four", 35: "Thirty-five", 36: "Thirty-six", 37: "Thirty-seven", 38: "Thirty-eight", 39: "Thirty-nine", 40: "Forty", 41: "Forty-one", 42: "Forty-two", 43: "Forty-three", 44: "Forty-four", 45: "Forty-five", 46: "Forty-six", 47: "Forty-seven", 48: "Forty-eight", 49: "Forty-nine", 50: "Fifty", 51: "Fifty-one", 52: "Fifty-two", 53: "Fifty-three", 54: "Fifty-four" };
 
 /** The server count as a capitalised English word, e.g. "Twenty". Exported so the copy
  * tests can assert the rendered sentence without pinning a number that a new server moves. */
@@ -217,11 +217,11 @@ export function checkoutDescription(productId) {
  *   *does* accept `optional_items`, and that is deliberately not used: an accepted
  *   optional item makes the Session carry two line items, which `fulfillmentAllowed`
  *   rejects, so the buyer would be charged $58 and minted nothing.
- * - `after_submit`: how the key actually arrives. Nothing is emailed - the key is on the
- *   /success page - and a hosted tenant is bound automatically. That was previously
+ * - `after_submit`: the reliable delivery path is the /success page; optional email
+ *   must not be needed to activate. A hosted tenant is bound automatically. That was previously
  *   discoverable only after paying.
  */
-export function checkoutCustomText(productId, askedId = productId) {
+export function checkoutCustomText(productId, askedId = productId, tenant = "") {
   const p = PRODUCTS[productId];
   if (!p) throw new Error(`unknown product: ${productId}`);
   const word = NUMBER_WORD[SERVER_COUNT] || String(SERVER_COUNT);
@@ -232,10 +232,10 @@ export function checkoutCustomText(productId, askedId = productId) {
     : "";
   const submit = productId === "bundle"
     ? `${aliasNote}One payment, one lifetime key for all ${SERVER_COUNT} servers. Saves $${BUNDLE_SAVING_USD} against buying them singly.`
-    : `Buying more than one? All ${SERVER_COUNT} servers are $${PRODUCTS.bundle.usd} together, a $${BUNDLE_SAVING_USD} saving: https://mcp.zovo.one/buy/bundle?src=checkout.crosssell.${productId}`;
+    : `Buying more than one? All ${SERVER_COUNT} servers are $${PRODUCTS.bundle.usd} together, a $${BUNDLE_SAVING_USD} saving: https://mcp.zovo.one/buy/bundle?src=checkout.crosssell.${productId}${validTenant(tenant) ? `&tenant=${encodeURIComponent(tenant)}` : ""}`;
   const after_submit =
-    `Your license key is shown on the confirmation page immediately after payment. It is not emailed, ` +
-    `so copy it from that page; the same URL always shows the same key. If you started from a hosted ` +
+    `Your license key is shown on the confirmation page immediately after payment. ` +
+    `Copy it from that page and bookmark the URL; the same URL always shows the same key. If you started from a hosted ` +
     `mcp.zovo.one endpoint, that endpoint is upgraded to Pro automatically, with nothing to paste. ` +
     `Bought some other way and already using a hosted endpoint? Run license_activate with the key there ` +
     `and Pro applies to the connection you are on, so the data already stored under it stays put.`;
@@ -259,7 +259,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 171;
+export const BILLING_TEST_COUNT = 178;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -573,7 +573,7 @@ a.grid{display:inline-block;width:31%;min-width:200px;margin:0 1% 6px 0;font-siz
     style="flex:1;padding:8px 10px;background:#111;border:1px solid var(--bd);color:var(--fg);font:inherit;font-size:13px;border-radius:0">
   <button type="submit" style="padding:8px 14px;border:1px solid var(--ac);background:transparent;color:var(--ac);font:inherit;font-size:13px;font-weight:600;cursor:pointer;border-radius:0">Get setup tips</button>
 </form>
-<p class="muted" style="font-size:12px;margin:6px 0 0">One email when you sign up, one tip two days later. No newsletter, no spam.</p>
+<p class="muted" style="font-size:12px;margin:6px 0 0">Setup tips by email: a welcome message, an invoice setup tip after about two days, and a bundle offer after about a week. Unsubscribe any time.</p>
 <script>document.getElementById("subform").addEventListener("submit", async (e) => {
   e.preventDefault();
   const f = e.target, btn = f.querySelector("button");
@@ -582,7 +582,7 @@ a.grid{display:inline-block;width:31%;min-width:200px;margin:0 1% 6px 0;font-siz
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ email: f.email.value, src: "footer" }) });
     const j = await r.json().catch(() => ({}));
-    btn.textContent = j.ok === false ? j.reason || "Try again" : "Check your inbox";
+    btn.textContent = j.ok === false ? j.reason || "Try again" : "Signup recorded";
     if (j.ok !== false) f.email.value = "";
   } catch { btn.textContent = "Try again"; }
 });</script>
@@ -659,7 +659,7 @@ function serversPage() {
   ).join("");
   const body = `
 <h1>All ${Object.keys(SERVER_DESCS).length} MCP servers</h1>
-<p class="muted">Every server in the mcp.zovo.one fleet, with a one-line description from its README. Each has a free tier that needs no key — connect by URL in under a minute.</p>
+<p class="muted">Every server in the mcp.zovo.one fleet, with a one-line description from its README. Each has a free path that needs no Pro key. ${HOSTED_COUNT} support a hosted connection; the other servers run locally from a bundle or source checkout. Each product page gives its working setup.</p>
 <table>
 <thead><tr><th>Server</th><th>What it does</th></tr></thead>
 <tbody>${rows}</tbody>
@@ -699,11 +699,11 @@ function home() {
     const url = hosted.has(id)
       ? `<code>https://mcp.zovo.one/mcp/${esc(id)}/t/&lt;token&gt;</code>`
       : `<span class="muted">No URL yet. Bundle or clone.</span>`;
-    const price = p ? `$${p.usd}` : `<span class="muted">In the $${PRODUCTS.bundle.usd} bundle</span>`;
+    const price = p ? `$${p.usd}` : FREE_IDS.includes(id) ? `<span class="muted">Free</span>` : `<span class="muted">In the $${PRODUCTS.bundle.usd} bundle</span>`;
     return `<tr><td><a href="/s/${esc(id)}">${esc(name)}</a></td><td>${whatHtml}</td><td>${url}</td><td>${price}</td></tr>`;
   }).join("\n");
   const rows = Object.entries(PRODUCTS).map(([id, p]) =>
-    `<tr><td><strong>${p.pkg ? `<a href="/s/${esc(id)}">${esc(p.name)}</a>` : esc(p.name)}</strong><br>${esc(p.desc)}<br><span class="muted">${esc(p.free)} ${esc(p.pro)}</span>${p.pkg ? `<br><span class="muted">Install: <code>npx -y ${esc(p.pkg)}</code> &middot; <a href="${REPO}/tree/main/servers/${esc(id)}#readme">docs</a></span>` : ""}</td>
+    `<tr><td><strong>${p.pkg ? `<a href="/s/${esc(id)}">${esc(p.name)}</a>` : esc(p.name)}</strong><br>${esc(p.desc)}<br><span class="muted">${esc(p.free)} ${esc(p.pro)}</span>${p.pkg ? `<br><span class="muted"><a href="/setup/claude-desktop/${esc(id)}">Install in Claude Desktop</a> &middot; <a href="${REPO}/tree/main/servers/${esc(id)}#readme">source and other clients</a></span>` : ""}</td>
 <td>$${p.usd}</td><td><a class="buy" href="/buy/${id}?src=store.home.table.${id}">Buy</a></td></tr>`).join("\n");
   const ld = [
     {
@@ -773,7 +773,7 @@ function home() {
 <p>A Pro key removes the free-tier limits on any of these three paths: run <code>license_activate</code> with the key in Claude, set <code>MCP_LICENSE_KEY</code>, or paste the key where the connect-by-URL token goes. Keys verify offline; nothing is sent anywhere after checkout. Refunds within 14 days: support@zovo.one.</p>
 <h2>Measured, not claimed</h2>
 <p>As of ${VALIDATION.at}: ${VALIDATION.pass} of ${VALIDATION.total} automated checks passing across all ${VALIDATION.servers} servers, ${BILLING_TEST_COUNT} unit tests green on the billing service, and a <code>tools/list</code> call answers at a ${VALIDATION.medianMs}&nbsp;ms median (p50) across those servers. Full detail: <a href="${REPO}/blob/main/data/validation.json">validation.json</a>.</p>
-<h2>Free and Pro limits, server by server</h2>
+<h2 id="servers">Free and Pro limits, server by server</h2>
 <table><tr><th>Product</th><th>Price</th><th></th></tr>${rows}</table>
 <h2>Hosted endpoints</h2><p>No install: <a href="/mcp/connect">/mcp/connect</a> mints an anonymous token and prints a URL per server, <code>mcp.zovo.one/mcp/&lt;server&gt;/t/&lt;token&gt;</code>, that needs no headers. A Pro key can replace the token to remove free-tier limits.</p><h2>How activation works</h2>
 <p>After payment you get a key like <code>MCPL1.xxx.yyy</code>. In Claude, run <code>license_activate</code> with the key, or set the environment variable <code>MCP_LICENSE_KEY</code>.</p>
@@ -873,7 +873,7 @@ export function bundlePage() {
 <p class="muted">Suite hubs: <a href="/suites/freelancer">freelancer</a>, <a href="/suites/documents">documents</a>, <a href="/suites/field-ops">field ops</a>.</p>
 <p class="muted">${NPM_PENDING_NOTE} The first three paths above need no npm.</p>
 <h2>How the key arrives</h2>
-<p>Nothing is emailed. The key is rendered once, on the <code>/success</code> page right after payment; reloading that URL always shows the same key, and <code>/recover?session_id=...</code> gets it back from a lost tab. If you bought while connected through a hosted <code>mcp.zovo.one</code> endpoint, that endpoint's token is bound to Pro automatically, with nothing to paste there (docs/CHECKOUT_AUDIT.md).</p>
+<p>Your key is shown on the <code>/success</code> page right after payment; reloading that URL always shows the same key, and <code>/recover?session_id=...</code> gets it back from a lost tab. If you bought while connected through a hosted <code>mcp.zovo.one</code> endpoint, that endpoint's token is bound to Pro automatically, with nothing to paste there (docs/CHECKOUT_AUDIT.md).</p>
 <p><a class="buy" href="/buy/bundle?src=store.bundle">Buy the bundle, $${PRODUCTS.bundle.usd}</a></p>
 <p><a href="/">All ${SERVER_COUNT} servers priced singly</a> &middot; <a href="/setup">Setup per client</a> &middot; <a href="/guides">Guides</a></p>`;
   return page(title, body).replace("</title>", "</title>" + meta);
@@ -980,7 +980,7 @@ export function validOrderToken(token, now = Date.now()) {
 
 async function createCheckout(env, host, productId, probeTag = "", tenant = "", askedId = productId, source = "direct", orderToken = newOrderToken()) {
   const p = PRODUCTS[productId];
-  const ct = checkoutCustomText(productId, askedId);
+  const ct = checkoutCustomText(productId, askedId, tenant);
   const s = await stripe(env, "checkout/sessions", {
     mode: "payment",
     ...checkoutLineItem(p),
@@ -989,7 +989,7 @@ async function createCheckout(env, host, productId, probeTag = "", tenant = "", 
     // session id, so the buyer who abandons at the card step lands one button away from
     // resuming the same Stripe session instead of on the storefront homepage (the old
     // cancel_url), where the funnel restarted from zero and every session ended unpaid.
-    cancel_url: `https://${host}/buy/${encodeURIComponent(productId)}?src=checkout.cancel&session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `https://${host}/buy/${encodeURIComponent(productId)}?src=checkout.cancel&session_id={CHECKOUT_SESSION_ID}${validTenant(tenant) ? `&tenant=${encodeURIComponent(tenant)}` : ""}`,
     // Off (audit): a discount field on a $19 one-time page invites the buyer to leave and
     // hunt for a code that does not exist. fulfillmentAllowed keeps its 100%-discount
     // branch for any code issued from the Dashboard against an older session.
@@ -1159,19 +1159,19 @@ export function checkoutIntentPage(url, productId, askedId = productId, tenant =
   const free = p.free ? `<li>Free tier, no key: ${esc(p.free.replace(/^Free:\s*/, ""))}</li>` : "";
   const whatYouGet = `<h2>What you get for $${p.usd}</h2>
 <ul>
-<li><strong>Your Pro key, in the Stripe receipt</strong> &mdash; same minute the payment clears, re-sendable from <a href="/recover">/recover</a>.</li>${gets ? `\n<li>Pro unlocks: ${esc(gets)}</li>` : ""}${free}
+<li><strong>Your Pro key is shown on the confirmation page</strong> after payment. Save the key and bookmark that page; reloading it shows the same key.</li>${gets ? `\n<li>Pro unlocks: ${esc(gets)}</li>` : ""}${free}
 ${productId === "bundle"
       ? `<li><strong>All ${SERVER_COUNT} servers, one key, lifetime</strong>, for $${PRODUCTS.bundle.usd} instead of $${PRODUCTS.bundle.usd + BUNDLE_SAVING_USD} bought one at a time.</li>`
-      : `<li><strong>All ${SERVER_COUNT} servers instead for $${PRODUCTS.bundle.usd}</strong> &mdash; one key, lifetime, a $${BUNDLE_SAVING_USD} saving: <a href="/buy/bundle?src=store.buy.${esc(productId)}">the bundle</a>.</li>`}
+      : `<li><strong>All ${SERVER_COUNT} servers instead for $${PRODUCTS.bundle.usd}</strong> &mdash; one key, lifetime, a $${BUNDLE_SAVING_USD} saving: <a href="/buy/bundle?src=store.buy.${esc(productId)}${validTenant(tenant) ? `&amp;tenant=${encodeURIComponent(tenant)}` : ""}">the bundle</a>.</li>`}
 </ul>`;
   return page(`Buy ${p.name}`, `<h1>${esc(p.name)}</h1>
 ${alias}<p><strong>$${p.usd}.00 USD</strong> &middot; one payment &middot; lifetime licence</p>
 <p>${esc(p.desc || (productId === "bundle" ? `All ${SERVER_COUNT} servers, one key.` : ""))}</p>
 ${whatYouGet}
 <form method="post" action="${esc(action)}"><input type="hidden" name="intent" value="checkout"><input type="hidden" name="order_token" value="${newOrderToken()}">
-<button class="buy" type="submit">Get your license key &mdash; delivered instantly by email</button></form>
+<button class="buy" type="submit">Continue to Stripe &mdash; $${p.usd} one-time</button></form>
 <p class="muted">No payment session has been created yet. Stripe collects the card on the next page.</p>
-${purchasePromiseHtml(p.usd)}
+${purchasePromiseHtml(p.usd, productId)}
 ${bound}<p class="muted"><a href="/#faq">FAQ</a> &middot; <a href="/changelog">Changelog</a> &middot; Source at <a href="${REPO}">github.com/theluckystrike/mcp-servers</a></p>
 <p><a href="${productId === "bundle" ? "/" : `/s/${encodeURIComponent(askedId)}`}">Back</a></p>`);
 }
@@ -1183,23 +1183,22 @@ ${bound}<p class="muted"><a href="/#faq">FAQ</a> &middot; <a href="/changelog">C
  * Applied to the pitch page (see `checkoutIntentPage`) and to /success, so the promise a
  * buyer reads before paying is the same one they read after, in the same words. Nothing
  * here is invented: each line is a measurable property of the product (offline tools, the
- * refund window the seller honours, the key arriving in the receipt and being re-sendable
- * from /recover).
+ * refund window the seller honours, and repeatable confirmation-page delivery).
  */
 /** The promise a buyer read before paying (checkoutIntentPage), repeated here after it, in
  * the same words. Post-payment is where a refund fear is cheapest to defuse: no support
- * ticket, no chargeback. `purchasePromiseHtml` takes only the amount paid so the block
+ * ticket, no chargeback. `purchasePromiseHtml` takes the amount and product so the block
  * reads identically on both pages, which is the point - a buyer who reads two versions of a
  * guarantee has read no guarantee. */
-export function purchasePromiseHtml(paidUsd = PRODUCTS.bundle.usd) {
-  return `<h2>One key, ${SERVER_COUNT} servers, yours for good</h2>
+export function purchasePromiseHtml(paidUsd = PRODUCTS.bundle.usd, productId = "bundle") {
+  return `<h2>${productId === "bundle" ? `All ${SERVER_COUNT} servers` : esc(PRODUCTS[productId].name)}, lifetime licence</h2>
 <ul>
-<li><strong>Lifetime licence.</strong> One payment of $${paidUsd}&mdash; or $${PRODUCTS.bundle.usd} for all ${SERVER_COUNT} together. No subscription, no renewals, no per-seat charge, no usage cap.</li>
-<li><strong>The key arrives in the Stripe receipt</strong>, seconds after the card clears &mdash; and re-sendable any time from the same address at <a href="/recover">/recover</a>. No email from a human in between.</li>
-<li><strong>Runs offline.</strong> Every server does its work on your machine. No account, no cloud round-trip, your invoices and client data never leave the box.</li>
+<li><strong>Lifetime licence.</strong> One payment of $${paidUsd}&mdash; or $${PRODUCTS.bundle.usd} for all ${SERVER_COUNT} together. No subscription, no renewals, no per-seat charge. Pro removes the listed free-tier limits; hosted rate limits still apply.</li>
+<li><strong>Your key is shown on the confirmation page</strong> after payment. Save the key and bookmark that page. Reloading it shows the same key; if you lose it, contact support@zovo.one with your Stripe receipt.</li>
+<li><strong>Local install option.</strong> Run the tools on your machine and keep their data there. Features that fetch public pages or exchange rates contact those services. Hosted endpoints store data on our infrastructure.</li>
 <li><strong>Keep the files you already have.</strong> The tools read and write plain Markdown, CSV and PDF; there is no proprietary store and no lock-in.</li>
 <li><strong>14-day refund</strong> on the first payment, from support@zovo.one.</li>
-<li><strong>Every server, the source included</strong>, plus the working tree behind them at <a href="${REPO}">github.com/theluckystrike/mcp-servers</a>.</li>
+<li><strong>Open source.</strong> Read the server code at <a href="${REPO}">github.com/theluckystrike/mcp-servers</a>.</li>
 </ul>`;
 }
 /** Probe Checkout Sessions are reused for 23h; Stripe expires a Session after 24h. */
@@ -1460,16 +1459,15 @@ It can take a short time to appear on every endpoint. The key below works for a 
 ${hostedNote}
 <h2>Your license key</h2>
 <pre class="key"><code>${esc(key)}</code></pre>
-<p class="muted">Save this key now; it is shown again only at this URL. No email is sent with the key.
-Reloading this page always shows the same key. If you lose it, email support@zovo.one with your Stripe receipt
-(it carries the session id) and the key can be recovered from <code>/recover?session_id=...</code>.</p>
+<p class="muted">Save this key now and bookmark this page. Reloading this page always shows the same key. If you lose it, email support@zovo.one with your Stripe receipt
+to recover it. If you saved the session id from this page's URL, you can also use <code>/recover?session_id=...</code>.</p>
 <h2>Activate it</h2>
 <p>In Claude: run <code>license_activate</code> with this key.</p>
 <p>Alternative, set an environment variable before starting the server:</p>
 <pre><code>MCP_LICENSE_KEY=${esc(key)}</code></pre>
 <h2>Install</h2>
 ${installSnippet(productId)}
-${purchasePromiseHtml(p.usd)}
+${purchasePromiseHtml(p.usd, productId)}
 <p>Docs: <a href="${REPO}">${REPO}</a></p>`);
 }
 
@@ -1620,35 +1618,22 @@ const worker = {
     }
 
     if (path === "/pricing" && method === "GET") {
-      // s20261009b conversion pass (intel/s20261009-monetization-map.md item 3): 97 human
-      // checkout sessions with 0 paid says traffic is looking, not buying. This page gives
-      // the founding-tier urgency case and the real usage proof numbers in one place.
-      // Prices are unchanged ($19 single / $39 bundle), read from PRODUCTS like everywhere
-      // else so the page can never drift from the Stripe price IDs.
+      // Prices come from the same catalogue as Checkout. No scheduled price increase
+      // or human-demand claim is inferred from token or session counts.
       const singleUsd = PRODUCTS[SERVER_IDS[0]].usd;
       const bundleUsd = PRODUCTS.bundle.usd;
-      // Founding deadline: 30 days from the 2026-10-09 pass, frozen as a constant so the
-      // page does not silently roll the deadline forward on every deploy.
-      const DEADLINE = "2026-11-08";
       const pricingBody = `<h1>Pricing</h1>
 <p>Every server has a free tier you can use right now. Pro is a one-time payment, not a subscription: one key, lifetime, no recurring charge.</p>
-<div style="border:1px solid var(--ac);border-radius:8px;padding:16px 20px;margin:20px 0">
-<p style="margin:0 0 8px"><strong>Founding price — locked for early customers.</strong> These prices are the founding rate. They hold until <strong>${DEADLINE}</strong> (30 days from launch), then the Pro price goes up for new buyers. Early customers keep their rate for life.</p>
-<p style="margin:0" class="muted">Real usage so far: <strong>190 hosted tenants</strong> with stored data and <strong>239 hosted downloads</strong> served, from people connecting the free tiers by URL.</p>
-</div>
 <table><thead><tr><th>What you get</th><th>Price</th></tr></thead><tbody>
-<tr><td>Any one Pro server — lifetime licence, one key</td><td><a class="buy" href="/buy/${SERVER_IDS[0]}?src=store.pricing.single">$${singleUsd}</a></td></tr>
+<tr><td>Any one Pro server — lifetime licence, one key</td><td>$${singleUsd} &mdash; <a href="/#servers">Choose a server</a></td></tr>
 <tr><td>All ${SERVER_COUNT} servers, one key, lifetime</td><td><a class="buy" href="/buy/bundle?src=store.pricing.bundle">$${bundleUsd}</a></td></tr>
 </tbody></table>
-<h2>Why the numbers are trustworthy</h2>
-<ul>
-<li><strong>1254/1254 live validation checks passing</strong> — every tool call the fleet claims is checked against the live hosted endpoints, not a mock.</li>
-<li><strong>119 anonymous tokens minted</strong> — people reached a hosted endpoint with zero friction before paying anything.</li>
-<li><strong>One payment, lifetime licence.</strong> No subscription, no seat count, no surprise renewal. Your key arrives in the Stripe receipt the minute payment clears, re-sendable from <a href="/recover">/recover</a>.</li>
-</ul>
-<p><a class="buy" href="/buy/bundle?src=store.pricing.cta">Get your license key &mdash; delivered instantly by email</a></p>
+<h2>How your key arrives</h2>
+<p>Your key is shown on the confirmation page after payment. Save it and bookmark that page; reloading it shows the same key. If you lose it, contact support@zovo.one with your Stripe receipt.</p>
+<p>Each <a href="/#servers">server page</a> lists its free-tier limits and Pro features. A purchase from a hosted connection upgrades that connection automatically; otherwise run <code>license_activate</code> with your key.</p>
+<p><a class="buy" href="/buy/bundle?src=store.pricing.cta">Buy the bundle &mdash; $${bundleUsd} one-time</a></p>
 <p class="muted">Not sure which server? Start free: open <a href="/mcp/connect">mcp.zovo.one/mcp/connect</a> and use any free tier before you pay.</p>`;
-      const pricingMeta = `<meta name="description" content="MCP server pricing: $${singleUsd} for any one Pro server, $${bundleUsd} for all ${SERVER_COUNT}. One-time payment, lifetime licence. Founding price locked until ${DEADLINE}."><link rel="canonical" href="https://mcp.zovo.one/pricing">${og("Pricing — MCP servers by zovo.one", `Founding price: $${singleUsd} per server, $${bundleUsd} for the full set. One-time, lifetime, license key delivered instantly by email.`, "https://mcp.zovo.one/pricing", "website")}`;
+      const pricingMeta = `<meta name="description" content="MCP server pricing: $${singleUsd} for any one Pro server, $${bundleUsd} for all ${SERVER_COUNT}. One-time payment, lifetime licence. Key shown after payment."><link rel="canonical" href="https://mcp.zovo.one/pricing">${og("Pricing — MCP servers by zovo.one", `$${singleUsd} per server, $${bundleUsd} for the full set. One-time, lifetime, key shown on the confirmation page.`, "https://mcp.zovo.one/pricing", "website")}`;
       const pricingHtml = page(`Pricing | zovo.one`, pricingBody).replace("</title>", "</title>" + pricingMeta);
       return new Response(pricingHtml, { headers: await contentHeaders(pricingHtml) });
     }
@@ -2035,9 +2020,17 @@ you is written into it.</p>
 <p>Payment is taken by Stripe. The card never touches this site; the checkout page is Stripe's own.
 After a successful payment this site stores one record against the Stripe session id: the licence key
 it issued, the product, and the email address Stripe collected for the receipt. That email is kept so a
-buyer who loses the key can recover it at <code>/recover</code>. Nothing is emailed from here, and the
-address is not used for anything else. The licence key itself can carry a twelve character hash prefix
+buyer who loses the key can recover it at <code>/recover?session_id=...</code>. A paid webhook also
+attempts to send the key through Resend to the checkout email address. Email delivery is best-effort;
+the confirmation page remains the direct key delivery path. A purchase does not subscribe the buyer to setup tips. The licence key itself can carry a twelve character hash prefix
 derived from the email; it does not contain the address.</p>
+
+<h2>If you subscribe to setup tips</h2>
+<p>The footer signup stores your email address, signup time, and source label in our licence storage
+for up to five years. Resend sends the welcome message, an invoice setup tip after about two days,
+and a bundle offer after about a week. Send markers prevent a completed step from being sent again.
+Each message has an unsubscribe link; opting out stores a suppression record for five years and
+stops later setup-tip and bundle-offer messages. Transactional licence delivery is separate.</p>
 
 <h2>Traffic</h2>
 <p>This site runs on Cloudflare, which logs requests as any web host does. This site additionally counts
@@ -2046,10 +2039,9 @@ carries no identifier of any kind and cannot be tied to a person.</p>
 
 <h2>Deleting your data</h2>
 <p>For a hosted endpoint, stop using the token and everything under it is deleted after 35 days; there is
-nothing to ask for. For a purchase record, or anything else, open an issue at
-<a href="${REPO}/issues">${REPO}/issues</a> and say which Stripe session id it concerns. That is the
-contact route for this project and it is read. There is no support mailbox, and this page will not
-pretend otherwise.</p>
+nothing to ask for. For a purchase record, subscription record, or another data request, contact
+support@zovo.one. Include the Stripe session id for a purchase; do not post licence keys, tokens,
+or payment details in a public GitHub issue.</p>
 
 <h2>What this page is not</h2>
 <p>It is a description of behaviour written by the person who wrote the code, not legal advice, and not a
@@ -2118,6 +2110,7 @@ const LIVE_TOOLS = {
 // build input to the discovery artifact, and checkout-r1.test.mjs asserts the lines that
 // carry it stay in catalogue order.
 const LLM_USE_WHEN = {
+  "three-way-match": "Use when the user checks structured supplier invoice lines against a PO and accepted receipts by exact SKU, including explicit prior-invoiced quantities. Local stdio only; no PDF parsing or payment approval.",
   "time-tracker": "Use when the user needs to track billable hours per project and turn logged time into an invoice.",
   "price-tracker": "Use when the user wants to check a product price on a shop page or watch it over time and be alerted.",
   "spreadsheet": "Use when the user needs to read, filter, query or edit an xlsx or csv file from chat.",
@@ -2531,16 +2524,16 @@ const LLM_USE_WHEN = {
             body: JSON.stringify({
               from: "MCP Servers <hello@zovo.one>",
               to: [email],
-              subject: "55 free MCP servers for paperwork — start here",
+              subject: `${LISTED_COUNT} MCP servers with free tiers — start here`,
               text: [
                 "Welcome — this is the single most useful starting point.",
                 "",
-                "1. Browse the fleet: https://mcp.zovo.one/servers",
-                "2. Fastest start (no install): pick a server with a hosted endpoint and paste its URL into Claude Desktop / Cursor / VS Code:",
-                "   https://mcp.zovo.one/pricing",
-                "3. Free tier is unlimited in daily use; Pro ($19 single, $39 for all 47) is a one-time key, no subscription.",
+                "1. Browse the fleet and per-server free limits: https://mcp.zovo.one/#servers",
+                "2. No-install setup: create a free connection token, then copy its server URL into your MCP client:",
+                "   https://mcp.zovo.one/mcp/connect",
+                `3. Free tiers do not expire and have per-server limits. Hosted free connections allow ${RATE_LIMIT_FREE} calls/hour. Pro ($${PRODUCTS[SINGLE_PRODUCT_IDS[0]].usd} for one server, $${PRODUCTS.bundle.usd} for all ${SERVER_COUNT} Pro servers) is a one-time key, no subscription.`,
                 "",
-                "In two days I'll send the one server most people keep installed, with its setup copy-paste.",
+                "After about two days, we send an invoice setup tip; after about a week, a bundle offer. Unsubscribe below at any time.",
                 "",
                 "Reply with the paperwork you hate most and I'll point you at the exact server for it.",
                 "",

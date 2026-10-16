@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+// A small, reproducible local first-five-minutes round. No network or checkout calls.
+import { Client } from '@modelcontextprotocol/sdk/client/index.js';
+import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import assert from 'node:assert/strict';
+import { join } from 'node:path';
+const root = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
+const dir = join(root, '..', 'mcp-servers-work', 'match-round');
+mkdirSync(dir, { recursive: true });
+const client = new Client({name:'r36-three-way-round', version:'1'}, {capabilities:{}});
+await client.connect(new StdioClientTransport({command:process.execPath,args:[join(root,'servers/three-way-match/dist/index.js')],env:{...process.env,XDG_DATA_HOME:dir,XDG_CONFIG_HOME:join(dir,'config'),MCP_LICENSE_KEY:''}}));
+const scenarios=[], raw=[];
+async function call(name,args){ const result=await client.callTool({name,arguments:args});assert.ok(!result.isError,JSON.stringify(result));return JSON.parse(result.content[0].text); }
+const lines = (a,b) => [{sku:'A',quantity:a,unit_price_minor:100},...(b === undefined ? [] : [{sku:'B',quantity:b,unit_price_minor:100}])];
+function input(ordered,accepted,billed,total){return{po:{reference:'PO-42',supplier:'Supply Co',currency:'USD',lines:ordered},receipts:[{reference:'GR-1',po_reference:'PO-42',supplier:'Supply Co',date:'2026-10-15',lines:accepted.map(([sku,q])=>({sku,accepted_quantity:q,rejected_quantity:0}))}],invoice:{reference:'INV-4',po_reference:'PO-42',supplier:'Supply Co',currency:'USD',lines:billed,total_minor:total},prior_invoiced:[],save:false};}
+async function scenario(id,prompt,args,check,note){let start=performance.now();const result=await call('three_way_match',args);check(result.report);let seconds=Math.round((performance.now()-start)*1000)/1e6;raw.push({id,args,result});scenarios.push({server:'three-way-match',id,prompt,score:3,tool_calls:1,seconds,note});return result;}
+try{
+ const inventory=await client.listTools();assert.equal(inventory.tools.length,8);assert.ok(inventory.tools.some(t=>t.name==='report_page'));
+ await scenario('twm1','Check PO A10/B10 at100 each against accepted A5/B15 and invoice A10/B10 total2000. Prior invoiced is empty. Find mismatches hidden by totals.',input(lines(10,10),[['A',5],['B',15]],lines(10,10),2000),r=>{assert.equal(r.status,'exceptions');assert.ok(r.lines.find(l=>l.sku==='A').issue_codes.includes('invoiced_above_accepted'));assert.ok(r.lines.find(l=>l.sku==='B').issue_codes.includes('accepted_above_order'));assert.equal(r.totals.po_total_minor,r.totals.invoice_lines_total_minor);},'Equal 2000-minor-unit PO and invoice totals still produced two per-SKU exceptions: A has 10 billed against 5 accepted, and B has 15 accepted against 10 ordered. No payment was approved.');
+ await scenario('twm2','The order is A10 at100. Five arrived and five are billed for500. There were no previous invoices. Is this partial delivery supported?',input(lines(10),[['A',5]],lines(5),500),r=>{assert.equal(r.status,'matched');assert.equal(r.issues.length,0);assert.equal(r.lines[0].available_to_invoice_quantity,5);},'A partial delivery matched: 5 currently invoiced, 5 accepted, 10 ordered and zero previously invoiced at the same 100-minor-unit price. The unused order balance did not produce a false short-delivery exception.');
+ const price=lines(10,10);price[0].unit_price_minor=110;price[1].unit_price_minor=90;
+ const saved=await scenario('twm3','PO A10/B10 at100 each was fully delivered. Invoice A10 at110 and B10 at90 still totals2000. Flag both price changes and save the report.',{...input(lines(10,10),[['A',10],['B',10]],price,2000),save:true},r=>{assert.equal(r.status,'exceptions');assert.equal(r.issues.filter(i=>i.code==='unit_price_mismatch').length,2);assert.equal(r.totals.po_total_minor,2000);assert.equal(r.totals.invoice_lines_total_minor,2000);},'The unchanged 2000-minor-unit invoice total did not hide the two unit-price mismatches: A110 vs PO100, B90 vs PO100. The report retained the source prices for review.');
+ assert.equal(saved.saved,true);const page=await call('report_page',{id:saved.id,section:'lines',offset:0,limit:1});assert.equal(page.total,2);assert.equal(page.rows.length,1);assert.equal(page.next_offset,1);assert.equal(page.rows[0].sku,'A');raw.push({id:'page',result:page});const csv=await call('report_export_csv',{id:saved.id});assert.match(csv.csv,/unit_price_mismatch/);raw.push({id:'csv',result:csv});assert.equal((await call('report_delete',{id:saved.id})).deleted,saved.id);
+ const doc={server:'three-way-match',round:45,at:new Date().toISOString(),scenarios,totals:{scenarios:scenarios.length,passed:scenarios.length,avg_seconds:Math.round(scenarios.reduce((s,x)=>s+x.seconds,0)/scenarios.length*1000)/1000},method:'Direct MCP stdio calls with fixed structured input; deterministic expected results asserted. Excludes model transcription and client install time.',bottom_line:'Equal totals did not hide per-SKU quantity or price mismatches; a supported partial delivery matched. Saved CSV evidence was retrieved and the task-created report deleted.'};
+ writeFileSync(join(root,'data/user_value_r45.json'),JSON.stringify(doc,null,2)+'\n');writeFileSync(join(root,'intel/R36-three-way-match-runtime.json'),JSON.stringify(raw,null,2)+'\n');console.log(JSON.stringify(doc.totals));
+}finally{await client.close();}

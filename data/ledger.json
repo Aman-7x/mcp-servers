@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-15T12:54:35.738Z",
+  "generated_at": "2026-10-16T00:58:12.827Z",
   "session": {
-    "count": 102,
+    "count": 103,
     "history": [
       {
         "at": "2026-09-02T12:48:50.865Z",
@@ -410,6 +410,10 @@
       {
         "at": "2026-10-12T03:24:07Z",
         "note": "s20261012c wrap: billing suite 173/173 GREEN (fixed mcp-license env: zod vendored, timezone symlinked; hourly-rate added to notYetSellable honesty gate); hourly-rate MCP server scaffolded by agent (server.json, tests, README); ledger+dashboard rendered; XTR Telegram rail now delivers real MCPL1 keys (roundtrip verified)"
+      },
+      {
+        "at": "2026-10-16T00:58:12.827Z",
+        "note": "R36: checked live payment/search data, released checkout fixes, built line-level matcher with free pagination, hardened outreach, and started four-hour production observation. Product publication remains in progress."
       }
     ]
   },
@@ -1584,7 +1588,7 @@
       "build_ok": true,
       "test_summary": "# pass 1 / # fail 0",
       "result_status": "DONE",
-      "loc": 451,
+      "loc": 452,
       "files_present": {
         "readme": true,
         "server_json": true,
@@ -2053,7 +2057,7 @@
       "build_ok": true,
       "test_summary": "# tests 22   # pass 22   # fail 0 / # tests 12   # pass 12   # fail 0",
       "result_status": "DONE",
-      "loc": 1578,
+      "loc": 1585,
       "files_present": {
         "readme": true,
         "server_json": true,
@@ -2261,6 +2265,41 @@
         "smithery_yaml": false,
         "dockerfile": false,
         "license": false
+      },
+      "distribution": {
+        "npm": "unknown",
+        "registry": "unknown",
+        "github": "unknown",
+        "smithery": "unknown",
+        "glama": "unknown"
+      }
+    },
+    {
+      "id": "three-way-match",
+      "npm_name": "@theluckystrike/mcp-three-way-match",
+      "version": "0.22.6",
+      "dir": "servers/three-way-match",
+      "tools": [
+        "three_way_match",
+        "report_list",
+        "report_get",
+        "report_page",
+        "report_delete",
+        "report_export_csv"
+      ],
+      "tool_count": 6,
+      "free_limits": "pending",
+      "price_usd": 19,
+      "build_ok": true,
+      "test_summary": "pending",
+      "result_status": "DONE",
+      "loc": 315,
+      "files_present": {
+        "readme": true,
+        "server_json": true,
+        "smithery_yaml": true,
+        "dockerfile": true,
+        "license": true
       },
       "distribution": {
         "npm": "unknown",
@@ -2691,6 +2730,11 @@
         "url": "https://mcp.zovo.one/buy/tax-calc"
       },
       {
+        "id": "three-way-match",
+        "price_usd": 19,
+        "url": "https://mcp.zovo.one/buy/three-way-match"
+      },
+      {
         "id": "time-tracker",
         "price_usd": 19,
         "url": "https://mcp.zovo.one/buy/time-tracker"
@@ -2804,6 +2848,10 @@
     {
       "file": "docs/BLIND_RECOMMENDATION_R7.md",
       "first_line": "Blind Recommendation — Round 7 (S130, 2026-09-21) — TRUE BLIND PASS"
+    },
+    {
+      "file": "docs/BLIND_RECOMMENDATION_R8.md",
+      "first_line": "Blind MCP recommendation report R8"
     },
     {
       "file": "docs/CALENDAR_AUDIT.md",
@@ -3503,7 +3551,7 @@
     },
     {
       "file": "docs/OUTREACH_RESEND_SETUP.md",
-      "first_line": "Resend Outbound Email Setup — mike@zovo.one (zovo.one on Cloudflare)"
+      "first_line": "Outreach and customer email access — verified 2026-10-16"
     },
     {
       "file": "docs/PACKAGING_RESULT.md",
@@ -4403,7 +4451,7 @@
     }
   ],
   "revenue": {
-    "stripe_live_sales": 0,
-    "note": "pending (data/sales.json not found)"
+    "stripe_live_sales": null,
+    "note": "unmeasured lifetime revenue; see current main dashboard for scoped payment windows"
   }
 }

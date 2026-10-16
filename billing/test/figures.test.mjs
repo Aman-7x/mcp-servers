@@ -78,7 +78,9 @@ test("no count of servers on the home page is typed, spelled out, or wrong", asy
   // Every numeral immediately in front of "servers" has to be a count this repository can
   // derive. 32 is what the site lists, 31 is what office-suite spawns and what is sold
   // singly, 30 is what answers at a URL.
-  const allowed = new Set([LISTED_COUNT, LISTED_CHILD_COUNT, HOSTED_COUNT]);
+  // Paid singles exclude the entirely free standalone servers. Their count is
+  // separately derived from PRODUCTS and must be valid wherever pricing names it.
+  const allowed = new Set([LISTED_COUNT, LISTED_CHILD_COUNT, HOSTED_COUNT, SINGLE_PRODUCT_IDS.length]);
   const found = [...html.matchAll(/\b(\d+)\s+(?:local-first\s+)?(?:MCP\s+)?servers/g)].map((m) => Number(m[1]));
   assert.ok(found.length > 0, "the home page states no server count at all, which means this gate is not looking at the page");
   const wrong = found.filter((n) => !allowed.has(n));

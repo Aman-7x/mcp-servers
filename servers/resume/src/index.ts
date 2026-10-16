@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { randomBytes } from "node:crypto";
-import { closeSync, existsSync, mkdirSync, openSync, readFileSync, writeFileSync } from "node:fs";
+import { closeSync, existsSync, lstatSync, mkdirSync, openSync, readFileSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { dirname, isAbsolute, join, resolve as resolvePath } from "node:path";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -80,7 +80,14 @@ function ensureDirBounded(dir: string): void {
     cur = parent;
   }
   if (!existsSync(cur)) throw new Error(`cannot create ${dir}: no existing ancestor directory`);
-  for (const d of missing.reverse()) mkdirSync(d);
+  for (const d of missing.reverse()) {
+    try { mkdirSync(d); } catch (e) {
+      // Another process may have created this ancestor after the existsSync walk.
+      // Accept EEXIST only when the winning entry is a real directory. A file
+      // or symlink must not redirect a document write after this check.
+      if ((e as NodeJS.ErrnoException).code !== "EEXIST" || !lstatSync(d).isDirectory()) throw e;
+    }
+  }
 }
 
 function outputPath(out: string | undefined, fallbackName: string, ext: string, overwrite = false): string {

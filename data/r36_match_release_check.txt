@@ -1,0 +1,226 @@
+release-check: 55 servers at 0.22.6, 29 checks each
+
+server                version profile-reader dist-version manifests desc names remotes hosted-row endpoint web children mcpb-lists mirrors pages facts tools product first-five setup compare guide gif logo docker smithery glama llms spec contract
+--------------------  ------- -------------- ------------ --------- ---- ----- ------- ---------- -------- --- -------- ---------- ------- ----- ----- ----- ------- ---------- ----- ------- ----- --- ---- ------ -------- ----- ---- ---- --------
+amortization          ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+asset-register        ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+backlink-checker      ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+bank-statement        ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+barcode               ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+bill-of-sale          ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+billing-docs          ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+budget                ok      ok             FAIL         FAIL      ok   FAIL  ok      ok         ok       ok  FAIL     FAIL       FAIL    ok    ok    FAIL  FAIL    gap        ok    FAIL    ok    FAIL FAIL FAIL   FAIL     FAIL  FAIL FAIL FAIL    
+calendar              ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+cash-book             ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+catalogue             ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+change-order          ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+checklist             ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+clauses               ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+credit-note           FAIL    ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+currency              ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+delivery-schedule     FAIL    ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+deposits              ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+docx                  ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+dunning-letters       ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+expense-tracker       ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+goods-receipt         ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+hourly-rate           ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    gap     ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+image                 ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+invoice               ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+job-card              ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+kanban                ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+leave                 ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+loan-calculator       ok      ok             FAIL         FAIL      ok   FAIL  ok      ok         ok       ok  FAIL     FAIL       FAIL    ok    ok    FAIL  FAIL    gap        ok    FAIL    ok    FAIL FAIL FAIL   FAIL     FAIL  FAIL FAIL FAIL    
+maintenance-log       ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    gap gap  ok     ok       ok    ok   ok   ok      
+mileage-log           ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    gap gap  ok     ok       ok    ok   ok   ok      
+onboarding            ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+packing-list          FAIL    ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+payroll               ok      ok             FAIL         FAIL      ok   FAIL  ok      ok         ok       ok  FAIL     FAIL       FAIL    ok    ok    FAIL  FAIL    gap        ok    FAIL    ok    FAIL FAIL FAIL   FAIL     FAIL  FAIL FAIL FAIL    
+pdf                   ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+per-diem              ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+petty-cash            ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+pomodoro              ok      ok             FAIL         FAIL      ok   FAIL  ok      ok         ok       ok  FAIL     FAIL       FAIL    ok    ok    FAIL  FAIL    gap        ok    FAIL    ok    FAIL FAIL FAIL   FAIL     FAIL  FAIL FAIL FAIL    
+price-tracker         ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+purchase-requisition  FAIL    ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+quotes                ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+receipts              ok      ok             FAIL         FAIL      ok   FAIL  ok      ok         ok       ok  FAIL     FAIL       FAIL    ok    ok    FAIL  FAIL    gap        ok    FAIL    ok    FAIL FAIL FAIL   FAIL     FAIL  FAIL FAIL FAIL    
+recurring             ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+resume                ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+service-agreement     ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    gap gap  ok     ok       ok    ok   ok   ok      
+spreadsheet           ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+statement-of-account  ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+stripe-billing        ok      ok             FAIL         FAIL      ok   FAIL  ok      ok         ok       ok  FAIL     FAIL       FAIL    ok    ok    FAIL  FAIL    gap        ok    FAIL    FAIL  FAIL FAIL FAIL   FAIL     FAIL  FAIL FAIL FAIL    
+supplier-list         ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      gap        ok    ok      ok    gap gap  ok     ok       ok    ok   ok   ok      
+tax-calc              ok      ok             FAIL         FAIL      ok   FAIL  ok      ok         ok       ok  FAIL     FAIL       FAIL    ok    ok    FAIL  FAIL    gap        ok    FAIL    FAIL  FAIL FAIL FAIL   FAIL     FAIL  FAIL FAIL FAIL    
+three-way-match       ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+time-tracker          ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+timezone              ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+work-order            ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok      
+zip                   ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    FAIL    ok    ok  ok   ok     ok       ok    ok   ok   ok      
+
+ok    README generated sections are current
+ok    PRODUCTS.bundle names the right count and saving
+ok    every hosted server has a claude-web page
+ok    no list carries a server that does not exist
+ok    test suites outside the npm workspaces are green (billing/test, remote/test, scripts/test)
+ok    every workspace package still has a test script
+
+28 named gap(s), printed rather than passed, not blocking:
+  backlink-checker  first-five: no user_value round has exercised backlink-checker, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  bill-of-sale  first-five: no user_value round has exercised bill-of-sale, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  budget  first-five: no user_value round has exercised budget, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  checklist  first-five: no user_value round has exercised checklist, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  credit-note  first-five: no user_value round has exercised credit-note, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  delivery-schedule  first-five: no user_value round has exercised delivery-schedule, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  dunning-letters  first-five: no user_value round has exercised dunning-letters, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  hourly-rate  product: no entry  [waived: 2026-10-12: no Stripe product on purpose — every tool is free, there is no license gate to sell, and checkout.test.mjs enforces the absence. The $39 bundle is the only paid path.]
+  job-card  first-five: no user_value round has exercised job-card, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  loan-calculator  first-five: no user_value round has exercised loan-calculator, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  maintenance-log  first-five: no user_value round has exercised maintenance-log, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  maintenance-log  gif: assets/demo-maintenance-log.gif missing  [waived: 2026-09-17: the four newest servers have no demo GIF yet; a GIF needs a scripted UI session per server. Queue for the next content round.]
+  maintenance-log  logo: assets/maintenance-log-logo.png missing  [waived: 2026-09-17: no logo PNG generated for the four newest servers; same content round as the GIFs.]
+  mileage-log  first-five: no user_value round has exercised mileage-log, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  mileage-log  gif: assets/demo-mileage-log.gif missing  [waived: 2026-09-17: the four newest servers have no demo GIF yet; a GIF needs a scripted UI session per server. Queue for the next content round.]
+  mileage-log  logo: assets/mileage-log-logo.png missing  [waived: 2026-09-17: no logo PNG generated for the four newest servers; same content round as the GIFs.]
+  packing-list  first-five: no user_value round has exercised packing-list, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  payroll  first-five: no user_value round has exercised payroll, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  pomodoro  first-five: no user_value round has exercised pomodoro, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  receipts  first-five: no user_value round has exercised receipts, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  service-agreement  first-five: no user_value round has exercised service-agreement, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  service-agreement  gif: assets/demo-service-agreement.gif missing  [waived: 2026-09-17: the four newest servers have no demo GIF yet; a GIF needs a scripted UI session per server. Queue for the next content round.]
+  service-agreement  logo: assets/service-agreement-logo.png missing  [waived: 2026-09-17: no logo PNG generated for the four newest servers; same content round as the GIFs.]
+  stripe-billing  first-five: no user_value round has exercised stripe-billing, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  supplier-list  first-five: no user_value round has exercised supplier-list, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+  supplier-list  gif: assets/demo-supplier-list.gif missing  [waived: 2026-09-17: the four newest servers have no demo GIF yet; a GIF needs a scripted UI session per server. Queue for the next content round.]
+  supplier-list  logo: assets/supplier-list-logo.png missing  [waived: 2026-09-17: no logo PNG generated for the four newest servers; same content round as the GIFs.]
+  tax-calc  first-five: no user_value round has exercised tax-calc, so its product page carries no measured evidence. Run a round against it and regenerate with node scripts/build-pages.mjs; do not write the section by hand.
+
+126 failure(s):
+  budget  dist-version: missing servers/budget/dist/version.js; run npm run build -w servers/budget
+  budget  manifests: missing server.mcpb.json
+  budget  names: only server.mcpb.json; needs server.variant.json or server.<token>.json
+  budget  children: not in CHILDREN
+  budget  mcpb-lists: missing SERVERS, DISPLAY_NAME, KEYWORDS
+  budget  mirrors: missing ALL_SERVERS, mirror-seo CAPABILITY
+  budget  tools: no entry
+  budget  product: no entry
+  budget  compare: no entry
+  budget  gif: assets/demo-budget.gif missing
+  budget  logo: assets/budget-logo.png missing
+  budget  docker: missing
+  budget  smithery: missing
+  budget  glama: missing
+  budget  llms: missing
+  budget  spec: missing
+  budget  contract: test/contract.test.mjs missing
+  credit-note  version: 0.22.8, release is 0.22.6
+  delivery-schedule  version: 0.22.7, release is 0.22.6
+  loan-calculator  dist-version: missing servers/loan-calculator/dist/version.js; run npm run build -w servers/loan-calculator
+  loan-calculator  manifests: missing server.mcpb.json
+  loan-calculator  names: only server.mcpb.json; needs server.variant.json or server.<token>.json
+  loan-calculator  children: not in CHILDREN
+  loan-calculator  mcpb-lists: missing SERVERS, DISPLAY_NAME, KEYWORDS
+  loan-calculator  mirrors: missing ALL_SERVERS, mirror-seo CAPABILITY
+  loan-calculator  tools: no entry
+  loan-calculator  product: no entry
+  loan-calculator  compare: no entry
+  loan-calculator  gif: assets/demo-loan-calculator.gif missing
+  loan-calculator  logo: assets/loan-calculator-logo.png missing
+  loan-calculator  docker: missing
+  loan-calculator  smithery: missing
+  loan-calculator  glama: missing
+  loan-calculator  llms: missing
+  loan-calculator  spec: missing
+  loan-calculator  contract: test/contract.test.mjs missing
+  packing-list  version: 0.22.8, release is 0.22.6
+  payroll  dist-version: missing servers/payroll/dist/version.js; run npm run build -w servers/payroll
+  payroll  manifests: missing server.mcpb.json
+  payroll  names: only server.mcpb.json; needs server.variant.json or server.<token>.json
+  payroll  children: not in CHILDREN
+  payroll  mcpb-lists: missing SERVERS, DISPLAY_NAME, KEYWORDS
+  payroll  mirrors: missing ALL_SERVERS, mirror-seo CAPABILITY
+  payroll  tools: no entry
+  payroll  product: no entry
+  payroll  compare: no entry
+  payroll  gif: assets/demo-payroll.gif missing
+  payroll  logo: assets/payroll-logo.png missing
+  payroll  docker: missing
+  payroll  smithery: missing
+  payroll  glama: missing
+  payroll  llms: missing
+  payroll  spec: missing
+  payroll  contract: test/contract.test.mjs missing
+  pomodoro  dist-version: missing servers/pomodoro/dist/version.js; run npm run build -w servers/pomodoro
+  pomodoro  manifests: missing server.mcpb.json
+  pomodoro  names: only server.mcpb.json; needs server.variant.json or server.<token>.json
+  pomodoro  children: not in CHILDREN
+  pomodoro  mcpb-lists: missing SERVERS, DISPLAY_NAME, KEYWORDS
+  pomodoro  mirrors: missing ALL_SERVERS, mirror-seo CAPABILITY
+  pomodoro  tools: no entry
+  pomodoro  product: no entry
+  pomodoro  compare: no entry
+  pomodoro  gif: assets/demo-pomodoro.gif missing
+  pomodoro  logo: assets/pomodoro-logo.png missing
+  pomodoro  docker: missing
+  pomodoro  smithery: missing
+  pomodoro  glama: missing
+  pomodoro  llms: missing
+  pomodoro  spec: missing
+  pomodoro  contract: test/contract.test.mjs missing
+  purchase-requisition  version: 0.22.8, release is 0.22.6
+  receipts  dist-version: missing servers/receipts/dist/version.js; run npm run build -w servers/receipts
+  receipts  manifests: missing server.mcpb.json
+  receipts  names: only server.mcpb.json; needs server.variant.json or server.<token>.json
+  receipts  children: not in CHILDREN
+  receipts  mcpb-lists: missing SERVERS, DISPLAY_NAME, KEYWORDS
+  receipts  mirrors: missing ALL_SERVERS, mirror-seo CAPABILITY
+  receipts  tools: no entry
+  receipts  product: no entry
+  receipts  compare: no entry
+  receipts  gif: assets/demo-receipts.gif missing
+  receipts  logo: assets/receipts-logo.png missing
+  receipts  docker: missing
+  receipts  smithery: missing
+  receipts  glama: missing
+  receipts  llms: missing
+  receipts  spec: missing
+  receipts  contract: test/contract.test.mjs missing
+  stripe-billing  dist-version: missing servers/stripe-billing/dist/version.js; run npm run build -w servers/stripe-billing
+  stripe-billing  manifests: missing server.mcpb.json
+  stripe-billing  names: only server.mcpb.json; needs server.variant.json or server.<token>.json
+  stripe-billing  children: not in CHILDREN
+  stripe-billing  mcpb-lists: missing SERVERS, DISPLAY_NAME, KEYWORDS
+  stripe-billing  mirrors: missing ALL_SERVERS, mirror-seo CAPABILITY
+  stripe-billing  tools: no entry
+  stripe-billing  product: no entry
+  stripe-billing  compare: no entry
+  stripe-billing  guide: no guide mentions this server
+  stripe-billing  gif: assets/demo-stripe-billing.gif missing
+  stripe-billing  logo: assets/stripe-billing-logo.png missing
+  stripe-billing  docker: missing
+  stripe-billing  smithery: missing
+  stripe-billing  glama: missing
+  stripe-billing  llms: missing
+  stripe-billing  spec: missing
+  stripe-billing  contract: test/contract.test.mjs missing
+  tax-calc  dist-version: missing servers/tax-calc/dist/version.js; run npm run build -w servers/tax-calc
+  tax-calc  manifests: missing server.mcpb.json
+  tax-calc  names: only server.mcpb.json; needs server.variant.json or server.<token>.json
+  tax-calc  children: not in CHILDREN
+  tax-calc  mcpb-lists: missing SERVERS, DISPLAY_NAME, KEYWORDS
+  tax-calc  mirrors: missing ALL_SERVERS, mirror-seo CAPABILITY
+  tax-calc  tools: no entry
+  tax-calc  product: no entry
+  tax-calc  compare: no entry
+  tax-calc  guide: no guide mentions this server
+  tax-calc  gif: assets/demo-tax-calc.gif missing
+  tax-calc  logo: assets/tax-calc-logo.png missing
+  tax-calc  docker: missing
+  tax-calc  smithery: missing
+  tax-calc  glama: missing
+  tax-calc  llms: missing
+  tax-calc  spec: missing
+  tax-calc  contract: test/contract.test.mjs missing
+  zip  compare: compare_none note expired (42d old, >30d; re-probe the registry for a competitor)
+
+legend: version=version == release, profile-reader=PROFILE_READERS wiring, dist-version=dist/version.js equals src/version.ts, manifests=server.json + mcpb, desc=descriptions < 100, names=second registry name, remotes=remotes.json merged, hosted-row=distribution.json hosted, endpoint=remote /mcp/<x>, web=claude-web setup page, children=office-suite CHILDREN, mcpb-lists=build-mcpb 3 lists, mirrors=sync-mirrors, pages=build-pages ids, facts=facts.json, tools=tools.json, product=Stripe PRODUCTS, first-five=measured evidence on the page, setup=SETUP_SERVERS + 6 ANGLE, compare=COMPARE page, guide=a guide mentions it, gif=demo GIF, logo=logo, docker=Dockerfile, smithery=smithery.yaml, glama=glama.json, llms=llms-install.md, spec=SPEC.md, contract=contract test

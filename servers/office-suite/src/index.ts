@@ -77,6 +77,7 @@ const CHILDREN: ChildDef[] = [
   { id: "leave", pkg: "@theluckystrike/mcp-leave", optional: true },
   { id: "onboarding", pkg: "@theluckystrike/mcp-onboarding", optional: true },
   { id: "backlink-checker", pkg: "@theluckystrike/mcp-backlink-checker", optional: true },
+  { id: "three-way-match", pkg: "@theluckystrike/mcp-three-way-match", optional: true },
   { id: "hourly-rate", pkg: "@theluckystrike/mcp-hourly-rate", optional: true },
 ];
 

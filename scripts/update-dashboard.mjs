@@ -257,8 +257,8 @@ const docs = docFiles.map((f) => ({
 const salesData = readJson(join(DATA_DIR, "sales.json"), null);
 
 const revenue = {
-  stripe_live_sales: salesData?.stripe_live_sales ?? 0,
-  note: salesData ? (salesData.note ?? "pending") : "pending (data/sales.json not found)",
+  stripe_live_sales: salesData?.stripe_live_sales ?? null,
+  note: salesData ? (salesData.note ?? "pending") : "unmeasured lifetime revenue; see current main dashboard for scoped payment windows",
 };
 
 // ---------- ledger ----------
@@ -498,7 +498,7 @@ const html = `<!doctype html>
     <div class="kpi"><span class="n">${totalTools}</span><span class="l">tools total</span></div>
     <div class="kpi"><span class="n">${testsPassingTotal}</span><span class="l">tests passing</span></div>
     <div class="kpi"><span class="n">${publishedSurfacesTotal}</span><span class="l">published surfaces</span></div>
-    <div class="kpi"><span class="n">$${revenue.stripe_live_sales}</span><span class="l">revenue</span></div>
+    <div class="kpi"><span class="n">${revenue.stripe_live_sales === null ? 'unmeasured' : '$' + revenue.stripe_live_sales}</span><span class="l">revenue</span></div>
   </div>
 
   <section>

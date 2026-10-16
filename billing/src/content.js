@@ -97,6 +97,44 @@ has the whole picture.</p>
 }
 
 export const GUIDES = {
+  "match-supplier-invoice-purchase-order-delivery-note-in-claude": {
+    title: "Check a supplier invoice against a purchase order and delivery note in Claude",
+    description: "Compare supplier invoice lines, ordered units and accepted delivery quantities by SKU. Catch mismatches hidden by equal totals, with a local MCP server.",
+    html: `<h1>Check a supplier invoice against a purchase order and delivery note in Claude</h1>
+<p>A supplier bills ten units of A and ten of B. The order says ten of each, but the delivery note records five A and fifteen B. The aggregate is twenty units everywhere. Comparing only totals misses five billed units of A that were never accepted.</p>
+<p><a href="/s/three-way-match">MCP Three-Way Invoice Match</a> compares the lines by exact SKU and returns ordered, accepted, previously invoiced and currently billed quantities beside every exception. It takes structured data from your conversation; it does not extract PDFs, connect to an ERP, read sibling MCP stores or approve payment.</p>
+<h2>Install the local server</h2>
+<p>Download <code>three-way-match.mcpb</code> from the <a href="${RELEASES}">latest release</a> and open it in Claude Desktop. For a terminal client, build the self-contained mirror:</p>
+<pre><code>git clone https://github.com/theluckystrike/mcp-three-way-match.git
+cd mcp-three-way-match
+npm install &amp;&amp; npm run build
+claude mcp add --scope user three-way-match -- node /absolute/path/to/mcp-three-way-match/dist/index.js</code></pre>
+<p>Use your actual absolute path. <a href="/setup/claude-desktop/three-way-match">Claude Desktop</a>, <a href="/setup/cursor/three-way-match">Cursor</a> and <a href="/setup/vscode/three-way-match">VS Code</a> each have a config guide. This server is local stdio only. The npm package is not published; an npx package command will fail.</p>
+<h2>Pass the three documents and prior quantities explicitly</h2>
+<p>Have Claude show its transcription before checking. Preserve PO references, supplier names, currencies and SKUs exactly. Quantities are whole units; unit prices and totals are integer minor units, so 100 means one dollar for USD. Tax, shipping and other charges must not be silently folded into a goods total: this contract compares the supplied priced lines.</p>
+<pre><code>Compare PO PO-42 from Supply Co in USD: A10 at100 minor units,
+B10 at100. Receipt GR-1 on2026-10-15 accepts A5 and B15,
+rejects zero, and references PO-42 and Supply Co.
+Invoice INV-4 references PO-42, Supply Co and USD: A10 at100,
+B10 at100, total2000. prior_invoiced is explicitly [].
+Run three_way_match with save false. Show each exception and its evidence.</code></pre>
+<p>The report must expose A's five billed but unreceived units and B's five units received above the order. A matching grand total is not enough. Similar names are not fuzzy matched, rejected units do not count as accepted, and a receipt from the wrong supplier or PO cannot satisfy this invoice.</p>
+<h2>A partial delivery can pass</h2>
+<p>For an order of A10 at100, a receipt accepting A5 and a first invoice for A5 at100, total500, can match. Provide <code>prior_invoiced: []</code> explicitly. On the next bill, pass earlier billed quantities such as <code>[{"sku":"A","quantity":5}]</code>. The check compares current plus prior against both ordered and accepted quantities. It cannot infer previous bills or prevent duplicate payment.</p>
+<h2>Large reports keep their evidence in free pages</h2>
+<p>A response above the safe inline size returns <code>paginated: true</code>, counts and a <code>report_id</code>. Call <code>report_page</code> with that id and the requested section; use <code>next_offset</code> until it is null. Sections expose all issues, SKU evidence and original document rows. For receipt detail, use <code>receipt_lines</code> with a zero-based <code>receipt_index</code>, or <code>line_receipts</code> with the exact SKU. Page limits are up to 100 rows per call. The overview does not discard the remaining evidence. Large <code>report_export_csv</code> results are also paged: pass <code>offset</code> and optional <code>limit</code> up to 1,000 rows, then follow <code>next_offset</code>. Each CSV chunk repeats its header; keep one header when joining chunks.</p>
+<p>Large unsaved previews are held in memory for 30 minutes, with only the last two retained in that server process. Eviction, expiry or restart requires submitting the original check again; checks and pages remain free. Saved reports use their saved id and do not depend on that preview cache. Saving stays optional.</p>
+<h2>Keep an audit copy when it helps</h2>
+<p>Run with <code>save: true</code> to store a report, use <code>report_list</code> or <code>report_get</code> to retrieve it, and <code>report_export_csv</code> for the evidence rows. ${freeText("three-way-match")} <a href="/buy/three-way-match?src=store.guide.three-way-match">Pro is $${SINGLE_USD} once</a> and removes the saved-report cap. Both tiers retain the same input safety bounds; the <a href="/bundle">$${BUNDLE_USD} bundle</a> also unlocks it.</p>
+<p>Reports stay in the local data directory. Your MCP client or model may have its own data handling; local matching is not a promise about the chat provider. See the <a href="/compare/three-way-match">comparison with other invoice matching projects</a> for installation and matching differences.</p>`,
+    faq: [
+      { q: "Can matching totals hide a supplier invoice error?", a: "Yes. One SKU can be short while another is over-received. Compare each SKU's ordered, accepted and billed quantities, not only document totals." },
+      { q: "Can it check a partial delivery?", a: "Yes. Current plus explicitly supplied prior-invoiced quantities must stay within accepted receipts and the PO quantity, with the agreed unit price." },
+      { q: "Does it read invoice PDFs or approve payments?", a: "No. It accepts structured documents, reports evidence and exceptions, and leaves transcription and payment decisions to you." },
+      { q: "What is free?", a: "Full previews up to 500 lines, three simultaneously saved reports, report retrieval, deletion and CSV export. Pro removes the saved-report cap." },
+    ],
+  },
+
   "track-time-in-claude-code": {
     title: "How to track billable hours inside Claude Code and Cursor",
     description: "Start a timer, log forgotten hours, get a weekly report and invoice lines without leaving the chat. Setup, tools and measured call counts.",
@@ -8514,7 +8552,7 @@ out: three invoices a month, which is a real workflow for a small freelance prac
     html: `<h1>Can an MCP server read a bank statement PDF and categorise the transactions?</h1>
 <p>The honest answer has two parts. The <a href="/s/bank-statement">MCP Bank Statement</a> server reads
 a bank's CSV export, applies rules you teach it, and categorises, summarises and reconciles the
-transactions. It does <strong>not</strong> read a scanned or photographic PDF of a statement. If your
+transactions. It does <strong>not</strong> parse PDFs, whether text-layer, scanned or photographic. If your
 bank only hands you a PDF, the path is: export the underlying data as CSV if the bank offers it, or use
 one of the dedicated PDF-reading tools named below.</p>
 
@@ -8531,14 +8569,13 @@ phrase match on the transaction description, so "STARBUCKS" becomes your coffee 
 detects recurring charges over the last three months, so a subscription that quietly renews shows up as
 a repeat rather than a surprise.</p>
 <p>Reconciliation is the part most people actually want. It takes a 31-day window of your bank
-transactions and a window of your invoices or expenses and matches them, so at the end of the month you
-can see which of the money in is accounted for and which is not. The output is a plain answer, not a
+transactions and matches bank debits against the expense records in MCP Expense Tracker, so you can
+see which debits have no matching expense and which expenses have no matching bank debit. The output is a plain answer, not a
 spreadsheet you then have to read.</p>
 
 <h2>Honest about the PDF limitation</h2>
-<p>This catalogue is entirely pure JavaScript that runs offline, and OCR is neither pure JavaScript nor
-offline. So a scanned statement is deliberately out of scope, and the tool descriptions say no OCR
-rather than guess at a scan. The servers that genuinely read a statement PDF are the OCR-based tools:
+<p>This server implements CSV import and does not include a PDF parser or OCR. A scanned statement
+is outside its input contract; adding a text layer to a PDF does not make that file a CSV export. The servers that genuinely read a statement PDF are the OCR-based tools:
 DocuClipper and Bankstatemently are the two built for exactly that job, and if you want to keep the
 documents on your own machine, a self-hosted Stirling-PDF behind gufao's MCP wrapper is the common
 answer. The <a href="/guides/can-an-mcp-server-read-a-photo-of-a-receipt">photo of a receipt</a> guide
@@ -9851,40 +9888,51 @@ email with the exact <code>claude mcp add</code> line to run. There is no accoun
     ],
   },
 
+  // Retain the old PDF-oriented URL for existing links; the title and first paragraph
+  // state the CSV prerequisite because statement_import has no PDF parser or OCR.
   "bank-statement-pdf-to-excel-in-chat": {
-    title: "Turn a bank statement PDF into Excel rows from chat",
-    description: "How to read a bank statement PDF with an MCP server, get the transactions as clean rows, categorise them, and paste the result straight into Excel or your bookkeeping sheet.",
-    html: `<h1>Turn a bank statement PDF into Excel rows from chat</h1>
-<p>The most common bookkeeping ask is also the most fiddly: your bank only exports PDF statements,
-your accountant wants a spreadsheet, and copy-paste from a PDF produces one mangled line per
-transaction. The bank-statement MCP server does the extraction and the tidying in chat.</p>
+    title: "Turn a bank CSV export into Excel rows from chat",
+    description: "Import a bank CSV, categorise transactions, and export CSV for Excel with Pro. PDF statements need a separate conversion first; this server does not parse PDFs.",
+    html: `<h1>Turn a bank CSV export into Excel rows from chat</h1>
+<p><a href="/s/bank-statement">MCP Bank Statement</a> imports <strong>CSV exports</strong> from your
+bank. It does not parse PDF statements, including text-layer PDFs, and has no OCR. If your bank
+only provides a PDF, obtain a CSV export or convert it with a separate tool and check the resulting
+rows before importing. This guide starts with a CSV file you already have.</p>
 
-<h2>From PDF to rows in two steps</h2>
-<p>Point the server at the PDF - a local file path in Claude Desktop or Claude Code - and ask it to
-extract the transactions. It reads the statement layout, pulls out date, description, amount and
-balance, and returns one row per transaction with the running balance cross-checked so you can see
-immediately whether a line was misread. Then ask for CSV: the output pastes straight into Excel
-with correct columns, dates as dates, negatives as negatives.</p>
-<p>Follow-ups are where it beats a converter website: "categorise these into rent, software, travel
-and client payments" runs each row through the categoriser and returns the same rows with a
-category column - the exact workflow in the
-<a href="/guides/mcp-server-that-reads-bank-statements-and-categorizes">bank statement categorisation
-guide</a>. Nothing is uploaded anywhere; parsing happens locally.</p>
+<h2>Import the CSV and check the rows</h2>
+<p>In a local install, call <code>statement_import</code> with the CSV file path and an account name.
+The tool detects columns such as date, description, amount, currency and optional balance, then
+reports detected, stored and skipped rows. Reimporting the same bank export skips rows already
+stored for that account. Use <code>transactions_list</code> and <code>statement_summary</code> to
+review the imported transactions and totals per currency against your bank export. The importer
+does not validate a running balance or prove that a separate PDF conversion was accurate.</p>
+<p>Use <code>category_rules</code> to map transaction descriptions to categories such as rent,
+software or travel, and <code>transaction_categorize</code> for individual corrections. The
+<a href="/guides/how-to-categorize-bank-transactions">categorisation guide</a> explains that workflow.</p>
 ${install("bank-statement")}
 
-<h2>Getting it into Excel without mangling dates</h2>
-<p>Paste the CSV rows into a sheet, select the date column, and set its format to your locale's date
-format - that is the one manual step. If you then want the numbers checked, the
-<a href="/guides/reconcile-a-bank-export-with-your-invoices">reconciliation guide</a> covers matching
-the statement rows against invoices you issued, and the
-<a href="/guides/how-to-categorize-bank-transactions">categorisation guide</a> covers building a
-category scheme your accountant will accept.</p>
-<p>Free tier handles occasional statements. Pro is a one-time payment per server or part of the
-<a href="/s/office-suite">bundle</a>, and removes the monthly processing cap.</p>`,
+<h2>Open the result in Excel</h2>
+<p><code>statement_export</code> is a <strong>Pro feature</strong>. It writes the selected date range
+to a CSV or JSON file; it does not create an Excel workbook. For CSV, choose the date range and output
+path, then open the saved CSV using Excel's text/CSV import so you can check the delimiter, date
+format and decimal separator before loading it. The export includes account, date, description,
+counterparty, amount, currency, category and balance where the input supplied one.</p>
+<p>If you only need to open the bank's original CSV in Excel, you can do that directly without
+buying this server. The server adds a local ledger, saved categorisation rules and repeatable
+exports of filtered transactions. The
+<a href="/guides/csv-to-excel-and-back-in-claude">CSV and Excel guide</a> covers spreadsheet work.</p>
+
+<h2>Free tier and Pro</h2>
+<p>Free covers ${freeText("bank-statement")} Import stores every row; the free tier limits what
+you can read back rather than silently discarding imported history. Pro is $${SINGLE_USD} once
+for this server, or part of the $${BUNDLE_USD} <a href="/bundle">bundle</a>, and enables CSV/JSON
+export, unlimited accounts and rules, and full-history queries. There is no monthly processing cap.</p>
+<p>With a local install, the ledger stays on your machine. If you use a hosted endpoint, uploaded
+files and the resulting ledger are stored on our infrastructure; see <a href="/privacy">privacy</a>.</p>`,
     faq: [
-      { q: "Does it work with scanned statements?", a: "It reads text-layer PDFs, which is what almost every bank generates. A photographed or scanned image without a text layer needs OCR first." },
-      { q: "Is my statement uploaded to a server?", a: "No. The server runs locally and reads the file from disk. Nothing leaves your machine." },
-      { q: "Can it categorise the transactions too?", a: "Yes - the same server categorises extracted rows into schemes like rent, software, travel and income, and you can refine the mapping in chat." },
+      { q: "Can I import a bank statement PDF directly?", a: "No. statement_import reads CSV, including bank exports with a balance column. It does not parse text-layer PDFs or scanned PDFs and has no OCR. Convert separately and check the CSV before importing." },
+      { q: "Does it create an Excel workbook?", a: "No. Pro statement_export writes CSV or JSON. Excel can import the CSV; check the delimiter, dates and decimal separator in Excel's import preview." },
+      { q: "Is the export free?", a: `Import, listing, categorisation and summaries are available within the free-tier limits. CSV/JSON file export requires Pro, $${SINGLE_USD} once for this server or the $${BUNDLE_USD} bundle.` },
     ],
   },
 

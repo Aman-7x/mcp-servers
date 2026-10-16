@@ -15,10 +15,11 @@ const ENTRY = join(here, "..", "dist", "index.js");
 const REPO = join(here, "..", "..", "..");
 const N = 10;
 
-function client(dataHome, key) {
-  const child = spawn(process.execPath, [ENTRY], {
+function client(dataHome, key, raceKind) {
+  const args = raceKind ? ["--require", join(here, "mkdir-race.cjs"), ENTRY] : [ENTRY];
+  const child = spawn(process.execPath, args, {
     stdio: ["pipe", "pipe", "pipe"],
-    env: { ...process.env, XDG_DATA_HOME: dataHome, XDG_CONFIG_HOME: join(dataHome, "cfg"), MCP_LICENSE_KEY: key },
+    env: { ...process.env, XDG_DATA_HOME: dataHome, XDG_CONFIG_HOME: join(dataHome, "cfg"), MCP_LICENSE_KEY: key, RESUME_MKDIR_RACE_KIND: raceKind },
   });
   child.stderr.resume();
   let buf = "";
@@ -53,6 +54,35 @@ function client(dataHome, key) {
     close() { child.kill(); },
   };
 }
+
+test("a competing mkdir winner is accepted only when it created a real directory", async () => {
+  for (const kind of ["directory", "file", "symlink"]) {
+    const sandbox = mkdtempSync(join(tmpdir(), `mcp-resume-mkdir-${kind}-`));
+    const dataHome = join(sandbox, "data");
+    const c = client(dataHome, "", kind);
+    try {
+      await c.init();
+      const seed = await c.call("profile_set", {
+        name: "Ada Rowe", email: "ada@example.com", skills: ["TypeScript"],
+        experience: [{ company: "Acme Pay", title: "Engineer", start: "2020", bullets: ["Owned the ledger schema"] }],
+        education: [{ school: "University", degree: "BSc" }],
+      });
+      assert.ok(seed.result && !seed.result.isError, JSON.stringify(seed.result ?? seed.error));
+
+      const result = await c.call("resume_create", {});
+      assert.ok(existsSync(join(dataHome, "mkdir-race-injected")), `${kind}: race hook did not run`);
+      if (kind === "directory") {
+        assert.ok(result.result && !result.result.isError, JSON.stringify(result.result ?? result.error));
+      } else {
+        assert.equal(result.result?.isError, true, `${kind}: a non-directory mkdir winner was accepted`);
+        assert.match(result.result.content[0].text, /EEXIST/);
+        if (kind === "symlink") {
+          assert.equal(existsSync(join(dataHome, "redirect", "ada-rowe-resume.docx")), false);
+        }
+      }
+    } finally { c.close(); }
+  }
+});
 
 test("two processes, one data dir: every variant and every cover letter survives", async () => {
   const key = execFileSync(process.execPath, [join(REPO, "scripts", "sign-license.mjs"), "resume"], { encoding: "utf8" }).trim();
