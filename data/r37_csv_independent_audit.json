@@ -1,0 +1,336 @@
+{
+  "status": "passed_local_deployment_pending",
+  "started_at": "2026-10-16T09:29:40.260Z",
+  "scope": "/Users/mike/mcp-servers-work/r37-csv-independent-3CrGGm",
+  "source_baseline": {
+    "servers/duplicate-invoice-check/src/core.ts": "258f925cb0e262bfe3f489df2675fa1bf7e282fab03e7c2e5d97463bf73ddc5c",
+    "servers/duplicate-invoice-check/src/store.ts": "29d9bed0ec632b665b01472ddacdbae20fd1d0b3a9ee6f00441c2c4641587cdd",
+    "servers/duplicate-invoice-check/src/output.ts": "1040693da568952e1ab5dc7cb3dcdd621eafb0e8773dc0328257f6d7a8ef042e",
+    "servers/duplicate-invoice-check/src/index.ts": "1a99fe244b18e725ce4a88b9648eb9832abf6d5b7145ee9d84e357434b046869",
+    "packages/mcp-license/src/index.ts": "af199b6ebe67d7abfea702ae7ade9733b813f0713c12c491ef776790b3056ff2",
+    "billing/src/funnel.js": "b686ed50e5f9a82f1c0fc81840fcd37d28f5df4a142cd2013327198b6d52a636",
+    "billing/src/funnel-state.js": "bb11e882e8ceb237503fffa85a0d0e14e2df4af7b3ed309846fb875efb65d9c4"
+  },
+  "cases": [],
+  "parser_cases": [
+    {
+      "name": "record delimiter \"\\n\"",
+      "status": "passed"
+    },
+    {
+      "name": "record delimiter \"\\r\\n\"",
+      "status": "passed"
+    },
+    {
+      "name": "record delimiter \"\\r\"",
+      "status": "passed"
+    },
+    {
+      "name": "UTF8 BOM and optional final terminator",
+      "status": "passed"
+    },
+    {
+      "name": "commas quotes Unicode and reference zeros preserved",
+      "status": "passed"
+    },
+    {
+      "name": "header reordering preserves field identity",
+      "status": "passed"
+    },
+    {
+      "name": "maximum safe integer accepted exactly",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"0\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"-1\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"+1\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"01\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"1.0\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"1e3\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"1E3\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"0x10\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \" 1\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"1 \"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"1_000\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"NaN\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"Infinity\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"9007199254740992\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"１\"",
+      "status": "passed"
+    },
+    {
+      "name": "strict minor units \"1\\t\"",
+      "status": "passed"
+    },
+    {
+      "name": "unknown header bogus",
+      "status": "passed"
+    },
+    {
+      "name": "unknown header __proto__",
+      "status": "passed"
+    },
+    {
+      "name": "unknown header constructor",
+      "status": "passed"
+    },
+    {
+      "name": "unknown header toString",
+      "status": "passed"
+    },
+    {
+      "name": "missing required header",
+      "status": "passed"
+    },
+    {
+      "name": "duplicate required header",
+      "status": "passed"
+    },
+    {
+      "name": "duplicate optional header",
+      "status": "passed"
+    },
+    {
+      "name": "header whitespace is not silently trimmed",
+      "status": "passed"
+    },
+    {
+      "name": "header case is exact",
+      "status": "passed"
+    },
+    {
+      "name": "trailing extra empty column",
+      "status": "passed"
+    },
+    {
+      "name": "short ragged row",
+      "status": "passed"
+    },
+    {
+      "name": "internal empty row",
+      "status": "passed"
+    },
+    {
+      "name": "empty input",
+      "status": "passed"
+    },
+    {
+      "name": "headers without records",
+      "status": "passed"
+    },
+    {
+      "name": "duplicate row identities",
+      "status": "passed"
+    },
+    {
+      "name": "unterminated quoted field",
+      "status": "passed"
+    },
+    {
+      "name": "unquoted bare quote",
+      "status": "passed"
+    },
+    {
+      "name": "text after closing quote",
+      "status": "passed"
+    },
+    {
+      "name": "whitespace after closing quote",
+      "status": "passed"
+    },
+    {
+      "name": "embedded field newline reaches strict product validation \"\\n\"",
+      "status": "passed"
+    },
+    {
+      "name": "embedded field newline reaches strict product validation \"\\r\"",
+      "status": "passed"
+    },
+    {
+      "name": "embedded field newline reaches strict product validation \"\\r\\n\"",
+      "status": "passed"
+    },
+    {
+      "name": "optional blank label is not silently omitted",
+      "status": "passed"
+    },
+    {
+      "name": "optional label whitespace retained",
+      "status": "passed"
+    },
+    {
+      "name": "1000 rows accepted without loss",
+      "status": "passed"
+    },
+    {
+      "name": "1001 rows rejected",
+      "status": "passed"
+    },
+    {
+      "name": "more than 2MiB UTF8 text rejected",
+      "status": "passed"
+    }
+  ],
+  "parser_passed": 51,
+  "parser_failed": 0,
+  "protected_sources_unchanged": true,
+  "reviewed_sources": {
+    "billing/browser/duplicate-csv.mjs": "cf3578e1426888537b0bcc008757c2c0601100c9ea674e4f8de40c1de892fd75",
+    "billing/browser/duplicate-demo.mjs": "8a917dda42a1ca1ec0a780c3dd59076b76bdf9e1f3bf72715406b0b62bdd82b3",
+    "billing/src/duplicate-demo-markup.js": "e7bbf633ff53ce3711c76256ca128e45479117efdd82c712fafa8f06ec752069",
+    "billing/src/duplicate-demo-bundle.js": "ce67f0680a9c3cf43a0bb593a862b31b20a20a79628e7b094dd69bebfa0c9182"
+  },
+  "browser_cases": [
+    {
+      "name": "quoted comma/quotes Unicode zeros and safe DOM rendering survive actual import",
+      "status": "passed"
+    },
+    {
+      "name": "double-BOM rejected and all stale evidence cleared",
+      "status": "passed"
+    },
+    {
+      "name": "malformed rejected and all stale evidence cleared",
+      "status": "passed"
+    },
+    {
+      "name": "newline-field rejected and all stale evidence cleared",
+      "status": "passed"
+    },
+    {
+      "name": "bad-integer rejected and all stale evidence cleared",
+      "status": "passed"
+    },
+    {
+      "name": "duplicate-id rejected and all stale evidence cleared",
+      "status": "passed"
+    },
+    {
+      "name": "ragged rejected and all stale evidence cleared",
+      "status": "passed"
+    },
+    {
+      "name": "invalid UTF8 bytes rejected instead of identifier replacement",
+      "status": "passed"
+    },
+    {
+      "name": "oversize file rejected before arrayBuffer",
+      "status": "passed"
+    },
+    {
+      "name": "1000 CSV rows preserve all row identities;1001 fails without partial evidence",
+      "status": "passed"
+    },
+    {
+      "name": "newer file beats late older success",
+      "status": "passed"
+    },
+    {
+      "name": "newer file beats late older read error",
+      "status": "passed"
+    },
+    {
+      "name": "manual JSON editing clears old evidence and cancels pending read",
+      "status": "passed"
+    },
+    {
+      "name": "manual submit cancels pending read without relying on input event",
+      "status": "passed"
+    },
+    {
+      "name": "preset cancels pending read",
+      "status": "passed"
+    },
+    {
+      "name": "sample cancels pending read",
+      "status": "passed"
+    },
+    {
+      "name": "empty file selection cancels pending read and leaves no stale result",
+      "status": "passed"
+    },
+    {
+      "name": "JSON strict schema and save false contract remain active",
+      "status": "passed"
+    }
+  ],
+  "prior_browser_attempts": [
+    {
+      "status": "reviewer_harness_corrected",
+      "reason": "Harness attempted sample button while its details element was closed; corrected to open the visible disclosure first",
+      "passed_before_stop": 1
+    }
+  ],
+  "browser": {
+    "status": "passed",
+    "version": "155.0.8059.80",
+    "cases": 18,
+    "diagnostic_network_requests": 0,
+    "storage_attempts": 0,
+    "page_errors": 0,
+    "live_site_used": false,
+    "input_sha256": "73006c8f0de163c6cd81cd4a10c1d64d4a9a3567eddfc40f96b5d3079b383467",
+    "served_asset_sha256": "00131aed63f83fdc24766ec7ae065fbfec7e7b902ff7c639e06e115e6fbca5cb",
+    "served_asset_bytes": 74634
+  },
+  "temporary_runner_sha256": {
+    "parser": "b49b00f7ce4bda116014b4c14779400ff4822bc43ff98d177afe92a0504c5bdf",
+    "browser": "cb99639a9b36277bbcc9c33138977d88fc21f5599cfb2b571289d91c59ad6170"
+  },
+  "material_findings": [],
+  "completed_at": "2026-10-16T09:38:28.994Z",
+  "cleanup": {
+    "scope_removed": true,
+    "lsof_clear": true,
+    "bytes": 8834891,
+    "browser_closed": true
+  },
+  "final_double_bom_control_passed": true
+}

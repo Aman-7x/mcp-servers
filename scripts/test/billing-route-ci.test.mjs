@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
 import { generateKeyPairSync } from "node:crypto";
-import { cpSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { appendFileSync, cpSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -21,6 +21,8 @@ test("paid fulfillment route retries failed binds and reuses one key with a gene
     mkdirSync(join(scratch, "billing", "test"), { recursive: true });
     mkdirSync(join(scratch, "keys"));
     cpSync(join(root, "billing", "src"), join(scratch, "billing", "src"), { recursive: true });
+    // Worker markup shares CSV format constants with the browser adapter.
+    cpSync(join(root, "billing", "browser"), join(scratch, "billing", "browser"), { recursive: true });
     cpSync(join(root, "billing", "test", "fulfillment-route.test.mjs"),
       join(scratch, "billing", "test", "fulfillment-route.test.mjs"));
     writeFileSync(join(scratch, "package.json"), '{"type":"module"}\n');
@@ -43,6 +45,14 @@ test("paid fulfillment route retries failed binds and reuses one key with a gene
     assert.match(run.stdout, /# tests 2\n/);
     assert.match(run.stdout, /# pass 2\n/);
   } finally {
+    const open = spawnSync("lsof", ["-t", "+D", scratch], { encoding: "utf8" });
+    assert.equal(open.status, 1, "fixture still open or lsof unavailable; preserve it for safe cleanup");
+    assert.equal(open.stdout.trim(), "");
+    const size = path => readdirSync(path).reduce((n, name) => {
+      const file = join(path, name), stat = lstatSync(file);
+      return n + (stat.isDirectory() ? size(file) : stat.size);
+    }, 0);
+    appendFileSync(join(root, "data", "build-deletions.jsonl"), JSON.stringify({ at: new Date().toISOString(), session: "r37", path: scratch, bytes: size(scratch), lsof_clear: true, reason: "Completed isolated ephemeral-signer billing route fixture" }) + "\n");
     rmSync(scratch, { recursive: true, force: true });
   }
 });

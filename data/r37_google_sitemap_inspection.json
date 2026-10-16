@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-16T09:37:30.013Z",
+  "method": "GET Search Console sitemaps list; exact MCP host filter; aggregate other-property read control only",
+  "property": "sc-domain:zovo.one",
+  "oauth_scope": "https://www.googleapis.com/auth/webmasters.readonly",
+  "submissions": 0,
+  "total_records_read": 10,
+  "mcp_sitemaps": [
+    {
+      "path": "https://mcp.zovo.one/sitemap.xml",
+      "lastSubmitted": "2026-10-12T01:29:13.136Z",
+      "lastDownloaded": "2026-10-16T06:58:29.397Z",
+      "isPending": false,
+      "isSitemapsIndex": false,
+      "type": "sitemap",
+      "errors": "0",
+      "warnings": "0",
+      "contents": [
+        {
+          "type": "web",
+          "submitted": "293",
+          "indexed": "0"
+        }
+      ]
+    }
+  ],
+  "status": "measured",
+  "completed_at": "2026-10-16T09:37:31.357Z",
+  "limits": "Sitemap records do not establish URL indexing, ranking, clicks or customers. No submission, reindex request or OAuth permission escalation."
+}

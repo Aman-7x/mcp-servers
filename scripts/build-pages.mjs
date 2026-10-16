@@ -153,7 +153,7 @@ function firstFiveMinutes(id, scenarios, free) {
 const scenarios = loadScenarios("data");
 
 // ---------------------------------------------------------------------------
-// /changelog: one section per docs/RELEASE_V*.md, newest first. Every sentence
+// /changelog: one section per docs/RELEASE_V*.md, newest release date first. Every sentence
 // rendered on the page is copied verbatim from that release's own file: the version
 // and date from its header line, the evidence line as a short paragraph, the insight
 // line as one quoted sentence, and the GitHub release link from its artifacts. Nothing
@@ -240,7 +240,7 @@ const releaseFiles = readdirSync("docs").filter((f) => /^RELEASE_V[0-9]+\.md$/.t
 const releases = releaseFiles
   .map((f) => parseRelease(f, readFileSync(`docs/${f}`, "utf8")))
   .filter(Boolean)
-  .sort(cmpVersionDesc);
+  .sort((a, b) => (b.date || "").localeCompare(a.date || "") || cmpVersionDesc(a, b));
 
 const CHANGELOG = { releases, serverCount: ids.length, currentVersion: releases[0]?.version || null };
 

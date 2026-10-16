@@ -1,4 +1,5 @@
-import { check } from '../../servers/duplicate-invoice-check/src/core.ts';
+import { check, checkSchema } from '../../servers/duplicate-invoice-check/src/core.ts';
+import { parseInvoiceCsv, CSV_MAX_FILE_BYTES, CSV_TEMPLATE } from './duplicate-csv.mjs';
 
 // Only fixture construction and presentation live here. All comparison rules come
 // from the same pure module the local MCP server imports.
@@ -18,9 +19,22 @@ const groups = document.getElementById('duplicate-demo-groups');
 const rows = document.getElementById('duplicate-demo-records');
 const output = document.getElementById('duplicate-demo-output');
 const summary = document.getElementById('duplicate-demo-summary');
+const csvFile = document.getElementById('duplicate-demo-csv-file');
+const csvStatus = document.getElementById('duplicate-demo-csv-status');
+const presetSelect = document.getElementById('duplicate-demo-preset');
+let readGeneration = 0;
 function cell(value, label) { const td = document.createElement('td'); td.textContent = String(value); td.dataset.label = label; return td; }
-function run() {
+function clearEvidence() {
   groups.replaceChildren(); rows.replaceChildren(); output.textContent = ''; summary.textContent = '';
+}
+function errorText(error) {
+  return error.issues ? 'Invalid input: ' + error.issues.slice(0, 3).map(i => `${i.path.join('.')}: ${i.message}`).join('; ') : 'Invalid input: ' + error.message;
+}
+function cancelRead(message) {
+  readGeneration++; csvFile.value = ''; csvStatus.textContent = message;
+}
+function run() {
+  clearEvidence();
   try {
     // Bound the editor before JSON parsing as well as enforcing the product schema.
     if (input.value.length > 2 * 1024 * 1024 || new TextEncoder().encode(input.value).byteLength > 2 * 1024 * 1024) throw Error('This browser example accepts at most 2 MiB of JSON text. Use a smaller supplied batch.');
@@ -46,13 +60,56 @@ function run() {
       rows.append(row);
     }
     output.textContent = JSON.stringify(report, null, 2);
+    return true;
   } catch (error) {
     status.dataset.status = 'invalid';
-    status.textContent = error.issues ? 'Invalid input: ' + error.issues.slice(0, 3).map(i => `${i.path.join('.')}: ${i.message}`).join('; ') : 'Invalid input: ' + error.message;
+    status.textContent = errorText(error);
+    return false;
   }
 }
-form.addEventListener('submit', event => { event.preventDefault(); run(); });
-document.getElementById('duplicate-demo-preset').addEventListener('change', event => {
+function importCsv(text, source) {
+  const parsed = parseInvoiceCsv(text, value => checkSchema.parse(value));
+  let json = JSON.stringify(parsed, null, 2);
+  if (new TextEncoder().encode(json).byteLength > CSV_MAX_FILE_BYTES) json = JSON.stringify(parsed);
+  if (new TextEncoder().encode(json).byteLength > CSV_MAX_FILE_BYTES) throw Error('CSV expands beyond the 2 MiB JSON editor limit. Use a smaller complete batch; no rows were imported.');
+  input.value = json; input.scrollTop = 0; presetSelect.value = 'custom';
+  if (!run()) throw Error('The converted CSV could not be checked. No rows were accepted.');
+  csvStatus.textContent = `Imported ${parsed.records.length} records from ${source} locally. No rows skipped. The JSON editor shows the exact parsed input.`;
+}
+csvFile.addEventListener('change', async () => {
+  const file = csvFile.files?.[0], generation = ++readGeneration;
+  input.value = ''; clearEvidence(); status.dataset.status = 'pending';
+  if (!file) { status.textContent = 'No CSV selected; no records have been checked.'; csvStatus.textContent = 'No CSV selected. Previous evidence cleared.'; return; }
+  status.textContent = 'Reading a local CSV. Previous evidence cleared.';
+  csvStatus.textContent = 'Reading the selected file on this device…';
+  try {
+    // File size is checked before any read; bytes and UTF-8 decoding are checked
+    // again afterward. A newer file/edit/preset invalidates this completion.
+    if (!Number.isSafeInteger(file.size) || file.size <= 0 || file.size > CSV_MAX_FILE_BYTES) throw Error('Choose a nonempty CSV file no larger than 2 MiB. The file was not read.');
+    const bytes = await file.arrayBuffer();
+    if (generation !== readGeneration) return;
+    if (bytes.byteLength > CSV_MAX_FILE_BYTES) throw Error('CSV file exceeds the 2 MiB limit.');
+    // Preserve the decoder's BOM so the parser handles exactly one transport BOM.
+    const text = new TextDecoder('utf-8', { fatal: true, ignoreBOM: true }).decode(bytes);
+    importCsv(text, file.name);
+  } catch (error) {
+    if (generation !== readGeneration) return;
+    input.value = ''; clearEvidence(); status.dataset.status = 'invalid'; status.textContent = errorText(error);
+    csvStatus.textContent = 'CSV import rejected. No rows were imported; previous evidence cleared.';
+  } finally { if (generation === readGeneration) csvFile.value = ''; }
+});
+document.getElementById('duplicate-demo-csv-sample').addEventListener('click', () => {
+  cancelRead('Reviewing the sample CSV locally.');
+  try { importCsv(CSV_TEMPLATE, 'the synthetic sample CSV'); }
+  catch (error) { input.value = ''; clearEvidence(); status.dataset.status = 'invalid'; status.textContent = errorText(error); }
+});
+input.addEventListener('input', () => {
+  cancelRead('JSON input changed. Any pending CSV read was discarded.'); clearEvidence(); presetSelect.value = 'custom';
+  status.dataset.status = 'pending'; status.textContent = 'Input changed. Run the check to produce new evidence.';
+});
+form.addEventListener('submit', event => { event.preventDefault(); cancelRead('Reviewing the JSON editor; any pending CSV read was discarded.'); run(); });
+presetSelect.addEventListener('change', event => {
+  cancelRead('Using a synthetic JSON example. Any pending CSV read was discarded.');
   input.value = JSON.stringify({ records: presets[event.target.value], save: false }, null, 2); run();
 });
 input.value = JSON.stringify({ records: presets.worked, save: false }, null, 2);

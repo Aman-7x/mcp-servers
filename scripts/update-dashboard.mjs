@@ -156,11 +156,11 @@ const session = {
 const distributionData = readJson(join(DATA_DIR, "distribution.json"), {});
 
 function distributionFor(id) {
-  const d = distributionData[id] || {};
+  const d = distributionData.per_server?.[id] || distributionData[id] || {};
   return {
     npm: d.npm || "unknown",
     registry: d.registry || "unknown",
-    github: d.github || "unknown",
+    github: d.github || d["github-mirror"] || d.mirror || "unknown",
     smithery: d.smithery || "unknown",
     glama: d.glama || "unknown",
   };
