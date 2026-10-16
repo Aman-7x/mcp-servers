@@ -5,6 +5,8 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildSnapshot, inventoryForServer, INVENTORY_PATH, MAX_AGE_MS } from "./collect-ledger-tool-inventory.mjs";
+import { offerForServer, canonicalProducts } from "./dashboard-offers.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -12,9 +14,6 @@ const DATA_DIR = join(ROOT, "data");
 const DASHBOARD_DIR = join(ROOT, "dashboard");
 const LEDGER_PATH = join(DATA_DIR, "ledger.json");
 const HTML_PATH = join(DASHBOARD_DIR, "index.html");
-
-const PRICE_USD = 19;
-const BUY_BASE = "https://mcp.zovo.one/buy/";
 
 // ---------- helpers ----------
 
@@ -88,20 +87,6 @@ function countLines(path) {
   if (text === null) return 0;
   if (text.length === 0) return 0;
   return text.split("\n").length;
-}
-
-function parseTools(srcDir) {
-  // Per spec: parse registerTool("name" from src/index.ts.
-  const indexPath = join(srcDir, "index.ts");
-  const text = readText(indexPath);
-  if (text === null) return [];
-  const names = [];
-  const re = /registerTool\(\s*["']([^"']+)["']/g;
-  let m;
-  while ((m = re.exec(text)) !== null) {
-    names.push(m[1]);
-  }
-  return names;
 }
 
 function parseFreeLimits(readmeText) {
@@ -185,6 +170,9 @@ function distributionFor(id) {
 
 const SERVERS_DIR = join(ROOT, "servers");
 const serverIds = listDirs(SERVERS_DIR);
+const runtimeInventory = readJson(join(ROOT, INVENTORY_PATH), null);
+let currentBuildSnapshot = null;
+try { currentBuildSnapshot = buildSnapshot(ROOT); } catch { /* Counts remain unmeasured if the current build cannot be verified. */ }
 
 const servers = serverIds.map((id) => {
   const dir = join(SERVERS_DIR, id);
@@ -194,7 +182,8 @@ const servers = serverIds.map((id) => {
   const resultText = readText(join(dir, "RESULT.md"));
   const resultParsed = parseResultMd(resultText);
 
-  const tools = parseTools(srcDir);
+  const inventory = inventoryForServer(runtimeInventory, id, pkgJson?.version, currentBuildSnapshot);
+  const offer = offerForServer(id);
   const tsFiles = listTsFiles(srcDir);
   const loc = tsFiles.reduce((sum, f) => sum + countLines(f), 0);
 
@@ -211,12 +200,13 @@ const servers = serverIds.map((id) => {
     npm_name: pkgJson?.name ?? "pending",
     version: pkgJson?.version ?? "pending",
     dir: `servers/${id}`,
-    tools,
-    tool_count: tools.length,
+    ...inventory,
     free_limits: parseFreeLimits(readmeText),
-    price_usd: PRICE_USD,
+    price_usd: offer.price_usd,
+    offer,
     build_ok: fileExists(join(dir, "dist", "index.js")),
     test_summary: resultParsed.test_summary,
+    test_evidence: { source: `servers/${id}/RESULT.md`, freshness: "Historical recorded result; inventory collection does not rerun tests" },
     result_status: resultParsed.status,
     loc,
     files_present: filesPresent,
@@ -228,12 +218,12 @@ const servers = serverIds.map((id) => {
 
 const billingResultText = readText(join(ROOT, "billing", "RESULT.md"));
 const billingParsed = parseBillingResult(billingResultText);
-const billingProductsJson = readJson(join(DATA_DIR, "products.json"), null);
 
 const billing = {
   status: billingParsed.status,
   urls: billingParsed.urls,
-  products: billingProductsJson ?? serverIds.map((id) => ({ id, price_usd: PRICE_USD, url: `${BUY_BASE}${id}` })),
+  products: canonicalProducts(),
+  product_source: "billing/src/index.js PRODUCTS; aliases are offers, not additional products",
 };
 
 // ---------- docs ----------
@@ -267,6 +257,15 @@ const ledger = {
   generated_at: new Date().toISOString(),
   session,
   servers,
+  tool_summary: {
+    measured_servers: servers.filter(s => s.tool_inventory.status === "measured").length,
+    total_servers: servers.length,
+    measured_tool_exposures: servers.reduce((sum, s) => sum + (s.tool_count ?? 0), 0),
+    unit: "Tool exposures summed across measured servers; office-suite overlaps standalone servers, so this is not a unique tool count",
+    source: INVENTORY_PATH,
+    max_age_hours: MAX_AGE_MS / 3_600_000,
+    build_fingerprint: currentBuildSnapshot?.sha256 ?? null,
+  },
   billing,
   docs,
   revenue,
@@ -303,7 +302,9 @@ function publishedSurfaceCount(sv) {
 const publishedSurfacesTotal = servers.reduce((s, sv) => s + publishedSurfaceCount(sv), 0);
 
 function buildServerRow(sv) {
-  const buyLink = `${BUY_BASE}${sv.id}`;
+  const offer = sv.offer;
+  const offerLink = offer.kind === "free" ? offer.optional_bundle : offer.url ? offer : null;
+  const buyLink = offerLink?.url;
   const distPills = [
     distPill(sv.distribution.npm, "npm"),
     distPill(sv.distribution.registry, "registry"),
@@ -318,20 +319,21 @@ function buildServerRow(sv) {
     statusPill(sv.files_present.dockerfile, "dockerfile"),
     statusPill(sv.files_present.license, "license"),
   ].join(" ");
-  const toolsList = sv.tools.length ? sv.tools.map(escapeHtml).join(", ") : "pending";
+  const toolsList = sv.tools.length ? sv.tools.map(escapeHtml).join(", ") : "unmeasured";
+  const provenance = sv.tool_inventory;
   return `<tr>
     <td class="mono">${escapeHtml(sv.id)}</td>
     <td class="mono">${escapeHtml(sv.version)}</td>
-    <td class="num">${sv.tool_count}</td>
+    <td class="num">${sv.tool_count ?? "unmeasured"}<br><small>${escapeHtml(provenance.status)}<br>${escapeHtml(provenance.measured_at ?? "No observation")}<br><a href="../${escapeHtml(provenance.source)}">tools/list evidence</a>${provenance.reason ? `<br>${escapeHtml(provenance.reason)}` : ""}</small></td>
     <td class="tools" title="${escapeHtml(toolsList)}">${toolsList}</td>
     <td>${escapeHtml(sv.free_limits)}</td>
     <td>${statusPill(sv.build_ok, "build")}</td>
-    <td class="mono">${escapeHtml(sv.test_summary)}</td>
+    <td class="mono">${escapeHtml(sv.test_summary)}<br><small><a href="../${escapeHtml(sv.test_evidence.source)}">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">${escapeHtml(sv.result_status)}</td>
     <td>${filePills}</td>
     <td>${distPills}</td>
-    <td class="num mono">$${sv.price_usd}</td>
-    <td><a href="${escapeHtml(buyLink)}">${escapeHtml(buyLink)}</a></td>
+    <td class="num mono">${escapeHtml(offer.label)}</td>
+    <td>${buyLink ? `<a href="${escapeHtml(buyLink)}">${offer.kind === "free" ? `Optional estate bundle $${offerLink.price_usd}` : escapeHtml(offer.label)}</a>` : "No separate offer"}</td>
   </tr>`;
 }
 
@@ -339,7 +341,7 @@ function buildNextActions() {
   const actions = [];
   for (const sv of servers) {
     if (!sv.build_ok) actions.push(`${sv.id}: build not present (dist/index.js missing) — run npm run build`);
-    if (sv.tool_count === 0) actions.push(`${sv.id}: no tools parsed from src/index.ts (missing or not yet written)`);
+    if (sv.tool_count === null) actions.push(`${sv.id}: tool inventory ${sv.tool_inventory.status}: ${sv.tool_inventory.reason}; run node scripts/collect-ledger-tool-inventory.mjs ${sv.id}`);
     if (!sv.files_present.readme) actions.push(`${sv.id}: README.md missing`);
     if (!sv.files_present.license) actions.push(`${sv.id}: LICENSE missing`);
     if (!sv.files_present.server_json) actions.push(`${sv.id}: server.json missing`);
@@ -495,11 +497,12 @@ const html = `<!doctype html>
 
   <div class="kpi-row">
     <div class="kpi"><span class="n">${servers.length}</span><span class="l">servers</span></div>
-    <div class="kpi"><span class="n">${totalTools}</span><span class="l">tools total</span></div>
-    <div class="kpi"><span class="n">${testsPassingTotal}</span><span class="l">tests passing</span></div>
+    <div class="kpi"><span class="n">${ledger.tool_summary.measured_servers ? totalTools : "unmeasured"}</span><span class="l">measured tool exposures</span></div>
+    <div class="kpi"><span class="n">${testsPassingTotal}</span><span class="l">recorded test passes (RESULT.md)</span></div>
     <div class="kpi"><span class="n">${publishedSurfacesTotal}</span><span class="l">published surfaces</span></div>
     <div class="kpi"><span class="n">${revenue.stripe_live_sales === null ? 'unmeasured' : '$' + revenue.stripe_live_sales}</span><span class="l">revenue</span></div>
   </div>
+  <p>${escapeHtml(ledger.tool_summary.unit)}. Coverage: ${ledger.tool_summary.measured_servers}/${servers.length} server inventories current. Observations expire after ${ledger.tool_summary.max_age_hours} hours or a version/build fingerprint change. <a href="../${INVENTORY_PATH}">Runtime evidence and build fingerprint</a>. Test summaries retain historical RESULT.md evidence; inventory refresh does not rerun tests.</p>
 
   <section>
     <h2>Servers</h2>
@@ -507,7 +510,7 @@ const html = `<!doctype html>
     <table>
       <thead><tr>
         <th>id</th><th>version</th><th class="num">tools</th><th>tool names</th><th>free limits</th>
-        <th>build</th><th>tests</th><th>result</th><th>files</th><th>distribution</th>
+        <th>build</th><th>recorded tests</th><th>result</th><th>files</th><th>distribution</th>
         <th class="num">price</th><th>buy link</th>
       </tr></thead>
       <tbody>

@@ -1,5 +1,5 @@
 {
-  "audited_at": "2026-10-16T03:38:07.576447+00:00",
+  "audited_at": "2026-10-16T04:02:16.814772+00:00",
   "status": "in_progress",
   "scope": "Completion of the authorized timed MCP monetization/distribution sprint, not a promise of commercial success or estate-wide certification",
   "requirements": [
@@ -82,11 +82,12 @@
       "status": "passed",
       "evidence": [
         "index.html",
+        "dashboard/index.html",
         "data/r36_dashboard_verification.json",
-        "intel/R36-dashboard-desktop.png",
-        "intel/R36-dashboard-mobile.png"
+        "data/runtime-tool-inventory.json",
+        "data/r36_dashboard_inventory_verification.json"
       ],
-      "note": "Nine Chrome tab switches pass; 390px viewport has no horizontal body overflow."
+      "note": "Nine tabs verified in real Chrome. Catalog counts now use dated, version/build-bound tools/list evidence: 49/56 measured, seven unmeasured; office 441, matcher eight. Canonical offers correctly show office $39, singles $19 and free tools without separate Pro. Fourteen current KPI rows distinguished from 32 recorded rows."
     },
     {
       "requirement": "Explain existing outreach access and the next useful input",

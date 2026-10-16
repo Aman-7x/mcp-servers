@@ -3,6 +3,8 @@
 // data/distribution.json and every RESULT.md in the tree. Run after scripts/update-dashboard.mjs.
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
+import { buildSnapshot, inventoryForServer } from "./collect-ledger-tool-inventory.mjs";
+import { offerForServer, canonicalProducts } from "./dashboard-offers.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const rd = (p) => existsSync(join(ROOT, p)) ? readFileSync(join(ROOT, p), "utf8") : "";
@@ -82,8 +84,12 @@ function parseResult(p) {
 const sprints = findResults(ROOT).map(parseResult).sort((a, b) => a.unit.localeCompare(b.unit));
 
 // ---- derived KPIs ----
-const servers = ledger.servers || [];
-const toolsTotal = servers.reduce((a, s) => a + (s.tool_count || 0), 0);
+let countSnapshot = null;
+try { countSnapshot = buildSnapshot(ROOT); } catch { /* A standalone render must not repeat an unverifiable count. */ }
+const countInventory = js("data/runtime-tool-inventory.json", null);
+const servers = (ledger.servers || []).map(s => ({ ...s, ...inventoryForServer(countInventory, s.id, s.version, countSnapshot) }));
+const measuredServers = servers.filter(s => s.tool_inventory?.status === "measured" && Number.isInteger(s.tool_count));
+const toolsTotal = measuredServers.reduce((a, s) => a + s.tool_count, 0);
 const testPass = servers.reduce((a, s) => a + Number((s.test_summary || "").match(/pass (\d+)/)?.[1] || 0), 0);
 const testFail = servers.reduce((a, s) => a + Number((s.test_summary || "").match(/fail (\d+)/)?.[1] || 0), 0);
 const locTotal = servers.reduce((a, s) => a + (s.loc || 0), 0);
@@ -118,12 +124,14 @@ ${currentSession.known_limits ? `<p class="dim"><b>Known limits.</b> ${esc(curre
 
 const serverRows = servers.map(s => {
   const d = dist.per_server?.[s.id] || {};
+  const offer = offerForServer(s.id);
+  const link = offer.kind === "free" ? offer.optional_bundle : offer.url ? offer : null;
   return `<tr><td class="mono"><b>${esc(s.id)}</b><br><span class="dim">${esc(s.npm_name)} ${esc(s.version)}</span></td>
-<td class="num">${s.tool_count}</td><td class="num">${s.loc ?? ""}</td>
-<td>${pill(s.build_ok ? "build ok" : "build missing")} ${pill(s.test_summary || "pending")}</td>
+<td class="num">${s.tool_inventory?.status === "measured" ? s.tool_count : "unmeasured"}<br><span class="dim">${esc(s.tool_inventory?.status || "unmeasured")}<br>${esc(s.tool_inventory?.measured_at || "No observation")}<br><a href="${esc(s.tool_inventory?.source || "data/runtime-tool-inventory.json")}">tools/list evidence</a>${s.tool_inventory?.reason ? `<br>${esc(s.tool_inventory.reason)}` : ""}</span></td><td class="num">${s.loc ?? ""}</td>
+<td>${pill(s.build_ok ? "build ok" : "build missing")} ${pill(s.test_summary || "pending")}<br><span class="dim"><a href="servers/${esc(s.id)}/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</span></td>
 <td>${["npm", "registry", "github", "smithery", "glama"].map(k => `${k} ${pill(d[k] || "unknown")}`).join("<br>")}</td>
 <td class="tools dim">${esc((s.tools || []).join(", "))}</td>
-<td><a href="https://mcp.zovo.one/buy/${esc(s.id)}">buy</a> &middot; <a href="servers/${esc(s.id)}/README.md">readme</a> &middot; <a href="servers/${esc(s.id)}/RESULT.md">sprint</a></td></tr>`;
+<td>${esc(offer.label)}<br>${link ? `<a href="${esc(link.url)}">${offer.kind === "free" ? `Optional estate bundle $${link.price_usd}` : "Buy"}</a> &middot; ` : ""}<a href="servers/${esc(s.id)}/README.md">readme</a> &middot; <a href="servers/${esc(s.id)}/RESULT.md">sprint</a></td></tr>`;
 }).join("\n");
 
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -163,7 +171,7 @@ details summary{cursor:pointer;color:var(--acc);font-size:12.5px}
 <div class="sub">theluckystrike &middot; rendered ${esc(new Date().toISOString())} &middot; ledger snapshot ${esc(ledger.generated_at)} &middot; folder /Users/mike/mcp-servers</div>
 <div class="links"><a href="docs/how-it-works.html">How it works</a><a href="dashboard/index.html">Ledger view</a><a href="docs/DISTRIBUTION.md">Distribution runbook</a><a href="docs/AUDIT.md">Audit</a><a href="docs/CODEX_REVIEW.md">Codex review</a>${newestDigest ? `<a href="docs/${esc(newestDigest)}">Weekly digest</a>` : ""}<a href="https://mcp.zovo.one">Storefront</a><a href="https://github.com/theluckystrike/mcp-servers">GitHub</a></div>
 
-<div class="tabs"><button class="on" data-tab="truth">Reality check</button><button data-tab="overview">Overview</button><button data-tab="servers">What each server does</button><button data-tab="validation">Validation archive${lastRun ? ` (${lastRun.pass}/${lastRun.total})` : ""}</button><button data-tab="promotion">Promotion playbook</button><button data-tab="uservalue">User value history${uv7 ? ` (R7 ${uv7.totals?.score}/${uv7.totals?.max})` : uv5 ? ` (R5 ${uv5.totals?.score ?? uv5.totals?.r5}/${uv5.totals?.max})` : uv4 ? ` (R4 ${uv4.totals?.r4 ?? uv4.totals?.score}/${uv4.totals?.max})` : uv2 ? ` (${uv2.totals.score}/${uv2.totals.max})` : ""}</button><button data-tab="organic">Organic history (${orgHeadline}/100)</button><button data-tab="sprints">Sprint notes${slog ? ` (${slog.sessions})` : ""}</button><button data-tab="kpi">KPIs${kpi ? ` (${kpi.kpis.filter(k => k.status === "met").length}/${kpi.kpis.length} met)` : ""}</button></div>
+<div class="tabs"><button class="on" data-tab="truth">Reality check</button><button data-tab="overview">Overview</button><button data-tab="servers">What each server does</button><button data-tab="validation">Validation archive${lastRun ? ` (${lastRun.pass}/${lastRun.total})` : ""}</button><button data-tab="promotion">Promotion playbook</button><button data-tab="uservalue">User value history${uv7 ? ` (R7 ${uv7.totals?.score}/${uv7.totals?.max})` : uv5 ? ` (R5 ${uv5.totals?.score ?? uv5.totals?.r5}/${uv5.totals?.max})` : uv4 ? ` (R4 ${uv4.totals?.r4 ?? uv4.totals?.score}/${uv4.totals?.max})` : uv2 ? ` (${uv2.totals.score}/${uv2.totals.max})` : ""}</button><button data-tab="organic">Organic history (${orgHeadline}/100)</button><button data-tab="sprints">Sprint notes${slog ? ` (${slog.sessions})` : ""}</button><button data-tab="kpi">KPIs${kpi ? ` (${kpi.kpis.filter(k => !k.stale).length} current / ${kpi.kpis.length} recorded)` : ""}</button></div>
 <div class="tab on" id="tab-truth">
 ${currentPanel}
 ${watch ? `<div class="card"><b>Session observation: ${esc(watch.status)}</b><p class="dim">Sampled since ${esc(watch.started_at)}. Last observation ${esc(watch.last_observed_at || 'pending')}; session deadline ${esc(watch.deadline_at)}. ${watch.snapshots.length} production observations. This panel is an observation record; a live process must be confirmed with its terminal handle.</p><p>Latest: approved version ${watch.snapshots.at(-1)?.pin_matches === true ? 'matches production' : 'not verified'}, scheduled monitor ${watch.snapshots.at(-1)?.cron?.ok === true ? 'passed' : 'not verified'}, public health HTTP ${esc(watch.snapshots.at(-1)?.public_health_status ?? 'unknown')}. ${esc(watch.snapshots.at(-1)?.health_note || '')}</p><a href="data/r36_watch.json">Observation evidence</a></div>` : ''}
@@ -274,20 +282,21 @@ ${Object.entries(l30.namespace.measured_live).map(([k, v]) => `<tr><td>${esc(k)}
 <div class="tab" id="tab-overview">
 <h2>Key numbers</h2>
 <div class="kpis">
-<div class="kpi"><div class="n">${servers.length}</div><div class="k">servers built</div></div>
-<div class="kpi"><div class="n">${toolsTotal}</div><div class="k">MCP tools</div></div>
-<div class="kpi"><div class="n">${testPass}${testFail ? ` <span style="color:var(--bad)">/ ${testFail} fail</span>` : ""}</div><div class="k">server tests passing</div></div>
+<div class="kpi"><div class="n">${servers.filter(s => s.build_ok).length}/${servers.length}</div><div class="k">built entries / server folders</div></div>
+<div class="kpi"><div class="n">${measuredServers.length ? toolsTotal : "unmeasured"}</div><div class="k">measured tool exposures</div></div>
+<div class="kpi"><div class="n">${testPass}${testFail ? ` <span style="color:var(--bad)">/ ${testFail} fail</span>` : ""}</div><div class="k">recorded test passes (RESULT.md)</div></div>
 <div class="kpi"><div class="n">${locTotal.toLocaleString()}</div><div class="k">lines of TypeScript</div></div>
 <div class="kpi"><div class="n">${live}/${surfaces.length}</div><div class="k">distribution surfaces live</div></div>
-<div class="kpi"><div class="n">$${facts.pricing?.single_usd ?? 19} / $${facts.pricing?.bundle_usd ?? 39}</div><div class="k">Pro price, single / bundle</div></div>
+<div class="kpi"><div class="n">${[...new Set(canonicalProducts().filter(p => p.kind === "single").map(p => `$${p.price_usd}`))].join(", ")} / $${offerForServer("bundle").price_usd}</div><div class="k">Pro price, single / estate bundle; free tools have no separate Pro</div></div>
 <div class="kpi"><div class="n">${paymentMetric ? esc(paymentMetric.value) : "unmeasured"}</div><div class="k">${paymentMetric ? esc(paymentMetric.label + ", " + paymentMetric.window) : "Revenue: no current verified measurement"}</div></div>
 <div class="kpi"><div class="n">${sprints.length}</div><div class="k">sprint units reported</div></div>
 ${m ? `<div class="kpi"><div class="n">${m.release_downloads_total}</div><div class="k">bundle downloads (GitHub releases)</div></div><div class="kpi"><div class="n">${m.github.views_14d ?? 0} / ${m.github.uniques_14d ?? 0}</div><div class="k">repo views / uniques, 14d</div></div><div class="kpi"><div class="n">${m.github.stars ?? 0}</div><div class="k">stars</div></div>` : ""}
 </div>
+<p class="dim">Tool exposures sum ${measuredServers.length}/${servers.length} current server inventories; office-suite overlaps standalone servers, so this is not a unique tool count. <a href="data/runtime-tool-inventory.json">tools/list observations and build fingerprint</a> expire after 24 hours or a package version/build change. Test summaries retain historical RESULT.md evidence; refreshing inventory does not rerun tests.</p>
 ${metrics.snapshots.length > 1 ? `<p class="dim">Organic metrics history (${metrics.snapshots.length} snapshots, scripts/measure.mjs): ${metrics.snapshots.slice(-8).map(x => `${x.at.slice(5, 16).replace("T", " ")} dl ${x.release_downloads_total} views ${x.github.views_14d ?? 0} stars ${x.github.stars ?? 0}`).join(" | ")}</p>` : ""}
 
 <h2>Servers</h2>
-<div class="tw"><table><tr><th>Server</th><th>Tools</th><th>LOC</th><th>Build / tests</th><th>Distribution</th><th>Tool names</th><th>Links</th></tr>${serverRows}</table></div>
+<div class="tw"><table><tr><th>Server</th><th>Tools</th><th>LOC</th><th>Build / recorded tests</th><th>Distribution</th><th>Tool names</th><th>Links</th></tr>${serverRows}</table></div>
 
 <h2>Sprint results (one row per agent unit, parsed from RESULT.md)</h2>
 <div class="tw"><table><tr><th>Unit</th><th>Status</th><th>Tests</th><th>Cost</th><th>Failures logged</th><th>Insight</th></tr>
@@ -300,8 +309,9 @@ ${sprints.map(s => `<tr><td class="mono"><a href="${esc(s.path)}">${esc(s.unit)}
 <div class="card">
 <div>Storefront <a href="${esc(facts.billing?.storefront)}">${esc(facts.billing?.storefront)}</a> &middot; <a href="${esc(facts.billing?.health)}">health</a></div>
 <div class="dim">webhook ${esc(facts.billing?.webhook)} &middot; KV ${esc(facts.billing?.kv)}</div>
-<div class="tw" style="margin-top:10px"><table><tr><th>Product</th><th>Stripe product</th><th>Price id</th><th>USD</th></tr>
-${(facts.billing?.products || []).map(p => `<tr><td class="mono">${esc(p[0])}</td><td class="mono dim">${esc(p[1])}</td><td class="mono dim">${esc(p[2])}</td><td class="num">${p[3]}</td></tr>`).join("")}</table></div>
+<p class="dim">Canonical checkout catalogue from billing/src/index.js PRODUCTS. Free servers have no separate Pro product; aliases do not add products.</p>
+<div class="tw" style="margin-top:10px"><table><tr><th>Product</th><th>Name</th><th>Offer</th><th>USD</th></tr>
+${canonicalProducts().map(p => `<tr><td class="mono">${esc(p.id)}</td><td>${esc(p.name)}</td><td><a href="${esc(p.url)}">${esc(p.label)}</a></td><td class="num">${p.price_usd}</td></tr>`).join("")}</table></div>
 </div>
 </div>
 <div>
@@ -335,9 +345,11 @@ ${(facts.gates || []).map(g => `<tr><td>${esc(g[0])}</td><td class="mono dim">${
 <div class="tab" id="tab-servers">
 ${Object.entries(facts.servers || {}).map(([id, v]) => {
   const tools = toolsDb[id] || []; const d = dist.per_server?.[id] || {};
+  const offer = offerForServer(id);
+  const offerLink = offer.kind === "free" ? offer.optional_bundle : offer.url ? offer : null;
   return `<div class="srv"><h3>${esc(v.title)} <span class="mono dim">@theluckystrike/mcp-${esc(id)}</span></h3><div class="tag">${esc(v.tagline)}</div>
 <p><b>What it does.</b> ${esc(v.does)}</p><p><b>Who it is for.</b> ${esc(v.for)}</p><p><b>Example.</b> <span class="dim">${esc(v.example)}</span></p>
-<div class="kv"><b>Free</b><span>${esc(v.free)}</span><b>Pro $${facts.pricing?.single_usd ?? 19}</b><span>${esc(v.pro)} <a href="https://mcp.zovo.one/buy/${esc(id)}">Buy</a></span><b>Data stays</b><span>${esc(v.storage)}</span>
+<div class="kv"><b>Free</b><span>${esc(v.free)}</span><b>${esc(offer.label)}</b><span>${offer.kind === "free" ? "No separate Pro purchase is required." : esc(v.pro)} ${offerLink ? `<a href="${esc(offerLink.url)}">${offer.kind === "free" ? `Optional estate bundle $${offerLink.price_usd}` : "Buy"}</a>` : ""}</span><b>Data stays</b><span>${esc(v.storage)}</span>
 <b>Install</b><span><a href="servers/${esc(id)}/README.md#install">Working installation instructions</a>; npm publication remains pending.</span>
 <b>Status</b><span>npm ${pill(d.npm || "unknown")} registry ${pill(d.registry || "unknown")} github ${pill(d.github || "unknown")} validation ${pill(lastRun ? (() => { const r = lastRun.results.find(x => x.id === id); return r ? `${r.pass}/${r.total}` : "pending"; })() : "pending")}</span></div>
 <div class="tw"><table><tr><th>Tool</th><th>What it does</th></tr>${tools.map(t => `<tr><td class="mono">${esc(t.name)}</td><td class="dim">${esc(t.description)}</td></tr>`).join("")}</table></div>
@@ -417,7 +429,7 @@ ${slog ? `<p class="dim">Every dashboard update is a session note in data/ledger
 
 <div class="tab" id="tab-kpi">
 ${kpi ? `<p class="dim">Indicators track discovery, usage, reliability and payment with separate populations and windows. Generated ${esc(kpi.generated_at)}; each row retains its observation date. Rows marked stale were not refreshed by the current audit. Status: met = at or past target; progress = non-zero and below target; zero = instrument works and reads zero; unmeasured = unavailable. Regeneration does not make old evidence current.</p>
-<div class="kpis">${["Discovery", "Install", "Activation", "Value", "Reliability", "Monetization"].map(c => { const g = kpi.kpis.filter(k => k.cat === c); return `<div class="kpi"><div class="n">${g.filter(k => k.status === "met").length}/${g.length}</div><div class="k">${c} indicators met</div></div>`; }).join("")}</div>
+<div class="kpis">${["Discovery", "Install", "Activation", "Value", "Reliability", "Monetization"].map(c => { const g = kpi.kpis.filter(k => k.cat === c); return `<div class="kpi"><div class="n">${g.filter(k => !k.stale).length}/${g.length}</div><div class="k">${c} current / recorded</div></div>`; }).join("")}</div>
 ${["Discovery", "Install", "Activation", "Value", "Reliability", "Monetization"].map(c => `<h2>${c}</h2><div class="tw"><table><tr><th>Indicator</th><th>Now</th><th>Target</th><th>Status</th><th>Instrument</th><th>Why it matters</th></tr>${kpi.kpis.filter(k => k.cat === c).map(k => `<tr><td><b>${esc(k.name)}</b></td><td class="num">${k.value === null || k.value === undefined ? "<span class=dim>n/a</span>" : esc(String(k.value))} <span class="dim">${esc(k.unit)}</span></td><td class="num">${esc(String(k.target ?? ""))}${k.lower_is_better ? " <span class=dim>(lower)</span>" : ""}</td><td>${pill(k.stale ? "stale" : k.status)}${k.measured_at ? `<br><span class="dim">${esc(k.measured_at.slice(0, 16))}</span>` : ""}</td><td class="mono dim">${esc(k.how)}${k.stale ? `<br><b>Stale:</b> ${esc(k.stale_reason || "not refreshed")}` : ""}${k.window ? `<br>${esc(JSON.stringify(k.window))}` : ""}</td><td class="dim">${esc(k.why)}</td></tr>`).join("")}</table></div>`).join("")}
 <h2>Reading the KPIs as a specialist</h2>
 <div class="card"><ul>

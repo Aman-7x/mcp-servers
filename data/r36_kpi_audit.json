@@ -10236,32 +10236,10 @@
       "tagged_probes": 3,
       "untagged_sessions": 97,
       "paid": 16,
-      "paid_amount_cents": 27286,
       "currencies": [
         "usd"
       ],
-      "by_day": {
-        "2026-10-15": 3,
-        "2026-10-14": 6,
-        "2026-10-12": 3,
-        "2026-10-11": 4,
-        "2026-10-10": 2,
-        "2026-10-09": 5,
-        "2026-10-08": 2,
-        "2026-10-07": 7,
-        "2026-10-06": 8,
-        "2026-10-05": 8,
-        "2026-10-04": 3,
-        "2026-10-03": 1,
-        "2026-10-02": 8,
-        "2026-10-01": 21,
-        "2026-09-30": 1,
-        "2026-09-29": 4,
-        "2026-09-28": 5,
-        "2026-09-26": 2,
-        "2026-09-25": 4,
-        "2026-09-24": 3
-      }
+      "scope_note": "Shared-account counts only as a nonzero read control; unrelated storefront monetary totals and daily activity omitted."
     },
     "mcp_sample": {
       "sessions": 8,

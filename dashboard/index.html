@@ -105,16 +105,17 @@
 <div class="wrap">
   <header>
     <h1>MCP Servers by theluckystrike</h1>
-    <div class="meta">generated 2026-10-16T00:58:12.813Z — session count 102</div>
+    <div class="meta">generated 2026-10-16T03:57:54.065Z — session count 103</div>
   </header>
 
   <div class="kpi-row">
     <div class="kpi"><span class="n">56</span><span class="l">servers</span></div>
-    <div class="kpi"><span class="n">436</span><span class="l">tools total</span></div>
-    <div class="kpi"><span class="n">999</span><span class="l">tests passing</span></div>
+    <div class="kpi"><span class="n">976</span><span class="l">measured tool exposures</span></div>
+    <div class="kpi"><span class="n">999</span><span class="l">recorded test passes (RESULT.md)</span></div>
     <div class="kpi"><span class="n">0</span><span class="l">published surfaces</span></div>
     <div class="kpi"><span class="n">unmeasured</span><span class="l">revenue</span></div>
   </div>
+  <p>Tool exposures summed across measured servers; office-suite overlaps standalone servers, so this is not a unique tool count. Coverage: 49/56 server inventories current. Observations expire after 24 hours or a version/build fingerprint change. <a href="../data/runtime-tool-inventory.json">Runtime evidence and build fingerprint</a>. Test summaries retain historical RESULT.md evidence; inventory refresh does not rerun tests.</p>
 
   <section>
     <h2>Servers</h2>
@@ -122,793 +123,793 @@
     <table>
       <thead><tr>
         <th>id</th><th>version</th><th class="num">tools</th><th>tool names</th><th>free limits</th>
-        <th>build</th><th>tests</th><th>result</th><th>files</th><th>distribution</th>
+        <th>build</th><th>recorded tests</th><th>result</th><th>files</th><th>distribution</th>
         <th class="num">price</th><th>buy link</th>
       </tr></thead>
       <tbody>
         <tr>
     <td class="mono">amortization</td>
     <td class="mono">0.22.6</td>
-    <td class="num">7</td>
-    <td class="tools" title="loan_create, loan_schedule, loan_repay_early, loan_journal, loan_list, loan_delete, loans_report">loan_create, loan_schedule, loan_repay_early, loan_journal, loan_list, loan_delete, loans_report</td>
+    <td class="num">9<br><small>measured<br>2026-10-16T03:53:24.000Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="loan_create, loan_schedule, loan_repay_early, loan_journal, loan_list, loan_delete, loans_report, license_status, license_activate">loan_create, loan_schedule, loan_repay_early, loan_journal, loan_list, loan_delete, loans_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- npm test -w servers/amortization: # tests 41 / # pass 41 / # fail 0</td>
+    <td class="mono">- npm test -w servers/amortization: # tests 41 / # pass 41 / # fail 0<br><small><a href="../servers/amortization/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/amortization">https://mcp.zovo.one/buy/amortization</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/amortization">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">asset-register</td>
     <td class="mono">0.22.6</td>
-    <td class="num">7</td>
-    <td class="tools" title="asset_add, asset_list, asset_schedule, asset_journal, asset_dispose, asset_delete, asset_report">asset_add, asset_list, asset_schedule, asset_journal, asset_dispose, asset_delete, asset_report</td>
+    <td class="num">9<br><small>measured<br>2026-10-16T03:53:24.526Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="asset_add, asset_list, asset_schedule, asset_journal, asset_dispose, asset_delete, asset_report, license_status, license_activate">asset_add, asset_list, asset_schedule, asset_journal, asset_dispose, asset_delete, asset_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- npm test -w servers/asset-register: # tests 45 / # pass 45 / # fail 0 / # skipped 0</td>
+    <td class="mono">- npm test -w servers/asset-register: # tests 45 / # pass 45 / # fail 0 / # skipped 0<br><small><a href="../servers/asset-register/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/asset-register">https://mcp.zovo.one/buy/asset-register</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/asset-register">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">backlink-checker</td>
     <td class="mono">0.22.6</td>
-    <td class="num">6</td>
-    <td class="tools" title="link_check, link_audit, anchor_profile, referring_domain_summary, outreach_queue, robots_guard_check">link_check, link_audit, anchor_profile, referring_domain_summary, outreach_queue, robots_guard_check</td>
+    <td class="num">8<br><small>measured<br>2026-10-16T03:53:24.919Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="link_check, link_audit, anchor_profile, referring_domain_summary, outreach_queue, robots_guard_check, license_status, license_activate">link_check, link_audit, anchor_profile, referring_domain_summary, outreach_queue, robots_guard_check, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/backlink-checker/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">pending</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-bad" title="license">license: no</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/backlink-checker">https://mcp.zovo.one/buy/backlink-checker</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/backlink-checker">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">bank-statement</td>
     <td class="mono">0.22.6</td>
-    <td class="num">10</td>
-    <td class="tools" title="statement_import, transactions_list, transactions_search, category_rules, transaction_categorize, statement_summary, reconcile_expenses, recurring_detect, statement_export, accounts_list">statement_import, transactions_list, transactions_search, category_rules, transaction_categorize, statement_summary, reconcile_expenses, recurring_detect, statement_export, accounts_list</td>
+    <td class="num">12<br><small>measured<br>2026-10-16T03:53:25.298Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="statement_import, transactions_list, transactions_search, category_rules, transaction_categorize, statement_summary, reconcile_expenses, recurring_detect, statement_export, accounts_list, license_status, license_activate">statement_import, transactions_list, transactions_search, category_rules, transaction_categorize, statement_summary, reconcile_expenses, recurring_detect, statement_export, accounts_list, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 60 / # fail 0 / # pass 28 / # fail 0 / # pass 14   # fail 0 / # pass 6    # fail 0   duration_ms 1391 / # pass 8    # fail 0</td>
+    <td class="mono"># pass 60 / # fail 0 / # pass 28 / # fail 0 / # pass 14   # fail 0 / # pass 6    # fail 0   duration_ms 1391 / # pass 8    # fail 0<br><small><a href="../servers/bank-statement/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/bank-statement">https://mcp.zovo.one/buy/bank-statement</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/bank-statement">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">barcode</td>
     <td class="mono">0.22.6</td>
-    <td class="num">8</td>
-    <td class="tools" title="qr_create, qr_wifi, qr_vcard, qr_payment_sepa, invoice_payment_qr, barcode_create, barcode_batch, code_list">qr_create, qr_wifi, qr_vcard, qr_payment_sepa, invoice_payment_qr, barcode_create, barcode_batch, code_list</td>
+    <td class="num">10<br><small>measured<br>2026-10-16T03:53:25.681Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="license_status, license_activate, qr_create, qr_wifi, qr_vcard, qr_payment_sepa, invoice_payment_qr, barcode_create, barcode_batch, code_list">license_status, license_activate, qr_create, qr_wifi, qr_vcard, qr_payment_sepa, invoice_payment_qr, barcode_create, barcode_batch, code_list</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- `cd servers/barcode &amp;&amp; node --test test/*.test.mjs` -&gt; `# tests 38 / # pass 38 / # fail 0 / duration_ms 2825`.</td>
+    <td class="mono">- `cd servers/barcode &amp;&amp; node --test test/*.test.mjs` -&gt; `# tests 38 / # pass 38 / # fail 0 / duration_ms 2825`.<br><small><a href="../servers/barcode/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/barcode">https://mcp.zovo.one/buy/barcode</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/barcode">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">bill-of-sale</td>
     <td class="mono">0.22.6</td>
-    <td class="num">8</td>
-    <td class="tools" title="sale_create, sale_update, sale_finalize, sale_list, sale_get, sale_delete, sale_render, sale_summary">sale_create, sale_update, sale_finalize, sale_list, sale_get, sale_delete, sale_render, sale_summary</td>
+    <td class="num">10<br><small>measured<br>2026-10-16T03:53:26.186Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="sale_create, sale_update, sale_finalize, sale_list, sale_get, sale_delete, sale_render, sale_summary, license_status, license_activate">sale_create, sale_update, sale_finalize, sale_list, sale_get, sale_delete, sale_render, sale_summary, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># tests 2  # pass 2  # fail 0  # duration_ms 460.433208 / ## failures</td>
+    <td class="mono"># tests 2  # pass 2  # fail 0  # duration_ms 460.433208 / ## failures<br><small><a href="../servers/bill-of-sale/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/bill-of-sale">https://mcp.zovo.one/buy/bill-of-sale</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/bill-of-sale">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">billing-docs</td>
     <td class="mono">0.22.6</td>
-    <td class="num">14</td>
-    <td class="tools" title="credit_note_create, credit_note_list, credit_note_get, credit_note_pdf, credit_note_text, credit_note_delete, purchase_order_create, purchase_order_list, purchase_order_get, purchase_order_pdf, purchase_order_text, purchase_order_receive, purchase_order_delete, billing_docs_report">credit_note_create, credit_note_list, credit_note_get, credit_note_pdf, credit_note_text, credit_note_delete, purchase_order_create, purchase_order_list, purchase_order_get, purchase_order_pdf, purchase_order_text, purchase_order_receive, purchase_order_delete, billing_docs_report</td>
+    <td class="num">16<br><small>measured<br>2026-10-16T03:53:26.567Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="credit_note_create, credit_note_list, credit_note_get, credit_note_pdf, credit_note_text, credit_note_delete, purchase_order_create, purchase_order_list, purchase_order_get, purchase_order_pdf, purchase_order_text, purchase_order_receive, purchase_order_delete, billing_docs_report, license_status, license_activate">credit_note_create, credit_note_list, credit_note_get, credit_note_pdf, credit_note_text, credit_note_delete, purchase_order_create, purchase_order_list, purchase_order_get, purchase_order_pdf, purchase_order_text, purchase_order_receive, purchase_order_delete, billing_docs_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 34 / # fail 0</td>
+    <td class="mono"># pass 34 / # fail 0<br><small><a href="../servers/billing-docs/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/billing-docs">https://mcp.zovo.one/buy/billing-docs</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/billing-docs">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">budget</td>
     <td class="mono">0.22.6</td>
-    <td class="num">0</td>
-    <td class="tools" title="pending">pending</td>
+    <td class="num">unmeasured<br><small>unmeasured<br>2026-10-16T03:53:27.062Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a><br>Built entry is missing; no build was attempted</small></td>
+    <td class="tools" title="unmeasured">unmeasured</td>
     <td>pending</td>
     <td><span class="pill pill-bad" title="build">build: no</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/budget/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">pending</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-bad" title="smithery.yaml">smithery.yaml: no</span> <span class="pill pill-bad" title="dockerfile">dockerfile: no</span> <span class="pill pill-bad" title="license">license: no</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/budget">https://mcp.zovo.one/buy/budget</a></td>
+    <td class="num mono">Free; no separate Pro</td>
+    <td><a href="https://mcp.zovo.one/buy/bundle">Optional estate bundle $39</a></td>
   </tr>
 <tr>
     <td class="mono">calendar</td>
     <td class="mono">0.22.6</td>
-    <td class="num">10</td>
-    <td class="tools" title="ics_import, calendars_list, events_list, events_search, free_busy, conflicts, next_event, event_export, event_to_time_entry, ics_forget">ics_import, calendars_list, events_list, events_search, free_busy, conflicts, next_event, event_export, event_to_time_entry, ics_forget</td>
+    <td class="num">12<br><small>measured<br>2026-10-16T03:53:27.062Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="license_status, license_activate, ics_import, calendars_list, events_list, events_search, free_busy, conflicts, next_event, event_export, event_to_time_entry, ics_forget">license_status, license_activate, ics_import, calendars_list, events_list, events_search, free_busy, conflicts, next_event, event_export, event_to_time_entry, ics_forget</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 36 / # fail 0 / # pass 51 / # fail 0 / ## failures</td>
+    <td class="mono"># pass 36 / # fail 0 / # pass 51 / # fail 0 / ## failures<br><small><a href="../servers/calendar/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/calendar">https://mcp.zovo.one/buy/calendar</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/calendar">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">cash-book</td>
     <td class="mono">0.22.6</td>
-    <td class="num">7</td>
-    <td class="tools" title="ledger_build, period_delete, trial_balance, ledger_lines, month_close, ledger_export_csv, ledger_report">ledger_build, period_delete, trial_balance, ledger_lines, month_close, ledger_export_csv, ledger_report</td>
+    <td class="num">9<br><small>measured<br>2026-10-16T03:53:27.453Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="ledger_build, period_delete, trial_balance, ledger_lines, month_close, ledger_export_csv, ledger_report, license_status, license_activate">ledger_build, period_delete, trial_balance, ledger_lines, month_close, ledger_export_csv, ledger_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- npm test -w servers/cash-book: # tests 41 / # pass 41 / # fail 0</td>
+    <td class="mono">- npm test -w servers/cash-book: # tests 41 / # pass 41 / # fail 0<br><small><a href="../servers/cash-book/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/cash-book">https://mcp.zovo.one/buy/cash-book</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/cash-book">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">catalogue</td>
     <td class="mono">0.22.6</td>
-    <td class="num">10</td>
-    <td class="tools" title="sku_set, sku_get, sku_list, sku_delete, rate_set, rate_get, lines_resolve, price_list_text, price_list_pdf, catalogue_report">sku_set, sku_get, sku_list, sku_delete, rate_set, rate_get, lines_resolve, price_list_text, price_list_pdf, catalogue_report</td>
+    <td class="num">12<br><small>measured<br>2026-10-16T03:53:27.903Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="sku_set, sku_get, sku_list, sku_delete, rate_set, rate_get, lines_resolve, price_list_text, price_list_pdf, catalogue_report, license_status, license_activate">sku_set, sku_get, sku_list, sku_delete, rate_set, rate_get, lines_resolve, price_list_text, price_list_pdf, catalogue_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- npm test --workspace @theluckystrike/mcp-catalogue: # tests 42 / # pass 42 / # fail 0</td>
+    <td class="mono">- npm test --workspace @theluckystrike/mcp-catalogue: # tests 42 / # pass 42 / # fail 0<br><small><a href="../servers/catalogue/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/catalogue">https://mcp.zovo.one/buy/catalogue</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/catalogue">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">change-order</td>
     <td class="mono">0.22.6</td>
-    <td class="num">9</td>
-    <td class="tools" title="change_order_create, change_order_add_line, change_order_status, change_order_get, change_order_list, change_order_delete, contract_value, change_order_document, change_order_invoice_payload">change_order_create, change_order_add_line, change_order_status, change_order_get, change_order_list, change_order_delete, contract_value, change_order_document, change_order_invoice_payload</td>
+    <td class="num">11<br><small>measured<br>2026-10-16T03:53:28.376Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="change_order_create, change_order_add_line, change_order_status, change_order_get, change_order_list, change_order_delete, contract_value, change_order_document, change_order_invoice_payload, license_status, license_activate">change_order_create, change_order_add_line, change_order_status, change_order_get, change_order_list, change_order_delete, contract_value, change_order_document, change_order_invoice_payload, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- npm test --workspace @theluckystrike/mcp-change-order: # tests 47 / # pass 47 / # fail 0</td>
+    <td class="mono">- npm test --workspace @theluckystrike/mcp-change-order: # tests 47 / # pass 47 / # fail 0<br><small><a href="../servers/change-order/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/change-order">https://mcp.zovo.one/buy/change-order</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/change-order">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">checklist</td>
     <td class="mono">0.22.6</td>
-    <td class="num">14</td>
-    <td class="tools" title="checklist_create, checklist_item_add, checklist_item_remove, checklist_show, checklist_list, checklist_delete, run_start, run_check, run_show, run_list, run_sign_off, run_status, run_report, run_delete">checklist_create, checklist_item_add, checklist_item_remove, checklist_show, checklist_list, checklist_delete, run_start, run_check, run_show, run_list, run_sign_off, run_status, run_report, run_delete</td>
+    <td class="num">16<br><small>measured<br>2026-10-16T03:53:28.924Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="checklist_create, checklist_item_add, checklist_item_remove, checklist_show, checklist_list, checklist_delete, run_start, run_check, run_show, run_list, run_sign_off, run_status, run_report, run_delete, license_status, license_activate">checklist_create, checklist_item_add, checklist_item_remove, checklist_show, checklist_list, checklist_delete, run_start, run_check, run_show, run_list, run_sign_off, run_status, run_report, run_delete, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/checklist/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/checklist">https://mcp.zovo.one/buy/checklist</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/checklist">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">clauses</td>
     <td class="mono">0.22.6</td>
-    <td class="num">10</td>
-    <td class="tools" title="clause_add, clause_get, clause_update, clause_delete, clause_list, clause_search, clause_import, clause_export, contract_assemble, variables_list">clause_add, clause_get, clause_update, clause_delete, clause_list, clause_search, clause_import, clause_export, contract_assemble, variables_list</td>
+    <td class="num">12<br><small>measured<br>2026-10-16T03:53:29.426Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="clause_add, clause_get, clause_update, clause_delete, clause_list, clause_search, clause_import, clause_export, contract_assemble, variables_list, license_status, license_activate">clause_add, clause_get, clause_update, clause_delete, clause_list, clause_search, clause_import, clause_export, contract_assemble, variables_list, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 15 / # fail 0 / ## failures</td>
+    <td class="mono"># pass 15 / # fail 0 / ## failures<br><small><a href="../servers/clauses/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/clauses">https://mcp.zovo.one/buy/clauses</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/clauses">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">credit-note</td>
     <td class="mono">0.22.8</td>
-    <td class="num">8</td>
-    <td class="tools" title="credit_note_create, credit_note_update, credit_note_finalize, credit_note_list, credit_note_get, credit_note_delete, credit_note_render, credit_note_summary">credit_note_create, credit_note_update, credit_note_finalize, credit_note_list, credit_note_get, credit_note_delete, credit_note_render, credit_note_summary</td>
+    <td class="num">10<br><small>measured<br>2026-10-16T03:53:29.867Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="credit_note_create, credit_note_update, credit_note_finalize, credit_note_list, credit_note_get, credit_note_delete, credit_note_render, credit_note_summary, license_status, license_activate">credit_note_create, credit_note_update, credit_note_finalize, credit_note_list, credit_note_get, credit_note_delete, credit_note_render, credit_note_summary, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- node --test test/*.test.mjs: # tests 16 / # pass 16 / # fail 0 (2.53s)</td>
+    <td class="mono">- node --test test/*.test.mjs: # tests 16 / # pass 16 / # fail 0 (2.53s)<br><small><a href="../servers/credit-note/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/credit-note">https://mcp.zovo.one/buy/credit-note</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/credit-note">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">currency</td>
     <td class="mono">0.22.6</td>
-    <td class="num">8</td>
-    <td class="tools" title="rates_latest, convert, convert_many, fx_rates_for, rate_history, rate_on, currencies_list, cache_status">rates_latest, convert, convert_many, fx_rates_for, rate_history, rate_on, currencies_list, cache_status</td>
+    <td class="num">10<br><small>measured<br>2026-10-16T03:53:30.256Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="rates_latest, convert, convert_many, fx_rates_for, rate_history, rate_on, currencies_list, cache_status, license_status, license_activate">rates_latest, convert, convert_many, fx_rates_for, rate_history, rate_on, currencies_list, cache_status, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 21 / # fail 0</td>
+    <td class="mono"># pass 21 / # fail 0<br><small><a href="../servers/currency/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/currency">https://mcp.zovo.one/buy/currency</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/currency">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">delivery-schedule</td>
     <td class="mono">0.22.7</td>
-    <td class="num">10</td>
-    <td class="tools" title="delivery_schedule_create, deliverable_add, deliverable_status, deliverable_delete, delivery_schedule_get, delivery_schedule_list, delivery_schedule_delete, late_report, delivery_schedule_document, milestone_payload">delivery_schedule_create, deliverable_add, deliverable_status, deliverable_delete, delivery_schedule_get, delivery_schedule_list, delivery_schedule_delete, late_report, delivery_schedule_document, milestone_payload</td>
+    <td class="num">12<br><small>measured<br>2026-10-16T03:53:30.643Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="delivery_schedule_create, deliverable_add, deliverable_status, deliverable_delete, delivery_schedule_get, delivery_schedule_list, delivery_schedule_delete, late_report, delivery_schedule_document, milestone_payload, license_status, license_activate">delivery_schedule_create, deliverable_add, deliverable_status, deliverable_delete, delivery_schedule_get, delivery_schedule_list, delivery_schedule_delete, late_report, delivery_schedule_document, milestone_payload, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 53 / # fail 0 / ## failures</td>
+    <td class="mono"># pass 53 / # fail 0 / ## failures<br><small><a href="../servers/delivery-schedule/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/delivery-schedule">https://mcp.zovo.one/buy/delivery-schedule</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/delivery-schedule">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">deposits</td>
     <td class="mono">0.22.6</td>
-    <td class="num">9</td>
-    <td class="tools" title="deposit_record, deposit_list, deposit_apply, deposit_refund, deposit_delete, deposit_balance, deposit_statement_text, deposit_statement_pdf, deposits_report">deposit_record, deposit_list, deposit_apply, deposit_refund, deposit_delete, deposit_balance, deposit_statement_text, deposit_statement_pdf, deposits_report</td>
+    <td class="num">11<br><small>measured<br>2026-10-16T03:53:31.155Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="deposit_record, deposit_list, deposit_apply, deposit_refund, deposit_delete, deposit_balance, deposit_statement_text, deposit_statement_pdf, deposits_report, license_status, license_activate">deposit_record, deposit_list, deposit_apply, deposit_refund, deposit_delete, deposit_balance, deposit_statement_text, deposit_statement_pdf, deposits_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- npm test -w servers/deposits: # tests 31 / # pass 31 / # fail 0 / # skipped 0, 2.9 s</td>
+    <td class="mono">- npm test -w servers/deposits: # tests 31 / # pass 31 / # fail 0 / # skipped 0, 2.9 s<br><small><a href="../servers/deposits/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/deposits">https://mcp.zovo.one/buy/deposits</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/deposits">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">docx</td>
     <td class="mono">0.22.6</td>
-    <td class="num">9</td>
-    <td class="tools" title="business_set, doc_create, doc_from_markdown, doc_read, doc_to_html, doc_fill_template, proposal_create, proposal_update, contract_create">business_set, doc_create, doc_from_markdown, doc_read, doc_to_html, doc_fill_template, proposal_create, proposal_update, contract_create</td>
+    <td class="num">11<br><small>measured<br>2026-10-16T03:53:31.650Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="business_set, doc_create, doc_from_markdown, doc_read, doc_to_html, doc_fill_template, proposal_create, proposal_update, contract_create, license_status, license_activate">business_set, doc_create, doc_from_markdown, doc_read, doc_to_html, doc_fill_template, proposal_create, proposal_update, contract_create, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 8 / # fail 0 / ## failures</td>
+    <td class="mono"># pass 8 / # fail 0 / ## failures<br><small><a href="../servers/docx/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/docx">https://mcp.zovo.one/buy/docx</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/docx">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">dunning-letters</td>
     <td class="mono">0.22.6</td>
-    <td class="num">9</td>
-    <td class="tools" title="invoice_register, payment_record, letter_render, letter_sent, overdue_list, aging_summary, chase_today, invoice_status, invoice_delete">invoice_register, payment_record, letter_render, letter_sent, overdue_list, aging_summary, chase_today, invoice_status, invoice_delete</td>
+    <td class="num">11<br><small>measured<br>2026-10-16T03:53:32.056Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="invoice_register, payment_record, letter_render, letter_sent, overdue_list, aging_summary, chase_today, invoice_status, invoice_delete, license_status, license_activate">invoice_register, payment_record, letter_render, letter_sent, overdue_list, aging_summary, chase_today, invoice_status, invoice_delete, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- node --test test/*.test.mjs: # tests 1 / # pass 1 / # fail 0; duration_ms 222; 1s wall</td>
+    <td class="mono">- node --test test/*.test.mjs: # tests 1 / # pass 1 / # fail 0; duration_ms 222; 1s wall<br><small><a href="../servers/dunning-letters/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/dunning-letters">https://mcp.zovo.one/buy/dunning-letters</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/dunning-letters">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">expense-tracker</td>
     <td class="mono">0.22.6</td>
-    <td class="num">12</td>
-    <td class="tools" title="expense_add, expense_list, expense_update, expense_delete, receipt_attach, category_rules, expense_settings, expense_summary, mileage_add, expense_export, expense_to_invoice, expense_mark_rebilled">expense_add, expense_list, expense_update, expense_delete, receipt_attach, category_rules, expense_settings, expense_summary, mileage_add, expense_export, expense_to_invoice, expense_mark_rebilled</td>
+    <td class="num">14<br><small>measured<br>2026-10-16T03:53:32.439Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="expense_add, expense_list, expense_update, expense_delete, receipt_attach, category_rules, expense_settings, expense_summary, mileage_add, expense_export, expense_to_invoice, expense_mark_rebilled, license_status, license_activate">expense_add, expense_list, expense_update, expense_delete, receipt_attach, category_rules, expense_settings, expense_summary, mileage_add, expense_export, expense_to_invoice, expense_mark_rebilled, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 14 / # fail 0 / 1..21 / # pass 21 / # fail 0 / # duration_ms 818</td>
+    <td class="mono"># pass 14 / # fail 0 / 1..21 / # pass 21 / # fail 0 / # duration_ms 818<br><small><a href="../servers/expense-tracker/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/expense-tracker">https://mcp.zovo.one/buy/expense-tracker</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/expense-tracker">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">goods-receipt</td>
     <td class="mono">0.22.6</td>
-    <td class="num">9</td>
-    <td class="tools" title="po_add, grn_add, grn_line_add, grn_list, grn_get, grn_discrepancy, grn_close, grn_status_report, grn_export_csv">po_add, grn_add, grn_line_add, grn_list, grn_get, grn_discrepancy, grn_close, grn_status_report, grn_export_csv</td>
+    <td class="num">11<br><small>measured<br>2026-10-16T03:53:32.905Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="po_add, grn_add, grn_line_add, grn_list, grn_get, grn_discrepancy, grn_close, grn_status_report, grn_export_csv, license_status, license_activate">po_add, grn_add, grn_line_add, grn_list, grn_get, grn_discrepancy, grn_close, grn_status_report, grn_export_csv, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/goods-receipt/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/goods-receipt">https://mcp.zovo.one/buy/goods-receipt</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/goods-receipt">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">hourly-rate</td>
     <td class="mono">0.22.6</td>
-    <td class="num">0</td>
-    <td class="tools" title="pending">pending</td>
+    <td class="num">5<br><small>measured<br>2026-10-16T03:53:33.265Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="license_status, license_activate, calculate_rate, break_even, what_if">license_status, license_activate, calculate_rate, break_even, what_if</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/hourly-rate/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">pending</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-bad" title="license">license: no</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/hourly-rate">https://mcp.zovo.one/buy/hourly-rate</a></td>
+    <td class="num mono">Free; no separate Pro</td>
+    <td><a href="https://mcp.zovo.one/buy/bundle">Optional estate bundle $39</a></td>
   </tr>
 <tr>
     <td class="mono">image</td>
     <td class="mono">0.22.6</td>
-    <td class="num">10</td>
-    <td class="tools" title="image_info, image_resize, image_convert, image_compress, image_crop, image_thumbnails, image_watermark, image_strip_metadata, image_batch_resize, image_dominant_colors">image_info, image_resize, image_convert, image_compress, image_crop, image_thumbnails, image_watermark, image_strip_metadata, image_batch_resize, image_dominant_colors</td>
+    <td class="num">12<br><small>measured<br>2026-10-16T03:53:33.636Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="image_info, image_resize, image_convert, image_compress, image_crop, image_thumbnails, image_watermark, image_strip_metadata, image_batch_resize, image_dominant_colors, license_status, license_activate">image_info, image_resize, image_convert, image_compress, image_crop, image_thumbnails, image_watermark, image_strip_metadata, image_batch_resize, image_dominant_colors, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 20 / # fail 0 / ## failures</td>
+    <td class="mono"># pass 20 / # fail 0 / ## failures<br><small><a href="../servers/image/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/image">https://mcp.zovo.one/buy/image</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/image">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">invoice</td>
     <td class="mono">0.22.6</td>
-    <td class="num">11</td>
-    <td class="tools" title="business_set, client_add, client_delete, client_list, invoice_create, invoice_from_hours, invoice_list, invoice_get, invoice_mark_paid, invoice_pdf, overdue_report">business_set, client_add, client_delete, client_list, invoice_create, invoice_from_hours, invoice_list, invoice_get, invoice_mark_paid, invoice_pdf, overdue_report</td>
+    <td class="num">13<br><small>measured<br>2026-10-16T03:53:34.089Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="business_set, client_add, client_delete, client_list, invoice_create, invoice_from_hours, invoice_list, invoice_get, invoice_mark_paid, invoice_pdf, overdue_report, license_status, license_activate">business_set, client_add, client_delete, client_list, invoice_create, invoice_from_hours, invoice_list, invoice_get, invoice_mark_paid, invoice_pdf, overdue_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 12 / # fail 0</td>
+    <td class="mono"># pass 12 / # fail 0<br><small><a href="../servers/invoice/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/invoice">https://mcp.zovo.one/buy/invoice</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/invoice">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">job-card</td>
     <td class="mono">0.22.6</td>
-    <td class="num">9</td>
-    <td class="tools" title="job_card_create, job_card_log_labor, job_card_log_material, job_card_update_status, job_card_list, job_card_get, job_card_print, job_card_delete, job_card_summary">job_card_create, job_card_log_labor, job_card_log_material, job_card_update_status, job_card_list, job_card_get, job_card_print, job_card_delete, job_card_summary</td>
+    <td class="num">11<br><small>measured<br>2026-10-16T03:53:34.541Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="job_card_create, job_card_log_labor, job_card_log_material, job_card_update_status, job_card_list, job_card_get, job_card_print, job_card_delete, job_card_summary, license_status, license_activate">job_card_create, job_card_log_labor, job_card_log_material, job_card_update_status, job_card_list, job_card_get, job_card_print, job_card_delete, job_card_summary, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 7 / # fail 0</td>
+    <td class="mono"># pass 7 / # fail 0<br><small><a href="../servers/job-card/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/job-card">https://mcp.zovo.one/buy/job-card</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/job-card">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">kanban</td>
     <td class="mono">0.22.6</td>
-    <td class="num">15</td>
-    <td class="tools" title="task_add, task_list, task_move, task_update, task_done, task_delete, task_search, board, task_start_timer, task_log_time, project_list, project_delete, overdue, weekly_review, columns_set">task_add, task_list, task_move, task_update, task_done, task_delete, task_search, board, task_start_timer, task_log_time, project_list, project_delete, overdue, weekly_review, columns_set</td>
+    <td class="num">17<br><small>measured<br>2026-10-16T03:53:34.922Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="license_status, license_activate, task_add, task_list, task_move, task_update, task_done, task_delete, task_search, board, task_start_timer, task_log_time, project_list, project_delete, overdue, weekly_review, columns_set">license_status, license_activate, task_add, task_list, task_move, task_update, task_done, task_delete, task_search, board, task_start_timer, task_log_time, project_list, project_delete, overdue, weekly_review, columns_set</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- `npm test -w servers/kanban`: `# tests 11 / # pass 11 / # fail 0 / # duration_ms 504.8`, wall `npm test 0.699 total`</td>
+    <td class="mono">- `npm test -w servers/kanban`: `# tests 11 / # pass 11 / # fail 0 / # duration_ms 504.8`, wall `npm test 0.699 total`<br><small><a href="../servers/kanban/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/kanban">https://mcp.zovo.one/buy/kanban</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/kanban">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">leave</td>
     <td class="mono">0.22.6</td>
-    <td class="num">10</td>
-    <td class="tools" title="leave_employee_add, leave_request, leave_approve, leave_reject, leave_balance, leave_out_range, leave_list, leave_import, leave_export_ics, leave_cancel">leave_employee_add, leave_request, leave_approve, leave_reject, leave_balance, leave_out_range, leave_list, leave_import, leave_export_ics, leave_cancel</td>
+    <td class="num">12<br><small>measured<br>2026-10-16T03:53:35.354Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="leave_employee_add, leave_request, leave_approve, leave_reject, leave_balance, leave_out_range, leave_list, leave_import, leave_export_ics, license_status, license_activate, leave_cancel">leave_employee_add, leave_request, leave_approve, leave_reject, leave_balance, leave_out_range, leave_list, leave_import, leave_export_ics, license_status, license_activate, leave_cancel</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/leave/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/leave">https://mcp.zovo.one/buy/leave</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/leave">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">loan-calculator</td>
     <td class="mono">0.22.6</td>
-    <td class="num">0</td>
-    <td class="tools" title="pending">pending</td>
+    <td class="num">unmeasured<br><small>unmeasured<br>2026-10-16T03:53:35.833Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a><br>Built entry is missing; no build was attempted</small></td>
+    <td class="tools" title="unmeasured">unmeasured</td>
     <td>pending</td>
     <td><span class="pill pill-bad" title="build">build: no</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/loan-calculator/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">pending</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-bad" title="smithery.yaml">smithery.yaml: no</span> <span class="pill pill-bad" title="dockerfile">dockerfile: no</span> <span class="pill pill-bad" title="license">license: no</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/loan-calculator">https://mcp.zovo.one/buy/loan-calculator</a></td>
+    <td class="num mono">Free; no separate Pro</td>
+    <td><a href="https://mcp.zovo.one/buy/bundle">Optional estate bundle $39</a></td>
   </tr>
 <tr>
     <td class="mono">maintenance-log</td>
     <td class="mono">0.22.6</td>
-    <td class="num">6</td>
-    <td class="tools" title="asset_add, maintenance_log, maintenance_due, asset_history, maintenance_export, asset_remove">asset_add, maintenance_log, maintenance_due, asset_history, maintenance_export, asset_remove</td>
+    <td class="num">8<br><small>measured<br>2026-10-16T03:53:35.833Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="asset_add, maintenance_log, maintenance_due, asset_history, maintenance_export, asset_remove, license_status, license_activate">asset_add, maintenance_log, maintenance_due, asset_history, maintenance_export, asset_remove, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 7 / # fail 0</td>
+    <td class="mono"># pass 7 / # fail 0<br><small><a href="../servers/maintenance-log/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/maintenance-log">https://mcp.zovo.one/buy/maintenance-log</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/maintenance-log">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">mileage-log</td>
     <td class="mono">0.22.6</td>
-    <td class="num">7</td>
-    <td class="tools" title="trip_add, trip_list, trip_remove, rate_set, rate_list, mileage_summary, mileage_export">trip_add, trip_list, trip_remove, rate_set, rate_list, mileage_summary, mileage_export</td>
+    <td class="num">9<br><small>measured<br>2026-10-16T03:53:36.221Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="trip_add, trip_list, trip_remove, rate_set, rate_list, mileage_summary, mileage_export, license_status, license_activate">trip_add, trip_list, trip_remove, rate_set, rate_list, mileage_summary, mileage_export, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 9 / # fail 0</td>
+    <td class="mono"># pass 9 / # fail 0<br><small><a href="../servers/mileage-log/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/mileage-log">https://mcp.zovo.one/buy/mileage-log</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/mileage-log">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">office-suite</td>
     <td class="mono">0.22.6</td>
-    <td class="num">0</td>
-    <td class="tools" title="pending">pending</td>
-    <td>pending</td>
+    <td class="num">441<br><small>measured<br>2026-10-16T03:53:36.592Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="timer_start, timer_stop, timer_status, entry_add, entry_log, summary_day, summary_week, summary_client, target_set, target_check, entry_list, entry_delete, entry_edit, project_set_rate, report, export_csv, entry_mark_billed, invoice_summary, price_check, watch_add, watch_list, watch_remove, watch_refresh, price_history, price_add_manual, alerts_pending, sheet_info, sheet_read, sheet_query, sheet_stats, sheet_find, sheet_write, sheet_add_column, sheet_convert, client_add, client_delete, client_list, invoice_create, invoice_from_hours, invoice_list, invoice_get, invoice_mark_paid, invoice_pdf, overdue_report, expense_add, expense_list, expense_update, expense_delete, receipt_attach, expense_settings, expense_summary, mileage_add, expense_export, expense_to_invoice, expense_mark_rebilled, rates_latest, convert, convert_many, fx_rates_for, rate_history, rate_on, currencies_list, cache_status, invoice_business_set, docx_business_set, doc_create, doc_from_markdown, doc_read, doc_to_html, doc_fill_template, proposal_create, proposal_update, contract_create, now, convert_time, overlap, find_meeting_slots, dst_changes, business_days, contacts_set, contacts_list, ics_create, profile_set, profile_get, resume_create, resume_to_markdown, resume_to_html, resume_read, cover_letter_create, tailor_to_job, schedule_create, schedule_list, schedule_get, schedule_update, schedule_pause, schedule_resume, schedule_delete, schedule_skip, schedule_upcoming, invoice_generate_due, schedule_history, forecast, clause_add, clause_get, clause_update, clause_delete, clause_list, clause_search, clause_import, clause_export, contract_assemble, variables_list, pdf_info, pdf_count, pdf_merge, pdf_split, pdf_pages, pdf_rotate, pdf_stamp, pdf_watermark_business, pdf_reorder, pdf_text, ics_import, calendars_list, events_list, events_search, free_busy, conflicts, next_event, event_export, event_to_time_entry, ics_forget, task_add, task_list, task_move, task_update, task_done, task_delete, task_search, board, task_start_timer, task_log_time, project_list, project_delete, overdue, weekly_review, columns_set, image_info, image_resize, image_convert, image_compress, image_crop, image_thumbnails, image_watermark, image_strip_metadata, image_batch_resize, image_dominant_colors, statement_import, transactions_list, transactions_search, expense-tracker_category_rules, bank-statement_category_rules, transaction_categorize, statement_summary, reconcile_expenses, recurring_detect, statement_export, accounts_list, quote_create, quote_list, quote_get, quote_update, quote_send_text, quote_accept, quote_decline, quote_delete, quote_pdf, quote_report, qr_create, qr_wifi, qr_vcard, qr_payment_sepa, invoice_payment_qr, barcode_create, barcode_batch, code_list, zip_create, zip_list, zip_extract, zip_add, zip_extract_text, zip_bundle_month, zip_history, credit_note_pdf, credit_note_text, purchase_order_create, purchase_order_list, purchase_order_get, purchase_order_pdf, purchase_order_text, purchase_order_receive, purchase_order_delete, billing_docs_report, deposit_record, deposit_list, deposit_apply, deposit_refund, deposit_delete, deposit_balance, deposit_statement_text, deposit_statement_pdf, deposits_report, perdiem_rates, perdiem_calc, trip_record, trip_delete, trip_export, perdiem_report, asset_list, asset_schedule, asset_journal, asset_dispose, asset_delete, asset_report, statement_build, statement_aging, statement_text, statement_pdf, dunning_text, statements_report, ledger_build, period_delete, trial_balance, ledger_lines, month_close, ledger_export_csv, ledger_report, loan_create, loan_schedule, loan_repay_early, loan_journal, loan_list, loan_delete, loans_report, float_open, topup_record, voucher_add, voucher_delete, reconcile, replenish_request, float_report, work_order_create, work_order_add_line, work_order_status, work_order_get, work_order_list, work_order_delete, completion_report_text, completion_report_pdf, work_order_invoice_payload, work_orders_report, sku_set, sku_get, sku_list, sku_delete, rate_get, lines_resolve, price_list_text, price_list_pdf, catalogue_report, change_order_create, change_order_add_line, change_order_status, change_order_get, change_order_list, change_order_delete, contract_value, change_order_document, change_order_invoice_payload, delivery_schedule_create, deliverable_add, deliverable_status, deliverable_delete, delivery_schedule_get, delivery_schedule_list, delivery_schedule_delete, late_report, delivery_schedule_document, milestone_payload, packing_list_create, packing_expect, carton_add, pack_item, unpack_item, packing_list_show, packing_list_list, carton_report, packing_shortfall, packing_list_status, packing_slip, packing_list_delete, checklist_create, checklist_item_add, checklist_item_remove, checklist_show, checklist_list, checklist_delete, purchase-requisition_create, purchase-requisition_item_add, purchase-requisition_item_remove, purchase-requisition_show, purchase-requisition_list, purchase-requisition_delete, checklist_run_start, purchase-requisition_run_start, checklist_run_check, purchase-requisition_run_check, checklist_run_show, purchase-requisition_run_show, checklist_run_list, purchase-requisition_run_list, checklist_run_sign_off, purchase-requisition_run_sign_off, checklist_run_status, purchase-requisition_run_status, checklist_run_report, purchase-requisition_run_report, checklist_run_delete, purchase-requisition_run_delete, sale_create, sale_update, sale_finalize, sale_list, sale_get, sale_delete, sale_render, sale_summary, billing-docs_credit_note_create, credit-note_credit_note_create, credit_note_update, credit_note_finalize, billing-docs_credit_note_list, credit-note_credit_note_list, billing-docs_credit_note_get, credit-note_credit_note_get, billing-docs_credit_note_delete, credit-note_credit_note_delete, credit_note_render, credit_note_summary, job_card_create, job_card_log_labor, job_card_log_material, job_card_update_status, job_card_list, job_card_get, job_card_print, job_card_delete, job_card_summary, invoice_register, payment_record, letter_render, letter_sent, overdue_list, aging_summary, chase_today, invoice_status, invoice_delete, supplier_add, supplier_list, supplier_get, supplier_update, supplier_remove, supplier_mark_reviewed, supplier_due_review, supplier_export, agreement_create, agreement_get, agreement_list, agreement_update_status, clause_library, agreement_render, agreement_checklist, asset-register_asset_add, maintenance-log_asset_add, maintenance_log, maintenance_due, asset_history, maintenance_export, asset_remove, trip_add, per-diem_trip_list, mileage-log_trip_list, trip_remove, catalogue_rate_set, mileage-log_rate_set, rate_list, mileage_summary, mileage_export, po_add, grn_add, grn_line_add, grn_list, grn_get, grn_discrepancy, grn_close, grn_status_report, grn_export_csv, leave_employee_add, leave_request, leave_approve, leave_reject, leave_balance, leave_out_range, leave_list, leave_import, leave_export_ics, leave_cancel, onboarding_hire_add, onboarding_hire_list, onboarding_task_add, onboarding_task_done, onboarding_template_apply, onboarding_progress, onboarding_overdue, link_check, link_audit, anchor_profile, referring_domain_summary, outreach_queue, robots_guard_check, three_way_match, report_list, report_get, report_page, report_delete, report_export_csv, calculate_rate, break_even, what_if, license_status, license_activate">timer_start, timer_stop, timer_status, entry_add, entry_log, summary_day, summary_week, summary_client, target_set, target_check, entry_list, entry_delete, entry_edit, project_set_rate, report, export_csv, entry_mark_billed, invoice_summary, price_check, watch_add, watch_list, watch_remove, watch_refresh, price_history, price_add_manual, alerts_pending, sheet_info, sheet_read, sheet_query, sheet_stats, sheet_find, sheet_write, sheet_add_column, sheet_convert, client_add, client_delete, client_list, invoice_create, invoice_from_hours, invoice_list, invoice_get, invoice_mark_paid, invoice_pdf, overdue_report, expense_add, expense_list, expense_update, expense_delete, receipt_attach, expense_settings, expense_summary, mileage_add, expense_export, expense_to_invoice, expense_mark_rebilled, rates_latest, convert, convert_many, fx_rates_for, rate_history, rate_on, currencies_list, cache_status, invoice_business_set, docx_business_set, doc_create, doc_from_markdown, doc_read, doc_to_html, doc_fill_template, proposal_create, proposal_update, contract_create, now, convert_time, overlap, find_meeting_slots, dst_changes, business_days, contacts_set, contacts_list, ics_create, profile_set, profile_get, resume_create, resume_to_markdown, resume_to_html, resume_read, cover_letter_create, tailor_to_job, schedule_create, schedule_list, schedule_get, schedule_update, schedule_pause, schedule_resume, schedule_delete, schedule_skip, schedule_upcoming, invoice_generate_due, schedule_history, forecast, clause_add, clause_get, clause_update, clause_delete, clause_list, clause_search, clause_import, clause_export, contract_assemble, variables_list, pdf_info, pdf_count, pdf_merge, pdf_split, pdf_pages, pdf_rotate, pdf_stamp, pdf_watermark_business, pdf_reorder, pdf_text, ics_import, calendars_list, events_list, events_search, free_busy, conflicts, next_event, event_export, event_to_time_entry, ics_forget, task_add, task_list, task_move, task_update, task_done, task_delete, task_search, board, task_start_timer, task_log_time, project_list, project_delete, overdue, weekly_review, columns_set, image_info, image_resize, image_convert, image_compress, image_crop, image_thumbnails, image_watermark, image_strip_metadata, image_batch_resize, image_dominant_colors, statement_import, transactions_list, transactions_search, expense-tracker_category_rules, bank-statement_category_rules, transaction_categorize, statement_summary, reconcile_expenses, recurring_detect, statement_export, accounts_list, quote_create, quote_list, quote_get, quote_update, quote_send_text, quote_accept, quote_decline, quote_delete, quote_pdf, quote_report, qr_create, qr_wifi, qr_vcard, qr_payment_sepa, invoice_payment_qr, barcode_create, barcode_batch, code_list, zip_create, zip_list, zip_extract, zip_add, zip_extract_text, zip_bundle_month, zip_history, credit_note_pdf, credit_note_text, purchase_order_create, purchase_order_list, purchase_order_get, purchase_order_pdf, purchase_order_text, purchase_order_receive, purchase_order_delete, billing_docs_report, deposit_record, deposit_list, deposit_apply, deposit_refund, deposit_delete, deposit_balance, deposit_statement_text, deposit_statement_pdf, deposits_report, perdiem_rates, perdiem_calc, trip_record, trip_delete, trip_export, perdiem_report, asset_list, asset_schedule, asset_journal, asset_dispose, asset_delete, asset_report, statement_build, statement_aging, statement_text, statement_pdf, dunning_text, statements_report, ledger_build, period_delete, trial_balance, ledger_lines, month_close, ledger_export_csv, ledger_report, loan_create, loan_schedule, loan_repay_early, loan_journal, loan_list, loan_delete, loans_report, float_open, topup_record, voucher_add, voucher_delete, reconcile, replenish_request, float_report, work_order_create, work_order_add_line, work_order_status, work_order_get, work_order_list, work_order_delete, completion_report_text, completion_report_pdf, work_order_invoice_payload, work_orders_report, sku_set, sku_get, sku_list, sku_delete, rate_get, lines_resolve, price_list_text, price_list_pdf, catalogue_report, change_order_create, change_order_add_line, change_order_status, change_order_get, change_order_list, change_order_delete, contract_value, change_order_document, change_order_invoice_payload, delivery_schedule_create, deliverable_add, deliverable_status, deliverable_delete, delivery_schedule_get, delivery_schedule_list, delivery_schedule_delete, late_report, delivery_schedule_document, milestone_payload, packing_list_create, packing_expect, carton_add, pack_item, unpack_item, packing_list_show, packing_list_list, carton_report, packing_shortfall, packing_list_status, packing_slip, packing_list_delete, checklist_create, checklist_item_add, checklist_item_remove, checklist_show, checklist_list, checklist_delete, purchase-requisition_create, purchase-requisition_item_add, purchase-requisition_item_remove, purchase-requisition_show, purchase-requisition_list, purchase-requisition_delete, checklist_run_start, purchase-requisition_run_start, checklist_run_check, purchase-requisition_run_check, checklist_run_show, purchase-requisition_run_show, checklist_run_list, purchase-requisition_run_list, checklist_run_sign_off, purchase-requisition_run_sign_off, checklist_run_status, purchase-requisition_run_status, checklist_run_report, purchase-requisition_run_report, checklist_run_delete, purchase-requisition_run_delete, sale_create, sale_update, sale_finalize, sale_list, sale_get, sale_delete, sale_render, sale_summary, billing-docs_credit_note_create, credit-note_credit_note_create, credit_note_update, credit_note_finalize, billing-docs_credit_note_list, credit-note_credit_note_list, billing-docs_credit_note_get, credit-note_credit_note_get, billing-docs_credit_note_delete, credit-note_credit_note_delete, credit_note_render, credit_note_summary, job_card_create, job_card_log_labor, job_card_log_material, job_card_update_status, job_card_list, job_card_get, job_card_print, job_card_delete, job_card_summary, invoice_register, payment_record, letter_render, letter_sent, overdue_list, aging_summary, chase_today, invoice_status, invoice_delete, supplier_add, supplier_list, supplier_get, supplier_update, supplier_remove, supplier_mark_reviewed, supplier_due_review, supplier_export, agreement_create, agreement_get, agreement_list, agreement_update_status, clause_library, agreement_render, agreement_checklist, asset-register_asset_add, maintenance-log_asset_add, maintenance_log, maintenance_due, asset_history, maintenance_export, asset_remove, trip_add, per-diem_trip_list, mileage-log_trip_list, trip_remove, catalogue_rate_set, mileage-log_rate_set, rate_list, mileage_summary, mileage_export, po_add, grn_add, grn_line_add, grn_list, grn_get, grn_discrepancy, grn_close, grn_status_report, grn_export_csv, leave_employee_add, leave_request, leave_approve, leave_reject, leave_balance, leave_out_range, leave_list, leave_import, leave_export_ics, leave_cancel, onboarding_hire_add, onboarding_hire_list, onboarding_task_add, onboarding_task_done, onboarding_template_apply, onboarding_progress, onboarding_overdue, link_check, link_audit, anchor_profile, referring_domain_summary, outreach_queue, robots_guard_check, three_way_match, report_list, report_get, report_page, report_delete, report_export_csv, calculate_rate, break_even, what_if, license_status, license_activate</td>
+    <td>| Free | Pro bundle |</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 1 / # fail 0</td>
+    <td class="mono"># pass 1 / # fail 0<br><small><a href="../servers/office-suite/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/office-suite">https://mcp.zovo.one/buy/office-suite</a></td>
+    <td class="num mono">Estate bundle $39</td>
+    <td><a href="https://mcp.zovo.one/buy/bundle">Estate bundle $39</a></td>
   </tr>
 <tr>
     <td class="mono">onboarding</td>
     <td class="mono">0.22.6</td>
-    <td class="num">7</td>
-    <td class="tools" title="onboarding_hire_add, onboarding_hire_list, onboarding_task_add, onboarding_task_done, onboarding_template_apply, onboarding_progress, onboarding_overdue">onboarding_hire_add, onboarding_hire_list, onboarding_task_add, onboarding_task_done, onboarding_template_apply, onboarding_progress, onboarding_overdue</td>
+    <td class="num">9<br><small>measured<br>2026-10-16T03:53:55.165Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="onboarding_hire_add, onboarding_hire_list, onboarding_task_add, onboarding_task_done, onboarding_template_apply, onboarding_progress, onboarding_overdue, license_status, license_activate">onboarding_hire_add, onboarding_hire_list, onboarding_task_add, onboarding_task_done, onboarding_template_apply, onboarding_progress, onboarding_overdue, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/onboarding/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/onboarding">https://mcp.zovo.one/buy/onboarding</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/onboarding">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">packing-list</td>
     <td class="mono">0.22.8</td>
-    <td class="num">12</td>
-    <td class="tools" title="packing_list_create, packing_expect, carton_add, pack_item, unpack_item, packing_list_show, packing_list_list, carton_report, packing_shortfall, packing_list_status, packing_slip, packing_list_delete">packing_list_create, packing_expect, carton_add, pack_item, unpack_item, packing_list_show, packing_list_list, carton_report, packing_shortfall, packing_list_status, packing_slip, packing_list_delete</td>
+    <td class="num">14<br><small>measured<br>2026-10-16T03:53:55.748Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="packing_list_create, packing_expect, carton_add, pack_item, unpack_item, packing_list_show, packing_list_list, carton_report, packing_shortfall, packing_list_status, packing_slip, packing_list_delete, license_status, license_activate">packing_list_create, packing_expect, carton_add, pack_item, unpack_item, packing_list_show, packing_list_list, carton_report, packing_shortfall, packing_list_status, packing_slip, packing_list_delete, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/packing-list/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/packing-list">https://mcp.zovo.one/buy/packing-list</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/packing-list">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">payroll</td>
     <td class="mono">0.22.6</td>
-    <td class="num">0</td>
-    <td class="tools" title="pending">pending</td>
+    <td class="num">unmeasured<br><small>unmeasured<br>2026-10-16T03:53:56.313Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a><br>Built entry is missing; no build was attempted</small></td>
+    <td class="tools" title="unmeasured">unmeasured</td>
     <td>pending</td>
     <td><span class="pill pill-bad" title="build">build: no</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/payroll/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">pending</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-bad" title="smithery.yaml">smithery.yaml: no</span> <span class="pill pill-bad" title="dockerfile">dockerfile: no</span> <span class="pill pill-bad" title="license">license: no</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/payroll">https://mcp.zovo.one/buy/payroll</a></td>
+    <td class="num mono">Free; no separate Pro</td>
+    <td><a href="https://mcp.zovo.one/buy/bundle">Optional estate bundle $39</a></td>
   </tr>
 <tr>
     <td class="mono">pdf</td>
     <td class="mono">0.22.6</td>
-    <td class="num">10</td>
-    <td class="tools" title="pdf_info, pdf_count, pdf_merge, pdf_split, pdf_pages, pdf_rotate, pdf_stamp, pdf_watermark_business, pdf_reorder, pdf_text">pdf_info, pdf_count, pdf_merge, pdf_split, pdf_pages, pdf_rotate, pdf_stamp, pdf_watermark_business, pdf_reorder, pdf_text</td>
+    <td class="num">12<br><small>measured<br>2026-10-16T03:53:56.314Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="pdf_info, pdf_count, pdf_merge, pdf_split, pdf_pages, pdf_rotate, pdf_stamp, pdf_watermark_business, pdf_reorder, pdf_text, license_status, license_activate">pdf_info, pdf_count, pdf_merge, pdf_split, pdf_pages, pdf_rotate, pdf_stamp, pdf_watermark_business, pdf_reorder, pdf_text, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 24 / # fail 0 / ## failures</td>
+    <td class="mono"># pass 24 / # fail 0 / ## failures<br><small><a href="../servers/pdf/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/pdf">https://mcp.zovo.one/buy/pdf</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/pdf">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">per-diem</td>
     <td class="mono">0.22.6</td>
-    <td class="num">7</td>
-    <td class="tools" title="perdiem_rates, perdiem_calc, trip_record, trip_list, trip_delete, trip_export, perdiem_report">perdiem_rates, perdiem_calc, trip_record, trip_list, trip_delete, trip_export, perdiem_report</td>
+    <td class="num">9<br><small>measured<br>2026-10-16T03:53:57.013Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="perdiem_rates, perdiem_calc, trip_record, trip_list, trip_delete, trip_export, perdiem_report, license_status, license_activate">perdiem_rates, perdiem_calc, trip_record, trip_list, trip_delete, trip_export, perdiem_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- npm test -w servers/per-diem: # tests 33 / # pass 33 / # fail 0 / # skipped 0</td>
+    <td class="mono">- npm test -w servers/per-diem: # tests 33 / # pass 33 / # fail 0 / # skipped 0<br><small><a href="../servers/per-diem/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">PARTIAL</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/per-diem">https://mcp.zovo.one/buy/per-diem</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/per-diem">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">petty-cash</td>
     <td class="mono">0.22.6</td>
-    <td class="num">7</td>
-    <td class="tools" title="float_open, topup_record, voucher_add, voucher_delete, reconcile, replenish_request, float_report">float_open, topup_record, voucher_add, voucher_delete, reconcile, replenish_request, float_report</td>
+    <td class="num">9<br><small>measured<br>2026-10-16T03:53:57.589Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="float_open, topup_record, voucher_add, voucher_delete, reconcile, replenish_request, float_report, license_status, license_activate">float_open, topup_record, voucher_add, voucher_delete, reconcile, replenish_request, float_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- npm test -w servers/petty-cash: # tests 41 / # pass 41 / # fail 0 / - node --test test/*.test.mjs (repo-wide): # tests 86 / # pass 86 / # fail 0</td>
+    <td class="mono">- npm test -w servers/petty-cash: # tests 41 / # pass 41 / # fail 0 / - node --test test/*.test.mjs (repo-wide): # tests 86 / # pass 86 / # fail 0<br><small><a href="../servers/petty-cash/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/petty-cash">https://mcp.zovo.one/buy/petty-cash</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/petty-cash">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">pomodoro</td>
     <td class="mono">0.22.6</td>
-    <td class="num">0</td>
-    <td class="tools" title="pending">pending</td>
+    <td class="num">unmeasured<br><small>unmeasured<br>2026-10-16T03:53:58.285Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a><br>Built entry is missing; no build was attempted</small></td>
+    <td class="tools" title="unmeasured">unmeasured</td>
     <td>pending</td>
     <td><span class="pill pill-bad" title="build">build: no</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/pomodoro/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">pending</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-bad" title="smithery.yaml">smithery.yaml: no</span> <span class="pill pill-bad" title="dockerfile">dockerfile: no</span> <span class="pill pill-bad" title="license">license: no</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/pomodoro">https://mcp.zovo.one/buy/pomodoro</a></td>
+    <td class="num mono">Free; no separate Pro</td>
+    <td><a href="https://mcp.zovo.one/buy/bundle">Optional estate bundle $39</a></td>
   </tr>
 <tr>
     <td class="mono">price-tracker</td>
     <td class="mono">0.22.6</td>
-    <td class="num">8</td>
-    <td class="tools" title="price_check, watch_add, watch_list, watch_remove, watch_refresh, price_history, price_add_manual, alerts_pending">price_check, watch_add, watch_list, watch_remove, watch_refresh, price_history, price_add_manual, alerts_pending</td>
+    <td class="num">10<br><small>measured<br>2026-10-16T03:53:58.285Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="price_check, watch_add, watch_list, watch_remove, watch_refresh, price_history, price_add_manual, alerts_pending, license_status, license_activate">price_check, watch_add, watch_list, watch_remove, watch_refresh, price_history, price_add_manual, alerts_pending, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 18 / # fail 0</td>
+    <td class="mono"># pass 18 / # fail 0<br><small><a href="../servers/price-tracker/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/price-tracker">https://mcp.zovo.one/buy/price-tracker</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/price-tracker">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">purchase-requisition</td>
     <td class="mono">0.22.8</td>
-    <td class="num">14</td>
-    <td class="tools" title="purchase-requisition_create, purchase-requisition_item_add, purchase-requisition_item_remove, purchase-requisition_show, purchase-requisition_list, purchase-requisition_delete, run_start, run_check, run_show, run_list, run_sign_off, run_status, run_report, run_delete">purchase-requisition_create, purchase-requisition_item_add, purchase-requisition_item_remove, purchase-requisition_show, purchase-requisition_list, purchase-requisition_delete, run_start, run_check, run_show, run_list, run_sign_off, run_status, run_report, run_delete</td>
+    <td class="num">16<br><small>measured<br>2026-10-16T03:53:58.869Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="purchase-requisition_create, purchase-requisition_item_add, purchase-requisition_item_remove, purchase-requisition_show, purchase-requisition_list, purchase-requisition_delete, run_start, run_check, run_show, run_list, run_sign_off, run_status, run_report, run_delete, license_status, license_activate">purchase-requisition_create, purchase-requisition_item_add, purchase-requisition_item_remove, purchase-requisition_show, purchase-requisition_list, purchase-requisition_delete, run_start, run_check, run_show, run_list, run_sign_off, run_status, run_report, run_delete, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/purchase-requisition/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/purchase-requisition">https://mcp.zovo.one/buy/purchase-requisition</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/purchase-requisition">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">quotes</td>
     <td class="mono">0.22.6</td>
-    <td class="num">10</td>
-    <td class="tools" title="quote_create, quote_list, quote_get, quote_update, quote_send_text, quote_accept, quote_decline, quote_delete, quote_pdf, quote_report">quote_create, quote_list, quote_get, quote_update, quote_send_text, quote_accept, quote_decline, quote_delete, quote_pdf, quote_report</td>
+    <td class="num">12<br><small>measured<br>2026-10-16T03:53:59.467Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="quote_create, quote_list, quote_get, quote_update, quote_send_text, quote_accept, quote_decline, quote_delete, quote_pdf, quote_report, license_status, license_activate">quote_create, quote_list, quote_get, quote_update, quote_send_text, quote_accept, quote_decline, quote_delete, quote_pdf, quote_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- `npm test -w servers/quotes`: `# tests 25 / # pass 24 / # fail 0 / # skipped 1 / # duration_ms 2542.5`,</td>
+    <td class="mono">- `npm test -w servers/quotes`: `# tests 25 / # pass 24 / # fail 0 / # skipped 1 / # duration_ms 2542.5`,<br><small><a href="../servers/quotes/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/quotes">https://mcp.zovo.one/buy/quotes</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/quotes">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">receipts</td>
     <td class="mono">0.22.6</td>
-    <td class="num">0</td>
-    <td class="tools" title="pending">pending</td>
+    <td class="num">unmeasured<br><small>unmeasured<br>2026-10-16T03:54:00.070Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a><br>Built entry is missing; no build was attempted</small></td>
+    <td class="tools" title="unmeasured">unmeasured</td>
     <td>pending</td>
     <td><span class="pill pill-bad" title="build">build: no</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/receipts/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">pending</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-bad" title="smithery.yaml">smithery.yaml: no</span> <span class="pill pill-bad" title="dockerfile">dockerfile: no</span> <span class="pill pill-bad" title="license">license: no</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/receipts">https://mcp.zovo.one/buy/receipts</a></td>
+    <td class="num mono">Free; no separate Pro</td>
+    <td><a href="https://mcp.zovo.one/buy/bundle">Optional estate bundle $39</a></td>
   </tr>
 <tr>
     <td class="mono">recurring</td>
     <td class="mono">0.22.6</td>
-    <td class="num">12</td>
-    <td class="tools" title="schedule_create, schedule_list, schedule_get, schedule_update, schedule_pause, schedule_resume, schedule_delete, schedule_skip, schedule_upcoming, invoice_generate_due, schedule_history, forecast">schedule_create, schedule_list, schedule_get, schedule_update, schedule_pause, schedule_resume, schedule_delete, schedule_skip, schedule_upcoming, invoice_generate_due, schedule_history, forecast</td>
+    <td class="num">14<br><small>measured<br>2026-10-16T03:54:00.070Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="schedule_create, schedule_list, schedule_get, schedule_update, schedule_pause, schedule_resume, schedule_delete, schedule_skip, schedule_upcoming, invoice_generate_due, schedule_history, forecast, license_status, license_activate">schedule_create, schedule_list, schedule_get, schedule_update, schedule_pause, schedule_resume, schedule_delete, schedule_skip, schedule_upcoming, invoice_generate_due, schedule_history, forecast, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 28 / # fail 0 / # pass 13 / # fail 0</td>
+    <td class="mono"># pass 28 / # fail 0 / # pass 13 / # fail 0<br><small><a href="../servers/recurring/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/recurring">https://mcp.zovo.one/buy/recurring</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/recurring">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">resume</td>
     <td class="mono">0.22.6</td>
-    <td class="num">8</td>
-    <td class="tools" title="profile_set, profile_get, resume_create, resume_to_markdown, resume_to_html, resume_read, cover_letter_create, tailor_to_job">profile_set, profile_get, resume_create, resume_to_markdown, resume_to_html, resume_read, cover_letter_create, tailor_to_job</td>
+    <td class="num">10<br><small>measured<br>2026-10-16T03:54:00.723Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="profile_set, profile_get, resume_create, resume_to_markdown, resume_to_html, resume_read, cover_letter_create, tailor_to_job, license_status, license_activate">profile_set, profile_get, resume_create, resume_to_markdown, resume_to_html, resume_read, cover_letter_create, tailor_to_job, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># tests 22   # pass 22   # fail 0 / # tests 12   # pass 12   # fail 0</td>
+    <td class="mono"># tests 22   # pass 22   # fail 0 / # tests 12   # pass 12   # fail 0<br><small><a href="../servers/resume/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/resume">https://mcp.zovo.one/buy/resume</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/resume">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">service-agreement</td>
     <td class="mono">0.22.6</td>
-    <td class="num">7</td>
-    <td class="tools" title="agreement_create, agreement_get, agreement_list, agreement_update_status, clause_library, agreement_render, agreement_checklist">agreement_create, agreement_get, agreement_list, agreement_update_status, clause_library, agreement_render, agreement_checklist</td>
+    <td class="num">9<br><small>measured<br>2026-10-16T03:54:01.213Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="agreement_create, agreement_get, agreement_list, agreement_update_status, clause_library, agreement_render, agreement_checklist, license_status, license_activate">agreement_create, agreement_get, agreement_list, agreement_update_status, clause_library, agreement_render, agreement_checklist, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 6 / # fail 0 / ## failures</td>
+    <td class="mono"># pass 6 / # fail 0 / ## failures<br><small><a href="../servers/service-agreement/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/service-agreement">https://mcp.zovo.one/buy/service-agreement</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/service-agreement">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">spreadsheet</td>
     <td class="mono">0.22.6</td>
-    <td class="num">8</td>
-    <td class="tools" title="sheet_info, sheet_read, sheet_query, sheet_stats, sheet_find, sheet_write, sheet_add_column, sheet_convert">sheet_info, sheet_read, sheet_query, sheet_stats, sheet_find, sheet_write, sheet_add_column, sheet_convert</td>
+    <td class="num">10<br><small>measured<br>2026-10-16T03:54:01.662Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="license_status, license_activate, sheet_info, sheet_read, sheet_query, sheet_stats, sheet_find, sheet_write, sheet_add_column, sheet_convert">license_status, license_activate, sheet_info, sheet_read, sheet_query, sheet_stats, sheet_find, sheet_write, sheet_add_column, sheet_convert</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 31 / # fail 0</td>
+    <td class="mono"># pass 31 / # fail 0<br><small><a href="../servers/spreadsheet/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/spreadsheet">https://mcp.zovo.one/buy/spreadsheet</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/spreadsheet">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">statement-of-account</td>
     <td class="mono">0.22.6</td>
-    <td class="num">6</td>
-    <td class="tools" title="statement_build, statement_aging, statement_text, statement_pdf, dunning_text, statements_report">statement_build, statement_aging, statement_text, statement_pdf, dunning_text, statements_report</td>
+    <td class="num">8<br><small>measured<br>2026-10-16T03:54:02.195Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="statement_build, statement_aging, statement_text, statement_pdf, dunning_text, statements_report, license_status, license_activate">statement_build, statement_aging, statement_text, statement_pdf, dunning_text, statements_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- npm test -w servers/statement-of-account: # tests 47 / # pass 47 / # fail 0 / - npm test -w servers/invoice: # tests 49 / # pass 48 / # fail 0</td>
+    <td class="mono">- npm test -w servers/statement-of-account: # tests 47 / # pass 47 / # fail 0 / - npm test -w servers/invoice: # tests 49 / # pass 48 / # fail 0<br><small><a href="../servers/statement-of-account/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/statement-of-account">https://mcp.zovo.one/buy/statement-of-account</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/statement-of-account">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">stripe-billing</td>
     <td class="mono">0.22.6</td>
-    <td class="num">0</td>
-    <td class="tools" title="pending">pending</td>
+    <td class="num">unmeasured<br><small>unmeasured<br>2026-10-16T03:54:02.973Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a><br>Built entry is missing; no build was attempted</small></td>
+    <td class="tools" title="unmeasured">unmeasured</td>
     <td>pending</td>
     <td><span class="pill pill-bad" title="build">build: no</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/stripe-billing/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">pending</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-bad" title="smithery.yaml">smithery.yaml: no</span> <span class="pill pill-bad" title="dockerfile">dockerfile: no</span> <span class="pill pill-bad" title="license">license: no</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/stripe-billing">https://mcp.zovo.one/buy/stripe-billing</a></td>
+    <td class="num mono">Free; no separate Pro</td>
+    <td><a href="https://mcp.zovo.one/buy/bundle">Optional estate bundle $39</a></td>
   </tr>
 <tr>
     <td class="mono">supplier-list</td>
     <td class="mono">0.22.6</td>
-    <td class="num">8</td>
-    <td class="tools" title="supplier_add, supplier_list, supplier_get, supplier_update, supplier_remove, supplier_mark_reviewed, supplier_due_review, supplier_export">supplier_add, supplier_list, supplier_get, supplier_update, supplier_remove, supplier_mark_reviewed, supplier_due_review, supplier_export</td>
+    <td class="num">10<br><small>measured<br>2026-10-16T03:54:02.974Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="supplier_add, supplier_list, supplier_get, supplier_update, supplier_remove, supplier_mark_reviewed, supplier_due_review, supplier_export, license_status, license_activate">supplier_add, supplier_list, supplier_get, supplier_update, supplier_remove, supplier_mark_reviewed, supplier_due_review, supplier_export, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 7 / # fail 0 / ## failures</td>
+    <td class="mono"># pass 7 / # fail 0 / ## failures<br><small><a href="../servers/supplier-list/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/supplier-list">https://mcp.zovo.one/buy/supplier-list</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/supplier-list">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">tax-calc</td>
     <td class="mono">0.22.6</td>
-    <td class="num">0</td>
-    <td class="tools" title="pending">pending</td>
+    <td class="num">unmeasured<br><small>unmeasured<br>2026-10-16T03:54:03.515Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a><br>Built entry is missing; no build was attempted</small></td>
+    <td class="tools" title="unmeasured">unmeasured</td>
     <td>pending</td>
     <td><span class="pill pill-bad" title="build">build: no</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/tax-calc/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">pending</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-bad" title="smithery.yaml">smithery.yaml: no</span> <span class="pill pill-bad" title="dockerfile">dockerfile: no</span> <span class="pill pill-bad" title="license">license: no</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/tax-calc">https://mcp.zovo.one/buy/tax-calc</a></td>
+    <td class="num mono">Free; no separate Pro</td>
+    <td><a href="https://mcp.zovo.one/buy/bundle">Optional estate bundle $39</a></td>
   </tr>
 <tr>
     <td class="mono">three-way-match</td>
     <td class="mono">0.22.6</td>
-    <td class="num">6</td>
-    <td class="tools" title="three_way_match, report_list, report_get, report_page, report_delete, report_export_csv">three_way_match, report_list, report_get, report_page, report_delete, report_export_csv</td>
+    <td class="num">8<br><small>measured<br>2026-10-16T03:54:03.515Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="three_way_match, report_list, report_get, report_page, report_delete, report_export_csv, license_status, license_activate">three_way_match, report_list, report_get, report_page, report_delete, report_export_csv, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">pending</td>
+    <td class="mono">pending<br><small><a href="../servers/three-way-match/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/three-way-match">https://mcp.zovo.one/buy/three-way-match</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/three-way-match">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">time-tracker</td>
     <td class="mono">0.22.6</td>
-    <td class="num">18</td>
-    <td class="tools" title="timer_start, timer_stop, timer_status, entry_add, entry_log, summary_day, summary_week, summary_client, target_set, target_check, entry_list, entry_delete, entry_edit, project_set_rate, report, export_csv, entry_mark_billed, invoice_summary">timer_start, timer_stop, timer_status, entry_add, entry_log, summary_day, summary_week, summary_client, target_set, target_check, entry_list, entry_delete, entry_edit, project_set_rate, report, export_csv, entry_mark_billed, invoice_summary</td>
+    <td class="num">20<br><small>measured<br>2026-10-16T03:54:03.973Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="license_status, license_activate, timer_start, timer_stop, timer_status, entry_add, entry_log, summary_day, summary_week, summary_client, target_set, target_check, entry_list, entry_delete, entry_edit, project_set_rate, report, export_csv, entry_mark_billed, invoice_summary">license_status, license_activate, timer_start, timer_stop, timer_status, entry_add, entry_log, summary_day, summary_week, summary_client, target_set, target_check, entry_list, entry_delete, entry_edit, project_set_rate, report, export_csv, entry_mark_billed, invoice_summary</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 2 / # fail 0</td>
+    <td class="mono"># pass 2 / # fail 0<br><small><a href="../servers/time-tracker/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/time-tracker">https://mcp.zovo.one/buy/time-tracker</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/time-tracker">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">timezone</td>
     <td class="mono">0.22.6</td>
-    <td class="num">9</td>
-    <td class="tools" title="now, convert_time, overlap, find_meeting_slots, dst_changes, business_days, contacts_set, contacts_list, ics_create">now, convert_time, overlap, find_meeting_slots, dst_changes, business_days, contacts_set, contacts_list, ics_create</td>
+    <td class="num">11<br><small>measured<br>2026-10-16T03:54:04.426Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="license_status, license_activate, now, convert_time, overlap, find_meeting_slots, dst_changes, business_days, contacts_set, contacts_list, ics_create">license_status, license_activate, now, convert_time, overlap, find_meeting_slots, dst_changes, business_days, contacts_set, contacts_list, ics_create</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono"># pass 23 / # fail 0</td>
+    <td class="mono"># pass 23 / # fail 0<br><small><a href="../servers/timezone/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/timezone">https://mcp.zovo.one/buy/timezone</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/timezone">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">work-order</td>
     <td class="mono">0.22.6</td>
-    <td class="num">10</td>
-    <td class="tools" title="work_order_create, work_order_add_line, work_order_status, work_order_get, work_order_list, work_order_delete, completion_report_text, completion_report_pdf, work_order_invoice_payload, work_orders_report">work_order_create, work_order_add_line, work_order_status, work_order_get, work_order_list, work_order_delete, completion_report_text, completion_report_pdf, work_order_invoice_payload, work_orders_report</td>
+    <td class="num">12<br><small>measured<br>2026-10-16T03:54:04.893Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="work_order_create, work_order_add_line, work_order_status, work_order_get, work_order_list, work_order_delete, completion_report_text, completion_report_pdf, work_order_invoice_payload, work_orders_report, license_status, license_activate">work_order_create, work_order_add_line, work_order_status, work_order_get, work_order_list, work_order_delete, completion_report_text, completion_report_pdf, work_order_invoice_payload, work_orders_report, license_status, license_activate</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- npm test -w servers/work-order: # tests 43 / # pass 43 / # fail 0 / - node --test test/*.test.mjs (repo-wide): # tests 89 / # pass 89 / # fail 0</td>
+    <td class="mono">- npm test -w servers/work-order: # tests 43 / # pass 43 / # fail 0 / - node --test test/*.test.mjs (repo-wide): # tests 89 / # pass 89 / # fail 0<br><small><a href="../servers/work-order/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/work-order">https://mcp.zovo.one/buy/work-order</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/work-order">Pro $19</a></td>
   </tr>
 <tr>
     <td class="mono">zip</td>
     <td class="mono">0.22.6</td>
-    <td class="num">7</td>
-    <td class="tools" title="zip_create, zip_list, zip_extract, zip_add, zip_extract_text, zip_bundle_month, zip_history">zip_create, zip_list, zip_extract, zip_add, zip_extract_text, zip_bundle_month, zip_history</td>
+    <td class="num">9<br><small>measured<br>2026-10-16T03:54:05.471Z<br><a href="../data/runtime-tool-inventory.json">tools/list evidence</a></small></td>
+    <td class="tools" title="license_status, license_activate, zip_create, zip_list, zip_extract, zip_add, zip_extract_text, zip_bundle_month, zip_history">license_status, license_activate, zip_create, zip_list, zip_extract, zip_add, zip_extract_text, zip_bundle_month, zip_history</td>
     <td>pending</td>
     <td><span class="pill pill-ok" title="build">build: yes</span></td>
-    <td class="mono">- `cd servers/zip &amp;&amp; npm test` -&gt; `# tests 38 / # pass 38 / # fail 0 / duration_ms 3890`, five files (unit, adversarial, concurrency, contract, smoke).</td>
+    <td class="mono">- `cd servers/zip &amp;&amp; npm test` -&gt; `# tests 38 / # pass 38 / # fail 0 / duration_ms 3890`, five files (unit, adversarial, concurrency, contract, smoke).<br><small><a href="../servers/zip/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
     <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
-    <td class="num mono">$19</td>
-    <td><a href="https://mcp.zovo.one/buy/zip">https://mcp.zovo.one/buy/zip</a></td>
+    <td class="num mono">Pro $19</td>
+    <td><a href="https://mcp.zovo.one/buy/zip">Pro $19</a></td>
   </tr>
       </tbody>
     </table>
@@ -923,62 +924,54 @@
     <table>
       <thead><tr><th>product</th><th class="num">price</th><th>url</th></tr></thead>
       <tbody>
-        <tr><td class="mono">amortization</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/amortization">https://mcp.zovo.one/buy/amortization</a></td></tr>
-<tr><td class="mono">asset-register</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/asset-register">https://mcp.zovo.one/buy/asset-register</a></td></tr>
-<tr><td class="mono">backlink-checker</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/backlink-checker">https://mcp.zovo.one/buy/backlink-checker</a></td></tr>
-<tr><td class="mono">bank-statement</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/bank-statement">https://mcp.zovo.one/buy/bank-statement</a></td></tr>
-<tr><td class="mono">barcode</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/barcode">https://mcp.zovo.one/buy/barcode</a></td></tr>
-<tr><td class="mono">bill-of-sale</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/bill-of-sale">https://mcp.zovo.one/buy/bill-of-sale</a></td></tr>
-<tr><td class="mono">billing-docs</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/billing-docs">https://mcp.zovo.one/buy/billing-docs</a></td></tr>
-<tr><td class="mono">budget</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/budget">https://mcp.zovo.one/buy/budget</a></td></tr>
+        <tr><td class="mono">time-tracker</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/time-tracker">https://mcp.zovo.one/buy/time-tracker</a></td></tr>
+<tr><td class="mono">price-tracker</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/price-tracker">https://mcp.zovo.one/buy/price-tracker</a></td></tr>
+<tr><td class="mono">spreadsheet</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/spreadsheet">https://mcp.zovo.one/buy/spreadsheet</a></td></tr>
+<tr><td class="mono">invoice</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/invoice">https://mcp.zovo.one/buy/invoice</a></td></tr>
+<tr><td class="mono">expense-tracker</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/expense-tracker">https://mcp.zovo.one/buy/expense-tracker</a></td></tr>
+<tr><td class="mono">currency</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/currency">https://mcp.zovo.one/buy/currency</a></td></tr>
+<tr><td class="mono">docx</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/docx">https://mcp.zovo.one/buy/docx</a></td></tr>
+<tr><td class="mono">timezone</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/timezone">https://mcp.zovo.one/buy/timezone</a></td></tr>
+<tr><td class="mono">resume</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/resume">https://mcp.zovo.one/buy/resume</a></td></tr>
+<tr><td class="mono">recurring</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/recurring">https://mcp.zovo.one/buy/recurring</a></td></tr>
+<tr><td class="mono">clauses</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/clauses">https://mcp.zovo.one/buy/clauses</a></td></tr>
 <tr><td class="mono">calendar</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/calendar">https://mcp.zovo.one/buy/calendar</a></td></tr>
+<tr><td class="mono">pdf</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/pdf">https://mcp.zovo.one/buy/pdf</a></td></tr>
+<tr><td class="mono">image</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/image">https://mcp.zovo.one/buy/image</a></td></tr>
+<tr><td class="mono">bank-statement</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/bank-statement">https://mcp.zovo.one/buy/bank-statement</a></td></tr>
+<tr><td class="mono">kanban</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/kanban">https://mcp.zovo.one/buy/kanban</a></td></tr>
+<tr><td class="mono">quotes</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/quotes">https://mcp.zovo.one/buy/quotes</a></td></tr>
+<tr><td class="mono">barcode</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/barcode">https://mcp.zovo.one/buy/barcode</a></td></tr>
+<tr><td class="mono">zip</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/zip">https://mcp.zovo.one/buy/zip</a></td></tr>
+<tr><td class="mono">billing-docs</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/billing-docs">https://mcp.zovo.one/buy/billing-docs</a></td></tr>
+<tr><td class="mono">deposits</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/deposits">https://mcp.zovo.one/buy/deposits</a></td></tr>
+<tr><td class="mono">per-diem</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/per-diem">https://mcp.zovo.one/buy/per-diem</a></td></tr>
+<tr><td class="mono">asset-register</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/asset-register">https://mcp.zovo.one/buy/asset-register</a></td></tr>
+<tr><td class="mono">statement-of-account</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/statement-of-account">https://mcp.zovo.one/buy/statement-of-account</a></td></tr>
 <tr><td class="mono">cash-book</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/cash-book">https://mcp.zovo.one/buy/cash-book</a></td></tr>
+<tr><td class="mono">amortization</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/amortization">https://mcp.zovo.one/buy/amortization</a></td></tr>
+<tr><td class="mono">petty-cash</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/petty-cash">https://mcp.zovo.one/buy/petty-cash</a></td></tr>
+<tr><td class="mono">work-order</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/work-order">https://mcp.zovo.one/buy/work-order</a></td></tr>
 <tr><td class="mono">catalogue</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/catalogue">https://mcp.zovo.one/buy/catalogue</a></td></tr>
 <tr><td class="mono">change-order</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/change-order">https://mcp.zovo.one/buy/change-order</a></td></tr>
-<tr><td class="mono">checklist</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/checklist">https://mcp.zovo.one/buy/checklist</a></td></tr>
-<tr><td class="mono">clauses</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/clauses">https://mcp.zovo.one/buy/clauses</a></td></tr>
-<tr><td class="mono">credit-note</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/credit-note">https://mcp.zovo.one/buy/credit-note</a></td></tr>
-<tr><td class="mono">currency</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/currency">https://mcp.zovo.one/buy/currency</a></td></tr>
 <tr><td class="mono">delivery-schedule</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/delivery-schedule">https://mcp.zovo.one/buy/delivery-schedule</a></td></tr>
-<tr><td class="mono">deposits</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/deposits">https://mcp.zovo.one/buy/deposits</a></td></tr>
-<tr><td class="mono">docx</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/docx">https://mcp.zovo.one/buy/docx</a></td></tr>
-<tr><td class="mono">dunning-letters</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/dunning-letters">https://mcp.zovo.one/buy/dunning-letters</a></td></tr>
-<tr><td class="mono">expense-tracker</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/expense-tracker">https://mcp.zovo.one/buy/expense-tracker</a></td></tr>
-<tr><td class="mono">goods-receipt</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/goods-receipt">https://mcp.zovo.one/buy/goods-receipt</a></td></tr>
-<tr><td class="mono">hourly-rate</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/hourly-rate">https://mcp.zovo.one/buy/hourly-rate</a></td></tr>
-<tr><td class="mono">image</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/image">https://mcp.zovo.one/buy/image</a></td></tr>
-<tr><td class="mono">invoice</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/invoice">https://mcp.zovo.one/buy/invoice</a></td></tr>
+<tr><td class="mono">packing-list</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/packing-list">https://mcp.zovo.one/buy/packing-list</a></td></tr>
+<tr><td class="mono">checklist</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/checklist">https://mcp.zovo.one/buy/checklist</a></td></tr>
+<tr><td class="mono">bill-of-sale</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/bill-of-sale">https://mcp.zovo.one/buy/bill-of-sale</a></td></tr>
+<tr><td class="mono">credit-note</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/credit-note">https://mcp.zovo.one/buy/credit-note</a></td></tr>
 <tr><td class="mono">job-card</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/job-card">https://mcp.zovo.one/buy/job-card</a></td></tr>
-<tr><td class="mono">kanban</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/kanban">https://mcp.zovo.one/buy/kanban</a></td></tr>
-<tr><td class="mono">leave</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/leave">https://mcp.zovo.one/buy/leave</a></td></tr>
-<tr><td class="mono">loan-calculator</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/loan-calculator">https://mcp.zovo.one/buy/loan-calculator</a></td></tr>
+<tr><td class="mono">dunning-letters</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/dunning-letters">https://mcp.zovo.one/buy/dunning-letters</a></td></tr>
+<tr><td class="mono">supplier-list</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/supplier-list">https://mcp.zovo.one/buy/supplier-list</a></td></tr>
+<tr><td class="mono">service-agreement</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/service-agreement">https://mcp.zovo.one/buy/service-agreement</a></td></tr>
 <tr><td class="mono">maintenance-log</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/maintenance-log">https://mcp.zovo.one/buy/maintenance-log</a></td></tr>
 <tr><td class="mono">mileage-log</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/mileage-log">https://mcp.zovo.one/buy/mileage-log</a></td></tr>
-<tr><td class="mono">office-suite</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/office-suite">https://mcp.zovo.one/buy/office-suite</a></td></tr>
 <tr><td class="mono">onboarding</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/onboarding">https://mcp.zovo.one/buy/onboarding</a></td></tr>
-<tr><td class="mono">packing-list</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/packing-list">https://mcp.zovo.one/buy/packing-list</a></td></tr>
-<tr><td class="mono">payroll</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/payroll">https://mcp.zovo.one/buy/payroll</a></td></tr>
-<tr><td class="mono">pdf</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/pdf">https://mcp.zovo.one/buy/pdf</a></td></tr>
-<tr><td class="mono">per-diem</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/per-diem">https://mcp.zovo.one/buy/per-diem</a></td></tr>
-<tr><td class="mono">petty-cash</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/petty-cash">https://mcp.zovo.one/buy/petty-cash</a></td></tr>
-<tr><td class="mono">pomodoro</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/pomodoro">https://mcp.zovo.one/buy/pomodoro</a></td></tr>
-<tr><td class="mono">price-tracker</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/price-tracker">https://mcp.zovo.one/buy/price-tracker</a></td></tr>
+<tr><td class="mono">backlink-checker</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/backlink-checker">https://mcp.zovo.one/buy/backlink-checker</a></td></tr>
+<tr><td class="mono">goods-receipt</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/goods-receipt">https://mcp.zovo.one/buy/goods-receipt</a></td></tr>
 <tr><td class="mono">purchase-requisition</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/purchase-requisition">https://mcp.zovo.one/buy/purchase-requisition</a></td></tr>
-<tr><td class="mono">quotes</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/quotes">https://mcp.zovo.one/buy/quotes</a></td></tr>
-<tr><td class="mono">receipts</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/receipts">https://mcp.zovo.one/buy/receipts</a></td></tr>
-<tr><td class="mono">recurring</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/recurring">https://mcp.zovo.one/buy/recurring</a></td></tr>
-<tr><td class="mono">resume</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/resume">https://mcp.zovo.one/buy/resume</a></td></tr>
-<tr><td class="mono">service-agreement</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/service-agreement">https://mcp.zovo.one/buy/service-agreement</a></td></tr>
-<tr><td class="mono">spreadsheet</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/spreadsheet">https://mcp.zovo.one/buy/spreadsheet</a></td></tr>
-<tr><td class="mono">statement-of-account</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/statement-of-account">https://mcp.zovo.one/buy/statement-of-account</a></td></tr>
-<tr><td class="mono">stripe-billing</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/stripe-billing">https://mcp.zovo.one/buy/stripe-billing</a></td></tr>
-<tr><td class="mono">supplier-list</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/supplier-list">https://mcp.zovo.one/buy/supplier-list</a></td></tr>
-<tr><td class="mono">tax-calc</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/tax-calc">https://mcp.zovo.one/buy/tax-calc</a></td></tr>
+<tr><td class="mono">leave</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/leave">https://mcp.zovo.one/buy/leave</a></td></tr>
 <tr><td class="mono">three-way-match</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/three-way-match">https://mcp.zovo.one/buy/three-way-match</a></td></tr>
-<tr><td class="mono">time-tracker</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/time-tracker">https://mcp.zovo.one/buy/time-tracker</a></td></tr>
-<tr><td class="mono">timezone</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/timezone">https://mcp.zovo.one/buy/timezone</a></td></tr>
-<tr><td class="mono">work-order</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/work-order">https://mcp.zovo.one/buy/work-order</a></td></tr>
-<tr><td class="mono">zip</td><td class="num mono">$19</td><td><a href="https://mcp.zovo.one/buy/zip">https://mcp.zovo.one/buy/zip</a></td></tr>
+<tr><td class="mono">bundle</td><td class="num mono">$39</td><td><a href="https://mcp.zovo.one/buy/bundle">https://mcp.zovo.one/buy/bundle</a></td></tr>
       </tbody>
     </table>
     </div>
@@ -1491,7 +1484,8 @@
     <table>
       <thead><tr><th>at</th><th>note</th></tr></thead>
       <tbody>
-        <tr><td class="mono">2026-10-12T03:24:07Z</td><td>s20261012c wrap: billing suite 173/173 GREEN (fixed mcp-license env: zod vendored, timezone symlinked; hourly-rate added to notYetSellable honesty gate); hourly-rate MCP server scaffolded by agent (server.json, tests, README); ledger+dashboard rendered; XTR Telegram rail now delivers real MCPL1 keys (roundtrip verified)</td></tr>
+        <tr><td class="mono">2026-10-16T00:58:12.827Z</td><td>R36: checked live payment/search data, released checkout fixes, built line-level matcher with free pagination, hardened outreach, and started four-hour production observation. Product publication remains in progress.</td></tr>
+<tr><td class="mono">2026-10-12T03:24:07Z</td><td>s20261012c wrap: billing suite 173/173 GREEN (fixed mcp-license env: zod vendored, timezone symlinked; hourly-rate added to notYetSellable honesty gate); hourly-rate MCP server scaffolded by agent (server.json, tests, README); ledger+dashboard rendered; XTR Telegram rail now delivers real MCPL1 keys (roundtrip verified)</td></tr>
 <tr><td class="mono">2026-10-12T03:19:48Z</td><td>s20261012c monetization session: verified checkout-page fix live (329-&gt;6162 chars at buy/invoice); fixed bundle desc/pro count drift (hardcoded 46 -&gt; derived 47); XTR Telegram fulfillment wired end-to-end (pre-checkout payload gate, real Ed25519 mint on successful_payment, payments.log ledger, roundtrip PROVEN against billing verifyLicenseKey; wrong-product rejected); single-buy flow now carries server in payload; pricing copy drift fixed; agents delivered NEW-SERVER-SPECS (19KB, 6 specs) + BLIND_R2 (16KB); billing tests green except pre-existing mint.test env issue and 47-server honesty gate awaiting in-flight hourly-rate server</td></tr>
 <tr><td class="mono">2026-09-29T03:26:02.265Z</td><td>R7 fact-check: 2 paid Stripe sessions = REAL humans (renoboost.belfort, jesswilensky via /pricing founding tier, $38); 894 lic:* keys minted in REMOTE_DATA; &#39;0 minted&#39; and &#39;all-QA&#39; claims corrected; funnel works - constraint is /pricing traffic</td></tr>
 <tr><td class="mono">2026-09-19T15:08:23.660Z</td><td>S49: hosted Stripe checkout verified end-to-end (two-step intent flow, live cs_live session); validation 1244/1244; billing 163/163</td></tr>
@@ -1638,7 +1632,7 @@
 <li>billing-docs: smithery not published (unknown)</li>
 <li>billing-docs: glama not published (unknown)</li>
 <li>budget: build not present (dist/index.js missing) — run npm run build</li>
-<li>budget: no tools parsed from src/index.ts (missing or not yet written)</li>
+<li>budget: tool inventory unmeasured: Built entry is missing; no build was attempted; run node scripts/collect-ledger-tool-inventory.mjs budget</li>
 <li>budget: LICENSE missing</li>
 <li>budget: smithery.yaml missing</li>
 <li>budget: Dockerfile missing</li>
@@ -1718,7 +1712,6 @@
 <li>goods-receipt: github not published (unknown)</li>
 <li>goods-receipt: smithery not published (unknown)</li>
 <li>goods-receipt: glama not published (unknown)</li>
-<li>hourly-rate: no tools parsed from src/index.ts (missing or not yet written)</li>
 <li>hourly-rate: LICENSE missing</li>
 <li>hourly-rate: RESULT.md missing or has no status line</li>
 <li>hourly-rate: npm not published (unknown)</li>
@@ -1752,7 +1745,7 @@
 <li>leave: smithery not published (unknown)</li>
 <li>leave: glama not published (unknown)</li>
 <li>loan-calculator: build not present (dist/index.js missing) — run npm run build</li>
-<li>loan-calculator: no tools parsed from src/index.ts (missing or not yet written)</li>
+<li>loan-calculator: tool inventory unmeasured: Built entry is missing; no build was attempted; run node scripts/collect-ledger-tool-inventory.mjs loan-calculator</li>
 <li>loan-calculator: LICENSE missing</li>
 <li>loan-calculator: smithery.yaml missing</li>
 <li>loan-calculator: Dockerfile missing</li>
@@ -1772,7 +1765,6 @@
 <li>mileage-log: github not published (unknown)</li>
 <li>mileage-log: smithery not published (unknown)</li>
 <li>mileage-log: glama not published (unknown)</li>
-<li>office-suite: no tools parsed from src/index.ts (missing or not yet written)</li>
 <li>office-suite: npm not published (unknown)</li>
 <li>office-suite: registry not published (unknown)</li>
 <li>office-suite: github not published (unknown)</li>
@@ -1789,7 +1781,7 @@
 <li>packing-list: smithery not published (unknown)</li>
 <li>packing-list: glama not published (unknown)</li>
 <li>payroll: build not present (dist/index.js missing) — run npm run build</li>
-<li>payroll: no tools parsed from src/index.ts (missing or not yet written)</li>
+<li>payroll: tool inventory unmeasured: Built entry is missing; no build was attempted; run node scripts/collect-ledger-tool-inventory.mjs payroll</li>
 <li>payroll: LICENSE missing</li>
 <li>payroll: smithery.yaml missing</li>
 <li>payroll: Dockerfile missing</li>
@@ -1815,7 +1807,7 @@
 <li>petty-cash: smithery not published (unknown)</li>
 <li>petty-cash: glama not published (unknown)</li>
 <li>pomodoro: build not present (dist/index.js missing) — run npm run build</li>
-<li>pomodoro: no tools parsed from src/index.ts (missing or not yet written)</li>
+<li>pomodoro: tool inventory unmeasured: Built entry is missing; no build was attempted; run node scripts/collect-ledger-tool-inventory.mjs pomodoro</li>
 <li>pomodoro: LICENSE missing</li>
 <li>pomodoro: smithery.yaml missing</li>
 <li>pomodoro: Dockerfile missing</li>
@@ -1841,7 +1833,7 @@
 <li>quotes: smithery not published (unknown)</li>
 <li>quotes: glama not published (unknown)</li>
 <li>receipts: build not present (dist/index.js missing) — run npm run build</li>
-<li>receipts: no tools parsed from src/index.ts (missing or not yet written)</li>
+<li>receipts: tool inventory unmeasured: Built entry is missing; no build was attempted; run node scripts/collect-ledger-tool-inventory.mjs receipts</li>
 <li>receipts: LICENSE missing</li>
 <li>receipts: smithery.yaml missing</li>
 <li>receipts: Dockerfile missing</li>
@@ -1877,7 +1869,7 @@
 <li>statement-of-account: smithery not published (unknown)</li>
 <li>statement-of-account: glama not published (unknown)</li>
 <li>stripe-billing: build not present (dist/index.js missing) — run npm run build</li>
-<li>stripe-billing: no tools parsed from src/index.ts (missing or not yet written)</li>
+<li>stripe-billing: tool inventory unmeasured: Built entry is missing; no build was attempted; run node scripts/collect-ledger-tool-inventory.mjs stripe-billing</li>
 <li>stripe-billing: LICENSE missing</li>
 <li>stripe-billing: smithery.yaml missing</li>
 <li>stripe-billing: Dockerfile missing</li>
@@ -1893,7 +1885,7 @@
 <li>supplier-list: smithery not published (unknown)</li>
 <li>supplier-list: glama not published (unknown)</li>
 <li>tax-calc: build not present (dist/index.js missing) — run npm run build</li>
-<li>tax-calc: no tools parsed from src/index.ts (missing or not yet written)</li>
+<li>tax-calc: tool inventory unmeasured: Built entry is missing; no build was attempted; run node scripts/collect-ledger-tool-inventory.mjs tax-calc</li>
 <li>tax-calc: LICENSE missing</li>
 <li>tax-calc: smithery.yaml missing</li>
 <li>tax-calc: Dockerfile missing</li>

@@ -1,0 +1,518 @@
+{
+  "recorded_at": "2026-10-16T04:04:58.568369+00:00",
+  "status": "PASS",
+  "evidence_scope": "Summary of completed checks; no test, build or inventory reruns performed to write this record.",
+  "checked_outputs": [
+    "data/ledger.json",
+    "dashboard/index.html",
+    "index.html"
+  ],
+  "checked_rows": {
+    "office-suite": {
+      "tool_count": 441,
+      "inventory_status": "measured",
+      "measured_at": "2026-10-16T03:53:36.592Z",
+      "version": "0.22.6",
+      "price_usd": 39,
+      "offer": {
+        "kind": "bundle",
+        "price_usd": 39,
+        "product_id": "bundle",
+        "url": "https://mcp.zovo.one/buy/bundle",
+        "label": "Estate bundle $39",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      }
+    },
+    "three-way-match": {
+      "tool_count": 8,
+      "inventory_status": "measured",
+      "measured_at": "2026-10-16T03:54:03.515Z",
+      "version": "0.22.6",
+      "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "three-way-match",
+        "url": "https://mcp.zovo.one/buy/three-way-match",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      }
+    },
+    "hourly-rate": {
+      "tool_count": 5,
+      "inventory_status": "measured",
+      "measured_at": "2026-10-16T03:53:33.265Z",
+      "version": "0.22.6",
+      "price_usd": 0,
+      "offer": {
+        "kind": "free",
+        "price_usd": 0,
+        "product_id": null,
+        "url": null,
+        "label": "Free; no separate Pro",
+        "optional_bundle": {
+          "product_id": "bundle",
+          "price_usd": 39,
+          "url": "https://mcp.zovo.one/buy/bundle"
+        },
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      }
+    }
+  },
+  "bundle_product": {
+    "id": "bundle",
+    "name": "MCP Servers Bundle (all servers, lifetime)",
+    "kind": "bundle",
+    "price_usd": 39,
+    "product_id": "bundle",
+    "url": "https://mcp.zovo.one/buy/bundle",
+    "label": "Estate bundle $39",
+    "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+  },
+  "coverage": {
+    "measured_servers": 49,
+    "total_servers": 56,
+    "measured_tool_exposures": 976,
+    "unit": "Tool exposures summed across measured servers; office-suite overlaps standalone servers, so this is not a unique tool count",
+    "source": "data/runtime-tool-inventory.json",
+    "max_age_hours": 24,
+    "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62"
+  },
+  "unmeasured_server_ids": [
+    "budget",
+    "loan-calculator",
+    "payroll",
+    "pomodoro",
+    "receipts",
+    "stripe-billing",
+    "tax-calc"
+  ],
+  "canonical_products": {
+    "count": 48,
+    "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS",
+    "singles": 47,
+    "bundle": 1,
+    "free_ids": 8,
+    "aliases_are_additional_products": false
+  },
+  "build_snapshot": {
+    "sha256": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+    "file_count": 810,
+    "node_version": "v22.23.2",
+    "platform": "darwin",
+    "arch": "arm64",
+    "scope": "All workspace package.json, src and dist bytes; root package/lock and installed dependency lock; Node version/platform/architecture. Conservative shared fingerprint covers proxy children and local dependency closure."
+  },
+  "freshness_policy": {
+    "maximum_age_hours": 24,
+    "checks": [
+      "measurement timestamp including future-date rejection",
+      "package version",
+      "built entry path",
+      "shared workspace build/dependency SHA-256",
+      "well-formed nonempty unique tools/list inventory"
+    ],
+    "unknown_count": null
+  },
+  "negative_controls": {
+    "status": "PASS",
+    "rejection_case_count": 11,
+    "cases": [
+      "missing",
+      "failed",
+      "partial",
+      "expired",
+      "future timestamp",
+      "changed build fingerprint",
+      "changed package version",
+      "wrong built entry",
+      "malformed null tool",
+      "duplicate tool name",
+      "empty inventory"
+    ],
+    "result": "Every case returned null tool_count and a status other than measured."
+  },
+  "real_byte_mutation_controls": {
+    "status": "PASS",
+    "mutation_count": 5,
+    "mutated_inputs": [
+      "server dist/index.js",
+      "shared-package dist/index.js",
+      "server package.json",
+      "server src/index.ts",
+      "node_modules/.package-lock.json"
+    ],
+    "result": "Deterministic initial fingerprint; each real file-byte mutation changed SHA-256. Isolated fixture removed after lsof and manifest recording."
+  },
+  "completed_checks": {
+    "parser_checks": {
+      "status": "PASS",
+      "command": "node --check <script>",
+      "scripts": [
+        "scripts/runtime-tool-inventory.mjs",
+        "scripts/collect-ledger-tool-inventory.mjs",
+        "scripts/dashboard-offers.mjs",
+        "scripts/update-dashboard.mjs",
+        "scripts/render-main.mjs"
+      ]
+    },
+    "diff_check": {
+      "status": "PASS",
+      "command": "git diff --check -- <the five scripts>"
+    },
+    "generated_output_assertions": {
+      "status": "PASS",
+      "observations": [
+        "office-suite 441 tools and $39 canonical /buy/bundle offer",
+        "three-way-match 8 tools and $19 single Pro offer",
+        "hourly-rate 5 tools, free/no separate Pro, optional $39 estate bundle",
+        "bundle $39; canonical product table equals PRODUCTS keys and excludes alias-only products",
+        "49 measured inventories across 56 server folders; seven missing builds remain null/unmeasured",
+        "976 summed tool exposures explicitly labeled as overlapping, not unique",
+        "KPI labels show 14 current / 32 recorded, including category freshness labels",
+        "Test summaries labeled historical recorded RESULT.md evidence; inventory refresh does not claim tests were rerun"
+      ]
+    },
+    "commands_completed": [
+      "node scripts/collect-ledger-tool-inventory.mjs three-way-match office-suite",
+      "node scripts/collect-ledger-tool-inventory.mjs",
+      "node scripts/update-dashboard.mjs",
+      "node scripts/render-main.mjs"
+    ],
+    "full_collection_exit": {
+      "exit_code": 1,
+      "reason": "Seven built entries missing; each persisted explicitly as unmeasured. All 49 available built entries measured successfully."
+    }
+  },
+  "operation_scope": {
+    "changes": "Dashboard inventory/data-quality and offer generators only; runtime/server behavior and billing source unchanged.",
+    "measurement": "Existing built entries: initialize and complete paginated tools/list only. No tools/call.",
+    "builds": 0,
+    "broad_test_suites": 0,
+    "paid_calls": 0,
+    "publications": 0,
+    "commits": 0
+  },
+  "cleanup": {
+    "manifest": "data/build-deletions.jsonl",
+    "inventory_scope_count": 51,
+    "inventory_scope_max_bytes": 0,
+    "fingerprint_control_scope_count": 1,
+    "total_scope_count": 52,
+    "completed_verification": "All recorded scopes were lsof-checked and confirmed absent during completed verification.",
+    "record_details": [
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-DwwIPM",
+        "bytes": 0,
+        "at": "2026-10-16T03:52:31.783Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-pNthmw",
+        "bytes": 0,
+        "at": "2026-10-16T03:52:44.401Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-udyixS",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:24.525Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-8wOBZP",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:24.918Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-AsIeFn",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:25.298Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-5eq2s8",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:25.681Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-dnsCMP",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:26.185Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-hSW6x6",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:26.567Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-uPaxax",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:27.061Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-fQal0A",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:27.452Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-uhBbJY",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:27.902Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-38vqfj",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:28.375Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-uaDWrO",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:28.923Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-jjteOo",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:29.426Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-nOxWDp",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:29.866Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-79UY2w",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:30.255Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-5wAkcT",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:30.642Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-cvYtK5",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:31.154Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-JvfL50",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:31.649Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-hsuett",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:32.056Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-pvJ3zg",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:32.438Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-Q5uDAd",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:32.905Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-Ucjn5g",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:33.265Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-KJgLHl",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:33.635Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-rpQFo4",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:34.089Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-ucOYJT",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:34.541Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-NJ3lyP",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:34.921Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-Om8Fmm",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:35.354Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-YCoV1e",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:35.832Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-mWtxij",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:36.220Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-8dRXuI",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:36.591Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-NUkkVa",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:55.163Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-w1ded4",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:55.747Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-DMPjdg",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:56.313Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-wKNyyd",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:57.012Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-wSmjDL",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:57.588Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-1UiULD",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:58.284Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-c7HFgL",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:58.868Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-K6N0LS",
+        "bytes": 0,
+        "at": "2026-10-16T03:53:59.467Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-oA41Gf",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:00.069Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-uptkGf",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:00.722Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-mOZSs3",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:01.212Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-Mux7qS",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:01.661Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-XnhEUu",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:02.194Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-eXVc3J",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:02.973Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-4s8Fpu",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:03.515Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-JlLR9o",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:03.973Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-rgmfK8",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:04.426Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-T3xnC8",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:04.892Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-qLJFnA",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:05.470Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/tool-inventory-SzKzEb",
+        "bytes": 0,
+        "at": "2026-10-16T03:54:05.923Z",
+        "reason": "completed isolated runtime inventory"
+      },
+      {
+        "path": "/Users/mike/mcp-servers-work/inventory-fingerprint-control-r1AUJO",
+        "bytes": 77,
+        "at": "2026-10-16T03:56:31.599Z",
+        "reason": "runtime inventory fingerprint control"
+      }
+    ]
+  }
+}

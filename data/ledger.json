@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T00:58:12.827Z",
+  "generated_at": "2026-10-16T03:57:54.065Z",
   "session": {
     "count": 103,
     "history": [
@@ -430,13 +430,38 @@
         "loan_journal",
         "loan_list",
         "loan_delete",
-        "loans_report"
+        "loans_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 7,
+      "tool_count": 9,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:24.000Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/amortization/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "amortization",
+        "url": "https://mcp.zovo.one/buy/amortization",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- npm test -w servers/amortization: # tests 41 / # pass 41 / # fail 0",
+      "test_evidence": {
+        "source": "servers/amortization/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1093,
       "files_present": {
@@ -466,13 +491,38 @@
         "asset_journal",
         "asset_dispose",
         "asset_delete",
-        "asset_report"
+        "asset_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 7,
+      "tool_count": 9,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:24.526Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/asset-register/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "asset-register",
+        "url": "https://mcp.zovo.one/buy/asset-register",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- npm test -w servers/asset-register: # tests 45 / # pass 45 / # fail 0 / # skipped 0",
+      "test_evidence": {
+        "source": "servers/asset-register/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1373,
       "files_present": {
@@ -501,13 +551,38 @@
         "anchor_profile",
         "referring_domain_summary",
         "outreach_queue",
-        "robots_guard_check"
+        "robots_guard_check",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 6,
+      "tool_count": 8,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:24.919Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/backlink-checker/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "backlink-checker",
+        "url": "https://mcp.zovo.one/buy/backlink-checker",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/backlink-checker/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "pending",
       "loc": 263,
       "files_present": {
@@ -540,13 +615,38 @@
         "reconcile_expenses",
         "recurring_detect",
         "statement_export",
-        "accounts_list"
+        "accounts_list",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 10,
+      "tool_count": 12,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:25.298Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/bank-statement/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "bank-statement",
+        "url": "https://mcp.zovo.one/buy/bank-statement",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 60 / # fail 0 / # pass 28 / # fail 0 / # pass 14   # fail 0 / # pass 6    # fail 0   duration_ms 1391 / # pass 8    # fail 0",
+      "test_evidence": {
+        "source": "servers/bank-statement/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1647,
       "files_present": {
@@ -570,6 +670,8 @@
       "version": "0.22.6",
       "dir": "servers/barcode",
       "tools": [
+        "license_status",
+        "license_activate",
         "qr_create",
         "qr_wifi",
         "qr_vcard",
@@ -579,11 +681,34 @@
         "barcode_batch",
         "code_list"
       ],
-      "tool_count": 8,
+      "tool_count": 10,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:25.681Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/barcode/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "barcode",
+        "url": "https://mcp.zovo.one/buy/barcode",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- `cd servers/barcode && node --test test/*.test.mjs` -> `# tests 38 / # pass 38 / # fail 0 / duration_ms 2825`.",
+      "test_evidence": {
+        "source": "servers/barcode/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1357,
       "files_present": {
@@ -614,13 +739,38 @@
         "sale_get",
         "sale_delete",
         "sale_render",
-        "sale_summary"
+        "sale_summary",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 8,
+      "tool_count": 10,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:26.186Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/bill-of-sale/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "bill-of-sale",
+        "url": "https://mcp.zovo.one/buy/bill-of-sale",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# tests 2  # pass 2  # fail 0  # duration_ms 460.433208 / ## failures",
+      "test_evidence": {
+        "source": "servers/bill-of-sale/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 922,
       "files_present": {
@@ -657,13 +807,38 @@
         "purchase_order_text",
         "purchase_order_receive",
         "purchase_order_delete",
-        "billing_docs_report"
+        "billing_docs_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 14,
+      "tool_count": 16,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:26.567Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/billing-docs/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "billing-docs",
+        "url": "https://mcp.zovo.one/buy/billing-docs",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 34 / # fail 0",
+      "test_evidence": {
+        "source": "servers/billing-docs/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1709,
       "files_present": {
@@ -687,11 +862,39 @@
       "version": "0.22.6",
       "dir": "servers/budget",
       "tools": [],
-      "tool_count": 0,
+      "tool_count": null,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:27.062Z",
+        "status": "unmeasured",
+        "reason": "Built entry is missing; no build was attempted",
+        "built_entry": "servers/budget/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
-      "price_usd": 19,
+      "price_usd": 0,
+      "offer": {
+        "kind": "free",
+        "price_usd": 0,
+        "product_id": null,
+        "url": null,
+        "label": "Free; no separate Pro",
+        "optional_bundle": {
+          "product_id": "bundle",
+          "price_usd": 39,
+          "url": "https://mcp.zovo.one/buy/bundle"
+        },
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": false,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/budget/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "pending",
       "loc": 3,
       "files_present": {
@@ -715,6 +918,8 @@
       "version": "0.22.6",
       "dir": "servers/calendar",
       "tools": [
+        "license_status",
+        "license_activate",
         "ics_import",
         "calendars_list",
         "events_list",
@@ -726,11 +931,34 @@
         "event_to_time_entry",
         "ics_forget"
       ],
-      "tool_count": 10,
+      "tool_count": 12,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:27.062Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/calendar/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "calendar",
+        "url": "https://mcp.zovo.one/buy/calendar",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 36 / # fail 0 / # pass 51 / # fail 0 / ## failures",
+      "test_evidence": {
+        "source": "servers/calendar/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 2057,
       "files_present": {
@@ -760,13 +988,38 @@
         "ledger_lines",
         "month_close",
         "ledger_export_csv",
-        "ledger_report"
+        "ledger_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 7,
+      "tool_count": 9,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:27.453Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/cash-book/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "cash-book",
+        "url": "https://mcp.zovo.one/buy/cash-book",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- npm test -w servers/cash-book: # tests 41 / # pass 41 / # fail 0",
+      "test_evidence": {
+        "source": "servers/cash-book/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1530,
       "files_present": {
@@ -799,13 +1052,38 @@
         "lines_resolve",
         "price_list_text",
         "price_list_pdf",
-        "catalogue_report"
+        "catalogue_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 10,
+      "tool_count": 12,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:27.903Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/catalogue/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "catalogue",
+        "url": "https://mcp.zovo.one/buy/catalogue",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- npm test --workspace @theluckystrike/mcp-catalogue: # tests 42 / # pass 42 / # fail 0",
+      "test_evidence": {
+        "source": "servers/catalogue/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1318,
       "files_present": {
@@ -837,13 +1115,38 @@
         "change_order_delete",
         "contract_value",
         "change_order_document",
-        "change_order_invoice_payload"
+        "change_order_invoice_payload",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 9,
+      "tool_count": 11,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:28.376Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/change-order/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "change-order",
+        "url": "https://mcp.zovo.one/buy/change-order",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- npm test --workspace @theluckystrike/mcp-change-order: # tests 47 / # pass 47 / # fail 0",
+      "test_evidence": {
+        "source": "servers/change-order/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1284,
       "files_present": {
@@ -880,13 +1183,38 @@
         "run_sign_off",
         "run_status",
         "run_report",
-        "run_delete"
+        "run_delete",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 14,
+      "tool_count": 16,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:28.924Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/checklist/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "checklist",
+        "url": "https://mcp.zovo.one/buy/checklist",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/checklist/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1089,
       "files_present": {
@@ -919,13 +1247,38 @@
         "clause_import",
         "clause_export",
         "contract_assemble",
-        "variables_list"
+        "variables_list",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 10,
+      "tool_count": 12,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:29.426Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/clauses/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "clauses",
+        "url": "https://mcp.zovo.one/buy/clauses",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 15 / # fail 0 / ## failures",
+      "test_evidence": {
+        "source": "servers/clauses/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1357,
       "files_present": {
@@ -956,13 +1309,38 @@
         "credit_note_get",
         "credit_note_delete",
         "credit_note_render",
-        "credit_note_summary"
+        "credit_note_summary",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 8,
+      "tool_count": 10,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:29.867Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/credit-note/dist/index.js",
+        "version": "0.22.8",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "credit-note",
+        "url": "https://mcp.zovo.one/buy/credit-note",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- node --test test/*.test.mjs: # tests 16 / # pass 16 / # fail 0 (2.53s)",
+      "test_evidence": {
+        "source": "servers/credit-note/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 979,
       "files_present": {
@@ -993,13 +1371,38 @@
         "rate_history",
         "rate_on",
         "currencies_list",
-        "cache_status"
+        "cache_status",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 8,
+      "tool_count": 10,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:30.256Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/currency/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "currency",
+        "url": "https://mcp.zovo.one/buy/currency",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 21 / # fail 0",
+      "test_evidence": {
+        "source": "servers/currency/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1153,
       "files_present": {
@@ -1032,13 +1435,38 @@
         "delivery_schedule_delete",
         "late_report",
         "delivery_schedule_document",
-        "milestone_payload"
+        "milestone_payload",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 10,
+      "tool_count": 12,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:30.643Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/delivery-schedule/dist/index.js",
+        "version": "0.22.7",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "delivery-schedule",
+        "url": "https://mcp.zovo.one/buy/delivery-schedule",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 53 / # fail 0 / ## failures",
+      "test_evidence": {
+        "source": "servers/delivery-schedule/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1501,
       "files_present": {
@@ -1070,13 +1498,38 @@
         "deposit_balance",
         "deposit_statement_text",
         "deposit_statement_pdf",
-        "deposits_report"
+        "deposits_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 9,
+      "tool_count": 11,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:31.155Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/deposits/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "deposits",
+        "url": "https://mcp.zovo.one/buy/deposits",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- npm test -w servers/deposits: # tests 31 / # pass 31 / # fail 0 / # skipped 0, 2.9 s",
+      "test_evidence": {
+        "source": "servers/deposits/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1018,
       "files_present": {
@@ -1108,13 +1561,38 @@
         "doc_fill_template",
         "proposal_create",
         "proposal_update",
-        "contract_create"
+        "contract_create",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 9,
+      "tool_count": 11,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:31.650Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/docx/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "docx",
+        "url": "https://mcp.zovo.one/buy/docx",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 8 / # fail 0 / ## failures",
+      "test_evidence": {
+        "source": "servers/docx/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1958,
       "files_present": {
@@ -1146,13 +1624,38 @@
         "aging_summary",
         "chase_today",
         "invoice_status",
-        "invoice_delete"
+        "invoice_delete",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 9,
+      "tool_count": 11,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:32.056Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/dunning-letters/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "dunning-letters",
+        "url": "https://mcp.zovo.one/buy/dunning-letters",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- node --test test/*.test.mjs: # tests 1 / # pass 1 / # fail 0; duration_ms 222; 1s wall",
+      "test_evidence": {
+        "source": "servers/dunning-letters/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1049,
       "files_present": {
@@ -1187,13 +1690,38 @@
         "mileage_add",
         "expense_export",
         "expense_to_invoice",
-        "expense_mark_rebilled"
+        "expense_mark_rebilled",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 12,
+      "tool_count": 14,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:32.439Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/expense-tracker/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "expense-tracker",
+        "url": "https://mcp.zovo.one/buy/expense-tracker",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 14 / # fail 0 / 1..21 / # pass 21 / # fail 0 / # duration_ms 818",
+      "test_evidence": {
+        "source": "servers/expense-tracker/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1420,
       "files_present": {
@@ -1225,13 +1753,38 @@
         "grn_discrepancy",
         "grn_close",
         "grn_status_report",
-        "grn_export_csv"
+        "grn_export_csv",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 9,
+      "tool_count": 11,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:32.905Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/goods-receipt/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "goods-receipt",
+        "url": "https://mcp.zovo.one/buy/goods-receipt",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/goods-receipt/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 611,
       "files_present": {
@@ -1254,12 +1807,46 @@
       "npm_name": "@theluckystrike/mcp-hourly-rate",
       "version": "0.22.6",
       "dir": "servers/hourly-rate",
-      "tools": [],
-      "tool_count": 0,
+      "tools": [
+        "license_status",
+        "license_activate",
+        "calculate_rate",
+        "break_even",
+        "what_if"
+      ],
+      "tool_count": 5,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:33.265Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/hourly-rate/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
-      "price_usd": 19,
+      "price_usd": 0,
+      "offer": {
+        "kind": "free",
+        "price_usd": 0,
+        "product_id": null,
+        "url": null,
+        "label": "Free; no separate Pro",
+        "optional_bundle": {
+          "product_id": "bundle",
+          "price_usd": 39,
+          "url": "https://mcp.zovo.one/buy/bundle"
+        },
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/hourly-rate/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "pending",
       "loc": 174,
       "files_present": {
@@ -1292,13 +1879,38 @@
         "image_watermark",
         "image_strip_metadata",
         "image_batch_resize",
-        "image_dominant_colors"
+        "image_dominant_colors",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 10,
+      "tool_count": 12,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:33.636Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/image/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "image",
+        "url": "https://mcp.zovo.one/buy/image",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 20 / # fail 0 / ## failures",
+      "test_evidence": {
+        "source": "servers/image/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1190,
       "files_present": {
@@ -1332,13 +1944,38 @@
         "invoice_get",
         "invoice_mark_paid",
         "invoice_pdf",
-        "overdue_report"
+        "overdue_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 11,
+      "tool_count": 13,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:34.089Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/invoice/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "invoice",
+        "url": "https://mcp.zovo.one/buy/invoice",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 12 / # fail 0",
+      "test_evidence": {
+        "source": "servers/invoice/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1715,
       "files_present": {
@@ -1370,13 +2007,38 @@
         "job_card_get",
         "job_card_print",
         "job_card_delete",
-        "job_card_summary"
+        "job_card_summary",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 9,
+      "tool_count": 11,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:34.541Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/job-card/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "job-card",
+        "url": "https://mcp.zovo.one/buy/job-card",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 7 / # fail 0",
+      "test_evidence": {
+        "source": "servers/job-card/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 906,
       "files_present": {
@@ -1400,6 +2062,8 @@
       "version": "0.22.6",
       "dir": "servers/kanban",
       "tools": [
+        "license_status",
+        "license_activate",
         "task_add",
         "task_list",
         "task_move",
@@ -1416,11 +2080,34 @@
         "weekly_review",
         "columns_set"
       ],
-      "tool_count": 15,
+      "tool_count": 17,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:34.922Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/kanban/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "kanban",
+        "url": "https://mcp.zovo.one/buy/kanban",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- `npm test -w servers/kanban`: `# tests 11 / # pass 11 / # fail 0 / # duration_ms 504.8`, wall `npm test 0.699 total`",
+      "test_evidence": {
+        "source": "servers/kanban/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1154,
       "files_present": {
@@ -1453,13 +2140,38 @@
         "leave_list",
         "leave_import",
         "leave_export_ics",
+        "license_status",
+        "license_activate",
         "leave_cancel"
       ],
-      "tool_count": 10,
+      "tool_count": 12,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:35.354Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/leave/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "leave",
+        "url": "https://mcp.zovo.one/buy/leave",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/leave/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 741,
       "files_present": {
@@ -1483,11 +2195,39 @@
       "version": "0.22.6",
       "dir": "servers/loan-calculator",
       "tools": [],
-      "tool_count": 0,
+      "tool_count": null,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:35.833Z",
+        "status": "unmeasured",
+        "reason": "Built entry is missing; no build was attempted",
+        "built_entry": "servers/loan-calculator/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
-      "price_usd": 19,
+      "price_usd": 0,
+      "offer": {
+        "kind": "free",
+        "price_usd": 0,
+        "product_id": null,
+        "url": null,
+        "label": "Free; no separate Pro",
+        "optional_bundle": {
+          "product_id": "bundle",
+          "price_usd": 39,
+          "url": "https://mcp.zovo.one/buy/bundle"
+        },
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": false,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/loan-calculator/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "pending",
       "loc": 3,
       "files_present": {
@@ -1516,13 +2256,38 @@
         "maintenance_due",
         "asset_history",
         "maintenance_export",
-        "asset_remove"
+        "asset_remove",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 6,
+      "tool_count": 8,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:35.833Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/maintenance-log/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "maintenance-log",
+        "url": "https://mcp.zovo.one/buy/maintenance-log",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 7 / # fail 0",
+      "test_evidence": {
+        "source": "servers/maintenance-log/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 635,
       "files_present": {
@@ -1552,13 +2317,38 @@
         "rate_set",
         "rate_list",
         "mileage_summary",
-        "mileage_export"
+        "mileage_export",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 7,
+      "tool_count": 9,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:36.221Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/mileage-log/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "mileage-log",
+        "url": "https://mcp.zovo.one/buy/mileage-log",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 9 / # fail 0",
+      "test_evidence": {
+        "source": "servers/mileage-log/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 770,
       "files_present": {
@@ -1581,12 +2371,477 @@
       "npm_name": "@theluckystrike/mcp-office-suite",
       "version": "0.22.6",
       "dir": "servers/office-suite",
-      "tools": [],
-      "tool_count": 0,
-      "free_limits": "pending",
-      "price_usd": 19,
+      "tools": [
+        "timer_start",
+        "timer_stop",
+        "timer_status",
+        "entry_add",
+        "entry_log",
+        "summary_day",
+        "summary_week",
+        "summary_client",
+        "target_set",
+        "target_check",
+        "entry_list",
+        "entry_delete",
+        "entry_edit",
+        "project_set_rate",
+        "report",
+        "export_csv",
+        "entry_mark_billed",
+        "invoice_summary",
+        "price_check",
+        "watch_add",
+        "watch_list",
+        "watch_remove",
+        "watch_refresh",
+        "price_history",
+        "price_add_manual",
+        "alerts_pending",
+        "sheet_info",
+        "sheet_read",
+        "sheet_query",
+        "sheet_stats",
+        "sheet_find",
+        "sheet_write",
+        "sheet_add_column",
+        "sheet_convert",
+        "client_add",
+        "client_delete",
+        "client_list",
+        "invoice_create",
+        "invoice_from_hours",
+        "invoice_list",
+        "invoice_get",
+        "invoice_mark_paid",
+        "invoice_pdf",
+        "overdue_report",
+        "expense_add",
+        "expense_list",
+        "expense_update",
+        "expense_delete",
+        "receipt_attach",
+        "expense_settings",
+        "expense_summary",
+        "mileage_add",
+        "expense_export",
+        "expense_to_invoice",
+        "expense_mark_rebilled",
+        "rates_latest",
+        "convert",
+        "convert_many",
+        "fx_rates_for",
+        "rate_history",
+        "rate_on",
+        "currencies_list",
+        "cache_status",
+        "invoice_business_set",
+        "docx_business_set",
+        "doc_create",
+        "doc_from_markdown",
+        "doc_read",
+        "doc_to_html",
+        "doc_fill_template",
+        "proposal_create",
+        "proposal_update",
+        "contract_create",
+        "now",
+        "convert_time",
+        "overlap",
+        "find_meeting_slots",
+        "dst_changes",
+        "business_days",
+        "contacts_set",
+        "contacts_list",
+        "ics_create",
+        "profile_set",
+        "profile_get",
+        "resume_create",
+        "resume_to_markdown",
+        "resume_to_html",
+        "resume_read",
+        "cover_letter_create",
+        "tailor_to_job",
+        "schedule_create",
+        "schedule_list",
+        "schedule_get",
+        "schedule_update",
+        "schedule_pause",
+        "schedule_resume",
+        "schedule_delete",
+        "schedule_skip",
+        "schedule_upcoming",
+        "invoice_generate_due",
+        "schedule_history",
+        "forecast",
+        "clause_add",
+        "clause_get",
+        "clause_update",
+        "clause_delete",
+        "clause_list",
+        "clause_search",
+        "clause_import",
+        "clause_export",
+        "contract_assemble",
+        "variables_list",
+        "pdf_info",
+        "pdf_count",
+        "pdf_merge",
+        "pdf_split",
+        "pdf_pages",
+        "pdf_rotate",
+        "pdf_stamp",
+        "pdf_watermark_business",
+        "pdf_reorder",
+        "pdf_text",
+        "ics_import",
+        "calendars_list",
+        "events_list",
+        "events_search",
+        "free_busy",
+        "conflicts",
+        "next_event",
+        "event_export",
+        "event_to_time_entry",
+        "ics_forget",
+        "task_add",
+        "task_list",
+        "task_move",
+        "task_update",
+        "task_done",
+        "task_delete",
+        "task_search",
+        "board",
+        "task_start_timer",
+        "task_log_time",
+        "project_list",
+        "project_delete",
+        "overdue",
+        "weekly_review",
+        "columns_set",
+        "image_info",
+        "image_resize",
+        "image_convert",
+        "image_compress",
+        "image_crop",
+        "image_thumbnails",
+        "image_watermark",
+        "image_strip_metadata",
+        "image_batch_resize",
+        "image_dominant_colors",
+        "statement_import",
+        "transactions_list",
+        "transactions_search",
+        "expense-tracker_category_rules",
+        "bank-statement_category_rules",
+        "transaction_categorize",
+        "statement_summary",
+        "reconcile_expenses",
+        "recurring_detect",
+        "statement_export",
+        "accounts_list",
+        "quote_create",
+        "quote_list",
+        "quote_get",
+        "quote_update",
+        "quote_send_text",
+        "quote_accept",
+        "quote_decline",
+        "quote_delete",
+        "quote_pdf",
+        "quote_report",
+        "qr_create",
+        "qr_wifi",
+        "qr_vcard",
+        "qr_payment_sepa",
+        "invoice_payment_qr",
+        "barcode_create",
+        "barcode_batch",
+        "code_list",
+        "zip_create",
+        "zip_list",
+        "zip_extract",
+        "zip_add",
+        "zip_extract_text",
+        "zip_bundle_month",
+        "zip_history",
+        "credit_note_pdf",
+        "credit_note_text",
+        "purchase_order_create",
+        "purchase_order_list",
+        "purchase_order_get",
+        "purchase_order_pdf",
+        "purchase_order_text",
+        "purchase_order_receive",
+        "purchase_order_delete",
+        "billing_docs_report",
+        "deposit_record",
+        "deposit_list",
+        "deposit_apply",
+        "deposit_refund",
+        "deposit_delete",
+        "deposit_balance",
+        "deposit_statement_text",
+        "deposit_statement_pdf",
+        "deposits_report",
+        "perdiem_rates",
+        "perdiem_calc",
+        "trip_record",
+        "trip_delete",
+        "trip_export",
+        "perdiem_report",
+        "asset_list",
+        "asset_schedule",
+        "asset_journal",
+        "asset_dispose",
+        "asset_delete",
+        "asset_report",
+        "statement_build",
+        "statement_aging",
+        "statement_text",
+        "statement_pdf",
+        "dunning_text",
+        "statements_report",
+        "ledger_build",
+        "period_delete",
+        "trial_balance",
+        "ledger_lines",
+        "month_close",
+        "ledger_export_csv",
+        "ledger_report",
+        "loan_create",
+        "loan_schedule",
+        "loan_repay_early",
+        "loan_journal",
+        "loan_list",
+        "loan_delete",
+        "loans_report",
+        "float_open",
+        "topup_record",
+        "voucher_add",
+        "voucher_delete",
+        "reconcile",
+        "replenish_request",
+        "float_report",
+        "work_order_create",
+        "work_order_add_line",
+        "work_order_status",
+        "work_order_get",
+        "work_order_list",
+        "work_order_delete",
+        "completion_report_text",
+        "completion_report_pdf",
+        "work_order_invoice_payload",
+        "work_orders_report",
+        "sku_set",
+        "sku_get",
+        "sku_list",
+        "sku_delete",
+        "rate_get",
+        "lines_resolve",
+        "price_list_text",
+        "price_list_pdf",
+        "catalogue_report",
+        "change_order_create",
+        "change_order_add_line",
+        "change_order_status",
+        "change_order_get",
+        "change_order_list",
+        "change_order_delete",
+        "contract_value",
+        "change_order_document",
+        "change_order_invoice_payload",
+        "delivery_schedule_create",
+        "deliverable_add",
+        "deliverable_status",
+        "deliverable_delete",
+        "delivery_schedule_get",
+        "delivery_schedule_list",
+        "delivery_schedule_delete",
+        "late_report",
+        "delivery_schedule_document",
+        "milestone_payload",
+        "packing_list_create",
+        "packing_expect",
+        "carton_add",
+        "pack_item",
+        "unpack_item",
+        "packing_list_show",
+        "packing_list_list",
+        "carton_report",
+        "packing_shortfall",
+        "packing_list_status",
+        "packing_slip",
+        "packing_list_delete",
+        "checklist_create",
+        "checklist_item_add",
+        "checklist_item_remove",
+        "checklist_show",
+        "checklist_list",
+        "checklist_delete",
+        "purchase-requisition_create",
+        "purchase-requisition_item_add",
+        "purchase-requisition_item_remove",
+        "purchase-requisition_show",
+        "purchase-requisition_list",
+        "purchase-requisition_delete",
+        "checklist_run_start",
+        "purchase-requisition_run_start",
+        "checklist_run_check",
+        "purchase-requisition_run_check",
+        "checklist_run_show",
+        "purchase-requisition_run_show",
+        "checklist_run_list",
+        "purchase-requisition_run_list",
+        "checklist_run_sign_off",
+        "purchase-requisition_run_sign_off",
+        "checklist_run_status",
+        "purchase-requisition_run_status",
+        "checklist_run_report",
+        "purchase-requisition_run_report",
+        "checklist_run_delete",
+        "purchase-requisition_run_delete",
+        "sale_create",
+        "sale_update",
+        "sale_finalize",
+        "sale_list",
+        "sale_get",
+        "sale_delete",
+        "sale_render",
+        "sale_summary",
+        "billing-docs_credit_note_create",
+        "credit-note_credit_note_create",
+        "credit_note_update",
+        "credit_note_finalize",
+        "billing-docs_credit_note_list",
+        "credit-note_credit_note_list",
+        "billing-docs_credit_note_get",
+        "credit-note_credit_note_get",
+        "billing-docs_credit_note_delete",
+        "credit-note_credit_note_delete",
+        "credit_note_render",
+        "credit_note_summary",
+        "job_card_create",
+        "job_card_log_labor",
+        "job_card_log_material",
+        "job_card_update_status",
+        "job_card_list",
+        "job_card_get",
+        "job_card_print",
+        "job_card_delete",
+        "job_card_summary",
+        "invoice_register",
+        "payment_record",
+        "letter_render",
+        "letter_sent",
+        "overdue_list",
+        "aging_summary",
+        "chase_today",
+        "invoice_status",
+        "invoice_delete",
+        "supplier_add",
+        "supplier_list",
+        "supplier_get",
+        "supplier_update",
+        "supplier_remove",
+        "supplier_mark_reviewed",
+        "supplier_due_review",
+        "supplier_export",
+        "agreement_create",
+        "agreement_get",
+        "agreement_list",
+        "agreement_update_status",
+        "clause_library",
+        "agreement_render",
+        "agreement_checklist",
+        "asset-register_asset_add",
+        "maintenance-log_asset_add",
+        "maintenance_log",
+        "maintenance_due",
+        "asset_history",
+        "maintenance_export",
+        "asset_remove",
+        "trip_add",
+        "per-diem_trip_list",
+        "mileage-log_trip_list",
+        "trip_remove",
+        "catalogue_rate_set",
+        "mileage-log_rate_set",
+        "rate_list",
+        "mileage_summary",
+        "mileage_export",
+        "po_add",
+        "grn_add",
+        "grn_line_add",
+        "grn_list",
+        "grn_get",
+        "grn_discrepancy",
+        "grn_close",
+        "grn_status_report",
+        "grn_export_csv",
+        "leave_employee_add",
+        "leave_request",
+        "leave_approve",
+        "leave_reject",
+        "leave_balance",
+        "leave_out_range",
+        "leave_list",
+        "leave_import",
+        "leave_export_ics",
+        "leave_cancel",
+        "onboarding_hire_add",
+        "onboarding_hire_list",
+        "onboarding_task_add",
+        "onboarding_task_done",
+        "onboarding_template_apply",
+        "onboarding_progress",
+        "onboarding_overdue",
+        "link_check",
+        "link_audit",
+        "anchor_profile",
+        "referring_domain_summary",
+        "outreach_queue",
+        "robots_guard_check",
+        "three_way_match",
+        "report_list",
+        "report_get",
+        "report_page",
+        "report_delete",
+        "report_export_csv",
+        "calculate_rate",
+        "break_even",
+        "what_if",
+        "license_status",
+        "license_activate"
+      ],
+      "tool_count": 441,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:36.592Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/office-suite/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
+      "free_limits": "| Free | Pro bundle |",
+      "price_usd": 39,
+      "offer": {
+        "kind": "bundle",
+        "price_usd": 39,
+        "product_id": "bundle",
+        "url": "https://mcp.zovo.one/buy/bundle",
+        "label": "Estate bundle $39",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 1 / # fail 0",
+      "test_evidence": {
+        "source": "servers/office-suite/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 452,
       "files_present": {
@@ -1616,13 +2871,38 @@
         "onboarding_task_done",
         "onboarding_template_apply",
         "onboarding_progress",
-        "onboarding_overdue"
+        "onboarding_overdue",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 7,
+      "tool_count": 9,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:55.165Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/onboarding/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "onboarding",
+        "url": "https://mcp.zovo.one/buy/onboarding",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/onboarding/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 663,
       "files_present": {
@@ -1657,13 +2937,38 @@
         "packing_shortfall",
         "packing_list_status",
         "packing_slip",
-        "packing_list_delete"
+        "packing_list_delete",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 12,
+      "tool_count": 14,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:55.748Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/packing-list/dist/index.js",
+        "version": "0.22.8",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "packing-list",
+        "url": "https://mcp.zovo.one/buy/packing-list",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/packing-list/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1167,
       "files_present": {
@@ -1687,11 +2992,39 @@
       "version": "0.22.6",
       "dir": "servers/payroll",
       "tools": [],
-      "tool_count": 0,
+      "tool_count": null,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:56.313Z",
+        "status": "unmeasured",
+        "reason": "Built entry is missing; no build was attempted",
+        "built_entry": "servers/payroll/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
-      "price_usd": 19,
+      "price_usd": 0,
+      "offer": {
+        "kind": "free",
+        "price_usd": 0,
+        "product_id": null,
+        "url": null,
+        "label": "Free; no separate Pro",
+        "optional_bundle": {
+          "product_id": "bundle",
+          "price_usd": 39,
+          "url": "https://mcp.zovo.one/buy/bundle"
+        },
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": false,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/payroll/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "pending",
       "loc": 3,
       "files_present": {
@@ -1724,13 +3057,38 @@
         "pdf_stamp",
         "pdf_watermark_business",
         "pdf_reorder",
-        "pdf_text"
+        "pdf_text",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 10,
+      "tool_count": 12,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:56.314Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/pdf/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "pdf",
+        "url": "https://mcp.zovo.one/buy/pdf",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 24 / # fail 0 / ## failures",
+      "test_evidence": {
+        "source": "servers/pdf/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1330,
       "files_present": {
@@ -1760,13 +3118,38 @@
         "trip_list",
         "trip_delete",
         "trip_export",
-        "perdiem_report"
+        "perdiem_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 7,
+      "tool_count": 9,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:57.013Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/per-diem/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "per-diem",
+        "url": "https://mcp.zovo.one/buy/per-diem",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- npm test -w servers/per-diem: # tests 33 / # pass 33 / # fail 0 / # skipped 0",
+      "test_evidence": {
+        "source": "servers/per-diem/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "PARTIAL",
       "loc": 1246,
       "files_present": {
@@ -1796,13 +3179,38 @@
         "voucher_delete",
         "reconcile",
         "replenish_request",
-        "float_report"
+        "float_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 7,
+      "tool_count": 9,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:57.589Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/petty-cash/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "petty-cash",
+        "url": "https://mcp.zovo.one/buy/petty-cash",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- npm test -w servers/petty-cash: # tests 41 / # pass 41 / # fail 0 / - node --test test/*.test.mjs (repo-wide): # tests 86 / # pass 86 / # fail 0",
+      "test_evidence": {
+        "source": "servers/petty-cash/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 912,
       "files_present": {
@@ -1826,11 +3234,39 @@
       "version": "0.22.6",
       "dir": "servers/pomodoro",
       "tools": [],
-      "tool_count": 0,
+      "tool_count": null,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:58.285Z",
+        "status": "unmeasured",
+        "reason": "Built entry is missing; no build was attempted",
+        "built_entry": "servers/pomodoro/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
-      "price_usd": 19,
+      "price_usd": 0,
+      "offer": {
+        "kind": "free",
+        "price_usd": 0,
+        "product_id": null,
+        "url": null,
+        "label": "Free; no separate Pro",
+        "optional_bundle": {
+          "product_id": "bundle",
+          "price_usd": 39,
+          "url": "https://mcp.zovo.one/buy/bundle"
+        },
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": false,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/pomodoro/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "pending",
       "loc": 3,
       "files_present": {
@@ -1861,13 +3297,38 @@
         "watch_refresh",
         "price_history",
         "price_add_manual",
-        "alerts_pending"
+        "alerts_pending",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 8,
+      "tool_count": 10,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:58.285Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/price-tracker/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "price-tracker",
+        "url": "https://mcp.zovo.one/buy/price-tracker",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 18 / # fail 0",
+      "test_evidence": {
+        "source": "servers/price-tracker/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1506,
       "files_present": {
@@ -1904,13 +3365,38 @@
         "run_sign_off",
         "run_status",
         "run_report",
-        "run_delete"
+        "run_delete",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 14,
+      "tool_count": 16,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:58.869Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/purchase-requisition/dist/index.js",
+        "version": "0.22.8",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "purchase-requisition",
+        "url": "https://mcp.zovo.one/buy/purchase-requisition",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/purchase-requisition/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1089,
       "files_present": {
@@ -1943,13 +3429,38 @@
         "quote_decline",
         "quote_delete",
         "quote_pdf",
-        "quote_report"
+        "quote_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 10,
+      "tool_count": 12,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:53:59.467Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/quotes/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "quotes",
+        "url": "https://mcp.zovo.one/buy/quotes",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- `npm test -w servers/quotes`: `# tests 25 / # pass 24 / # fail 0 / # skipped 1 / # duration_ms 2542.5`,",
+      "test_evidence": {
+        "source": "servers/quotes/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1368,
       "files_present": {
@@ -1973,11 +3484,39 @@
       "version": "0.22.6",
       "dir": "servers/receipts",
       "tools": [],
-      "tool_count": 0,
+      "tool_count": null,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:00.070Z",
+        "status": "unmeasured",
+        "reason": "Built entry is missing; no build was attempted",
+        "built_entry": "servers/receipts/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
-      "price_usd": 19,
+      "price_usd": 0,
+      "offer": {
+        "kind": "free",
+        "price_usd": 0,
+        "product_id": null,
+        "url": null,
+        "label": "Free; no separate Pro",
+        "optional_bundle": {
+          "product_id": "bundle",
+          "price_usd": 39,
+          "url": "https://mcp.zovo.one/buy/bundle"
+        },
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": false,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/receipts/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "pending",
       "loc": 3,
       "files_present": {
@@ -2012,13 +3551,38 @@
         "schedule_upcoming",
         "invoice_generate_due",
         "schedule_history",
-        "forecast"
+        "forecast",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 12,
+      "tool_count": 14,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:00.070Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/recurring/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "recurring",
+        "url": "https://mcp.zovo.one/buy/recurring",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 28 / # fail 0 / # pass 13 / # fail 0",
+      "test_evidence": {
+        "source": "servers/recurring/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1166,
       "files_present": {
@@ -2049,13 +3613,38 @@
         "resume_to_html",
         "resume_read",
         "cover_letter_create",
-        "tailor_to_job"
+        "tailor_to_job",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 8,
+      "tool_count": 10,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:00.723Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/resume/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "resume",
+        "url": "https://mcp.zovo.one/buy/resume",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# tests 22   # pass 22   # fail 0 / # tests 12   # pass 12   # fail 0",
+      "test_evidence": {
+        "source": "servers/resume/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1585,
       "files_present": {
@@ -2085,13 +3674,38 @@
         "agreement_update_status",
         "clause_library",
         "agreement_render",
-        "agreement_checklist"
+        "agreement_checklist",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 7,
+      "tool_count": 9,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:01.213Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/service-agreement/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "service-agreement",
+        "url": "https://mcp.zovo.one/buy/service-agreement",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 6 / # fail 0 / ## failures",
+      "test_evidence": {
+        "source": "servers/service-agreement/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 909,
       "files_present": {
@@ -2115,6 +3729,8 @@
       "version": "0.22.6",
       "dir": "servers/spreadsheet",
       "tools": [
+        "license_status",
+        "license_activate",
         "sheet_info",
         "sheet_read",
         "sheet_query",
@@ -2124,11 +3740,34 @@
         "sheet_add_column",
         "sheet_convert"
       ],
-      "tool_count": 8,
+      "tool_count": 10,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:01.662Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/spreadsheet/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "spreadsheet",
+        "url": "https://mcp.zovo.one/buy/spreadsheet",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 31 / # fail 0",
+      "test_evidence": {
+        "source": "servers/spreadsheet/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1616,
       "files_present": {
@@ -2157,13 +3796,38 @@
         "statement_text",
         "statement_pdf",
         "dunning_text",
-        "statements_report"
+        "statements_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 6,
+      "tool_count": 8,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:02.195Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/statement-of-account/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "statement-of-account",
+        "url": "https://mcp.zovo.one/buy/statement-of-account",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- npm test -w servers/statement-of-account: # tests 47 / # pass 47 / # fail 0 / - npm test -w servers/invoice: # tests 49 / # pass 48 / # fail 0",
+      "test_evidence": {
+        "source": "servers/statement-of-account/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1357,
       "files_present": {
@@ -2187,11 +3851,39 @@
       "version": "0.22.6",
       "dir": "servers/stripe-billing",
       "tools": [],
-      "tool_count": 0,
+      "tool_count": null,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:02.973Z",
+        "status": "unmeasured",
+        "reason": "Built entry is missing; no build was attempted",
+        "built_entry": "servers/stripe-billing/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
-      "price_usd": 19,
+      "price_usd": 0,
+      "offer": {
+        "kind": "free",
+        "price_usd": 0,
+        "product_id": null,
+        "url": null,
+        "label": "Free; no separate Pro",
+        "optional_bundle": {
+          "product_id": "bundle",
+          "price_usd": 39,
+          "url": "https://mcp.zovo.one/buy/bundle"
+        },
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": false,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/stripe-billing/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "pending",
       "loc": 3,
       "files_present": {
@@ -2222,13 +3914,38 @@
         "supplier_remove",
         "supplier_mark_reviewed",
         "supplier_due_review",
-        "supplier_export"
+        "supplier_export",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 8,
+      "tool_count": 10,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:02.974Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/supplier-list/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "supplier-list",
+        "url": "https://mcp.zovo.one/buy/supplier-list",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 7 / # fail 0 / ## failures",
+      "test_evidence": {
+        "source": "servers/supplier-list/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 593,
       "files_present": {
@@ -2252,11 +3969,39 @@
       "version": "0.22.6",
       "dir": "servers/tax-calc",
       "tools": [],
-      "tool_count": 0,
+      "tool_count": null,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:03.515Z",
+        "status": "unmeasured",
+        "reason": "Built entry is missing; no build was attempted",
+        "built_entry": "servers/tax-calc/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
-      "price_usd": 19,
+      "price_usd": 0,
+      "offer": {
+        "kind": "free",
+        "price_usd": 0,
+        "product_id": null,
+        "url": null,
+        "label": "Free; no separate Pro",
+        "optional_bundle": {
+          "product_id": "bundle",
+          "price_usd": 39,
+          "url": "https://mcp.zovo.one/buy/bundle"
+        },
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": false,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/tax-calc/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "pending",
       "loc": 3,
       "files_present": {
@@ -2285,13 +4030,38 @@
         "report_get",
         "report_page",
         "report_delete",
-        "report_export_csv"
+        "report_export_csv",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 6,
+      "tool_count": 8,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:03.515Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/three-way-match/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "three-way-match",
+        "url": "https://mcp.zovo.one/buy/three-way-match",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "pending",
+      "test_evidence": {
+        "source": "servers/three-way-match/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 315,
       "files_present": {
@@ -2315,6 +4085,8 @@
       "version": "0.22.6",
       "dir": "servers/time-tracker",
       "tools": [
+        "license_status",
+        "license_activate",
         "timer_start",
         "timer_stop",
         "timer_status",
@@ -2334,11 +4106,34 @@
         "entry_mark_billed",
         "invoice_summary"
       ],
-      "tool_count": 18,
+      "tool_count": 20,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:03.973Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/time-tracker/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "time-tracker",
+        "url": "https://mcp.zovo.one/buy/time-tracker",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 2 / # fail 0",
+      "test_evidence": {
+        "source": "servers/time-tracker/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1476,
       "files_present": {
@@ -2362,6 +4157,8 @@
       "version": "0.22.6",
       "dir": "servers/timezone",
       "tools": [
+        "license_status",
+        "license_activate",
         "now",
         "convert_time",
         "overlap",
@@ -2372,11 +4169,34 @@
         "contacts_list",
         "ics_create"
       ],
-      "tool_count": 9,
+      "tool_count": 11,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:04.426Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/timezone/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "timezone",
+        "url": "https://mcp.zovo.one/buy/timezone",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "# pass 23 / # fail 0",
+      "test_evidence": {
+        "source": "servers/timezone/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1940,
       "files_present": {
@@ -2409,13 +4229,38 @@
         "completion_report_text",
         "completion_report_pdf",
         "work_order_invoice_payload",
-        "work_orders_report"
+        "work_orders_report",
+        "license_status",
+        "license_activate"
       ],
-      "tool_count": 10,
+      "tool_count": 12,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:04.893Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/work-order/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "work-order",
+        "url": "https://mcp.zovo.one/buy/work-order",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- npm test -w servers/work-order: # tests 43 / # pass 43 / # fail 0 / - node --test test/*.test.mjs (repo-wide): # tests 89 / # pass 89 / # fail 0",
+      "test_evidence": {
+        "source": "servers/work-order/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1197,
       "files_present": {
@@ -2439,6 +4284,8 @@
       "version": "0.22.6",
       "dir": "servers/zip",
       "tools": [
+        "license_status",
+        "license_activate",
         "zip_create",
         "zip_list",
         "zip_extract",
@@ -2447,11 +4294,34 @@
         "zip_bundle_month",
         "zip_history"
       ],
-      "tool_count": 7,
+      "tool_count": 9,
+      "tool_inventory": {
+        "source": "data/runtime-tool-inventory.json",
+        "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+        "measured_at": "2026-10-16T03:54:05.471Z",
+        "status": "measured",
+        "reason": null,
+        "built_entry": "servers/zip/dist/index.js",
+        "version": "0.22.6",
+        "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+        "max_age_hours": 24
+      },
       "free_limits": "pending",
       "price_usd": 19,
+      "offer": {
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "zip",
+        "url": "https://mcp.zovo.one/buy/zip",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
       "build_ok": true,
       "test_summary": "- `cd servers/zip && npm test` -> `# tests 38 / # pass 38 / # fail 0 / duration_ms 3890`, five files (unit, adversarial, concurrency, contract, smoke).",
+      "test_evidence": {
+        "source": "servers/zip/RESULT.md",
+        "freshness": "Historical recorded result; inventory collection does not rerun tests"
+      },
       "result_status": "DONE",
       "loc": 1199,
       "files_present": {
@@ -2470,291 +4340,501 @@
       }
     }
   ],
+  "tool_summary": {
+    "measured_servers": 49,
+    "total_servers": 56,
+    "measured_tool_exposures": 976,
+    "unit": "Tool exposures summed across measured servers; office-suite overlaps standalone servers, so this is not a unique tool count",
+    "source": "data/runtime-tool-inventory.json",
+    "max_age_hours": 24,
+    "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62"
+  },
   "billing": {
     "status": "DONE",
     "urls": [],
     "products": [
       {
-        "id": "amortization",
+        "id": "time-tracker",
+        "name": "MCP Time Tracker Pro",
+        "kind": "single",
         "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/amortization"
-      },
-      {
-        "id": "asset-register",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/asset-register"
-      },
-      {
-        "id": "backlink-checker",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/backlink-checker"
-      },
-      {
-        "id": "bank-statement",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/bank-statement"
-      },
-      {
-        "id": "barcode",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/barcode"
-      },
-      {
-        "id": "bill-of-sale",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/bill-of-sale"
-      },
-      {
-        "id": "billing-docs",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/billing-docs"
-      },
-      {
-        "id": "budget",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/budget"
-      },
-      {
-        "id": "calendar",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/calendar"
-      },
-      {
-        "id": "cash-book",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/cash-book"
-      },
-      {
-        "id": "catalogue",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/catalogue"
-      },
-      {
-        "id": "change-order",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/change-order"
-      },
-      {
-        "id": "checklist",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/checklist"
-      },
-      {
-        "id": "clauses",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/clauses"
-      },
-      {
-        "id": "credit-note",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/credit-note"
-      },
-      {
-        "id": "currency",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/currency"
-      },
-      {
-        "id": "delivery-schedule",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/delivery-schedule"
-      },
-      {
-        "id": "deposits",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/deposits"
-      },
-      {
-        "id": "docx",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/docx"
-      },
-      {
-        "id": "dunning-letters",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/dunning-letters"
-      },
-      {
-        "id": "expense-tracker",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/expense-tracker"
-      },
-      {
-        "id": "goods-receipt",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/goods-receipt"
-      },
-      {
-        "id": "hourly-rate",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/hourly-rate"
-      },
-      {
-        "id": "image",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/image"
-      },
-      {
-        "id": "invoice",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/invoice"
-      },
-      {
-        "id": "job-card",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/job-card"
-      },
-      {
-        "id": "kanban",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/kanban"
-      },
-      {
-        "id": "leave",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/leave"
-      },
-      {
-        "id": "loan-calculator",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/loan-calculator"
-      },
-      {
-        "id": "maintenance-log",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/maintenance-log"
-      },
-      {
-        "id": "mileage-log",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/mileage-log"
-      },
-      {
-        "id": "office-suite",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/office-suite"
-      },
-      {
-        "id": "onboarding",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/onboarding"
-      },
-      {
-        "id": "packing-list",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/packing-list"
-      },
-      {
-        "id": "payroll",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/payroll"
-      },
-      {
-        "id": "pdf",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/pdf"
-      },
-      {
-        "id": "per-diem",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/per-diem"
-      },
-      {
-        "id": "petty-cash",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/petty-cash"
-      },
-      {
-        "id": "pomodoro",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/pomodoro"
+        "product_id": "time-tracker",
+        "url": "https://mcp.zovo.one/buy/time-tracker",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
       },
       {
         "id": "price-tracker",
+        "name": "MCP Price Tracker Pro",
+        "kind": "single",
         "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/price-tracker"
-      },
-      {
-        "id": "purchase-requisition",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/purchase-requisition"
-      },
-      {
-        "id": "quotes",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/quotes"
-      },
-      {
-        "id": "receipts",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/receipts"
-      },
-      {
-        "id": "recurring",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/recurring"
-      },
-      {
-        "id": "resume",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/resume"
-      },
-      {
-        "id": "service-agreement",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/service-agreement"
+        "product_id": "price-tracker",
+        "url": "https://mcp.zovo.one/buy/price-tracker",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
       },
       {
         "id": "spreadsheet",
+        "name": "MCP Spreadsheet Pro",
+        "kind": "single",
         "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/spreadsheet"
+        "product_id": "spreadsheet",
+        "url": "https://mcp.zovo.one/buy/spreadsheet",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
       },
       {
-        "id": "statement-of-account",
+        "id": "invoice",
+        "name": "MCP Invoice Pro",
+        "kind": "single",
         "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/statement-of-account"
+        "product_id": "invoice",
+        "url": "https://mcp.zovo.one/buy/invoice",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
       },
       {
-        "id": "stripe-billing",
+        "id": "expense-tracker",
+        "name": "MCP Expense Tracker Pro",
+        "kind": "single",
         "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/stripe-billing"
+        "product_id": "expense-tracker",
+        "url": "https://mcp.zovo.one/buy/expense-tracker",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
       },
       {
-        "id": "supplier-list",
+        "id": "currency",
+        "name": "MCP Currency Converter Pro",
+        "kind": "single",
         "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/supplier-list"
+        "product_id": "currency",
+        "url": "https://mcp.zovo.one/buy/currency",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
       },
       {
-        "id": "tax-calc",
+        "id": "docx",
+        "name": "MCP Docx Pro",
+        "kind": "single",
         "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/tax-calc"
-      },
-      {
-        "id": "three-way-match",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/three-way-match"
-      },
-      {
-        "id": "time-tracker",
-        "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/time-tracker"
+        "product_id": "docx",
+        "url": "https://mcp.zovo.one/buy/docx",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
       },
       {
         "id": "timezone",
+        "name": "MCP Timezone Planner Pro",
+        "kind": "single",
         "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/timezone"
+        "product_id": "timezone",
+        "url": "https://mcp.zovo.one/buy/timezone",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
       },
       {
-        "id": "work-order",
+        "id": "resume",
+        "name": "MCP Resume and Cover Letter Pro",
+        "kind": "single",
         "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/work-order"
+        "product_id": "resume",
+        "url": "https://mcp.zovo.one/buy/resume",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "recurring",
+        "name": "MCP Recurring Invoices Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "recurring",
+        "url": "https://mcp.zovo.one/buy/recurring",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "clauses",
+        "name": "MCP Clause Library Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "clauses",
+        "url": "https://mcp.zovo.one/buy/clauses",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "calendar",
+        "name": "MCP Calendar Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "calendar",
+        "url": "https://mcp.zovo.one/buy/calendar",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "pdf",
+        "name": "MCP PDF Tools Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "pdf",
+        "url": "https://mcp.zovo.one/buy/pdf",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "image",
+        "name": "MCP Image Tools Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "image",
+        "url": "https://mcp.zovo.one/buy/image",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "bank-statement",
+        "name": "MCP Bank Statement Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "bank-statement",
+        "url": "https://mcp.zovo.one/buy/bank-statement",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "kanban",
+        "name": "MCP Kanban Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "kanban",
+        "url": "https://mcp.zovo.one/buy/kanban",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "quotes",
+        "name": "MCP Quotes Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "quotes",
+        "url": "https://mcp.zovo.one/buy/quotes",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "barcode",
+        "name": "MCP Barcode Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "barcode",
+        "url": "https://mcp.zovo.one/buy/barcode",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
       },
       {
         "id": "zip",
+        "name": "MCP Zip Pro",
+        "kind": "single",
         "price_usd": 19,
-        "url": "https://mcp.zovo.one/buy/zip"
+        "product_id": "zip",
+        "url": "https://mcp.zovo.one/buy/zip",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "billing-docs",
+        "name": "MCP Billing Docs Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "billing-docs",
+        "url": "https://mcp.zovo.one/buy/billing-docs",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "deposits",
+        "name": "MCP Deposits Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "deposits",
+        "url": "https://mcp.zovo.one/buy/deposits",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "per-diem",
+        "name": "MCP Per Diem Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "per-diem",
+        "url": "https://mcp.zovo.one/buy/per-diem",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "asset-register",
+        "name": "MCP Asset Register Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "asset-register",
+        "url": "https://mcp.zovo.one/buy/asset-register",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "statement-of-account",
+        "name": "MCP Statement of Account Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "statement-of-account",
+        "url": "https://mcp.zovo.one/buy/statement-of-account",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "cash-book",
+        "name": "MCP Cash Book Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "cash-book",
+        "url": "https://mcp.zovo.one/buy/cash-book",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "amortization",
+        "name": "MCP Amortization Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "amortization",
+        "url": "https://mcp.zovo.one/buy/amortization",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "petty-cash",
+        "name": "MCP Petty Cash Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "petty-cash",
+        "url": "https://mcp.zovo.one/buy/petty-cash",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "work-order",
+        "name": "MCP Work Order Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "work-order",
+        "url": "https://mcp.zovo.one/buy/work-order",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "catalogue",
+        "name": "MCP Catalogue Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "catalogue",
+        "url": "https://mcp.zovo.one/buy/catalogue",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "change-order",
+        "name": "MCP Change Order Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "change-order",
+        "url": "https://mcp.zovo.one/buy/change-order",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "delivery-schedule",
+        "name": "MCP Delivery Schedule Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "delivery-schedule",
+        "url": "https://mcp.zovo.one/buy/delivery-schedule",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "packing-list",
+        "name": "MCP Packing List Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "packing-list",
+        "url": "https://mcp.zovo.one/buy/packing-list",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "checklist",
+        "name": "MCP Checklist Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "checklist",
+        "url": "https://mcp.zovo.one/buy/checklist",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "bill-of-sale",
+        "name": "MCP Bill of Sale Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "bill-of-sale",
+        "url": "https://mcp.zovo.one/buy/bill-of-sale",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "credit-note",
+        "name": "MCP Credit Note Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "credit-note",
+        "url": "https://mcp.zovo.one/buy/credit-note",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "job-card",
+        "name": "MCP Job Card Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "job-card",
+        "url": "https://mcp.zovo.one/buy/job-card",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "dunning-letters",
+        "name": "MCP Dunning Letters Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "dunning-letters",
+        "url": "https://mcp.zovo.one/buy/dunning-letters",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "supplier-list",
+        "name": "MCP Supplier List Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "supplier-list",
+        "url": "https://mcp.zovo.one/buy/supplier-list",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "service-agreement",
+        "name": "MCP Service Agreement Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "service-agreement",
+        "url": "https://mcp.zovo.one/buy/service-agreement",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "maintenance-log",
+        "name": "MCP Maintenance Log Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "maintenance-log",
+        "url": "https://mcp.zovo.one/buy/maintenance-log",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "mileage-log",
+        "name": "MCP Mileage Log Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "mileage-log",
+        "url": "https://mcp.zovo.one/buy/mileage-log",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "onboarding",
+        "name": "MCP Onboarding Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "onboarding",
+        "url": "https://mcp.zovo.one/buy/onboarding",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "backlink-checker",
+        "name": "MCP Backlink Checker Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "backlink-checker",
+        "url": "https://mcp.zovo.one/buy/backlink-checker",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "goods-receipt",
+        "name": "MCP Goods Receipt Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "goods-receipt",
+        "url": "https://mcp.zovo.one/buy/goods-receipt",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "purchase-requisition",
+        "name": "MCP Purchase Requisition Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "purchase-requisition",
+        "url": "https://mcp.zovo.one/buy/purchase-requisition",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "leave",
+        "name": "MCP Leave Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "leave",
+        "url": "https://mcp.zovo.one/buy/leave",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "three-way-match",
+        "name": "MCP Three-Way Invoice Match Pro",
+        "kind": "single",
+        "price_usd": 19,
+        "product_id": "three-way-match",
+        "url": "https://mcp.zovo.one/buy/three-way-match",
+        "label": "Pro $19",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
+      },
+      {
+        "id": "bundle",
+        "name": "MCP Servers Bundle (all servers, lifetime)",
+        "kind": "bundle",
+        "price_usd": 39,
+        "product_id": "bundle",
+        "url": "https://mcp.zovo.one/buy/bundle",
+        "label": "Estate bundle $39",
+        "source": "billing/src/index.js PRODUCTS/PRODUCT_ALIASES; billing/src/figures.js FREE_IDS"
       }
-    ]
+    ],
+    "product_source": "billing/src/index.js PRODUCTS; aliases are offers, not additional products"
   },
   "docs": [
     {
