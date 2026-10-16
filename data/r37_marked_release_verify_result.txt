@@ -1,0 +1,2 @@
+buildslot[62369] 15:37:37: slot 1 acquired: node scripts/billing-release-gate.mjs verify --expected-version f84bdaac-4d09-4a56-b5f8-3fb8085aecea
+PASS: deployed version f84bdaac-4d09-4a56-b5f8-3fb8085aecea; 60 GET /buy paths returned intent pages; zero new live Stripe Sessions

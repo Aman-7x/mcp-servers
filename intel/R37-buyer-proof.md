@@ -38,4 +38,19 @@ group_count=3, group_memberships=8.
 rules: exact_reference, normalized_reference, same_amount_date.
 ```
 
-Full browser validation and Worker-serving tests remain pending the orchestrator's canonical facts and asset-route wiring. The generated asset hash must be rebuilt if the product core changes before release. No publication, account creation, paid APIs, outgoing messages or production mutations were performed by this workstream.
+## Production browser evidence
+
+After the root agent confirmed the approved billing deployment `f84bdaac-4d09-4a56-b5f8-3fb8085aecea`, this workstream ran:
+
+```text
+node scripts/duplicate-browser-smoke.mjs --live --screenshots
+PASS: 11 browser cases; zero diagnostic requests, storage writes or page errors
+```
+
+The actual product page's proof link opened the production guide and asset in Chrome 155.0.8059.80. Tests exercised all six presets plus edited untrusted HTML-looking references, duplicate record IDs, invalid calendar dates, fractional/unsafe money, save requests, 1,001 records and more than 2 MiB of UTF-8 text. The four-record example returned four distinct candidate records, three reason groups and eight memberships. Negative outputs retained the supplied-batch limitation. Editing and running checks produced zero additional network requests and zero browser-storage writes; no field values were uploaded.
+
+Evidence: `data/r37_duplicate_browser_live_verification.json`. Both `intel/R37-duplicate-demo-live-desktop.png` and `intel/R37-duplicate-demo-live-mobile.png` were opened and visually inspected. The evidence groups, records and price links are readable; the 390-pixel layout uses labeled record cards without horizontal page overflow.
+
+A separate marked GET of `/assets/duplicate-demo.js` downloaded 69,642 bytes. Its SHA-256 exactly matched the local compiled export: `ecf4a6432d9bed34c3f942b7862d450f5915c6c99b374c4a71e72d2a23470504`. Core/UI source input SHA-256: `4e8663e6b97fd4d2b6486760fe60e9d4bb8f1a4eafb538e12574690bfa3a64ce`. Evidence: `data/r37_duplicate_live_asset_verification.json`.
+
+The isolated live-QA Chrome context closed. `lsof` found no open handles before deletion of `/Users/mike/mcp-servers-work/r37-duplicate-browser-S3gkaL` (8,823,854 bytes), recorded in `data/build-deletions.jsonl`; the path is absent. No user browser profile was used or removed. No checkout submission, Stripe command, account creation, paid API, outgoing message or deployment was performed by this workstream. These checks prove the observed example behavior, not demand, paid fulfillment or ROI.

@@ -1,0 +1,675 @@
+buildslot[8581] 16:12:36: slot 1 acquired: env TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local npm test --workspace @theluckystrike/mcp-license --workspace @theluckystrike/mcp-duplicate-invoice-check --workspace @theluckystrike/mcp-three-way-match --workspace @theluckystrike/mcp-office-suite
+
+> @theluckystrike/mcp-license@0.22.7 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: SERVER_COUNT matches the number of servers that actually sell Pro
+ok 1 - SERVER_COUNT matches the number of servers that actually sell Pro
+  ---
+  duration_ms: 30.768334
+  type: 'test'
+  ...
+# Subtest: bundleLink tags the bundle checkout with <product>.<tool>.bundle
+ok 2 - bundleLink tags the bundle checkout with <product>.<tool>.bundle
+  ---
+  duration_ms: 0.20575
+  type: 'test'
+  ...
+# Subtest: bundleLink carries a tenant when one is given, so the hosted binding survives
+ok 3 - bundleLink carries a tenant when one is given, so the hosted binding survives
+  ---
+  duration_ms: 0.081583
+  type: 'test'
+  ...
+# Subtest: bundleSentence names the count and the price
+ok 4 - bundleSentence names the count and the price
+  ---
+  duration_ms: 0.147333
+  type: 'test'
+  ...
+# Subtest: stdio upgradeText ends with the bundle sentence and both links are tagged
+ok 5 - stdio upgradeText ends with the bundle sentence and both links are tagged
+  ---
+  duration_ms: 0.279958
+  type: 'test'
+  ...
+# Subtest: hostedUpgradeText ends with the bundle sentence, and both links carry the tenant
+ok 6 - hostedUpgradeText ends with the bundle sentence, and both links carry the tenant
+  ---
+  duration_ms: 0.200625
+  type: 'test'
+  ...
+# Subtest: the two links on one message never share a src tag
+ok 7 - the two links on one message never share a src tag
+  ---
+  duration_ms: 0.128625
+  type: 'test'
+  ...
+# Subtest: stdio upgradeText tells the client not to total or journal by hand
+ok 8 - stdio upgradeText tells the client not to total or journal by hand
+  ---
+  duration_ms: 0.05675
+  type: 'test'
+  ...
+# Subtest: hostedUpgradeText carries the same sentence
+ok 9 - hostedUpgradeText carries the same sentence
+  ---
+  duration_ms: 0.266375
+  type: 'test'
+  ...
+# Subtest: slugifySrc lowercases, collapses non-alnum runs, trims edges
+ok 10 - slugifySrc lowercases, collapses non-alnum runs, trims edges
+  ---
+  duration_ms: 0.797792
+  type: 'test'
+  ...
+# Subtest: stdio upgradeText tags the buy link with src=<product>.<slug of feature>
+ok 11 - stdio upgradeText tags the buy link with src=<product>.<slug of feature>
+  ---
+  duration_ms: 0.27925
+  type: 'test'
+  ...
+# Subtest: stdio upgradeText prefers an explicit tool name over the feature text
+ok 12 - stdio upgradeText prefers an explicit tool name over the feature text
+  ---
+  duration_ms: 0.111292
+  type: 'test'
+  ...
+# Subtest: hostedUpgradeText tags the buy link and keeps the tenant param
+ok 13 - hostedUpgradeText tags the buy link and keeps the tenant param
+  ---
+  duration_ms: 0.109709
+  type: 'test'
+  ...
+# Subtest: two async holders serialize
+ok 14 - two async holders serialize
+  ---
+  duration_ms: 102.080333
+  type: 'test'
+  ...
+# Subtest: lock is released when the body throws
+ok 15 - lock is released when the body throws
+  ---
+  duration_ms: 0.649833
+  type: 'test'
+  ...
+# Subtest: stale lock is recovered
+ok 16 - stale lock is recovered
+  ---
+  duration_ms: 0.491875
+  type: 'test'
+  ...
+# Subtest: a fresh lock held by someone else times out
+ok 17 - a fresh lock held by someone else times out
+  ---
+  duration_ms: 125.742583
+  type: 'test'
+  ...
+# Subtest: lock creates a missing parent directory
+ok 18 - lock creates a missing parent directory
+  ---
+  duration_ms: 0.728292
+  type: 'test'
+  ...
+# Subtest: the stdio and hosted copies of payment.ts are byte-identical
+ok 19 - the stdio and hosted copies of payment.ts are byte-identical
+  ---
+  duration_ms: 2.181584
+  type: 'test'
+  ...
+# Subtest: the descriptor carries every field a client needs to act
+ok 20 - the descriptor carries every field a client needs to act
+  ---
+  duration_ms: 0.86625
+  type: 'test'
+  ...
+# Subtest: it is honest: no agent-settleable rail is claimed, and x402 is refused explicitly
+ok 21 - it is honest: no agent-settleable rail is claimed, and x402 is refused explicitly
+  ---
+  duration_ms: 0.148334
+  type: 'test'
+  ...
+# Subtest: the elicitation block is the verbatim MCP 2026-07-28 url-mode parameter shape
+ok 22 - the elicitation block is the verbatim MCP 2026-07-28 url-mode parameter shape
+  ---
+  duration_ms: 0.154625
+  type: 'test'
+  ...
+# Subtest: after_payment tells the truth about the transport it is on
+ok 23 - after_payment tells the truth about the transport it is on
+  ---
+  duration_ms: 0.139875
+  type: 'test'
+  ...
+# Subtest: a paid caller is not shown a payment_required status
+ok 24 - a paid caller is not shown a payment_required status
+  ---
+  duration_ms: 0.063417
+  type: 'test'
+  ...
+# Subtest: the builder is pure: same input, same output, no clock
+ok 25 - the builder is pure: same input, same output, no clock
+  ---
+  duration_ms: 0.155667
+  type: 'test'
+  ...
+# Subtest: the stdio gate registers the two licence tools and nothing else
+ok 26 - the stdio gate registers the two licence tools and nothing else
+  ---
+  duration_ms: 0.402708
+  type: 'test'
+  ...
+# Subtest: a host that only implements registerTool still works
+ok 27 - a host that only implements registerTool still works
+  ---
+  duration_ms: 0.359917
+  type: 'test'
+  ...
+# Subtest: license_status now carries the descriptor alongside the prose
+ok 28 - license_status now carries the descriptor alongside the prose
+  ---
+  duration_ms: 0.736167
+  type: 'test'
+  ...
+# Subtest: gate.payment tags a distinct conversion src per reason and tool
+ok 29 - gate.payment tags a distinct conversion src per reason and tool
+  ---
+  duration_ms: 0.397583
+  type: 'test'
+  ...
+# Subtest: D-R48: a bare city name resolves
+ok 30 - D-R48: a bare city name resolves
+  ---
+  duration_ms: 1.429583
+  type: 'test'
+  ...
+# Subtest: D-R48: a full address infers from the city, not the street
+ok 31 - D-R48: a full address infers from the city, not the street
+  ---
+  duration_ms: 0.27625
+  type: 'test'
+  ...
+# Subtest: D-R48: 'Austin, TX' skips the unrecognized state abbreviation and matches the city
+ok 32 - D-R48: 'Austin, TX' skips the unrecognized state abbreviation and matches the city
+  ---
+  duration_ms: 28.7665
+  type: 'test'
+  ...
+# Subtest: D-R48: a newline-separated address is scanned the same way, last segment first
+ok 33 - D-R48: a newline-separated address is scanned the same way, last segment first
+  ---
+  duration_ms: 0.102542
+  type: 'test'
+  ...
+# Subtest: D-R48: an address with no recognizable place infers nothing
+ok 34 - D-R48: an address with no recognizable place infers nothing
+  ---
+  duration_ms: 81.362542
+  type: 'test'
+  ...
+# Subtest: D-R48: an empty or missing address infers nothing
+ok 35 - D-R48: an empty or missing address infers nothing
+  ---
+  duration_ms: 0.101083
+  type: 'test'
+  ...
+# Subtest: valid product key verifies
+ok 36 - valid product key verifies
+  ---
+  duration_ms: 58.030209
+  type: 'test'
+  ...
+# Subtest: bundle key verifies for any product
+ok 37 - bundle key verifies for any product
+  ---
+  duration_ms: 35.453375
+  type: 'test'
+  ...
+# Subtest: wrong product rejected
+ok 38 - wrong product rejected
+  ---
+  duration_ms: 33.263875
+  type: 'test'
+  ...
+# Subtest: expired rejected
+ok 39 - expired rejected
+  ---
+  duration_ms: 36.442042
+  type: 'test'
+  ...
+# Subtest: tampered rejected
+ok 40 - tampered rejected
+  ---
+  duration_ms: 53.479083
+  type: 'test'
+  ...
+# Subtest: garbage rejected
+ok 41 - garbage rejected
+  ---
+  duration_ms: 0.107708
+  type: 'test'
+  ...
+# Subtest: \#19 payload must be an object with the right field types
+ok 42 - \#19 payload must be an object with the right field types
+  ---
+  duration_ms: 2.485458
+  type: 'test'
+  ...
+# Subtest: \#19 exp must be a positive safe integer and exp <= now is expired
+ok 43 - \#19 exp must be a positive safe integer and exp <= now is expired
+  ---
+  duration_ms: 1.165375
+  type: 'test'
+  ...
+# Subtest: \#18 an expiring license stops being Pro without restarting the process
+ok 44 - \#18 an expiring license stops being Pro without restarting the process
+  ---
+  duration_ms: 1501.744834
+  type: 'test'
+  ...
+# Subtest: \#20 activate writes license.json with mode 0600
+ok 45 - \#20 activate writes license.json with mode 0600
+  ---
+  duration_ms: 33.049917
+  type: 'test'
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1926.225125
+
+> @theluckystrike/mcp-duplicate-invoice-check@0.22.8 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: package, descriptors and runtime agree without claiming npm publication or hosted transport
+ok 1 - package, descriptors and runtime agree without claiming npm publication or hosted transport
+  ---
+  duration_ms: 1.583417
+  type: 'test'
+  ...
+# Subtest: required operational files exist and source opens no network connections or stdout logs
+ok 2 - required operational files exist and source opens no network connections or stdout logs
+  ---
+  duration_ms: 0.90475
+  type: 'test'
+  ...
+# Subtest: complete grouped reasons preserve conflicting evidence and count overlapping candidates once
+ok 3 - complete grouped reasons preserve conflicting evidence and count overlapping candidates once
+  ---
+  duration_ms: 5.080917
+  type: 'test'
+  ...
+# Subtest: normalization preserves leading zeros, Unicode case, accents, lookalikes, other separators and empty keys
+ok 4 - normalization preserves leading zeros, Unicode case, accents, lookalikes, other separators and empty keys
+  ---
+  duration_ms: 0.925083
+  type: 'test'
+  ...
+# Subtest: exact identifiers, tuple-safe scopes, type, currency, amount and date never fuzzily join
+ok 5 - exact identifiers, tuple-safe scopes, type, currency, amount and date never fuzzily join
+  ---
+  duration_ms: 1.05725
+  type: 'test'
+  ...
+# Subtest: strict schema rejects duplicate ids, unsafe money, bad dates, controls, unknown fields and oversized batches
+ok 6 - strict schema rejects duplicate ids, unsafe money, bad dates, controls, unknown fields and oversized batches
+  ---
+  duration_ms: 22.054333
+  type: 'test'
+  ...
+# Subtest: independent pairwise oracle agrees with group membership across 2000 deterministic synthetic batches
+ok 7 - independent pairwise oracle agrees with group membership across 2000 deterministic synthetic batches
+  ---
+  duration_ms: 316.317291
+  type: 'test'
+  ...
+# Subtest: CSV contains one source record per row, quoted evidence, and escaped formula-like text
+ok 8 - CSV contains one source record per row, quoted evidence, and escaped formula-like text
+  ---
+  duration_ms: 0.417041
+  type: 'test'
+  ...
+# Subtest: duplicate-invoice-check: actual compiled storage creates every POSIX, drive and UNC ancestor
+ok 9 - duplicate-invoice-check: actual compiled storage creates every POSIX, drive and UNC ancestor
+  ---
+  duration_ms: 87.381666
+  type: 'test'
+  ...
+# Subtest: duplicate-invoice-check: actual compiled storage rejects existing symlink ancestry on every platform
+ok 10 - duplicate-invoice-check: actual compiled storage rejects existing symlink ancestry on every platform
+  ---
+  duration_ms: 4.279083
+  type: 'test'
+  ...
+# Subtest: duplicate-invoice-check: EEXIST directory races are accepted only after lstat rejects symlink replacements
+ok 11 - duplicate-invoice-check: EEXIST directory races are accepted only after lstat rejects symlink replacements
+  ---
+  duration_ms: 2.123875
+  type: 'test'
+  ...
+# Subtest: three-way-match: actual compiled storage creates every POSIX, drive and UNC ancestor
+ok 12 - three-way-match: actual compiled storage creates every POSIX, drive and UNC ancestor
+  ---
+  duration_ms: 5.001542
+  type: 'test'
+  ...
+# Subtest: three-way-match: actual compiled storage rejects existing symlink ancestry on every platform
+ok 13 - three-way-match: actual compiled storage rejects existing symlink ancestry on every platform
+  ---
+  duration_ms: 5.622375
+  type: 'test'
+  ...
+# Subtest: three-way-match: EEXIST directory races are accepted only after lstat rejects symlink replacements
+ok 14 - three-way-match: EEXIST directory races are accepted only after lstat rejects symlink replacements
+  ---
+  duration_ms: 2.824458
+  type: 'test'
+  ...
+# Subtest: actual stdio quote-heavy CSV respects the escaped 8 MiB budget and pages every source row
+ok 15 - actual stdio quote-heavy CSV respects the escaped 8 MiB budget and pages every source row
+  ---
+  duration_ms: 1419.196916
+  type: 'test'
+  ...
+# Subtest: free previews page all evidence, cap retention at two, and expire without source loss
+ok 16 - free previews page all evidence, cap retention at two, and expire without source loss
+  ---
+  duration_ms: 3.406542
+  type: 'test'
+  ...
+# Subtest: maximum bounded source and memberships fit actual escaped transport; group pages omit large member arrays
+ok 17 - maximum bounded source and memberships fit actual escaped transport; group pages omit large member arrays
+  ---
+  duration_ms: 70.892708
+  type: 'test'
+  ...
+# Subtest: actual stdio exposes eight tools, rejects unknowns, returns full free diagnosis and caps only saving
+ok 18 - actual stdio exposes eight tools, rejects unknowns, returns full free diagnosis and caps only saving
+  ---
+  duration_ms: 755.596208
+  type: 'test'
+  ...
+# Subtest: actual stdio signed single and bundle keys remove only saved-count cap
+ok 19 - actual stdio signed single and bundle keys remove only saved-count cap
+  ---
+  duration_ms: 842.698375
+  type: 'test'
+  ...
+# Subtest: file lock serializes concurrent saves; Pro removes only save cap, with safe IDs
+ok 20 - file lock serializes concurrent saves; Pro removes only save cap, with safe IDs
+  ---
+  duration_ms: 351.801166
+  type: 'test'
+  ...
+# Subtest: independent processes cannot exceed the free saved-report cap
+ok 21 - independent processes cannot exceed the free saved-report cap
+  ---
+  duration_ms: 487.603958
+  type: 'test'
+  ...
+# Subtest: saved evidence is private and atomic; reads recompute edited derived fields and reject invalid sources
+ok 22 - saved evidence is private and atomic; reads recompute edited derived fields and reject invalid sources
+  ---
+  duration_ms: 234.212167
+  type: 'test'
+  ...
+# Subtest: relative paths, non-directories and symlink directory ancestry fail without writes
+ok 23 - relative paths, non-directories and symlink directory ancestry fail without writes
+  ---
+  duration_ms: 247.347667
+  type: 'test'
+  ...
+# Subtest: 64 MiB aggregate budget uses exact bytes and applies equally to Pro
+ok 24 - 64 MiB aggregate budget uses exact bytes and applies equally to Pro
+  ---
+  duration_ms: 0.690625
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1803.080209
+
+> @theluckystrike/mcp-three-way-match@0.22.8 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: package, runtime version and all local registry descriptors agree
+ok 1 - package, runtime version and all local registry descriptors agree
+  ---
+  duration_ms: 2.579625
+  type: 'test'
+  ...
+# Subtest: release and operational files are present; source does not open network connections
+ok 2 - release and operational files are present; source does not open network connections
+  ---
+  duration_ms: 1.785125
+  type: 'test'
+  ...
+# Subtest: matched goods are deterministic and carry source evidence
+ok 3 - matched goods are deterministic and carry source evidence
+  ---
+  duration_ms: 4.082125
+  type: 'test'
+  ...
+# Subtest: offsetting receipt SKUs cannot hide behind equal totals
+ok 4 - offsetting receipt SKUs cannot hide behind equal totals
+  ---
+  duration_ms: 0.587041
+  type: 'test'
+  ...
+# Subtest: offsetting unit price changes cannot hide behind equal totals
+ok 5 - offsetting unit price changes cannot hide behind equal totals
+  ---
+  duration_ms: 0.213334
+  type: 'test'
+  ...
+# Subtest: rejected units never support billing; multiple receipts accumulate accepted separately
+ok 6 - rejected units never support billing; multiple receipts accumulate accepted separately
+  ---
+  duration_ms: 0.312833
+  type: 'test'
+  ...
+# Subtest: partial invoice can match and omitted PO SKU is allowed
+ok 7 - partial invoice can match and omitted PO SKU is allowed
+  ---
+  duration_ms: 0.948125
+  type: 'test'
+  ...
+# Subtest: zero receipts and explicit zero acceptance cannot produce matched billing
+ok 8 - zero receipts and explicit zero acceptance cannot produce matched billing
+  ---
+  duration_ms: 1.019792
+  type: 'test'
+  ...
+# Subtest: prior quantities stop repeat billing within supplied history
+ok 9 - prior quantities stop repeat billing within supplied history
+  ---
+  duration_ms: 1.628417
+  type: 'test'
+  ...
+# Subtest: currency, supplier, PO and receipt reference mismatch are explicit
+ok 10 - currency, supplier, PO and receipt reference mismatch are explicit
+  ---
+  duration_ms: 0.233666
+  type: 'test'
+  ...
+# Subtest: duplicate SKU in each source or duplicate receipt ref invalidates without double counting
+ok 11 - duplicate SKU in each source or duplicate receipt ref invalidates without double counting
+  ---
+  duration_ms: 0.767292
+  type: 'test'
+  ...
+# Subtest: unknown SKU, missing exact SKU and document ref collisions cannot silently match
+ok 12 - unknown SKU, missing exact SKU and document ref collisions cannot silently match
+  ---
+  duration_ms: 0.788958
+  type: 'test'
+  ...
+# Subtest: calendar dates, whitespace, decimals, negative money and bounds are rejected
+ok 13 - calendar dates, whitespace, decimals, negative money and bounds are rejected
+  ---
+  duration_ms: 0.54325
+  type: 'test'
+  ...
+# Subtest: money arithmetic accepts safe boundary and rejects unsafe products and sums
+ok 14 - money arithmetic accepts safe boundary and rejects unsafe products and sums
+  ---
+  duration_ms: 1.091791
+  type: 'test'
+  ...
+# Subtest: declared invoice amount is checked; CSV quotes commas and blocks formula interpretation
+ok 15 - declared invoice amount is checked; CSV quotes commas and blocks formula interpretation
+  ---
+  duration_ms: 0.32575
+  type: 'test'
+  ...
+# Subtest: 500-line diagnostic is free of any licensing dependency
+ok 16 - 500-line diagnostic is free of any licensing dependency
+  ---
+  duration_ms: 13.278833
+  type: 'test'
+  ...
+# Subtest: 100 receipts with 500 distinct unordered SKUs preserve every line of evidence
+ok 17 - 100 receipts with 500 distinct unordered SKUs preserve every line of evidence
+  ---
+  duration_ms: 294.108833
+  type: 'test'
+  ...
+# Subtest: default SDK transport retrieves every issue and SKU from 50,000 receipt rows, saved and free previews
+ok 18 - default SDK transport retrieves every issue and SKU from 50,000 receipt rows, saved and free previews
+  ---
+  duration_ms: 5629.116833
+  type: 'test'
+  ...
+# Subtest: large CSV automatically paginates through the default SDK instead of overflowing its receive buffer
+ok 19 - large CSV automatically paginates through the default SDK instead of overflowing its receive buffer
+  ---
+  duration_ms: 2123.553166
+  type: 'test'
+  ...
+# Subtest: 50,000 receipt entries for a single ambiguous SKU page without oversized line rows; expired previews fail clearly
+ok 20 - 50,000 receipt entries for a single ambiguous SKU page without oversized line rows; expired previews fail clearly
+  ---
+  duration_ms: 233.890625
+  type: 'test'
+  ...
+# Subtest: stdio initializes, exposes exact tools, diagnoses offsets, gates only saving and supports report CRUD/CSV
+ok 21 - stdio initializes, exposes exact tools, diagnoses offsets, gates only saving and supports report CRUD/CSV
+  ---
+  duration_ms: 707.06675
+  type: 'test'
+  ...
+# Subtest: file lock serializes concurrent saves; Pro removes only save cap, with safe IDs
+ok 22 - file lock serializes concurrent saves; Pro removes only save cap, with safe IDs
+  ---
+  duration_ms: 359.468708
+  type: 'test'
+  ...
+# Subtest: independent processes cannot exceed the free saved-report cap
+ok 23 - independent processes cannot exceed the free saved-report cap
+  ---
+  duration_ms: 577.633208
+  type: 'test'
+  ...
+# Subtest: saved evidence is private and atomic; reads recompute edited derived fields and reject invalid sources
+ok 24 - saved evidence is private and atomic; reads recompute edited derived fields and reject invalid sources
+  ---
+  duration_ms: 277.740458
+  type: 'test'
+  ...
+# Subtest: relative paths, non-directories and symlink directory ancestry fail without writes
+ok 25 - relative paths, non-directories and symlink directory ancestry fail without writes
+  ---
+  duration_ms: 272.149208
+  type: 'test'
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7911.431791
+
+> @theluckystrike/mcp-office-suite@0.22.8 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: CHILDREN covers every stdio server in the estate
+ok 1 - CHILDREN covers every stdio server in the estate
+  ---
+  duration_ms: 45.147459
+  type: 'test'
+  ...
+# Subtest: every CHILDREN entry names the package that server actually publishes
+ok 2 - every CHILDREN entry names the package that server actually publishes
+  ---
+  duration_ms: 5.038125
+  type: 'test'
+  ...
+# Subtest: control: the completeness assertion fails when an entry is removed
+ok 3 - control: the completeness assertion fails when an entry is removed
+  ---
+  duration_ms: 4.06975
+  type: 'test'
+  ...
+# Subtest: office proxy diagnoses duplicate candidates and preserves both report namespaces
+ok 4 - office proxy diagnoses duplicate candidates and preserves both report namespaces
+  ---
+  duration_ms: 15159.505625
+  type: 'test'
+  ...
+# Subtest: D-P25: a child that floods stderr does not stall a tools/call
+ok 5 - D-P25: a child that floods stderr does not stall a tools/call
+  ---
+  duration_ms: 890.238334
+  type: 'test'
+  ...
+# Subtest: D-P24: license_activate fails unless every child accepts the key
+ok 6 - D-P24: license_activate fails unless every child accepts the key
+  ---
+  duration_ms: 2090.111125
+  type: 'test'
+  ...
+# Subtest: D-R29/R37: child payload stays intact and collision names are separately mapped
+ok 7 - D-R29/R37: child payload stays intact and collision names are separately mapped
+  ---
+  duration_ms: 875.478125
+  type: 'test'
+  ...
+# Subtest: D-R29: tools_map resource lists exposed name -> child.tool
+ok 8 - D-R29: tools_map resource lists exposed name -> child.tool
+  ---
+  duration_ms: 1022.687334
+  type: 'test'
+  ...
+# Subtest: bundle proxies tools/list, forwards calls, and aggregates license_status
+ok 9 - bundle proxies tools/list, forwards calls, and aggregates license_status
+  ---
+  duration_ms: 14475.183292
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 15540.449167

@@ -1,0 +1,59 @@
+buildslot[22852] 16:21:12: slot 2 acquired: npm run deploy
+
+> mcp-billing@1.0.0 deploy
+> node ../scripts/deploy-billing-gated.mjs
+
+PASS: local GET-to-Stripe guard, billing tests, Wrangler dry-run
+
+ ⛅️ wrangler 4.80.0 (update available 4.151.0)
+──────────────────────────────────────────────
+Total Upload: 2468.80 KiB / gzip: 681.55 KiB
+Worker Startup Time: 9 ms
+Your Worker has access to the following bindings:
+Binding                                                           Resource
+env.FULFILLMENT (FulfillmentState)                                Durable Object
+env.FUNNEL (FunnelState, defined in mcp-funnel)                   Durable Object
+env.LICENSES (75f8bf4872a0433285d11575cece8641)                   KV Namespace
+env.REMOTE_DATA (cf848cc5c07d4e0a9c7c65ad1c70055c)                KV Namespace
+env.CF_VERSION_METADATA                                           Worker Version Metadata
+
+Uploaded mcp-billing (9.39 sec)
+Deployed mcp-billing triggers (4.04 sec)
+  https://mcp-billing.lipmichal.workers.dev
+  mcp.zovo.one (custom domain)
+  schedule: */5 * * * *
+Current Version ID: 15b4fb3e-7bcb-4fc1-8104-b2727926132b
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDuplicate key "bank-statement" in object literal[0m [duplicate-object-key]
+
+    src/content.js:10155:2:
+[37m      10155 │   [32m"bank-statement"[37m: ["bank-statement-csv-categorize-reconcile",...
+            ╵   [32m~~~~~~~~~~~~~~~~[0m
+
+  The original key "bank-statement" is here:
+
+    src/content.js:10127:2:
+[37m      10127 │   [32m"bank-statement"[37m: ["bank-statement-csv-categorize-reconcile",...
+            ╵   [32m~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDuplicate key "barcode" in object literal[0m [duplicate-object-key]
+
+    src/content.js:10156:2:
+[37m      10156 │   [32mbarcode[37m: ["barcode-and-qr-code-generation-from-chat", "barcod...
+            ╵   [32m~~~~~~~[0m
+
+  The original key "barcode" is here:
+
+    src/content.js:10130:2:
+[37m      10130 │   [32mbarcode[37m: ["sepa-payment-qr-codes-on-invoices-from-chat"],
+            ╵   [32m~~~~~~~[0m
+
+
+PASS: deployed version 15b4fb3e-7bcb-4fc1-8104-b2727926132b; 60 GET /buy paths returned intent pages; zero new live Stripe Sessions
+
+ ⛅️ wrangler 4.80.0 (update available 4.151.0)
+──────────────────────────────────────────────
+Resource location: remote
+
+Writing the value "15b4fb3e-7bcb-4fc1-8104-b2727926132b" to key "monitor:approved-version" on namespace binding: "REMOTE_DATA" (id: "cf848cc5c07d4e0a9c7c65ad1c70055c").
+Billing release verified: 15b4fb3e-7bcb-4fc1-8104-b2727926132b

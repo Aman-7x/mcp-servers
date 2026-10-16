@@ -1,0 +1,84 @@
+{
+  "at": "2026-10-16T08:50:00.889Z",
+  "scope": "Actual current public mirror main commits and CI; source dependency install/build/tests, not users or installs",
+  "mirrors": [
+    {
+      "repo": "theluckystrike/mcp-duplicate-invoice-check",
+      "head": "16659df4992c89e96f154fe00c456cc1ef08a911",
+      "run": {
+        "conclusion": "success",
+        "databaseId": 38876049913,
+        "headSha": "16659df4992c89e96f154fe00c456cc1ef08a911",
+        "status": "completed",
+        "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check/actions/runs/38876049913"
+      },
+      "passing": true,
+      "test_summaries": {
+        "tests": [
+          24
+        ],
+        "passed": [
+          20
+        ],
+        "failed": [
+          0
+        ],
+        "skipped": [
+          4
+        ]
+      }
+    },
+    {
+      "repo": "theluckystrike/mcp-three-way-match",
+      "head": "3e96a453ce12b717f725c0ae28d8d95db587229e",
+      "run": {
+        "conclusion": "success",
+        "databaseId": 38875502771,
+        "headSha": "3e96a453ce12b717f725c0ae28d8d95db587229e",
+        "status": "completed",
+        "url": "https://github.com/theluckystrike/mcp-three-way-match/actions/runs/38875502771"
+      },
+      "passing": true,
+      "test_summaries": {
+        "tests": [
+          25
+        ],
+        "passed": [
+          25
+        ],
+        "failed": [
+          0
+        ],
+        "skipped": [
+          0
+        ]
+      }
+    },
+    {
+      "repo": "theluckystrike/mcp-office-suite",
+      "head": "57549d1b7559a3c591a587f726eef0d142151d13",
+      "run": {
+        "conclusion": "success",
+        "databaseId": 38875528295,
+        "headSha": "57549d1b7559a3c591a587f726eef0d142151d13",
+        "status": "completed",
+        "url": "https://github.com/theluckystrike/mcp-office-suite/actions/runs/38875528295"
+      },
+      "passing": true,
+      "test_summaries": {
+        "tests": [
+          9
+        ],
+        "passed": [
+          5
+        ],
+        "failed": [
+          0
+        ],
+        "skipped": [
+          4
+        ]
+      }
+    }
+  ]
+}

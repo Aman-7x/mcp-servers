@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "completed_at": "2026-10-16T09:22:05.763Z",
+  "release_url": "https://github.com/theluckystrike/mcp-servers/releases/tag/v0.22.8",
+  "authenticated": false,
+  "scope": "Independent public archive bytes and controlled synthetic local stdio; no ordinary-user, demand, conversion or revenue claim",
+  "evidence_preservation": {
+    "reconstructed_from_successful_independent_tool_output": true,
+    "reason": "Coordinator concurrently overwrote the initial shared output filename before it could be copied; successful terminal output and actual deletion manifest preserve the independent results",
+    "tool_exit_code": 0
+  },
+  "assets": [
+    {
+      "name": "duplicate-invoice-check.mcpb",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb",
+      "status": 200,
+      "bytes": 3276144,
+      "sha256": "181379eb6dcff3d90b55e080dd9c180f6c96802e991872865a6b0ce422b3aaea",
+      "matches_independent_prepublication_hash": true,
+      "local_bytes_identical": true,
+      "authenticated": false
+    },
+    {
+      "name": "three-way-match.mcpb",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb",
+      "status": 200,
+      "bytes": 3276889,
+      "sha256": "6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040",
+      "matches_independent_prepublication_hash": true,
+      "local_bytes_identical": true,
+      "authenticated": false
+    },
+    {
+      "name": "office-suite.mcpb",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/office-suite.mcpb",
+      "status": 200,
+      "bytes": 32010970,
+      "sha256": "7f50d6d16d445dddcee054b24e8586de4daff9d91b77d22a28730647305cc91d",
+      "matches_independent_prepublication_hash": true,
+      "local_bytes_identical": true,
+      "authenticated": false
+    }
+  ],
+  "checksum_manifest": {
+    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/SHA256SUMS.txt",
+    "status": 200,
+    "bytes": 266,
+    "sha256": "ea7dda93bf093f5b0758c02feb2c5728dfdc1434ddb9b398424d747f50f0a019",
+    "all_archives_match": true,
+    "local_bytes_identical": true
+  },
+  "downloaded_runtime": {
+    "status": "passed",
+    "version": "0.22.8",
+    "tools": 8,
+    "actual_stdio_calls": 5,
+    "license_tier": "free",
+    "paid_bundle_count": 48,
+    "single_price_usd": 19,
+    "bundle_price_usd": 39,
+    "agent_settleable": false,
+    "checks": [
+      "normalized candidate pair",
+      "exact supplier negative control",
+      "save and retrieve complete records",
+      "record paging next offset",
+      "complete CSV"
+    ],
+    "outside_resolution_controls": {
+      "esm": "rejected",
+      "cjs": "rejected"
+    },
+    "outbound_product_network": "blocked",
+    "unique_internal_resolved_files": 223
+  },
+  "cleanup": {
+    "scope_removed": true,
+    "lsof_clear": true,
+    "bytes": 48903084
+  }
+}

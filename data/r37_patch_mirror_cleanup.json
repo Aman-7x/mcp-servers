@@ -1,0 +1,63 @@
+{
+  "at": "2026-10-16T09:26:50.522716+00:00",
+  "removed": [
+    {
+      "at": "2026-10-16T09:26:49.101009+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/mirror-duplicate-invoice-check.YNZkJr",
+      "bytes": 450846,
+      "lsof_clear": true,
+      "reason": "Completed owned v0.22.8 mirror staging"
+    },
+    {
+      "at": "2026-10-16T09:26:49.343545+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/mirror-duplicate-invoice-check.qmyQ56",
+      "bytes": 444047,
+      "lsof_clear": true,
+      "reason": "Completed owned v0.22.8 mirror staging"
+    },
+    {
+      "at": "2026-10-16T09:26:49.570473+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/mirror-office-suite.LZtS9q",
+      "bytes": 1950414,
+      "lsof_clear": true,
+      "reason": "Completed owned v0.22.8 mirror staging"
+    },
+    {
+      "at": "2026-10-16T09:26:49.795916+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/mirror-office-suite.iHEnwM",
+      "bytes": 1952558,
+      "lsof_clear": true,
+      "reason": "Completed owned v0.22.8 mirror staging"
+    },
+    {
+      "at": "2026-10-16T09:26:50.012217+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/mirror-three-way-match.Iw4400",
+      "bytes": 0,
+      "lsof_clear": true,
+      "reason": "Completed owned v0.22.8 mirror staging"
+    },
+    {
+      "at": "2026-10-16T09:26:50.221686+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/mirror-three-way-match.QEi8wR",
+      "bytes": 468697,
+      "lsof_clear": true,
+      "reason": "Completed owned v0.22.8 mirror staging"
+    },
+    {
+      "at": "2026-10-16T09:26:50.500209+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/mirror-three-way-match.saOO52",
+      "bytes": 461410,
+      "lsof_clear": true,
+      "reason": "Completed owned v0.22.8 mirror staging"
+    }
+  ],
+  "blocked": [],
+  "status": "passed"
+}

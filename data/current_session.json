@@ -1,7 +1,7 @@
 {
   "title": "R37 \u2014 useful workflows, conversion evidence and distribution, 2026-10-16",
-  "updated_at": "2026-10-16T08:17:30.999485+00:00",
-  "status_note": "Four-hour sprint in progress, deadline 11:34:06 UTC. Product, buyer proof and protocol fixes are implemented; independent artifact review is resolving Windows storage and CSV wire-budget blockers before publication.",
+  "updated_at": "2026-10-16T09:26:05.077161+00:00",
+  "status_note": "Four-hour sprint in progress; deadline11:34:06 UTC. v0.22.8 archives, six registry rows,57-link catalog and both hosted deployments are published and verified. Six postpatch live controls pass; earlier paid-entry probes expired with$0charged. Scheduled organic/KPI/operations observations continue.",
   "conclusion": "Fresh completed-history and fully covered seven-day Stripe checks still show $0 MCP Checkout gross and zero untagged paid demand. Platform traffic counts remain separate from people or installs. Success attribution is being rebuilt around actual response outcomes and atomic counters.",
   "metrics": [
     {
@@ -35,24 +35,24 @@
     {
       "value": "11/11",
       "label": "Browser proof cases passed",
-      "window": "Local real Chrome at 2026-10-16T07:55:18Z",
+      "window": "Live Chrome production checks, 2026-10-16 08:33 UTC",
       "note": "Zero diagnostic requests or browser storage writes; synthetic operator examples.",
-      "source": "data/r37_duplicate_browser_verification.json"
+      "source": "data/r37_duplicate_browser_live_verification.json"
     }
   ],
   "shipped": [
-    "Built the new eight-tool local supplied-history duplicate invoice review and editable same-core browser proof. Full candidate diagnostics, paging and CSV stay free; $19 Pro removes the three-saved-report cap. Archives are held until independent blockers are fixed.",
-    "Seventeen existing server sources now return explicit MCP errors for refusal-only cap branches; useful partial results remain successful. Actual-stdio controls and rebuilds are recorded separately; hosted deployment is pending.",
+    "Published the new eight-tool local supplied-history duplicate invoice review archive. Full diagnostics, paging and CSV stay free; $19 Pro removes the three-saved-report cap. Independent Windows/CSV red-green and isolated archive checks pass.",
+    "Seventeen existing server sources now return explicit MCP errors for refusal-only cap branches; useful partial results remain successful. Hosted source rebuilt and deployed; older individual archives retain their actual versions.",
     "Office proxy integration measures 447 tools across 49 children. Arbitrary tool-name rewriting no longer mutates source evidence, CSV, HTML or prose; collision maps are separate metadata.",
-    "Atomic daily counter service passed source controls and real workerd/SQLite transaction rollback, alarm, retry and concurrency checks. It is privately deployed; billing/remote bindings and live controls are still pending.",
+    "Atomic daily counters passed real workerd/SQLite controls and nine live hosted checks. Sticky probe classification, daily first-observation deduplication and success-only trailers work. Initial 59 unmarked release-check offers are retained as known operator contamination; all future release GETs are explicitly marked.",
     "Added six local-client setup routes, source-backed comparison, mirror metadata and five frozen operator buyer tasks. Fourteen actual MCP calls pass; these are synthetic workflow checks, not customer evidence."
   ],
   "next_levers": [
-    "Correct success-only upsell behavior and measure tagged hosted business-tool success without local telemetry.",
-    "Build an explainable local duplicate-invoice review for a supplied invoice-history batch.",
-    "Publish tested artifacts and buyer proof, then evaluate recorded demand without attributing operator traffic to customers."
+    "Observe buyer demand in explicitly dated organic and Checkout windows; preserve probe and ordinary-automation distinctions.",
+    "Use an explicitly authorized opted-in buyer/partner batch through the existing verified Resend sender; eligible email recipients currently zero.",
+    "Prioritize actual buyer workflow feedback before increasing the product count; wider fleet still has173 failures/28gaps."
   ],
   "report": "intel/R37-session.md",
   "watch_path": "data/r37_watch.json",
-  "known_limits": "The older fleet still has 126 release-check failures and 28 gaps; the new matcher passes all 30 release checks. Older office registry descriptors can still point to v0.22.0; the current catalog pins the verified v0.22.6 archive. Completed live paid fulfillment and inbox delivery were not exercised."
+  "known_limits": "Final wider-estate checkpoint:173 failures/28 gaps, including51 umbrella-version mismatches and seven older skeletons; current billing/catalog/batch test failures are fixed. Scoped duplicate/matcher gates29/29; office packaging49 children/447 tools. Registry aliases represent one capability. Directory received/pending review; Glama duplicate listing404/account gate. Initial59 unmarked operator offers retained. Paid fulfillment/inbox delivery untested."
 }

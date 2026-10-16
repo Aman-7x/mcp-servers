@@ -1,0 +1,442 @@
+{
+  "at": "2026-10-16T09:23:24.415Z",
+  "method": "Unauthenticated public HTTP requests; SHA256 over complete release bytes, exact registry descriptors, all catalogue URLs HEAD only.",
+  "version": "0.22.8",
+  "registry_comparison": "All fields equal after normalizing omitted false environment-variable boolean defaults; true-required negative control passes.",
+  "archives": [
+    {
+      "name": "duplicate-invoice-check",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb",
+      "status": 200,
+      "bytes": 3276144,
+      "sha256": "181379eb6dcff3d90b55e080dd9c180f6c96802e991872865a6b0ce422b3aaea",
+      "matches_local_verified_archive": true
+    },
+    {
+      "name": "three-way-match",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb",
+      "status": 200,
+      "bytes": 3276889,
+      "sha256": "6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040",
+      "matches_local_verified_archive": true
+    },
+    {
+      "name": "office-suite",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/office-suite.mcpb",
+      "status": 200,
+      "bytes": 32010970,
+      "sha256": "7f50d6d16d445dddcee054b24e8586de4daff9d91b77d22a28730647305cc91d",
+      "matches_local_verified_archive": true
+    }
+  ],
+  "registry": [
+    {
+      "name": "io.github.theluckystrike/duplicate-invoice-check",
+      "version": "0.22.8",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fduplicate-invoice-check/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb",
+      "sha256": "181379eb6dcff3d90b55e080dd9c180f6c96802e991872865a6b0ce422b3aaea",
+      "local_stdio_only": true,
+      "matches_published_source": true
+    },
+    {
+      "name": "io.github.theluckystrike/supplier-invoice-duplicates",
+      "version": "0.22.8",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fsupplier-invoice-duplicates/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb",
+      "sha256": "181379eb6dcff3d90b55e080dd9c180f6c96802e991872865a6b0ce422b3aaea",
+      "local_stdio_only": true,
+      "matches_published_source": true
+    },
+    {
+      "name": "io.github.theluckystrike/three-way-match",
+      "version": "0.22.8",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fthree-way-match/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb",
+      "sha256": "6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040",
+      "local_stdio_only": true,
+      "matches_published_source": true
+    },
+    {
+      "name": "io.github.theluckystrike/supplier-invoice-matching",
+      "version": "0.22.8",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fsupplier-invoice-matching/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb",
+      "sha256": "6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040",
+      "local_stdio_only": true,
+      "matches_published_source": true
+    },
+    {
+      "name": "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price",
+      "version": "0.22.8",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Foffice-suite-time-invoice-expense-excel-price/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/office-suite.mcpb",
+      "sha256": "7f50d6d16d445dddcee054b24e8586de4daff9d91b77d22a28730647305cc91d",
+      "local_stdio_only": true,
+      "matches_published_source": true
+    },
+    {
+      "name": "io.github.theluckystrike/office-suite",
+      "version": "0.22.8",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Foffice-suite/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/office-suite.mcpb",
+      "sha256": "7f50d6d16d445dddcee054b24e8586de4daff9d91b77d22a28730647305cc91d",
+      "local_stdio_only": true,
+      "matches_published_source": true
+    }
+  ],
+  "catalogue": [
+    {
+      "name": "amortization",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/amortization.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "asset-register",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/asset-register.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "backlink-checker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/backlink-checker.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "bank-statement",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bank-statement.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "barcode",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/barcode.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "bill-of-sale",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bill-of-sale.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "billing-docs",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/billing-docs.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "budget",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/budget.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "calendar",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/calendar.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "cash-book",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/cash-book.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "catalogue",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/catalogue.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "change-order",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/change-order.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "checklist",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/checklist.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "clauses",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/clauses.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "credit-note",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/credit-note.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "currency",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/currency.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "delivery-schedule",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/delivery-schedule.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "deposits",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/deposits.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "docx",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/docx.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "dunning-letters",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/dunning-letters.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "duplicate-invoice-check",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "expense-tracker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/expense-tracker.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "goods-receipt",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/goods-receipt.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "hourly-rate",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.5/hourly-rate.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "image",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/image.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "invoice",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/invoice.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "job-card",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/job-card.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "kanban",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/kanban.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "leave",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/leave.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "loan-calculator",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/loan-calculator.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "maintenance-log",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/maintenance-log.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "mileage-log",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/mileage-log.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "office-suite",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/office-suite.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "onboarding",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "packing-list",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/packing-list.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "payroll",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/payroll.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "pdf",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pdf.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "per-diem",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/per-diem.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "petty-cash",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/petty-cash.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "pomodoro",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pomodoro.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "price-tracker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/price-tracker.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "purchase-requisition",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/purchase-requisition.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "quotes",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/quotes.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "receipts",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/receipts.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "recurring",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/recurring.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "resume",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/resume.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "service-agreement",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/service-agreement.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "spreadsheet",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/spreadsheet.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "statement-of-account",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/statement-of-account.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "stripe-billing",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/stripe-billing.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "supplier-list",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/supplier-list.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "tax-calc",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/tax-calc.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "three-way-match",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "time-tracker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/time-tracker.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "timezone",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/timezone.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "work-order",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/work-order.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    },
+    {
+      "name": "zip",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/zip.mcpb",
+      "status": 200,
+      "verification": "availability only; no business functionality assertion"
+    }
+  ],
+  "errors": [],
+  "checksums": {
+    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/SHA256SUMS.txt",
+    "status": 200,
+    "bytes": 266,
+    "sha256": "ea7dda93bf093f5b0758c02feb2c5728dfdc1434ddb9b398424d747f50f0a019",
+    "exact_match": true
+  },
+  "status": "passed",
+  "completed_at": "2026-10-16T09:23:42.734Z"
+}

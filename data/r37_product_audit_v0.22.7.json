@@ -1,0 +1,104 @@
+{
+  "status": "passed_public_bytes_verified",
+  "archive_stage": "corrected_final_local",
+  "deployed": false,
+  "live_calls": 0,
+  "reviewed_at": "2026-10-16T08:22:56.034Z",
+  "findings": [
+    {
+      "id": "windows_ancestry",
+      "severity": "P1",
+      "status": "fixed_source_and_compiled_controls",
+      "pre_fix_failure": "drive/UNC ancestor traversal and Windows symlink validation",
+      "affected": [
+        "duplicate-invoice-check",
+        "three-way-match"
+      ]
+    },
+    {
+      "id": "csv_response_budget",
+      "severity": "P1",
+      "status": "fixed_source_and_compiled_controls",
+      "pre_fix_response_bytes": 8509475,
+      "limit_bytes": 8388608,
+      "input_bytes": 2270013
+    }
+  ],
+  "controls": {
+    "file": "servers/duplicate-invoice-check/test/independent-boundaries.test.mjs",
+    "pre_fix_archive": {
+      "sha256": "83265138e9cea3570879c6551e689608dc29c31f0fa537c427d3a2efecb48e31",
+      "selected_tests": 4,
+      "failed": 4
+    },
+    "corrected_compiled": {
+      "tests": 7,
+      "passed": 7,
+      "skipped": 0
+    },
+    "native_windows": false,
+    "windows_control": "Actual compiled dataDir with path.win32 and filesystem boundary model"
+  },
+  "source_sha256": {
+    "servers/duplicate-invoice-check/src/core.ts": "258f925cb0e262bfe3f489df2675fa1bf7e282fab03e7c2e5d97463bf73ddc5c",
+    "servers/duplicate-invoice-check/src/store.ts": "29d9bed0ec632b665b01472ddacdbae20fd1d0b3a9ee6f00441c2c4641587cdd",
+    "servers/duplicate-invoice-check/src/output.ts": "1040693da568952e1ab5dc7cb3dcdd621eafb0e8773dc0328257f6d7a8ef042e",
+    "servers/duplicate-invoice-check/src/index.ts": "1a99fe244b18e725ce4a88b9648eb9832abf6d5b7145ee9d84e357434b046869"
+  },
+  "standalone": {
+    "measured_at": "2026-10-16T08:23:37.860Z",
+    "archive_sha256": "a70a2548ed418122aee80bfe7fa66de0c1927c0d4f1e3b6ed24b13d8bddc206d",
+    "archive_bytes": 3276192,
+    "version": "0.22.7",
+    "tools": 8,
+    "zip_crc": "passed",
+    "fallback_controls": {
+      "esm": "rejected",
+      "cjs": "rejected"
+    },
+    "normalization_controls": 9,
+    "scope_controls": 4,
+    "live_calls": 0,
+    "free_cap_preserves_diagnosis_and_evidence": true,
+    "persistence_recomputed": true,
+    "private_file_mode": "0600",
+    "large_csv": {
+      "records": 1000,
+      "pages": 2,
+      "max_response_bytes": 8383808,
+      "all_records_reconstructed": true
+    },
+    "calls": 33,
+    "max_response_bytes": 8383808,
+    "status": "passed",
+    "resolved_files": 223,
+    "archived_store_controls": {
+      "passed": 3,
+      "failed": 0,
+      "kind": "actual archived module with modeled POSIX/drive/UNC fs boundary"
+    },
+    "compiled_files": {
+      "core.js": "d2b62e77df7cb845369f2079e8877d2551a0545bc98306002dd2284ec8e8783d",
+      "store.js": "7e4c65ff913d80bac2a9732fe12d10c6dbc32d604fa0f26d3971af467613391d",
+      "output.js": "5d59ac92d4a4d32b6b47764d0ab984119db27beb58c6c6dbaef585e6671ede96",
+      "index.js": "b54bf43fa767a06382e810379ad19bce60beab175c80ad9a191dd865ebc15012"
+    }
+  },
+  "companion_archived_store": {
+    "name": "three-way-match",
+    "sha256": "afa608954d51d94b2a439874224b2bd592c51812076c86fe0d207b2c91899c14",
+    "passed": 3,
+    "failed": 0,
+    "business_features_reviewed": false
+  },
+  "runner_sha256": "fb8e04d01375c6aa3c24bc177ba5d116363b4f929b83c186198303ab27f6a352",
+  "source_unchanged_since_review": true,
+  "cleanup": {
+    "scope_removed": true,
+    "lsof_clear": true,
+    "bytes": 30918938
+  },
+  "public_release_verified": true,
+  "public_evidence": "data/r37_public_downloads.json",
+  "public_verified_at": "2026-10-16T08:36:04.691Z"
+}

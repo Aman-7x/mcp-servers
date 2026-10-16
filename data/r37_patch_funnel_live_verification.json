@@ -1,0 +1,540 @@
+{
+  "started_at": "2026-10-16T09:23:31.870Z",
+  "status": "passed",
+  "scope": "Targeted postpatch verification: count48; hosted success/refusal/discovery/error/sticky-probe behavior. Earlier9controlreport preserved. Not a rerun of paid Checkout QA.",
+  "controls": [
+    {
+      "name": "tools_list_discovery",
+      "http_status": 200,
+      "trailer_count": 0,
+      "passed": true
+    },
+    {
+      "name": "license_status_count",
+      "http_status": 200,
+      "paid_server_count": 48,
+      "bundle_usd": 39,
+      "trailer_count": 0,
+      "passed": true
+    },
+    {
+      "name": "schema_error",
+      "http_status": 200,
+      "declared_error": true,
+      "trailer_count": 0,
+      "passed": true
+    },
+    {
+      "name": "explicit_barcode_png_refusal",
+      "http_status": 200,
+      "declared_error": true,
+      "paid_server_count": 48,
+      "trailer_count": 0,
+      "passed": true
+    },
+    {
+      "name": "pure_business_success",
+      "http_status": 200,
+      "paid_server_count": 48,
+      "trailer_count": 1,
+      "current_probe_header": true,
+      "passed": true
+    },
+    {
+      "name": "sticky_probe_without_current_header",
+      "http_status": 200,
+      "paid_server_count": 48,
+      "trailer_count": 1,
+      "current_probe_header": false,
+      "passed": true
+    }
+  ],
+  "expected_versions": {
+    "mcp-funnel": "c09f6360-34da-4107-82ae-15e7ae4ac387",
+    "mcp-remote": "2e375e9d-344b-4da5-a451-20784e055381",
+    "mcp-billing": "15b4fb3e-7bcb-4fc1-8104-b2727926132b"
+  },
+  "version_sources": {
+    "remote": "data/r37_patch_remote_deploy_result.txt",
+    "billing": "data/r37_patch_billing_deploy_result.txt"
+  },
+  "earlier_live_report_sha256": "90e828c1cc9a988b021d58cbeb41acb94d2ae62560cdbd03ca0ba7b5f5fbb558",
+  "live_checkout_sessions_created": 0,
+  "payments": 0,
+  "emails": 0,
+  "external_tool_apis": 0,
+  "versions_before": {
+    "verified_at": "2026-10-16T09:23:33.095Z",
+    "values": [
+      {
+        "name": "mcp-funnel",
+        "version": "c09f6360-34da-4107-82ae-15e7ae4ac387",
+        "percentage": 100
+      },
+      {
+        "name": "mcp-remote",
+        "version": "2e375e9d-344b-4da5-a451-20784e055381",
+        "percentage": 100
+      },
+      {
+        "name": "mcp-billing",
+        "version": "15b4fb3e-7bcb-4fc1-8104-b2727926132b",
+        "percentage": 100
+      }
+    ]
+  },
+  "baseline": {
+    "instrument": 2,
+    "generated_at": "2026-10-16T09:23:33.393Z",
+    "complete": true,
+    "window": {
+      "start": "2026-10-10T00:00:00.000Z",
+      "end": "2026-10-16T09:23:33.393Z",
+      "utc_dates": [
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16"
+      ],
+      "today_partial": true
+    },
+    "interpretation": "Recorded hosted response/event counts pooled across servers. ordinary means unmarked, not human or customer. Source labels are unverified declarations. First success is per anonymous token/server/UTC day, not lifetime use. No local usage or conversion rate is measured.",
+    "coverage": "Starts only on deployment. Empty counters do not prove deployment, full-window coverage or zero historic use. Anonymous observations with missing/expired sidecars are unmeasured, except explicitly marked current probes.",
+    "limitations": "Durable transactions preserve admitted batches and daily deduplication. Deferred write failures or unresolved cohort metadata drop observations. complete concerns bounded counter retrieval only, not full traffic capture. Sidecars expire 31 days after mint; their missing/negative-cached lookups never become ordinary.",
+    "ordinary": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 63,
+      "checkout_handoff": 0
+    },
+    "probe": {
+      "successful_business_call": 3,
+      "first_successful_anon_token_server_day": 1,
+      "upgrade_impression": 3,
+      "offer_view": 288,
+      "checkout_handoff": 4
+    },
+    "days": [
+      {
+        "day": "2026-10-10",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-11",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-12",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-13",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-14",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-15",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-16",
+        "complete": true,
+        "first_recorded_at": "2026-10-16T08:32:08.915Z"
+      }
+    ],
+    "rows": [
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 59
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 288
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "checkout_handoff",
+        "count": 4
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "successful_business_call",
+        "count": 3
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "first_successful_anon_token_server_day",
+        "count": 1
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "upgrade_impression",
+        "count": 3
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "guide",
+        "event": "offer_view",
+        "count": 3
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "store.setup",
+        "event": "offer_view",
+        "count": 1
+      }
+    ]
+  },
+  "mint": {
+    "marked": true,
+    "source_sidecar_verified": true,
+    "source": "guide",
+    "cohort": "probe"
+  },
+  "after_negatives": {
+    "instrument": 2,
+    "generated_at": "2026-10-16T09:24:13.174Z",
+    "complete": true,
+    "window": {
+      "start": "2026-10-10T00:00:00.000Z",
+      "end": "2026-10-16T09:24:13.174Z",
+      "utc_dates": [
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16"
+      ],
+      "today_partial": true
+    },
+    "interpretation": "Recorded hosted response/event counts pooled across servers. ordinary means unmarked, not human or customer. Source labels are unverified declarations. First success is per anonymous token/server/UTC day, not lifetime use. No local usage or conversion rate is measured.",
+    "coverage": "Starts only on deployment. Empty counters do not prove deployment, full-window coverage or zero historic use. Anonymous observations with missing/expired sidecars are unmeasured, except explicitly marked current probes.",
+    "limitations": "Durable transactions preserve admitted batches and daily deduplication. Deferred write failures or unresolved cohort metadata drop observations. complete concerns bounded counter retrieval only, not full traffic capture. Sidecars expire 31 days after mint; their missing/negative-cached lookups never become ordinary.",
+    "ordinary": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 63,
+      "checkout_handoff": 0
+    },
+    "probe": {
+      "successful_business_call": 3,
+      "first_successful_anon_token_server_day": 1,
+      "upgrade_impression": 3,
+      "offer_view": 288,
+      "checkout_handoff": 4
+    },
+    "days": [
+      {
+        "day": "2026-10-10",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-11",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-12",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-13",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-14",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-15",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-16",
+        "complete": true,
+        "first_recorded_at": "2026-10-16T08:32:08.915Z"
+      }
+    ],
+    "rows": [
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 59
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 288
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "checkout_handoff",
+        "count": 4
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "successful_business_call",
+        "count": 3
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "first_successful_anon_token_server_day",
+        "count": 1
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "upgrade_impression",
+        "count": 3
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "guide",
+        "event": "offer_view",
+        "count": 3
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "store.setup",
+        "event": "offer_view",
+        "count": 1
+      }
+    ]
+  },
+  "guide_probe_delta": {
+    "successful_business_call": 2,
+    "first_successful_anon_token_server_day": 1,
+    "upgrade_impression": 2,
+    "offer_view": 0,
+    "checkout_handoff": 0
+  },
+  "final": {
+    "instrument": 2,
+    "generated_at": "2026-10-16T09:24:13.966Z",
+    "complete": true,
+    "window": {
+      "start": "2026-10-10T00:00:00.000Z",
+      "end": "2026-10-16T09:24:13.966Z",
+      "utc_dates": [
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16"
+      ],
+      "today_partial": true
+    },
+    "interpretation": "Recorded hosted response/event counts pooled across servers. ordinary means unmarked, not human or customer. Source labels are unverified declarations. First success is per anonymous token/server/UTC day, not lifetime use. No local usage or conversion rate is measured.",
+    "coverage": "Starts only on deployment. Empty counters do not prove deployment, full-window coverage or zero historic use. Anonymous observations with missing/expired sidecars are unmeasured, except explicitly marked current probes.",
+    "limitations": "Durable transactions preserve admitted batches and daily deduplication. Deferred write failures or unresolved cohort metadata drop observations. complete concerns bounded counter retrieval only, not full traffic capture. Sidecars expire 31 days after mint; their missing/negative-cached lookups never become ordinary.",
+    "ordinary": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 63,
+      "checkout_handoff": 0
+    },
+    "probe": {
+      "successful_business_call": 5,
+      "first_successful_anon_token_server_day": 2,
+      "upgrade_impression": 5,
+      "offer_view": 288,
+      "checkout_handoff": 4
+    },
+    "days": [
+      {
+        "day": "2026-10-10",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-11",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-12",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-13",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-14",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-15",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-16",
+        "complete": true,
+        "first_recorded_at": "2026-10-16T08:32:08.915Z"
+      }
+    ],
+    "rows": [
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 59
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 288
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "checkout_handoff",
+        "count": 4
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "successful_business_call",
+        "count": 5
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "first_successful_anon_token_server_day",
+        "count": 2
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "upgrade_impression",
+        "count": 5
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "guide",
+        "event": "offer_view",
+        "count": 3
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "store.setup",
+        "event": "offer_view",
+        "count": 1
+      }
+    ]
+  },
+  "ordinary_unchanged": true,
+  "versions_after": {
+    "verified_at": "2026-10-16T09:24:15.156Z",
+    "values": [
+      {
+        "name": "mcp-funnel",
+        "version": "c09f6360-34da-4107-82ae-15e7ae4ac387",
+        "percentage": 100
+      },
+      {
+        "name": "mcp-remote",
+        "version": "2e375e9d-344b-4da5-a451-20784e055381",
+        "percentage": 100
+      },
+      {
+        "name": "mcp-billing",
+        "version": "15b4fb3e-7bcb-4fc1-8104-b2727926132b",
+        "percentage": 100
+      }
+    ]
+  },
+  "earlier_report_unchanged": true,
+  "cleanup": {
+    "considered": 7,
+    "deleted": 4,
+    "already_absent": 3,
+    "failed": 0,
+    "global_funnel_counters_deleted": false,
+    "shared_ip_mint_and_discovery_rate_limits": "Untouched; shared counters are not exclusively owned by this token."
+  },
+  "finished_at": "2026-10-16T09:24:19.648Z",
+  "interpretation": "Declared-source guide/probe observations pooled across servers, not people or completed customer tasks. Ordinary is unmarked and retains known operator contamination: 59 offer responses. No conversion rate or ROI claim. Exact-key DELETE acknowledgments do not imply immediate eviction of cached credentials.",
+  "unchanged_measurement_sources": {
+    "billing/src/funnel.js": {
+      "sha256": "b686ed50e5f9a82f1c0fc81840fcd37d28f5df4a142cd2013327198b6d52a636",
+      "matches_prior_real_workerd_control": true
+    },
+    "billing/src/funnel-state.js": {
+      "sha256": "bb11e882e8ceb237503fffa85a0d0e14e2df4af7b3ed309846fb875efb65d9c4",
+      "matches_prior_real_workerd_control": true
+    }
+  },
+  "license_count_source": {
+    "file": "remote/src/shims/license.ts",
+    "sha256": "308047e6aa4257f86513d7411e9347cb990de03f9c65ebac6c3fdb1546795c26",
+    "paid_server_count": 48
+  },
+  "negative_controls_guide_probe_unchanged": true
+}

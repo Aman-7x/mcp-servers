@@ -1,0 +1,75 @@
+TAP version 13
+# Subtest: buyer guide serves the same engine compiled for the browser with fresh source provenance
+ok 1 - buyer guide serves the same engine compiled for the browser with fresh source provenance
+  ---
+  duration_ms: 17.759292
+  type: 'test'
+  ...
+# Subtest: download catalog covers every listed server with an explicit release asset
+ok 2 - download catalog covers every listed server with an explicit release asset
+  ---
+  duration_ms: 0.902334
+  type: 'test'
+  ...
+# Subtest: catalogue leads to working setup and labels free-only calculators as free
+ok 3 - catalogue leads to working setup and labels free-only calculators as free
+  ---
+  duration_ms: 1.243417
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":true,"request_method":"POST"}
+# Subtest: short operator probes expire consistently across retries and cannot leave stale cache entries
+ok 4 - short operator probes expire consistently across retries and cannot leave stale cache entries
+  ---
+  duration_ms: 4.196084
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"bundle","source":"store.buy.invoice","probe":false,"request_method":"POST"}
+# Subtest: single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+ok 5 - single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+  ---
+  duration_ms: 1.172375
+  type: 'test'
+  ...
+# Subtest: Stripe's bundle cross-sell carries only a validated hosted token
+ok 6 - Stripe's bundle cross-sell carries only a validated hosted token
+  ---
+  duration_ms: 0.103541
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"checkout.cancel","probe":false,"request_method":"POST"}
+# Subtest: cancelling an expired checkout keeps hosted activation when starting a replacement
+ok 7 - cancelling an expired checkout keeps hosted activation when starting a replacement
+  ---
+  duration_ms: 1.291292
+  type: 'test'
+  ...
+# Subtest: purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+ok 8 - purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+  ---
+  duration_ms: 0.706333
+  type: 'test'
+  ...
+# Subtest: pricing presents current prices without an unconfigured price deadline or inferred human demand
+ok 9 - pricing presents current prices without an unconfigured price deadline or inferred human demand
+  ---
+  duration_ms: 0.730375
+  type: 'test'
+  ...
+# Subtest: the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+ok 10 - the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+  ---
+  duration_ms: 1.322833
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 95.16975

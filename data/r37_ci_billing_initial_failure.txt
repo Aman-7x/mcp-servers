@@ -1,0 +1,1360 @@
+Billing preflight	Run key-independent billing tests and Wrangler dry run	﻿2026-10-16T08:29:31.6049600Z ##[group]Run node --test scripts/test/deploy-billing-gated.test.mjs \
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6050646Z [36;1mnode --test scripts/test/deploy-billing-gated.test.mjs \[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6051090Z [36;1m  scripts/test/billing-release-gate.test.mjs \[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6051498Z [36;1m  scripts/test/billing-scheduled-monitor.test.mjs \[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6051896Z [36;1m  scripts/test/billing-mint-ephemeral.test.mjs \[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6052246Z [36;1m  scripts/test/billing-route-ci.test.mjs[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6052545Z [36;1mbilling_tests=()[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6053057Z [36;1mfor file in billing/test/*.test.mjs; do[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6053362Z [36;1m  case "$file" in[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6053857Z [36;1m    billing/test/mint.test.mjs|billing/test/fulfillment-route.test.mjs|billing/test/license-auth.test.mjs) ;;[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6054406Z [36;1m    *) billing_tests+=("$file") ;;[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6054670Z [36;1m  esac[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6054865Z [36;1mdone[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6055320Z [36;1mnode --test "${billing_tests[@]}"[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6055920Z [36;1mnode --test --test-skip-pattern='a minted key cross-verifies' billing/test/license-auth.test.mjs[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6056489Z [36;1m(cd billing && npx wrangler deploy --dry-run --strict)[0m
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6121659Z shell: /usr/bin/bash -e {0}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6121925Z ##[endgroup]
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.6724003Z TAP version 13
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.7354876Z # Subtest: billing mint signs the payload and is deterministic for one Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.7376084Z ok 1 - billing mint signs the payload and is deterministic for one Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.7407636Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.7416524Z   duration_ms: 14.903652
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.7422304Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.7422925Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8787372Z # Subtest: every production GET /buy shape serves the intent page without any Stripe subrequest
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8836953Z ok 2 - every production GET /buy shape serves the intent page without any Stripe subrequest
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8853370Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8895765Z   duration_ms: 88.090629
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8915161Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8915879Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8917049Z # Subtest: intent response guard rejects a Stripe redirect and a page without an explicit POST
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8919082Z ok 3 - intent response guard rejects a Stripe redirect and a page without an explicit POST
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8920113Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8920717Z   duration_ms: 0.63578
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8921369Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8921905Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8922814Z # Subtest: deployed version parser requires one version serving all traffic
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8924239Z ok 4 - deployed version parser requires one version serving all traffic
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8925452Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8925906Z   duration_ms: 0.447437
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8932087Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8935938Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8937260Z # Subtest: health signals flag all-expired MCP sweeps and overdue webhook delivery
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8938905Z ok 5 - health signals flag all-expired MCP sweeps and overdue webhook delivery
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8940032Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8940805Z   duration_ms: 0.678319
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8941293Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:31.8941995Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.0879475Z # Subtest: paid fulfillment route retries failed binds and reuses one key with a generated signer
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.0883331Z ok 6 - paid fulfillment route retries failed binds and reuses one key with a generated signer
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.0884872Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.0886446Z   duration_ms: 360.3281
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.0887124Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.0887681Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1033751Z # {"event":"billing_monitor_pass","checkedAt":"2026-10-16T08:29:31.877Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":true,"operationsCheckedAt":"2026-10-16T08:29:31.876Z","operationsVersion":"6d41c702-9584-441e-bbdf-9748b276b798","lastFailureAt":null,"buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"}}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1051851Z # {"event":"billing_monitor_pass","checkedAt":"2026-10-16T08:29:31.927Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":true,"operationsCheckedAt":"2026-10-16T08:29:31.927Z","operationsVersion":"6d41c702-9584-441e-bbdf-9748b276b798","lastFailureAt":null,"buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"}}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1058087Z # {"event":"billing_monitor_fail","checkedAt":"2026-10-16T08:29:31.949Z","batch":1,"version":"new-version","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-16T08:29:31.949Z","error":"deployed version differs from approved release"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1064393Z # {"event":"billing_monitor_pass","checkedAt":"2026-10-16T08:29:31.953Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":true,"operationsCheckedAt":"2026-10-16T08:29:31.965Z","operationsVersion":"6d41c702-9584-441e-bbdf-9748b276b798","lastFailureAt":null,"buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"operations":{"sweepHours":0,"paidChecked":0,"paidSettling":0,"missing":[],"enabled":1,"destinationOk":true,"overdue":0,"webhookFailures":0,"webhookObserved":0}}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1070757Z # {"event":"billing_monitor_pass","checkedAt":"2026-10-16T08:29:31.966Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":true,"operationsCheckedAt":"2026-10-16T08:29:31.965Z","operationsVersion":"6d41c702-9584-441e-bbdf-9748b276b798","lastFailureAt":null,"buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"}}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1075967Z # {"event":"billing_monitor_fail","checkedAt":"2026-10-16T08:29:31.973Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":"2026-10-16T08:29:31.965Z","operationsVersion":"6d41c702-9584-441e-bbdf-9748b276b798","lastFailureAt":"2026-10-16T08:29:31.981Z","error":"new live Stripe Session attributable to GET checkout probe"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1079255Z # Subtest: scheduled monitor checks a buy-page batch without creating a live Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1080716Z ok 7 - scheduled monitor checks a buy-page batch without creating a live Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1082052Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1085839Z   duration_ms: 51.267302
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1086624Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1087235Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1088255Z # Subtest: scheduled probe exercises real billing GET handler without a Stripe create call
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1089766Z ok 8 - scheduled probe exercises real billing GET handler without a Stripe create call
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1090823Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1091450Z   duration_ms: 20.930414
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1092081Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1092602Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1093609Z # Subtest: unapproved version fails closed and records a failing heartbeat
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1097587Z ok 9 - unapproved version fails closed and records a failing heartbeat
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1098456Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1099233Z   duration_ms: 4.090053
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1099883Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1100600Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1101793Z # Subtest: first scheduled run on a new version refreshes operations despite a recent prior checkpoint
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1103499Z ok 10 - first scheduled run on a new version refreshes operations despite a recent prior checkpoint
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1104554Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1105375Z   duration_ms: 12.753622
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1106018Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1106625Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1107795Z # Subtest: concurrent customer POST is ignored but a Session tagged to GET probe alerts
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1109382Z ok 11 - concurrent customer POST is ignored but a Session tagged to GET probe alerts
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1110405Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1110970Z   duration_ms: 16.872399
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1111733Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1112652Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1113855Z # Subtest: status endpoint requires a token and webhook response status is stored without payload
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1115807Z ok 12 - status endpoint requires a token and webhook response status is stored without payload
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1117108Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1117628Z   duration_ms: 21.455929
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1125901Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1126383Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1127486Z # Subtest: public monitor health fails closed on stale Cron, failed operations, or unapproved version
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1129090Z ok 13 - public monitor health fails closed on stale Cron, failed operations, or unapproved version
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1130039Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1130509Z   duration_ms: 5.160686
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1131037Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1131511Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1136576Z # {"event":"billing_monitor_fail","checkedAt":"2026-10-16T08:29:32.010Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-16T08:29:32.025Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":0,\\"paidChecked\\":1,\\"paidSettling\\":0,\\"missing\\":[\\"016ee5651295:license\\"],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":0,\\"webhookObserved\\":0}"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1144839Z # {"event":"billing_monitor_fail","checkedAt":"2026-10-16T08:29:32.025Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-16T08:29:32.036Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":0,\\"paidChecked\\":1,\\"paidSettling\\":0,\\"missing\\":[\\"636d5b061a13:license\\"],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":0,\\"webhookObserved\\":0}"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1159886Z # {"event":"billing_monitor_fail","checkedAt":"2026-10-16T08:29:32.036Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-16T08:29:32.042Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":0,\\"paidChecked\\":1,\\"paidSettling\\":0,\\"missing\\":[\\"016ee5651295:binding\\"],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":0,\\"webhookObserved\\":0}"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1168001Z # {"event":"billing_monitor_fail","checkedAt":"2026-10-16T08:29:32.042Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-16T08:29:32.046Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":1,\\"paidChecked\\":0,\\"paidSettling\\":0,\\"missing\\":[],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":0,\\"webhookObserved\\":0}"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1175443Z # {"event":"billing_monitor_fail","checkedAt":"2026-10-16T08:29:32.047Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-16T08:29:32.051Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":1,\\"paidChecked\\":0,\\"paidSettling\\":0,\\"missing\\":[],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":0,\\"webhookObserved\\":0}"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1182642Z # {"event":"billing_monitor_fail","checkedAt":"2026-10-16T08:29:32.052Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-16T08:29:32.060Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":0,\\"paidChecked\\":0,\\"paidSettling\\":0,\\"missing\\":[],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":1,\\"webhookObserved\\":1}"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1186683Z # Subtest: scheduled reconciliation alerts on missing paid fulfillment, an expired sweep, and webhook 5xx
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1187634Z ok 14 - scheduled reconciliation alerts on missing paid fulfillment, an expired sweep, and webhook 5xx
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1188386Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1188913Z   duration_ms: 50.922226
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1189320Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1189691Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1190321Z # Subtest: rollback is allowed only for our observed active deployment and unchanged remote pin
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1191041Z ok 15 - rollback is allowed only for our observed active deployment and unchanged remote pin
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1191460Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1191654Z   duration_ms: 1.751397
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1191886Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1192084Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1192433Z # Subtest: an ambiguous final KV pin write requires manual recovery
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1192930Z ok 16 - an ambiguous final KV pin write requires manual recovery
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1193258Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1193447Z   duration_ms: 0.341519
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1193829Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1194157Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1194875Z # Subtest: deployment source hash detects changes to every release-critical file
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1196204Z ok 17 - deployment source hash detects changes to every release-critical file
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1196860Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1197191Z   duration_ms: 30.013515
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1197577Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1197921Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1198223Z 1..17
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1198528Z # tests 17
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1198859Z # suites 0
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1199250Z # pass 17
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1199564Z # fail 0
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1199898Z # cancelled 0
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1200251Z # skipped 0
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1200578Z # todo 0
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1200940Z # duration_ms 454.419175
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.1912535Z TAP version 13
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3517944Z # Subtest: validTenant accepts only anon_ + 32 lowercase hex
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3566375Z ok 1 - validTenant accepts only anon_ + 32 lowercase hex
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3617840Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3665388Z   duration_ms: 1.393157
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3694828Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3708287Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3717364Z # Subtest: bindDecision only binds a valid tenant on an already-fulfilled session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3718910Z ok 2 - bindDecision only binds a valid tenant on an already-fulfilled session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3719626Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3719932Z   duration_ms: 0.951049
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3720321Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3720677Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3721502Z # Subtest: bindDecision refuses when fulfilment itself was not ok, regardless of tenant
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3722819Z ok 3 - bindDecision refuses when fulfilment itself was not ok, regardless of tenant
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3723615Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3723978Z   duration_ms: 0.190987
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3724379Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3724745Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3725715Z # Subtest: bindDecision refuses a missing or malformed tenant
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3726612Z ok 4 - bindDecision refuses a missing or malformed tenant
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3727195Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3727536Z   duration_ms: 0.209532
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3727934Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3728272Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3729033Z # Subtest: bindDecision never binds a spoofed tenant carried outside metadata
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3730174Z ok 5 - bindDecision never binds a spoofed tenant carried outside metadata
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3730878Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3731216Z   duration_ms: 0.269875
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3731610Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3732086Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3733362Z # Subtest: success page shows the hosted-bound note only when a tenant was actually bound
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3734666Z ok 6 - success page shows the hosted-bound note only when a tenant was actually bound
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3735725Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3736087Z   duration_ms: 0.874957
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3736498Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3736853Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3737558Z # Subtest: pending hosted binding never claims activation is complete
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3738545Z ok 7 - pending hosted binding never claims activation is complete
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3739165Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3739556Z   duration_ms: 0.366807
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3740101Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3740804Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3741515Z # Subtest: success page always shows the key regardless of binding
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3742441Z ok 8 - success page always shows the key regardless of binding
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3743060Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3743401Z   duration_ms: 0.212076
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3743794Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3744125Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3816296Z # Subtest: /bundle is routed
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3846189Z ok 9 - /bundle is routed
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3862228Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3862713Z   duration_ms: 1.569416
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3863278Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3863691Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3864297Z # Subtest: bundle page title, price math and one CTA
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3865088Z ok 10 - bundle page title, price math and one CTA
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3866011Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3866422Z   duration_ms: 1.332513
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3866881Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3867278Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3868153Z # Subtest: bundle page lists every server, each linking to its /s/<id> page
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3869264Z ok 11 - bundle page lists every server, each linking to its /s/<id> page
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3899050Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3899572Z   duration_ms: 0.988289
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3900153Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3900675Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3901437Z # Subtest: bundle page meta description is under 160 chars
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3902364Z ok 12 - bundle page meta description is under 160 chars
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3903020Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3903870Z   duration_ms: 0.608318
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3904346Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3904759Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3905751Z # Subtest: bundle page carries a Product/Offer JSON-LD block
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3906687Z ok 13 - bundle page carries a Product/Offer JSON-LD block
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3907443Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3907883Z   duration_ms: 0.70548
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3908393Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3908822Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3909648Z # Subtest: sitemap.xml and llms.txt derivation both cover /bundle
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3910824Z ok 14 - sitemap.xml and llms.txt derivation both cover /bundle
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3911738Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3912309Z   duration_ms: 40.714958
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3912991Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3913489Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3914544Z # Subtest: every generated server page's CTA block cross-sells the bundle, tagged per server
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3916340Z ok 15 - every generated server page's CTA block cross-sells the bundle, tagged per server
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3917238Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3917694Z   duration_ms: 0.561571
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3918162Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3918603Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3919128Z # Subtest: the home hero links to /bundle
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3919787Z ok 16 - the home hero links to /bundle
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3920312Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3920704Z   duration_ms: 0.189214
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3921172Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3921616Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3922447Z # Subtest: every release version under docs/ appears on the changelog page
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3923723Z ok 17 - every release version under docs/ appears on the changelog page
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3924435Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3925115Z   duration_ms: 62.470483
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3925861Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3926283Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3927117Z # Subtest: the newest version renders first in CHANGELOG.releases and on the page
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3928348Z ok 18 - the newest version renders first in CHANGELOG.releases and on the page
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3929162Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3929587Z   duration_ms: 8.156131
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3930053Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3930466Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3931574Z # Subtest: no sentence on the changelog page is invented: evidence and insight text trace to the release file
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3933203Z ok 19 - no sentence on the changelog page is invented: evidence and insight text trace to the release file
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3934166Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3934581Z   duration_ms: 4.673815
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3935050Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3935767Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3936344Z # Subtest: meta description is under 160 chars
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3937107Z ok 20 - meta description is under 160 chars
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3937683Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3938472Z   duration_ms: 3.574257
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3938998Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3939454Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3940143Z # Subtest: footer, sitemap and llms.txt all link to /changelog
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3941076Z ok 21 - footer, sitemap and llms.txt all link to /changelog
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3941720Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3942128Z   duration_ms: 12.160993
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3942597Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.3943007Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5487291Z # Subtest: no product is waiting on a human, and the 503 that said so is gone
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5509844Z ok 22 - no product is waiting on a human, and the 503 that said so is gone
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5511023Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5511527Z   duration_ms: 2.454061
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5512303Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5512761Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5513789Z # Subtest: every product produces one complete, correctly-priced line item
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5515505Z ok 23 - every product produces one complete, correctly-priced line item
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5516317Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5517030Z   duration_ms: 1.281427
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5517579Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5519122Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5520599Z # Subtest: the three formerly human-gated products are now priced inline, at $19, under their own names
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5522703Z ok 24 - the three formerly human-gated products are now priced inline, at $19, under their own names
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5523964Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5524481Z   duration_ms: 0.319007
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5525307Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5525827Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5527040Z # Subtest: firstSentences never cuts a word and never returns more than asked
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5528787Z ok 25 - firstSentences never cuts a word and never returns more than asked
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5529667Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5530493Z   duration_ms: 0.472904
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5531060Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5531551Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5532799Z # Subtest: a payment for an inline-priced product is fulfillable, and the amount is still checked
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5534343Z ok 26 - a payment for an inline-priced product is fulfillable, and the amount is still checked
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5535612Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5536184Z   duration_ms: 1.619099
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5537117Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5537615Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5538555Z # Subtest: office-suite sells the bundle, because only the bundle key can activate it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5539914Z ok 27 - office-suite sells the bundle, because only the bundle key can activate it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5540775Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5541264Z   duration_ms: 0.469549
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5542038Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5551821Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5552858Z # Subtest: opening a Buy link is side-effect free and renders the explicit checkout step
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5554550Z ok 28 - opening a Buy link is side-effect free and renders the explicit checkout step
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5555687Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5556217Z   duration_ms: 42.330465
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5556833Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5557384Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5559146Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5561799Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5635402Z # Subtest: a bounded form order token is carried into Stripe metadata and its idempotency key
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5659947Z ok 29 - a bounded form order token is carried into Stripe metadata and its idempotency key
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5672555Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5732458Z   duration_ms: 24.717377
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5773629Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5778012Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5779155Z # Subtest: a forged or incomplete POST creates no Stripe Checkout Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5780520Z ok 30 - a forged or incomplete POST creates no Stripe Checkout Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5781485Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5782052Z   duration_ms: 4.001967
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5782668Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5783193Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5784849Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"bundle","source":"store.office-suite","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5786896Z # Subtest: /buy/office-suite reaches a Stripe checkout for the bundle, priced at $39
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5791415Z ok 31 - /buy/office-suite reaches a Stripe checkout for the bundle, priced at $39
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5792381Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5792917Z   duration_ms: 6.33891
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5793460Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5793973Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5796049Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5799512Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"catalogue","source":"store.home.table.catalogue","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5802611Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"change-order","source":"store.home.table.change-order","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5866624Z # Subtest: each formerly 503 product now reaches Stripe with its own inline price
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5896559Z ok 32 - each formerly 503 product now reaches Stripe with its own inline price
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5897774Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5898435Z   duration_ms: 12.467291
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5899206Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5899820Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5901874Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"synthetic-server-r1","source":"store.home.table.synthetic","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5918451Z # Subtest: a server added tomorrow gets a checkout on deploy, with no Stripe dashboard step
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5945644Z ok 33 - a server added tomorrow gets a checkout on deploy, with no Stripe dashboard step
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5946646Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5947213Z   duration_ms: 6.511563
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5947792Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.5948352Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6072437Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.home.table.invoice","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6115810Z # Subtest: a browser that sends no User-Agent still reaches checkout
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6126000Z ok 34 - a browser that sends no User-Agent still reaches checkout
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6159046Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6185938Z   duration_ms: 5.632943
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6215933Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6216633Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6246356Z # Subtest: a crawler with no User-Agent still creates no Stripe session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6291883Z ok 35 - a crawler with no User-Agent still creates no Stripe session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6338095Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6338779Z   duration_ms: 0.762186
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6353334Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6353956Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6354914Z # Subtest: a crawler on an alias sees an intent page but creates no Stripe Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6356555Z ok 36 - a crawler on an alias sees an intent page but creates no Stripe Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6370308Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6370926Z   duration_ms: 10.476352
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6371533Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6384407Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6385805Z # Subtest: an unknown product is a dead end no longer: it names the bundle and charges nothing
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6387305Z ok 37 - an unknown product is a dead end no longer: it names the bundle and charges nothing
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6388256Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6388784Z   duration_ms: 2.319169
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6389353Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6389853Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6391700Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6394441Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6396487Z # Subtest: a real click is recorded before the redirect, and a probe is not
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6397723Z ok 38 - a real click is recorded before the redirect, and a probe is not
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6398574Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6399135Z   duration_ms: 12.570941
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6399751Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6400277Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6401081Z # Subtest: the IndexNow key file serves its key and nothing else
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6402915Z ok 39 - the IndexNow key file serves its key and nothing else
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6403726Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6404235Z   duration_ms: 0.81236
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6404817Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6405679Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6439107Z # Subtest: robots.txt keeps every crawler allowed
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6466010Z ok 40 - robots.txt keeps every crawler allowed
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6495967Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6496714Z   duration_ms: 0.655076
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6526297Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6556053Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6557312Z # Subtest: GSC + Bing verification routes serve a code when one is supplied, and 404 when unset
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6586572Z ok 41 - GSC + Bing verification routes serve a code when one is supplied, and 404 when unset
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6616338Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6645960Z   duration_ms: 1.014659
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6646608Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6675892Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6706296Z # Subtest: llms.txt lists every product with a URL and a description
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6736209Z ok 42 - llms.txt lists every product with a URL and a description
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6737176Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6765810Z   duration_ms: 12.097384
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6766602Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6767149Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6769018Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6771964Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.6776158Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.7966629Z # Subtest: a probe reads back what Stripe stored, and a buyer sees none of it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.7968243Z ok 43 - a probe reads back what Stripe stored, and a buyer sees none of it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.7995908Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8016310Z   duration_ms: 8.329234
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8016937Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8017524Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8018561Z # Subtest: install links use the asset catalog rather than assuming latest contains every bundle
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8019924Z ok 44 - install links use the asset catalog rather than assuming latest contains every bundle
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8020796Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8021319Z   duration_ms: 0.453869
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8021882Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8022392Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8023310Z # Subtest: VALIDATION and BILLING_TEST_COUNT match the files they claim to report
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8024628Z ok 45 - VALIDATION and BILLING_TEST_COUNT match the files they claim to report
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8025833Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8056017Z   duration_ms: 139.598576
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8085790Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8087043Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8146655Z # Subtest: the home page and /bundle no longer state the npx line without the disclosure
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8148098Z ok 46 - the home page and /bundle no longer state the npx line without the disclosure
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8148900Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8149298Z   duration_ms: 16.242269
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8149767Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8150189Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8151154Z # Subtest: the success page leads with an install path that works, not with a command that 404s
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8152477Z ok 47 - the success page leads with an install path that works, not with a command that 404s
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8153254Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8153578Z   duration_ms: 0.483926
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8175785Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8176198Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8202903Z # Subtest: a click on a dead /buy/ link is counted, so the leak is measurable
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8204232Z ok 48 - a click on a dead /buy/ link is counted, so the leak is measurable
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8205900Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8206308Z   duration_ms: 1.247364
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8206728Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8207058Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8356798Z # Subtest: the catalogue is the single servers plus the bundle, and the saving is their sum less $39
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8376495Z ok 49 - the catalogue is the single servers plus the bundle, and the saving is their sum less $39
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8390683Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8393207Z   duration_ms: 1.607468
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8393841Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8394387Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8395574Z # Subtest: the bundle description names the count, the one key and the saving
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8396918Z ok 50 - the bundle description names the count, the one key and the saving
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8397761Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8398253Z   duration_ms: 1.475301
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8398892Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8399425Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8400420Z # Subtest: every single-server description names the product and prices the bundle
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8401819Z ok 51 - every single-server description names the product and prices the bundle
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8402746Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8403376Z   duration_ms: 0.425927
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8403938Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8404453Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8405564Z # Subtest: an unknown product cannot silently produce empty checkout copy
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8406790Z ok 52 - an unknown product cannot silently produce empty checkout copy
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8407622Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8408136Z   duration_ms: 0.809114
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8408677Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8409578Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8410553Z # Subtest: custom_text.submit cross-sells the bundle on a single-server session, tagged
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8411960Z ok 53 - custom_text.submit cross-sells the bundle on a single-server session, tagged
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8412871Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8413362Z   duration_ms: 0.388987
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8413900Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8414375Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8415562Z # Subtest: the cross-sell tags are shapes the /buy route's validSrc will accept
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8426579Z ok 54 - the cross-sell tags are shapes the /buy route's validSrc will accept
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8427460Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8427926Z   duration_ms: 1.504074
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8428574Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8429141Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8456678Z # Subtest: custom_text.after_submit says how the key arrives and that hosted tenants are bound
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8458252Z ok 55 - custom_text.after_submit says how the key arrives and that hosted tenants are bound
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8459193Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8459664Z   duration_ms: 0.369201
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8460188Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8460659Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8461478Z # Subtest: Stripe caps a custom_text message at 1200 characters
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8462517Z ok 56 - Stripe caps a custom_text message at 1200 characters
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8463236Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8463727Z   duration_ms: 0.47558
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8464262Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8464802Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8465958Z # Subtest: the session builder sends both custom_text messages
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8467013Z ok 57 - the session builder sends both custom_text messages
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8467719Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8468211Z   duration_ms: 0.554016
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8468749Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8469230Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8470143Z # Subtest: promotion codes are off and a Customer is always created for the email
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8471442Z ok 58 - promotion codes are off and a Customer is always created for the email
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8472278Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8472758Z   duration_ms: 0.755564
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8473290Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8473768Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8475096Z # Subtest: optional_items is never sent: an added item would break the one-line-item rule
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8476703Z ok 59 - optional_items is never sent: an added item would break the one-line-item rule
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8477678Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8478168Z   duration_ms: 0.777575
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8478706Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8479178Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8479875Z # Subtest: success and cancellation stay on our own host
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8480798Z ok 60 - success and cancellation stay on our own host
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8481506Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8482002Z   duration_ms: 0.301063
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8482567Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8483049Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8484060Z # Subtest: metadata includes the portfolio attribution contract, probe tag and hosted tenant
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8485746Z ok 61 - metadata includes the portfolio attribution contract, probe tag and hosted tenant
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8486714Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8487209Z   duration_ms: 0.546363
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8487754Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8488241Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8489234Z # Subtest: validSrc accepts <product>.<slug> and rejects anything that could break a KV key
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8490646Z ok 62 - validSrc accepts <product>.<slug> and rejects anything that could break a KV key
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8491904Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8492411Z   duration_ms: 1.611916
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8493184Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8493677Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8494556Z # Subtest: recordClick increments both the daily bucket and the running total
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8496093Z ok 63 - recordClick increments both the daily bucket and the running total
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8497240Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8497727Z   duration_ms: 1.029275
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8498267Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8498770Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8499921Z # Subtest: clickStats aggregates per-src totals and the trailing 7-day window, ignoring older daily buckets
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8501579Z ok 64 - clickStats aggregates per-src totals and the trailing 7-day window, ignoring older daily buckets
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8502586Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8503165Z   duration_ms: 1.437109
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8503800Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8504290Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8505417Z # Subtest: clickStats returns an empty aggregate when no clicks were ever recorded
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8506743Z ok 65 - clickStats returns an empty aggregate when no clicks were ever recorded
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8507594Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8508075Z   duration_ms: 1.008216
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8508601Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8509079Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8510148Z # Subtest: buyer guide serves the same engine compiled for the browser with fresh source provenance
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8511708Z ok 66 - buyer guide serves the same engine compiled for the browser with fresh source provenance
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8512644Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8513131Z   duration_ms: 64.807977
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8513682Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8514158Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8515083Z # Subtest: download catalog covers every listed server with an explicit release asset
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8516774Z ok 67 - download catalog covers every listed server with an explicit release asset
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8517612Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8518059Z   duration_ms: 6.265132
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8518560Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8519024Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8519992Z # Subtest: catalogue leads to working setup and labels free-only calculators as free
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8546225Z ok 68 - catalogue leads to working setup and labels free-only calculators as free
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8554852Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8555637Z   duration_ms: 4.448283
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8556163Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8556640Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8558287Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8561236Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":true,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8563260Z # Subtest: short operator probes expire consistently across retries and cannot leave stale cache entries
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8564842Z ok 69 - short operator probes expire consistently across retries and cannot leave stale cache entries
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8566096Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8566546Z   duration_ms: 14.522321
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8567027Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8567449Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8569001Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"bundle","source":"store.buy.invoice","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8571002Z # Subtest: single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8572593Z ok 70 - single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8573548Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8573959Z   duration_ms: 10.11747
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8574424Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8574828Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8575834Z # Subtest: Stripe's bundle cross-sell carries only a validated hosted token
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8576929Z ok 71 - Stripe's bundle cross-sell carries only a validated hosted token
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8577648Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8578075Z   duration_ms: 0.471903
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8578557Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8578969Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8580570Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8583370Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"checkout.cancel","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8585600Z # Subtest: cancelling an expired checkout keeps hosted activation when starting a replacement
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8587219Z ok 72 - cancelling an expired checkout keeps hosted activation when starting a replacement
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8588185Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8588632Z   duration_ms: 7.843535
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8589100Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8589510Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8590583Z # Subtest: purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8592362Z ok 73 - purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8593583Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8594111Z   duration_ms: 2.347242
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8594814Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8595676Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8596951Z # Subtest: pricing presents current prices without an unconfigured price deadline or inferred human demand
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8598817Z ok 74 - pricing presents current prices without an unconfigured price deadline or inferred human demand
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8599915Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8600401Z   duration_ms: 3.728877
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8600918Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8601390Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8602576Z # Subtest: the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8604446Z ok 75 - the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8605772Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8606241Z   duration_ms: 4.59621
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8606810Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8607337Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8608447Z # Subtest: duplicate-reference buyer proof serves the actual comparison core with fresh provenance
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8610117Z ok 76 - duplicate-reference buyer proof serves the actual comparison core with fresh provenance
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8611558Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8612102Z   duration_ms: 52.212258
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8612686Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8613198Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8646279Z # Subtest: the copy-button script is defined exactly once in the page shell
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8667275Z ok 77 - the copy-button script is defined exactly once in the page shell
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8668343Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8668845Z   duration_ms: 7.526072
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8669340Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8669835Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8670852Z # Subtest: the page shell sets no Content-Security-Policy header (inline script needs none)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8672257Z ok 78 - the page shell sets no Content-Security-Policy header (inline script needs none)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8673081Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8673518Z   duration_ms: 0.873705
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8674033Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8674464Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8675425Z # Subtest: every First five minutes prompt renders as pre.prompt
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8676491Z ok 79 - every First five minutes prompt renders as pre.prompt
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8677195Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8677698Z   duration_ms: 3.561824
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8678192Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8678617Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8679555Z # Subtest: month-end-close guide: every quoted prompt is a pre.prompt with its paste line
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8680948Z ok 80 - month-end-close guide: every quoted prompt is a pre.prompt with its paste line
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8681823Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8682296Z   duration_ms: 0.479998
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8682829Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8683323Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8684417Z # Subtest: no code sample (install command, JSON config, tool-call syntax) is tagged pre.prompt
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8686730Z ok 81 - no code sample (install command, JSON config, tool-call syntax) is tagged pre.prompt
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8687833Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8688410Z   duration_ms: 3.751699
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8689229Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8689767Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8690624Z # Subtest: the bundle page carries no unclassed prompt pre
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8691672Z ok 82 - the bundle page carries no unclassed prompt pre
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8692434Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8692961Z   duration_ms: 1.299612
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8693568Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.8694099Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.9831575Z # Subtest: content pages carry a live strong ETag header
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.9848318Z ok 83 - content pages carry a live strong ETag header
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.9857559Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.9875741Z   duration_ms: 66.759669
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.9876224Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.9876636Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.9877375Z # Subtest: etag is content-derived: it changes when the body changes
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.9905996Z ok 84 - etag is content-derived: it changes when the body changes
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:32.9945771Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0004022Z   duration_ms: 5.541799
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0025834Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0048165Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0719927Z # Subtest: billing/src/figures.js is what the manifests currently say
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0721422Z ok 85 - billing/src/figures.js is what the manifests currently say
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0722365Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0722951Z   duration_ms: 76.195547
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0723602Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0724186Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0724928Z # Subtest: the catalogue counts agree with each other
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0726218Z ok 86 - the catalogue counts agree with each other
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0727003Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0727572Z   duration_ms: 0.427861
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0728198Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0728800Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0771864Z # Subtest: no count of servers on the home page is typed, spelled out, or wrong
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0776812Z ok 87 - no count of servers on the home page is typed, spelled out, or wrong
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0778464Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0779078Z   duration_ms: 47.808038
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0779720Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0780405Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0956783Z # Subtest: the home page names servers and gives a URL rather than deferring
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0958439Z ok 88 - the home page names servers and gives a URL rather than deferring
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0985779Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0986412Z   duration_ms: 2.982951
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0987070Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0987663Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0988353Z # Subtest: every round 4 page exists
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0989204Z ok 89 - every round 4 page exists
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0989912Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0990504Z   duration_ms: 0.297507
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0991175Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0991750Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0993107Z # Subtest: every figure on /guides/which-mcp-servers-work-by-pasting-a-url comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0995394Z ok 90 - every figure on /guides/which-mcp-servers-work-by-pasting-a-url comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0996671Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0997243Z   duration_ms: 1.644817
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0997848Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.0998407Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1027210Z # Subtest: every figure on /guides/paid-mcp-servers-and-how-you-pay-for-one comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1034535Z ok 91 - every figure on /guides/paid-mcp-servers-and-how-you-pay-for-one comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1066019Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1096035Z   duration_ms: 0.610141
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1115284Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1136031Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1137409Z # Subtest: every figure on /guides/fill-a-quote-or-estimate-template-from-chat comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1139814Z ok 92 - every figure on /guides/fill-a-quote-or-estimate-template-from-chat comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1140953Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1141451Z   duration_ms: 0.355214
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1141992Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1142462Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1143694Z # Subtest: every figure on /guides/petty-cash-book-and-cash-ledger-mcp-servers comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1145773Z ok 93 - every figure on /guides/petty-cash-book-and-cash-ledger-mcp-servers comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1146908Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1147457Z   duration_ms: 0.494986
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1148062Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1148601Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1149990Z # Subtest: every figure on /guides/currency-conversion-mcp-servers-compared comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1151999Z ok 94 - every figure on /guides/currency-conversion-mcp-servers-compared comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1153191Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1153768Z   duration_ms: 0.709909
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1154402Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1154904Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1156287Z # Subtest: every figure on /guides/zip-and-unzip-mcp-servers-compared comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1158056Z ok 95 - every figure on /guides/zip-and-unzip-mcp-servers-compared comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1159105Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1159608Z   duration_ms: 0.473917
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1160162Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1160629Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1162020Z # Subtest: every figure on /guides/delivery-schedule-and-work-order-documents-from-mcp comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1164101Z ok 96 - every figure on /guides/delivery-schedule-and-work-order-documents-from-mcp comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1165556Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1166152Z   duration_ms: 0.439492
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1166715Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1167197Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1168602Z # Subtest: every figure on /guides/will-an-mcp-server-email-the-invoice-to-my-client comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1171268Z ok 97 - every figure on /guides/will-an-mcp-server-email-the-invoice-to-my-client comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1172472Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1172951Z   duration_ms: 0.303768
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1173477Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1173953Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1175352Z # Subtest: every figure on /guides/can-an-mcp-server-read-a-photo-of-a-receipt comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1177251Z ok 98 - every figure on /guides/can-an-mcp-server-read-a-photo-of-a-receipt comes from a file in this repository
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1178359Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1178827Z   duration_ms: 0.354563
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1179365Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1179831Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1180492Z # Subtest: every round 4 page states what it cannot do
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1181379Z ok 99 - every round 4 page states what it cannot do
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1182050Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1182535Z   duration_ms: 0.375091
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1183054Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1183523Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1184335Z # Subtest: every round 4 page carries a paste-in URL or says why it cannot
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1185672Z ok 100 - every round 4 page carries a paste-in URL or says why it cannot
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1186442Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1186886Z   duration_ms: 0.381714
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1187379Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1187825Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1188419Z # Subtest: no guide spells out a count of servers
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1189209Z ok 101 - no guide spells out a count of servers
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1189810Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1190246Z   duration_ms: 5.744077
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1190966Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1191407Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1310904Z # Subtest: no rendered page spells out a count of servers
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1351521Z ok 102 - no rendered page spells out a count of servers
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1352201Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1352625Z   duration_ms: 37.977176
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1353125Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1353498Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1569754Z # Subtest: a page carries a First five minutes section exactly when a round has exercised it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1606416Z ok 103 - a page carries a First five minutes section exactly when a round has exercised it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1639962Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1682202Z   duration_ms: 1.904423
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1682936Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1683863Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1684696Z # Subtest: every measured page quotes one to three prompts
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1686366Z ok 104 - every measured page quotes one to three prompts
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1705977Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1706636Z   duration_ms: 0.283711
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1730532Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1750021Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1751523Z # Subtest: every quoted prompt string exists verbatim in some data/user_value_r*.json
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1753523Z ok 105 - every quoted prompt string exists verbatim in some data/user_value_r*.json
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1754903Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1755549Z   duration_ms: 2.660909
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1756441Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1757365Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1758362Z # Subtest: the metadata prompts and the rendered prompts are the same list
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1760059Z ok 106 - the metadata prompts and the rendered prompts are the same list
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1761363Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1761947Z   duration_ms: 0.818792
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1762942Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1763539Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1764997Z # Subtest: each quoted prompt carries the score the round file recorded, in the round the page names
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1778099Z ok 107 - each quoted prompt carries the score the round file recorded, in the round the page names
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1805679Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1846550Z   duration_ms: 1.355486
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1866133Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1867240Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1868210Z # Subtest: the sentence under each prompt is a substring of that scenario's evidence
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1869547Z ok 108 - the sentence under each prompt is a substring of that scenario's evidence
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1870400Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1870885Z   duration_ms: 1.609211
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1871413Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1871881Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1872948Z # Subtest: the round each page names is one that scored at least as well as any other round for that server
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1874555Z ok 109 - the round each page names is one that scored at least as well as any other round for that server
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1875761Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1876248Z   duration_ms: 1.23997
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1876791Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1877283Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1878302Z # Subtest: a page quoting anything below 3 states the score, a page quoting only 3s does not
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1880048Z ok 110 - a page quoting anything below 3 states the score, a page quoting only 3s does not
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1881112Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1881753Z   duration_ms: 0.613295
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1882442Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1883026Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1884340Z # Subtest: each section names its round and date, and quotes the free tier from data/facts.json
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1886640Z ok 111 - each section names its round and date, and quotes the free tier from data/facts.json
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1887848Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1888606Z   duration_ms: 0.898531
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1889415Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1904685Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1906014Z # Subtest: the section is plain text a reader can copy, with no unescaped markup from the round data
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1907992Z ok 112 - the section is plain text a reader can copy, with no unescaped markup from the round data
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1908735Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1909062Z   duration_ms: 0.89756
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1909460Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1909789Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1910545Z # Subtest: Session-derived key identity is stable across workers and unique by Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1913591Z ok 113 - Session-derived key identity is stable across workers and unique by Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1914630Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1917366Z   duration_ms: 10.211987
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1918021Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1918373Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1919334Z # {"kind":"fulfillment_retry_scheduled","session_ref":"cd4750efce1a","attempts":1,"error":"bind unavailable"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1920745Z # Subtest: failed hosted bind remains durable and is retried without repeating key persistence
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1922016Z ok 114 - failed hosted bind remains durable and is retried without repeating key persistence
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1922486Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1922684Z   duration_ms: 6.145448
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1922907Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1923101Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1923487Z # Subtest: a replay cannot replace the durable key or tenant for a Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1924062Z ok 115 - a replay cannot replace the durable key or tenant for a Session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1924418Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1924606Z   duration_ms: 0.575767
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1924816Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1925006Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1926167Z # {"kind":"fulfillment_retry_scheduled","session_ref":"cd4750efce1a","attempts":1,"error":"license cache unavailable"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1927375Z # {"event":"checkout_fulfillment","source":"durable_object","session_ref":"cd4750efce1a","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1928338Z # Subtest: license cache failure is retried before a hosted bind is attempted
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1928936Z ok 116 - license cache failure is retried before a hosted bind is attempted
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1929311Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1929508Z   duration_ms: 2.785301
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1929953Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1930145Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1930523Z # Subtest: \#3 a correctly paid session for the right price is fulfilled
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1931056Z ok 117 - \#3 a correctly paid session for the right price is fulfilled
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1931404Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1931589Z   duration_ms: 1.693999
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1931805Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1931994Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1932450Z # Subtest: \#3 the cheaper price of another product cannot mint a different entitlement
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1933084Z ok 118 - \#3 the cheaper price of another product cannot mint a different entitlement
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1933468Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1933660Z   duration_ms: 0.436015
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1933879Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1934062Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1934394Z # Subtest: \#3 a foreign price id in this Stripe account is rejected
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1934881Z ok 119 - \#3 a foreign price id in this Stripe account is rejected
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1936240Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1936626Z   duration_ms: 0.262501
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1937031Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1937383Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1937998Z # Subtest: \#3 amount_total must equal the expected unit_amount
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1938842Z ok 120 - \#3 amount_total must equal the expected unit_amount
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1939374Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1939698Z   duration_ms: 0.236121
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1940067Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1940395Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1941055Z # Subtest: \#3 mode, status, currency, quantity and item count are all bound
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1941997Z ok 121 - \#3 mode, status, currency, quantity and item count are all bound
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1942828Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1943142Z   duration_ms: 0.408695
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1943513Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1943821Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1944428Z # Subtest: \#3 metadata product must match the product being minted
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1945532Z ok 122 - \#3 metadata product must match the product being minted
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1946105Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1946413Z   duration_ms: 0.248034
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1946762Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1947071Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1947666Z # Subtest: \#3 an unpaid or unhandled payment_status is not fulfilled
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1948572Z ok 123 - \#3 an unpaid or unhandled payment_status is not fulfilled
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1949120Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1949415Z   duration_ms: 0.294481
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1949761Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1950060Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1950823Z # Subtest: \#8 a 100% promotion code is fulfilled only when the discount covers the full price
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1952015Z ok 124 - \#8 a 100% promotion code is fulfilled only when the discount covers the full price
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1952708Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1953018Z   duration_ms: 0.360805
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1953393Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1953748Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1954216Z # Subtest: \#8 the bundle price binds to 3900
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1954825Z ok 125 - \#8 the bundle price binds to 3900
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1955564Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1955929Z   duration_ms: 0.489967
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1956293Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1956608Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1957181Z # Subtest: \#9 every v1 value is kept and any match is accepted
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1958026Z ok 126 - \#9 every v1 value is kept and any match is accepted
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1958604Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1958935Z   duration_ms: 22.107664
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1959324Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1959657Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1960425Z # Subtest: \#10 a nonnumeric timestamp is rejected instead of passing the replay window
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1961638Z ok 127 - \#10 a nonnumeric timestamp is rejected instead of passing the replay window
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1962386Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1962727Z   duration_ms: 1.12242
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1963119Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1963688Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1964277Z # Subtest: \#10 a stale timestamp is outside the 300 s window
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1965070Z ok 128 - \#10 a stale timestamp is outside the 300 s window
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1965836Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1966158Z   duration_ms: 0.30466
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1966521Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.1966847Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3487975Z # Subtest: only an actual GET offer records a view; HEAD and unknown products cannot inflate it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3529933Z ok 129 - only an actual GET offer records a view; HEAD and unknown products cannot inflate it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3544470Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3575972Z   duration_ms: 56.811231
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3606013Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3606794Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3636571Z # Subtest: explicit acquisition and known first-party source declarations reach the actual offer counters
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3658493Z ok 130 - explicit acquisition and known first-party source declarations reach the actual offer counters
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3716015Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3745929Z   duration_ms: 13.453653
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3751763Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3775849Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3800063Z # Subtest: stored anonymous provenance wins over query labels; missing sidecars stay unmeasured
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3826525Z ok 131 - stored anonymous provenance wins over query labels; missing sidecars stay unmeasured
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3855829Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3859542Z   duration_ms: 17.49846
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3894301Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3935871Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3950041Z # Subtest: unknown acquisition/source input never becomes a stored or exported label
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3952044Z ok 132 - unknown acquisition/source input never becomes a stored or exported label
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3953090Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.3953676Z   duration_ms: 5.740671
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4007421Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4008779Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4009877Z # Subtest: valid POST records a handoff only after creating a checkout redirect
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4011223Z ok 133 - valid POST records a handoff only after creating a checkout redirect
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4012100Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4012604Z   duration_ms: 10.446336
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4013176Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4013667Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4014718Z # Subtest: an explicitly resumed checkout records its redirect without creating a new session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4016501Z ok 134 - an explicitly resumed checkout records its redirect without creating a new session
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4017495Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4018018Z   duration_ms: 3.856326
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4018576Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4019078Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4020139Z # Subtest: a cached explicit probe redirect records only the probe cohort and makes no Stripe call
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4021776Z ok 135 - a cached explicit probe redirect records only the probe cohort and makes no Stripe call
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4022839Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4023365Z   duration_ms: 3.389472
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4023951Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4024464Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4025703Z # Subtest: invalid intent and scripted POST redirects do not become checkout handoffs
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4027143Z ok 136 - invalid intent and scripted POST redirects do not become checkout handoffs
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4028091Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4028944Z   duration_ms: 1.633326
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4029526Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4030034Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4030796Z # Subtest: failed checkout creation cannot increment a handoff
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4031847Z ok 137 - failed checkout creation cannot increment a handoff
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4032601Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4033089Z   duration_ms: 2.490369
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4033635Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4034123Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4051027Z # Subtest: counter unavailability cannot fail a successful purchase redirect
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4096096Z ok 138 - counter unavailability cannot fail a successful purchase redirect
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4105887Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4120413Z   duration_ms: 10.729425
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4121222Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4121892Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4123424Z # Subtest: public stats uses exactly seven object requests and exposes null totals when any day is unavailable
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4125769Z ok 139 - public stats uses exactly seven object requests and exposes null totals when any day is unavailable
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4126979Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4127595Z   duration_ms: 4.066158
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4128222Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4128927Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4467547Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"probe.funnel-r1.control","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4478276Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"probe.funnel-r1.control","probe":true,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4506741Z # Subtest: CONTROL: one identifiable human click moves the counter by exactly one, and nothing else does
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4509822Z ok 140 - CONTROL: one identifiable human click moves the counter by exactly one, and nothing else does
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4575979Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4605697Z   duration_ms: 62.320815
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4606356Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4631489Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4648250Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4650556Z # Subtest: a named crawler never has a live Stripe Checkout Session created for it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4651728Z ok 141 - a named crawler never has a live Stripe Checkout Session created for it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4652437Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4652792Z   duration_ms: 15.916039
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4653189Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4653506Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4655042Z # {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4657374Z # Subtest: a /buy hit with no ?src= is bucketed as unattributed and kept out of the headline totals
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4658704Z ok 142 - a /buy hit with no ?src= is bucketed as unattributed and kept out of the headline totals
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4659493Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4659815Z   duration_ms: 3.207952
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4660203Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4660543Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4661232Z # Subtest: v1 click counters are reported apart from v2 and never summed into it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4662269Z ok 143 - v1 click counters are reported apart from v2 and never summed into it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4662890Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4663228Z   duration_ms: 0.677988
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4663624Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4663966Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4664839Z # Subtest: isHumanNavigation is not start-anchored and cannot be defeated by forgetting a header
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4666532Z ok 144 - isHumanNavigation is not start-anchored and cannot be defeated by forgetting a header
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4667413Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4667768Z   duration_ms: 0.520554
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4668193Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4668524Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4669293Z # Subtest: instrument v3: no Referer means not counted, any-origin Referer counts
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4670426Z ok 145 - instrument v3: no Referer means not counted, any-origin Referer counts
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4671130Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4671461Z   duration_ms: 0.345336
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4671842Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4672176Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4673425Z # Subtest: instrument v4 (S137): no Sec-Fetch-Site means not counted — the curl walker of 2026-09-23
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4717054Z ok 146 - instrument v4 (S137): no Sec-Fetch-Site means not counted — the curl walker of 2026-09-23
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4717986Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4718334Z   duration_ms: 1.440766
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4718819Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4719167Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4720036Z # Subtest: no page tells anyone to paste a hosted URL that answers every tool call with 401
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4721335Z ok 147 - no page tells anyone to paste a hosted URL that answers every tool call with 401
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4722105Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4722469Z   duration_ms: 16.340584
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4722918Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4723282Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4724196Z # Subtest: every free-tier count the storefront advertises is the number the server enforces
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4725881Z ok 148 - every free-tier count the storefront advertises is the number the server enforces
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4726692Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4727068Z   duration_ms: 30.233146
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4727480Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4727823Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4728426Z # Subtest: the sitemap offers the page that mints the token
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4729287Z ok 149 - the sitemap offers the page that mints the token
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4729871Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4730225Z   duration_ms: 3.592624
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4730650Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4730982Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4731653Z # Subtest: the product page keeps the price comparison above the fold
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4732644Z ok 150 - the product page keeps the price comparison above the fold
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4733274Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4733621Z   duration_ms: 7.930088
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4734366Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4734724Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4735523Z # node:internal/modules/package_json_reader:314
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4736773Z #   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4737751Z #         ^
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4739571Z # Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'esbuild' imported from /home/runner/work/mcp-servers/mcp-servers/billing/test/funnel-runtime.test.mjs
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4741631Z #     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4743072Z #     at packageResolve (node:internal/modules/esm/resolve:772:81)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4744297Z #     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4772998Z #     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4774160Z #     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4775482Z #     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4776730Z #     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4777892Z #     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4778676Z #   code: 'ERR_MODULE_NOT_FOUND'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4779116Z # }
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4779444Z # Node.js v22.23.3
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4780110Z # Subtest: billing/test/funnel-runtime.test.mjs
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4780885Z not ok 17 - billing/test/funnel-runtime.test.mjs
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4781442Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4781804Z   duration_ms: 47.839122
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4782220Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4783082Z   location: '/home/runner/work/mcp-servers/mcp-servers/billing/test/funnel-runtime.test.mjs:1:1'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4784036Z   failureType: 'testCodeFailure'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4784488Z   exitCode: 1
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4784838Z   signal: ~
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4785446Z   error: 'test failed'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4785881Z   code: 'ERR_TEST_FAILURE'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.4786294Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5137151Z # Subtest: one transaction atomically records response counters and first marker; failures roll everything back
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5146492Z ok 152 - one transaction atomically records response counters and first marker; failures roll everything back
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5187608Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5205897Z   duration_ms: 7.899039
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5235714Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5275946Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5306443Z # Subtest: concurrent first responses increment every response exactly once and first observation once
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5316409Z ok 153 - concurrent first responses increment every response exactly once and first observation once
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5345838Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5394527Z   duration_ms: 33.393179
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5397475Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5415747Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5440936Z # Subtest: replaying the same admitted response is idempotent, but a fresh response remains a new call
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5456807Z ok 154 - replaying the same admitted response is idempotent, but a fresh response remains a new call
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5473289Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5505980Z   duration_ms: 0.991245
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5536343Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5537264Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5543241Z # Subtest: lost reply after commit retries the same response identity without double counting any batch event
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5545018Z ok 155 - lost reply after commit retries the same response identity without double counting any batch event
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5547352Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5547970Z   duration_ms: 56.452298
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5548609Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:33.5549177Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4090473Z # Subtest: 1000 servers and concurrent responses still export at most70 source/cohort/event cells per day
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4092061Z ok 156 - 1000 servers and concurrent responses still export at most70 source/cohort/event cells per day
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4093419Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4093820Z   duration_ms: 1021.283868
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4094256Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4094607Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4096533Z # Subtest: one unavailable day makes retrieval incomplete with null totals, no deceptively partial ordinary values
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4098468Z ok 157 - one unavailable day makes retrieval incomplete with null totals, no deceptively partial ordinary values
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4099357Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4099678Z   duration_ms: 1.634498
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4100054Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4100373Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4101217Z # Subtest: oversized, truncated and duplicate-cell responses cannot claim complete retrieval
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4102608Z ok 158 - oversized, truncated and duplicate-cell responses cannot claim complete retrieval
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4103442Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4103800Z   duration_ms: 1.026892
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4104207Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4104552Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4138279Z # Subtest: negative-cached or expired probe sidecars remain unmeasured unless current request explicitly marks probe
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4140292Z ok 159 - negative-cached or expired probe sidecars remain unmeasured unless current request explicitly marks probe
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4141745Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4142261Z   duration_ms: 3.250312
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4143232Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4143595Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4144632Z # Subtest: validation rejects raw tokens, arbitrary fields, invalid labels and impossible event combinations
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4146462Z ok 160 - validation rejects raw tokens, arbitrary fields, invalid labels and impossible event combinations
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4147360Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4147695Z   duration_ms: 0.681766
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4148072Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4148394Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4149320Z # Subtest: daily object refuses cross-day reuse and schedules retention cleanup at31days from day start
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4150776Z ok 161 - daily object refuses cross-day reuse and schedules retention cleanup at31days from day start
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4151597Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4152232Z   duration_ms: 1.148349
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4152600Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4152915Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4340182Z # Subtest: the month-end-close guide exists
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4340990Z ok 162 - the month-end-close guide exists
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4341649Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4342343Z   duration_ms: 1.169178
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4342736Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4343057Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4343691Z # Subtest: every figure in the guide appears in data/user_value_r27.json
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4344710Z ok 163 - every figure in the guide appears in data/user_value_r27.json
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4345635Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4345985Z   duration_ms: 5.326235
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4346454Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4346940Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4348154Z # Subtest: the old guide slug is gone from GUIDES and the new one replaces it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4349241Z ok 164 - the old guide slug is gone from GUIDES and the new one replaces it
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4349914Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4350254Z   duration_ms: 0.897338
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4350630Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4350952Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4351520Z # Subtest: GET /guides/<old slug> 301s to /guides/<new slug>
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4352327Z ok 165 - GET /guides/<old slug> 301s to /guides/<new slug>
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4352880Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4353215Z   duration_ms: 28.826242
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4353606Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4353930Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4354466Z # Subtest: GET /guides/<new slug> serves the guide directly
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4355496Z ok 166 - GET /guides/<new slug> serves the guide directly
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4356025Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4356358Z   duration_ms: 13.017235
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4357168Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4357485Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4358083Z # Subtest: the redirect map is source-level wired for the old slug
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4358948Z ok 167 - the redirect map is source-level wired for the old slug
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4359533Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4359859Z   duration_ms: 0.394107
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4360234Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4360557Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4361228Z # Subtest: /sitemap.xml lists only the new slug, never the old one
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4366407Z ok 168 - /sitemap.xml lists only the new slug, never the old one
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4368040Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4368633Z   duration_ms: 4.611348
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4369233Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4369914Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4370747Z # Subtest: /llms.txt lists only the new slug, never the old one
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4371835Z ok 169 - /llms.txt lists only the new slug, never the old one
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4372665Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4373303Z   duration_ms: 2.794549
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4374034Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4374590Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4375974Z # Subtest: HOSTED_SERVERS is exactly the set of servers whose manifest declares a remote
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4377494Z ok 170 - HOSTED_SERVERS is exactly the set of servers whose manifest declares a remote
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4378431Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4378927Z   duration_ms: 4.66539
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4379468Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4379953Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4380821Z # Subtest: office-suite is never hosted: it spawns local child processes
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4382043Z ok 171 - office-suite is never hosted: it spawns local child processes
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4382862Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4383356Z   duration_ms: 0.338393
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4383891Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4384376Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4385606Z # Subtest: every /buy href rendered by the billing worker carries a src=store.<page> tag
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4387084Z ok 172 - every /buy href rendered by the billing worker carries a src=store.<page> tag
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4388011Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4388508Z   duration_ms: 17.037045
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4389070Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4389561Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4390938Z # Subtest: the pages generated from the READMEs are tagged with the product page that shows them
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4392515Z ok 173 - the pages generated from the READMEs are tagged with the product page that shows them
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4393538Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4394053Z   duration_ms: 6.425091
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4394630Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4395439Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4396321Z # Subtest: the tags the storefront emits are shapes the /buy route will accept
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4436252Z ok 174 - the tags the storefront emits are shapes the /buy route will accept
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4455910Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4456378Z   duration_ms: 48.263604
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4456907Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4457351Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4457897Z # {"event":"subscribe","source":"test","outcome":"sent"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4458720Z # {"event":"subscribe","source":"footer","outcome":"stored_no_email"}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4459797Z # Subtest: POST /api/subscribe stores the sub record and sends the welcome email
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4460921Z ok 175 - POST /api/subscribe stores the sub record and sends the welcome email
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4461588Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4463503Z   duration_ms: 33.125464
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4464201Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4464605Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4466836Z # Subtest: duplicate subscribe is idempotent and does not re-send the welcome email
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4468080Z ok 176 - duplicate subscribe is idempotent and does not re-send the welcome email
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4476128Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4476598Z   duration_ms: 1.055645
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4477114Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4477498Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4478783Z # Subtest: invalid email is rejected without storing or sending
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4479864Z ok 177 - invalid email is rejected without storing or sending
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4480575Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4481017Z   duration_ms: 2.498945
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4481541Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4481952Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4482939Z # Subtest: missing RESEND_API_KEY still stores the subscriber (email is best-effort)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4484162Z ok 178 - missing RESEND_API_KEY still stores the subscriber (email is best-effort)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4484675Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4484884Z   duration_ms: 1.205325
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4485106Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4485619Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4486107Z # {"event":"drip_sweep","e2":1,"e3":1,"errors":0}
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4486967Z # Subtest: the shared page footer carries the subscribe form pointing at /api/subscribe
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4487647Z ok 179 - the shared page footer carries the subscribe form pointing at /api/subscribe
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4488076Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4488279Z   duration_ms: 17.694951
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4488507Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4488699Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4489144Z # Subtest: runDripSweep sends E2 once past 48h and E3 once past 168h, stamping each step
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4489799Z ok 180 - runDripSweep sends E2 once past 48h and E3 once past 168h, stamping each step
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4490195Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4490379Z   duration_ms: 1.737652
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4490594Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4490782Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4491087Z # Subtest: runDripSweep without an API key is a no-op skip
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4491550Z ok 181 - runDripSweep without an API key is a no-op skip
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4491866Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4492047Z   duration_ms: 1.291607
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4492257Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4492439Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4492715Z # Subtest: home page renders Organization JSON-LD
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4493116Z ok 182 - home page renders Organization JSON-LD
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4493401Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4493610Z   duration_ms: 52.29566
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4493819Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4494000Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4494325Z # Subtest: home page renders WebSite JSON-LD with a publisher
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4496032Z ok 183 - home page renders WebSite JSON-LD with a publisher
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4496585Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4496907Z   duration_ms: 3.736231
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4497279Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4497631Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4498259Z # Subtest: web site has no /search route, so no SearchAction is emitted
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4499179Z ok 184 - web site has no /search route, so no SearchAction is emitted
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4499768Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4500125Z   duration_ms: 4.701156
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4500487Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4500822Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4501455Z # Subtest: every rendered HTML page carries a twitter:card summary tag
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4502482Z ok 185 - every rendered HTML page carries a twitter:card summary tag
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4503598Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4504119Z   duration_ms: 16.880614
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4504636Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4505061Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4506094Z # Subtest: a page with OG still keeps its OG tags (additive only)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4507270Z ok 186 - a page with OG still keeps its OG tags (additive only)
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4507972Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4508291Z   duration_ms: 3.046289
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4508663Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4508968Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4509481Z # Subtest: no new twitter/og markup uses a banned em-dash
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4510217Z ok 187 - no new twitter/og markup uses a banned em-dash
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4510717Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4511021Z   duration_ms: 7.565516
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4511384Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4511703Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4512412Z # Subtest: guide pages render the featured-servers strip with unique server links
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4513783Z ok 188 - guide pages render the featured-servers strip with unique server links
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4514457Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4514769Z   duration_ms: 47.365722
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4515348Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4515680Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4516561Z # Subtest: featured strip omits the guide's own product page when it would duplicate the cross block
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4517887Z ok 189 - featured strip omits the guide's own product page when it would duplicate the cross block
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4519150Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4519504Z   duration_ms: 7.531041
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4519903Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4520241Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4520773Z # Subtest: non-guide pages do not carry the featured strip
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4521553Z ok 190 - non-guide pages do not carry the featured strip
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4522106Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4522455Z   duration_ms: 5.072471
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4522848Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4523169Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4523744Z # Subtest: priority guide nav is the first element inside body
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4524575Z ok 191 - priority guide nav is the first element inside body
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4526197Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4526565Z   duration_ms: 35.734691
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4526982Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4527332Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4527984Z # Subtest: priority guide nav on home has 10 unique real guide links
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4528950Z ok 192 - priority guide nav on home has 10 unique real guide links
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4530451Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4530807Z   duration_ms: 5.786828
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4531218Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4531560Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4532075Z # Subtest: guide pages carry the priority nav too
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4532801Z ok 193 - guide pages carry the priority nav too
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4533325Z   ---
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4533660Z   duration_ms: 2.353664
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4534063Z   type: 'test'
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4534402Z   ...
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4534711Z 1..193
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4535030Z # tests 193
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4535533Z # suites 0
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4535862Z # pass 192
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4536451Z # fail 1
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4536788Z # cancelled 0
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4537142Z # skipped 0
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4537478Z # todo 0
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4537836Z # duration_ms 2275.468816
+Billing preflight	Run key-independent billing tests and Wrangler dry run	2026-10-16T08:29:34.4553627Z ##[error]Process completed with exit code 1.

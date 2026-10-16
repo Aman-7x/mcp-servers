@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-16T09:05:40.593Z",
+  "status": "passed",
+  "state_removed": true,
+  "private_state_values_published": false,
+  "expired_owned_unpaid_sessions": 2,
+  "charged_minor": 0,
+  "coordination_lock_retained": true,
+  "reason": "Stable empty lock inode retained for future OS exclusion; no active probe state remains."
+}

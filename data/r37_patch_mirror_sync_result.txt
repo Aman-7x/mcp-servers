@@ -1,0 +1,16 @@
+buildslot[22490] 16:21:00: slot 1 acquired: bash scripts/sync-mirrors.sh duplicate-invoice-check three-way-match office-suite
+mirror-seo check: 50/50 published servers described
+  pending (a server directory with no mirror yet, not published by sync-mirrors.sh): budget, loan-calculator, payroll, pomodoro, receipts, stripe-billing, tax-calc
+=== mcp-duplicate-invoice-check  (/Users/mike/mcp-servers-work/mirror-duplicate-invoice-check.qmyQ56)
+  released v0.22.8
+pushed https://github.com/theluckystrike/mcp-duplicate-invoice-check
+=== mcp-three-way-match  (/Users/mike/mcp-servers-work/mirror-three-way-match.Iw4400)
+  WARNING: servers/three-way-match has uncommitted changes; the mirror will carry them:
+     M servers/three-way-match/cleanup-manifest.jsonl
+  REQUIRE_CLEAN=1: skipping mcp-three-way-match
+=== mcp-office-suite  (/Users/mike/mcp-servers-work/mirror-office-suite.iHEnwM)
+  released v0.22.8
+pushed https://github.com/theluckystrike/mcp-office-suite
+
+=== sync-mirrors summary: 1 mirror(s) failed after retries
+  FAILED: mcp-three-way-match: skipped, servers/three-way-match is dirty and REQUIRE_CLEAN=1

@@ -1,0 +1,216 @@
+{
+  "status": "passed_public_bytes_verified",
+  "baseline_at": "2026-10-16T09:10:13.854Z",
+  "old_evidence": "data/r37_product_audit_v0.22.7.json",
+  "old_report": "intel/R37-independent-product-audit_v0.22.7.md",
+  "scope": "/Users/mike/mcp-servers-work/r37-patch-independent-srz7Nu",
+  "source_sha256_before": {
+    "servers/duplicate-invoice-check/src/core.ts": "258f925cb0e262bfe3f489df2675fa1bf7e282fab03e7c2e5d97463bf73ddc5c",
+    "servers/duplicate-invoice-check/src/store.ts": "29d9bed0ec632b665b01472ddacdbae20fd1d0b3a9ee6f00441c2c4641587cdd",
+    "servers/duplicate-invoice-check/src/output.ts": "1040693da568952e1ab5dc7cb3dcdd621eafb0e8773dc0328257f6d7a8ef042e",
+    "servers/three-way-match/src/core.ts": "b3a5064bfa5a79f36c852a7056fb27d3f630bc9a2b34f63d8f98c4a63edffcfb",
+    "servers/three-way-match/src/store.ts": "701cffb94bd67eaaab5ab945645def768badbda949b90103fa46bca38e632cd8",
+    "servers/three-way-match/src/output.ts": "3847e0d3ccb75bc73cda76a14243a4b947dbf80b7c608718c0434cdab22b4413"
+  },
+  "license_count_before": 47,
+  "license_sha256_before": "cd1366a49989a0b4384ced7ecee53fc4a727343e7a16daadcabcf225029f8aec",
+  "license_count_neutral_sha256_before": "e2b433abaf9aeb3e02184baa88b6a37b2432ec54a10b8726de9044fb364e55b9",
+  "source_handoff": {
+    "at": "2026-10-16T09:12:36.074Z",
+    "implementation_files_unchanged": 8,
+    "license_only_count_changed": true,
+    "server_count": 48
+  },
+  "started_at": "2026-10-16T09:17:51.273Z",
+  "archives": [
+    {
+      "name": "duplicate-invoice-check",
+      "sha256": "181379eb6dcff3d90b55e080dd9c180f6c96802e991872865a6b0ce422b3aaea",
+      "bytes": 3276144,
+      "version": "0.22.8",
+      "namespace": "io.github.theluckystrike/duplicate-invoice-check",
+      "outer_descriptors": [
+        {
+          "file": "server.json",
+          "namespace": "io.github.theluckystrike/duplicate-invoice-check"
+        },
+        {
+          "file": "server.mcpb.json",
+          "namespace": "io.github.theluckystrike/duplicate-invoice-check"
+        },
+        {
+          "file": "server.supplier-invoice-duplicates.json",
+          "namespace": "io.github.theluckystrike/supplier-invoice-duplicates"
+        }
+      ],
+      "registry_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb",
+      "manifest_version": "0.22.8",
+      "resolution_controls": {
+        "esm": "external import rejected",
+        "cjs": "external require rejected"
+      },
+      "outbound_product_network": "blocked",
+      "compiled_files": {
+        "duplicate-invoice-check/core": "d2b62e77df7cb845369f2079e8877d2551a0545bc98306002dd2284ec8e8783d",
+        "duplicate-invoice-check/store": "7e4c65ff913d80bac2a9732fe12d10c6dbc32d604fa0f26d3971af467613391d",
+        "duplicate-invoice-check/output": "5d59ac92d4a4d32b6b47764d0ab984119db27beb58c6c6dbaef585e6671ede96"
+      },
+      "business": [
+        "duplicate: three saves, fourth cap retains full diagnosis and free preview paging/CSV; exact supplier exclusion; literal source preserved; serverCount 48"
+      ],
+      "tools": 8,
+      "actual_stdio_calls": 9,
+      "status": "passed",
+      "unique_internal_resolved_files": 223
+    },
+    {
+      "name": "three-way-match",
+      "sha256": "6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040",
+      "bytes": 3276889,
+      "version": "0.22.8",
+      "namespace": "io.github.theluckystrike/three-way-match",
+      "outer_descriptors": [
+        {
+          "file": "server.json",
+          "namespace": "io.github.theluckystrike/three-way-match"
+        },
+        {
+          "file": "server.mcpb.json",
+          "namespace": "io.github.theluckystrike/three-way-match"
+        },
+        {
+          "file": "server.supplier-invoice-matching.json",
+          "namespace": "io.github.theluckystrike/supplier-invoice-matching"
+        }
+      ],
+      "registry_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb",
+      "manifest_version": "0.22.8",
+      "resolution_controls": {
+        "esm": "external import rejected",
+        "cjs": "external require rejected"
+      },
+      "outbound_product_network": "blocked",
+      "compiled_files": {
+        "three-way-match/core": "ee9635a72a4a177dd7905ecd3c4de84a862cd7326af3293788ac44594360350c",
+        "three-way-match/store": "033bf31dcf216c7fa00b255ed4580c84fc182838c8c6f3d636d6a6ebdb196932",
+        "three-way-match/output": "cb2c2895a0d69537256a04406a55973a4277b04ab3c28499ee1292ae2d6d7af8"
+      },
+      "business": [
+        "matcher: three saves, fourth cap retains full inline diagnosis; saved retrieval/CSV remains free; offsetting quantity exceptions and literal source preserved; serverCount 48"
+      ],
+      "tools": 8,
+      "actual_stdio_calls": 8,
+      "status": "passed",
+      "unique_internal_resolved_files": 223
+    },
+    {
+      "name": "office-suite",
+      "sha256": "7f50d6d16d445dddcee054b24e8586de4daff9d91b77d22a28730647305cc91d",
+      "bytes": 32010970,
+      "version": "0.22.8",
+      "namespace": "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price",
+      "outer_descriptors": [
+        {
+          "file": "server.json",
+          "namespace": "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price"
+        },
+        {
+          "file": "server.mcpb.json",
+          "namespace": "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price"
+        },
+        {
+          "file": "server.office-suite.json",
+          "namespace": "io.github.theluckystrike/office-suite"
+        }
+      ],
+      "registry_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/office-suite.mcpb",
+      "manifest_version": "0.22.8",
+      "resolution_controls": {
+        "esm": "external import rejected",
+        "cjs": "external require rejected"
+      },
+      "outbound_product_network": "blocked",
+      "compiled_files": {
+        "duplicate-invoice-check/core": "d2b62e77df7cb845369f2079e8877d2551a0545bc98306002dd2284ec8e8783d",
+        "duplicate-invoice-check/store": "7e4c65ff913d80bac2a9732fe12d10c6dbc32d604fa0f26d3971af467613391d",
+        "duplicate-invoice-check/output": "5d59ac92d4a4d32b6b47764d0ab984119db27beb58c6c6dbaef585e6671ede96",
+        "three-way-match/core": "ee9635a72a4a177dd7905ecd3c4de84a862cd7326af3293788ac44594360350c",
+        "three-way-match/store": "033bf31dcf216c7fa00b255ed4580c84fc182838c8c6f3d636d6a6ebdb196932",
+        "three-way-match/output": "cb2c2895a0d69537256a04406a55973a4277b04ab3c28499ee1292ae2d6d7af8"
+      },
+      "business": [
+        "duplicate: three saves, fourth cap retains full diagnosis and free preview paging/CSV; exact supplier exclusion; literal source preserved; serverCount 48",
+        "matcher: three saves, fourth cap retains full inline diagnosis; saved retrieval/CSV remains free; offsetting quantity exceptions and literal source preserved; serverCount 48"
+      ],
+      "tools": 447,
+      "children": 49,
+      "actual_stdio_calls": 15,
+      "status": "passed",
+      "unique_internal_resolved_files": 1110
+    }
+  ],
+  "license": {
+    "count": 48,
+    "paid_product_count": 48,
+    "free_exclusions": [
+      "budget",
+      "hourly-rate",
+      "loan-calculator",
+      "payroll",
+      "pomodoro",
+      "receipts",
+      "stripe-billing",
+      "tax-calc"
+    ],
+    "office_is_bundle_alias": true,
+    "source_only_count_changed": true,
+    "package_version": "0.22.7",
+    "prices_unchanged": true
+  },
+  "source_sha256_after": {
+    "servers/duplicate-invoice-check/src/core.ts": "258f925cb0e262bfe3f489df2675fa1bf7e282fab03e7c2e5d97463bf73ddc5c",
+    "servers/duplicate-invoice-check/src/store.ts": "29d9bed0ec632b665b01472ddacdbae20fd1d0b3a9ee6f00441c2c4641587cdd",
+    "servers/duplicate-invoice-check/src/output.ts": "1040693da568952e1ab5dc7cb3dcdd621eafb0e8773dc0328257f6d7a8ef042e",
+    "servers/three-way-match/src/core.ts": "b3a5064bfa5a79f36c852a7056fb27d3f630bc9a2b34f63d8f98c4a63edffcfb",
+    "servers/three-way-match/src/store.ts": "701cffb94bd67eaaab5ab945645def768badbda949b90103fa46bca38e632cd8",
+    "servers/three-way-match/src/output.ts": "3847e0d3ccb75bc73cda76a14243a4b947dbf80b7c608718c0434cdab22b4413"
+  },
+  "algorithms_storage_output_unchanged": true,
+  "prior_attempts": [
+    {
+      "status": "blocked_before_runtime",
+      "reason": "Final archive hashes were not yet inserted into all nine outer descriptors at first handoff",
+      "observed_at": "2026-10-16T09:16:37.395Z",
+      "resolved": "Release agent finalized all nine descriptor hashes"
+    },
+    {
+      "status": "reviewer_harness_corrected",
+      "reason": "Harness initially asserted nonexistent payment.serverCount instead of actual payment.alternative.grants; actual source descriptor is unchanged",
+      "resolved": true
+    },
+    {
+      "status": "reviewer_harness_corrected",
+      "reason": "Office proxy emits explicit isError:false on success; harness corrected to reject isError:true",
+      "resolved": true
+    }
+  ],
+  "completed_at": "2026-10-16T09:18:46.015Z",
+  "checksum_manifest_verified": true,
+  "runner_sha256": "192418d5d469c6d9ad8ae7f17224ba612328914355e2d7e075b5cb0a54798657",
+  "actual_stdio_calls": 32,
+  "publication_verified": true,
+  "review_scope": "Independent narrow version/count patch: duplicate/matcher/office artifacts and selected real workflows, not full estate or public registry state",
+  "cleanup": {
+    "scope_removed": true,
+    "lsof_clear": true,
+    "bytes": 108941219
+  },
+  "public_evidence": "data/r37_patch_independent_public_downloads.json",
+  "public_verified_at": "2026-10-16T09:22:05.763Z",
+  "public_phase": {
+    "archives_verified": 3,
+    "checksum_manifest_verified": true,
+    "actual_stdio_calls": 5,
+    "registry_state_reviewed": false
+  }
+}

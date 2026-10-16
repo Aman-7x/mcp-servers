@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-16T08:50:59.548Z",
+  "directory": "https://mcpservers.org/submit",
+  "method": "Ordinary free public form via Chrome",
+  "fields": {
+    "name": "MCP Duplicate Supplier Invoice Check",
+    "category": "finance",
+    "description": "Review supplied supplier-invoice history locally for repeated references and equal amount/date candidates, with complete evidence and free CSV.",
+    "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+    "registryName": "io.github.theluckystrike/duplicate-invoice-check",
+    "plan": "free",
+    "hasRemote": false,
+    "email": "mike@zovo.one"
+  },
+  "fee_usd": 0,
+  "status": "received_pending_review",
+  "listing_verified": false,
+  "submission_attempts": 1,
+  "form_post_requests": 1,
+  "blocked_post_paths": [
+    "https://u.lessbutbetter.studio/api/send"
+  ],
+  "prior_attempt": "data/r37_directory_submission_attempt1.json",
+  "retry_basis": "Current public frontend posts to /_serverFn/; the first client allowed only POST /submit. Transport block inferred from source and policy; no first-run network log exists.",
+  "form_response_status": 200,
+  "confirmation_heading": "Submission Successful!",
+  "final_url": "https://mcpservers.org/submit",
+  "review_estimate_days": 14,
+  "screenshot": "intel/R37-directory-submission.png",
+  "finished_at": "2026-10-16T08:51:01.693Z",
+  "profile_cleanup_complete": true
+}

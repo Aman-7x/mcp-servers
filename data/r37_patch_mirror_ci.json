@@ -1,0 +1,70 @@
+{
+  "at": "2026-10-16T09:29:55.696Z",
+  "scope": "Final documentation sync current public mirror main head CI; exact archive audits remain separate",
+  "mirrors": [
+    {
+      "id": "duplicate-invoice-check",
+      "repo": "theluckystrike/mcp-duplicate-invoice-check",
+      "head_sha": "c1ad369cdd9d35eaf33336aae003de07890df93f",
+      "runs": [
+        {
+          "id": 38880345067,
+          "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check/actions/runs/38880345067",
+          "name": "ci",
+          "head_sha": "c1ad369cdd9d35eaf33336aae003de07890df93f",
+          "status": "completed",
+          "conclusion": "success",
+          "tap_totals": [
+            "# tests 24",
+            "# pass 20",
+            "# fail 0",
+            "# skipped 4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "three-way-match",
+      "repo": "theluckystrike/mcp-three-way-match",
+      "head_sha": "4cd8019b2eaf49cf7c6aa1b656ae03048115f987",
+      "runs": [
+        {
+          "id": 38880365648,
+          "url": "https://github.com/theluckystrike/mcp-three-way-match/actions/runs/38880365648",
+          "name": "ci",
+          "head_sha": "4cd8019b2eaf49cf7c6aa1b656ae03048115f987",
+          "status": "completed",
+          "conclusion": "success",
+          "tap_totals": [
+            "# tests 25",
+            "# pass 25",
+            "# fail 0",
+            "# skipped 0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "office-suite",
+      "repo": "theluckystrike/mcp-office-suite",
+      "head_sha": "29c18e76c9436f1b15270fbb049930d60cd673d4",
+      "runs": [
+        {
+          "id": 38880387898,
+          "url": "https://github.com/theluckystrike/mcp-office-suite/actions/runs/38880387898",
+          "name": "ci",
+          "head_sha": "29c18e76c9436f1b15270fbb049930d60cd673d4",
+          "status": "completed",
+          "conclusion": "success",
+          "tap_totals": [
+            "# tests 9",
+            "# pass 5",
+            "# fail 0",
+            "# skipped 4"
+          ]
+        }
+      ]
+    }
+  ],
+  "status": "passed"
+}

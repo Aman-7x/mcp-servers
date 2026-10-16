@@ -1,0 +1,19 @@
+{
+  "started_at": "2026-10-16T08:58:50.438Z",
+  "status": "running",
+  "purpose": "Repeat the same frozen public queries after the metadata change; no causal or demand claim",
+  "times": [
+    "2026-10-16T09:15:00Z",
+    "2026-10-16T10:15:00Z",
+    "2026-10-16T11:25:00Z"
+  ],
+  "snapshots": [
+    {
+      "at": "2026-10-16T09:15:20.038Z",
+      "output": "data/r37_organic_after_1.json",
+      "exit_code": 0,
+      "stdout": "{\"queries\":[{\"id\":\"buyer_duplicate_invoice\",\"total\":8,\"position\":1,\"status\":\"measured\"},{\"id\":\"buyer_supplier_invoice\",\"total\":1,\"position\":1,\"status\":\"measured\"},{\"id\":\"buyer_vendor_bills\",\"total\":2,\"position\":1,\"status\":\"measured\"},{\"id\":\"buyer_invoice_duplicate_check\",\"total\":1,\"position\":1,\"status\":\"measured\"},{\"id\":\"exact_capability\",\"total\":7,\"position\":2,\"status\":\"measured\"},{\"id\":\"exact_mirror\",\"total\":1,\"position\":1,\"status\":\"measured\"},{\"id\":\"existing_matcher_control\",\"total\":9,\"position\":null,\"status\":\"measured\"},{\"id\":\"existing_competitor\",\"total\":1,\"position\":null,\"status\":\"measured\"}],\"mirror\":\"theluckystrike/mcp-duplicate-invoice-check\",\"files\":[{\"path\":\"README.md\",\"status\":\"read\"},{\"path\":\"server.json\",\"status\":\"read\"},{\"path\":\"glama.json\",\"status\":\"read\"},{\"path\":\"smithery.yaml\",\"status\":\"read\"},{\"path\":\"package.json\",\"status\":\"read\"}]}",
+      "failure": null
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-16T08:35:12.387Z",
+  "scope": "Two registry names for one duplicate invoice capability",
+  "entries": [
+    {
+      "name": "io.github.theluckystrike/duplicate-invoice-check",
+      "version": "0.22.7",
+      "status": "published",
+      "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/duplicate-invoice-check.mcpb",
+      "fileSha256": "a70a2548ed418122aee80bfe7fa66de0c1927c0d4f1e3b6ed24b13d8bddc206d"
+    },
+    {
+      "name": "io.github.theluckystrike/supplier-invoice-duplicates",
+      "version": "0.22.7",
+      "status": "published",
+      "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/duplicate-invoice-check.mcpb",
+      "fileSha256": "a70a2548ed418122aee80bfe7fa66de0c1927c0d4f1e3b6ed24b13d8bddc206d"
+    }
+  ]
+}

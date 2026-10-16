@@ -1,0 +1,76 @@
+{
+  "at": "2026-10-16T08:40:44.512Z",
+  "scope": "Two names for one capability, no hosted endpoint",
+  "rows": [
+    {
+      "name": "io.github.theluckystrike/duplicate-invoice-check",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fduplicate-invoice-check/versions",
+      "status": 200,
+      "server": {
+        "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+        "name": "io.github.theluckystrike/duplicate-invoice-check",
+        "description": "Review grouped duplicate invoice candidates from supplied records locally; no payment approval.",
+        "repository": {
+          "url": "https://github.com/theluckystrike/mcp-servers",
+          "source": "github",
+          "subfolder": "servers/duplicate-invoice-check"
+        },
+        "version": "0.22.7",
+        "websiteUrl": "https://mcp.zovo.one/s/duplicate-invoice-check?utm_source=mcp-registry&utm_medium=registry&utm_campaign=duplicate-invoice-check",
+        "packages": [
+          {
+            "registryType": "mcpb",
+            "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/duplicate-invoice-check.mcpb",
+            "version": "0.22.7",
+            "fileSha256": "a70a2548ed418122aee80bfe7fa66de0c1927c0d4f1e3b6ed24b13d8bddc206d",
+            "transport": {
+              "type": "stdio"
+            },
+            "environmentVariables": [
+              {
+                "description": "Optional offline Pro license key; removes the three-saved-report cap.",
+                "isSecret": true,
+                "name": "MCP_LICENSE_KEY"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "io.github.theluckystrike/supplier-invoice-duplicates",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fsupplier-invoice-duplicates/versions",
+      "status": 200,
+      "server": {
+        "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+        "name": "io.github.theluckystrike/supplier-invoice-duplicates",
+        "description": "Review duplicate supplier invoice candidates with grouped local evidence; no payment approval.",
+        "repository": {
+          "url": "https://github.com/theluckystrike/mcp-servers",
+          "source": "github",
+          "subfolder": "servers/duplicate-invoice-check"
+        },
+        "version": "0.22.7",
+        "websiteUrl": "https://mcp.zovo.one/s/duplicate-invoice-check?utm_source=mcp-registry&utm_medium=registry&utm_campaign=duplicate-invoice-check",
+        "packages": [
+          {
+            "registryType": "mcpb",
+            "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/duplicate-invoice-check.mcpb",
+            "version": "0.22.7",
+            "fileSha256": "a70a2548ed418122aee80bfe7fa66de0c1927c0d4f1e3b6ed24b13d8bddc206d",
+            "transport": {
+              "type": "stdio"
+            },
+            "environmentVariables": [
+              {
+                "description": "Optional offline Pro license key; removes the three-saved-report cap.",
+                "isSecret": true,
+                "name": "MCP_LICENSE_KEY"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

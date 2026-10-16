@@ -1,0 +1,414 @@
+{
+  "at": "2026-10-16T08:39:16.795Z",
+  "method": "GitHub REST repository search; q fixed before run, default best-match order, per_page20, public repository projection only. One snapshot; no search volume, people, installs or causal ranking claim.",
+  "frozen_sha256": "f7f5c4e3c1c34f61e8c32b3dbc6854fd32b23463bb5ce5e6bcdc6616f28b4e6f",
+  "queries": [
+    {
+      "id": "buyer_duplicate_invoice",
+      "q": "mcp duplicate invoice in:name,description",
+      "at": "2026-10-16T08:39:18.096Z",
+      "total_count": 8,
+      "incomplete_results": false,
+      "returned": 8,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+          "description": "Model Context Protocol (MCP) server for duplicate supplier invoice review: supplied-batch exact and normalized reference evidence with free CSV reports. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+          "html_url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+          "stars": 0
+        },
+        {
+          "position": 2,
+          "full_name": "openclaw-mcp-vps/invoice-duplicate-detector",
+          "description": "OpenClaw auto-generated tool: invoice-duplicate-detector",
+          "html_url": "https://github.com/openclaw-mcp-vps/invoice-duplicate-detector",
+          "stars": 0
+        },
+        {
+          "position": 3,
+          "full_name": "AuxiLabs-Auxiliobits/auxilab-mcp-ap-invoice",
+          "description": "MCP Server · AP invoice field extraction, duplicate detection, vendor normalisation, and payment terms calculation",
+          "html_url": "https://github.com/AuxiLabs-Auxiliobits/auxilab-mcp-ap-invoice",
+          "stars": 0
+        },
+        {
+          "position": 4,
+          "full_name": "cipherrage/invoice-mcp-server",
+          "description": "Asynchronous Model Context Protocol (MCP) financial server containerized for Azure Container Apps. Automates invoice validation, duplicate prevention via Azure Table Storage, and live SunSystems GL account status lookups via Microsoft Dataverse OData integrations.",
+          "html_url": "https://github.com/cipherrage/invoice-mcp-server",
+          "stars": 0
+        },
+        {
+          "position": 5,
+          "full_name": "Soyouse/odoo-mcp",
+          "description": "Guarded Odoo MCP for Claude Code — post-write readback, duplicate-send/-invoice guards, silent-email scan, ID-provenance hook",
+          "html_url": "https://github.com/Soyouse/odoo-mcp",
+          "stars": 0
+        },
+        {
+          "position": 6,
+          "full_name": "achux11/secureaudit-mcp",
+          "description": "🛡️ Privacy-first MCP server: lets AI audit financial data locally, finds duplicate invoices and risky access changes, scrubs PII, and sends metadata-only alerts · Python · FastAPI",
+          "html_url": "https://github.com/achux11/secureaudit-mcp",
+          "stars": 0
+        },
+        {
+          "position": 7,
+          "full_name": "laibaaamjad/invoiceguard-agent",
+          "description": "An AI agent that audits vendor invoices against purchase orders, catching price mismatches, math errors, and duplicate billing, then drafting (never auto-sending) a dispute email. Built with Groq, Google ADK, and MCP.",
+          "html_url": "https://github.com/laibaaamjad/invoiceguard-agent",
+          "stars": 0
+        },
+        {
+          "position": 8,
+          "full_name": "TejasvaDeshmukh/SecureAudit-AI",
+          "description": "Model Context Protocol (MCP) server for local, privacy-preserving compliance audits using FastAPI. Includes duplicated invoice identifiers, SOC2 RBAC anomaly detectors, and regex-based PII scrubbing filters with webhook triggers.",
+          "html_url": "https://github.com/TejasvaDeshmukh/SecureAudit-AI",
+          "stars": 0
+        }
+      ],
+      "estate_position": 1
+    },
+    {
+      "id": "buyer_supplier_invoice",
+      "q": "mcp duplicate supplier invoice in:name,description",
+      "at": "2026-10-16T08:39:20.123Z",
+      "total_count": 1,
+      "incomplete_results": false,
+      "returned": 1,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+          "description": "Model Context Protocol (MCP) server for duplicate supplier invoice review: supplied-batch exact and normalized reference evidence with free CSV reports. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+          "html_url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+          "stars": 0
+        }
+      ],
+      "estate_position": 1
+    },
+    {
+      "id": "buyer_vendor_bills",
+      "q": "mcp duplicate vendor bills in:name,description",
+      "at": "2026-10-16T08:39:22.108Z",
+      "total_count": 1,
+      "incomplete_results": false,
+      "returned": 1,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "laibaaamjad/invoiceguard-agent",
+          "description": "An AI agent that audits vendor invoices against purchase orders, catching price mismatches, math errors, and duplicate billing, then drafting (never auto-sending) a dispute email. Built with Groq, Google ADK, and MCP.",
+          "html_url": "https://github.com/laibaaamjad/invoiceguard-agent",
+          "stars": 0
+        }
+      ],
+      "estate_position": null
+    },
+    {
+      "id": "buyer_invoice_duplicate_check",
+      "q": "mcp invoice duplicate check in:name,description",
+      "at": "2026-10-16T08:39:23.876Z",
+      "total_count": 1,
+      "incomplete_results": false,
+      "returned": 1,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+          "description": "Model Context Protocol (MCP) server for duplicate supplier invoice review: supplied-batch exact and normalized reference evidence with free CSV reports. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+          "html_url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+          "stars": 0
+        }
+      ],
+      "estate_position": 1
+    },
+    {
+      "id": "exact_capability",
+      "q": "duplicate-invoice-check in:name",
+      "at": "2026-10-16T08:39:26.008Z",
+      "total_count": 7,
+      "incomplete_results": false,
+      "returned": 7,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "Carmensitee/invoice-duplicate-checker",
+          "description": null,
+          "html_url": "https://github.com/Carmensitee/invoice-duplicate-checker",
+          "stars": 0
+        },
+        {
+          "position": 2,
+          "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+          "description": "Model Context Protocol (MCP) server for duplicate supplier invoice review: supplied-batch exact and normalized reference evidence with free CSV reports. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+          "html_url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+          "stars": 0
+        },
+        {
+          "position": 3,
+          "full_name": "kaviduV/Batta-Invoice-duplicate-check",
+          "description": " Bot login a website and download a excel document. Then bot save it in a given location. after that bot check duplicate woes and remove those.",
+          "html_url": "https://github.com/kaviduV/Batta-Invoice-duplicate-check",
+          "stars": 0
+        },
+        {
+          "position": 4,
+          "full_name": "fanzalika/check-duplicated-supplier-invoices",
+          "description": "When a supplier invoice is created, this module check using the reference field if was created before.     If yes, show a message to the user to avoid to have duplicated supplier invoices in the Odoo system",
+          "html_url": "https://github.com/fanzalika/check-duplicated-supplier-invoices",
+          "stars": 0
+        },
+        {
+          "position": 5,
+          "full_name": "ZhuJD-China/Invoice-duplicate-checking-applet-",
+          "description": "In order to solve the problem of school finance in checking whether the invoices have been reimbursed have been repeatedly entered and miswritten",
+          "html_url": "https://github.com/ZhuJD-China/Invoice-duplicate-checking-applet-",
+          "stars": 1
+        },
+        {
+          "position": 6,
+          "full_name": "Flykra-Talloran/Invoice-duplicate-checking-and-amount-extraction",
+          "description": null,
+          "html_url": "https://github.com/Flykra-Talloran/Invoice-duplicate-checking-and-amount-extraction",
+          "stars": 0
+        },
+        {
+          "position": 7,
+          "full_name": "yzhums/Check-whether-External-Document-No.-Vendor-Invoice-No.-are-unique-or-duplicated",
+          "description": "Dynamics 365 Business Central: How to check whether External Document No./Vendor Invoice No. are unique or duplicated - Customization",
+          "html_url": "https://github.com/yzhums/Check-whether-External-Document-No.-Vendor-Invoice-No.-are-unique-or-duplicated",
+          "stars": 0
+        }
+      ],
+      "estate_position": 2
+    },
+    {
+      "id": "exact_mirror",
+      "q": "repo:theluckystrike/mcp-duplicate-invoice-check",
+      "at": "2026-10-16T08:39:27.651Z",
+      "total_count": 1,
+      "incomplete_results": false,
+      "returned": 1,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+          "description": "Model Context Protocol (MCP) server for duplicate supplier invoice review: supplied-batch exact and normalized reference evidence with free CSV reports. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+          "html_url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+          "stars": 0
+        }
+      ],
+      "estate_position": 1
+    },
+    {
+      "id": "existing_matcher_control",
+      "q": "mcp three way match in:name,description",
+      "at": "2026-10-16T08:39:29.674Z",
+      "total_count": 9,
+      "incomplete_results": false,
+      "returned": 9,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-three-way-match",
+          "description": "Model Context Protocol (MCP) server for three way matching: supplier invoice matching against purchase orders and accepted receipts by SKU. Supplier invoice, purchase order and receipt checks by exact SKU. Works with Claude Desktop, Claude Code and Cursor.",
+          "html_url": "https://github.com/theluckystrike/mcp-three-way-match",
+          "stars": 0
+        },
+        {
+          "position": 2,
+          "full_name": "zavora-ai/skill-procurement",
+          "description": "Procurement skill — suppliers, RFQs, POs, contracts, three-way match, risk scoring, savings, negotiation via mcp-procurement",
+          "html_url": "https://github.com/zavora-ai/skill-procurement",
+          "stars": 2
+        },
+        {
+          "position": 3,
+          "full_name": "Pchambet/consolidation-erp-mcp",
+          "description": "Odoo + FEC ledger + warehouse API consolidated in DuckDB; SQL three-way-match controls recover all 22 planted discrepancies; LLM agent queries it via MCP",
+          "html_url": "https://github.com/Pchambet/consolidation-erp-mcp",
+          "stars": 0
+        },
+        {
+          "position": 4,
+          "full_name": "sergio4848/p2p-mcp-agent",
+          "description": "MCP server over mock purchase-to-pay finance APIs: three-way match, human-approved payments, idempotency, hash-chained audit log, LangGraph agent and eval harness",
+          "html_url": "https://github.com/sergio4848/p2p-mcp-agent",
+          "stars": 0
+        },
+        {
+          "position": 5,
+          "full_name": "alihdrndm/ledgic",
+          "description": "Open-source accounts-payable automation: AI extraction, three-way match, tool-using agents, RAG copilot and an MCP server. Next.js + FastAPI + Supabase.",
+          "html_url": "https://github.com/alihdrndm/ledgic",
+          "stars": 0
+        },
+        {
+          "position": 6,
+          "full_name": "prab-hub/revexos-q2c-kit",
+          "description": "Quote-to-cash skills for Claude: quotes, PO to invoice, three-way match, billing and proration, payment terms, collections and revenue recognition, plus the free RevExOS MCP connector",
+          "html_url": "https://github.com/prab-hub/revexos-q2c-kit",
+          "stars": 0
+        },
+        {
+          "position": 7,
+          "full_name": "roopagager/sap-p2p-copilot",
+          "description": "Governed MCP server giving an AI assistant read-only access to SAP S/4HANA procure-to-pay data: three-way match, approval-only actions, audit trail, Parquet landing for Databricks.",
+          "html_url": "https://github.com/roopagager/sap-p2p-copilot",
+          "stars": 0
+        },
+        {
+          "position": 8,
+          "full_name": "MosoFin/mosofin-finance-skills",
+          "description": "Read-only accounting skills for Claude, run against your own books through the MosoFin MCP gateway: month-end close, bank reconciliation, journal entries, GL coding, financial statements, AR aging, three-way match. Every output is a proposal for a person to post. Published via the mosofin-plugins marketplace. Requires a MosoFin subscription.",
+          "html_url": "https://github.com/MosoFin/mosofin-finance-skills",
+          "stars": 0
+        },
+        {
+          "position": 9,
+          "full_name": "akhilkrishnankv/Procure",
+          "description": "Autonomous AI agent for three way invoice matching: extracts supplier PDFs from email, matches with POs and receipts in Odoo ERP, auto-approves high confidence cases, and routes edge cases for human review. Built as a multi agent system using LangGraph, GPT 4o Vision, fuzzy ontology, and MCP abstraction with real time ERP integration.",
+          "html_url": "https://github.com/akhilkrishnankv/Procure",
+          "stars": 0
+        }
+      ],
+      "estate_position": null
+    },
+    {
+      "id": "existing_competitor",
+      "q": "invoice triage copilot in:name",
+      "at": "2026-10-16T08:39:31.630Z",
+      "total_count": 1,
+      "incomplete_results": false,
+      "returned": 1,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "ajoys24/invoice-triage-copilot",
+          "description": "Multi-agent AI system for vendor invoice triage — Google/Kaggle 5-Day AI Agents capstone",
+          "html_url": "https://github.com/ajoys24/invoice-triage-copilot",
+          "stars": 1
+        }
+      ],
+      "estate_position": null
+    }
+  ],
+  "mirror": {
+    "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+    "description": "Model Context Protocol (MCP) server for duplicate supplier invoice review: supplied-batch exact and normalized reference evidence with free CSV reports. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+    "homepage": "https://mcp.zovo.one/s/duplicate-invoice-check",
+    "topics": [
+      "accounts-payable",
+      "ai",
+      "claude",
+      "claude-code",
+      "claude-desktop",
+      "cursor",
+      "duplicate-invoices",
+      "invoice-review",
+      "llm",
+      "local-first",
+      "mcp",
+      "mcp-server",
+      "model-context-protocol",
+      "nodejs",
+      "typescript",
+      "vendor-bills"
+    ],
+    "visibility": "public",
+    "default_branch": "main",
+    "pushed_at": "2026-10-16T08:33:27Z",
+    "html_url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+    "files": [
+      {
+        "path": "README.md",
+        "github_blob_sha": "43808cc49d3f188ade84d45771ddc581c3316385",
+        "bytes": 14360,
+        "sha256": "8aec92a4998366ca4f3e3b550a0360857c2aad3fdcd22aa6dce345cecf58da32",
+        "download_url": "https://raw.githubusercontent.com/theluckystrike/mcp-duplicate-invoice-check/main/README.md",
+        "checks": {
+          "browser_proof_link": true,
+          "product_page": false,
+          "candidate_limitation": true,
+          "local_install": true,
+          "npm_unpublished": true,
+          "pro_price": true,
+          "bundle_price": true
+        }
+      },
+      {
+        "path": "server.json",
+        "github_blob_sha": "ad184b2289b4feef753e4cc00182aced53407fad",
+        "bytes": 1211,
+        "sha256": "f33ea1a72f6a43849cdf06edbb66c94725f3c4646e6903a4f7019afd2d02f22a",
+        "download_url": "https://raw.githubusercontent.com/theluckystrike/mcp-duplicate-invoice-check/main/server.json",
+        "projected": {
+          "name": "io.github.theluckystrike/duplicate-invoice-check",
+          "version": "0.22.7",
+          "packages": [
+            {
+              "registryType": "mcpb",
+              "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/duplicate-invoice-check.mcpb",
+              "version": "0.22.7",
+              "transport": {
+                "type": "stdio"
+              },
+              "environmentVariables": [
+                {
+                  "name": "MCP_LICENSE_KEY",
+                  "description": "Optional offline Pro license key; removes the three-saved-report cap.",
+                  "isRequired": false,
+                  "isSecret": true
+                }
+              ],
+              "fileSha256": "a70a2548ed418122aee80bfe7fa66de0c1927c0d4f1e3b6ed24b13d8bddc206d"
+            }
+          ]
+        }
+      },
+      {
+        "path": "glama.json",
+        "github_blob_sha": "d62aadb5bdd41868f36c0b053c5ca31a2f05c57f",
+        "bytes": 105,
+        "sha256": "cf87b53a71eb38219ad716dfc3ad151512a502efaff65ca15bddf54a6f4c272b",
+        "download_url": "https://raw.githubusercontent.com/theluckystrike/mcp-duplicate-invoice-check/main/glama.json",
+        "projected": {
+          "$schema": "https://glama.ai/mcp/schemas/server.json",
+          "maintainers": [
+            "theluckystrike"
+          ]
+        }
+      },
+      {
+        "path": "smithery.yaml",
+        "github_blob_sha": "082cd03ab69f1585d02cbccf2c9fbb658edf6cae",
+        "bytes": 338,
+        "sha256": "460c3e96077fdf0f9a80720104b2849e7743f0a5d993178f3379c9f0deff2987",
+        "download_url": "https://raw.githubusercontent.com/theluckystrike/mcp-duplicate-invoice-check/main/smithery.yaml"
+      },
+      {
+        "path": "package.json",
+        "github_blob_sha": "7d0b6f812e45822a6e22f08cd2cf180d228f7ce3",
+        "bytes": 1258,
+        "sha256": "786992a5f74522b091ea3dd48c0431960cb23a5f50f9bf5397b70577429a0680",
+        "download_url": "https://raw.githubusercontent.com/theluckystrike/mcp-duplicate-invoice-check/main/package.json",
+        "projected": {
+          "name": "@theluckystrike/mcp-duplicate-invoice-check",
+          "version": "0.22.7",
+          "dependencies": {
+            "@modelcontextprotocol/sdk": "^1.30.0",
+            "@theluckystrike/mcp-license": "file:vendor/mcp-license",
+            "zod": "^3.25.0"
+          },
+          "scripts": {
+            "build": "tsc -p tsconfig.json && node -e \"import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))\"",
+            "test": "node --test test/*.test.mjs"
+          }
+        }
+      }
+    ]
+  },
+  "completed_at": "2026-10-16T08:39:35.692Z"
+}

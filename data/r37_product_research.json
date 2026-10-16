@@ -135,5 +135,17 @@
     "customer_financial_data_used": false,
     "temporary_files_created": 0
   },
-  "acceptance_spec_path": "intel/R37-product-choice.md"
+  "acceptance_spec_path": "intel/R37-product-choice.md",
+  "contract_status": "Original proposal only; superseded by the implemented SPEC.md and actual API. Preserve as research history, not runtime contract.",
+  "implementation_contract": {
+    "source": "servers/duplicate-invoice-check/SPEC.md",
+    "required_batch_field": "records",
+    "max_records": 1000,
+    "entity_scope": "entity_id required on each record; exact entity/supplier/type/currency boundaries",
+    "business_tool": "duplicate_invoice_check",
+    "free_saved_reports": 3,
+    "all_diagnostics_pages_csv_free": true,
+    "csv_pages": "Follow actual next_offset; row count may shrink to remain inside escaped result budget",
+    "prototype_max_records_500_is_not_current": true
+  }
 }

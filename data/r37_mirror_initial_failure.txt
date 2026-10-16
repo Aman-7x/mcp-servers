@@ -1,0 +1,234 @@
+install, build, test	Run npm test	﻿2026-10-16T08:33:42.8064367Z ##[group]Run npm test
+install, build, test	Run npm test	2026-10-16T08:33:42.8064630Z [36;1mnpm test[0m
+install, build, test	Run npm test	2026-10-16T08:33:42.8120782Z shell: /usr/bin/bash -e {0}
+install, build, test	Run npm test	2026-10-16T08:33:42.8121045Z ##[endgroup]
+install, build, test	Run npm test	2026-10-16T08:33:42.9013954Z
+install, build, test	Run npm test	2026-10-16T08:33:42.9015027Z > @theluckystrike/mcp-duplicate-invoice-check@0.22.7 test
+install, build, test	Run npm test	2026-10-16T08:33:42.9015465Z > node --test test/*.test.mjs
+install, build, test	Run npm test	2026-10-16T08:33:42.9015619Z
+install, build, test	Run npm test	2026-10-16T08:33:42.9554143Z TAP version 13
+install, build, test	Run npm test	2026-10-16T08:33:43.0964417Z # Subtest: package, descriptors and runtime agree without claiming npm publication or hosted transport
+install, build, test	Run npm test	2026-10-16T08:33:43.0993822Z ok 1 - package, descriptors and runtime agree without claiming npm publication or hosted transport
+install, build, test	Run npm test	2026-10-16T08:33:43.1006239Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.1006723Z   duration_ms: 1.358558
+install, build, test	Run npm test	2026-10-16T08:33:43.1007135Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.1007586Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.1008614Z # Subtest: required operational files exist and source opens no network connections or stdout logs
+install, build, test	Run npm test	2026-10-16T08:33:43.1010150Z ok 2 - required operational files exist and source opens no network connections or stdout logs
+install, build, test	Run npm test	2026-10-16T08:33:43.1010956Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.1011278Z   duration_ms: 0.797665
+install, build, test	Run npm test	2026-10-16T08:33:43.1011636Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.1012268Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.4657152Z # Subtest: complete grouped reasons preserve conflicting evidence and count overlapping candidates once
+install, build, test	Run npm test	2026-10-16T08:33:43.4658956Z ok 3 - complete grouped reasons preserve conflicting evidence and count overlapping candidates once
+install, build, test	Run npm test	2026-10-16T08:33:43.4682326Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.4702983Z   duration_ms: 4.488016
+install, build, test	Run npm test	2026-10-16T08:33:43.4732903Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.4762884Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.4823186Z # Subtest: normalization preserves leading zeros, Unicode case, accents, lookalikes, other separators and empty keys
+install, build, test	Run npm test	2026-10-16T08:33:43.4846944Z ok 4 - normalization preserves leading zeros, Unicode case, accents, lookalikes, other separators and empty keys
+install, build, test	Run npm test	2026-10-16T08:33:43.4872511Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.4882729Z   duration_ms: 1.253432
+install, build, test	Run npm test	2026-10-16T08:33:43.4883357Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.4883942Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.4884831Z # Subtest: exact identifiers, tuple-safe scopes, type, currency, amount and date never fuzzily join
+install, build, test	Run npm test	2026-10-16T08:33:43.4885981Z ok 5 - exact identifiers, tuple-safe scopes, type, currency, amount and date never fuzzily join
+install, build, test	Run npm test	2026-10-16T08:33:43.4886806Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.4887816Z   duration_ms: 1.389514
+install, build, test	Run npm test	2026-10-16T08:33:43.4888306Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.4888758Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.4889701Z # Subtest: strict schema rejects duplicate ids, unsafe money, bad dates, controls, unknown fields and oversized batches
+install, build, test	Run npm test	2026-10-16T08:33:43.4891155Z ok 6 - strict schema rejects duplicate ids, unsafe money, bad dates, controls, unknown fields and oversized batches
+install, build, test	Run npm test	2026-10-16T08:33:43.4892162Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.4892612Z   duration_ms: 38.731462
+install, build, test	Run npm test	2026-10-16T08:33:43.4893111Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.4893540Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.4894448Z # Subtest: independent pairwise oracle agrees with group membership across 2000 deterministic synthetic batches
+install, build, test	Run npm test	2026-10-16T08:33:43.4895688Z ok 7 - independent pairwise oracle agrees with group membership across 2000 deterministic synthetic batches
+install, build, test	Run npm test	2026-10-16T08:33:43.4896622Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.4897144Z   duration_ms: 418.813021
+install, build, test	Run npm test	2026-10-16T08:33:43.4897617Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.4898032Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.4898938Z # Subtest: CSV contains one source record per row, quoted evidence, and escaped formula-like text
+install, build, test	Run npm test	2026-10-16T08:33:43.4900158Z ok 8 - CSV contains one source record per row, quoted evidence, and escaped formula-like text
+install, build, test	Run npm test	2026-10-16T08:33:43.4900978Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.4901426Z   duration_ms: 0.603847
+install, build, test	Run npm test	2026-10-16T08:33:43.4902455Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.4902927Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.4970798Z # Subtest: duplicate-invoice-check: actual compiled storage creates every POSIX, drive and UNC ancestor
+install, build, test	Run npm test	2026-10-16T08:33:43.5003201Z ok 9 - duplicate-invoice-check: actual compiled storage creates every POSIX, drive and UNC ancestor
+install, build, test	Run npm test	2026-10-16T08:33:43.5012539Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.5013034Z   duration_ms: 312.980038
+install, build, test	Run npm test	2026-10-16T08:33:43.5013493Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.5013896Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.5014793Z # Subtest: duplicate-invoice-check: actual compiled storage rejects existing symlink ancestry on every platform
+install, build, test	Run npm test	2026-10-16T08:33:43.5016071Z ok 10 - duplicate-invoice-check: actual compiled storage rejects existing symlink ancestry on every platform
+install, build, test	Run npm test	2026-10-16T08:33:43.5016861Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.5017254Z   duration_ms: 5.444157
+install, build, test	Run npm test	2026-10-16T08:33:43.5017692Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.5018084Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.5018913Z # Subtest: duplicate-invoice-check: EEXIST directory races are accepted only after lstat rejects symlink replacements
+install, build, test	Run npm test	2026-10-16T08:33:43.5020098Z ok 11 - duplicate-invoice-check: EEXIST directory races are accepted only after lstat rejects symlink replacements
+install, build, test	Run npm test	2026-10-16T08:33:43.5020898Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.5021274Z   duration_ms: 6.782525
+install, build, test	Run npm test	2026-10-16T08:33:43.5021682Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.5022186Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.5022881Z # Subtest: three-way-match: actual compiled storage creates every POSIX, drive and UNC ancestor
+install, build, test	Run npm test	2026-10-16T08:33:43.5024173Z ok 12 - three-way-match: actual compiled storage creates every POSIX, drive and UNC ancestor # SKIP companion product is absent from standalone checkout
+install, build, test	Run npm test	2026-10-16T08:33:43.5025048Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.5025393Z   duration_ms: 0.115371
+install, build, test	Run npm test	2026-10-16T08:33:43.5025789Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.5026146Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.5027000Z # Subtest: three-way-match: actual compiled storage rejects existing symlink ancestry on every platform
+install, build, test	Run npm test	2026-10-16T08:33:43.5028312Z ok 13 - three-way-match: actual compiled storage rejects existing symlink ancestry on every platform # SKIP companion product is absent from standalone checkout
+install, build, test	Run npm test	2026-10-16T08:33:43.5028937Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.5029209Z   duration_ms: 0.099167
+install, build, test	Run npm test	2026-10-16T08:33:43.5029558Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.5029881Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:43.5030593Z # Subtest: three-way-match: EEXIST directory races are accepted only after lstat rejects symlink replacements
+install, build, test	Run npm test	2026-10-16T08:33:43.5031537Z ok 14 - three-way-match: EEXIST directory races are accepted only after lstat rejects symlink replacements # SKIP companion product is absent from standalone checkout
+install, build, test	Run npm test	2026-10-16T08:33:43.5032779Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:43.5033040Z   duration_ms: 0.101551
+install, build, test	Run npm test	2026-10-16T08:33:43.5033333Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:43.5033593Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:45.0578245Z # Subtest: actual stdio quote-heavy CSV respects the escaped 8 MiB budget and pages every source row
+install, build, test	Run npm test	2026-10-16T08:33:45.0580389Z not ok 15 - actual stdio quote-heavy CSV respects the escaped 8 MiB budget and pages every source row
+install, build, test	Run npm test	2026-10-16T08:33:45.0580885Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:45.0581245Z   duration_ms: 1591.676673
+install, build, test	Run npm test	2026-10-16T08:33:45.0581614Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:45.0582482Z   location: '/home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/independent-boundaries.test.mjs:105:1'
+install, build, test	Run npm test	2026-10-16T08:33:45.0583200Z   failureType: 'testCodeFailure'
+install, build, test	Run npm test	2026-10-16T08:33:45.0584139Z   error: "ENOENT: no such file or directory, open '/home/runner/work/data/build-deletions.jsonl'"
+install, build, test	Run npm test	2026-10-16T08:33:45.0584884Z   code: 'ENOENT'
+install, build, test	Run npm test	2026-10-16T08:33:45.0585345Z   stack: |-
+install, build, test	Run npm test	2026-10-16T08:33:45.0585789Z     Object.writeFileSync (node:fs:2430:20)
+install, build, test	Run npm test	2026-10-16T08:33:45.0586252Z     appendFileSync (node:fs:2512:6)
+install, build, test	Run npm test	2026-10-16T08:33:45.0587065Z     Object.cleanup (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/helpers.mjs:7:605)
+install, build, test	Run npm test	2026-10-16T08:33:45.0588424Z     TestContext.<anonymous> (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/independent-boundaries.test.mjs:150:42)
+install, build, test	Run npm test	2026-10-16T08:33:45.0589330Z     process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+install, build, test	Run npm test	2026-10-16T08:33:45.0589745Z     async Test.run (node:internal/test_runner/test:1054:7)
+install, build, test	Run npm test	2026-10-16T08:33:45.0590455Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+install, build, test	Run npm test	2026-10-16T08:33:45.0590764Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:45.0720770Z # Subtest: free previews page all evidence, cap retention at two, and expire without source loss
+install, build, test	Run npm test	2026-10-16T08:33:45.0721776Z ok 16 - free previews page all evidence, cap retention at two, and expire without source loss
+install, build, test	Run npm test	2026-10-16T08:33:45.0722456Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:45.0722710Z   duration_ms: 6.134021
+install, build, test	Run npm test	2026-10-16T08:33:45.0722991Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:45.0723235Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:45.0723897Z # Subtest: maximum bounded source and memberships fit actual escaped transport; group pages omit large member arrays
+install, build, test	Run npm test	2026-10-16T08:33:45.0724622Z ok 17 - maximum bounded source and memberships fit actual escaped transport; group pages omit large member arrays
+install, build, test	Run npm test	2026-10-16T08:33:45.0725265Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:45.0725515Z   duration_ms: 117.529368
+install, build, test	Run npm test	2026-10-16T08:33:45.0725806Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:45.0726149Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:45.0726851Z # Subtest: actual stdio exposes eight tools, rejects unknowns, returns full free diagnosis and caps only saving
+install, build, test	Run npm test	2026-10-16T08:33:45.0727788Z not ok 18 - actual stdio exposes eight tools, rejects unknowns, returns full free diagnosis and caps only saving
+install, build, test	Run npm test	2026-10-16T08:33:45.0728392Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:45.0728639Z   duration_ms: 701.930675
+install, build, test	Run npm test	2026-10-16T08:33:45.0728921Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:45.0729604Z   location: '/home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/smoke.test.mjs:9:1'
+install, build, test	Run npm test	2026-10-16T08:33:45.0730311Z   failureType: 'testCodeFailure'
+install, build, test	Run npm test	2026-10-16T08:33:45.0730936Z   error: "ENOENT: no such file or directory, open '/home/runner/work/data/build-deletions.jsonl'"
+install, build, test	Run npm test	2026-10-16T08:33:45.0731485Z   code: 'ENOENT'
+install, build, test	Run npm test	2026-10-16T08:33:45.0731746Z   stack: |-
+install, build, test	Run npm test	2026-10-16T08:33:45.0732286Z     Object.writeFileSync (node:fs:2430:20)
+install, build, test	Run npm test	2026-10-16T08:33:45.0732687Z     appendFileSync (node:fs:2512:6)
+install, build, test	Run npm test	2026-10-16T08:33:45.0733486Z     Object.cleanup (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/helpers.mjs:7:605)
+install, build, test	Run npm test	2026-10-16T08:33:45.0734726Z     TestContext.<anonymous> (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/smoke.test.mjs:19:37)
+install, build, test	Run npm test	2026-10-16T08:33:45.0735724Z     process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+install, build, test	Run npm test	2026-10-16T08:33:45.0736686Z     async Test.run (node:internal/test_runner/test:1054:7)
+install, build, test	Run npm test	2026-10-16T08:33:45.0737311Z     async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+install, build, test	Run npm test	2026-10-16T08:33:45.0737810Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:45.0738326Z # Subtest: actual stdio signed single and bundle keys remove only saved-count cap
+install, build, test	Run npm test	2026-10-16T08:33:45.0739121Z ok 19 - actual stdio signed single and bundle keys remove only saved-count cap # SKIP
+install, build, test	Run npm test	2026-10-16T08:33:45.0739627Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:45.0739869Z   duration_ms: 1.078973
+install, build, test	Run npm test	2026-10-16T08:33:45.0740149Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:45.0740407Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:45.0740808Z # Subtest: file lock serializes concurrent saves; Pro removes only save cap, with safe IDs
+install, build, test	Run npm test	2026-10-16T08:33:45.0741359Z not ok 20 - file lock serializes concurrent saves; Pro removes only save cap, with safe IDs
+install, build, test	Run npm test	2026-10-16T08:33:45.0741692Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:45.0741864Z   duration_ms: 179.980594
+install, build, test	Run npm test	2026-10-16T08:33:45.0742307Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:45.0742900Z   location: '/home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/store.test.mjs:8:1'
+install, build, test	Run npm test	2026-10-16T08:33:45.0743364Z   failureType: 'testCodeFailure'
+install, build, test	Run npm test	2026-10-16T08:33:45.0743753Z   error: "ENOENT: no such file or directory, open '/home/runner/work/data/build-deletions.jsonl'"
+install, build, test	Run npm test	2026-10-16T08:33:45.0744106Z   code: 'ENOENT'
+install, build, test	Run npm test	2026-10-16T08:33:45.0744291Z   stack: |-
+install, build, test	Run npm test	2026-10-16T08:33:45.0744499Z     Object.writeFileSync (node:fs:2430:20)
+install, build, test	Run npm test	2026-10-16T08:33:45.0744769Z     appendFileSync (node:fs:2512:6)
+install, build, test	Run npm test	2026-10-16T08:33:45.0745264Z     Object.cleanup (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/helpers.mjs:7:605)
+install, build, test	Run npm test	2026-10-16T08:33:45.0746174Z     TestContext.<anonymous> (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/store.test.mjs:15:125)
+install, build, test	Run npm test	2026-10-16T08:33:45.0746719Z     async Test.run (node:internal/test_runner/test:1054:7)
+install, build, test	Run npm test	2026-10-16T08:33:45.0747113Z     async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+install, build, test	Run npm test	2026-10-16T08:33:45.0747473Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:45.0747808Z # Subtest: independent processes cannot exceed the free saved-report cap
+install, build, test	Run npm test	2026-10-16T08:33:45.0748289Z not ok 21 - independent processes cannot exceed the free saved-report cap
+install, build, test	Run npm test	2026-10-16T08:33:45.0748600Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:45.0748772Z   duration_ms: 465.516715
+install, build, test	Run npm test	2026-10-16T08:33:45.0748983Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:45.0749438Z   location: '/home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/store.test.mjs:17:1'
+install, build, test	Run npm test	2026-10-16T08:33:45.0749912Z   failureType: 'testCodeFailure'
+install, build, test	Run npm test	2026-10-16T08:33:45.0750317Z   error: "ENOENT: no such file or directory, open '/home/runner/work/data/build-deletions.jsonl'"
+install, build, test	Run npm test	2026-10-16T08:33:45.0750687Z   code: 'ENOENT'
+install, build, test	Run npm test	2026-10-16T08:33:45.0750882Z   stack: |-
+install, build, test	Run npm test	2026-10-16T08:33:45.0751108Z     Object.writeFileSync (node:fs:2430:20)
+install, build, test	Run npm test	2026-10-16T08:33:45.0751378Z     appendFileSync (node:fs:2512:6)
+install, build, test	Run npm test	2026-10-16T08:33:45.0752144Z     Object.cleanup (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/helpers.mjs:7:605)
+install, build, test	Run npm test	2026-10-16T08:33:45.0753372Z     TestContext.<anonymous> (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/store.test.mjs:27:125)
+install, build, test	Run npm test	2026-10-16T08:33:45.0754379Z     process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+install, build, test	Run npm test	2026-10-16T08:33:45.0755027Z     async Test.run (node:internal/test_runner/test:1054:7)
+install, build, test	Run npm test	2026-10-16T08:33:45.0755655Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+install, build, test	Run npm test	2026-10-16T08:33:45.0756244Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:45.0757067Z # Subtest: saved evidence is private and atomic; reads recompute edited derived fields and reject invalid sources
+install, build, test	Run npm test	2026-10-16T08:33:45.0758173Z not ok 22 - saved evidence is private and atomic; reads recompute edited derived fields and reject invalid sources
+install, build, test	Run npm test	2026-10-16T08:33:45.0758799Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:45.0759056Z   duration_ms: 78.474797
+install, build, test	Run npm test	2026-10-16T08:33:45.0759360Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:45.0760032Z   location: '/home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/store.test.mjs:29:1'
+install, build, test	Run npm test	2026-10-16T08:33:45.0760999Z   failureType: 'testCodeFailure'
+install, build, test	Run npm test	2026-10-16T08:33:45.0761633Z   error: "ENOENT: no such file or directory, open '/home/runner/work/data/build-deletions.jsonl'"
+install, build, test	Run npm test	2026-10-16T08:33:45.0762349Z   code: 'ENOENT'
+install, build, test	Run npm test	2026-10-16T08:33:45.0762610Z   stack: |-
+install, build, test	Run npm test	2026-10-16T08:33:45.0762938Z     Object.writeFileSync (node:fs:2430:20)
+install, build, test	Run npm test	2026-10-16T08:33:45.0763352Z     appendFileSync (node:fs:2512:6)
+install, build, test	Run npm test	2026-10-16T08:33:45.0764179Z     Object.cleanup (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/helpers.mjs:7:605)
+install, build, test	Run npm test	2026-10-16T08:33:45.0765470Z     TestContext.<anonymous> (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/store.test.mjs:43:125)
+install, build, test	Run npm test	2026-10-16T08:33:45.0766499Z     process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+install, build, test	Run npm test	2026-10-16T08:33:45.0767121Z     async Test.run (node:internal/test_runner/test:1054:7)
+install, build, test	Run npm test	2026-10-16T08:33:45.0767729Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+install, build, test	Run npm test	2026-10-16T08:33:45.0768228Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:45.0768853Z # Subtest: relative paths, non-directories and symlink directory ancestry fail without writes
+install, build, test	Run npm test	2026-10-16T08:33:45.0769806Z not ok 23 - relative paths, non-directories and symlink directory ancestry fail without writes
+install, build, test	Run npm test	2026-10-16T08:33:45.0770370Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:45.0770636Z   duration_ms: 66.225572
+install, build, test	Run npm test	2026-10-16T08:33:45.0770940Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:45.0771643Z   location: '/home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/store.test.mjs:45:1'
+install, build, test	Run npm test	2026-10-16T08:33:45.0773174Z   failureType: 'testCodeFailure'
+install, build, test	Run npm test	2026-10-16T08:33:45.0773831Z   error: "ENOENT: no such file or directory, open '/home/runner/work/data/build-deletions.jsonl'"
+install, build, test	Run npm test	2026-10-16T08:33:45.0774400Z   code: 'ENOENT'
+install, build, test	Run npm test	2026-10-16T08:33:45.0774672Z   stack: |-
+install, build, test	Run npm test	2026-10-16T08:33:45.0774997Z     Object.writeFileSync (node:fs:2430:20)
+install, build, test	Run npm test	2026-10-16T08:33:45.0775422Z     appendFileSync (node:fs:2512:6)
+install, build, test	Run npm test	2026-10-16T08:33:45.0776213Z     Object.cleanup (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/helpers.mjs:7:605)
+install, build, test	Run npm test	2026-10-16T08:33:45.0777418Z     TestContext.<anonymous> (file:///home/runner/work/mcp-duplicate-invoice-check/mcp-duplicate-invoice-check/test/store.test.mjs:54:125)
+install, build, test	Run npm test	2026-10-16T08:33:45.0778439Z     process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+install, build, test	Run npm test	2026-10-16T08:33:45.0779112Z     async Test.run (node:internal/test_runner/test:1054:7)
+install, build, test	Run npm test	2026-10-16T08:33:45.0779741Z     async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+install, build, test	Run npm test	2026-10-16T08:33:45.0780261Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:45.0780790Z # Subtest: 64 MiB aggregate budget uses exact bytes and applies equally to Pro
+install, build, test	Run npm test	2026-10-16T08:33:45.0781544Z ok 24 - 64 MiB aggregate budget uses exact bytes and applies equally to Pro
+install, build, test	Run npm test	2026-10-16T08:33:45.0782374Z   ---
+install, build, test	Run npm test	2026-10-16T08:33:45.0782677Z   duration_ms: 0.805877
+install, build, test	Run npm test	2026-10-16T08:33:45.0783001Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T08:33:45.0783337Z   ...
+install, build, test	Run npm test	2026-10-16T08:33:45.0783604Z 1..24
+install, build, test	Run npm test	2026-10-16T08:33:45.0783870Z # tests 24
+install, build, test	Run npm test	2026-10-16T08:33:45.0784117Z # suites 0
+install, build, test	Run npm test	2026-10-16T08:33:45.0784352Z # pass 14
+install, build, test	Run npm test	2026-10-16T08:33:45.0784600Z # fail 6
+install, build, test	Run npm test	2026-10-16T08:33:45.0784855Z # cancelled 0
+install, build, test	Run npm test	2026-10-16T08:33:45.0785145Z # skipped 4
+install, build, test	Run npm test	2026-10-16T08:33:45.0785398Z # todo 0
+install, build, test	Run npm test	2026-10-16T08:33:45.0785695Z # duration_ms 2140.455992
+install, build, test	Run npm test	2026-10-16T08:33:45.0883227Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-16T09:10:46.180Z",
+  "scope": "Before v0.22.8 version/count patch; these product implementation files must remain byte-identical",
+  "source_files": {
+    "servers/duplicate-invoice-check/src/core.ts": "258f925cb0e262bfe3f489df2675fa1bf7e282fab03e7c2e5d97463bf73ddc5c",
+    "servers/duplicate-invoice-check/src/store.ts": "29d9bed0ec632b665b01472ddacdbae20fd1d0b3a9ee6f00441c2c4641587cdd",
+    "servers/duplicate-invoice-check/src/output.ts": "1040693da568952e1ab5dc7cb3dcdd621eafb0e8773dc0328257f6d7a8ef042e",
+    "servers/duplicate-invoice-check/src/index.ts": "1a99fe244b18e725ce4a88b9648eb9832abf6d5b7145ee9d84e357434b046869",
+    "servers/three-way-match/src/core.ts": "b3a5064bfa5a79f36c852a7056fb27d3f630bc9a2b34f63d8f98c4a63edffcfb",
+    "servers/three-way-match/src/store.ts": "701cffb94bd67eaaab5ab945645def768badbda949b90103fa46bca38e632cd8",
+    "servers/three-way-match/src/output.ts": "3847e0d3ccb75bc73cda76a14243a4b947dbf80b7c608718c0434cdab22b4413",
+    "servers/three-way-match/src/index.ts": "ad59153ef82c4fb538dbcbc3fa69b7bc17502e420d1c455ed3a71c40cbd46011"
+  }
+}

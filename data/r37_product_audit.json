@@ -1,5 +1,5 @@
 {
-  "status": "passed_local_public_bytes_pending",
+  "status": "passed_public_bytes_verified",
   "archive_stage": "corrected_final_local",
   "deployed": false,
   "live_calls": 0,
@@ -97,5 +97,8 @@
     "scope_removed": true,
     "lsof_clear": true,
     "bytes": 30918938
-  }
+  },
+  "public_release_verified": true,
+  "public_evidence": "data/r37_public_downloads.json",
+  "public_verified_at": "2026-10-16T08:36:04.691Z"
 }

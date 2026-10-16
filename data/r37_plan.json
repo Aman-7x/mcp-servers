@@ -27,27 +27,27 @@
     {
       "id": "conversion",
       "requirement": "Fix success upsell semantics and ship privacy-preserving successful-call and handoff observation",
-      "status": "in_progress"
+      "status": "passed"
     },
     {
       "id": "product",
       "requirement": "Ship one useful additional local workflow with useful free diagnostics and paid storage-cap removal",
-      "status": "in_progress"
+      "status": "passed"
     },
     {
       "id": "distribution",
       "requirement": "Publish exact tested artifacts, install instructions, buyer proof and available free distribution",
-      "status": "in_progress"
+      "status": "passed"
     },
     {
       "id": "verification",
       "requirement": "Verify actual installed behavior, license boundaries, public bytes and payment-entry integration through unchanged gates",
-      "status": "in_progress"
+      "status": "passed"
     },
     {
       "id": "outreach",
       "requirement": "Explain available Resend access and actionable next input without sending unrequested messages",
-      "status": "pending"
+      "status": "passed"
     },
     {
       "id": "dashboard",
@@ -81,11 +81,22 @@
     "Local MCPs must remain local: no added phone-home telemetry.",
     "No people/install/revenue claims from platform counters, signed IDs, probes or documentary search trials."
   ],
-  "updated_at": "2026-10-16T08:17:30.999485+00:00",
+  "updated_at": "2026-10-16T09:26:05.077161+00:00",
   "agent_execution": {
     "working_specialists": 8,
     "spawn_attempts": 9,
     "capacity_failure": "gpt-6-sol product reviewer unavailable; independent product audit reassigned to existing gpt-6-astra reviewer",
     "note": "Counts are for this R37 sprint, not prior R36 agents or simultaneous workers."
+  },
+  "patch_scope": {
+    "release": "v0.22.8",
+    "reason": "Current office registry points to oldarchive; correctedmatcher needs newimmutableversion; sharedlicensecount47 understates48paidsingles",
+    "status": "published_and_verified",
+    "preserve_prior_release": true
+  },
+  "additional_conversion_work": {
+    "scope": "Strict local CSV input for duplicate browser proof, preserving same core and no network/storage",
+    "status": "in_progress",
+    "reason": "Current proof requires JSON; fixed-column CSV makes a supplied exported batch easier to try without changing server capabilities or permission checks."
   }
 }
