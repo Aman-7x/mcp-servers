@@ -18,6 +18,7 @@ test('buyer guide serves the same engine compiled for the browser with fresh sou
   assert.equal(asset.status, 200);
   assert.match(asset.headers.get('content-type'), /javascript/);
   assert.equal(await asset.text(), MATCHER_DEMO_JAVASCRIPT);
+  assert.ok(MATCHER_DEMO_JAVASCRIPT.includes('Third-party Zod license:'), 'Keep the bundled dependency notice in the public asset');
   const guide = await worker.fetch(new Request('https://mcp.zovo.one/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude'), {}, ctx);
   assert.match(await guide.text(), /id="matcher-demo-form"/);
   const product = await worker.fetch(new Request('https://mcp.zovo.one/s/three-way-match'), {}, ctx);
