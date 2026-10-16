@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-16T10:47:20.635Z",
+  "tag": "v0.22.9",
+  "url": "https://github.com/theluckystrike/mcp-servers/releases/tag/v0.22.9",
+  "target_commit": "9fabc676627b1041fb8e8bf1a792a97d00dc55cc",
+  "target_commitish": "9fabc676627b1041fb8e8bf1a792a97d00dc55cc",
+  "draft": false,
+  "prerelease": false,
+  "assets": [
+    {
+      "name": "expense-tracker.mcpb",
+      "bytes": 5178277,
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/expense-tracker.mcpb",
+      "state": "uploaded"
+    },
+    {
+      "name": "office-suite.mcpb",
+      "bytes": 29703676,
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/office-suite.mcpb",
+      "state": "uploaded"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 254,
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/SHA256SUMS.txt",
+      "state": "uploaded"
+    },
+    {
+      "name": "spreadsheet.mcpb",
+      "bytes": 5179288,
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/spreadsheet.mcpb",
+      "state": "uploaded"
+    }
+  ]
+}

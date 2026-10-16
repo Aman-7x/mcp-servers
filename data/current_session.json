@@ -1,7 +1,7 @@
 {
   "title": "R37 \u2014 useful workflows, conversion evidence and distribution, 2026-10-16",
-  "updated_at": "2026-10-16T10:46:08.961318+00:00",
-  "status_note": "Four-hour sprint in progress; deadline11:34:06UTC. Invoice/CSV proof remains verified. Reviewed SheetJS0.20.3 patch and three new0.22.9 exact archives pass source/runtime tests; publication and hosted rollout pending. Scheduled observations continue.",
+  "updated_at": "2026-10-16T10:59:39.468351+00:00",
+  "status_note": "Four-hour sprint in progress; deadline 11:34:06 UTC. Invoice/CSV proof and SheetJS 0.20.3 rollout are published and verified. All three new v0.22.9 mirrors have green CI at their current heads. Final scheduled observations remain pending.",
   "conclusion": "Fresh completed-history and fully covered seven-day Stripe checks still show$0 MCP Checkout gross and zero untagged paid demand. Google inspection finds the new product/guide unknown and older product URLs discovered but unindexed, while the homepage is indexed. Successful response measurement and working install routes are verified; qualified buyer discovery and willingness to pay remain unproven.",
   "metrics": [
     {
@@ -35,7 +35,7 @@
     {
       "value": "23/23",
       "label": "Browser proof cases passed",
-      "window": "Live production Chrome CSV/JSON checks,2026-10-16 09:59UTC",
+      "window": "Live production Chrome CSV/JSON checks, 2026-10-16 09:59 UTC",
       "note": "11 original JSON cases plus12 CSV cases; zero diagnostic requests/storage/page errors; synthetic operator inputs.",
       "source": "data/r37_csv_browser_live_verification.json"
     }
@@ -46,14 +46,15 @@
     "Office proxy integration measures 447 tools across 49 children. Arbitrary tool-name rewriting no longer mutates source evidence, CSV, HTML or prose; collision maps are separate metadata.",
     "Atomic daily counters passed real workerd/SQLite controls and nine live hosted checks. Sticky probe classification, daily first-observation deduplication and success-only trailers work. Initial 59 unmarked release-check offers are retained as known operator contamination; all future release GETs are explicitly marked.",
     "Added six local-client setup routes, source-backed comparison, mirror metadata and five frozen operator buyer tasks. Fourteen actual MCP calls pass; these are synthetic workflow checks, not customer evidence.",
-    "Added strict local CSV input to the browser proof:2MiB/1,000records, same comparison core, complete-batch rejection and stale-read protection. Final23productionbrowsercases pass; actual cachedoldmarkup regression is fixed. No local data upload/storage."
+    "Added strict local CSV input to the browser proof:2 MiB/1, 000 records, same comparison core, complete-batch rejection and stale-read protection. Final23 productionbrowsercases pass; actual cachedoldmarkup regression is fixed. No local data upload/storage.",
+    "Patched Spreadsheet, Expense Tracker and Office with official SheetJS 0.20.3; published three immutable0.22.9 archives and six exact registry rows.135 sourcepasses/1 existing skip, 33 guardedarchivecalls, 10 actualhostedcontrols/3 XLSXreadbacks, 8 current HTTP/deploymentchecks. Existing invoice standalones remain0.22.8. Corrected unpublished npm install examples and preserved prior bytes."
   ],
   "next_levers": [
     "Observe buyer demand in explicitly dated organic and Checkout windows; preserve probe and ordinary-automation distinctions.",
     "Use an explicitly authorized opted-in buyer/partner batch through the existing verified Resend sender; eligible email recipients currently zero.",
-    "Prioritize actual buyer workflow feedback before increasing the product count; wider fleet still has173 failures/28gaps."
+    "Prioritize actual buyer workflow feedback before increasing the product count; wider fleet still has176 failures/28 gaps (54 umbrella-version assertions)."
   ],
   "report": "intel/R37-session.md",
   "watch_path": "data/r37_watch.json",
-  "known_limits": "Final wider-estate checkpoint:173 failures/28 gaps, including51 umbrella-version mismatches and seven older skeletons; current billing/catalog/batch test failures are fixed. Scoped duplicate/matcher gates29/29; office packaging49 children/447 tools. Registry aliases represent one capability. Directory received/pending review; Glama duplicate listing404/account gate. Initial59 unmarked operator offers retained. Paid fulfillment/inbox delivery untested. Google indexed-version inspection09:36UTC: new duplicate product/guide unknown; homepage indexed positive control. Sitemap fetched06:58UTC before launch; no causal indexing claim. Dependency triage: five flagged packages are patched in exact published archives but older in root lock. Office includes xlsx0.18.5 with a reachable spreadsheet-read parser; standalone duplicate/matcher lack xlsx. A bounded patch rehearsal is underway, with no security clearance claimed."
+  "known_limits": "Latest wider-estate checkpoint:176 failures/28 gaps, including54 umbrella-version mismatches and seven older free builds missing dist/index.js. The increase from 173 is three version assertions after the selective patch, not three demonstrated runtime regressions. Fresh10:55 UTC tools/list inventory measures50/57 builds. Scoped spreadsheet/expense gates29/29; Office 49 children/447 tools. Registry aliases are one capability. Directory received/pending; Glama duplicate404/account gate. Initial59 unmarked operator offers retained. Paid fulfillment/inbox delivery untested. InitialGoogle09:36 newproduct/guideunknown; homepageindexed; finalinspectionpending. Current0.22.9 spreadsheet/expense/Office and hostedreader use vettedSheetJS0.20.3; older archives remain unchanged. Rootaudit still reports five other packages (patched in current archives); inherited number-format loss and legacy-date correction documented. No blanket security clearance."
 }

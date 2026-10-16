@@ -1,0 +1,467 @@
+{
+  "status": "passed",
+  "started_at": "2026-10-16T10:48:18.937Z",
+  "expected_versions": {
+    "mcp-funnel": "c09f6360-34da-4107-82ae-15e7ae4ac387",
+    "mcp-remote": "4bd75932-3eff-4475-8df3-3c8c5ccc35d7",
+    "mcp-billing": "3376864a-7e1c-40dc-98a2-01fea2cd1af1"
+  },
+  "local_readback_engine": "0.20.3",
+  "controls": [
+    {
+      "name": "sheet_numeric_load",
+      "passed": true,
+      "source_fixture_sha256": "0b3d494bddf3f2beeab24be23273360e13265da34c1ef4d5e1d7e8e0eda43418",
+      "source_fixture_bytes": 16084
+    },
+    {
+      "name": "sheet_numeric_read",
+      "passed": true,
+      "rows": 2,
+      "exact_canonical_dates": true
+    },
+    {
+      "name": "sheet_numeric_convert_download_readback",
+      "passed": true,
+      "data_rows": 2,
+      "exact_canonical_dates": true
+    },
+    {
+      "name": "sheet_iso_load",
+      "passed": true,
+      "source_fixture_sha256": "50526dcee2c975a3212a5fd11043cc3cd22fbb4d86c7990ebfe1d4440ad8ca99",
+      "source_fixture_bytes": 16121
+    },
+    {
+      "name": "sheet_iso_read",
+      "passed": true,
+      "rows": 2,
+      "exact_canonical_dates": true
+    },
+    {
+      "name": "sheet_iso_convert_download_readback",
+      "passed": true,
+      "data_rows": 2,
+      "exact_canonical_dates": true
+    },
+    {
+      "name": "expense_seed_one_owned_synthetic_row",
+      "passed": true,
+      "synthetic_rows": 1
+    },
+    {
+      "name": "free_xlsx_refusal",
+      "passed": true,
+      "declared_error": true,
+      "downloads": 0,
+      "success_trailers": 0
+    },
+    {
+      "name": "owned_ephemeral_license_activation",
+      "passed": true,
+      "product": "expense-tracker",
+      "owned_token_pro": true,
+      "real_payment": false
+    },
+    {
+      "name": "licensed_expense_xlsx_download_readback",
+      "passed": true,
+      "data_rows": 1,
+      "amount": 12.34,
+      "currency": "USD",
+      "date_exact": true,
+      "numeric_cells_exact": true
+    }
+  ],
+  "downloads": [
+    {
+      "label": "r37_numeric_converted",
+      "http_status": 200,
+      "bytes": 16121,
+      "sha256": "512e5803cda739b9e8fa146523b7e31d8de2d95cd65c714ae763f82793c3452a",
+      "mime_valid": true,
+      "zip_magic_valid": true,
+      "readback_engine": "0.20.3"
+    },
+    {
+      "label": "r37_iso_converted",
+      "http_status": 200,
+      "bytes": 16121,
+      "sha256": "512e5803cda739b9e8fa146523b7e31d8de2d95cd65c714ae763f82793c3452a",
+      "mime_valid": true,
+      "zip_magic_valid": true,
+      "readback_engine": "0.20.3"
+    },
+    {
+      "label": "expense_licensed",
+      "http_status": 200,
+      "bytes": 16935,
+      "sha256": "987e10f7f2fabc7b997976de0d76ac31a8100f6200a087c966664d120ccd7a0d",
+      "mime_valid": true,
+      "zip_magic_valid": true,
+      "readback_engine": "0.20.3"
+    }
+  ],
+  "live_checkout_sessions_created": 0,
+  "payments": 0,
+  "emails": 0,
+  "external_tool_apis": 0,
+  "generated_customer_records": 0,
+  "versions_before": {
+    "verified_at": "2026-10-16T10:48:20.162Z",
+    "values": [
+      {
+        "name": "mcp-funnel",
+        "version": "c09f6360-34da-4107-82ae-15e7ae4ac387",
+        "percentage": 100
+      },
+      {
+        "name": "mcp-remote",
+        "version": "4bd75932-3eff-4475-8df3-3c8c5ccc35d7",
+        "percentage": 100
+      },
+      {
+        "name": "mcp-billing",
+        "version": "3376864a-7e1c-40dc-98a2-01fea2cd1af1",
+        "percentage": 100
+      }
+    ]
+  },
+  "baseline": {
+    "instrument": 2,
+    "generated_at": "2026-10-16T10:48:20.671Z",
+    "complete": true,
+    "window": {
+      "start": "2026-10-10T00:00:00.000Z",
+      "end": "2026-10-16T10:48:20.671Z",
+      "utc_dates": [
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16"
+      ],
+      "today_partial": true
+    },
+    "interpretation": "Recorded hosted response/event counts pooled across servers. ordinary means unmarked, not human or customer. Source labels are unverified declarations. First success is per anonymous token/server/UTC day, not lifetime use. No local usage or conversion rate is measured.",
+    "coverage": "Starts only on deployment. Empty counters do not prove deployment, full-window coverage or zero historic use. Anonymous observations with missing/expired sidecars are unmeasured, except explicitly marked current probes.",
+    "limitations": "Durable transactions preserve admitted batches and daily deduplication. Deferred write failures or unresolved cohort metadata drop observations. complete concerns bounded counter retrieval only, not full traffic capture. Sidecars expire 31 days after mint; their missing/negative-cached lookups never become ordinary.",
+    "ordinary": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 70,
+      "checkout_handoff": 0
+    },
+    "probe": {
+      "successful_business_call": 5,
+      "first_successful_anon_token_server_day": 2,
+      "upgrade_impression": 5,
+      "offer_view": 645,
+      "checkout_handoff": 4
+    },
+    "days": [
+      {
+        "day": "2026-10-10",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-11",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-12",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-13",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-14",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-15",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-16",
+        "complete": true,
+        "first_recorded_at": "2026-10-16T08:32:08.915Z"
+      }
+    ],
+    "rows": [
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 59
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 645
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "checkout_handoff",
+        "count": 4
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "successful_business_call",
+        "count": 5
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "first_successful_anon_token_server_day",
+        "count": 2
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "upgrade_impression",
+        "count": 5
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "guide",
+        "event": "offer_view",
+        "count": 5
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "store.setup",
+        "event": "offer_view",
+        "count": 2
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "store.product",
+        "event": "offer_view",
+        "count": 4
+      }
+    ]
+  },
+  "probe_cohort_verified": true,
+  "final": {
+    "instrument": 2,
+    "generated_at": "2026-10-16T10:49:09.361Z",
+    "complete": true,
+    "window": {
+      "start": "2026-10-10T00:00:00.000Z",
+      "end": "2026-10-16T10:49:09.361Z",
+      "utc_dates": [
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16"
+      ],
+      "today_partial": true
+    },
+    "interpretation": "Recorded hosted response/event counts pooled across servers. ordinary means unmarked, not human or customer. Source labels are unverified declarations. First success is per anonymous token/server/UTC day, not lifetime use. No local usage or conversion rate is measured.",
+    "coverage": "Starts only on deployment. Empty counters do not prove deployment, full-window coverage or zero historic use. Anonymous observations with missing/expired sidecars are unmeasured, except explicitly marked current probes.",
+    "limitations": "Durable transactions preserve admitted batches and daily deduplication. Deferred write failures or unresolved cohort metadata drop observations. complete concerns bounded counter retrieval only, not full traffic capture. Sidecars expire 31 days after mint; their missing/negative-cached lookups never become ordinary.",
+    "ordinary": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 70,
+      "checkout_handoff": 0
+    },
+    "probe": {
+      "successful_business_call": 13,
+      "first_successful_anon_token_server_day": 4,
+      "upgrade_impression": 12,
+      "offer_view": 645,
+      "checkout_handoff": 4
+    },
+    "days": [
+      {
+        "day": "2026-10-10",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-11",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-12",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-13",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-14",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-15",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-16",
+        "complete": true,
+        "first_recorded_at": "2026-10-16T08:32:08.915Z"
+      }
+    ],
+    "rows": [
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 59
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 645
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "checkout_handoff",
+        "count": 4
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "successful_business_call",
+        "count": 13
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "first_successful_anon_token_server_day",
+        "count": 4
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "upgrade_impression",
+        "count": 12
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "guide",
+        "event": "offer_view",
+        "count": 5
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "store.setup",
+        "event": "offer_view",
+        "count": 2
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "store.product",
+        "event": "offer_view",
+        "count": 4
+      }
+    ]
+  },
+  "probe_delta": {
+    "successful_business_call": 8,
+    "first_successful_anon_token_server_day": 2,
+    "upgrade_impression": 7,
+    "offer_view": 0,
+    "checkout_handoff": 0
+  },
+  "guide_probe_delta": {
+    "successful_business_call": 8,
+    "first_successful_anon_token_server_day": 2,
+    "upgrade_impression": 7,
+    "offer_view": 0,
+    "checkout_handoff": 0
+  },
+  "ordinary_unchanged": true,
+  "versions_after": {
+    "verified_at": "2026-10-16T10:49:10.762Z",
+    "values": [
+      {
+        "name": "mcp-funnel",
+        "version": "c09f6360-34da-4107-82ae-15e7ae4ac387",
+        "percentage": 100
+      },
+      {
+        "name": "mcp-remote",
+        "version": "4bd75932-3eff-4475-8df3-3c8c5ccc35d7",
+        "percentage": 100
+      },
+      {
+        "name": "mcp-billing",
+        "version": "3376864a-7e1c-40dc-98a2-01fea2cd1af1",
+        "percentage": 100
+      }
+    ]
+  },
+  "cleanup": {
+    "considered": 11,
+    "deleted": 10,
+    "already_absent": 1,
+    "failed": 0,
+    "global_funnel_counters_deleted": false,
+    "proof": "Cloudflare exact-key successful DELETE acknowledgments; one candidate returned404. Raw keys, tokens, signed QAkey and download URLs were not exported.",
+    "private_scope_absent": true
+  },
+  "finished_at": "2026-10-16T10:49:19.503Z",
+  "interpretation": "Synthetic marked operator responses and owned ephemeral licence; no paid fulfillment or customer demand proof. Source is a declaration. Event counts are pooled across servers; missing metadata or deferred failures can lose observations. Exact DELETE acknowledgments do not claim immediate global cache eviction. Shared IP mint limits and aggregate counters remain retained.",
+  "retained_operator_aggregates": {
+    "guide_probe_business_responses": 8,
+    "daily_anon_token_server_observations": 2,
+    "emitted_free_upgrades": 7,
+    "purged": false,
+    "retention": "Daily durable observation records expire at UTC day start plus31days. These are operator observations, not demand."
+  },
+  "synthetic_fixture_provenance": {
+    "source": "Canonical numeric and ISO OOXML date fixtures supplied by independent artifact verifier; copied before execution, no legacy Date-object writer used.",
+    "canonical_date_assertions": [
+      "2026-09-03T15:30:00",
+      "2026-09-04"
+    ]
+  }
+}

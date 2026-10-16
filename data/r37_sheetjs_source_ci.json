@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-16T11:01:15.131201+00:00",
+  "status": "passed",
+  "pr": {
+    "headRefOid": "13566473d101d246482b979dd00b9a585fc0ba7b",
+    "mergeCommit": {
+      "oid": "a3d848a64cbbf2352a5ca1957a47e8efc8c8f6d1"
+    },
+    "mergedAt": "2026-10-16T10:51:32Z",
+    "state": "MERGED",
+    "url": "https://github.com/theluckystrike/mcp-servers/pull/77"
+  },
+  "checks": [
+    {
+      "link": "https://github.com/theluckystrike/mcp-servers/actions/runs/38889754808/job/116936101069",
+      "name": "Billing preflight",
+      "state": "SUCCESS"
+    },
+    {
+      "link": "https://github.com/theluckystrike/mcp-servers/actions/runs/38889754702/job/116936099572",
+      "name": "duplicate-invoice",
+      "state": "SUCCESS"
+    },
+    {
+      "link": "https://github.com/theluckystrike/mcp-servers/actions/runs/38889754762/job/116936100135",
+      "name": "matcher",
+      "state": "SUCCESS"
+    }
+  ],
+  "required_check": "Billing preflight",
+  "note": "The other two product preflights also passed; they are not both described as required branch protection."
+}

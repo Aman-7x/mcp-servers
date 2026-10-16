@@ -1,0 +1,107 @@
+{
+  "at": "2026-10-16T10:52:40.132Z",
+  "scope": "Marked GET-only current HTML, exact unchanged reviewed browser bytes and native sole-version/approved-pin reads. Actual hosted XLSX workflow proof has a separate earlier billing-version receipt.",
+  "checks": [
+    {
+      "name": "sole deployments and approved pin before",
+      "status": "passed",
+      "deployments": {
+        "mcp-billing": {
+          "deployment_id": "42fb3152-2a0a-497d-ac75-583a893c1c9c",
+          "version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+          "percentage": 100
+        },
+        "mcp-remote": {
+          "deployment_id": "8a6f39ac-19d7-47f8-ae5f-b3e761167a1a",
+          "version": "4bd75932-3eff-4475-8df3-3c8c5ccc35d7",
+          "percentage": 100
+        },
+        "mcp-funnel": {
+          "deployment_id": "dba3a418-a2a3-4432-9633-f8c9afee67f4",
+          "version": "c09f6360-34da-4107-82ae-15e7ae4ac387",
+          "percentage": 100
+        },
+        "approved_billing_pin": "c1c84ab6-4a25-43a4-a6b3-3562234ae185"
+      }
+    },
+    {
+      "name": "spreadsheet current install",
+      "status": "passed",
+      "path": "/s/spreadsheet",
+      "version": "0.22.9",
+      "headers": {
+        "last-modified": "Fri, 16 Oct 2026 00:00:00 GMT",
+        "cache-control": "public, max-age=3600",
+        "etag": null
+      }
+    },
+    {
+      "name": "expense-tracker current install",
+      "status": "passed",
+      "path": "/s/expense-tracker",
+      "version": "0.22.9",
+      "headers": {
+        "last-modified": "Fri, 16 Oct 2026 00:00:00 GMT",
+        "cache-control": "public, max-age=3600",
+        "etag": null
+      }
+    },
+    {
+      "name": "office-suite current install",
+      "status": "passed",
+      "path": "/s/office-suite",
+      "version": "0.22.9",
+      "headers": {
+        "last-modified": "Fri, 16 Oct 2026 00:00:00 GMT",
+        "cache-control": "public, max-age=3600",
+        "etag": null
+      }
+    },
+    {
+      "name": "complete current download catalog",
+      "status": "passed",
+      "path": "/downloads",
+      "entries": 57
+    },
+    {
+      "name": "current release chronology",
+      "status": "passed",
+      "path": "/changelog",
+      "current": "0.22.9"
+    },
+    {
+      "name": "unchanged reviewed local CSV/JSON proof",
+      "status": "passed",
+      "script_url": "https://mcp.zovo.one/assets/duplicate-demo.js?v=de00b0890ccc015a6bb9e40bd9ec99daaf33159c5ecfbe03e368a52404c54c0a",
+      "bytes": 74677,
+      "sha256": "607931acffaf33ee9041151006056bf8ad05daa8f64e3629f0e5bd27fbbd1449",
+      "prior_browser_receipt": "data/r37_csv_browser_live_verification.json",
+      "prior_browser_billing_version": "3376864a-7e1c-40dc-98a2-01fea2cd1af1"
+    },
+    {
+      "name": "sole deployments and approved pin after",
+      "status": "passed",
+      "deployments": {
+        "mcp-billing": {
+          "deployment_id": "42fb3152-2a0a-497d-ac75-583a893c1c9c",
+          "version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+          "percentage": 100
+        },
+        "mcp-remote": {
+          "deployment_id": "8a6f39ac-19d7-47f8-ae5f-b3e761167a1a",
+          "version": "4bd75932-3eff-4475-8df3-3c8c5ccc35d7",
+          "percentage": 100
+        },
+        "mcp-funnel": {
+          "deployment_id": "dba3a418-a2a3-4432-9633-f8c9afee67f4",
+          "version": "c09f6360-34da-4107-82ae-15e7ae4ac387",
+          "percentage": 100
+        },
+        "approved_billing_pin": "c1c84ab6-4a25-43a4-a6b3-3562234ae185"
+      }
+    }
+  ],
+  "errors": [],
+  "status": "passed",
+  "finished_at": "2026-10-16T10:52:47.677Z"
+}
