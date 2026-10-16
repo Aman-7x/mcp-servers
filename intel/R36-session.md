@@ -4,7 +4,7 @@ Started 2026-10-16 00:22:43 UTC. The requested four-hour session ends at 04:22:4
 
 ## Business conclusion
 
-Qualified discovery is the binding constraint. In a complete seven-day MCP storefront Stripe window there are zero checkout sessions and $0 gross paid amount. Lifetime revenue is unmeasured. Google showed the exact MCP host 34 times across September 15–October 13 and generated zero clicks. Those populations and windows cannot form a conversion funnel. There is no measured revenue lift from this sprint.
+Qualified discovery is the binding constraint. In a complete seven-day MCP storefront Stripe window there are zero checkout sessions and $0 gross paid amount. Completed-only pagination now exhausts 182 paid account Sessions and finds zero from the MCP storefront, establishing $0 recorded MCP Checkout gross across available history. This does not measure every payment channel or net profit. Google showed the exact MCP host 34 times across September 15–October 13 and generated zero clicks. Those populations and windows cannot form a conversion funnel. There is no measured revenue lift from this sprint.
 
 The largest durable win across the work is a discoverable, verifiable path from a concrete buyer task to a useful free tool and a working paid upgrade. More registry aliases or raw crawler counts do not establish buyers. The current unprimed search trial names the estate in 9/18 answers (six first-listed), compared with zero in the original R1 instrument. Model/search conditions differ and many intervening sprints occurred: this supports improved discoverability, not a causal return-on-investment claim. Revenue remains the unresolved test.
 
