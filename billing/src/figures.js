@@ -514,7 +514,7 @@ export const PRO = {
   "recurring": "Unlimited schedules, 12-month forecast, audit history, end-of-month and anchor-day rules.",
   "resume": "All styles, unlimited cover letters and tailoring, profile variants, letterhead colours.",
   "service-agreement": "Unlimited active agreements, the full clause texts with the agreement's variables filled in, and print-ready HTML rendering.",
-  "spreadsheet": "No limits.",
+  "spreadsheet": "Removes the free-tier file and row caps.",
   "statement-of-account": "Unlimited statements, the A4 PDF on the same page layout as your invoices with your logo and no footer credit, the level 3 final demand, and statements_report: every client at once, totalled per currency, ranked by what is overdue rather than by what is large, with the oldest overdue invoice in the whole book named.",
   "stripe-billing": "Not gated — this server is entirely free; the $39 bundle key covers the forty-seven paid servers.",
   "supplier-list": "Unlimited suppliers, Markdown export, and the due-review report that keeps a bigger directory honest.",
