@@ -12,7 +12,7 @@ test('duplicate-reference buyer proof serves the actual comparison core with fre
   }
   assert.equal(hash.digest('hex'), DUPLICATE_DEMO_INPUT_SHA256, 'Rebuild the browser asset after a core or UI edit');
   const ctx = { waitUntil() {} };
-  const asset = await worker.fetch(new Request('https://mcp.zovo.one/assets/duplicate-demo.js'), {}, ctx);
+  const asset = await worker.fetch(new Request('https://mcp.zovo.one/assets/duplicate-demo.js?v=' + DUPLICATE_DEMO_INPUT_SHA256), {}, ctx);
   assert.equal(asset.status, 200);
   assert.match(asset.headers.get('content-type'), /javascript/);
   assert.equal(await asset.text(), DUPLICATE_DEMO_JAVASCRIPT);
@@ -23,7 +23,7 @@ test('duplicate-reference buyer proof serves the actual comparison core with fre
   assert.match(guide, /id="duplicate-demo-form"/);
   assert.match(guide, /id="duplicate-demo-csv-file"[^>]*type="file"/);
   assert.match(guide, /id="duplicate-demo-csv-sample"/);
-  assert.match(guide, /src="\/assets\/duplicate-demo\.js"/);
+  assert.ok(guide.includes('src="/assets/duplicate-demo.js?v=' + DUPLICATE_DEMO_INPUT_SHA256 + '"'), 'Script URL changes with the compiled input so cached older code cannot back the new markup');
   assert.match(guide, /same_amount_date/);
   assert.match(guide, /preserves leading zeros/i);
   assert.match(guide, /no recoverable or duplicate-payment amount/i);
