@@ -1,6 +1,6 @@
 # R36 revenue and organic distribution sprint
 
-Session: 2026-10-16 00:22:43–04:22:43 UTC. Status: engineering and publication complete; automatic expiry verification and sampled observation remain in progress. The clock deadline has not yet been reached.
+Session: 2026-10-16 00:22:43–04:22:43 UTC. Status: product publication and unpaid lifecycle verification complete; sampled observation and report closeout remain in progress. The clock deadline has not yet been reached.
 
 ## Commercial result and biggest win
 
@@ -31,7 +31,7 @@ Billing fixes preserve a tenant across single-to-bundle and cancellation navigat
 
 A read-only provider audit verifies all 28 configured Stripe Prices are active, USD, correctly named and correctly priced; twenty additional products use inline pricing. The CLI credential cannot expire live Sessions. An initial permission preflight therefore stopped before creating anything. A subsequent explicit operator-only short-expiry option bounds marked Sessions to approximately 31 minutes, derives expiry from order identity for stable retries, rejects stale operator forms and caps cache life before expiry. Ordinary checkout timing is unchanged.
 
-Separate real-browser unpaid QA then created exactly two tagged Sessions: matcher **1900 USD cents**, bundle **3900 USD cents**. Both preserve expected product/version metadata; repeating each order returns the same checkout; unpaid fulfillment returns 402. No customer, payment intent, payment details or charge. Their automatic expiry is due by **03:36:48 UTC**; read-only verification remains pending. This verifies unpaid handoff and refusal, not a completed live paid fulfillment. Positive fulfillment is covered by billing tests and ephemeral local signing/activation, without a live purchase.
+Separate real-browser unpaid QA then created exactly two tagged Sessions: matcher **1900 USD cents**, bundle **3900 USD cents**. Both preserve expected product/version metadata; repeating each order returns the same checkout; unpaid fulfillment returns 402. No customer, payment intent, payment details or charge. Both Sessions automatically expired and remained unpaid, verified by the read-only job at **03:37:04 UTC**. The job returned zero, matched both exact run-owned Sessions, and preserved the no-customer/no-payment-intent checks. This verifies unpaid handoff and refusal, not a completed live paid fulfillment. Positive fulfillment is covered by billing tests and ephemeral local signing/activation, without a live purchase.
 
 The manual tool binds state and report by run/version/source/tenant, checks product/order/session evidence, preserves prior failures, uses atomic writes and holds an OS lock. Real cross-process tests prove exclusion and release after exit/SIGKILL. The browser blocks the Stripe payment page. Only exact owned unpaid Sessions qualify for cleanup; it cannot expire arbitrary customer Sessions.
 
@@ -41,6 +41,12 @@ Validation evidence:
 - Matcher: 25 tests, 5,000 independent arithmetic cases, 1,022 real calls against the exact standalone artifact, dependency guards preventing monorepo fallback, and fresh source build. Office proxy performed real matching/get/CSV calls. Oversized outputs use free complete paging within the SDK budget; source inputs and storage are bounded.
 - Billing: 190/190. Ownership/recovery/locking: 6/6. KPI/blind selection: 6/6. Outreach sender: 30/30. Office source: 8/8. Matcher source Docker/runtime CI, matcher mirror CI and repaired office mirror CI are green.
 - Artifact verification: `intel/R36-artifact-verification.md`, `data/r36_public_downloads.json`, `data/r36_office_repack_verification.json`. Browser evidence: `data/r36_browser_demo_live_verification.json`. Checkout: `data/r36_checkout_lifecycle.json`.
+
+## Launch-window requests
+
+A separate Cloudflare query covers 01:20–03:40 UTC, after the first product deployment. Adaptive counts are product 5, guide 2, comparison 1, purchase route 5, shared download catalog 1. Browser-style requests include our own Chrome QA, and crawler/script requests are present. No registry referrer appears in these target-path groups. These are estimated requests, not people, installs, successful jobs or qualified leads. A nonzero monitor-route control verifies logging; all six groupings are below the row cap. Evidence: `data/r36_launch_traffic.json`.
+
+The purchase grouping contains one GET 504 at 03:05, coinciding with the recorded deployment/pin transition. Causation is not established. A current marked GET returns 200, and both real unpaid handoff/replay checks returned 303. The earlier failure remains recorded in `data/r36_launch_504_investigation.json`; successful later checks do not certify uninterrupted availability.
 
 ## Outreach access
 

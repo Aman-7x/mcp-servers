@@ -113,6 +113,7 @@ const currentPanel = currentSession ? `
 <p class="dim">These are separate observations. Requests, tokens, documents and checkout sessions have different populations and time windows; no conversion rate is inferred from them.</p>
 <h2>Delivered this session</h2><ul>${(currentSession.shipped || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul>
 <h2>Highest return next actions</h2><ol>${(currentSession.next_levers || []).map(x => `<li>${esc(x)}</li>`).join("")}</ol>
+${currentSession.known_limits ? `<p class="dim"><b>Known limits.</b> ${esc(currentSession.known_limits)}</p>` : ""}
 <p><a href="${esc(currentSession.report || "session-log.md")}">Full session report</a> · <a href="docs/OUTREACH_RESEND_SETUP.md">Outreach access and sending setup</a></p></div>` : "";
 
 const serverRows = servers.map(s => {

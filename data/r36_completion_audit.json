@@ -1,5 +1,5 @@
 {
-  "audited_at": "2026-10-16T03:25:19.360058+00:00",
+  "audited_at": "2026-10-16T03:38:07.576447+00:00",
   "status": "in_progress",
   "scope": "Completion of the authorized timed MCP monetization/distribution sprint, not a promise of commercial success or estate-wide certification",
   "requirements": [
@@ -58,12 +58,13 @@
     },
     {
       "requirement": "Close both exact owned unpaid probe Sessions by bounded expiry",
-      "status": "pending",
+      "status": "passed",
       "evidence": [
         "data/r36_checkout_lifecycle.json",
         "data/r36_checkout_expiry_verification_result.txt"
       ],
-      "due_at": "2026-10-16T03:36:48Z"
+      "verified_at": "2026-10-16T03:37:04.628Z",
+      "observed_expired": 2
     },
     {
       "requirement": "Measure KPIs, separate probes/populations/windows, explain money and ROI",

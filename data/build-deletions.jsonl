@@ -46,3 +46,11 @@
 {"at":"2026-10-16T03:15:20.064Z","path":"/Users/mike/mcp-servers-work/dashboard-qa-EfdQU3","bytes":8535296,"reason":"closed local dashboard QA browser","lsof":"no open handles"}
 {"at":"2026-10-16T03:16:02.341Z","path":"/Users/mike/mcp-servers-work/dashboard-qa-RpwzYZ","bytes":8535274,"reason":"closed local dashboard QA browser","lsof":"no open handles"}
 {"at":"2026-10-16T03:17:28.194Z","path":"/Users/mike/mcp-servers-work/dashboard-qa-iZUoJl","bytes":8535275,"reason":"closed local dashboard QA browser","lsof":"no open handles"}
+{"at": "2026-10-16T03:19:39.744952+00:00", "path": "/Users/mike/mcp-servers-work/r36-demo-pr-body.md", "bytes": 1109, "reason": "completed owned PR/release publication text", "lsof": "no open handles"}
+{"at": "2026-10-16T03:19:40.067631+00:00", "path": "/Users/mike/mcp-servers-work/r36-final-pr-body.md", "bytes": 1441, "reason": "completed owned PR/release publication text", "lsof": "no open handles"}
+{"at": "2026-10-16T03:19:40.357036+00:00", "path": "/Users/mike/mcp-servers-work/r36-pr-body.md", "bytes": 1355, "reason": "completed owned PR/release publication text", "lsof": "no open handles"}
+{"at": "2026-10-16T03:19:40.635396+00:00", "path": "/Users/mike/mcp-servers-work/r36-probe-pr-body.md", "bytes": 2380, "reason": "completed owned PR/release publication text", "lsof": "no open handles"}
+{"at": "2026-10-16T03:19:40.921088+00:00", "path": "/Users/mike/mcp-servers-work/r36-release-notes.md", "bytes": 1607, "reason": "completed owned PR/release publication text", "lsof": "no open handles"}
+{"at": "2026-10-16T03:32:13.845414+00:00", "path": "/Users/mike/mcp-servers-work/r36-dashboard-qa.mjs", "bytes": 2903, "reason": "completed owned dashboard visual QA helper", "lsof": "no open handles"}
+{"at":"2026-10-16T03:39:38.658Z","path":"/Users/mike/mcp-servers-work/r36-checkout-probe-state.json","bytes":618,"reason":"completed verified unpaid probe lifecycle; persistent lock inode retained","lsof":"no open handles"}
+{"at":"2026-10-16T03:39:38.903Z","path":"/Users/mike/mcp-servers-work/r36-expiry-wait.mjs","bytes":1429,"reason":"completed verified unpaid probe lifecycle; persistent lock inode retained","lsof":"no open handles"}

@@ -1,6 +1,6 @@
 {
   "title": "R36 \u2014 revenue and organic distribution, 2026-10-16",
-  "updated_at": "2026-10-16T03:09:35.499402+00:00",
+  "updated_at": "2026-10-16T03:38:07.576447+00:00",
   "status_note": "Matcher, downloads, checkout corrections and interactive buyer proof are live. Observation continues through 04:22:43 UTC, the end of the requested four-hour session.",
   "conclusion": "Qualified demand remains the constraint: the MCP host has 34 Google impressions and no clicks across 29 dates. Exhaustive completed-only Stripe pagination finds zero MCP paid checkouts among 182 paid account Sessions. Recorded MCP checkout gross is $0; profit and other payment channels are not measured.",
   "metrics": [
@@ -58,7 +58,7 @@
     "Shipped the local eight-tool supplier invoice matcher, a self-contained public repository, two registry names for the same capability, and a worked buyer guide. $19 Pro removes the three-saved-report cap; $39 bundle also unlocks it.",
     "Published standalone and office-suite v0.22.6 archives. Both unauthenticated downloads match their tested SHA-256; the corrected office manifest agrees with all 441 runtime tools across 48 children.",
     "Replaced incomplete latest-release install links with a 56-entry download catalog. Every listed server has a direct versioned asset; all 56 public links are reachable. Older bundles retain their actual release versions.",
-    "Billing a2d71ca6 passed the unchanged release gate and all 59 live GET purchase paths. Two separate marked live unpaid Sessions verify $19 matcher/$39 bundle amounts, idempotent replay and 402 unpaid refusal, with zero customers, payment intents or charges. Automatic expiry is due 03:36:48 UTC.",
+    "Billing a2d71ca6 passed the unchanged release gate and all 59 live GET purchase paths. Two marked live unpaid Sessions verify $19 matcher/$39 bundle amounts, idempotent replay and 402 unpaid refusal. Both expired and remained unpaid, with zero customers, payment intents or charges; verified 03:37:04 UTC.",
     "Root tests: 2,241 passed, 32 skipped, zero failed at the full-suite checkpoint. Matcher: 25 tests, 5,000 independent arithmetic cases and 1,022 real archive calls. Matcher source Docker and self-contained mirror CI pass. Office source tests 8/8; office mirror install/build/runtime tests pass (5 pass, 3 monorepo-only skips).",
     "New repository ranks first in three narrow GitHub queries in one immediate snapshot. Quotes metadata also published. IndexNow accepted four URLs; none of these observations establishes traffic or sales.",
     "Resend access already works at the account/domain level. Sender has idempotency, locks, suppression and consent checks; 30 assertions pass. No outreach messages sent; 18 research targets yield zero eligible recipients.",
@@ -68,9 +68,10 @@
     "Exhausted available completed Stripe Checkout history using two read-only pages: 182 paid account Sessions, zero exact MCP-host sessions. Recorded MCP checkout gross is $0; no claim about profit or other payment channels."
   ],
   "next_levers": [
-    "Verify both marked unpaid Sessions expire after 03:36:48 UTC, then finish observation through the four-hour session deadline at 04:22:43 UTC.",
+    "Finish sampled observation through the four-hour session deadline at 04:22:43 UTC, then publish the final checks and coverage.",
     "Measure qualified clicks and actual tool use before treating narrow query rankings as commercial demand.",
     "Use existing Resend with consented recipients and suppression records; no new email platform is needed."
   ],
-  "report": "intel/R36-session.md"
+  "report": "intel/R36-session.md",
+  "known_limits": "The older fleet still has 126 release-check failures and 28 gaps; the new matcher passes all 30 release checks. Older office registry descriptors can still point to v0.22.0; the current catalog pins the verified v0.22.6 archive. Completed live paid fulfillment and inbox delivery were not exercised."
 }

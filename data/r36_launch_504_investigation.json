@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-16T03:41:44.854Z",
+  "scope": "Raw Cloudflare purchase-route 504s during first launch window; no raw UA exported",
+  "rows": [
+    {
+      "count": 1,
+      "at_minute": "2026-10-16T03:05:00Z",
+      "method": "GET",
+      "known_node_user_agent": false,
+      "known_curl_user_agent": false
+    }
+  ],
+  "current_get": {
+    "at": "2026-10-16T03:43:18.429Z",
+    "status": 200,
+    "method": "GET",
+    "sessions_created": 0
+  },
+  "interpretation": "One GET 504 at 03:05 coincides with the recorded deployment/pin transition; causation is not established. A later current GET returns 200; both actual unpaid handoff/replay checks returned 303. This is not an uninterrupted-availability claim."
+}
