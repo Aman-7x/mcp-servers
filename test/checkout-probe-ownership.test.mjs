@@ -80,8 +80,8 @@ test('interrupted runs can verify expiry without inventing missing handoff proof
 test('OS exclusion blocks another process and automatically releases on process exit', () => {
   // Lock the existing fixture source without changing its bytes; no temporary artifacts.
   const path = fileURLToPath(import.meta.url), moduleUrl = new URL('../scripts/checkout-lifecycle-probe.mjs', import.meta.url).href;
-  const child = () => spawnSync(process.execPath, ['--input-type=module', '-e',
-    `import {acquireProbeLock} from ${JSON.stringify(moduleUrl)}; acquireProbeLock(${JSON.stringify(path)});`],
+  const child = (crash = false) => spawnSync(process.execPath, ['--input-type=module', '-e',
+    `import {acquireProbeLock} from ${JSON.stringify(moduleUrl)}; acquireProbeLock(${JSON.stringify(path)}); ${crash ? 'process.kill(process.pid, "SIGKILL");' : ''}`],
     { encoding: 'utf8', timeout: 10000 });
   const release = acquireProbeLock(path);
   try {
@@ -90,5 +90,8 @@ test('OS exclusion blocks another process and automatically releases on process 
   } finally { release(); release(); }
   assert.equal(child().status, 0);
   // The preceding child intentionally did not call release; OS process teardown did it.
+  const crashed = child(true);
+  assert.equal(crashed.signal, 'SIGKILL');
+  // Abrupt death also releases the inherited-description lock without cleanup code.
   const recovered = acquireProbeLock(path); recovered();
 });
