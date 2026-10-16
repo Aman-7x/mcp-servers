@@ -26,6 +26,7 @@ jobs:
           npm run build --workspace @theluckystrike/mcp-three-way-match
           npm test --workspace @theluckystrike/mcp-three-way-match
           node scripts/build-matcher-demo.mjs --check
+          node scripts/build-readme.mjs --check
       - name: Exercise the buyer example in a real browser without external data requests
         run: node scripts/matcher-browser-smoke.mjs
       - name: Build the documented Docker image

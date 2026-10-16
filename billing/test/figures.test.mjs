@@ -26,7 +26,7 @@ import { dirname, join } from "node:path";
 import worker, { SINGLE_PRODUCT_IDS, VALIDATION } from "../src/index.js";
 import { GUIDES } from "../src/content.js";
 import {
-  LISTED_COUNT, LISTED_CHILD_COUNT, HOSTED_COUNT, SERVER_DIR_COUNT, VERSION, FREE_IDS,
+  LISTED_COUNT, LISTED_CHILD_COUNT, HOSTED_COUNT, SERVER_DIR_COUNT, VERSION, FREE_IDS, OFFICE_SUITE_CHILD_COUNT, OFFICE_SUITE_TOOLS,
 } from "../src/figures.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -58,6 +58,7 @@ test("the catalogue counts agree with each other", () => {
   assert.ok(HOSTED_COUNT <= LISTED_COUNT, "more hosted endpoints than listed servers");
   assert.ok(SERVER_DIR_COUNT >= LISTED_COUNT,
     "a listed server has no source directory, which cannot happen");
+  assert.ok(GUIDES['one-install-office-suite'].html.includes(`One config entry, ${OFFICE_SUITE_CHILD_COUNT} servers, ${OFFICE_SUITE_TOOLS} tools.`), 'Office guide must describe the actual proxy subset, not every listed standalone server');
   // VALIDATION measures every server directory except office-suite (stdio-only, not hosted),
   // so its server count is the hosted set: 41. LISTED_COUNT (42) additionally counts
   // office-suite, which the store lists but the hosted validation cannot spawn.

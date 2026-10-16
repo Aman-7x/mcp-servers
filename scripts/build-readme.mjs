@@ -9,6 +9,7 @@
 // them is untouched. Run: node scripts/build-readme.mjs [--check]
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { HOSTED_IDS } from '../billing/src/figures.js';
 
 const ROOT = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const CHECK = process.argv.includes("--check");
@@ -34,14 +35,13 @@ function factOf(id) {
   return walk(facts) || {};
 }
 
-const hosted = new Set(Object.entries(js("data/distribution.json", {}).per_server || {})
-  .filter(([, v]) => /^published\b/.test(String(v.hosted ?? ""))).map(([k]) => k));
+const hosted = new Set(HOSTED_IDS);
 
 const rows = [...singles, "office-suite"].map((id) => {
   const f = factOf(id);
   const tagline = (f.tagline || "").replace(/\|/g, "\\|");
   const gif = existsSync(join(ROOT, "assets", `demo-${id}.gif`)) ? `![${id}](assets/demo-${id}.gif)` : "";
-  return `| [mcp-${id}](servers/${id}/README.md) | ${gif} | ${tagline} | \`${id}.mcpb\` |`;
+  return `| [mcp-${id}](servers/${id}/README.md) | ${gif} | ${tagline} | [\`${id}.mcpb\`](https://mcp.zovo.one/downloads#${id}) |`;
 }).join("\n");
 
 const table = `| Server | Demo | What it does | One-click bundle |\n|---|---|---|---|\n${rows}`;
@@ -52,19 +52,27 @@ const REGIONS = {
   badge: `![License](https://img.shields.io/badge/license-MIT-blue)\n![MCP Registry](https://img.shields.io/badge/MCP%20registry-listed-brightgreen)\n![Release](https://img.shields.io/badge/release-v${VERSION}-informational)`,
   table,
   counts,
+  hosted: [
+    `${hosted.size} servers have hosted endpoints. Open [the connect page](https://mcp.zovo.one/mcp/connect), get a free token and copy the complete URL for the server you need.`,
+    '',
+    'The ready URL has the form `https://mcp.zovo.one/mcp/<server>/t/<token>`. If your client supports headers, the bare endpoint also works with `Authorization: Bearer <token>`. The bare URL alone can initialize and list tools but refuses tool calls.',
+    '',
+    'Hosted file tools accept inline data/uploads and return temporary download URLs instead of reading your local disk. Read the server-specific setup guide for supported formats. A local install is the path for files on your machine.',
+    '',
+    'Office Suite and Three-Way Match are local stdio servers. Do not substitute a hosted URL for their executable. See each server page and the [client setup guides](https://mcp.zovo.one/setup).',
+  ].join('\n'),
   install: [
     "![invoice](assets/demo-invoice.gif)",
     "",
     "That is the invoice server answering a real prompt: a client, some hours, a VAT rate, and a numbered PDF at the end.",
-    "Every server in the table below has a demo like it.",
+    "The table links the demonstrations that are available; some are labeled evidence diagrams rather than client captures.",
     "",
-    "**Two ways to run any of these, both working today.**",
+    "**Choose the install path supported by your server.**",
     "",
-    `1. **One click.** Download the server's \`.mcpb\` bundle from the [latest release](${REPO}/releases/latest) and open it in Claude Desktop. No terminal, no config file.`,
-    "2. **No install at all.** Point a client at `https://mcp.zovo.one/mcp/<server>`. `GET https://mcp.zovo.one/mcp/connect` mints a free token and prints a ready URL for each server.",
+    "1. **Claude Desktop bundle.** Choose the server in the [download catalog](https://mcp.zovo.one/downloads), download its versioned `.mcpb` and open it.",
+    `2. **Hosted, for ${hosted.size} servers.** Open [mcp.zovo.one/mcp/connect](https://mcp.zovo.one/mcp/connect), mint a free token and copy the ready URL for your server. That URL includes the token; a bare endpoint does not authorize tool calls. Servers without an endpoint use the bundle or source build.`,
     "",
-    "A third way is coming and does not work yet: the npm packages are unpublished, so `npx -y @theluckystrike/mcp-<name>`",
-    "returns 404 today. The commands below are written for the day it is published; use one of the two paths above until then.",
+    "The npm packages are not published. Use a bundle or the source build below rather than an npm package command.",
   ].join("\n"),
 };
 
