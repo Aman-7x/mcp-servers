@@ -35,13 +35,27 @@ const has = (p) => existsSync(p);
 // The release version is office-suite's: it is the umbrella package every child is
 // vendored into, so nothing can ship at a version it disagrees with. The root
 // package.json is the private workspace shell and stays at 0.1.0 by design.
-const RELEASE_VERSION = readJson(join(SERVERS_DIR, "office-suite", "package.json")).version;
+const UMBRELLA_VERSION = readJson(join(SERVERS_DIR, "office-suite", "package.json")).version;
 
 // Every servers/<x> with a package.json, office-suite excepted (it is the bundle, not a
 // product: no Stripe price, no comparison page, no second registry name).
-const SERVERS = readdirSync(SERVERS_DIR)
+const ALL_SERVERS = readdirSync(SERVERS_DIR)
   .sort()
   .filter((n) => n !== "office-suite" && has(join(SERVERS_DIR, n, "package.json")));
+
+// Scoped releases retain every per-server check. Estate assertions still run in the
+// default mode; a scoped result is explicitly not a whole-estate certification.
+const args = process.argv.slice(2);
+let only = null;
+if (args.length) {
+  if (args.length !== 2 || args[0] !== "--only" || !ALL_SERVERS.includes(args[1])) {
+    console.error("Usage: release-check.mjs [--only <standalone-server>]");
+    process.exit(2);
+  }
+  only = args[1];
+}
+const SERVERS = only ? [only] : ALL_SERVERS;
+const RELEASE_VERSION = only ? readJson(join(SERVERS_DIR, only, "package.json")).version : UMBRELLA_VERSION;
 
 const src = {
   officeSuite: read(join(ROOT, "servers", "office-suite", "src", "index.ts")),
@@ -182,10 +196,25 @@ check("version", "version == release", (s) => {
   const p = readJson(join(SERVERS_DIR, s, "package.json"));
   if (p.version !== RELEASE_VERSION) return `${p.version}, release is ${RELEASE_VERSION}`;
   const bad = [];
+  // A scoped artifact may retain an older runtime version than the umbrella release.
+  // Its outer registry declarations must still agree with that exact package version.
+  if (only) for (const f of readdirSync(join(SERVERS_DIR, s)).filter(f => /^server(?:\.[^/]+)?\.json$/.test(f))) {
+    const descriptor = readJson(join(SERVERS_DIR, s, f));
+    if (typeof descriptor.name !== "string") continue;
+    if (descriptor.version !== p.version) bad.push(`${f} version ${descriptor.version}, expected ${p.version}`);
+    for (const pkg of descriptor.packages || []) {
+      if (pkg.version !== p.version) bad.push(`${f} package version ${pkg.version}, expected ${p.version}`);
+    }
+  }
   for (const field of ["dependencies", "devDependencies", "peerDependencies", "optionalDependencies"]) {
     for (const [name, range] of Object.entries(p[field] || {})) {
       if (!name.startsWith(SCOPE + "/")) continue;
-      if (range !== `^${RELEASE_VERSION}`) bad.push(`${name}@${range}`);
+      const base = name.slice((SCOPE + "/").length);
+      const candidates = [join(ROOT, "packages", base, "package.json"), join(SERVERS_DIR, base.replace(/^mcp-/, ""), "package.json")];
+      const target = candidates.find(has);
+      if (!target) { bad.push(`${name}@${range} (missing local package)`); continue; }
+      const expected = `^${readJson(target).version}`;
+      if (range !== expected) bad.push(`${name}@${range}, expected ${expected}`);
     }
   }
   return bad.length ? `ranges: ${bad.join(", ")}` : true;
@@ -209,9 +238,11 @@ check("dist-version", "dist/version.js equals src/version.ts", (s) => {
   const distFile = join(SERVERS_DIR, s, "dist", "version.js");
   if (!has(srcFile)) return `missing servers/${s}/src/version.ts; run node scripts/sync-versions.mjs`;
   if (!has(distFile)) return `missing servers/${s}/dist/version.js; run npm run build -w servers/${s}`;
-  const src = (readFileSync(srcFile, "utf8").match(/"(\d+\.\d+\.\d+)"/) || [])[1];
-  const dist = (readFileSync(distFile, "utf8").match(/VERSION = "(\d+\.\d+\.\d+)"/) || [])[1];
-  if (src && dist && src !== dist) return `dist says ${dist}, src says ${src}; the bundle would carry a stale handshake; run npm run build -w servers/${s}`;
+  const src = (readFileSync(srcFile, "utf8").match(/VERSION\s*=\s*["'](\d+\.\d+\.\d+)["']/) || [])[1];
+  const dist = (readFileSync(distFile, "utf8").match(/VERSION\s*=\s*["'](\d+\.\d+\.\d+)["']/) || [])[1];
+  if (!src || !dist) return "source or dist VERSION is missing or malformed";
+  if (src !== readJson(join(SERVERS_DIR, s, "package.json")).version) return `source version ${src} disagrees with package.json`;
+  if (src !== dist) return `dist says ${dist}, src says ${src}; the bundle would carry a stale handshake; run npm run build -w servers/${s}`;
   return true;
 });
 
@@ -641,12 +672,13 @@ for (const s of SERVERS) {
 // A waiver naming a server that no longer exists is also stale.
 for (const w of WAIVERS) {
   for (const s of w.servers) {
-    if (!SERVERS.includes(s)) failures.push(`estate  waiver ${w.check}/${s}: no such server; delete it from WAIVERS`);
+    if (!ALL_SERVERS.includes(s)) failures.push(`estate  waiver ${w.check}/${s}: no such server; delete it from WAIVERS`);
   }
 }
 
 console.log("");
-for (const g of globals) {
+if (only) console.log(`Scoped release: all ${checks.length} checks for ${only}; ${globals.length} estate assertions excluded. This does not certify other servers.`);
+for (const g of only ? [] : globals) {
   let r;
   try { r = g.fn(); } catch (e) { r = `threw: ${e.message}`; }
   console.log(`${r === true ? "ok  " : "FAIL"}  ${g.label}`);

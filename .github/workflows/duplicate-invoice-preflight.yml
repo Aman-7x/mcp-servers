@@ -1,0 +1,35 @@
+name: Duplicate invoice release preflight
+on:
+  pull_request:
+    paths: ['servers/duplicate-invoice-check/**', 'servers/timezone/**', 'packages/mcp-license/**', 'billing/browser/duplicate-demo.mjs', 'billing/src/duplicate-demo-*', 'package.json', 'package-lock.json', 'scripts/bootstrap-timezone.mjs', 'scripts/duplicate-container-smoke.mjs', 'scripts/build-duplicate-demo.mjs', 'scripts/duplicate-browser-smoke.mjs', '.github/workflows/duplicate-invoice-preflight.yml']
+  push:
+    branches: [main]
+    paths: ['servers/duplicate-invoice-check/**', 'servers/timezone/**', 'packages/mcp-license/**', 'billing/browser/duplicate-demo.mjs', 'billing/src/duplicate-demo-*', 'package.json', 'package-lock.json', 'scripts/bootstrap-timezone.mjs', 'scripts/duplicate-container-smoke.mjs', 'scripts/build-duplicate-demo.mjs', 'scripts/duplicate-browser-smoke.mjs', '.github/workflows/duplicate-invoice-preflight.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  duplicate-invoice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies from the declared workspace lock
+        run: npm ci --ignore-scripts --workspace @theluckystrike/mcp-duplicate-invoice-check --include-workspace-root=true --no-audit --no-fund
+      - name: Build the engine and test actual stdio and storage boundaries
+        run: |
+          node scripts/bootstrap-timezone.mjs
+          npm run build --workspace @theluckystrike/mcp-license
+          npm run build --workspace @theluckystrike/mcp-duplicate-invoice-check
+          npm test --workspace @theluckystrike/mcp-duplicate-invoice-check
+          node scripts/build-duplicate-demo.mjs --check
+          node scripts/build-readme.mjs --check
+      - name: Exercise the editable browser proof
+        run: node scripts/duplicate-browser-smoke.mjs
+      - name: Build the documented Docker image
+        run: docker build --tag mcp-duplicate-invoice-check:ci --file servers/duplicate-invoice-check/Dockerfile .
+      - name: Review duplicate candidates through the container MCP transport
+        run: node scripts/duplicate-container-smoke.mjs

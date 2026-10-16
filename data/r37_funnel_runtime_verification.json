@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-10-16T08:00:36.244Z",
+  "runtime": "Miniflare/workerd, real SQLite-backed Durable Object, compatibility_date2025-09-01",
+  "checks": {
+    "response_count": 26,
+    "replay_idempotent": true,
+    "daily_first_count": 1,
+    "ordinary_probe_isolation": true,
+    "actual_native_transaction_rollback": true,
+    "native_alarm_rollback": true,
+    "retention_at_most_days": 31,
+    "rollback_retry_first_count": 1,
+    "bounded_7day_summary": true,
+    "raw_token_not_exported": true
+  },
+  "source_sha256": {
+    "billing/src/funnel.js": "b686ed50e5f9a82f1c0fc81840fcd37d28f5df4a142cd2013327198b6d52a636",
+    "billing/src/funnel-state.js": "bb11e882e8ceb237503fffa85a0d0e14e2df4af7b3ed309846fb875efb65d9c4",
+    "remote/src/index.ts": "bb40401390627553a69df4ba4801b5bca91a75549ae1bb4dcb5191d23a0637d0"
+  },
+  "deployed": false,
+  "live_calls": 0
+}

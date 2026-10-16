@@ -1,7 +1,9 @@
 import { mintLicense, verifyLicenseKey, sha256Hex } from "./license.js";
+import { requestCohort, readFunnelCohort, recordFunnelEvent, funnelStats } from "./funnel.js";
 import { PAGES, CHANGELOG } from "./pages.js";
 import { BUNDLE_DOWNLOADS } from "./downloads.js";
 import { MATCHER_DEMO_JAVASCRIPT } from './matcher-demo-bundle.js';
+import { DUPLICATE_DEMO_JAVASCRIPT } from './duplicate-demo-bundle.js';
 import { GUIDES, GUIDE_INDEX, GUIDE_PRODUCT_LINKS, GUIDE_RELATED, relatedGuidesBlock } from "./content.js";
 import { COMPARE, COMPARE_INDEX } from "./compare.js";
 import { setupPage, clientHub, setupIndex, setupUrls, serversFor, CLIENTS, CLIENT_ORDER, SETUP_SERVERS } from "./setup.js";
@@ -14,6 +16,7 @@ import { setupPage, clientHub, setupIndex, setupUrls, serversFor, CLIENTS, CLIEN
 import { LISTED_IDS, HOSTED_IDS as HOSTED_ID_LIST, LISTED_COUNT, LISTED_CHILD_COUNT, HOSTED_COUNT, ANON_TOKEN_DAYS, RATE_LIMIT_FREE, RATE_LIMIT_PRO, FREE_IDS, FREE as FREE_TIER, OFFICE_SUITE_TOOLS, OFFICE_SUITE_CHILD_COUNT } from "./figures.js";
 
 export const PRODUCTS = {
+  "duplicate-invoice-check": { desc: "Review duplicate supplier invoice candidates in supplied local history with complete source evidence.", free: "Free: complete diagnostics, paging and CSV for up to 1000 supplied records; store 3 reports.", pro: "Pro: remove the saved-report count cap. All safety bounds still apply.", name: "MCP Duplicate Invoice Check Pro", usd: 19, pkg: "@theluckystrike/mcp-duplicate-invoice-check", bin: "mcp-duplicate-invoice-check", payload: "duplicate-invoice-check" },
   "time-tracker": { desc: "Track billable time from chat: timers, entries, reports, CSV, invoice-ready totals.", free: "Free: unlimited timers, last 7 days of reports, 2 rated projects, currency per entry.", pro: "Pro: full history, invoice summaries, group by tag, unlimited projects.", name: "MCP Time Tracker Pro", price: "price_1UBDU5JKCamubEm1wPMZI8Zf", usd: 19, pkg: "@theluckystrike/mcp-time-tracker", bin: "mcp-time-tracker", payload: "time-tracker" },
   "price-tracker": { desc: "Check and watch product prices on ordinary shop pages, with history and target alerts.", free: "Free: unlimited price checks with confidence, 3 watches, 30 observations each, alerts.", pro: "Pro: unlimited watches, full history, refresh all.", name: "MCP Price Tracker Pro", price: "price_1UBDU6JKCamubEm1ufsEKwSS", usd: 19, pkg: "@theluckystrike/mcp-price-tracker", bin: "mcp-price-tracker", payload: "price-tracker" },
   spreadsheet: { desc: "Read, query, add columns to and convert xlsx and csv files without corrupting them.", free: "Free: read, query with group by and sums, stats up to 5,000 rows; writes up to 500 rows, never partial.", pro: "Pro: no limits.", name: "MCP Spreadsheet Pro", price: "price_1UBDU7JKCamubEm1LZTfrsMd", usd: 19, pkg: "@theluckystrike/mcp-spreadsheet", bin: "mcp-spreadsheet", payload: "spreadsheet" },
@@ -261,7 +264,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 181;
+export const BILLING_TEST_COUNT = 204;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -759,13 +762,13 @@ function home() {
   const html = page("MCP servers for Claude: invoices, time tracking and freelance tools", `<h1>${LISTED_COUNT} MCP servers for Claude, for freelancers and small businesses</h1>
 <p>Each row below is one MCP server. ${HOSTED_COUNT} of the ${LISTED_COUNT} answer at a URL, so you can use them with nothing installed. Get a free token with one request, then paste the URL into whatever asks for a remote MCP server.</p>
 <pre><code>curl -X POST https://mcp.zovo.one/mcp/token</code></pre>
-<p>It returns a token shaped <code>anon_&lt;32 hex&gt;</code>. No account, no email, no OAuth. The token is good for ${ANON_TOKEN_DAYS} days and allows ${RATE_LIMIT_FREE} calls an hour. The two servers with no URL run from the <a href="https://mcp.zovo.one/downloads">.mcpb bundle</a> or a clone.</p>
+<p>It returns a token shaped <code>anon_&lt;32 hex&gt;</code>. No account, no email, no OAuth. The token is good for ${ANON_TOKEN_DAYS} days and allows ${RATE_LIMIT_FREE} calls an hour. Servers without a hosted URL run from the <a href="https://mcp.zovo.one/downloads">.mcpb bundle</a> or a clone.</p>
 <h2>Every server, what it does, and the URL to paste</h2>
 <table><tr><th>Server</th><th>What it does</th><th>Paste this URL</th><th>Pro</th></tr>${answerRows}</table>
-<p>Free tier on every one of them, with no key, no account and no expiry. Pro is $${PRODUCTS[SINGLE_PRODUCT_IDS[0]].usd} once for one server or $${PRODUCTS.bundle.usd} once for all ${LISTED_CHILD_COUNT} sold singly, lifetime, and the key verifies offline. Price arithmetic is at <a href="/bundle">/bundle</a>.</p>
+<p>Free tier on every one of them, with no key, no account and no expiry. Pro is $${PRODUCTS[SINGLE_PRODUCT_IDS[0]].usd} once for one server or $${PRODUCTS.bundle.usd} once for all ${SERVER_COUNT} paid servers, lifetime, and the key verifies offline. Price arithmetic is at <a href="/bundle">/bundle</a>.</p>
 <h2>Four ways to start, three of which work today</h2>
 <ol>
-<li>Connect by URL, no install: open <a href="/mcp/connect">/mcp/connect</a>, it mints a token and prints a ready URL for every server. Paste that URL into a Claude.ai custom connector, the Claude Desktop connector dialog, Claude Code (<code>claude mcp add --transport http</code>), Cursor, or VS Code. No header, no config file.</li>
+<li>Connect by URL, no install: open <a href="/mcp/connect?acq=store.product">/mcp/connect</a>, it mints a token and prints a ready URL for every server. Paste that URL into a Claude.ai custom connector, the Claude Desktop connector dialog, Claude Code (<code>claude mcp add --transport http</code>), Cursor, or VS Code. No header, no config file.</li>
 <li>Install the .mcpb: download the Claude Desktop bundle from the <a href="https://mcp.zovo.one/downloads">releases page</a> and open it; Claude Desktop installs the server.</li>
 <li>Install from a clone: <code>git clone</code>, <code>npm install</code>, <code>npm run build -w packages/mcp-license -w servers/&lt;server&gt;</code>, then point your client's <code>command</code> at <code>node</code> and its one argument at the built <code>dist/index.js</code>; exact steps for six clients are on the <a href="/setup">setup pages</a>.</li>
 <li>Install with npx, not yet: <code>npx -y @theluckystrike/mcp-&lt;server&gt;</code> is the line the day the npm publish lands. It returns 404 today, so do not paste it into a config expecting a server to start.</li>
@@ -777,7 +780,7 @@ function home() {
 <p>As of ${VALIDATION.at}: ${VALIDATION.pass} of ${VALIDATION.total} automated checks passing across all ${VALIDATION.servers} servers, ${BILLING_TEST_COUNT} unit tests green on the billing service, and a <code>tools/list</code> call answers at a ${VALIDATION.medianMs}&nbsp;ms median (p50) across those servers. Full detail: <a href="${REPO}/blob/main/data/validation.json">validation.json</a>.</p>
 <h2 id="servers">Free and Pro limits, server by server</h2>
 <table><tr><th>Product</th><th>Price</th><th></th></tr>${rows}</table>
-<h2>Hosted endpoints</h2><p>No install: <a href="/mcp/connect">/mcp/connect</a> mints an anonymous token and prints a URL per server, <code>mcp.zovo.one/mcp/&lt;server&gt;/t/&lt;token&gt;</code>, that needs no headers. A Pro key can replace the token to remove free-tier limits.</p><h2>How activation works</h2>
+<h2>Hosted endpoints</h2><p>No install: <a href="/mcp/connect?acq=store.product">/mcp/connect</a> mints an anonymous token and prints a URL per server, <code>mcp.zovo.one/mcp/&lt;server&gt;/t/&lt;token&gt;</code>, that needs no headers. A Pro key can replace the token to remove free-tier limits.</p><h2>How activation works</h2>
 <p>After payment you get a key like <code>MCPL1.xxx.yyy</code>. In Claude, run <code>license_activate</code> with the key, or set the environment variable <code>MCP_LICENSE_KEY</code>.</p>
 <h2>Setup guides per client</h2>
 <p>The exact config file, key and entry for every server in <a href="/setup/claude-desktop">Claude Desktop</a>, <a href="/setup/claude-code">Claude Code</a>, <a href="/setup/cursor">Cursor</a>, <a href="/setup/vscode">VS Code</a>, <a href="/setup/windsurf">Windsurf</a> and <a href="/setup/cline">Cline</a>: <a href="/setup">all 36 setup pages</a>.</p>
@@ -867,7 +870,7 @@ export function bundlePage() {
 <table><tr><th>Server</th><th>What it does</th><th>Free tier</th></tr>${rows}</table>
 <h2>Four ways to start, three of which work today</h2>
 <ol>
-<li>Connect by URL, no install: open <a href="/mcp/connect">/mcp/connect</a>, it mints a token and prints a ready URL for every server; paste it into a Claude.ai custom connector, the Claude Desktop connector dialog, Claude Code (<code>claude mcp add --transport http</code>), Cursor or VS Code. The bundle key can replace that token on any of them to remove the free-tier limits.</li>
+<li>Connect by URL, no install: open <a href="/mcp/connect?acq=store.product">/mcp/connect</a>, it mints a token and prints a ready URL for every server; paste it into a Claude.ai custom connector, the Claude Desktop connector dialog, Claude Code (<code>claude mcp add --transport http</code>), Cursor or VS Code. The bundle key can replace that token on any of them to remove the free-tier limits.</li>
 <li>Install the .mcpb: download each server's bundle from the <a href="https://mcp.zovo.one/downloads">releases page</a> and open it; Claude Desktop installs the server.</li>
 <li>Install from a clone: build once with <code>npm run build</code> and point each client entry's <code>command</code> at <code>node</code> and its one argument at that server's built <code>dist/index.js</code>; exact steps for six clients are on the <a href="/setup">setup pages</a>.</li>
 <li>Install with npx, not yet: <code>npx -y @theluckystrike/mcp-&lt;server&gt;</code> is the line the day the npm publish lands. It returns 404 today, so do not paste it into a config expecting a server to start.</li>
@@ -1150,6 +1153,8 @@ export function isCheckoutIntent(request, body) {
 
 /** Render the no-side-effect step between a Buy link and Stripe. */
 export function checkoutIntentPage(url, productId, askedId = productId, tenant = "") {
+  url = acquisitionUrl(url);
+  const acquisition = requestCohort({ url: url.href, headers: new Headers() }).source;
   const p = PRODUCTS[productId];
   const alias = askedId !== productId
     ? `<p class="muted">${esc(askedId)} is unlocked by the full bundle key.</p>`
@@ -1170,7 +1175,7 @@ export function checkoutIntentPage(url, productId, askedId = productId, tenant =
 <li><strong>Your Pro key is shown on the confirmation page</strong> after payment. Save the key and bookmark that page; reloading it shows the same key.</li>${gets ? `\n<li>Pro unlocks: ${esc(gets)}</li>` : ""}${free}
 ${productId === "bundle"
       ? `<li><strong>All ${SERVER_COUNT} servers, one key, lifetime</strong>, for $${PRODUCTS.bundle.usd} instead of $${PRODUCTS.bundle.usd + BUNDLE_SAVING_USD} bought one at a time.</li>`
-      : `<li><strong>All ${SERVER_COUNT} servers instead for $${PRODUCTS.bundle.usd}</strong> &mdash; one key, lifetime, a $${BUNDLE_SAVING_USD} saving: <a href="/buy/bundle?src=store.buy.${esc(productId)}${validTenant(tenant) ? `&amp;tenant=${encodeURIComponent(tenant)}` : ""}">the bundle</a>.</li>`}
+      : `<li><strong>All ${SERVER_COUNT} servers instead for $${PRODUCTS.bundle.usd}</strong> &mdash; one key, lifetime, a $${BUNDLE_SAVING_USD} saving: <a href="/buy/bundle?src=store.buy.${esc(productId)}&amp;acq=${esc(acquisition)}${validTenant(tenant) ? `&amp;tenant=${encodeURIComponent(tenant)}` : ""}">the bundle</a>.</li>`}
 </ul>`;
   return page(`Buy ${p.name}`, `<h1>${esc(p.name)}</h1>
 ${alias}<p><strong>$${p.usd}.00 USD</strong> &middot; one payment &middot; lifetime licence</p>
@@ -1444,7 +1449,7 @@ function installSnippet(productId) {
     ? `<p><strong>1. Claude Desktop, one click.</strong> Download <code>${esc(name)}.mcpb</code> from <a href="https://mcp.zovo.one/downloads">the bundle catalog</a> and open it.</p>`
     : `<p><strong>1. Claude Desktop, one click.</strong> Download any server's <code>.mcpb</code> from <a href="https://mcp.zovo.one/downloads">the bundle catalog</a> and open it. This key unlocks Pro on every one of them.</p>`;
   return `${bundleLine}
-<p><strong>2. No install at all.</strong> Open <a href="/mcp/connect">/mcp/connect</a>, and paste the key below where the token goes. Nothing to download.</p>
+<p><strong>2. No install at all.</strong> Open <a href="/mcp/connect?acq=store.product">/mcp/connect</a>, and paste the key below where the token goes. Nothing to download.</p>
 <p><strong>3. Local, with npx.</strong></p>
 <pre><code># Claude Code
 claude mcp add ${esc(name)} -- npx -y ${esc(pkg)}
@@ -1563,6 +1568,39 @@ async function unsubUrl(origin, env, email) {
   return `${origin}/api/unsub?e=${encodeURIComponent(eB64)}&s=${sig}`;
 }
 
+// Fixed acquisition declarations derived only from labels our pages already emit.
+// Callers can copy these labels; they never establish a human or verified origin.
+function acquisitionUrl(input) {
+  const url = new URL(input);
+  if (!url.searchParams.has('acq')) {
+    const src = url.searchParams.get('src') || '';
+    let source = '';
+    if (/^store\.guide(?:\.|$)/.test(src)) source = 'guide';
+    else if (/^store\.setup(?:\.|$)/.test(src)) source = 'store.setup';
+    else if (/^store\.(?:s|buy|home|pricing|bundle|compare|suites)(?:\.|$)/.test(src)) source = 'store.product';
+    else if (/^github(?:\.|$)/.test(src)) source = 'github';
+    else if (/^directory(?:\.|$)/.test(src)) source = 'directory';
+    if (source) url.searchParams.set('acq', source);
+  }
+  return url;
+}
+
+// Observe declared stages without changing the response or creating a Checkout.
+// Missing anonymous cohort metadata is unmeasured, never silently ordinary.
+function observeBillingFunnel(ctx, env, request, tenant, server, event) {
+  if (!ctx?.waitUntil || !env.REMOTE_DATA || !env.FUNNEL) return;
+  if (event === 'offer_view' && request.method !== 'GET') return;
+  if (event === 'checkout_handoff' && request.method !== 'POST') return;
+  const observedAt = Date.now();
+  const pending = (async () => {
+    const declared = { url: acquisitionUrl(request.url).href, headers: request.headers };
+    const cohort = await readFunnelCohort(env.REMOTE_DATA, tenant, request.headers, declared);
+    if (!cohort) return;
+    await recordFunnelEvent(env, { server, event, ...cohort }, observedAt);
+  })().catch(() => console.error(JSON.stringify({ event: 'billing_funnel_record_failed' })));
+  try { ctx.waitUntil(pending); } catch { /* Measurement cannot fail a purchase page. */ }
+}
+
 const worker = {
   async fetch(request, env, ctx) {
     const handler = worker.fetch;
@@ -1655,7 +1693,7 @@ const worker = {
 <p>Your key is shown on the confirmation page after payment. Save it and bookmark that page; reloading it shows the same key. If you lose it, contact support@zovo.one with your Stripe receipt.</p>
 <p>Each <a href="/#servers">server page</a> lists its free-tier limits and Pro features. A purchase from a hosted connection upgrades that connection automatically; otherwise run <code>license_activate</code> with your key.</p>
 <p><a class="buy" href="/buy/bundle?src=store.pricing.cta">Buy the bundle &mdash; $${bundleUsd} one-time</a></p>
-<p class="muted">Not sure which server? Start free: open <a href="/mcp/connect">mcp.zovo.one/mcp/connect</a> and use any free tier before you pay.</p>`;
+<p class="muted">Not sure which server? Start free: open <a href="/mcp/connect?acq=store.product">mcp.zovo.one/mcp/connect</a> and use any free tier before you pay.</p>`;
       const pricingMeta = `<meta name="description" content="MCP server pricing: $${singleUsd} for any one Pro server, $${bundleUsd} for all ${SERVER_COUNT}. One-time payment, lifetime licence. Key shown after payment."><link rel="canonical" href="https://mcp.zovo.one/pricing">${og("Pricing — MCP servers by zovo.one", `$${singleUsd} per server, $${bundleUsd} for the full set. One-time, lifetime, key shown on the confirmation page.`, "https://mcp.zovo.one/pricing", "website")}`;
       const pricingHtml = page(`Pricing | zovo.one`, pricingBody).replace("</title>", "</title>" + pricingMeta);
       return new Response(pricingHtml, { headers: await contentHeaders(pricingHtml) });
@@ -1674,7 +1712,7 @@ const worker = {
 <h2>Why free?</h2>
 <p>Every server has a free tier that is useful on its own — real limits, not a crippled demo. Pro keys are one-time payments, not subscriptions, when you outgrow them.</p>
 <h2>Connect one in 60 seconds</h2>
-<p>Open <a href="/mcp/connect">mcp.zovo.one/mcp/connect</a>, pick a server, paste its URL into your client's MCP config. That is the whole setup.</p>
+<p>Open <a href="/mcp/connect?acq=store.product">mcp.zovo.one/mcp/connect</a>, pick a server, paste its URL into your client's MCP config. That is the whole setup.</p>
 ${relatedGuidesBlock("docx")}`;
       const hubMeta = `<meta name="description" content="Free remote MCP servers for documents: Word .docx, PDF merge and split, spreadsheets, resumes and more. Connect by URL in Claude, Cursor or any MCP client — no install."><link rel="canonical" href="https://mcp.zovo.one/suites/documents">${og("Free MCP Servers for Documents", "Word, PDF, spreadsheets and more — free remote MCP servers, connect by URL, no install.", "https://mcp.zovo.one/suites/documents", "website")}
 <script type="application/ld+json">${JSON.stringify(hubItemList("Free MCP servers for documents", "https://mcp.zovo.one/suites/documents", HUB_SERVERS))}</script>`;
@@ -1696,7 +1734,7 @@ ${relatedGuidesBlock("docx")}`;
 <h2>Why free?</h2>
 <p>Every server has a free tier that is useful on its own — real limits, not a crippled demo. Pro keys are one-time payments, not subscriptions, when you outgrow them.</p>
 <h2>Connect one in 60 seconds</h2>
-<p>Open <a href="/mcp/connect">mcp.zovo.one/mcp/connect</a>, pick a server, paste its URL into your client's MCP config. That is the whole setup.</p>
+<p>Open <a href="/mcp/connect?acq=store.product">mcp.zovo.one/mcp/connect</a>, pick a server, paste its URL into your client's MCP config. That is the whole setup.</p>
 ${relatedGuidesBlock("job-card")}`;
       const hubMeta = `<meta name="description" content="Free remote MCP servers for field operations: job cards, work orders, delivery schedules, goods receipts, maintenance logs. Connect by URL in Claude, Cursor or any MCP client — no install."><link rel="canonical" href="https://mcp.zovo.one/suites/field-ops">${og("Free MCP Servers for Field Ops", "Job cards, work orders, deliveries, maintenance logs — free remote MCP servers, connect by URL, no install.", "https://mcp.zovo.one/suites/field-ops", "website")}
 <script type="application/ld+json">${JSON.stringify(hubItemList("Free MCP servers for field operations", "https://mcp.zovo.one/suites/field-ops", HUB_SERVERS))}</script>`;
@@ -1718,7 +1756,7 @@ ${relatedGuidesBlock("job-card")}`;
 <h2>Why free?</h2>
 <p>Every server has a free tier that is useful on its own — real limits, not a crippled demo. Pro keys are one-time payments, not subscriptions, when you outgrow them.</p>
 <h2>Connect one in 60 seconds</h2>
-<p>Open <a href="/mcp/connect">mcp.zovo.one/mcp/connect</a>, pick a server, paste its URL into your client's MCP config. That is the whole setup.</p>
+<p>Open <a href="/mcp/connect?acq=store.product">mcp.zovo.one/mcp/connect</a>, pick a server, paste its URL into your client's MCP config. That is the whole setup.</p>
 ${relatedGuidesBlock("invoice")}`;
       const hubMeta = `<meta name="description" content="Free remote MCP servers for freelancers: invoicing, time tracking, expenses, PDF, Word, kanban and more. Connect by URL in Claude, Cursor or any MCP client — no install."><link rel="canonical" href="https://mcp.zovo.one/suites/freelancer">${og("Free MCP Servers for Freelancers", "Invoicing, time tracking, expenses, PDF and more — free remote MCP servers, connect by URL, no install.", "https://mcp.zovo.one/suites/freelancer", "website")}
 <script type="application/ld+json">${JSON.stringify(hubItemList("Free MCP servers for freelancers", "https://mcp.zovo.one/suites/freelancer", HUB_SERVERS))}</script>`;
@@ -1768,7 +1806,7 @@ ${relatedGuidesBlock("invoice")}`;
       // the only bundle cross-sell on this page sits several thousand words down inside
       // pg.html. The reason anyone buys the set rather than one server is that $39 beats
       // $${SERVER_COUNT * PRODUCTS[SERVER_IDS[0]].usd}, and that argument has to be reachable without scrolling.
-      const demoLine = id === 'three-way-match' ? '<p class="feat"><a href="/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo">Try invoice matching in this browser</a> — change the example quantities and prices before installing. No account is needed.</p>' : '';
+      const demoLine = id === 'duplicate-invoice-check' ? '<p class="feat"><a href="/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo">Try duplicate-reference review in this browser</a> — edit supplied history locally and inspect every review reason.</p>' : id === 'three-way-match' ? '<p class="feat"><a href="/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo">Try invoice matching in this browser</a> — change the example quantities and prices before installing. No account is needed.</p>' : '';
       const body = `<p><a href="/">All servers</a> &middot; <a class="buy" href="/buy/${esc(id)}?src=store.s.${esc(id)}">Buy Pro $${soldUsd}</a> &middot; <a href="/bundle">All ${SERVER_COUNT} for $${PRODUCTS.bundle.usd}</a> &middot; <a href="${REPO}/tree/main/servers/${esc(id)}">Source</a></p>${demoLine}${hostedLine}${pg.html}
 ${setupLinks ? `<h2>Set it up in your client</h2>\n<p>Exact config path, entry and caveats: ${setupLinks} &middot; <a href="/setup">all clients</a></p>` : ""}
 ${COMPARE[id] ? `<h2>Compared with the alternatives</h2>\n<p><a href="/compare/${esc(id)}">${esc(COMPARE[id].title)}</a> &middot; <a href="/compare">all comparisons</a></p>` : ""}
@@ -2007,6 +2045,10 @@ ${relatedGuidesBlock(slug)}`;
         { headers: { "content-type": "application/json; charset=utf-8", "cache-control": "public, max-age=3600" } });
     }
 
+    if (path === "/assets/duplicate-demo.js" && method === "GET") {
+      return new Response(DUPLICATE_DEMO_JAVASCRIPT, { headers: { "content-type": "text/javascript; charset=utf-8", "cache-control": "public, max-age=300", "x-content-type-options": "nosniff" } });
+    }
+
     if (path === "/favicon.ico" || path === "/favicon.svg") {
       // Inline so there is no second request and no asset host to keep alive.
       const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#18202e"/><rect x="14" y="16" width="26" height="5" rx="2.5" fill="#ebf0f8"/><rect x="14" y="29" width="36" height="5" rx="2.5" fill="#96a3b8"/><rect x="14" y="42" width="20" height="5" rx="2.5" fill="#f0b040"/></svg>`;
@@ -2016,7 +2058,7 @@ ${relatedGuidesBlock(slug)}`;
     if (path === "/privacy") {
       const body = `<p><a href="/">All servers</a> &middot; <a href="/bundle">Bundle</a> &middot; <a href="${REPO}">Source</a></p>
 <h1>Privacy</h1>
-<p class="muted">Last updated 8 September 2026. This describes what the software does, checked against the source it is generated from. The code is public, so every claim here can be verified in ${REPO}.</p>
+<p class="muted">Last updated 16 October 2026. This describes what the software does, checked against the source it is generated from. The code is public, so every claim here can be verified in ${REPO}.</p>
 
 <h2>If you run a server on your own machine</h2>
 <p>Nothing leaves it. The stdio servers read and write only under your own data directory,
@@ -2058,8 +2100,13 @@ stops later setup-tip and bundle-offer messages. Transactional licence delivery 
 
 <h2>Traffic</h2>
 <p>This site runs on Cloudflare, which logs requests as any web host does. This site additionally counts
-clicks on upgrade links, by source label only, to tell a stalled funnel from an unread message. That count
-carries no identifier of any kind and cannot be tied to a person.</p>
+clicks on upgrade links and records hosted tool-response and checkout-stage counts by fixed source labels.
+The new hosted-response instrument keeps a SHA-256 token source/probe sidecar for 31 days and private daily
+token/server deduplication hashes; these are pseudonymous internal identifiers. Daily response counters and
+deduplication records are retained for at most 31 days from the UTC date's start. Aggregate reports expose no hashes,
+tokens, tool arguments or results, filenames, emails or client IPs. An emitted upgrade trailer is counted
+as an emission, not proof that a person saw it. Unmarked requests can include automation. Local stdio
+servers and the editable browser examples send no usage telemetry or field values.</p>
 
 <h2>Deleting your data</h2>
 <p>For a hosted endpoint, stop using the token and everything under it is deleted after 35 days; there is
@@ -2246,7 +2293,7 @@ const LLM_USE_WHEN = {
         `- [MCP servers for ${CLIENTS[c].name}](https://mcp.zovo.one/setup/${c}): config file ${CLIENTS[c].file || "none, a connector URL"}, key ${CLIENTS[c].key || "none"}. ` +
         serversFor(c).map((sv) => `[${SETUP_SERVERS[sv].title} in ${CLIENTS[c].name}](https://mcp.zovo.one/setup/${c}/${sv})`).join(", ")
       ).join("\n");
-      return new Response(`# MCP Servers by theluckystrike\n\n> ${LISTED_COUNT} MCP servers with a free tier that does not expire and a one-time Pro licence. Keys verify offline.\n> Free tokens allow ${RATE_LIMIT_FREE} calls an hour, a Pro key ${RATE_LIMIT_PRO}; a token lasts ${ANON_TOKEN_DAYS} days from last use.\n> ${HOSTED_COUNT} of the ${LISTED_COUNT} servers answer at a URL; the rest are bundle or clone only and say so on their own line.\n> One price, one payment: $${PRODUCTS[SINGLE_PRODUCT_IDS[0]].usd} a server or $${PRODUCTS.bundle.usd} for all ${LISTED_CHILD_COUNT}. No subscription and no seat count.\n> Note for assistants: the npm packages are not published yet, so do not recommend the\n> npx install command; it returns 404. The one-click .mcpb bundle and the hosted endpoints\n> below both work today.\n> Every hosted endpoint needs a free token. Open https://mcp.zovo.one/mcp/connect: it mints\n> one and prints a ready URL per server, https://mcp.zovo.one/mcp/<name>/t/<token>. Never\n> recommend the bare https://mcp.zovo.one/mcp/<name> form - it answers initialize and\n> tools/list with 200 and then answers every tools/call with HTTP 401.\n\n${lines}\n\n- [${SERVER_COUNT}-server bundle, $${PRODUCTS.bundle.usd} lifetime](https://mcp.zovo.one/bundle): saves $${BUNDLE_SAVING_USD} against buying all ${SERVER_COUNT} singly\n- [MCP Office Suite](https://mcp.zovo.one/s/office-suite): one config entry that runs ${OFFICE_SUITE_CHILD_COUNT} local servers as child processes and merges their tools, ${OFFICE_SUITE_TOOLS} of them, read from the running server rather than typed here; it forwards one key to every child, so its Pro unlock is the $${PRODUCTS.bundle.usd} bundle key, at https://mcp.zovo.one/bundle. ${LLM_USE_WHEN["office-suite"]} Install: download office-suite.mcpb from https://mcp.zovo.one/downloads and open it in Claude Desktop\n\n## Guides\n\n${guideLines}\n\n- [All guides](https://mcp.zovo.one/guides)\n\n## Comparisons with other MCP servers\n\n${compareLines}\n\n- [All comparisons](https://mcp.zovo.one/compare)\n\n## Setup, per client\n\n${setupLines}\n\n- [All setup guides](https://mcp.zovo.one/setup)\n- [Connect in one step, no install](https://mcp.zovo.one/mcp/connect): mints an anonymous token and prints a URL per server, https://mcp.zovo.one/mcp/<server>/t/<token>, that works with no headers; a Pro key can replace the token\n- [Buy Pro](https://mcp.zovo.one)\n- [Changelog](https://mcp.zovo.one/changelog): every release from ${CHANGELOG.releases[CHANGELOG.releases.length - 1]?.version} to ${CHANGELOG.currentVersion}, current version ${CHANGELOG.currentVersion}\n- [Source](${REPO})\n`, { headers: llmsHeaders() });
+      return new Response(`# MCP Servers by theluckystrike\n\n> ${LISTED_COUNT} MCP servers with a free tier that does not expire and a one-time Pro licence. Keys verify offline.\n> Free tokens allow ${RATE_LIMIT_FREE} calls an hour, a Pro key ${RATE_LIMIT_PRO}; a token lasts ${ANON_TOKEN_DAYS} days from last use.\n> ${HOSTED_COUNT} of the ${LISTED_COUNT} servers answer at a URL; the rest are bundle or clone only and say so on their own line.\n> One price, one payment: $${PRODUCTS[SINGLE_PRODUCT_IDS[0]].usd} a server or $${PRODUCTS.bundle.usd} for all ${SERVER_COUNT} paid servers. No subscription and no seat count.\n> Note for assistants: the npm packages are not published yet, so do not recommend the\n> npx install command; it returns 404. The one-click .mcpb bundle and the hosted endpoints\n> below both work today.\n> Every hosted endpoint needs a free token. Open https://mcp.zovo.one/mcp/connect: it mints\n> one and prints a ready URL per server, https://mcp.zovo.one/mcp/<name>/t/<token>. Never\n> recommend the bare https://mcp.zovo.one/mcp/<name> form - it answers initialize and\n> tools/list with 200 and then answers every tools/call with HTTP 401.\n\n${lines}\n\n- [${SERVER_COUNT}-server bundle, $${PRODUCTS.bundle.usd} lifetime](https://mcp.zovo.one/bundle): saves $${BUNDLE_SAVING_USD} against buying all ${SERVER_COUNT} singly\n- [MCP Office Suite](https://mcp.zovo.one/s/office-suite): one config entry that runs ${OFFICE_SUITE_CHILD_COUNT} local servers as child processes and merges their tools, ${OFFICE_SUITE_TOOLS} of them, read from the running server rather than typed here; it forwards one key to every child, so its Pro unlock is the $${PRODUCTS.bundle.usd} bundle key, at https://mcp.zovo.one/bundle. ${LLM_USE_WHEN["office-suite"]} Install: download office-suite.mcpb from https://mcp.zovo.one/downloads and open it in Claude Desktop\n\n## Guides\n\n${guideLines}\n\n- [All guides](https://mcp.zovo.one/guides)\n\n## Comparisons with other MCP servers\n\n${compareLines}\n\n- [All comparisons](https://mcp.zovo.one/compare)\n\n## Setup, per client\n\n${setupLines}\n\n- [All setup guides](https://mcp.zovo.one/setup)\n- [Connect in one step, no install](https://mcp.zovo.one/mcp/connect): mints an anonymous token and prints a URL per server, https://mcp.zovo.one/mcp/<server>/t/<token>, that works with no headers; a Pro key can replace the token\n- [Buy Pro](https://mcp.zovo.one)\n- [Changelog](https://mcp.zovo.one/changelog): every release from ${CHANGELOG.releases[CHANGELOG.releases.length - 1]?.version} to ${CHANGELOG.currentVersion}, current version ${CHANGELOG.currentVersion}\n- [Source](${REPO})\n`, { headers: llmsHeaders() });
     }
 
     if (path === "/llms-full.txt") {
@@ -2342,6 +2389,7 @@ const LLM_USE_WHEN = {
       if (method === "GET") {
         // Always show the intent page. A cancellation session is checked only after
         // the buyer explicitly submits the form, so GET cannot call Stripe.
+        observeBillingFunnel(ctx, env, request, tenant, id, 'offer_view');
         return new Response(checkoutIntentPage(url, id, asked, tenant), {
           status: 200,
           headers: {
@@ -2376,6 +2424,7 @@ const LLM_USE_WHEN = {
         try {
           const s = await retrieveSession(env, resumeId);
           if (s && s.metadata?.product === id && s.payment_status === "unpaid" && s.status === "open" && s.url) {
+            observeBillingFunnel(ctx, env, request, tenant, id, 'checkout_handoff');
             return new Response(null, { status: 303, headers: { Location: s.url, "cache-control": "no-store", "x-mcp-buy": "checkout-resumed" } });
           }
         } catch { /* stale/foreign session id: start a new checkout below */ }
@@ -2396,6 +2445,7 @@ const LLM_USE_WHEN = {
           const cached = await env.REMOTE_DATA.get(probeKey);
           if (cached) {
             const c = JSON.parse(cached);
+            observeBillingFunnel(ctx, env, request, tenant, id, 'checkout_handoff');
             return new Response(null, { status: 303, headers: { Location: c.url, "cache-control": "no-store", "x-mcp-buy": "probe-session-reused", ...c.headers } });
           }
         }
@@ -2403,6 +2453,7 @@ const LLM_USE_WHEN = {
         const headers = { Location: session.url, "cache-control": "no-store", ...(probeTag ? probeHeaders(session) : {}) };
         const probeTtl = probeCacheTtl(session);
         if (probeKey && probeTtl > 0) ctx.waitUntil(env.REMOTE_DATA.put(probeKey, JSON.stringify({ url: session.url, headers: probeHeaders(session) }), { expirationTtl: probeTtl }));
+        observeBillingFunnel(ctx, env, request, tenant, id, 'checkout_handoff');
         return new Response(null, { status: 303, headers });
       } catch (e) {
         return new Response(page("Checkout error", `<h1>Checkout could not start</h1><p>${esc(e.message)}</p><p><a href="/">Back</a></p>`), { status: 502, headers: { "content-type": "text/html; charset=utf-8" } });
@@ -2627,6 +2678,11 @@ const LLM_USE_WHEN = {
 
     // Conversion instrument (docs/CONVERSION_INSTRUMENT.md). Plain JSON, no auth: the
     // counters are per-src click counts, nothing that identifies a person.
+    if (path === "/stats/funnel" && method === "GET") {
+      const stats = await funnelStats(env, { days: 7 });
+      return Response.json(stats, { status: stats.complete ? 200 : 503, headers: { "cache-control": "no-store" } });
+    }
+
     if (path === "/stats/clicks" && method === "GET") {
       const stats = await clickStats(env);
       return Response.json(stats, { headers: { "cache-control": "no-store" } });

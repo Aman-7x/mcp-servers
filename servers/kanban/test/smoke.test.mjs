@@ -161,7 +161,7 @@ test("free tier: initialize, tools/list, add, move, board, overdue, timer handof
     const p4 = await c.call("task_add", { project: "Zephyr", title: "third board is fine" });
     assert.equal(p4.isError, false, p4.text);       // 3rd board allowed
     const p5 = await c.call("task_add", { project: "Delta Co", title: "fourth board" });
-    assert.equal(p5.isError, false, p5.text);
+    assert.equal(p5.isError, true, p5.text);
     assert.match(p5.text, /free tier keeps 3 project boards/);
     assert.match(p5.text, /https:\/\/mcp\.zovo\.one\/buy\/kanban/);
     const projects = await c.call("project_list", {});

@@ -179,7 +179,7 @@ test("blocked page yields a friendly manual-entry suggestion", async (t) => {
   assert.match(textOf(r), /price_add_manual/);
 });
 
-test("free tier caps watches at 3 and gates pro tools without isError", async (t) => {
+test("free tier caps watches at 3 and marks refused pro operations as errors", async (t) => {
   const shop = await startShop();
   const c = client();
   t.after(async () => { c.stop(); await shop.close(); });
@@ -190,7 +190,7 @@ test("free tier caps watches at 3 and gates pro tools without isError", async (t
     assert.equal(r.result.isError, undefined);
   }
   const fourth = await c.send("tools/call", { name: "price_add_manual", arguments: { url: "https://example.com/p4", price: "10.00" } });
-  assert.equal(fourth.result.isError, undefined);
+  assert.equal(fourth.result.isError, true);
   assert.match(textOf(fourth), /free tier tracks 3 items/);
   assert.match(textOf(fourth), /mcp\.zovo\.one\/buy\/price-tracker/);
 
@@ -201,7 +201,7 @@ test("free tier caps watches at 3 and gates pro tools without isError", async (t
   assert.match(textOf(alerts), /No pending alerts across 3 watch\(es\)/);
 
   const refreshAll = await c.send("tools/call", { name: "watch_refresh", arguments: { all: true } });
-  assert.equal(refreshAll.result.isError, undefined);
+  assert.equal(refreshAll.result.isError, true);
   assert.match(textOf(refreshAll), /Pro feature/);
 });
 

@@ -184,7 +184,7 @@ test("free tier blocks a 4th invoice in a calendar month; Pro allows it", async 
     assert.match(r.text, /Created invoice INV-2026-000\d/);
   }
   const blocked = await mk(free, 4);
-  assert.equal(blocked.isError, false, "gate must not be an error result");
+  assert.equal(blocked.isError, true, "a refused operation must be an error result");
   assert.match(blocked.text, /free tier allows 3 invoices per calendar month/i);
   assert.match(blocked.text, /mcp\.zovo\.one\/buy\/invoice/);
   const after = await free.call("invoice_list", {});

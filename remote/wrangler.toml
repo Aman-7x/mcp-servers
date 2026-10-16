@@ -31,3 +31,9 @@ crons = ["0 4 * * *"]
 # re-implemented on zlib.inflateSync; the encoder and everything else are untouched.
 [alias]
 pngjs = "./src/shims/pngjs.ts"
+
+# Separate private host preserves rollback across ordinary billing releases.
+[[durable_objects.bindings]]
+name = "FUNNEL"
+class_name = "FunnelState"
+script_name = "mcp-funnel"

@@ -59,7 +59,7 @@ const REGIONS = {
     '',
     'Hosted file tools accept inline data/uploads and return temporary download URLs instead of reading your local disk. Read the server-specific setup guide for supported formats. A local install is the path for files on your machine.',
     '',
-    'Office Suite and Three-Way Match are local stdio servers. Do not substitute a hosted URL for their executable. See each server page and the [client setup guides](https://mcp.zovo.one/setup).',
+    'Office Suite, Three-Way Match and Duplicate Invoice Check are local stdio servers. Do not substitute a hosted URL for their executable. See each server page and the [client setup guides](https://mcp.zovo.one/setup).',
   ].join('\n'),
   install: [
     "![invoice](assets/demo-invoice.gif)",

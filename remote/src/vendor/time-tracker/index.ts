@@ -312,8 +312,8 @@ function csvCell(v: string): string {
 
 const ok = (text: string) => ({ content: [{ type: "text" as const, text }] });
 const err = (text: string) => ({ content: [{ type: "text" as const, text: `Error: ${text}` }], isError: true });
-/** Gated feature: not an error, the user must see the upgrade path. */
-const gated = (feature: string, toolName?: string) => ok(gate.upgradeText(feature, toolName));
+/** A refused operation is an MCP error; keep its actionable upgrade path visible. */
+const gated = (feature: string, toolName?: string) => err(gate.upgradeText(feature, toolName));
 
 function guard<A>(fn: (a: A) => Promise<{ content: { type: "text"; text: string }[]; isError?: boolean }>) {
   return async (a: A) => {
@@ -543,7 +543,7 @@ server.registerTool("entry_add", { annotations: { readOnlyHint: false, destructi
   const seconds = Math.round((end.getTime() - start.getTime()) / 1000);
   if (seconds <= 0) throw new Error("end must be after start");
   const db = load();
-  if (!gate.isPro() && db.entries.length >= 100) return ok(gate.upgradeText("more than 100 stored entries (free tier)", "entry_add"));
+  if (!gate.isPro() && db.entries.length >= 100) return err(gate.upgradeText("more than 100 stored entries (free tier)", "entry_add"));
   const r = resolveProject(db, a.project);
   if (r.kind === "ambiguous") return ok(ambiguousText(a.project, r.candidates));
   const parsed = parseRate(a.rate);
@@ -615,7 +615,7 @@ server.registerTool("entry_log", { annotations: { readOnlyHint: false, destructi
 }, guard(async (a: { client: string; project?: string; minutes: number; note?: string }) => {
   return withFileLock(LOCK, async () => {
     const db = load();
-    if (!gate.isPro() && db.entries.length >= 100) return ok(gate.upgradeText("more than 100 stored entries (free tier)", "entry_log"));
+    if (!gate.isPro() && db.entries.length >= 100) return err(gate.upgradeText("more than 100 stored entries (free tier)", "entry_log"));
     const r = resolveProject(db, a.client);
     if (r.kind === "ambiguous") return ok(ambiguousText(a.client, r.candidates));
     const meta = db.projects[r.project];

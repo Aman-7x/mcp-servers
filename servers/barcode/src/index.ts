@@ -44,8 +44,8 @@ const MAX_QR_BYTES = 2953;
 
 const ok = (text: string) => ({ content: [{ type: "text" as const, text }] });
 const fail = (text: string) => ({ content: [{ type: "text" as const, text: `Error: ${text}` }], isError: true as const });
-/** A tier limit is an answer the model has to relay, not a protocol error. */
-const limit = (text: string) => ok(text);
+/** Refused operations are MCP errors with their actionable upgrade line preserved. */
+const limit = (text: string) => fail(text);
 
 function locked<T>(fn: () => T | Promise<T>): Promise<T> { return withFileLock(lockPath(), fn); }
 

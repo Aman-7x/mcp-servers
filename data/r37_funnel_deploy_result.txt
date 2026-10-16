@@ -1,0 +1,16 @@
+buildslot[17258] 15:12:05: slot 1 acquired: npx --no-install wrangler deploy --config funnel/wrangler.toml
+
+ ⛅️ wrangler 4.80.0 (update available 4.151.0)
+──────────────────────────────────────────────
+
+Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+Total Upload: 28.48 KiB / gzip: 7.21 KiB
+Worker Startup Time: 7 ms
+Your Worker has access to the following bindings:
+Binding                                    Resource
+env.FUNNEL (FunnelState)                   Durable Object
+env.CF_VERSION_METADATA                    Worker Version Metadata
+
+Uploaded mcp-funnel (6.13 sec)
+No deploy targets for mcp-funnel (2.25 sec)
+Current Version ID: c09f6360-34da-4107-82ae-15e7ae4ac387

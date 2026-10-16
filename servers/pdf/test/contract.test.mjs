@@ -213,8 +213,8 @@ test("cap: a merge over the free file limit writes no file at all", async (t) =>
   const out = join(b.dir, "merged.pdf");
   const r = await c.call("pdf_merge", { paths, out_path: out });
 
-  // A tier limit is an answer, not a protocol error.
-  assert.equal(r.isError, false, r.text.slice(0, 300));
+  // A refused operation is an error, with the upgrade path still visible.
+  assert.equal(r.isError, true, r.text.slice(0, 300));
   assert.match(r.text, /free/i, r.text.slice(0, 300));
   assert.equal(existsSync(out), false, "a refused merge must leave no file behind");
   assert.equal(readdirSync(b.dir).filter((f) => f.includes(".tmp")).length, 0, "no tmp file may survive a refusal");

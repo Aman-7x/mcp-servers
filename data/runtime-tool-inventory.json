@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-16T03:54:06.063Z",
+  "generated_at": "2026-10-16T08:25:44.927Z",
   "build_snapshot": {
-    "sha256": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
-    "file_count": 810,
+    "sha256": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
+    "file_count": 821,
     "node_version": "v22.23.2",
     "platform": "darwin",
     "arch": "arm64",
@@ -12,11 +12,11 @@
   "servers": {
     "three-way-match": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:54:03.515Z",
+      "measured_at": "2026-10-16T08:25:42.859Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/three-way-match/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "three_way_match",
@@ -54,11 +54,11 @@
     },
     "office-suite": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:36.592Z",
+      "measured_at": "2026-10-16T08:25:26.320Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-      "version": "0.22.6",
+      "version": "0.22.7",
       "built_entry": "servers/office-suite/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "timer_start",
@@ -1785,24 +1785,48 @@
           "description": "Compare up to 500 PO/invoice lines by exact SKU, accepted receipts and prior billed quantities. Returns source evidence and exceptions, including offsetting errors. All diagnosis is free; save optionally."
         },
         {
-          "name": "report_list",
+          "name": "duplicate_invoice_check",
+          "description": "Group up to 1000 supplied records by exact/normalized reference or exact amount/date within exact entity, supplier, type and currency. All evidence is free. Candidates require review; no payment approval."
+        },
+        {
+          "name": "three-way-match_report_list",
           "description": "List saved report ids, timestamps, document references, status and issue counts. Free on both tiers; paginated, up to 100 reports per call."
         },
         {
-          "name": "report_get",
+          "name": "duplicate-invoice-check_report_list",
+          "description": "List saved report ids, timestamps and unique candidate counts. Free on both tiers. Up to 100 reports per page."
+        },
+        {
+          "name": "three-way-match_report_get",
           "description": "Read a saved report with source documents, per-SKU evidence and all exceptions. Free on both tiers."
         },
         {
-          "name": "report_page",
+          "name": "duplicate-invoice-check_report_get",
+          "description": "Read a saved report with source records, reason groups and overlap-safe candidate counts. Large reports return free paging instructions."
+        },
+        {
+          "name": "three-way-match_report_page",
           "description": "Read free pages of large report issues, SKU rows or original source rows. Use report_id from the paginated overview. Unsaved previews expire after 30 minutes and keep only the last two large checks."
         },
         {
-          "name": "report_delete",
+          "name": "duplicate-invoice-check_report_page",
+          "description": "Read free pages of records, group summaries, record reasons or one group’s members. Unsaved preview ids last 30 minutes for the last two checks in this process."
+        },
+        {
+          "name": "three-way-match_report_delete",
           "description": "Delete one saved report by id, freeing a free-tier storage slot. Does not alter source documents or prior invoice history."
         },
         {
-          "name": "report_export_csv",
+          "name": "duplicate-invoice-check_report_delete",
+          "description": "Delete one local saved report and free a storage slot. Does not change accounting records."
+        },
+        {
+          "name": "three-way-match_report_export_csv",
           "description": "Return CSV of saved SKU quantities, prices and issues. Large CSVs paginate; follow next_offset with offset. Formula-like text is escaped. Full source evidence uses report_get/report_page."
+        },
+        {
+          "name": "duplicate-invoice-check_report_export_csv",
+          "description": "Export free CSV pages from a saved report or unsaved preview. One row per record with reasons and group ids. Formula-like cells are escaped; no financial-loss total is calculated."
         },
         {
           "name": "calculate_rate",
@@ -1828,11 +1852,11 @@
     },
     "amortization": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:24.000Z",
+      "measured_at": "2026-10-16T08:25:14.073Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/amortization/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "loan_create",
@@ -1874,11 +1898,11 @@
     },
     "asset-register": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:24.526Z",
+      "measured_at": "2026-10-16T08:25:14.991Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/asset-register/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "asset_add",
@@ -1920,11 +1944,11 @@
     },
     "backlink-checker": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:24.919Z",
+      "measured_at": "2026-10-16T08:25:15.362Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/backlink-checker/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "link_check",
@@ -1962,11 +1986,11 @@
     },
     "bank-statement": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:25.298Z",
+      "measured_at": "2026-10-16T08:25:15.734Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/bank-statement/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "statement_import",
@@ -2020,11 +2044,11 @@
     },
     "barcode": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:25.681Z",
+      "measured_at": "2026-10-16T08:25:16.150Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/barcode/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "license_status",
@@ -2070,11 +2094,11 @@
     },
     "bill-of-sale": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:26.186Z",
+      "measured_at": "2026-10-16T08:25:16.761Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/bill-of-sale/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "sale_create",
@@ -2120,11 +2144,11 @@
     },
     "billing-docs": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:26.567Z",
+      "measured_at": "2026-10-16T08:25:17.174Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/billing-docs/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "credit_note_create",
@@ -2194,20 +2218,20 @@
     },
     "budget": {
       "status": "failed",
-      "measured_at": "2026-10-16T03:53:27.062Z",
+      "measured_at": "2026-10-16T08:25:17.626Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/budget/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "error": "Built entry is missing; no build was attempted"
     },
     "calendar": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:27.062Z",
+      "measured_at": "2026-10-16T08:25:17.626Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/calendar/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "license_status",
@@ -2261,11 +2285,11 @@
     },
     "cash-book": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:27.453Z",
+      "measured_at": "2026-10-16T08:25:17.975Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/cash-book/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "ledger_build",
@@ -2307,11 +2331,11 @@
     },
     "catalogue": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:27.903Z",
+      "measured_at": "2026-10-16T08:25:18.430Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/catalogue/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "sku_set",
@@ -2365,11 +2389,11 @@
     },
     "change-order": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:28.376Z",
+      "measured_at": "2026-10-16T08:25:18.833Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/change-order/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "change_order_create",
@@ -2419,11 +2443,11 @@
     },
     "checklist": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:28.924Z",
+      "measured_at": "2026-10-16T08:25:19.232Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/checklist/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "checklist_create",
@@ -2493,11 +2517,11 @@
     },
     "clauses": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:29.426Z",
+      "measured_at": "2026-10-16T08:25:19.637Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/clauses/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "clause_add",
@@ -2551,11 +2575,11 @@
     },
     "credit-note": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:29.867Z",
+      "measured_at": "2026-10-16T08:25:19.998Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.8",
       "built_entry": "servers/credit-note/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "credit_note_create",
@@ -2601,11 +2625,11 @@
     },
     "currency": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:30.256Z",
+      "measured_at": "2026-10-16T08:25:20.371Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/currency/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "rates_latest",
@@ -2651,11 +2675,11 @@
     },
     "delivery-schedule": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:30.643Z",
+      "measured_at": "2026-10-16T08:25:20.732Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.7",
       "built_entry": "servers/delivery-schedule/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "delivery_schedule_create",
@@ -2709,11 +2733,11 @@
     },
     "deposits": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:31.155Z",
+      "measured_at": "2026-10-16T08:25:21.128Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/deposits/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "deposit_record",
@@ -2763,11 +2787,11 @@
     },
     "docx": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:31.650Z",
+      "measured_at": "2026-10-16T08:25:21.545Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/docx/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "business_set",
@@ -2817,11 +2841,11 @@
     },
     "dunning-letters": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:32.056Z",
+      "measured_at": "2026-10-16T08:25:21.898Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/dunning-letters/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "invoice_register",
@@ -2871,11 +2895,11 @@
     },
     "expense-tracker": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:32.439Z",
+      "measured_at": "2026-10-16T08:25:22.565Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/expense-tracker/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "expense_add",
@@ -2937,11 +2961,11 @@
     },
     "goods-receipt": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:32.905Z",
+      "measured_at": "2026-10-16T08:25:23.003Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/goods-receipt/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "po_add",
@@ -2991,11 +3015,11 @@
     },
     "hourly-rate": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:33.265Z",
+      "measured_at": "2026-10-16T08:25:23.349Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/hourly-rate/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "license_status",
@@ -3021,11 +3045,11 @@
     },
     "image": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:33.636Z",
+      "measured_at": "2026-10-16T08:25:23.695Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/image/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "image_info",
@@ -3079,11 +3103,11 @@
     },
     "invoice": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:34.089Z",
+      "measured_at": "2026-10-16T08:25:24.128Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/invoice/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "business_set",
@@ -3141,11 +3165,11 @@
     },
     "job-card": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:34.541Z",
+      "measured_at": "2026-10-16T08:25:24.533Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/job-card/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "job_card_create",
@@ -3195,11 +3219,11 @@
     },
     "kanban": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:34.922Z",
+      "measured_at": "2026-10-16T08:25:24.877Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/kanban/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "license_status",
@@ -3273,11 +3297,11 @@
     },
     "leave": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:35.354Z",
+      "measured_at": "2026-10-16T08:25:25.209Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/leave/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "leave_employee_add",
@@ -3331,20 +3355,20 @@
     },
     "loan-calculator": {
       "status": "failed",
-      "measured_at": "2026-10-16T03:53:35.833Z",
+      "measured_at": "2026-10-16T08:25:25.627Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/loan-calculator/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "error": "Built entry is missing; no build was attempted"
     },
     "maintenance-log": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:35.833Z",
+      "measured_at": "2026-10-16T08:25:25.627Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/maintenance-log/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "asset_add",
@@ -3382,11 +3406,11 @@
     },
     "mileage-log": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:36.221Z",
+      "measured_at": "2026-10-16T08:25:25.974Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/mileage-log/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "trip_add",
@@ -3428,11 +3452,11 @@
     },
     "onboarding": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:55.165Z",
+      "measured_at": "2026-10-16T08:25:37.196Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/onboarding/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "onboarding_hire_add",
@@ -3474,11 +3498,11 @@
     },
     "packing-list": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:55.748Z",
+      "measured_at": "2026-10-16T08:25:37.611Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.8",
       "built_entry": "servers/packing-list/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "packing_list_create",
@@ -3540,20 +3564,20 @@
     },
     "payroll": {
       "status": "failed",
-      "measured_at": "2026-10-16T03:53:56.313Z",
+      "measured_at": "2026-10-16T08:25:38.022Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/payroll/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "error": "Built entry is missing; no build was attempted"
     },
     "pdf": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:56.314Z",
+      "measured_at": "2026-10-16T08:25:38.022Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/pdf/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "pdf_info",
@@ -3607,11 +3631,11 @@
     },
     "per-diem": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:57.013Z",
+      "measured_at": "2026-10-16T08:25:38.467Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/per-diem/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "perdiem_rates",
@@ -3653,11 +3677,11 @@
     },
     "petty-cash": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:57.589Z",
+      "measured_at": "2026-10-16T08:25:38.823Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/petty-cash/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "float_open",
@@ -3699,20 +3723,20 @@
     },
     "pomodoro": {
       "status": "failed",
-      "measured_at": "2026-10-16T03:53:58.285Z",
+      "measured_at": "2026-10-16T08:25:39.259Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/pomodoro/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "error": "Built entry is missing; no build was attempted"
     },
     "price-tracker": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:58.285Z",
+      "measured_at": "2026-10-16T08:25:39.259Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/price-tracker/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "price_check",
@@ -3758,11 +3782,11 @@
     },
     "purchase-requisition": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:58.869Z",
+      "measured_at": "2026-10-16T08:25:39.597Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.8",
       "built_entry": "servers/purchase-requisition/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "purchase-requisition_create",
@@ -3832,11 +3856,11 @@
     },
     "quotes": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:53:59.467Z",
+      "measured_at": "2026-10-16T08:25:40.019Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/quotes/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "quote_create",
@@ -3890,20 +3914,20 @@
     },
     "receipts": {
       "status": "failed",
-      "measured_at": "2026-10-16T03:54:00.070Z",
+      "measured_at": "2026-10-16T08:25:40.477Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/receipts/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "error": "Built entry is missing; no build was attempted"
     },
     "recurring": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:54:00.070Z",
+      "measured_at": "2026-10-16T08:25:40.477Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/recurring/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "schedule_create",
@@ -3965,11 +3989,11 @@
     },
     "resume": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:54:00.723Z",
+      "measured_at": "2026-10-16T08:25:40.905Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/resume/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "profile_set",
@@ -4015,11 +4039,11 @@
     },
     "service-agreement": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:54:01.213Z",
+      "measured_at": "2026-10-16T08:25:41.263Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/service-agreement/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "agreement_create",
@@ -4061,11 +4085,11 @@
     },
     "spreadsheet": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:54:01.662Z",
+      "measured_at": "2026-10-16T08:25:41.610Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/spreadsheet/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "license_status",
@@ -4111,11 +4135,11 @@
     },
     "statement-of-account": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:54:02.195Z",
+      "measured_at": "2026-10-16T08:25:42.060Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/statement-of-account/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "statement_build",
@@ -4153,20 +4177,20 @@
     },
     "stripe-billing": {
       "status": "failed",
-      "measured_at": "2026-10-16T03:54:02.973Z",
+      "measured_at": "2026-10-16T08:25:42.499Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/stripe-billing/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "error": "Built entry is missing; no build was attempted"
     },
     "supplier-list": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:54:02.974Z",
+      "measured_at": "2026-10-16T08:25:42.499Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/supplier-list/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "supplier_add",
@@ -4212,20 +4236,20 @@
     },
     "tax-calc": {
       "status": "failed",
-      "measured_at": "2026-10-16T03:54:03.515Z",
+      "measured_at": "2026-10-16T08:25:42.858Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/tax-calc/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "error": "Built entry is missing; no build was attempted"
     },
     "time-tracker": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:54:03.973Z",
+      "measured_at": "2026-10-16T08:25:43.270Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/time-tracker/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "license_status",
@@ -4311,11 +4335,11 @@
     },
     "timezone": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:54:04.426Z",
+      "measured_at": "2026-10-16T08:25:43.645Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/timezone/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "license_status",
@@ -4365,11 +4389,11 @@
     },
     "work-order": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:54:04.893Z",
+      "measured_at": "2026-10-16T08:25:44.009Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/work-order/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "work_order_create",
@@ -4423,11 +4447,11 @@
     },
     "zip": {
       "status": "complete",
-      "measured_at": "2026-10-16T03:54:05.471Z",
+      "measured_at": "2026-10-16T08:25:44.428Z",
       "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
       "version": "0.22.6",
       "built_entry": "servers/zip/dist/index.js",
-      "build_fingerprint": "64f038227a5d5d0183c39235307d5010b4b038fa15f9cbf560d62ba4e77c6f62",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
       "tools": [
         {
           "name": "license_status",
@@ -4466,6 +4490,54 @@
           "description": "List the archives this server created, newest first, with entry counts, sizes and paths, plus how much of the free 20 a month is used. It reads the register only; use zip_list to see inside one."
         }
       ]
+    },
+    "duplicate-invoice-check": {
+      "status": "complete",
+      "measured_at": "2026-10-16T08:25:22.227Z",
+      "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
+      "version": "0.22.7",
+      "built_entry": "servers/duplicate-invoice-check/dist/index.js",
+      "build_fingerprint": "bac90a193d962a235b9682644125c3771f470034d3eca50e7543c3a4b44dc988",
+      "tools": [
+        {
+          "name": "duplicate_invoice_check",
+          "description": "Group up to 1000 supplied records by exact/normalized reference or exact amount/date within exact entity, supplier, type and currency. All evidence is free. Candidates require review; no payment approval."
+        },
+        {
+          "name": "report_list",
+          "description": "List saved report ids, timestamps and unique candidate counts. Free on both tiers. Up to 100 reports per page."
+        },
+        {
+          "name": "report_get",
+          "description": "Read a saved report with source records, reason groups and overlap-safe candidate counts. Large reports return free paging instructions."
+        },
+        {
+          "name": "report_page",
+          "description": "Read free pages of records, group summaries, record reasons or one group’s members. Unsaved preview ids last 30 minutes for the last two checks in this process."
+        },
+        {
+          "name": "report_delete",
+          "description": "Delete one local saved report and free a storage slot. Does not change accounting records."
+        },
+        {
+          "name": "report_export_csv",
+          "description": "Export free CSV pages from a saved report or unsaved preview. One row per record with reasons and group ids. Formula-like cells are escaped; no financial-loss total is calculated."
+        },
+        {
+          "name": "license_status",
+          "description": "Report this server's licence state: product, tier free or pro, licence id, expiry, the key source and the upgrade URL. No arguments, no network. Explains a free-tier refusal; license_activate installs a key."
+        },
+        {
+          "name": "license_activate",
+          "description": "Activate a Pro key (MCPL1.xxx.yyy) from checkout: verified offline against a built-in public key, saved to your config file. A wrong, malformed or expired key is refused, unsaved. license_status reads it back."
+        }
+      ]
     }
+  },
+  "collection": {
+    "status": "partial",
+    "requested_servers": 57,
+    "complete_servers": 50,
+    "unmeasured_servers": 7
   }
 }

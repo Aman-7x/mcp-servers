@@ -165,8 +165,8 @@ async function savePdf(doc: PDFDocument, path: string): Promise<number> {
   return bytes.length;
 }
 
-/** Free tier refusals are answers, not protocol errors: the model has to relay the upgrade line. */
-function freeLimit(text: string): ReturnType<typeof ok> { return ok(text); }
+/** Refused operations are MCP errors with the actionable upgrade line preserved. */
+function freeLimit(text: string): ReturnType<typeof fail> { return fail(text); }
 
 const server = new McpServer(
   { name: "mcp-pdf", version: VERSION },

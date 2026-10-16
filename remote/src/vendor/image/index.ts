@@ -55,8 +55,8 @@ const gate = createLicenseGate({ product: "image" });
 
 const ok = (text: string) => ({ content: [{ type: "text" as const, text }] });
 const fail = (text: string) => ({ content: [{ type: "text" as const, text: `Error: ${text}` }], isError: true as const });
-/** A tier limit is an answer, not a protocol error: the model has to relay the upgrade line. */
-const freeLimit = (text: string) => ok(text);
+/** Refused operations are MCP errors with the actionable upgrade line preserved. */
+const freeLimit = (text: string) => fail(text);
 
 function locked<T>(fn: () => T | Promise<T>): Promise<T> {
   return withFileLock(join(dataDir(), ".lock"), fn);

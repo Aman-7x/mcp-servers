@@ -1,0 +1,2 @@
+buildslot[45431] 15:27:45: slot 1 acquired: node scripts/billing-release-gate.mjs preflight
+PASS: local GET-to-Stripe guard, billing tests, Wrangler dry-run

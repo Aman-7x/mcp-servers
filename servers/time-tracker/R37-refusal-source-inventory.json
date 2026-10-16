@@ -1,0 +1,2094 @@
+{
+  "schema_version": 1,
+  "measured_at": "2026-10-16T08:12:15.534Z",
+  "method": "TypeScript AST traversal of every .ts/.js source under every servers/*/src directory; exact upgradeText call expressions, including multiline code. Each occurrence and helper alias was manually reviewed and refusal-string helpers traced to their callers. This is source evidence, not complete runtime certification.",
+  "source_file_count": 281,
+  "upgrade_call_count": 155,
+  "servers_with_upgrade_calls": 48,
+  "changed_server_count": 17,
+  "changed_servers": [
+    "time-tracker",
+    "invoice",
+    "price-tracker",
+    "clauses",
+    "docx",
+    "kanban",
+    "recurring",
+    "calendar",
+    "timezone",
+    "bank-statement",
+    "expense-tracker",
+    "currency",
+    "zip",
+    "image",
+    "pdf",
+    "spreadsheet",
+    "barcode"
+  ],
+  "remaining_primary_source_plain_success_refusal_wrappers_found": [],
+  "limits": [
+    "No complete functional certification of all estate tools is implied by a source scan. Seventeen affected server stdio regressions are recorded separately.",
+    "Historical unread reports and ambiguous project-resolution questions can still return ordinary non-error answers; this work does not redefine those policies.",
+    "Successful partial evidence and metadata help intentionally retain upgrade text. Examples: image dominant colors, currency/clamped history, invoice business/PDF, service-agreement clause-library titles, checklist/purchase-requisition/packing-slip inline reports and new-matcher unsaved diagnostics.",
+    "remote/src/vendor is generated separately by the coordinator and must be regenerated, compiled and exercised before deployment. This inventory hashes primary server source only.",
+    "clauses clause_import aggregate JSON can report added=0 and replaced=0 with every new row blocked_by_free_cap without isError. Outcome-specific aggregate policy remains unchanged; partial import diagnostics remain successful."
+  ],
+  "sources": [
+    {
+      "path": "servers/amortization/src/accounts.ts",
+      "sha256": "f252df427f134a32642ab9562f6e970687578f332a8c849ed73ee8d59741716f"
+    },
+    {
+      "path": "servers/amortization/src/index.ts",
+      "sha256": "b28165efd022af323d7f5b9327fadb298e868feaea9f4d0654c1d5e98491d255"
+    },
+    {
+      "path": "servers/amortization/src/lib.ts",
+      "sha256": "d0b4bd573f8f0d6b0b7d5e0172299319f71851d371d8971da04f10f12a1248ca"
+    },
+    {
+      "path": "servers/amortization/src/schedule.ts",
+      "sha256": "6ca0ca4b686c26b2edf59c45c577b92ecb9cadb7e969adcd206c6acc4b7b9ae1"
+    },
+    {
+      "path": "servers/amortization/src/store.ts",
+      "sha256": "f43f5b64d77b16bb22fa1bf496e643dc6ec2cbdb199c7c3bb40ab888227a4a59"
+    },
+    {
+      "path": "servers/amortization/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/asset-register/src/depreciation.ts",
+      "sha256": "835a2c5ab1d780ab63670e78bab034def49d2ed0bdcc52afd5b4b10a3e093dc8"
+    },
+    {
+      "path": "servers/asset-register/src/index.ts",
+      "sha256": "91021cbb8564b2d4fa76b8d81c1ae697306e0f3944c26ec0bbb846cf4f046279"
+    },
+    {
+      "path": "servers/asset-register/src/lib.ts",
+      "sha256": "525aecb436654d4f4272dfdd6957439296a912d6a967111de17c17764a199702"
+    },
+    {
+      "path": "servers/asset-register/src/store.ts",
+      "sha256": "f5ac50e1f0fe148bece584fa0d4cbd49c71bb2f3a252d5c0ea2c05d5d41bed4f"
+    },
+    {
+      "path": "servers/asset-register/src/tables.ts",
+      "sha256": "fc6eadcdfe33d55792e9853756f1fd3e12fd3f4b7e02fbce12ec98155fcdbe75"
+    },
+    {
+      "path": "servers/asset-register/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/backlink-checker/src/index.ts",
+      "sha256": "dfffda57b984303cda42f48ada9ef6990e8b2bd45bfc1398df936ac2ec068b29"
+    },
+    {
+      "path": "servers/backlink-checker/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/bank-statement/src/detect.ts",
+      "sha256": "58384e56967099ed6a2ed83e1cd10f2f11687bcfaff3c352c3db50582328efd6"
+    },
+    {
+      "path": "servers/bank-statement/src/index.ts",
+      "sha256": "14fc5c7674b9f79c1934f7029dec8179c47c52ac293becc3e43d7d3d9b49e31a"
+    },
+    {
+      "path": "servers/bank-statement/src/money.ts",
+      "sha256": "5e4b41a51fced9e611016c3da3cc86811cf7a3cb9e733753dcce8f83dd990aee"
+    },
+    {
+      "path": "servers/bank-statement/src/store.ts",
+      "sha256": "301f8f144b606bf8bc7b7f5f715beffafca2e4a51f60c671570e16b3a329934a"
+    },
+    {
+      "path": "servers/bank-statement/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/barcode/src/index.ts",
+      "sha256": "4ff4d7a9406397376658ab900817110f6a63da797569ff7733256b487a1934d5"
+    },
+    {
+      "path": "servers/barcode/src/lib.ts",
+      "sha256": "e15f2d6d9d63c3bd9b8a0fd3efbe16a43a1b2aae311a2b861d50488f23516eaa"
+    },
+    {
+      "path": "servers/barcode/src/payloads.ts",
+      "sha256": "fe793162732f68b19c7f62ba420a492d53988b599f26d3e74a449f23a804fa5f"
+    },
+    {
+      "path": "servers/barcode/src/render.ts",
+      "sha256": "3990bacf9f0ca32cc80f62e870b1a9b3737015f20ed2adce0a55ce75547e954e"
+    },
+    {
+      "path": "servers/barcode/src/store.ts",
+      "sha256": "65a40b79f4a123ecdbd7b132563e8ca53de239f05b81dbe4d16a06cb7b52c5ce"
+    },
+    {
+      "path": "servers/barcode/src/symbology.ts",
+      "sha256": "204468904feab13cb6e7f7c57ae8faa0bbc153511ff6d338709df5f984844926"
+    },
+    {
+      "path": "servers/barcode/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/bill-of-sale/src/index.ts",
+      "sha256": "16c2729b9a1c5559fd7c7eb15424241310d50a6f5e75c34de78482b027b8b90e"
+    },
+    {
+      "path": "servers/bill-of-sale/src/lib.ts",
+      "sha256": "7d2bf130af203ff9ddf238c411152aee7454ef4069d5e01460943c8153d9cfec"
+    },
+    {
+      "path": "servers/bill-of-sale/src/render.ts",
+      "sha256": "adb0b3b35e244e97b2816d6b6a04ead1260181a44923ef0a9c1639218b831002"
+    },
+    {
+      "path": "servers/bill-of-sale/src/store.ts",
+      "sha256": "2cd41b8b16d55345c11e501028c197c9779d60285ddabf647fdce48c2e53c221"
+    },
+    {
+      "path": "servers/bill-of-sale/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/billing-docs/src/index.ts",
+      "sha256": "69e81d8d2422716e1978c26e6296f3c5e56dbadcd54f759b38bacb551b103a5c"
+    },
+    {
+      "path": "servers/billing-docs/src/lib.ts",
+      "sha256": "e819151b80e20a1a7c64d8cb6dbfbe7df9592f103eb40e4982ff4c0361352c0b"
+    },
+    {
+      "path": "servers/billing-docs/src/pdf.ts",
+      "sha256": "24aaf2027bb98d42085425449004eea43da658f092dded84e3790ecaf7714932"
+    },
+    {
+      "path": "servers/billing-docs/src/store.ts",
+      "sha256": "9fdbb81c410b5a14227f961b8efc8d56df7bb6ec8fb0b9f213693ad2034541b4"
+    },
+    {
+      "path": "servers/billing-docs/src/text.ts",
+      "sha256": "2b97691ebaa826366252becf12648b3f75233ea52ea573e8c353f59788238bb0"
+    },
+    {
+      "path": "servers/billing-docs/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/budget/src/_shared.js",
+      "sha256": "b12ee187522c84550f4fdaa73fa4cadc476f76905b7a7b6f489bbc39335bb7c8"
+    },
+    {
+      "path": "servers/budget/src/index.js",
+      "sha256": "26fbe5e725a0562202bdffc3134a3b7fb439d6517cf02fed71aee1e0a5e727a9"
+    },
+    {
+      "path": "servers/budget/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/calendar/src/fetch.ts",
+      "sha256": "745e578b2a75b073466fa99365d5541889e3d7a66671d1aee085d252b6522796"
+    },
+    {
+      "path": "servers/calendar/src/ics.ts",
+      "sha256": "7b752d08ffab44b48bc493f8f85028d6a1fa9d2d77f96d237044fd50dcc8d39f"
+    },
+    {
+      "path": "servers/calendar/src/index.ts",
+      "sha256": "e6945b1bec7a8ca4167885900914194aeccf7732c48ae3ce7480eadd7da6816c"
+    },
+    {
+      "path": "servers/calendar/src/store.ts",
+      "sha256": "6f0e6f10b9572acb7a0b753c06183c8ee4cbc0e3e7087bab9ff03044f1cdb9ff"
+    },
+    {
+      "path": "servers/calendar/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/cash-book/src/index.ts",
+      "sha256": "58aa3c7fedc586eaf911c680b1099a116b5f060f2384afc2966edc9f2706bb41"
+    },
+    {
+      "path": "servers/cash-book/src/ledger.ts",
+      "sha256": "a25f3ec63f2b3e23ca75e144e8e34f4e455f8d0edcaea527335d7a7f2d026838"
+    },
+    {
+      "path": "servers/cash-book/src/lib.ts",
+      "sha256": "ac621028fc255452139039c1f49ee85cd63cf324c4c65fca4459892a1dd1e86a"
+    },
+    {
+      "path": "servers/cash-book/src/sources.ts",
+      "sha256": "0e749c416b01af6d5991b77d92f70f1ba78c6b1d703f432f102bd86546ef14b6"
+    },
+    {
+      "path": "servers/cash-book/src/store.ts",
+      "sha256": "561c997406b8f91a02bd00005a93a1a9835ee3727661acf57ce7d1f0f541acfa"
+    },
+    {
+      "path": "servers/cash-book/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/catalogue/src/catalogue.ts",
+      "sha256": "ccc5caab65c7fed05d59266fd7573ef8b6452a2e0a029a11a041f277b9ac9b8c"
+    },
+    {
+      "path": "servers/catalogue/src/index.ts",
+      "sha256": "6f386115363d1c92a5c703e9fafa1990939c4be64d2c7a48a6d3bafe58601b61"
+    },
+    {
+      "path": "servers/catalogue/src/lib.ts",
+      "sha256": "6e52bb5f2deebd8d65e030a94d7e7c73704a100747927eb75e1e77202d564fcf"
+    },
+    {
+      "path": "servers/catalogue/src/store.ts",
+      "sha256": "00ecef54972d30a6b0df143a1c56b5a594faf0bb1e8339fa04da82da0531d14c"
+    },
+    {
+      "path": "servers/catalogue/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/change-order/src/index.ts",
+      "sha256": "f225e839f23cb578928a0cfc5e5cafbb890b94565cdea11ec754cbb418fbdd96"
+    },
+    {
+      "path": "servers/change-order/src/lib.ts",
+      "sha256": "d88685663a69ac19d7b88ea11054cc5f64b7e0487eb1e75796f5de5be8c7a6a2"
+    },
+    {
+      "path": "servers/change-order/src/order.ts",
+      "sha256": "5c92618211d65cb39fff6063556e24d954f88bb0e17cde1abe88a87f95a8ac9e"
+    },
+    {
+      "path": "servers/change-order/src/store.ts",
+      "sha256": "ec602784dead83429bdccd2de609880868e8d477b82e910aef13f790e050354f"
+    },
+    {
+      "path": "servers/change-order/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/checklist/src/checklist.ts",
+      "sha256": "63c4eef94f83f06a319717fa702d3b52cc512dc50244c11bcbb7d2265f656a2f"
+    },
+    {
+      "path": "servers/checklist/src/index.ts",
+      "sha256": "6403439e16e5d9910cd905aacfce94c73815630843369ab71b13af55659dacef"
+    },
+    {
+      "path": "servers/checklist/src/lib.ts",
+      "sha256": "daf9d33eb9b7339741daada0893194896ac9aa9c15685cfbd29c9177b0ab3bec"
+    },
+    {
+      "path": "servers/checklist/src/store.ts",
+      "sha256": "8b13592647f1c12c7cd978230514e69d46d1b338dddd337b72393e7788015874"
+    },
+    {
+      "path": "servers/checklist/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/clauses/src/assemble.ts",
+      "sha256": "ae581b3281142fe8a4a90698d94d4832087aae1edd23fc0b571c07b07a2b40dc"
+    },
+    {
+      "path": "servers/clauses/src/index.ts",
+      "sha256": "9d8a92ddacd531235bea7f857c9b2c19f5f02c7a001b2089362912d8cbe7e308"
+    },
+    {
+      "path": "servers/clauses/src/library.ts",
+      "sha256": "0f7bcce8398800dcd91b8a28a6f74d36939a242e3411c47183b4223463331f23"
+    },
+    {
+      "path": "servers/clauses/src/starter.ts",
+      "sha256": "c29358448898c372a4cd6f54c499ec24f38061b1e6055730b729ee4ac7a153d6"
+    },
+    {
+      "path": "servers/clauses/src/store.ts",
+      "sha256": "106d3316c924a1a74c15623025d6916de2c55122b5c25e256d12476fb41b9016"
+    },
+    {
+      "path": "servers/clauses/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/credit-note/src/index.ts",
+      "sha256": "687437aea3c8447d16383f90fe2ad0d10852a2a2e03635cbc45c9eb688f7545d"
+    },
+    {
+      "path": "servers/credit-note/src/jsonstore.ts",
+      "sha256": "77a3293e2bdc604381101079020e1e388279c8ebc8650631e2565bfe48ef5053"
+    },
+    {
+      "path": "servers/credit-note/src/lib.ts",
+      "sha256": "ba3e15dd796e326f06539a94c82c464b94bde4188a1b6327f2133dc29cf82a1c"
+    },
+    {
+      "path": "servers/credit-note/src/money.ts",
+      "sha256": "d0546be9505d0c0e3b177f703c4fc9bfbc81c02cab0c93d53b47130714d87ebe"
+    },
+    {
+      "path": "servers/credit-note/src/note.ts",
+      "sha256": "47821cb7622c4b1896e8e32fde838019950a98afebad3519de48b4b3612dd541"
+    },
+    {
+      "path": "servers/credit-note/src/render.ts",
+      "sha256": "ab851fdd4a22591973ca63973a2d9eea6003475cea60e66a74d9cdc9a7a98fea"
+    },
+    {
+      "path": "servers/credit-note/src/store.ts",
+      "sha256": "f268f1f3bf981e7598ff8927a2f1d50239009838a5746e7f45585ef512fb3d82"
+    },
+    {
+      "path": "servers/credit-note/src/version.ts",
+      "sha256": "7b7521f71128001a3691540b05dc8076dad9375633c82005510f938acf1b7420"
+    },
+    {
+      "path": "servers/currency/src/ecb.ts",
+      "sha256": "e48d3ee31a18bbf6ba665052fd05e4102c4bf82929a11732084ab4621650aea6"
+    },
+    {
+      "path": "servers/currency/src/index.ts",
+      "sha256": "6a6ce16f1ad3e00726ca60a8741fffe74b68ab3d0984d39d00b221982f74ce89"
+    },
+    {
+      "path": "servers/currency/src/money.ts",
+      "sha256": "03364e8909b56c35d953ef9ff24c4d6b250ba46b6430b97b2d9a460e6b840502"
+    },
+    {
+      "path": "servers/currency/src/rates.ts",
+      "sha256": "9a6045f3bd0c28eefb4d032043005592b45c1cc12da0acfbc3346a2dab80e664"
+    },
+    {
+      "path": "servers/currency/src/store.ts",
+      "sha256": "9bd5d525aa31293b8b52cc62d342028a756671c93c812605b0cecc0b74e71b71"
+    },
+    {
+      "path": "servers/currency/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/delivery-schedule/src/index.ts",
+      "sha256": "3c589fa6c17a49bfec6f24fc94397f983fed79dcc1992399afa459f85ae4e446"
+    },
+    {
+      "path": "servers/delivery-schedule/src/lib.ts",
+      "sha256": "3a768f48dc31d04582a4bdf5f957979ed3ddd6eb3ced1bff2efe5bd716be7c14"
+    },
+    {
+      "path": "servers/delivery-schedule/src/schedule.ts",
+      "sha256": "ab4d25a19f9286fdb5b3aa01b55cdb98def858872e7025f980be97101cf19854"
+    },
+    {
+      "path": "servers/delivery-schedule/src/store.ts",
+      "sha256": "332ac74be3f24865074da6c23cd9457ed80f111611d24cd401e1bdd0a6dea9d6"
+    },
+    {
+      "path": "servers/delivery-schedule/src/version.ts",
+      "sha256": "d25be5d3d7a5cb43623d414992934122d41d7552a6c12d0d1422d64458242ef7"
+    },
+    {
+      "path": "servers/deposits/src/index.ts",
+      "sha256": "abe284483e6fca3dbd1a5276135a63497fb34f04f423bd7ab7672ca34bda8a72"
+    },
+    {
+      "path": "servers/deposits/src/lib.ts",
+      "sha256": "11941dbb9f0d09ba2e2f0b0b435b762c8db1d7c5c36f32d43ff8220caf7bdf5f"
+    },
+    {
+      "path": "servers/deposits/src/store.ts",
+      "sha256": "a6901fbc7da8b160b4318d758845e5995d1ee17970027a6078e01b96c8f105de"
+    },
+    {
+      "path": "servers/deposits/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/docx/src/blocks.ts",
+      "sha256": "bda8f727f0978c9fe31914889a5492ae00afb0ed777fe55f9e483e05f8919d66"
+    },
+    {
+      "path": "servers/docx/src/build.ts",
+      "sha256": "02eac1f54d302a4f1f40a24cbadcd857d136612c6c96683899d86410022290d2"
+    },
+    {
+      "path": "servers/docx/src/index.ts",
+      "sha256": "cb1358996ac802e494ce5d5fbcc2449a8a9f151ad2cd4d0405a89e05a5f6338c"
+    },
+    {
+      "path": "servers/docx/src/lib.ts",
+      "sha256": "a96d25b484608c4cb6649fe0ac76d854a13b5d67375e1783bf85456559c18df6"
+    },
+    {
+      "path": "servers/docx/src/md.ts",
+      "sha256": "a0cc8e94dcc3cdac6b6f25083abc1ca3d8d4b90a549fcf4a8bfbd058ff218645"
+    },
+    {
+      "path": "servers/docx/src/store.ts",
+      "sha256": "60e06f4f8fe56e3cc6e973ddd04411dcb94b5d71bfbb8d66cd5509bcbe55e9ee"
+    },
+    {
+      "path": "servers/docx/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/docx/src/wordxml.ts",
+      "sha256": "821fcb87ab152c8b32d9ba7ec73c5eda51eede3cd77354c58b026dbe12d77405"
+    },
+    {
+      "path": "servers/docx/src/zip.ts",
+      "sha256": "24a2f08a57af652a2b92b2996037526660bf5e25a5484f270a7a6aa94470288f"
+    },
+    {
+      "path": "servers/dunning-letters/src/engine.ts",
+      "sha256": "369664f1389ce5398db9cd490483f95fe8ae822d3db982370f81c52a55bdc6b8"
+    },
+    {
+      "path": "servers/dunning-letters/src/index.ts",
+      "sha256": "4e3a1e3aedde652105eb43a6698a4addd35ffed1fa024adfa6eed726f947c8f5"
+    },
+    {
+      "path": "servers/dunning-letters/src/letters.ts",
+      "sha256": "cd49da14536c88464c26094d56497412f1c4b0df9fb6c375dd3dd3fe0bde7865"
+    },
+    {
+      "path": "servers/dunning-letters/src/lib.ts",
+      "sha256": "2018ea6182c8695b86504a3f3730c7a8fbb10e076cdc834f252319fd2be89742"
+    },
+    {
+      "path": "servers/dunning-letters/src/store.ts",
+      "sha256": "a6fde32eab3e793565c4ec247f5065314a64f978ef997760206bbaf566e82bb2"
+    },
+    {
+      "path": "servers/dunning-letters/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/duplicate-invoice-check/src/core.ts",
+      "sha256": "258f925cb0e262bfe3f489df2675fa1bf7e282fab03e7c2e5d97463bf73ddc5c"
+    },
+    {
+      "path": "servers/duplicate-invoice-check/src/index.ts",
+      "sha256": "b0a3ec2d98a1655b1337be2b68ced690935b07985b6957624641fb2d65fda9bd"
+    },
+    {
+      "path": "servers/duplicate-invoice-check/src/output.ts",
+      "sha256": "34915060101994fda90eb7ff9f07baa8dde7558fd413579d952b9cf21a1f9f14"
+    },
+    {
+      "path": "servers/duplicate-invoice-check/src/store.ts",
+      "sha256": "9255e20bea60c37dada4728a3b7541e1b054433c466eb9967f6979045e197ea1"
+    },
+    {
+      "path": "servers/duplicate-invoice-check/src/version.ts",
+      "sha256": "d25be5d3d7a5cb43623d414992934122d41d7552a6c12d0d1422d64458242ef7"
+    },
+    {
+      "path": "servers/expense-tracker/src/index.ts",
+      "sha256": "322c44e22ae5f09ec84c357105efaf0105958d510ddf3ceb19188a15b12c7239"
+    },
+    {
+      "path": "servers/expense-tracker/src/money.ts",
+      "sha256": "a71df64a18716500bdbab0aa7fb9c96a70719263d00c0bd0470dfded437a45af"
+    },
+    {
+      "path": "servers/expense-tracker/src/store.ts",
+      "sha256": "062cfc4151c147f342008cf75bbcc9513f3aeae2e589974b73a347c86a460f3b"
+    },
+    {
+      "path": "servers/expense-tracker/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/goods-receipt/src/index.ts",
+      "sha256": "9be00816658f7505db1e28949b8f5a9cd642a620b5b6388cbebf0f774d56aba0"
+    },
+    {
+      "path": "servers/goods-receipt/src/lib.ts",
+      "sha256": "4d2bed8259a375e1b1d0548076ed257f5c41ec844122c23b5f00c3794902112f"
+    },
+    {
+      "path": "servers/goods-receipt/src/store.ts",
+      "sha256": "2f86388612d481f21038efb630fde02cb90d637b68dd6fbd3e9216d6ac6cde5d"
+    },
+    {
+      "path": "servers/goods-receipt/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/hourly-rate/src/_shared.ts",
+      "sha256": "35379caa12aa605889ad637a128da2c8b7170e222f5302a765d452a126131cdd"
+    },
+    {
+      "path": "servers/hourly-rate/src/index.ts",
+      "sha256": "b6f30358e03d0190a5d3a71134e30c48053869f33fc6d429d3ae27c30771b584"
+    },
+    {
+      "path": "servers/hourly-rate/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/image/src/imageio.ts",
+      "sha256": "c9448c159fd44c28f6d122971abf7e90640f36dda215bc0eb0fabae1c766d56e"
+    },
+    {
+      "path": "servers/image/src/index.ts",
+      "sha256": "48ee007fabe6e8c472f640bc927c4a07ea0679e4b2ec56e3ef8684a3bf57be8d"
+    },
+    {
+      "path": "servers/image/src/store.ts",
+      "sha256": "782308162c6c741db2d44e2ba495ffb6bd72b86f7e7ab5550b9a844ff3b2fb6d"
+    },
+    {
+      "path": "servers/image/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/invoice/src/index.ts",
+      "sha256": "0c0d9a30e5a4110529871c7fed9074b4a96bb711f06ee0350988e28449b50214"
+    },
+    {
+      "path": "servers/invoice/src/lib.ts",
+      "sha256": "487588fcdc39967b7cb9f51036ba8461f1b1387ab26d050323be37de29ed88c3"
+    },
+    {
+      "path": "servers/invoice/src/money.ts",
+      "sha256": "b4972fc47948519cb39817fb8b42ee2ee8b53175be80632a65ef6f99d1e3abd7"
+    },
+    {
+      "path": "servers/invoice/src/pdf.ts",
+      "sha256": "55d5238f67e2a7ae5940d424e833bc93505db9286c46110f2e4b2bdb1fb7c21c"
+    },
+    {
+      "path": "servers/invoice/src/store.ts",
+      "sha256": "9d3a7c45727f75aa39879b932f49f9fd48b6f46acb2aca6b580c7c6d1cbfa42a"
+    },
+    {
+      "path": "servers/invoice/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/job-card/src/card.ts",
+      "sha256": "ee8cb07a0273d1c01038bed681392ad9d66b2db2939714267deb7cd37379333b"
+    },
+    {
+      "path": "servers/job-card/src/index.ts",
+      "sha256": "93d7304b30a1038df4cdee4a5284733a0393fb6f4ea47d6362b0f18a881b1bcc"
+    },
+    {
+      "path": "servers/job-card/src/store.ts",
+      "sha256": "bb19fabf2a7b8accc4e39025b5ea9830da2d30b2ca3827ce9892e5df53052218"
+    },
+    {
+      "path": "servers/job-card/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/kanban/src/board.ts",
+      "sha256": "366c2d8407d689dbb17548c07b4dc0faa8dc1e65db2cc93d472cd23ec1165571"
+    },
+    {
+      "path": "servers/kanban/src/day.ts",
+      "sha256": "c8ff4bb6d5ae17974e5053409761fc275f8100e96cbec37f88e6ff8590ea38e7"
+    },
+    {
+      "path": "servers/kanban/src/index.ts",
+      "sha256": "b5e15d9e1769b8c6fa04e08f272ed554b113e193a3a6a4e6e5dfc44d7e6a12cb"
+    },
+    {
+      "path": "servers/kanban/src/jsonstore.ts",
+      "sha256": "46e3dd76184329669522ae9c9a4cac86f991022f0fc377c9e74214bc5ea87e38"
+    },
+    {
+      "path": "servers/kanban/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/leave/src/index.ts",
+      "sha256": "a36b6900a473be8001db3c5458ba6a464b660de6db3671a901f02c182e0371a5"
+    },
+    {
+      "path": "servers/leave/src/leave.ts",
+      "sha256": "89e4d7e1f4720dd7eeaa830936e1507796abaebe4a6d801188bf6c862fd031a3"
+    },
+    {
+      "path": "servers/leave/src/lib.ts",
+      "sha256": "82f351311b74ad3aefc4562efa03b5fe0290fb75b17885365fbe0901fc8e279e"
+    },
+    {
+      "path": "servers/leave/src/store.ts",
+      "sha256": "028e499882ce43178a45e405caa4c05c0249538f3fb60a29185de688032d6b2c"
+    },
+    {
+      "path": "servers/leave/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/loan-calculator/src/_shared.js",
+      "sha256": "b12ee187522c84550f4fdaa73fa4cadc476f76905b7a7b6f489bbc39335bb7c8"
+    },
+    {
+      "path": "servers/loan-calculator/src/index.js",
+      "sha256": "1a91ee75c94665e4e58f02e8b9f94494bc8b918f48a8b8b958091c46f323f60b"
+    },
+    {
+      "path": "servers/loan-calculator/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/maintenance-log/src/index.ts",
+      "sha256": "3ae920a52e25570fde4ebefd4cfb4f4d59425f49741979aa7fdd0ed70ab43456"
+    },
+    {
+      "path": "servers/maintenance-log/src/maintenance.ts",
+      "sha256": "e4f67cbe7e84e6b1331fe4a7fcc502d7870420121b21d7a3884eb63a7c578b77"
+    },
+    {
+      "path": "servers/maintenance-log/src/store.ts",
+      "sha256": "80c1f0c384819afa01eb53116caf9dae8312c6afe7682e298f944af7c4ca4b48"
+    },
+    {
+      "path": "servers/maintenance-log/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/mileage-log/src/index.ts",
+      "sha256": "ec7e788b0e2d3e157ee45fe9b5042100ab2494e4ad9ec320f42681bfc4fc5d6b"
+    },
+    {
+      "path": "servers/mileage-log/src/log.ts",
+      "sha256": "856e622d3df7305fea8d2481055915d8b0e4f289db6c62ce5cc8793bcc4aeea8"
+    },
+    {
+      "path": "servers/mileage-log/src/store.ts",
+      "sha256": "7fd905ff96987661d18fa173e26c6a6ef29b02925d5c664c6a20e310e4a80d47"
+    },
+    {
+      "path": "servers/mileage-log/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/office-suite/src/index.ts",
+      "sha256": "6a194e60472020c1e63ea411ab9a5fb2a8ec9f0b98435bc53a66b229fa86cdb5"
+    },
+    {
+      "path": "servers/office-suite/src/version.ts",
+      "sha256": "d25be5d3d7a5cb43623d414992934122d41d7552a6c12d0d1422d64458242ef7"
+    },
+    {
+      "path": "servers/onboarding/src/index.ts",
+      "sha256": "2ebe65769e29e476d4e167439b3c7d9664463db10491ad6aad34b4d7456fea81"
+    },
+    {
+      "path": "servers/onboarding/src/lib.ts",
+      "sha256": "091756f7c2c8ad8f1ab3645e21e4b70e6096de6c391df135800dcabaf35477b0"
+    },
+    {
+      "path": "servers/onboarding/src/onboarding.ts",
+      "sha256": "20033d7ade07a44187ece460930858e8917b2bc18457110070d1b406a7cf81e3"
+    },
+    {
+      "path": "servers/onboarding/src/store.ts",
+      "sha256": "b0c10601563fdd0223ba5bf0f9a4a44f90888990728882d6eb3bc21ad0a264c5"
+    },
+    {
+      "path": "servers/onboarding/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/packing-list/src/index.ts",
+      "sha256": "4fc85fb00628f6673c1f22628414b61426c71c4612fb211088a0834d50cb83c5"
+    },
+    {
+      "path": "servers/packing-list/src/lib.ts",
+      "sha256": "e9820de641f5831221a1c8a458ad9b057adce4ff79b7dd5a0bb5cc722801ccac"
+    },
+    {
+      "path": "servers/packing-list/src/packing.ts",
+      "sha256": "d047420cf6f1f8d7dd21b34c14c760d5a3d8169803bb7456e38f1b76e08bdbed"
+    },
+    {
+      "path": "servers/packing-list/src/store.ts",
+      "sha256": "1b34c2947eb5ef22d53a4d312adc4b1031a6357e30803f2f29c96db4be35fb78"
+    },
+    {
+      "path": "servers/packing-list/src/version.ts",
+      "sha256": "7b7521f71128001a3691540b05dc8076dad9375633c82005510f938acf1b7420"
+    },
+    {
+      "path": "servers/payroll/src/_shared.js",
+      "sha256": "b12ee187522c84550f4fdaa73fa4cadc476f76905b7a7b6f489bbc39335bb7c8"
+    },
+    {
+      "path": "servers/payroll/src/index.js",
+      "sha256": "f640a1c87b5696ef16a9ca35b00dbb6949118e4b18615c98416298bd611e8aad"
+    },
+    {
+      "path": "servers/payroll/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/pdf/src/index.ts",
+      "sha256": "8937a79c2fb65d7910f7153324768a75cdff2635441ef74cde93676b692baf85"
+    },
+    {
+      "path": "servers/pdf/src/pdfio.ts",
+      "sha256": "6963ac4c85aff312cec02cc05cfc72514a368482f7f68f9205f526db8e8dccbc"
+    },
+    {
+      "path": "servers/pdf/src/store.ts",
+      "sha256": "71081cf0d1ec174986f70c3b9f943f54ef0cdf69bd70a67e1665a9c5f59b78c8"
+    },
+    {
+      "path": "servers/pdf/src/text.ts",
+      "sha256": "0999b46abf820fcb4bb9ccf73f577732ae02f95cfc57052d6e9ac44455754570"
+    },
+    {
+      "path": "servers/pdf/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/per-diem/src/index.ts",
+      "sha256": "7f894ffce1b4d6d55899552ba73ca0c5ff2fe8827d34015ae830ee76df668923"
+    },
+    {
+      "path": "servers/per-diem/src/lib.ts",
+      "sha256": "271b0b580e6f49500c5d85378aa7557556bc7eb178b0ee7f0ccf79e6179158d2"
+    },
+    {
+      "path": "servers/per-diem/src/schemes.ts",
+      "sha256": "44571139ce6baa7e4376274fffe6be64e5ce3fa342d97640b835672891841f44"
+    },
+    {
+      "path": "servers/per-diem/src/store.ts",
+      "sha256": "aa47b11ee1b95effd87a38150536735112fb1c7a8e472a6a9fc87b36dbc121f6"
+    },
+    {
+      "path": "servers/per-diem/src/tables.ts",
+      "sha256": "25ddea23a320b8e55f0d0e16a5046ad254e44a987cc34d9063567903dfbfc87d"
+    },
+    {
+      "path": "servers/per-diem/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/petty-cash/src/accounts.ts",
+      "sha256": "d3c50ec9f26644f9d0c31250fe802245389f84d102de45817df10f91553e6a7d"
+    },
+    {
+      "path": "servers/petty-cash/src/float.ts",
+      "sha256": "6ff2df178411f2218de839cbd3df235f0c022d07907500e6ed5fc68f1c563c83"
+    },
+    {
+      "path": "servers/petty-cash/src/index.ts",
+      "sha256": "72a0c60fcae0f3c248bd177854c4fbb9f6035e4709e0fb779d7d8fe113af5a15"
+    },
+    {
+      "path": "servers/petty-cash/src/lib.ts",
+      "sha256": "98879395ed649a16240963892b9fd7adbc2131ba4c75fa4fb4e35078f05605a5"
+    },
+    {
+      "path": "servers/petty-cash/src/store.ts",
+      "sha256": "de8846d14848c63b286d77cbdb0d240d72d0782b3eff61af974de2565ad60fca"
+    },
+    {
+      "path": "servers/petty-cash/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/pomodoro/src/_shared.js",
+      "sha256": "b12ee187522c84550f4fdaa73fa4cadc476f76905b7a7b6f489bbc39335bb7c8"
+    },
+    {
+      "path": "servers/pomodoro/src/index.js",
+      "sha256": "59139bc1c21bd7f27c3ef5f640467f1db82be6605067119da68ff8ab70cd32fe"
+    },
+    {
+      "path": "servers/pomodoro/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/price-tracker/src/extract.ts",
+      "sha256": "e6d971b209ea54fa5270e755627d674cc23b6039c4023906c4dcf75b2bb9f3fc"
+    },
+    {
+      "path": "servers/price-tracker/src/fetch.ts",
+      "sha256": "c5308afdaf317f1ee177e3e2228314299850e3fe8d1c73eaa0ecaddcbb4fd74b"
+    },
+    {
+      "path": "servers/price-tracker/src/index.ts",
+      "sha256": "0099465d7eb049c096473e085bf3106b40c0d7b53a2cd18f35587b8f1ac57f83"
+    },
+    {
+      "path": "servers/price-tracker/src/redirect.ts",
+      "sha256": "3d09d98e5ee937b61537bdc5da29cc10dcdfeb0ab7c78a20b0bbf05300d9671d"
+    },
+    {
+      "path": "servers/price-tracker/src/store.ts",
+      "sha256": "504a3c01e22a30b4d6f54f511959b54f74a60f5c9955a02fe397abbd0a7cde2a"
+    },
+    {
+      "path": "servers/price-tracker/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/purchase-requisition/src/index.ts",
+      "sha256": "a11759c9f8666f3559849f7d556a016f60308e58335f4082af48c9db4232d2e2"
+    },
+    {
+      "path": "servers/purchase-requisition/src/lib.ts",
+      "sha256": "6d2242a7071a29831ce87ec2048413743486efc09954f7997afb651820a48d5d"
+    },
+    {
+      "path": "servers/purchase-requisition/src/purchase_requisition.ts",
+      "sha256": "e23b77af6bacd980ae8411cce0f586428c4b190607ad365dd928b1828d151e39"
+    },
+    {
+      "path": "servers/purchase-requisition/src/store.ts",
+      "sha256": "5ea953585bd5d2c739351df1ea460efdcc2df536ecbfe5c84a421fcf938592e2"
+    },
+    {
+      "path": "servers/purchase-requisition/src/version.ts",
+      "sha256": "7b7521f71128001a3691540b05dc8076dad9375633c82005510f938acf1b7420"
+    },
+    {
+      "path": "servers/quotes/src/day.ts",
+      "sha256": "19f8c4c57f317b3c19f659fc1653e0cf16644e77a2ba7f405139d61d058ba818"
+    },
+    {
+      "path": "servers/quotes/src/index.ts",
+      "sha256": "6e9ac505a7edded14e89bf694ca67e6936f82f13dc2cafdfee3d0258ebb53ef8"
+    },
+    {
+      "path": "servers/quotes/src/lib.ts",
+      "sha256": "1fac7a5688b8d0aef91071f10e2a94f475a7d6aa26133785392e8fa74357cf87"
+    },
+    {
+      "path": "servers/quotes/src/pdf.ts",
+      "sha256": "8eeea35ff5bf7053bf980df33d229c09c2827d57327230c62b6a8d88dc38dd1e"
+    },
+    {
+      "path": "servers/quotes/src/store.ts",
+      "sha256": "1342a3c8d3a4bc20c2f6d27f01f4613bd2944c9768540fe11e973b2c45dafafe"
+    },
+    {
+      "path": "servers/quotes/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/receipts/src/_shared.js",
+      "sha256": "b12ee187522c84550f4fdaa73fa4cadc476f76905b7a7b6f489bbc39335bb7c8"
+    },
+    {
+      "path": "servers/receipts/src/index.js",
+      "sha256": "2fb278805fb92879a20c58170fce487e495fce15a54bc2ac6619eddc3ae0df46"
+    },
+    {
+      "path": "servers/receipts/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/recurring/src/currency.ts",
+      "sha256": "a4f00fbc6869df6f52c6377cd8bf662f2c2f931f05c77efb4ee98b0e26526509"
+    },
+    {
+      "path": "servers/recurring/src/index.ts",
+      "sha256": "5b1e0bb3479eb5bb75a23c179451f2b68e54dfdd329494fe767be34acc208837"
+    },
+    {
+      "path": "servers/recurring/src/period.ts",
+      "sha256": "b173af3038cad02d467693761e4dda4ef14a3574039bc27a302cca89f0d103a2"
+    },
+    {
+      "path": "servers/recurring/src/store.ts",
+      "sha256": "4d411ce743bf1f80891d295d59930f72784e5b7c5991997dc4326679ca8bea6f"
+    },
+    {
+      "path": "servers/recurring/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/resume/src/index.ts",
+      "sha256": "1ba602fb73019e4b70d14e27968df10e74a5b7ca542f5e9db1c3c2e478e1bba5"
+    },
+    {
+      "path": "servers/resume/src/letter.ts",
+      "sha256": "dfe8727bcb4e2e47ffad8ccf72ded745dfa72ddad26fcdc96869dbf1bef31028"
+    },
+    {
+      "path": "servers/resume/src/profile.ts",
+      "sha256": "fe733942ea4fb3eb03003e2bcd7ff7be35f69b60234675c737c63d88cb9026be"
+    },
+    {
+      "path": "servers/resume/src/read.ts",
+      "sha256": "e38e0bb0d82b548582d7e5df3aca99c1884f00ab885555f45e08bf7d12096f70"
+    },
+    {
+      "path": "servers/resume/src/render.ts",
+      "sha256": "193ede14140c8039b20c489dbccf1c0c07fc86145090e38ce0c04b16aead2fa0"
+    },
+    {
+      "path": "servers/resume/src/tailor.ts",
+      "sha256": "d2824ec59296a03bc031c6ddca0b174495bb61e9e959636009ddfce0a1cba27a"
+    },
+    {
+      "path": "servers/resume/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/service-agreement/src/agreement.ts",
+      "sha256": "3dbc284c796f2a2137827ad6df9a093c743084a36f78a4fe767aace9068a0ebf"
+    },
+    {
+      "path": "servers/service-agreement/src/index.ts",
+      "sha256": "7f970eb3e1d504f420e7f221f8b3c42d70f8597e5b14019ca03e70daf66855f9"
+    },
+    {
+      "path": "servers/service-agreement/src/store.ts",
+      "sha256": "5a52e35eee0dc5f05ddac3214f38ca933eef01e63f2f0f5f5d6205ae3a3f9996"
+    },
+    {
+      "path": "servers/service-agreement/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/spreadsheet/src/csv.ts",
+      "sha256": "19b2dc29d428b41974ecf57c090f961dd75743a37a15ffbe75c213981f2c22a3"
+    },
+    {
+      "path": "servers/spreadsheet/src/expr.ts",
+      "sha256": "85f6a9abe700ab6a3056b4d1629c266be6948edf65d3613112ab3d2251209d16"
+    },
+    {
+      "path": "servers/spreadsheet/src/index.ts",
+      "sha256": "210918230b9e61aebd156c3d8f1c0b3924b196f84554c8d989638a8bb17eefb7"
+    },
+    {
+      "path": "servers/spreadsheet/src/lib.ts",
+      "sha256": "36e1439bb53610139ae92b793c2ef5579dd26b4879cb9096a711095c658f543a"
+    },
+    {
+      "path": "servers/spreadsheet/src/num.ts",
+      "sha256": "cfd8e0f6cb310624261cd427788793c7ffa480b86fecc318eb0226fe645f2b36"
+    },
+    {
+      "path": "servers/spreadsheet/src/sheet.ts",
+      "sha256": "88c020bc93bf48e48dc983bb7cbe46dc882a1629000c364575098a4b27183a66"
+    },
+    {
+      "path": "servers/spreadsheet/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/statement-of-account/src/index.ts",
+      "sha256": "807dabef1934f868a32bec0560f8894c0edb35038bb3327699508a13ff5ae175"
+    },
+    {
+      "path": "servers/statement-of-account/src/lib.ts",
+      "sha256": "f8419e5a6808cff203e8eb7a0013ffc06699ef7c0b45083826dcc1c3a371a859"
+    },
+    {
+      "path": "servers/statement-of-account/src/sources.ts",
+      "sha256": "a1c19f83929ea8522fcb8976d898a61df668707f07285eac045c3276aa4306d9"
+    },
+    {
+      "path": "servers/statement-of-account/src/statement.ts",
+      "sha256": "21b6174317b3957adea79bd4e8ef223f3a0071b5728bbae5dcf1cfcf35cfe627"
+    },
+    {
+      "path": "servers/statement-of-account/src/store.ts",
+      "sha256": "298c94afaa01b08be8546897d32916d291bd4756bbbb6c6b3df5c2dab60abf2c"
+    },
+    {
+      "path": "servers/statement-of-account/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/stripe-billing/src/_shared.js",
+      "sha256": "b12ee187522c84550f4fdaa73fa4cadc476f76905b7a7b6f489bbc39335bb7c8"
+    },
+    {
+      "path": "servers/stripe-billing/src/index.js",
+      "sha256": "31370cfdf9d85a3e79fb3908458847b435aeece34c1c93bb6d8bbdefcf51e9e8"
+    },
+    {
+      "path": "servers/stripe-billing/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/supplier-list/src/index.ts",
+      "sha256": "ebc41d0dda2f64979c0375e0fcfe374afc339f502f1062f683dbb3c98789a2a5"
+    },
+    {
+      "path": "servers/supplier-list/src/store.ts",
+      "sha256": "dea0a88e2549250f380e7ccfa7621bde19e49125b96303954b73cd8378cfc659"
+    },
+    {
+      "path": "servers/supplier-list/src/supplier.ts",
+      "sha256": "c3d6757f5809f6ecce87477aa06828c25270935c13cf1f02f23d041e0fbd857e"
+    },
+    {
+      "path": "servers/supplier-list/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/tax-calc/src/_shared.js",
+      "sha256": "b12ee187522c84550f4fdaa73fa4cadc476f76905b7a7b6f489bbc39335bb7c8"
+    },
+    {
+      "path": "servers/tax-calc/src/index.js",
+      "sha256": "8b434deaeffabba803cd53ef4b5ffb9d98b057d28d4dbd61581cac6fec5ede65"
+    },
+    {
+      "path": "servers/tax-calc/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/three-way-match/src/core.ts",
+      "sha256": "b3a5064bfa5a79f36c852a7056fb27d3f630bc9a2b34f63d8f98c4a63edffcfb"
+    },
+    {
+      "path": "servers/three-way-match/src/index.ts",
+      "sha256": "ad59153ef82c4fb538dbcbc3fa69b7bc17502e420d1c455ed3a71c40cbd46011"
+    },
+    {
+      "path": "servers/three-way-match/src/output.ts",
+      "sha256": "3847e0d3ccb75bc73cda76a14243a4b947dbf80b7c608718c0434cdab22b4413"
+    },
+    {
+      "path": "servers/three-way-match/src/store.ts",
+      "sha256": "822a3d814d8ccd0e24b99db28e1cbcb9116e1f49aebe72123e3c8ba83e476828"
+    },
+    {
+      "path": "servers/three-way-match/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/time-tracker/src/day.ts",
+      "sha256": "8549abf4d2a935cbcd5d1f6ed35a5f8b5a0d7207834ae5687e8c73a18e0646d1"
+    },
+    {
+      "path": "servers/time-tracker/src/index.ts",
+      "sha256": "f534cb6a71f02e415cd0f3dfd51419634b8ca1be28ef48eba303e64aafd34ff8"
+    },
+    {
+      "path": "servers/time-tracker/src/jsonstore.ts",
+      "sha256": "b54359191dbf25c732aad220a275e0c8f6314a81f8322dc3be61feb65c97052d"
+    },
+    {
+      "path": "servers/time-tracker/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/timezone/src/index.ts",
+      "sha256": "8585e506564ee7d279063b299b132c811389864641e3f16a09dc97b4f801c397"
+    },
+    {
+      "path": "servers/timezone/src/jsonstore.ts",
+      "sha256": "2b796021575aacfca1e140c0410471f9149a11337c73a9af4886627c3717869b"
+    },
+    {
+      "path": "servers/timezone/src/lib.ts",
+      "sha256": "146d2b09bfbc4b5c9496f52c444caa7513bd308c42dbb86b62827b421a3c54ee"
+    },
+    {
+      "path": "servers/timezone/src/tz.ts",
+      "sha256": "a4c20666f8c9035a79ca26bccb79e278e5418a37117b15fea640c64413893bb8"
+    },
+    {
+      "path": "servers/timezone/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/timezone/src/zones.ts",
+      "sha256": "27d0ef221549aa58a73ff373e6d6acbed571101432e16fcea5672b7e7950cf7b"
+    },
+    {
+      "path": "servers/work-order/src/index.ts",
+      "sha256": "b01896b03e6b569b181b404ec49231ecfdc8d55ee1405c1e241546e103348c15"
+    },
+    {
+      "path": "servers/work-order/src/lib.ts",
+      "sha256": "2cd10da873cadc68b39d4ed53536bda6fab3e8424d18658c5d16f7697c977caa"
+    },
+    {
+      "path": "servers/work-order/src/order.ts",
+      "sha256": "1f9964cdf529fba268fe6d0af3ca9cd3ecb475ce614add551ea918bd0825d42c"
+    },
+    {
+      "path": "servers/work-order/src/store.ts",
+      "sha256": "7b057935ef21105cd0feff65a2fcc41f4445cd719c7ddc597995a81de4eb8b64"
+    },
+    {
+      "path": "servers/work-order/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/zip/src/index.ts",
+      "sha256": "1ef3a057b30e13cf83ab5b6db17ce9ad07f709d67ee20fe7c88071d84e05e645"
+    },
+    {
+      "path": "servers/zip/src/lib.ts",
+      "sha256": "da63578d7dcb85f8d454c54d2d85b9687bda38e6853ef5ba638a21373df70ea4"
+    },
+    {
+      "path": "servers/zip/src/paths.ts",
+      "sha256": "e72f86e63787d526a30fe05afdb65afb8285c2ffcdd0c5db9ff5847e3a493e88"
+    },
+    {
+      "path": "servers/zip/src/store.ts",
+      "sha256": "ff75988c90724bf6424236cdc1af75655128867f30d9f8b785dd869eacabd1dd"
+    },
+    {
+      "path": "servers/zip/src/version.ts",
+      "sha256": "362e2413b3202472612704fb158f5a867555c4b255882d4688cdea219e67ea6a"
+    },
+    {
+      "path": "servers/zip/src/zipfile.ts",
+      "sha256": "0fe54935438b23d8d7c722ee01572742c9b082c4fd2fb74745777ca434bdfecc"
+    }
+  ],
+  "occurrences": [
+    {
+      "path": "servers/amortization/src/index.ts",
+      "line": 56,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/amortization/src/index.ts",
+      "line": 199,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_LOANS} loans and ${list.length} are already in the register. ` + `Every schedule stays free and unlimited. Nothing was written. ` + gate.upgradeText(\"an unlimited loan registe"
+    },
+    {
+      "path": "servers/asset-register/src/index.ts",
+      "line": 91,
+      "enclosing_function": "capRefusal",
+      "statement_excerpt": "return `the free tier holds ${FREE_ASSETS} assets in the register and there are already ${count}. ` + `asset_schedule stays free and unlimited, so a schedule can still be produced for anything already in the register; on"
+    },
+    {
+      "path": "servers/asset-register/src/index.ts",
+      "line": 378,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"the depreciation journal\", \"asset_journal\"));"
+    },
+    {
+      "path": "servers/asset-register/src/index.ts",
+      "line": 579,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"the register report\", \"asset_report\"));"
+    },
+    {
+      "path": "servers/backlink-checker/src/index.ts",
+      "line": 155,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(`auditing more than ${FREE_URL_LIMIT} URLs per call`, \"link_audit\"));"
+    },
+    {
+      "path": "servers/bank-statement/src/index.ts",
+      "line": 106,
+      "enclosing_function": "windowNote",
+      "statement_excerpt": "return { from: cutoff, note: `Free tier reads the last ${FREE_WINDOW_MONTHS} months only, so this covers ${cutoff} onwards${from ? ` instead of ${from}` : \"\"}. ` + gate.upgradeText(\"full statement history\"), };"
+    },
+    {
+      "path": "servers/bank-statement/src/index.ts",
+      "line": 264,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return gated( `This would be account number ${known.length + 1} (${known.join(\", \")} already exist). ` + `The free tier tracks ${FREE_ACCOUNTS} accounts. Nothing was imported; import into one of those, or upgrade.\\n\\n` +"
+    },
+    {
+      "path": "servers/bank-statement/src/index.ts",
+      "line": 414,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return gated(`That is ${a.rules.length} rules; the free tier stores ${FREE_RULES}. Nothing was changed.\\n\\n` + gate.upgradeText(\"unlimited category rules\", \"category_rules\"));"
+    },
+    {
+      "path": "servers/bank-statement/src/index.ts",
+      "line": 531,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": ""
+    },
+    {
+      "path": "servers/bank-statement/src/index.ts",
+      "line": 694,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "const freeNote = pro ? undefined : `Free tier: the last ${FREE_RECURRING_MONTHS} months and up to ${FREE_RECURRING_CHARGES} recurring charges` + `${askedMonths > FREE_RECURRING_MONTHS ? ` (you asked for ${askedMonths} mo"
+    },
+    {
+      "path": "servers/bank-statement/src/index.ts",
+      "line": 730,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return gated(`Export is a Pro feature.\\n\\n${gate.upgradeText(\"statement_export\", \"statement_export\")}`);"
+    },
+    {
+      "path": "servers/barcode/src/index.ts",
+      "line": 72,
+      "enclosing_function": "reserve",
+      "statement_excerpt": "return { error: `The free tier generates ${FREE_PER_MONTH} codes per calendar month and ${used} have been generated in ${monthOf()}` + `${n > 1 ? `, so a batch of ${n} does not fit` : \"\"}. The count resets on the 1st. Pr"
+    },
+    {
+      "path": "servers/barcode/src/index.ts",
+      "line": 118,
+      "enclosing_function": "tierCheckFormat",
+      "statement_excerpt": "return `PNG output is a Pro feature; the free tier writes SVG, which scans and prints at any size because it has no resolution. ` + `Ask for format: \"svg\" and this is free.\\n\\n${gate.upgradeText(feature, toolName)}`;"
+    },
+    {
+      "path": "servers/barcode/src/index.ts",
+      "line": 480,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return limit( `barcode_batch is a Pro feature. The free tier draws ${FREE_BATCH} code per call with barcode_create or qr_create, ` + `up to ${FREE_PER_MONTH} a month.\\n\\n${gate.upgradeText(\"barcode_batch\", \"barcode_batch"
+    },
+    {
+      "path": "servers/bill-of-sale/src/index.ts",
+      "line": 183,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_DRAFTS} drafts and there are already ${drafts} (${list.filter((s) => s.status === \"draft\").map((s) => s.id).join(\", \")}). ` + `sale_delete frees a slot and sale_finalize turns"
+    },
+    {
+      "path": "servers/bill-of-sale/src/index.ts",
+      "line": 357,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier finalizes ${FREE_FINALIZED} documents and ${finals} are already finalized (${list.filter((x) => x.status === \"final\").map((x) => x.id).join(\", \")}). ` + `Rendering a draft stays free, so t"
+    },
+    {
+      "path": "servers/billing-docs/src/index.ts",
+      "line": 350,
+      "enclosing_function": "capRefusal",
+      "statement_excerpt": "return `the free tier issues ${FREE_DOCS_PER_MONTH} documents a month (credit notes and purchase orders together) ` + `and ${month} already has ${docsInMonth(month)}. Nothing was stored. ` + gate.upgradeText(\"unlimited c"
+    },
+    {
+      "path": "servers/billing-docs/src/index.ts",
+      "line": 716,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"credit note PDF\", \"credit_note_pdf\"));"
+    },
+    {
+      "path": "servers/billing-docs/src/index.ts",
+      "line": 979,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"purchase order PDF\", \"purchase_order_pdf\"));"
+    },
+    {
+      "path": "servers/billing-docs/src/index.ts",
+      "line": 1135,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"the credited and open-orders report\", \"billing_docs_report\"));"
+    },
+    {
+      "path": "servers/calendar/src/index.ts",
+      "line": 63,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "const gated = (feature: string, toolName?: string) => err(gate.upgradeText(feature, toolName));"
+    },
+    {
+      "path": "servers/calendar/src/index.ts",
+      "line": 177,
+      "enclosing_function": "clampWindow",
+      "statement_excerpt": "return { w: windowOf(w.fromDate, cappedTo, zone), note: `Free tier checks ${FREE_MAX_WINDOW_DAYS} days at a time, so this covers ${w.fromDate} to ${cappedTo} of the ${w.fromDate} to ${w.toDate} you asked for. ${gate.upgr"
+    },
+    {
+      "path": "servers/calendar/src/index.ts",
+      "line": 360,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return err( gate.upgradeText(\"importing a calendar from a URL\", \"ics_import\") + `\\n\\nFree alternative, same result: open the feed in a browser or download the .ics, then paste the ` + `file contents - ics_import {name: \""
+    },
+    {
+      "path": "servers/cash-book/src/index.ts",
+      "line": 140,
+      "enclosing_function": "capRefusal",
+      "statement_excerpt": "return `the free tier builds ${FREE_PERIODS_PER_MONTH} periods a calendar month and ${count} have already been built in ${month}` + `${names ? ` (${names})` : \"\"}. ` + `trial_balance stays free and unlimited, and any per"
+    },
+    {
+      "path": "servers/cash-book/src/index.ts",
+      "line": 207,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${note ? note + \" \" : \"\"}${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/catalogue/src/index.ts",
+      "line": 57,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/catalogue/src/index.ts",
+      "line": 68,
+      "enclosing_function": "checkTier",
+      "statement_excerpt": "throw new Error( `tier \"${tier}\" is a second price for the same product, and price tiers are Pro. The free tier keeps one price list, \"${DEFAULT_TIER}\". ` + `Nothing was written. ${gate.upgradeText(\"price tiers\", toolNam"
+    },
+    {
+      "path": "servers/catalogue/src/index.ts",
+      "line": 263,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_SKUS} SKUs and the catalogue already has ${list.length}. ` + `Deleting one that has never priced a line is free on every tier (sku_delete). Nothing was written. ` + gate.upgra"
+    },
+    {
+      "path": "servers/change-order/src/index.ts",
+      "line": 52,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/change-order/src/index.ts",
+      "line": 249,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_OPEN_ORDERS} open change orders and ${open} are open (${list.filter(isOpen).map((o) => `${o.id} ${o.status}`).join(\", \")}). ` + `Closing one frees its slot: change_order_statu"
+    },
+    {
+      "path": "servers/checklist/src/index.ts",
+      "line": 65,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/checklist/src/index.ts",
+      "line": 241,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error(`the free tier holds ${FREE_TEMPLATES} checklists and you have ${list.length}. Runs are never capped. ${gate.upgradeText(\"More than 3 checklists\", \"checklist_create\")}`);"
+    },
+    {
+      "path": "servers/checklist/src/index.ts",
+      "line": 583,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return json({ run: r.id, report: text, written: false, business_profile_missing: businessMissing(), ...(gate.isPro() ? {} : { pro_note: `Pass out_path to write this to a .txt file. ${gate.upgradeText(\"Writing the run rep"
+    },
+    {
+      "path": "servers/clauses/src/index.ts",
+      "line": 218,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(`The free tier holds ${FREE_OWN_CLAUSES} of your own clauses on top of the 25 starter clauses, and you have ${own}. ` + gate.upgradeText(\"an unlimited clause library\", \"clause_add\"));"
+    },
+    {
+      "path": "servers/clauses/src/index.ts",
+      "line": 300,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return json({ updated: summary(c), versions_kept: c.history.length, note: pro ? undefined : \"the free tier does not keep clause versions; \" + gate.upgradeText(\"clause version history\", \"clause_update\").replace(/^\\s+/, \"\""
+    },
+    {
+      "path": "servers/clauses/src/index.ts",
+      "line": 362,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return json({ query: a.query, count: hits.length, jurisdiction: a.jurisdiction, free_tier_note: tagsGated ? `Free tier filters by query, category and jurisdiction; the tag filter (${a.tags!.join(\", \")}) was not applied. "
+    },
+    {
+      "path": "servers/clauses/src/index.ts",
+      "line": 384,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(\"JSON import and export are Pro features. Markdown import works in the free tier. \" + gate.upgradeText(\"JSON import and export\", \"clause_import\"));"
+    },
+    {
+      "path": "servers/clauses/src/index.ts",
+      "line": 419,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return json({ file, format: isJson ? \"json\" : \"markdown\", added, replaced, skipped, blocked_by_free_cap: capped, total: db.clauses.length, note: capped ? `${capped} clauses were not imported: ` + gate.upgradeText(\"an unl"
+    },
+    {
+      "path": "servers/clauses/src/index.ts",
+      "line": 436,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(\"JSON export is a Pro feature. Markdown export works in the free tier. \" + gate.upgradeText(\"JSON import and export\", \"clause_export\"));"
+    },
+    {
+      "path": "servers/clauses/src/index.ts",
+      "line": 509,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(`The free tier assembles up to ${FREE_ASSEMBLE_CLAUSES} clauses per document and this selection has ${picked.length}. ` + gate.upgradeText(\"unlimited clauses per document\", \"contract_assemble\"));"
+    },
+    {
+      "path": "servers/credit-note/src/index.ts",
+      "line": 255,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier finalizes ${FREE_FINALS} credit notes and ${finals} are already final. ` + `Drafts, edits, listing, rendering and the totals stay free, so the books can still be read. Nothing was written."
+    },
+    {
+      "path": "servers/currency/src/index.ts",
+      "line": 170,
+      "enclosing_function": "ratesForDate",
+      "statement_excerpt": "const clampNote = clampedFrom ? `Free tier reads ${FREE_HISTORY_DAYS} days back, so this is the rate on ${r.date}, NOT ${clampedFrom}: that date was not read and is not what any number here describes. ` + gate.upgradeTex"
+    },
+    {
+      "path": "servers/currency/src/index.ts",
+      "line": 322,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return gated( `${toDate} is older than the ${FREE_HISTORY_DAYS} days the free tier reads (it goes back to ${cutoff}), so there is no part of that window the free tier can answer. Nothing was looked up. ` + gate.upgradeTe"
+    },
+    {
+      "path": "servers/currency/src/index.ts",
+      "line": 330,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": ""
+    },
+    {
+      "path": "servers/delivery-schedule/src/index.ts",
+      "line": 56,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/delivery-schedule/src/index.ts",
+      "line": 233,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_OPEN_SCHEDULES} open delivery schedules and ${open} are open (${list.filter((s) => !isComplete(s)).map((s) => `${s.id} ${s.reference}`).join(\", \")}). ` + `A schedule stops cou"
+    },
+    {
+      "path": "servers/deposits/src/index.ts",
+      "line": 230,
+      "enclosing_function": "capRefusal",
+      "statement_excerpt": "return `the free tier records ${FREE_DEPOSITS_PER_MONTH} deposits a month and ${month} already has ${depositsInMonth(month)}. ` + `Applying, refunding and every balance stay free, so nothing already held is stuck. Nothin"
+    },
+    {
+      "path": "servers/deposits/src/index.ts",
+      "line": 705,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"the deposit statement PDF\", \"deposit_statement_pdf\"));"
+    },
+    {
+      "path": "servers/deposits/src/index.ts",
+      "line": 768,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"the deposits report\", \"deposits_report\"));"
+    },
+    {
+      "path": "servers/docx/src/index.ts",
+      "line": 179,
+      "enclosing_function": "agreementLimit",
+      "statement_excerpt": "return `You have already created ${used} proposals or contracts in ${month}. ` + `The free tier allows ${FREE_AGREEMENTS_PER_MONTH} proposals or contracts per calendar month; ` + `doc_create, doc_from_markdown, doc_read "
+    },
+    {
+      "path": "servers/docx/src/index.ts",
+      "line": 185,
+      "enclosing_function": "brandingNote",
+      "statement_excerpt": "return gate.isPro() ? \"\" : `\\n\\nFree tier: the footer carries \"Generated with mcp-docx by theluckystrike\" and the letterhead uses ` + `the default colour with no logo. ${gate.upgradeText(\"unbranded documents with your ow"
+    },
+    {
+      "path": "servers/docx/src/index.ts",
+      "line": 234,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return await locked(() => { const prev = getBusiness(); const aliasKey = ([\"tax_rate\", \"vat_rate\", \"vat\"] as const).find((k) => typeof a[k] === \"number\"); const taxRate = a.default_tax_rate ?? (aliasKey ? (a[aliasKey] as"
+    },
+    {
+      "path": "servers/docx/src/index.ts",
+      "line": 484,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(`This template has ${found.length} placeholders. The free tier fills templates with up to ` + `${FREE_TEMPLATE_PLACEHOLDERS}.\\n\\n${gate.upgradeText(\"templates of any size\", \"doc_fill_template\")}`);"
+    },
+    {
+      "path": "servers/dunning-letters/src/index.ts",
+      "line": 140,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier chases ${FREE_ACTIVE_UNPAID} unpaid invoices at once and ${active.length} are open (${active.map((i) => `${i.id} ${i.client} ${i.reference}`).join(\", \")}). ` + `Recording a payment that cl"
+    },
+    {
+      "path": "servers/duplicate-invoice-check/src/index.ts",
+      "line": 23,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return saved ? json({ report: boundedReport(report, saved.id), saved: true, id: saved.id, created_at: saved.created_at }) : json({ report: boundedReport(report), saved: false, save_error: 'free_saved_report_cap', upgrade"
+    },
+    {
+      "path": "servers/expense-tracker/src/index.ts",
+      "line": 92,
+      "enclosing_function": "windowNote",
+      "statement_excerpt": "return { // `from` still clamps the SELECT so no gated row is read; the reported window is null, // because printing `from: <cutoff>` next to `to: <an earlier date>` is a range that // cannot exist, which is how this def"
+    },
+    {
+      "path": "servers/expense-tracker/src/index.ts",
+      "line": 98,
+      "enclosing_function": "windowNote",
+      "statement_excerpt": "return { from: cutoff, note: `Free tier reads the last ${FREE_WINDOW_DAYS} days only, so this covers ${cutoff} to ${to ?? \"today\"}${from ? ` instead of ${from} to ${to ?? \"today\"}` : \"\"}. ` + gate.upgradeText(\"full expen"
+    },
+    {
+      "path": "servers/expense-tracker/src/index.ts",
+      "line": 227,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return gated(`This would be project number ${known.length + 1} (${known.join(\", \")} already exist). ` + `The free tier tracks ${FREE_PROJECTS} projects. The expense was not saved; add it without a project, or reuse one o"
+    },
+    {
+      "path": "servers/expense-tracker/src/index.ts",
+      "line": 429,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return gated(`That is ${a.rules.length} rules; the free tier stores ${FREE_RULES}. Nothing was changed.\\n\\n` + gate.upgradeText(\"unlimited category rules\", \"category_rules\"));"
+    },
+    {
+      "path": "servers/expense-tracker/src/index.ts",
+      "line": 606,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return gated(`This would be project number ${known.length + 1}. The free tier tracks ${FREE_PROJECTS} projects. Nothing was saved.\\n\\n` + gate.upgradeText(\"unlimited projects\", \"mileage_add\"));"
+    },
+    {
+      "path": "servers/expense-tracker/src/index.ts",
+      "line": 682,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return gated(`xlsx export is a Pro format. Nothing was written. Export as csv instead, which the free tier supports up to ${FREE_EXPORT_ROWS} rows.\\n\\n` + gate.upgradeText(\"xlsx export\", \"expense_export\"));"
+    },
+    {
+      "path": "servers/expense-tracker/src/index.ts",
+      "line": 704,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return gated(`That range holds ${rows.length} expenses and the free tier exports ${FREE_EXPORT_ROWS} rows. No file was written. Narrow the range or filter by project or category to get under ${FREE_EXPORT_ROWS}.\\n\\n` + g"
+    },
+    {
+      "path": "servers/expense-tracker/src/index.ts",
+      "line": 778,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return gated(`There are ${rows.length} billable expenses to rebill and the free tier converts ${FREE_REBILL_ITEMS} at a time. Nothing was changed. Narrow the date range.\\n\\n` + gate.upgradeText(\"unlimited rebill items\", "
+    },
+    {
+      "path": "servers/goods-receipt/src/index.ts",
+      "line": 29,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/image/src/index.ts",
+      "line": 110,
+      "enclosing_function": "proSizeCheck",
+      "statement_excerpt": "return `The output would be ${w}x${h} (${megapixels(w, h)} MP), from a ${src.width}x${src.height} source. ` + `The free tier writes images up to ${FREE_MAX_PIXELS / 1_000_000} MP; Pro has no size limit. ` + `Resize it sm"
+    },
+    {
+      "path": "servers/image/src/index.ts",
+      "line": 142,
+      "enclosing_function": "proBatchCheck",
+      "statement_excerpt": "return `${n} files were given. The free tier processes up to ${FREE_MAX_BATCH} files per call; ` + `Pro has no batch limit. Nothing was written.\\n\\n${gate.upgradeText(feature, toolName)}`;"
+    },
+    {
+      "path": "servers/image/src/index.ts",
+      "line": 512,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return freeLimit( \"Custom watermark text is a Pro feature. On the free tier this tool draws the business name from the \" + `shared profile: call it without \"text\". Nothing was written.\\n\\n${gate.upgradeText(\"a custom wat"
+    },
+    {
+      "path": "servers/image/src/index.ts",
+      "line": 737,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return ok(JSON.stringify({ file: src.path, sampled: `${small.width}x${small.height}`, opaque_pixels_sampled: opaque, distinct_buckets: counts.size, colors: top, ...(capped ? { free_tier_color_cap: FREE_MAX_COLORS, upgrad"
+    },
+    {
+      "path": "servers/invoice/src/index.ts",
+      "line": 204,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return await locked(() => { const prev = getBusiness(); // D-R7: \"tax rate\" is what users and models say; default_tax_rate is what the // field is called. Accept the aliases, and never drop a key in silence. const aliasK"
+    },
+    {
+      "path": "servers/invoice/src/index.ts",
+      "line": 530,
+      "enclosing_function": "monthLimitBlocked",
+      "statement_excerpt": "return `You have already created ${used} invoices in ${issueDate.slice(0, 7)}. ` + `The free tier allows ${FREE_INVOICES_PER_MONTH} invoices per calendar month.\\n\\n` + gate.upgradeText(\"unlimited invoices\");"
+    },
+    {
+      "path": "servers/invoice/src/index.ts",
+      "line": 859,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": ""
+    },
+    {
+      "path": "servers/job-card/src/index.ts",
+      "line": 174,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_ACTIVE_CARDS} active job cards and there are already ${active.length} (${active.map((c) => `${c.id} ${c.client}`).join(\", \")}). ` + `Archiving a finished job frees its slot, a"
+    },
+    {
+      "path": "servers/kanban/src/index.ts",
+      "line": 70,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "const gated = (feature: string, toolName?: string) => err(gate.upgradeText(feature, toolName));"
+    },
+    {
+      "path": "servers/kanban/src/index.ts",
+      "line": 309,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return err(`The free tier keeps ${FREE_PROJECTS} project boards (${knownProjects(db).sort().join(\", \")}). ` + `\"${r.project}\" would be the ${Object.keys(db.boards).length + 1}th.\\n` + gate.upgradeText(\"unlimited projects"
+    },
+    {
+      "path": "servers/kanban/src/index.ts",
+      "line": 331,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return err(`The free tier holds ${FREE_OPEN_TASKS} open tasks and you have ${openTaskCount(db)}. Finish or delete some, or go Pro.\\n` + gate.upgradeText(\"unlimited tasks\", \"task_add\"));"
+    },
+    {
+      "path": "servers/leave/src/index.ts",
+      "line": 50,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/maintenance-log/src/index.ts",
+      "line": 113,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_ASSETS} assets and there are already ${list.length} (${list.map((x) => `${x.id} ${x.name}`).join(\", \")}). ` + `Logging on the assets you have stays free; removing one frees it"
+    },
+    {
+      "path": "servers/maintenance-log/src/index.ts",
+      "line": 207,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"the maintenance due report\", \"maintenance_due\"));"
+    },
+    {
+      "path": "servers/maintenance-log/src/index.ts",
+      "line": 296,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"Markdown summaries\", \"maintenance_export\"));"
+    },
+    {
+      "path": "servers/mileage-log/src/index.ts",
+      "line": 194,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_TRIPS_PER_MONTH} trips per calendar month and ${month} already has ${n}. ` + `The cap is counted on the month of the trip date, so trips dated in another month still log. Noth"
+    },
+    {
+      "path": "servers/mileage-log/src/index.ts",
+      "line": 318,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds one ${category} rate for ${jurisdiction} and ${rateText(existing[0])} effective ${existing[0].effective_from} is already set. ` + `Setting a second effective-dated rate is the year-o"
+    },
+    {
+      "path": "servers/mileage-log/src/index.ts",
+      "line": 418,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error(gate.upgradeText(\"CSV export\", \"mileage_export\"));"
+    },
+    {
+      "path": "servers/onboarding/src/index.ts",
+      "line": 58,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/packing-list/src/index.ts",
+      "line": 64,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/packing-list/src/index.ts",
+      "line": 255,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error(`the free tier holds ${FREE_OPEN_LISTS} open packing lists and ${openCount(list)} are open. Mark one shipped or cancel it to free a slot. ${gate.upgradeText(\"More than 3 open packing lists\", \"packing_list"
+    },
+    {
+      "path": "servers/packing-list/src/index.ts",
+      "line": 556,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return json({ packing_list: p.id, slip: text, written: false, business_profile_missing: businessMissing(), ...(gate.isPro() ? {} : { pro_note: `Pass out_path to write this to a .txt file. ${gate.upgradeText(\"Writing the "
+    },
+    {
+      "path": "servers/pdf/src/index.ts",
+      "line": 261,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return freeLimit( `You asked to merge ${paths.length} files. The free tier merges up to ${FREE_MAX_MERGE_FILES} files in one call ` + `and nothing was written. Merge in batches of ${FREE_MAX_MERGE_FILES}, or unlock unlim"
+    },
+    {
+      "path": "servers/pdf/src/index.ts",
+      "line": 382,
+      "enclosing_function": "freePageText",
+      "statement_excerpt": "return `The file has ${pageCount} pages. On the free tier ${tool} works on files up to ${FREE_MAX_PAGES} pages, ` + `and nothing was written. pdf_info, pdf_count, pdf_text and merging up to 5 files stay unlimited.\\n\\n` +"
+    },
+    {
+      "path": "servers/pdf/src/index.ts",
+      "line": 492,
+      "enclosing_function": "stamp",
+      "statement_excerpt": "return freeLimit( `The free tier stamps the two presets PAID and DRAFT, and nothing was written. You asked for \"${a.text}\". ` + `Stamp PAID or DRAFT, or unlock any stamp text.\\n\\n${gate.upgradeText(\"custom stamp text\")}`"
+    },
+    {
+      "path": "servers/pdf/src/index.ts",
+      "line": 499,
+      "enclosing_function": "stamp",
+      "statement_excerpt": "return freeLimit( `A custom stamp colour is a Pro feature and nothing was written. The PAID preset is ${STAMP_PRESETS.PAID.note} ` + `and DRAFT is ${STAMP_PRESETS.DRAFT.note}; call the tool again without color to use the"
+    },
+    {
+      "path": "servers/pdf/src/index.ts",
+      "line": 599,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return freeLimit( `The business footer is a Pro feature and nothing was written. On the free tier, pdf_stamp with the PAID or ` + `DRAFT preset still works on any file.\\n\\n${gate.upgradeText(\"stamping your business name "
+    },
+    {
+      "path": "servers/pdf/src/index.ts",
+      "line": 643,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return freeLimit( `Reordering pages is a Pro feature and nothing was written. On the free tier, pdf_pages extracts pages in any ` + `order you name, which covers most of the same work on files up to ${FREE_MAX_PAGES} pag"
+    },
+    {
+      "path": "servers/per-diem/src/index.ts",
+      "line": 147,
+      "enclosing_function": "capRefusal",
+      "statement_excerpt": "return `the free tier records ${FREE_TRIPS_PER_MONTH} trips a month and ${month} already has ${tripsInMonth(month)}. ` + `perdiem_rates and perdiem_calc stay free and unlimited, so the numbers are still available; only s"
+    },
+    {
+      "path": "servers/per-diem/src/index.ts",
+      "line": 410,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"trip export\", \"trip_export\"));"
+    },
+    {
+      "path": "servers/per-diem/src/index.ts",
+      "line": 465,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"the per diem report\", \"perdiem_report\"));"
+    },
+    {
+      "path": "servers/petty-cash/src/index.ts",
+      "line": 50,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/petty-cash/src/index.ts",
+      "line": 132,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_FLOATS} float and ${list.length} is already open (${list.map((f) => `${f.id} ${f.name}`).join(\", \")}). ` + `Vouchers, reconciliation and deletion on that float stay free. Noth"
+    },
+    {
+      "path": "servers/petty-cash/src/index.ts",
+      "line": 229,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier records ${FREE_VOUCHERS_PER_MONTH} vouchers a calendar month and ${month} already has ${inMonth}. ` + `reconcile and voucher_delete stay free, so the tin can still be counted. Nothing was "
+    },
+    {
+      "path": "servers/price-tracker/src/index.ts",
+      "line": 239,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail( `The free tier tracks ${FREE_WATCH_LIMIT} items at a time and you already have ${db.watches.length}. ` + `Remove one with watch_remove, or unlock unlimited watches.\\n\\n${gate.upgradeText(\"unlimited watches\","
+    },
+    {
+      "path": "servers/price-tracker/src/index.ts",
+      "line": 263,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail( `The free tier tracks ${FREE_WATCH_LIMIT} items at a time and you already have ${fresh.watches.length}. ` + `Remove one with watch_remove, or unlock unlimited watches.\\n\\n${gate.upgradeText(\"unlimited watche"
+    },
+    {
+      "path": "servers/price-tracker/src/index.ts",
+      "line": 352,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(`Refreshing every watch in one call is a Pro feature. On free, pass an id: ${db.watches.map((w) => w.id).join(\", \")}.\\n\\n${gate.upgradeText(\"watch_refresh all\", \"watch_refresh\")}`);"
+    },
+    {
+      "path": "servers/price-tracker/src/index.ts",
+      "line": 418,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "const lines = [ `${w.label ?? w.url} (${w.id}) - ${obs.length} of ${w.observations.length} observation(s)`, s ? `min ${displayPrice(s.min, w.currency)} / max ${displayPrice(s.max, w.currency)}${w.currency ? ` ${w.currenc"
+    },
+    {
+      "path": "servers/price-tracker/src/index.ts",
+      "line": 447,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail( `The free tier tracks ${FREE_WATCH_LIMIT} items at a time and you already have ${db.watches.length}.\\n\\n${gate.upgradeText(\"unlimited watches\", \"price_add_manual\")}` );"
+    },
+    {
+      "path": "servers/purchase-requisition/src/index.ts",
+      "line": 65,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/purchase-requisition/src/index.ts",
+      "line": 241,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error(`the free tier holds ${FREE_TEMPLATES} purchase-requisitions and you have ${list.length}. Runs are never capped. ${gate.upgradeText(\"More than 3 purchase-requisitions\", \"purchase-requisition_create\")}`);"
+    },
+    {
+      "path": "servers/purchase-requisition/src/index.ts",
+      "line": 583,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return json({ run: r.id, report: text, written: false, business_profile_missing: businessMissing(), ...(gate.isPro() ? {} : { pro_note: `Pass out_path to write this to a .txt file. ${gate.upgradeText(\"Writing the run rep"
+    },
+    {
+      "path": "servers/quotes/src/index.ts",
+      "line": 412,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail( `the free tier keeps ${FREE_OPEN_QUOTES} quotes open at a time and you have ${openCount(list, day)}. ` + `Accept or decline one, or upgrade. ${gate.upgradeText(\"unlimited open quotes\", \"quote_create\")}`, );"
+    },
+    {
+      "path": "servers/quotes/src/index.ts",
+      "line": 809,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"quote PDF\", \"quote_pdf\"));"
+    },
+    {
+      "path": "servers/quotes/src/index.ts",
+      "line": 850,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": ""
+    },
+    {
+      "path": "servers/recurring/src/index.ts",
+      "line": 270,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(`You already have ${FREE_ACTIVE_SCHEDULES} active schedules. The free tier allows ${FREE_ACTIVE_SCHEDULES}; pause one with schedule_pause, or upgrade.\\n\\n${gate.upgradeText(\"unlimited schedules\", \"schedule_cr"
+    },
+    {
+      "path": "servers/recurring/src/index.ts",
+      "line": 277,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return await locked(() => { if (!isIsoDate(a.start_date)) return fail(`start_date must be a real calendar date as YYYY-MM-DD, got \"${a.start_date}\".`); if (a.end_date !== undefined && !isIsoDate(a.end_date)) return fail("
+    },
+    {
+      "path": "servers/recurring/src/index.ts",
+      "line": 383,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return await locked(() => { const list = getSchedules(); const s = findSchedule(list, a.id); if (!s) return fail(`no schedule ${a.id}. List them with schedule_list.`); if (a.start_date !== undefined && !isIsoDate(a.start"
+    },
+    {
+      "path": "servers/recurring/src/index.ts",
+      "line": 401,
+      "enclosing_function": "setStatus",
+      "statement_excerpt": "return fail(`Resuming would make ${FREE_ACTIVE_SCHEDULES + 1} active schedules; the free tier allows ${FREE_ACTIVE_SCHEDULES}.\\n\\n${gate.upgradeText(\"unlimited schedules\")}`);"
+    },
+    {
+      "path": "servers/recurring/src/index.ts",
+      "line": 527,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": ""
+    },
+    {
+      "path": "servers/recurring/src/index.ts",
+      "line": 698,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(`schedule_history is a Pro feature.\\n\\n${gate.upgradeText(\"the schedule audit log\", \"schedule_history\")}`);"
+    },
+    {
+      "path": "servers/recurring/src/index.ts",
+      "line": 729,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": ""
+    },
+    {
+      "path": "servers/resume/src/index.ts",
+      "line": 127,
+      "enclosing_function": "proOnly",
+      "statement_excerpt": "return `${what} is a Pro feature.\\n\\n${gate.upgradeText(what)}`;"
+    },
+    {
+      "path": "servers/resume/src/index.ts",
+      "line": 282,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "const note = a.accent_color && !gate.isPro() ? `\\n\\nThe accent colour is stored but the free tier prints the default colour. ${gate.upgradeText(\"letterhead colours\", \"profile_set\")}` : \"\";"
+    },
+    {
+      "path": "servers/resume/src/index.ts",
+      "line": 348,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return json({ path, style, estimated_pages: r.trim.estimatedPages, max_pages: a.max_pages, word_budget: r.trim.budget, words_used: r.trim.totalWords, bullets_kept: r.trim.kept.length, bullets_dropped: r.trim.dropped.map("
+    },
+    {
+      "path": "servers/resume/src/index.ts",
+      "line": 442,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(`You have already written ${used} cover letters in ${month}. The free tier allows ` + `${FREE_LETTERS_PER_MONTH} per calendar month; resume_create, resume_to_markdown and resume_to_html stay unlimited.\\n\\n` +"
+    },
+    {
+      "path": "servers/resume/src/index.ts",
+      "line": 501,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(`the job description is ${a.job_description.length} characters; the free tier reads up to ${FREE_JD_CHARS}. ` + `Paste the requirements section only, or go Pro for the whole posting.\\n\\n${gate.upgradeText(\"un"
+    },
+    {
+      "path": "servers/service-agreement/src/index.ts",
+      "line": 126,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error(`this agreement names ${clauseIds.length} library clause(s) (${clauseIds.join(\", \")}), and the clause library is a Pro feature. The core template -- parties, services, deliverables, payment, term, termina"
+    },
+    {
+      "path": "servers/service-agreement/src/index.ts",
+      "line": 136,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_ACTIVE_AGREEMENTS} active agreements and there are already ${active.length} (${active.map((x) => `${x.id} ${x.client}`).join(\", \")}). ` + `Expiring a finished engagement frees"
+    },
+    {
+      "path": "servers/service-agreement/src/index.ts",
+      "line": 285,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return json({ pro: false, clauses: CLAUSES.map((c) => ({ id: c.id, title: c.title, summary: c.summary })), note: \"Titles and summaries are free; the full clause texts, filled with your agreement's variables, are a Pro fe"
+    },
+    {
+      "path": "servers/service-agreement/src/index.ts",
+      "line": 320,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error(`HTML rendering is a Pro feature; Markdown rendering is fully free. Nothing was written. ` + gate.upgradeText(\"HTML rendering\", \"agreement_render\"));"
+    },
+    {
+      "path": "servers/spreadsheet/src/index.ts",
+      "line": 106,
+      "enclosing_function": "open",
+      "statement_excerpt": ""
+    },
+    {
+      "path": "servers/spreadsheet/src/index.ts",
+      "line": 108,
+      "enclosing_function": "open",
+      "statement_excerpt": ""
+    },
+    {
+      "path": "servers/spreadsheet/src/index.ts",
+      "line": 127,
+      "enclosing_function": "writeCapRefusal",
+      "statement_excerpt": "return [ `Nothing was written. ${what} would be ${rowCount} rows and the free tier writes at most ${FREE_WRITE_ROWS} rows per file.`, `No file was created, so you do not have a truncated file that looks complete. The sou"
+    },
+    {
+      "path": "servers/spreadsheet/src/index.ts",
+      "line": 527,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": ""
+    },
+    {
+      "path": "servers/statement-of-account/src/index.ts",
+      "line": 131,
+      "enclosing_function": "capRefusal",
+      "statement_excerpt": "return `the free tier builds ${FREE_STATEMENTS_PER_MONTH} statements a calendar month and ${count} have already been built in ${month}. ` + `statement_aging stays free and unlimited, and any statement already in the regi"
+    },
+    {
+      "path": "servers/statement-of-account/src/index.ts",
+      "line": 359,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"the statement of account PDF\", \"statement_pdf\"));"
+    },
+    {
+      "path": "servers/statement-of-account/src/index.ts",
+      "line": 484,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"the level 3 final demand\", \"dunning_text\"));"
+    },
+    {
+      "path": "servers/statement-of-account/src/index.ts",
+      "line": 551,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return fail(gate.upgradeText(\"the receivables report\", \"statements_report\"));"
+    },
+    {
+      "path": "servers/supplier-list/src/index.ts",
+      "line": 134,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_SUPPLIERS} suppliers and there are already ${list.length} (${list.map((s) => `${s.id} ${s.name}`).join(\", \")}). ` + `Removing one you no longer use frees its slot, and everyth"
+    },
+    {
+      "path": "servers/supplier-list/src/index.ts",
+      "line": 304,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error(gate.upgradeText(\"due-review reports\", \"supplier_due_review\"));"
+    },
+    {
+      "path": "servers/supplier-list/src/index.ts",
+      "line": 341,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error(gate.upgradeText(\"Markdown export\", \"supplier_export\"));"
+    },
+    {
+      "path": "servers/three-way-match/src/index.ts",
+      "line": 28,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return saved ? json({ report: boundedReport(report, saved.id), saved: true, id: saved.id, created_at: saved.created_at }) : json({ report: boundedReport(report), saved: false, save_error: 'free_saved_report_cap', upgrade"
+    },
+    {
+      "path": "servers/time-tracker/src/index.ts",
+      "line": 316,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "const gated = (feature: string, toolName?: string) => err(gate.upgradeText(feature, toolName));"
+    },
+    {
+      "path": "servers/time-tracker/src/index.ts",
+      "line": 394,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "const FREE_WINDOW_NOTE = `\\n\\nNote: the free tier shows the last ${FREE_WINDOW_DAYS} days. ` + gate.upgradeText(\"full history\");"
+    },
+    {
+      "path": "servers/time-tracker/src/index.ts",
+      "line": 399,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "const UNREAD_WINDOW_NOTE = `\\n\\nNothing was read: every day in the window you asked for is older than the free tier's last ${FREE_WINDOW_DAYS} days, so the period was never opened. An empty answer here means unread, not "
+    },
+    {
+      "path": "servers/time-tracker/src/index.ts",
+      "line": 546,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return err(gate.upgradeText(\"more than 100 stored entries (free tier)\", \"entry_add\"));"
+    },
+    {
+      "path": "servers/time-tracker/src/index.ts",
+      "line": 618,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return err(gate.upgradeText(\"more than 100 stored entries (free tier)\", \"entry_log\"));"
+    },
+    {
+      "path": "servers/timezone/src/index.ts",
+      "line": 85,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "const gated = (feature: string, toolName?: string) => err(gate.upgradeText(feature, toolName));"
+    },
+    {
+      "path": "servers/timezone/src/index.ts",
+      "line": 344,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "const capped = days !== asked ? `\\n\\nSearched ${days} of the ${asked} days you asked for: the free tier searches up to ${FREE_MAX_DAYS} days ahead. ${gate.upgradeText(`a ${asked}-day search`, \"find_meeting_slots\")}` : \"\""
+    },
+    {
+      "path": "servers/timezone/src/index.ts",
+      "line": 414,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "const note = pro ? \"\" : (capped || `\\n\\n${gate.upgradeText(\"more participants, longer searches and recurring slots\", \"find_meeting_slots\")}`);"
+    },
+    {
+      "path": "servers/work-order/src/index.ts",
+      "line": 54,
+      "enclosing_function": "requirePro",
+      "statement_excerpt": "throw new Error(`${feature} is Pro. Nothing was written. ${gate.upgradeText(feature, toolName)}`);"
+    },
+    {
+      "path": "servers/work-order/src/index.ts",
+      "line": 240,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "throw new Error( `the free tier holds ${FREE_OPEN_ORDERS} open work orders and ${open} are open (${list.filter(isOpen).map((o) => `${o.id} ${o.status}`).join(\", \")}). ` + `Closing a job frees its slot: work_order_status "
+    },
+    {
+      "path": "servers/zip/src/index.ts",
+      "line": 92,
+      "enclosing_function": "reserveSlot",
+      "statement_excerpt": "return { refused: `The free tier creates ${FREE_PER_MONTH} archives per calendar month and ${used} have been created in ${month}. ` + `Nothing was written. The next free archive is available on the 1st.\\n\\n` + gate.upgra"
+    },
+    {
+      "path": "servers/zip/src/index.ts",
+      "line": 281,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return freeLimit( `That is ${files.length} files. The free tier writes archives of up to ${FREE_MAX_ENTRIES} entries and nothing was written. ` + `Narrow it with patterns or exclude, or pack it in parts.\\n\\n${gate.upgrad"
+    },
+    {
+      "path": "servers/zip/src/index.ts",
+      "line": 300,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return freeLimit( `The archive came to ${humanBytes(built.bytes.length)}. The free tier writes archives up to ${humanBytes(FREE_MAX_ARCHIVE_BYTES)} ` + `and nothing was written; the ${files.length} files were read but th"
+    },
+    {
+      "path": "servers/zip/src/index.ts",
+      "line": 513,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return freeLimit(`The archive would hold ${totalEntries} entries. The free tier writes archives of up to ${FREE_MAX_ENTRIES} and nothing was changed.\\n\\n${gate.upgradeText(`archives over ${FREE_MAX_ENTRIES} entries`, \"zi"
+    },
+    {
+      "path": "servers/zip/src/index.ts",
+      "line": 528,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return freeLimit(`The rebuilt archive came to ${humanBytes(built.length)}, over the free ceiling of ${humanBytes(FREE_MAX_ARCHIVE_BYTES)}, and ${path} was not changed.\\n\\n${gate.upgradeText(`archives over ${humanBytes(FR"
+    },
+    {
+      "path": "servers/zip/src/index.ts",
+      "line": 638,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return freeLimit(`${month} holds ${files.length} documents. The free tier writes archives of up to ${FREE_MAX_ENTRIES} entries and nothing was written.\\n\\n${gate.upgradeText(`archives over ${FREE_MAX_ENTRIES} entries`, \""
+    },
+    {
+      "path": "servers/zip/src/index.ts",
+      "line": 654,
+      "enclosing_function": "anonymous callback",
+      "statement_excerpt": "return freeLimit(`The bundle came to ${humanBytes(built.bytes.length)}, over the free ceiling of ${humanBytes(FREE_MAX_ARCHIVE_BYTES)}. Nothing was written.\\n\\n${gate.upgradeText(`archives over ${humanBytes(FREE_MAX_ARCH"
+    }
+  ]
+}

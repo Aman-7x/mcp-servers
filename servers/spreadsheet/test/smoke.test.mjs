@@ -222,7 +222,7 @@ test("free write cap: 300 rows write in full, 600 rows write nothing at all", as
   // free: 600 rows is over the cap - D-1: refuse, write zero bytes, no partial file
   const bigOut = join(root, "free-600.csv");
   const br = await free.call("sheet_write", { path: bigOut, mode: "new_file", rows: big });
-  assert.equal(br.isError, false, "an over-cap write is a gated message, not an error");
+  assert.equal(br.isError, true, "an over-cap write is a refused operation");
   assert.match(br.text, /Nothing was written/);
   assert.match(br.text, /600 rows/);
   assert.match(br.text, /at most 500 rows/);

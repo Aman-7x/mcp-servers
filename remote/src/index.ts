@@ -9,6 +9,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 import { negotiatedHeaders } from "./accept.js";
+import { appendSuccessUpgrade, readFunnelCohort, recordFunnelEvents, requestCohort, saveMintCohort, successfulBusinessResponse } from "../../billing/src/funnel.js";
 import { STORE, type RequestCtx, type Download } from "./shims/ctx.js";
 import { PRICE_BUNDLE_USD, PRICE_SINGLE_USD, SERVER_COUNT } from "./shims/license.js";
 import { paymentDescriptor } from "./payment.js";
@@ -60,7 +61,7 @@ import { createServer as createLeave } from "./vendor/leave/index.js";
 import { createServer as createPurchaseRequisition } from "./vendor/purchase-requisition/index.js";
 import { createServer as createBacklinkChecker } from "./vendor/backlink-checker/index.js";
 
-export interface Env { REMOTE_DATA: KVNamespace; SWEEP_SECRET?: string }
+export interface Env { REMOTE_DATA: KVNamespace; FUNNEL: DurableObjectNamespace; SWEEP_SECRET?: string }
 
 const PUBLIC_KEY_B64 = "VZXpvTpJn2XzaEn9ijFXk1vjPjtZvzAHZazC0Z+0pHU=";
 const GUIDE = "https://mcp.zovo.one/guides/mcp-server-free-vs-pro";
@@ -2099,7 +2100,7 @@ serve a different asking price and watch an alert fire.</p>
  * what makes the page safe to put in the sitemap, which it needs to be now that it is the
  * hero destination of every product page and of /llms.txt (docs/FUNNEL_R1.md).
  */
-function connectPage(base: string, token: string): string {
+function connectPage(base: string, token: string, acquisition = "unattributed"): string {
   const shown = token || "&lt;token&gt;";
   const rows = Object.keys(SERVERS).map((n) =>
     `<tr><td>${n}</td><td class="u">${token ? esc(`${base}/mcp/${n}/t/${token}`) : `${esc(`${base}/mcp/${n}/t/`)}&lt;token&gt;`}</td></tr>`).join("\n");
@@ -2117,7 +2118,7 @@ and nothing to install. Paste one into your client and it works.</p>
 ${token ? `<p class="note">Free tier: 600 calls an hour, free-tier server limits, data kept 30 days and
 refreshed for another 30 on every write. Anyone holding this token holds your data space, so
 treat the URLs as private. Reloading this page mints a new token and a new, empty data space;
-keep this one to keep your data.</p>` : `<p><a class="mint" href="${base}/mcp/connect?mint=1">Get my free token</a> &mdash; one click, no account, nothing to fill in.</p>
+keep this one to keep your data.</p>` : `<p><a class="mint" href="${base}/mcp/connect?mint=1&amp;acq=${esc(acquisition)}">Get my free token</a> &mdash; one click, no account, nothing to fill in.</p>
 <p class="note">A token is minted for you when you open this page in a browser. This copy was
 served without one, which happens for crawlers, prefetches and HEAD requests, because minting
 stores a data space for 30 days and doing that for a robot would fill the store with tenants
@@ -2188,7 +2189,7 @@ Check what a token is: <code>${esc(`${base}/mcp/whoami/t/${token}`)}</code>.</p>
  * Mint one anonymous token, under the same per-IP hourly ceiling wherever it is minted
  * from - the JSON endpoint or the connect page. Returns the token, or the 429 to send.
  */
-async function mintAnonToken(req: Request, env: Env): Promise<string | Response> {
+async function mintAnonToken(req: Request, env: Env, execution: ExecutionContext): Promise<string | Response> {
   const ip = req.headers.get("cf-connecting-ip") ?? "unknown";
   const bucket = Math.floor(Date.now() / 3_600_000);
   const mintKey = `mint:${ip}:${bucket}`;
@@ -2205,6 +2206,10 @@ async function mintAnonToken(req: Request, env: Env): Promise<string | Response>
   crypto.getRandomValues(b);
   const token = "anon_" + Array.from(b, (x) => x.toString(16).padStart(2, "0")).join("");
   await env.REMOTE_DATA.put(`tok:${token}`, String(Date.now()), { expirationTtl: ANON_TTL });
+  // Measurement is best effort and never controls token validity or mint success.
+  execution.waitUntil(saveMintCohort(env.REMOTE_DATA, token, req).catch(() => {
+    console.error(JSON.stringify({ event: "hosted_funnel_mint_record_failed" }));
+  }));
   return token;
 }
 
@@ -2302,11 +2307,11 @@ export default {
       // the page, or for one that explicitly asks. Everything else gets the same page with
       // `<token>` in it and a link that mints.
       if (!token && req.method === "GET" && (url.searchParams.get("mint") === "1" || isBrowserNavigation(req.headers))) {
-        const minted = await mintAnonToken(req, env);
+        const minted = await mintAnonToken(req, env, ctx);
         if (typeof minted !== "string") return minted;
         token = minted;
       }
-      const html = connectPage(base, token);
+      const html = connectPage(base, token, requestCohort(req).source);
       const headers = { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" };
       // A HEAD must not differ from the GET it describes, and must not mint either.
       return new Response(req.method === "HEAD" ? null : html, { headers });
@@ -2349,7 +2354,7 @@ export default {
 
     if (path === "/mcp/token") {
       if (req.method !== "GET" && req.method !== "POST") return json({ error: "method_not_allowed" }, 405);
-      const minted = await mintAnonToken(req, env);
+      const minted = await mintAnonToken(req, env, ctx);
       if (typeof minted !== "string") return minted;
       const token = minted;
       return json({
@@ -2428,7 +2433,7 @@ export default {
       const registered = (JSON.parse(client) as { metadata: { redirect_uris?: string[] } }).metadata.redirect_uris ?? [];
       if (!registered.includes(redirectUri)) return htmlPage(oauthAuthorizeErrorPage("redirect_uri is not registered for this client."));
       if (!/^[A-Za-z0-9_-]{43,128}$/.test(challenge)) return htmlPage(oauthAuthorizeErrorPage("Bad code_challenge."));
-      const minted = await mintAnonToken(req, env);
+      const minted = await mintAnonToken(req, env, ctx);
       if (typeof minted !== "string") return minted; // rate-limited Response
       const code = crypto.randomUUID().replace(/-/g, "");
       await env.REMOTE_DATA.put(
@@ -2657,25 +2662,25 @@ export default {
         // The virtual root is an implementation detail, so it never reaches the caller:
         // in inline-data mode a sheet is known by the name it was loaded under.
         const strip = cfg.strip ?? [];
-        // D-R35: free-tier upsell trailer. The only addressable population without new
-        // traffic is the free tenants already holding data here; the 429 body already
-        // names the price, but most free callers never hit the cap. So every successful
-        // JSON-RPC response for a non-Pro token gets ONE short trailer line (and only on
-        // tools/call results, never on errors or the tools/list), with the same src-tagged
-        // checkout links the rate-limit path uses. Kept to a single sentence so the
-        // first-prompt tool-reach score is not degraded. Pro and license tokens: nothing.
-        const upsell = !auth.isPro && !dataless;
-        if (rctx.published.size > 0 || strip.length > 0 || upsell) {
+        // Success means a successful BUSINESS tools/call response, not discovery,
+        // licence administration, an error, or proof of a completed customer task.
+        const isToolCall = req.method === "POST" && rpc.method === "tools/call";
+        let successfulBusinessCall = false;
+        let upgradeAppended = false;
+        if (rctx.published.size > 0 || strip.length > 0 || isToolCall) {
           let out = await res.text();
+          successfulBusinessCall = isToolCall && successfulBusinessResponse(bodyText, out, res.status);
+          if (successfulBusinessCall && !auth.isPro) {
+            const tenantQ2 = auth.anonToken ? `?tenant=${auth.anonToken}` : "";
+            const trailer = `Free tier: 600 calls/hour, 30-day retention. Pro ($${PRICE_SINGLE_USD}/server or $${PRICE_BUNDLE_USD} for all ${SERVER_COUNT}, one-time): https://mcp.zovo.one/buy/bundle${tenantQ2 ? tenantQ2 + "&" : "?"}src=${product}.success`;
+            const upgraded = appendSuccessUpgrade(bodyText, out, trailer, res.status);
+            out = upgraded.body;
+            upgradeAppended = upgraded.appended;
+          }
           for (const [p2, u] of [...rctx.published].sort((a, b) => b[0].length - a[0].length)) {
             out = out.split(p2).join(`${u} (valid 1 hour)`);
           }
           for (const prefix of strip) out = out.split(prefix).join("");
-          if (upsell) {
-            const tenantQ2 = auth.anonToken ? `?tenant=${auth.anonToken}` : "";
-            out = out.replace(/\](\s*\}\s*,\s*"jsonrpc")/, (m, rpc: string) =>
-              `,{"type":"text","text":"Free tier: 600 calls/hour, 30-day retention. Pro ($${PRICE_SINGLE_USD}/server or $${PRICE_BUNDLE_USD} for all ${SERVER_COUNT}, one-time): https://mcp.zovo.one/buy/bundle${tenantQ2 ? tenantQ2 + "&" : "?"}src=${product}.success"}]${rpc}`);
-          }
           const h = new Headers(res.headers);
           h.delete("content-length");
           res = new Response(out, { status: res.status, headers: h });
@@ -2697,6 +2702,25 @@ export default {
           if (auth.kind === "anon") {
             ctx.waitUntil(env.REMOTE_DATA.put(`tok:anon_${auth.tenant.slice(5)}`, String(Date.now()), { expirationTtl: ANON_TTL }));
           }
+        }
+        if (successfulBusinessCall) {
+          const observedAt = Date.now();
+          // Defer all measurement reads/writes; a KV failure never changes the answer.
+          // Captures only fixed source/cohort/server/event labels and a private daily
+          // deduplication hash. Arguments, results and raw identities are not recorded.
+          ctx.waitUntil((async () => {
+            const cohort = await readFunnelCohort(env.REMOTE_DATA, auth.anonToken, req.headers);
+            // A missing/expired/negative-cached anonymous cohort is unmeasured,
+            // never silently reclassified as ordinary.
+            if (!cohort) return;
+            await recordFunnelEvents(env, {
+              server: product, ...cohort, token: auth.anonToken,
+              events: ["successful_business_call", "first_successful_anon_token_server_day",
+                ...(upgradeAppended ? ["upgrade_impression"] : [])],
+            }, observedAt);
+          })().catch(() => {
+            console.error(JSON.stringify({ event: "hosted_funnel_response_record_failed" }));
+          }));
         }
         return res;
       } finally {

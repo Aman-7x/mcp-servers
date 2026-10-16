@@ -1,0 +1,40 @@
+{
+  "measured_at": "2026-10-16T08:12:07.074Z",
+  "scope": "Exact local v0.22.7 standalone and office archives; duplicate workflow only, older child feature coverage excluded",
+  "archives": [
+    {
+      "name": "duplicate-invoice-check",
+      "bytes": 3275536,
+      "sha256": "83265138e9cea3570879c6551e689608dc29c31f0fa537c427d3a2efecb48e31",
+      "zip_crc": "passed",
+      "resolution_guard": "ESM and CommonJS constrained to extracted server tree",
+      "known_bad_external_import": "ESM and CommonJS rejected",
+      "calls": 10,
+      "tools": 8,
+      "free_cap_preserves_full_diagnosis": true,
+      "business_checks": "candidate union, scope negative control, conflicting amount, save/get/page/CSV, unknown-field error, literal tool-name source/CSV preservation",
+      "status": "passed",
+      "resolution_events": 511,
+      "unique_resolved_files": 223
+    },
+    {
+      "name": "office-suite",
+      "bytes": 32010183,
+      "sha256": "66fb0e60c78dcdcd784f69e20f23cbb8ba5f1f620dccb30c4cc6a46ff89d93e3",
+      "zip_crc": "passed",
+      "resolution_guard": "ESM and CommonJS constrained to extracted server tree",
+      "known_bad_external_import": "ESM and CommonJS rejected",
+      "calls": 5,
+      "tools": 447,
+      "children": 49,
+      "business_checks": "candidate union, scope negative control, conflicting amount, save/get/page/CSV, unknown-field error, literal tool-name source/CSV preservation",
+      "status": "passed",
+      "resolution_events": 33416,
+      "unique_resolved_files": 1110
+    }
+  ],
+  "status": "pre_fix_checkpoint",
+  "cleanup": "guarded scope removed",
+  "release_ready": false,
+  "superseded_reason": "Independent review found Windows dataDir ancestor-creation/validation bug in duplicate-invoice-check and same-pattern three-way-match store; both archives require post-fix rebuild and verification before publication."
+}

@@ -110,6 +110,6 @@ test("route contract: consent mints an anon token, so authenticate() works uncha
   const consentIdx = src.indexOf('path === "/oauth/authorize/consent"');
   assert.ok(consentIdx > 0);
   const block = src.slice(consentIdx, src.indexOf('path === "/oauth/token"', consentIdx));
-  assert.ok(block.includes("await mintAnonToken(req, env)"), "consent reuses the existing anon-token minting machinery");
+  assert.ok(block.includes("await mintAnonToken(req, env, ctx)"), "consent reuses the existing anon-token minting machinery with deferred measurement");
   assert.ok(/oauth_code:/.test(block), "the minted token is bound to an authorization code in KV");
 });

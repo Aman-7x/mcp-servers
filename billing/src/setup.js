@@ -148,7 +148,7 @@ export const CLIENT_ORDER = Object.keys(CLIENTS);
 
 /** Servers that get a page for this client. claude-web skips office-suite: it starts
  * 31 child processes and has no single connector URL. */
-const WEB_EXCLUDED = ["three-way-match", "office-suite", "pomodoro", "budget", "loan-calculator", "payroll", "receipts", "stripe-billing", "tax-calc", "hourly-rate"];
+const WEB_EXCLUDED = ["duplicate-invoice-check", "three-way-match", "office-suite", "pomodoro", "budget", "loan-calculator", "payroll", "receipts", "stripe-billing", "tax-calc", "hourly-rate"];
 export function serversFor(clientId) {
   return clientId === "claude-web" ? SERVER_ORDER.filter((id) => !WEB_EXCLUDED.includes(id)) : SERVER_ORDER;
 }
@@ -165,6 +165,21 @@ export function serversFor(clientId) {
  * entry here without one, because it spawns every sibling as a local child process.
  */
 export const SETUP_SERVERS = {
+  "duplicate-invoice-check": {
+    title: "MCP Duplicate Supplier Invoice Check", slug: "duplicate-invoice-check", toolCount: "8 tools",
+    pkg: "@theluckystrike/mcp-duplicate-invoice-check", sPage: "/s/duplicate-invoice-check", hosted: null,
+    tagline: "Review supplied invoice history for repeated references, formatting variations and equal amount/date candidates.",
+    does: "Pass 1–1000 structured records, each with exact entity and supplier IDs, document type, reference, date, currency and positive integer minor-unit total. Three independent equality rules retain original records and overlapping reasons. A candidate is a review prompt, not a confirmed duplicate or payment decision. No ERP, PDF extraction or implicit stored history.",
+    prompts: [
+      ["Review INV-001 and inv /001 from the same supplier and entity; retain INV-1 as a distinct leading-zero reference.", "duplicate_invoice_check"],
+      ["Show the same reference even when its amount and invoice date differ, keeping both original values.", "duplicate_invoice_check"],
+      ["Save the review and export the complete source records and candidate reasons as CSV.", "report_export_csv"],
+    ],
+    free: "Every diagnostic up to 1000 records, complete free evidence pages, CSV and three concurrent saved reports.",
+    pro: "$19 once removes only the saved-report count cap; the $39 bundle includes it. Every tier keeps the 64 MiB aggregate storage and input/output bounds.",
+    measured: "Frozen operator round 46 checks five buyer tasks through actual local MCP stdio calls. These are synthetic operator tests, not customer research.",
+  },
+
   "three-way-match": {
     title: "MCP Three-Way Invoice Match", slug: "three-way-match", toolCount: "8 tools",
     pkg: "@theluckystrike/mcp-three-way-match", sPage: "/s/three-way-match", hosted: null,
@@ -1181,6 +1196,15 @@ export const SERVER_ORDER = Object.keys(SETUP_SERVERS);
  * it is what is actually different about running that server in that client.
  */
 const ANGLE = {
+  "duplicate-invoice-check": {
+    "claude-desktop": "Install the local extension or use the built absolute node path. Supply structured fields from the invoices: the server does not extract PDF values or make payment decisions.",
+    "claude-code": "Use an absolute dist/index.js path. Include every historical record you want compared in each call; saved reports are snapshots and never implicit cross-call history.",
+    cursor: "Keep exact entity and supplier IDs from the source. Similar display names do not merge comparison scopes, and leading zeros stay meaningful in invoice numbers.",
+    vscode: "Use the servers top-level key in .vscode/mcp.json. Request all source evidence and overlapping reason groups before reviewing any flagged record.",
+    windsurf: "The local server exposes eight tools. For more than one entity in a batch, every record must carry its own exact entity_id; no matches cross that boundary.",
+    cline: "A save false diagnostic writes no report file. Free preview pages and CSV remain available after the three-saved-report cap; previews last 30 minutes and only the latest two remain.",
+  },
+
   "three-way-match": {
     "claude-desktop": "Use the local extension or a built absolute node path. Review the PO, delivery note and invoice values before passing them: the matcher takes structured data and does no PDF extraction.",
     "claude-code": "Add the built dist/index.js at user scope to keep one local report store. Send prior_invoiced explicitly, including an empty array for a first invoice; the server cannot discover earlier bills.",
@@ -1712,7 +1736,7 @@ const FAQ = {
       q: "Can I use " + s.title + " without installing anything?",
       a: s.hosted
         ? "Yes: claude mcp add --transport http " + s.hosted + " https://mcp.zovo.one/mcp/" + s.hosted + " --header \"Authorization: Bearer <token>\". Mint a free token at https://mcp.zovo.one/mcp/token or use a Pro key. -t and -H are the short forms."
-        : "Not this one. The office suite starts every sibling server as its own child process, so it runs locally over stdio. Thirty of those children are hosted individually at https://mcp.zovo.one/mcp/<name> if you want a no-install route; open https://mcp.zovo.one/mcp/connect and it prints a ready URL for each.",
+        : "This server runs locally over stdio. Use the downloaded local extension in Claude Desktop or build its source and point the client at the absolute dist/index.js path. No hosted endpoint is provided for this server.",
     },
   ],
   cursor: (s) => [
@@ -1763,8 +1787,8 @@ const FAQ = {
       a: "The CLI reads ~/.cline/mcp.json. For the extension, do not hunt for a path: MCP Servers icon, Configure tab, Configure MCP Servers. cline mcp opens a wizard, and cline config mcp --json is the non-interactive form.",
     },
     {
-      q: "The hosted endpoint will not connect.",
-      a: "Set the transport explicitly. Omitting type falls back to the legacy sse transport, so streamable HTTP needs \"type\": \"streamableHttp\" written in. It is the one default here that sends you debugging a server that works.",
+      q: s.hosted ? "The hosted endpoint will not connect." : "Does this server have a hosted endpoint?",
+      a: s.hosted ? "Set the transport explicitly. Omitting type falls back to the legacy sse transport, so streamable HTTP needs \"type\": \"streamableHttp\" written in." : "No. Start this local stdio server with node and the built absolute dist/index.js path, or use its Claude Desktop extension.",
     },
     {
       q: "Should I auto-approve " + s.title + "'s tools?",
@@ -1920,9 +1944,9 @@ ${npmPendingBlock(clientId, s)}`;
 function hostedBlock(clientId, s) {
   if (!s.hosted) {
     if (s.slug !== "office-suite") {
-      return `<p>There is no hosted endpoint for this one yet. ${esc(s.title)} runs locally over stdio with the config above, which is also the only form in which it reads and writes files on your own disk. Thirty of the servers in this collection are served at <code>${BASE}/mcp/&lt;name&gt;</code> over MCP streamable HTTP; <a href="${BASE}/mcp/connect">${BASE}/mcp/connect</a> lists them and prints a ready URL for each.</p>`;
+      return `<p>There is no hosted endpoint for this one yet. ${esc(s.title)} runs locally over stdio with the config above, which is also the only form in which it reads and writes files on your own disk. Thirty of the servers in this collection are served at <code>${BASE}/mcp/&lt;name&gt;</code> over MCP streamable HTTP; <a href="${BASE}/mcp/connect?acq=store.setup">${BASE}/mcp/connect</a> lists them and prints a ready URL for each.</p>`;
     }
-    return `<p>The suite starts 31 child processes, so it has no hosted form of its own. Thirty of those 31 are served individually at <code>${BASE}/mcp/&lt;name&gt;</code> over MCP streamable HTTP instead, one connection each: <a href="${BASE}/mcp/connect">${BASE}/mcp/connect</a> mints a free token and prints a ready URL per server, or use a Pro key as the bearer.</p>`;
+    return `<p>The suite starts 31 child processes, so it has no hosted form of its own. Thirty of those 31 are served individually at <code>${BASE}/mcp/&lt;name&gt;</code> over MCP streamable HTTP instead, one connection each: <a href="${BASE}/mcp/connect?acq=store.setup">${BASE}/mcp/connect</a> mints a free token and prints a ready URL per server, or use a Pro key as the bearer.</p>`;
   }
   const url = `${BASE}/mcp/${s.hosted}`;
   const lead = `<p>The same server runs at <code>${url}</code> over MCP streamable HTTP, no install. Mint a free token with <code>curl ${BASE}/mcp/token</code>, or use a Pro key. It has no filesystem, so a file comes back as a one-hour download link.</p>`;
@@ -1993,9 +2017,9 @@ export function setupPage(clientId, serverId) {
 <p>${esc(s.measured)}</p>
 
 <h2>Connect it, no install</h2>
-<p><a href="${BASE}/mcp/connect">${BASE}/mcp/connect</a> mints an anonymous token and prints a URL per server, including this one, shaped like <code>${exampleUrl}</code>. That URL works with no headers: the token is in the path, not in an Authorization field this form does not have.</p>
+<p><a href="${BASE}/mcp/connect?acq=store.setup">${BASE}/mcp/connect</a> mints an anonymous token and prints a URL per server, including this one, shaped like <code>${exampleUrl}</code>. That URL works with no headers: the token is in the path, not in an Authorization field this form does not have.</p>
 <ol>
-<li>Open <a href="${BASE}/mcp/connect">${BASE}/mcp/connect</a> and copy the URL printed for ${esc(s.title)}.</li>
+<li>Open <a href="${BASE}/mcp/connect?acq=store.setup">${BASE}/mcp/connect</a> and copy the URL printed for ${esc(s.title)}.</li>
 <li>${esc(c.reach)}</li>
 <li>Paste the URL as the Remote MCP server URL. Leave the optional OAuth Client ID and Client Secret blank; this endpoint does not use them.</li>
 <li>Click Connect, then turn the connector on for a conversation from the + button, Connectors.</li>
@@ -2031,9 +2055,9 @@ ${relatedGuidesBlock(s.hosted || serverId)}`;
 <table><tr><th>Scope</th><th>Path</th></tr>${pathRows}</table>
 ${installBlock(clientId, s)}
 <p>${esc(c.restart)}</p>
-<p class="muted">Nothing is published to npm yet, so the working install paths are the ones above: the <code>.mcpb</code> bundle from <a href="https://mcp.zovo.one/downloads">the bundle catalog</a>, a clone and build, or the hosted URL.</p>
+<p class="muted">Nothing is published to npm yet, so the working install paths are the ones above: the <code>.mcpb</code> bundle from <a href="https://mcp.zovo.one/downloads">the bundle catalog</a>, a clone and build${s.hosted ? ", or the hosted URL" : ""}.</p>
 
-<h2>No install: the hosted endpoint</h2>
+<h2>${s.hosted ? "No install: the hosted endpoint" : "Local stdio connection"}</h2>
 ${hostedBlock(clientId, s)}
 
 <h2>${esc(c.name)} notes worth knowing first</h2>

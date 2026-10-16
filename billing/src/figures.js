@@ -30,6 +30,7 @@ export const SERVER_IDS = [
   "deposits",
   "docx",
   "dunning-letters",
+  "duplicate-invoice-check",
   "expense-tracker",
   "goods-receipt",
   "hourly-rate",
@@ -90,6 +91,7 @@ export const CHILD_IDS = [
   "deposits",
   "docx",
   "dunning-letters",
+  "duplicate-invoice-check",
   "expense-tracker",
   "goods-receipt",
   "hourly-rate",
@@ -199,6 +201,7 @@ export const TOOLS = {
   "deposits": 9,
   "docx": 9,
   "dunning-letters": 9,
+  "duplicate-invoice-check": 6,
   "expense-tracker": 12,
   "goods-receipt": 9,
   "hourly-rate": 3,
@@ -241,12 +244,12 @@ export const TOOLS = {
 export const LICENSE_TOOLS = 2;
 
 /** Sum of TOOLS over CHILD_IDS. */
-export const OWN_TOOLS_TOTAL = 451;
+export const OWN_TOOLS_TOTAL = 457;
 
 /** Actual distinct proxy tool names, measured by tools/list from the built bundle.
  * Source: data/office-suite-tool-inventory.json; includes collision prefixes. */
-export const OFFICE_SUITE_TOOLS = 441;
-export const OFFICE_SUITE_CHILD_COUNT = 48;
+export const OFFICE_SUITE_TOOLS = 447;
+export const OFFICE_SUITE_CHILD_COUNT = 49;
 
 /** Servers the site actually lists, i.e. those with a README that becomes a /s/ page. */
 export const LISTED_IDS = [
@@ -270,6 +273,7 @@ export const LISTED_IDS = [
   "deposits",
   "docx",
   "dunning-letters",
+  "duplicate-invoice-check",
   "expense-tracker",
   "goods-receipt",
   "hourly-rate",
@@ -328,6 +332,7 @@ export const LISTED_CHILD_IDS = [
   "deposits",
   "docx",
   "dunning-letters",
+  "duplicate-invoice-check",
   "expense-tracker",
   "goods-receipt",
   "hourly-rate",
@@ -379,10 +384,10 @@ export const FREE_IDS = [
 
 /** Counts, computed so prose cannot go stale. LISTED_COUNT is the one a visitor should
  * ever see: SERVER_DIR_COUNT can be ahead of it while a new server is being built. */
-export const LISTED_COUNT = 56;
-export const LISTED_CHILD_COUNT = 55;
-export const SERVER_DIR_COUNT = 56;
-export const CHILD_COUNT = 55;
+export const LISTED_COUNT = 57;
+export const LISTED_CHILD_COUNT = 56;
+export const SERVER_DIR_COUNT = 57;
+export const CHILD_COUNT = 56;
 export const HOSTED_COUNT = 46;
 
 /** Hosted limits, read from remote/src/index.ts. */
@@ -422,6 +427,7 @@ export const FREE = {
   "deposits": "5 deposits recorded per calendar month, counted by received date, with applying to invoices, refunds, lists, balances and the text statement all unlimited on every tier: a cap that trapped a client's deposit would be a limit on their money rather than on yours.",
   "docx": "Create, convert and read documents without limit; 3 proposals or contracts per calendar month; templates up to 10 placeholders.",
   "dunning-letters": "Three unpaid invoices chased at once, with all three letters in both formats, the aging summary, the day's chase list and payment recording free on every tier. An invoice that gets paid frees its slot, because the cap is on how many chases run at once, never on the letters or the aging.",
+  "duplicate-invoice-check": "Full diagnostics for up to 1000 supplied records, complete free paging and CSV export; store 3 reports at a time.",
   "expense-tracker": "Unlimited logging; list and summary cover the last 30 days; 3 projects; 5 rules; CSV export up to 200 rows, never partial.",
   "goods-receipt": "Full receiving: create receipts, list them, per-line outstanding quantities and the receipt history are all free. Over-receipt needs the explicit flag on every tier.",
   "hourly-rate": "The whole server, unlimited, local — three tools, no metering, no key.",
@@ -481,6 +487,7 @@ export const PRO = {
   "deposits": "Unlimited deposits recorded, the A4 deposit statement PDF with your logo and no footer credit, and the deposits_report of held per currency, oldest held and what has sat unapplied.",
   "docx": "Unlimited proposals and contracts, letterhead with logo and colours, unlimited template fills.",
   "dunning-letters": "Unlimited concurrent chases.",
+  "duplicate-invoice-check": "Unlimited saved report count. The same input, response and 64 MiB aggregate storage safety bounds apply on both tiers.",
   "expense-tracker": "Full history, unlimited projects and rules, xlsx export, unlimited rebill items with markup.",
   "goods-receipt": "Unlimited receipts per period and the CSV export of received-vs-ordered for the supplier scorecard.",
   "hourly-rate": "Not gated — this server is entirely free; the $39 bundle key covers the 47 paid servers.",

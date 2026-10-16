@@ -217,7 +217,7 @@ test("initialize, tools/list and the whole free-tier flow", async () => {
 
     // Export stays Pro and says so rather than half-working.
     const exp = await c.call("statement_export", { from: "2026-01-01", to: "2026-03-31", format: "csv", path: join(s.dir, "out.csv") });
-    assert.equal(exp.isError, false, "a limit is information, not a transport error");
+    assert.equal(exp.isError, true, "a refused export is an error result");
     assert.match(exp.text, /Pro feature/);
 
     // D-R55: the guardrail tools answer on the free tier inside a named cap.
@@ -256,7 +256,7 @@ test("free tier: the third account is refused, Pro accepts it", async () => {
       assert.equal(r.imported, FIXTURE_ROWS, `${name} should import`);
     }
     const third = await free.call("statement_import", { path: s.csv, account: "three" });
-    assert.equal(third.isError, false, "a cap is information, not a transport error");
+    assert.equal(third.isError, true, "a refused import is an error result");
     assert.match(third.text, /account number 3/);
     assert.match(third.text, /Nothing was imported/);
     free.close();

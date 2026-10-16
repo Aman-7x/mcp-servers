@@ -1,5 +1,5 @@
 {
-  "measured_at": "2026-10-16T01:05:32.516576+00:00",
+  "measured_at": "2026-10-16T08:24:02.513Z",
   "method": "MCP stdio tools/list from the built office-suite entry",
   "children": [
     "amortization",
@@ -21,6 +21,7 @@
     "deposits",
     "docx",
     "dunning-letters",
+    "duplicate-invoice-check",
     "expense-tracker",
     "goods-receipt",
     "hourly-rate",
@@ -1777,24 +1778,48 @@
       "description": "Compare up to 500 PO/invoice lines by exact SKU, accepted receipts and prior billed quantities. Returns source evidence and exceptions, including offsetting errors. All diagnosis is free; save optionally."
     },
     {
-      "name": "report_list",
+      "name": "duplicate_invoice_check",
+      "description": "Group up to 1000 supplied records by exact/normalized reference or exact amount/date within exact entity, supplier, type and currency. All evidence is free. Candidates require review; no payment approval."
+    },
+    {
+      "name": "three-way-match_report_list",
       "description": "List saved report ids, timestamps, document references, status and issue counts. Free on both tiers; paginated, up to 100 reports per call."
     },
     {
-      "name": "report_get",
+      "name": "duplicate-invoice-check_report_list",
+      "description": "List saved report ids, timestamps and unique candidate counts. Free on both tiers. Up to 100 reports per page."
+    },
+    {
+      "name": "three-way-match_report_get",
       "description": "Read a saved report with source documents, per-SKU evidence and all exceptions. Free on both tiers."
     },
     {
-      "name": "report_page",
+      "name": "duplicate-invoice-check_report_get",
+      "description": "Read a saved report with source records, reason groups and overlap-safe candidate counts. Large reports return free paging instructions."
+    },
+    {
+      "name": "three-way-match_report_page",
       "description": "Read free pages of large report issues, SKU rows or original source rows. Use report_id from the paginated overview. Unsaved previews expire after 30 minutes and keep only the last two large checks."
     },
     {
-      "name": "report_delete",
+      "name": "duplicate-invoice-check_report_page",
+      "description": "Read free pages of records, group summaries, record reasons or one group’s members. Unsaved preview ids last 30 minutes for the last two checks in this process."
+    },
+    {
+      "name": "three-way-match_report_delete",
       "description": "Delete one saved report by id, freeing a free-tier storage slot. Does not alter source documents or prior invoice history."
     },
     {
-      "name": "report_export_csv",
+      "name": "duplicate-invoice-check_report_delete",
+      "description": "Delete one local saved report and free a storage slot. Does not change accounting records."
+    },
+    {
+      "name": "three-way-match_report_export_csv",
       "description": "Return CSV of saved SKU quantities, prices and issues. Large CSVs paginate; follow next_offset with offset. Formula-like text is escaped. Full source evidence uses report_get/report_page."
+    },
+    {
+      "name": "duplicate-invoice-check_report_export_csv",
+      "description": "Export free CSV pages from a saved report or unsaved preview. One row per record with reasons and group ids. Formula-like cells are escaped; no financial-loss total is calculated."
     },
     {
       "name": "calculate_rate",

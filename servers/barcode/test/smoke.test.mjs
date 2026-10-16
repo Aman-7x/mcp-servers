@@ -31,7 +31,7 @@ test("SVG is free, PNG is Pro, and Pro writes the file", async (t) => {
   await free.init();
 
   const refused = await free.call("qr_create", { text: "x", format: "png", out_path: join(box.dir, "a.png") });
-  assert.equal(refused.isError, false, "a tier limit is an answer, not a protocol error");
+  assert.equal(refused.isError, true, "a refused operation is an error result");
   assert.match(refused.text, /Pro feature/);
   assert.equal(existsSync(join(box.dir, "a.png")), false, "nothing may be written when the tier refuses");
 

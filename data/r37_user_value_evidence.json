@@ -1,0 +1,1909 @@
+{
+  "at": "2026-10-16T08:04:38.471Z",
+  "frozen_at": "2026-10-16T08:03:21.252413+00:00",
+  "frozen_sha256": "61e319f71878e580fcbb0c5fa094825f45f135331e53743eb86f86a422a84896",
+  "built_entry_sha256": "d2f33f8b5ee81db4a0e91b8941ff44246ce61d456fe02addd9a259c7e9e7e29a",
+  "method": "Fixed structured arguments and expected outcomes written before running actual MCP stdio. No model translation, real customers, client install timing, or competitor runtime.",
+  "scenarios": [
+    {
+      "id": "dup1",
+      "prompt": "The same supplier sent INV-001 twice with different dates and totals. Preserve both values and show why review is needed.",
+      "criteria": [
+        "Two distinct candidate records in exact and normalized groups",
+        "Original dates and amounts preserved as explicit conflicting fields"
+      ],
+      "expected": {
+        "candidates": 2,
+        "groups": 2,
+        "rules": [
+          "exact_reference",
+          "normalized_reference"
+        ],
+        "conflict_fields": [
+          "invoice_date",
+          "total_minor"
+        ]
+      },
+      "status": "passed",
+      "score": 3,
+      "score_definition": "3 only when every frozen expected-output and workflow assertion passes; 0 on any failure. An operator acceptance score, not subjective quality or customer preference.",
+      "tool_calls": 1,
+      "seconds": 0.009906,
+      "receipts": [
+        {
+          "name": "duplicate_invoice_check",
+          "args": {
+            "records": [
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "A"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-02",
+                "currency": "USD",
+                "total_minor": 13000,
+                "record_id": "B"
+              }
+            ],
+            "save": false
+          },
+          "result": {
+            "report": {
+              "schema_version": 1,
+              "status": "candidates_for_review",
+              "scope": "Candidate review of supplied records only. No payment approval, fraud verdict, duplicate confirmation, ERP access, or completeness guarantee.",
+              "summary": {
+                "record_count": 2,
+                "candidate_record_count": 2,
+                "unflagged_record_count": 0,
+                "group_count": 2,
+                "group_memberships": 4
+              },
+              "records": [
+                {
+                  "record_id": "A",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "B",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-02",
+                  "currency": "USD",
+                  "total_minor": 13000
+                }
+              ],
+              "groups": [
+                {
+                  "group_id": "G0001",
+                  "rule": "exact_reference",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": "INV-001",
+                  "record_ids": [
+                    "A",
+                    "B"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_date",
+                    "total_minor"
+                  ],
+                  "explanation": "Identical invoice references in the same exact scope. Amount/date conflicts remain visible and do not suppress this candidate."
+                },
+                {
+                  "group_id": "G0002",
+                  "rule": "normalized_reference",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": "INV001",
+                  "record_ids": [
+                    "A",
+                    "B"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_date",
+                    "total_minor"
+                  ],
+                  "explanation": "References collide after ASCII case and space/hyphen/slash/dot normalization only. This may be a legitimate reference distinction."
+                }
+              ],
+              "record_summaries": [
+                {
+                  "record_id": "A",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001",
+                    "G0002"
+                  ],
+                  "reasons": [
+                    "exact_reference",
+                    "normalized_reference"
+                  ]
+                },
+                {
+                  "record_id": "B",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001",
+                    "G0002"
+                  ],
+                  "reasons": [
+                    "exact_reference",
+                    "normalized_reference"
+                  ]
+                }
+              ],
+              "policy": {
+                "normalization": "ASCII a-z to A-Z; remove only ASCII space, hyphen, slash and dot. Preserve leading zeros, all other characters and all Unicode.",
+                "scope_fields": [
+                  "entity_id",
+                  "supplier_id",
+                  "document_type",
+                  "currency"
+                ],
+                "limitations": [
+                  "Exact supplied identifiers only; no fuzzy supplier/entity joins or currency conversion.",
+                  "Overlapping groups are independent reasons, not confirmed duplicate clusters. Candidate records are counted once; no recoverable amount is calculated.",
+                  "Unflagged records are not safe-to-pay decisions. Missing history, altered dates/amounts and other reference variations can be missed.",
+                  "Credit notes use positive absolute minor-unit totals and are compared only with credit notes.",
+                  "Display labels never affect matching. ISO-like currency codes are syntax checked, not checked against a currency registry."
+                ]
+              },
+              "retrieval": {
+                "report_id": "preview:3230c717-7dc9-4cd7-a0ac-bb41ee6b6b42",
+                "page_tool": "report_page",
+                "export_tool": "report_export_csv",
+                "sections": [
+                  "records",
+                  "groups",
+                  "record_summaries",
+                  "group_members"
+                ],
+                "expires_at": "2026-10-16T08:34:38.629Z",
+                "preview_policy": "Last two checks in this process for 30 minutes; resubmit after eviction, expiry or restart."
+              }
+            },
+            "saved": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "dup2",
+      "prompt": "Find INV-001 versus inv /001 but keep INV-1 separate: leading zeros matter.",
+      "criteria": [
+        "Formatting change produces one two-record review group",
+        "Leading-zero difference excluded",
+        "All three original records retained"
+      ],
+      "expected": {
+        "candidates": 2,
+        "groups": 1,
+        "rules": [
+          "normalized_reference"
+        ]
+      },
+      "status": "passed",
+      "score": 3,
+      "score_definition": "3 only when every frozen expected-output and workflow assertion passes; 0 on any failure. An operator acceptance score, not subjective quality or customer preference.",
+      "tool_calls": 1,
+      "seconds": 0.001351,
+      "receipts": [
+        {
+          "name": "duplicate_invoice_check",
+          "args": {
+            "records": [
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "A"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "inv /001",
+                "invoice_date": "2026-10-02",
+                "currency": "USD",
+                "total_minor": 13000,
+                "record_id": "B"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-1",
+                "invoice_date": "2026-10-03",
+                "currency": "USD",
+                "total_minor": 14000,
+                "record_id": "C"
+              }
+            ],
+            "save": false
+          },
+          "result": {
+            "report": {
+              "schema_version": 1,
+              "status": "candidates_for_review",
+              "scope": "Candidate review of supplied records only. No payment approval, fraud verdict, duplicate confirmation, ERP access, or completeness guarantee.",
+              "summary": {
+                "record_count": 3,
+                "candidate_record_count": 2,
+                "unflagged_record_count": 1,
+                "group_count": 1,
+                "group_memberships": 2
+              },
+              "records": [
+                {
+                  "record_id": "A",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "B",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "inv /001",
+                  "invoice_date": "2026-10-02",
+                  "currency": "USD",
+                  "total_minor": 13000
+                },
+                {
+                  "record_id": "C",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-1",
+                  "invoice_date": "2026-10-03",
+                  "currency": "USD",
+                  "total_minor": 14000
+                }
+              ],
+              "groups": [
+                {
+                  "group_id": "G0001",
+                  "rule": "normalized_reference",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": "INV001",
+                  "record_ids": [
+                    "A",
+                    "B"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_number",
+                    "invoice_date",
+                    "total_minor"
+                  ],
+                  "explanation": "References collide after ASCII case and space/hyphen/slash/dot normalization only. This may be a legitimate reference distinction."
+                }
+              ],
+              "record_summaries": [
+                {
+                  "record_id": "A",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001"
+                  ],
+                  "reasons": [
+                    "normalized_reference"
+                  ]
+                },
+                {
+                  "record_id": "B",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001"
+                  ],
+                  "reasons": [
+                    "normalized_reference"
+                  ]
+                },
+                {
+                  "record_id": "C",
+                  "candidate": false,
+                  "group_ids": [],
+                  "reasons": []
+                }
+              ],
+              "policy": {
+                "normalization": "ASCII a-z to A-Z; remove only ASCII space, hyphen, slash and dot. Preserve leading zeros, all other characters and all Unicode.",
+                "scope_fields": [
+                  "entity_id",
+                  "supplier_id",
+                  "document_type",
+                  "currency"
+                ],
+                "limitations": [
+                  "Exact supplied identifiers only; no fuzzy supplier/entity joins or currency conversion.",
+                  "Overlapping groups are independent reasons, not confirmed duplicate clusters. Candidate records are counted once; no recoverable amount is calculated.",
+                  "Unflagged records are not safe-to-pay decisions. Missing history, altered dates/amounts and other reference variations can be missed.",
+                  "Credit notes use positive absolute minor-unit totals and are compared only with credit notes.",
+                  "Display labels never affect matching. ISO-like currency codes are syntax checked, not checked against a currency registry."
+                ]
+              },
+              "retrieval": {
+                "report_id": "preview:6ac071bc-44ba-477a-94d8-a91082731141",
+                "page_tool": "report_page",
+                "export_tool": "report_export_csv",
+                "sections": [
+                  "records",
+                  "groups",
+                  "record_summaries",
+                  "group_members"
+                ],
+                "expires_at": "2026-10-16T08:34:38.638Z",
+                "preview_policy": "Last two checks in this process for 30 minutes; resubmit after eviction, expiry or restart."
+              }
+            },
+            "saved": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "dup3",
+      "prompt": "These identical references belong to another entity, supplier, currency or a credit note. Do not merge them.",
+      "criteria": [
+        "Five source records retained",
+        "Zero candidate groups across distinct exact scopes",
+        "Zero means no candidates in supplied batch, not payment clearance"
+      ],
+      "expected": {
+        "candidates": 0,
+        "groups": 0,
+        "rules": []
+      },
+      "status": "passed",
+      "score": 3,
+      "score_definition": "3 only when every frozen expected-output and workflow assertion passes; 0 on any failure. An operator acceptance score, not subjective quality or customer preference.",
+      "tool_calls": 1,
+      "seconds": 0.000783,
+      "receipts": [
+        {
+          "name": "duplicate_invoice_check",
+          "args": {
+            "records": [
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "A"
+              },
+              {
+                "entity_id": "E2",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "B"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S2",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "C"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "EUR",
+                "total_minor": 12500,
+                "record_id": "D"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "credit_note",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "E"
+              }
+            ],
+            "save": false
+          },
+          "result": {
+            "report": {
+              "schema_version": 1,
+              "status": "no_candidates_in_supplied_batch",
+              "scope": "Candidate review of supplied records only. No payment approval, fraud verdict, duplicate confirmation, ERP access, or completeness guarantee.",
+              "summary": {
+                "record_count": 5,
+                "candidate_record_count": 0,
+                "unflagged_record_count": 5,
+                "group_count": 0,
+                "group_memberships": 0
+              },
+              "records": [
+                {
+                  "record_id": "A",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "B",
+                  "entity_id": "E2",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "C",
+                  "entity_id": "E1",
+                  "supplier_id": "S2",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "D",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-01",
+                  "currency": "EUR",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "E",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "credit_note",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                }
+              ],
+              "groups": [],
+              "record_summaries": [
+                {
+                  "record_id": "A",
+                  "candidate": false,
+                  "group_ids": [],
+                  "reasons": []
+                },
+                {
+                  "record_id": "B",
+                  "candidate": false,
+                  "group_ids": [],
+                  "reasons": []
+                },
+                {
+                  "record_id": "C",
+                  "candidate": false,
+                  "group_ids": [],
+                  "reasons": []
+                },
+                {
+                  "record_id": "D",
+                  "candidate": false,
+                  "group_ids": [],
+                  "reasons": []
+                },
+                {
+                  "record_id": "E",
+                  "candidate": false,
+                  "group_ids": [],
+                  "reasons": []
+                }
+              ],
+              "policy": {
+                "normalization": "ASCII a-z to A-Z; remove only ASCII space, hyphen, slash and dot. Preserve leading zeros, all other characters and all Unicode.",
+                "scope_fields": [
+                  "entity_id",
+                  "supplier_id",
+                  "document_type",
+                  "currency"
+                ],
+                "limitations": [
+                  "Exact supplied identifiers only; no fuzzy supplier/entity joins or currency conversion.",
+                  "Overlapping groups are independent reasons, not confirmed duplicate clusters. Candidate records are counted once; no recoverable amount is calculated.",
+                  "Unflagged records are not safe-to-pay decisions. Missing history, altered dates/amounts and other reference variations can be missed.",
+                  "Credit notes use positive absolute minor-unit totals and are compared only with credit notes.",
+                  "Display labels never affect matching. ISO-like currency codes are syntax checked, not checked against a currency registry."
+                ]
+              },
+              "retrieval": {
+                "report_id": "preview:0928ede0-8248-42c2-b052-ea2b1dc5fdf5",
+                "page_tool": "report_page",
+                "export_tool": "report_export_csv",
+                "sections": [
+                  "records",
+                  "groups",
+                  "record_summaries",
+                  "group_members"
+                ],
+                "expires_at": "2026-10-16T08:34:38.639Z",
+                "preview_policy": "Last two checks in this process for 30 minutes; resubmit after eviction, expiry or restart."
+              }
+            },
+            "saved": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "dup4",
+      "prompt": "Two different service invoices have the same amount and date. Show a weak review signal without calling either fraudulent.",
+      "criteria": [
+        "Only same_amount_date group emitted",
+        "No reference collision inferred",
+        "Two source records retained for human review"
+      ],
+      "expected": {
+        "candidates": 2,
+        "groups": 1,
+        "rules": [
+          "same_amount_date"
+        ]
+      },
+      "status": "passed",
+      "score": 3,
+      "score_definition": "3 only when every frozen expected-output and workflow assertion passes; 0 on any failure. An operator acceptance score, not subjective quality or customer preference.",
+      "tool_calls": 1,
+      "seconds": 0.000562,
+      "receipts": [
+        {
+          "name": "duplicate_invoice_check",
+          "args": {
+            "records": [
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "RENT-1",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "A"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "SERVICE-2",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "B"
+              }
+            ],
+            "save": false
+          },
+          "result": {
+            "report": {
+              "schema_version": 1,
+              "status": "candidates_for_review",
+              "scope": "Candidate review of supplied records only. No payment approval, fraud verdict, duplicate confirmation, ERP access, or completeness guarantee.",
+              "summary": {
+                "record_count": 2,
+                "candidate_record_count": 2,
+                "unflagged_record_count": 0,
+                "group_count": 1,
+                "group_memberships": 2
+              },
+              "records": [
+                {
+                  "record_id": "A",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "RENT-1",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "B",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "SERVICE-2",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                }
+              ],
+              "groups": [
+                {
+                  "group_id": "G0001",
+                  "rule": "same_amount_date",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": {
+                    "total_minor": 12500,
+                    "invoice_date": "2026-10-01"
+                  },
+                  "record_ids": [
+                    "A",
+                    "B"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_number"
+                  ],
+                  "explanation": "Exact total and invoice date in the same scope. Recurring or distinct legitimate invoices can share both; review source documents."
+                }
+              ],
+              "record_summaries": [
+                {
+                  "record_id": "A",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001"
+                  ],
+                  "reasons": [
+                    "same_amount_date"
+                  ]
+                },
+                {
+                  "record_id": "B",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001"
+                  ],
+                  "reasons": [
+                    "same_amount_date"
+                  ]
+                }
+              ],
+              "policy": {
+                "normalization": "ASCII a-z to A-Z; remove only ASCII space, hyphen, slash and dot. Preserve leading zeros, all other characters and all Unicode.",
+                "scope_fields": [
+                  "entity_id",
+                  "supplier_id",
+                  "document_type",
+                  "currency"
+                ],
+                "limitations": [
+                  "Exact supplied identifiers only; no fuzzy supplier/entity joins or currency conversion.",
+                  "Overlapping groups are independent reasons, not confirmed duplicate clusters. Candidate records are counted once; no recoverable amount is calculated.",
+                  "Unflagged records are not safe-to-pay decisions. Missing history, altered dates/amounts and other reference variations can be missed.",
+                  "Credit notes use positive absolute minor-unit totals and are compared only with credit notes.",
+                  "Display labels never affect matching. ISO-like currency codes are syntax checked, not checked against a currency registry."
+                ]
+              },
+              "retrieval": {
+                "report_id": "preview:1822cb11-22a7-4b9a-8295-98235a764c9e",
+                "page_tool": "report_page",
+                "export_tool": "report_export_csv",
+                "sections": [
+                  "records",
+                  "groups",
+                  "record_summaries",
+                  "group_members"
+                ],
+                "expires_at": "2026-10-16T08:34:38.639Z",
+                "preview_policy": "Last two checks in this process for 30 minutes; resubmit after eviction, expiry or restart."
+              }
+            },
+            "saved": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "dup5",
+      "prompt": "Save a review with overlapping reasons, hit the free save cap, then export every source record without paying and remove the saved snapshots.",
+      "criteria": [
+        "Four candidate records counted once despite overlapping groups",
+        "Three saves succeed, fourth preserves full diagnosis with free_saved_report_cap",
+        "Complete four-row CSV and source paging remain free",
+        "Three created saved snapshots deleted and saved list returns zero"
+      ],
+      "expected": {
+        "candidates": 4,
+        "groups": 3,
+        "rules": [
+          "exact_reference",
+          "normalized_reference",
+          "same_amount_date"
+        ]
+      },
+      "status": "passed",
+      "score": 3,
+      "score_definition": "3 only when every frozen expected-output and workflow assertion passes; 0 on any failure. An operator acceptance score, not subjective quality or customer preference.",
+      "tool_calls": 10,
+      "seconds": 0.007926,
+      "receipts": [
+        {
+          "name": "duplicate_invoice_check",
+          "args": {
+            "records": [
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "A"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-02",
+                "currency": "USD",
+                "total_minor": 13000,
+                "record_id": "B"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "inv /001",
+                "invoice_date": "2026-10-03",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "C"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "SERVICE-2",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "D"
+              }
+            ],
+            "save": true
+          },
+          "result": {
+            "report": {
+              "schema_version": 1,
+              "status": "candidates_for_review",
+              "scope": "Candidate review of supplied records only. No payment approval, fraud verdict, duplicate confirmation, ERP access, or completeness guarantee.",
+              "summary": {
+                "record_count": 4,
+                "candidate_record_count": 4,
+                "unflagged_record_count": 0,
+                "group_count": 3,
+                "group_memberships": 7
+              },
+              "records": [
+                {
+                  "record_id": "A",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "B",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-02",
+                  "currency": "USD",
+                  "total_minor": 13000
+                },
+                {
+                  "record_id": "C",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "inv /001",
+                  "invoice_date": "2026-10-03",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "D",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "SERVICE-2",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                }
+              ],
+              "groups": [
+                {
+                  "group_id": "G0001",
+                  "rule": "exact_reference",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": "INV-001",
+                  "record_ids": [
+                    "A",
+                    "B"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_date",
+                    "total_minor"
+                  ],
+                  "explanation": "Identical invoice references in the same exact scope. Amount/date conflicts remain visible and do not suppress this candidate."
+                },
+                {
+                  "group_id": "G0002",
+                  "rule": "normalized_reference",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": "INV001",
+                  "record_ids": [
+                    "A",
+                    "B",
+                    "C"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_number",
+                    "invoice_date",
+                    "total_minor"
+                  ],
+                  "explanation": "References collide after ASCII case and space/hyphen/slash/dot normalization only. This may be a legitimate reference distinction."
+                },
+                {
+                  "group_id": "G0003",
+                  "rule": "same_amount_date",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": {
+                    "total_minor": 12500,
+                    "invoice_date": "2026-10-01"
+                  },
+                  "record_ids": [
+                    "A",
+                    "D"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_number"
+                  ],
+                  "explanation": "Exact total and invoice date in the same scope. Recurring or distinct legitimate invoices can share both; review source documents."
+                }
+              ],
+              "record_summaries": [
+                {
+                  "record_id": "A",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001",
+                    "G0002",
+                    "G0003"
+                  ],
+                  "reasons": [
+                    "exact_reference",
+                    "normalized_reference",
+                    "same_amount_date"
+                  ]
+                },
+                {
+                  "record_id": "B",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001",
+                    "G0002"
+                  ],
+                  "reasons": [
+                    "exact_reference",
+                    "normalized_reference"
+                  ]
+                },
+                {
+                  "record_id": "C",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0002"
+                  ],
+                  "reasons": [
+                    "normalized_reference"
+                  ]
+                },
+                {
+                  "record_id": "D",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0003"
+                  ],
+                  "reasons": [
+                    "same_amount_date"
+                  ]
+                }
+              ],
+              "policy": {
+                "normalization": "ASCII a-z to A-Z; remove only ASCII space, hyphen, slash and dot. Preserve leading zeros, all other characters and all Unicode.",
+                "scope_fields": [
+                  "entity_id",
+                  "supplier_id",
+                  "document_type",
+                  "currency"
+                ],
+                "limitations": [
+                  "Exact supplied identifiers only; no fuzzy supplier/entity joins or currency conversion.",
+                  "Overlapping groups are independent reasons, not confirmed duplicate clusters. Candidate records are counted once; no recoverable amount is calculated.",
+                  "Unflagged records are not safe-to-pay decisions. Missing history, altered dates/amounts and other reference variations can be missed.",
+                  "Credit notes use positive absolute minor-unit totals and are compared only with credit notes.",
+                  "Display labels never affect matching. ISO-like currency codes are syntax checked, not checked against a currency registry."
+                ]
+              },
+              "retrieval": {
+                "report_id": "4bae72a2-f4e1-4725-a9b4-8c39ff3e52d7",
+                "page_tool": "report_page",
+                "export_tool": "report_export_csv",
+                "sections": [
+                  "records",
+                  "groups",
+                  "record_summaries",
+                  "group_members"
+                ]
+              }
+            },
+            "saved": true,
+            "id": "4bae72a2-f4e1-4725-a9b4-8c39ff3e52d7",
+            "created_at": "2026-10-16T08:04:38.641Z"
+          }
+        },
+        {
+          "name": "duplicate_invoice_check",
+          "args": {
+            "records": [
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "A"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-02",
+                "currency": "USD",
+                "total_minor": 13000,
+                "record_id": "B"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "inv /001",
+                "invoice_date": "2026-10-03",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "C"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "SERVICE-2",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "D"
+              }
+            ],
+            "save": true
+          },
+          "result": {
+            "report": {
+              "schema_version": 1,
+              "status": "candidates_for_review",
+              "scope": "Candidate review of supplied records only. No payment approval, fraud verdict, duplicate confirmation, ERP access, or completeness guarantee.",
+              "summary": {
+                "record_count": 4,
+                "candidate_record_count": 4,
+                "unflagged_record_count": 0,
+                "group_count": 3,
+                "group_memberships": 7
+              },
+              "records": [
+                {
+                  "record_id": "A",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "B",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-02",
+                  "currency": "USD",
+                  "total_minor": 13000
+                },
+                {
+                  "record_id": "C",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "inv /001",
+                  "invoice_date": "2026-10-03",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "D",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "SERVICE-2",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                }
+              ],
+              "groups": [
+                {
+                  "group_id": "G0001",
+                  "rule": "exact_reference",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": "INV-001",
+                  "record_ids": [
+                    "A",
+                    "B"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_date",
+                    "total_minor"
+                  ],
+                  "explanation": "Identical invoice references in the same exact scope. Amount/date conflicts remain visible and do not suppress this candidate."
+                },
+                {
+                  "group_id": "G0002",
+                  "rule": "normalized_reference",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": "INV001",
+                  "record_ids": [
+                    "A",
+                    "B",
+                    "C"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_number",
+                    "invoice_date",
+                    "total_minor"
+                  ],
+                  "explanation": "References collide after ASCII case and space/hyphen/slash/dot normalization only. This may be a legitimate reference distinction."
+                },
+                {
+                  "group_id": "G0003",
+                  "rule": "same_amount_date",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": {
+                    "total_minor": 12500,
+                    "invoice_date": "2026-10-01"
+                  },
+                  "record_ids": [
+                    "A",
+                    "D"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_number"
+                  ],
+                  "explanation": "Exact total and invoice date in the same scope. Recurring or distinct legitimate invoices can share both; review source documents."
+                }
+              ],
+              "record_summaries": [
+                {
+                  "record_id": "A",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001",
+                    "G0002",
+                    "G0003"
+                  ],
+                  "reasons": [
+                    "exact_reference",
+                    "normalized_reference",
+                    "same_amount_date"
+                  ]
+                },
+                {
+                  "record_id": "B",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001",
+                    "G0002"
+                  ],
+                  "reasons": [
+                    "exact_reference",
+                    "normalized_reference"
+                  ]
+                },
+                {
+                  "record_id": "C",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0002"
+                  ],
+                  "reasons": [
+                    "normalized_reference"
+                  ]
+                },
+                {
+                  "record_id": "D",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0003"
+                  ],
+                  "reasons": [
+                    "same_amount_date"
+                  ]
+                }
+              ],
+              "policy": {
+                "normalization": "ASCII a-z to A-Z; remove only ASCII space, hyphen, slash and dot. Preserve leading zeros, all other characters and all Unicode.",
+                "scope_fields": [
+                  "entity_id",
+                  "supplier_id",
+                  "document_type",
+                  "currency"
+                ],
+                "limitations": [
+                  "Exact supplied identifiers only; no fuzzy supplier/entity joins or currency conversion.",
+                  "Overlapping groups are independent reasons, not confirmed duplicate clusters. Candidate records are counted once; no recoverable amount is calculated.",
+                  "Unflagged records are not safe-to-pay decisions. Missing history, altered dates/amounts and other reference variations can be missed.",
+                  "Credit notes use positive absolute minor-unit totals and are compared only with credit notes.",
+                  "Display labels never affect matching. ISO-like currency codes are syntax checked, not checked against a currency registry."
+                ]
+              },
+              "retrieval": {
+                "report_id": "9ed6faac-851b-449b-bd89-ae9a7bc5b30d",
+                "page_tool": "report_page",
+                "export_tool": "report_export_csv",
+                "sections": [
+                  "records",
+                  "groups",
+                  "record_summaries",
+                  "group_members"
+                ]
+              }
+            },
+            "saved": true,
+            "id": "9ed6faac-851b-449b-bd89-ae9a7bc5b30d",
+            "created_at": "2026-10-16T08:04:38.642Z"
+          }
+        },
+        {
+          "name": "duplicate_invoice_check",
+          "args": {
+            "records": [
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "A"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-02",
+                "currency": "USD",
+                "total_minor": 13000,
+                "record_id": "B"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "inv /001",
+                "invoice_date": "2026-10-03",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "C"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "SERVICE-2",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "D"
+              }
+            ],
+            "save": true
+          },
+          "result": {
+            "report": {
+              "schema_version": 1,
+              "status": "candidates_for_review",
+              "scope": "Candidate review of supplied records only. No payment approval, fraud verdict, duplicate confirmation, ERP access, or completeness guarantee.",
+              "summary": {
+                "record_count": 4,
+                "candidate_record_count": 4,
+                "unflagged_record_count": 0,
+                "group_count": 3,
+                "group_memberships": 7
+              },
+              "records": [
+                {
+                  "record_id": "A",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "B",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-02",
+                  "currency": "USD",
+                  "total_minor": 13000
+                },
+                {
+                  "record_id": "C",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "inv /001",
+                  "invoice_date": "2026-10-03",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "D",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "SERVICE-2",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                }
+              ],
+              "groups": [
+                {
+                  "group_id": "G0001",
+                  "rule": "exact_reference",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": "INV-001",
+                  "record_ids": [
+                    "A",
+                    "B"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_date",
+                    "total_minor"
+                  ],
+                  "explanation": "Identical invoice references in the same exact scope. Amount/date conflicts remain visible and do not suppress this candidate."
+                },
+                {
+                  "group_id": "G0002",
+                  "rule": "normalized_reference",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": "INV001",
+                  "record_ids": [
+                    "A",
+                    "B",
+                    "C"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_number",
+                    "invoice_date",
+                    "total_minor"
+                  ],
+                  "explanation": "References collide after ASCII case and space/hyphen/slash/dot normalization only. This may be a legitimate reference distinction."
+                },
+                {
+                  "group_id": "G0003",
+                  "rule": "same_amount_date",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": {
+                    "total_minor": 12500,
+                    "invoice_date": "2026-10-01"
+                  },
+                  "record_ids": [
+                    "A",
+                    "D"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_number"
+                  ],
+                  "explanation": "Exact total and invoice date in the same scope. Recurring or distinct legitimate invoices can share both; review source documents."
+                }
+              ],
+              "record_summaries": [
+                {
+                  "record_id": "A",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001",
+                    "G0002",
+                    "G0003"
+                  ],
+                  "reasons": [
+                    "exact_reference",
+                    "normalized_reference",
+                    "same_amount_date"
+                  ]
+                },
+                {
+                  "record_id": "B",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001",
+                    "G0002"
+                  ],
+                  "reasons": [
+                    "exact_reference",
+                    "normalized_reference"
+                  ]
+                },
+                {
+                  "record_id": "C",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0002"
+                  ],
+                  "reasons": [
+                    "normalized_reference"
+                  ]
+                },
+                {
+                  "record_id": "D",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0003"
+                  ],
+                  "reasons": [
+                    "same_amount_date"
+                  ]
+                }
+              ],
+              "policy": {
+                "normalization": "ASCII a-z to A-Z; remove only ASCII space, hyphen, slash and dot. Preserve leading zeros, all other characters and all Unicode.",
+                "scope_fields": [
+                  "entity_id",
+                  "supplier_id",
+                  "document_type",
+                  "currency"
+                ],
+                "limitations": [
+                  "Exact supplied identifiers only; no fuzzy supplier/entity joins or currency conversion.",
+                  "Overlapping groups are independent reasons, not confirmed duplicate clusters. Candidate records are counted once; no recoverable amount is calculated.",
+                  "Unflagged records are not safe-to-pay decisions. Missing history, altered dates/amounts and other reference variations can be missed.",
+                  "Credit notes use positive absolute minor-unit totals and are compared only with credit notes.",
+                  "Display labels never affect matching. ISO-like currency codes are syntax checked, not checked against a currency registry."
+                ]
+              },
+              "retrieval": {
+                "report_id": "d8894a3b-2e0f-4188-b416-b86ea52c23b2",
+                "page_tool": "report_page",
+                "export_tool": "report_export_csv",
+                "sections": [
+                  "records",
+                  "groups",
+                  "record_summaries",
+                  "group_members"
+                ]
+              }
+            },
+            "saved": true,
+            "id": "d8894a3b-2e0f-4188-b416-b86ea52c23b2",
+            "created_at": "2026-10-16T08:04:38.644Z"
+          }
+        },
+        {
+          "name": "duplicate_invoice_check",
+          "args": {
+            "records": [
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "A"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-02",
+                "currency": "USD",
+                "total_minor": 13000,
+                "record_id": "B"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "inv /001",
+                "invoice_date": "2026-10-03",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "C"
+              },
+              {
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "SERVICE-2",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500,
+                "record_id": "D"
+              }
+            ],
+            "save": true
+          },
+          "result": {
+            "report": {
+              "schema_version": 1,
+              "status": "candidates_for_review",
+              "scope": "Candidate review of supplied records only. No payment approval, fraud verdict, duplicate confirmation, ERP access, or completeness guarantee.",
+              "summary": {
+                "record_count": 4,
+                "candidate_record_count": 4,
+                "unflagged_record_count": 0,
+                "group_count": 3,
+                "group_memberships": 7
+              },
+              "records": [
+                {
+                  "record_id": "A",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "B",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "INV-001",
+                  "invoice_date": "2026-10-02",
+                  "currency": "USD",
+                  "total_minor": 13000
+                },
+                {
+                  "record_id": "C",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "inv /001",
+                  "invoice_date": "2026-10-03",
+                  "currency": "USD",
+                  "total_minor": 12500
+                },
+                {
+                  "record_id": "D",
+                  "entity_id": "E1",
+                  "supplier_id": "S1",
+                  "document_type": "invoice",
+                  "invoice_number": "SERVICE-2",
+                  "invoice_date": "2026-10-01",
+                  "currency": "USD",
+                  "total_minor": 12500
+                }
+              ],
+              "groups": [
+                {
+                  "group_id": "G0001",
+                  "rule": "exact_reference",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": "INV-001",
+                  "record_ids": [
+                    "A",
+                    "B"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_date",
+                    "total_minor"
+                  ],
+                  "explanation": "Identical invoice references in the same exact scope. Amount/date conflicts remain visible and do not suppress this candidate."
+                },
+                {
+                  "group_id": "G0002",
+                  "rule": "normalized_reference",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": "INV001",
+                  "record_ids": [
+                    "A",
+                    "B",
+                    "C"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_number",
+                    "invoice_date",
+                    "total_minor"
+                  ],
+                  "explanation": "References collide after ASCII case and space/hyphen/slash/dot normalization only. This may be a legitimate reference distinction."
+                },
+                {
+                  "group_id": "G0003",
+                  "rule": "same_amount_date",
+                  "scope": {
+                    "entity_id": "E1",
+                    "supplier_id": "S1",
+                    "document_type": "invoice",
+                    "currency": "USD"
+                  },
+                  "match_key": {
+                    "total_minor": 12500,
+                    "invoice_date": "2026-10-01"
+                  },
+                  "record_ids": [
+                    "A",
+                    "D"
+                  ],
+                  "conflicting_fields": [
+                    "invoice_number"
+                  ],
+                  "explanation": "Exact total and invoice date in the same scope. Recurring or distinct legitimate invoices can share both; review source documents."
+                }
+              ],
+              "record_summaries": [
+                {
+                  "record_id": "A",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001",
+                    "G0002",
+                    "G0003"
+                  ],
+                  "reasons": [
+                    "exact_reference",
+                    "normalized_reference",
+                    "same_amount_date"
+                  ]
+                },
+                {
+                  "record_id": "B",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0001",
+                    "G0002"
+                  ],
+                  "reasons": [
+                    "exact_reference",
+                    "normalized_reference"
+                  ]
+                },
+                {
+                  "record_id": "C",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0002"
+                  ],
+                  "reasons": [
+                    "normalized_reference"
+                  ]
+                },
+                {
+                  "record_id": "D",
+                  "candidate": true,
+                  "group_ids": [
+                    "G0003"
+                  ],
+                  "reasons": [
+                    "same_amount_date"
+                  ]
+                }
+              ],
+              "policy": {
+                "normalization": "ASCII a-z to A-Z; remove only ASCII space, hyphen, slash and dot. Preserve leading zeros, all other characters and all Unicode.",
+                "scope_fields": [
+                  "entity_id",
+                  "supplier_id",
+                  "document_type",
+                  "currency"
+                ],
+                "limitations": [
+                  "Exact supplied identifiers only; no fuzzy supplier/entity joins or currency conversion.",
+                  "Overlapping groups are independent reasons, not confirmed duplicate clusters. Candidate records are counted once; no recoverable amount is calculated.",
+                  "Unflagged records are not safe-to-pay decisions. Missing history, altered dates/amounts and other reference variations can be missed.",
+                  "Credit notes use positive absolute minor-unit totals and are compared only with credit notes.",
+                  "Display labels never affect matching. ISO-like currency codes are syntax checked, not checked against a currency registry."
+                ]
+              },
+              "retrieval": {
+                "report_id": "preview:9c0160f5-38cb-4cb3-aacd-cd450943e9ea",
+                "page_tool": "report_page",
+                "export_tool": "report_export_csv",
+                "sections": [
+                  "records",
+                  "groups",
+                  "record_summaries",
+                  "group_members"
+                ],
+                "expires_at": "2026-10-16T08:34:38.645Z",
+                "preview_policy": "Last two checks in this process for 30 minutes; resubmit after eviction, expiry or restart."
+              }
+            },
+            "saved": false,
+            "save_error": "free_saved_report_cap",
+            "upgrade": "\"More than 3 saved reports\" is a Pro feature. Pro is a one-time $19 for this server, lifetime. Buy at https://mcp.zovo.one/buy/duplicate-invoice-check?src=duplicate-invoice-check.duplicate_invoice_check , then run license_activate with the key shown after checkout. Keys verify offline; nothing is sent anywhere. The exact figures for this request are only in the free tools' output above; any total or journal composed outside them is an estimate, not a figure from the books. Or all 47 servers for $39: https://mcp.zovo.one/buy/bundle?src=duplicate-invoice-check.duplicate_invoice_check.bundle",
+            "payment": {
+              "schema": "zovo.one/mcp-payment-descriptor/1",
+              "status": "payment_required",
+              "product": "duplicate-invoice-check",
+              "reason": "free_tier_cap",
+              "feature": "More than 3 saved reports",
+              "tier": "free",
+              "price": {
+                "amount": "19.00",
+                "currency": "USD",
+                "model": "one_time",
+                "grants": "lifetime Pro on the duplicate-invoice-check server",
+                "url": "https://mcp.zovo.one/buy/duplicate-invoice-check?src=duplicate-invoice-check.duplicate_invoice_check"
+              },
+              "alternative": {
+                "amount": "39.00",
+                "currency": "USD",
+                "model": "one_time",
+                "grants": "lifetime Pro on all 47 servers",
+                "url": "https://mcp.zovo.one/buy/bundle?src=duplicate-invoice-check.duplicate_invoice_check.bundle"
+              },
+              "checkout": {
+                "processor": "stripe",
+                "completed_in": "browser"
+              },
+              "agent_settleable": false,
+              "agent_settleable_reason": "This server has no agent-settleable payment rail. Payment is a card checkout a person completes in a browser. As of MCP 2026-07-28 the specification defines no payment primitive (SEP-2007 was closed unmerged on 2026-06-24), and no mainstream MCP client settles an x402 challenge without a separately installed, separately funded wallet bridge.",
+              "rails": {
+                "x402": {
+                  "supported": false,
+                  "note": "No x402 challenge is issued and no PAYMENT-SIGNATURE header is accepted. Do not retry with a payment payload."
+                }
+              },
+              "elicitation": {
+                "mode": "url",
+                "message": "\"More than 3 saved reports\" needs Pro on the duplicate-invoice-check server. Pro is a one-time $19.00, lifetime.",
+                "url": "https://mcp.zovo.one/buy/duplicate-invoice-check?src=duplicate-invoice-check.duplicate_invoice_check"
+              },
+              "human_step": "Open the checkout URL in a browser and pay by card. Nothing else is required of the user.",
+              "after_payment": "Checkout shows a key of the form MCPL1.<payload>.<signature>. Pass it to the license_activate tool; it is verified offline against a built-in public key and nothing is sent anywhere.",
+              "context_url": "https://mcp.zovo.one/guides/mcp-server-free-vs-pro"
+            }
+          }
+        },
+        {
+          "name": "report_export_csv",
+          "args": {
+            "id": "preview:9c0160f5-38cb-4cb3-aacd-cd450943e9ea"
+          },
+          "result": {
+            "id": "preview:9c0160f5-38cb-4cb3-aacd-cd450943e9ea",
+            "csv": "\"record_id\",\"entity_id\",\"supplier_id\",\"document_type\",\"invoice_number\",\"invoice_date\",\"currency\",\"total_minor\",\"entity_label\",\"supplier_label\",\"candidate\",\"reasons\",\"group_ids\"\r\n\"A\",\"E1\",\"S1\",\"invoice\",\"INV-001\",\"2026-10-01\",\"USD\",\"12500\",\"\",\"\",\"true\",\"exact_reference;normalized_reference;same_amount_date\",\"G0001;G0002;G0003\"\r\n\"B\",\"E1\",\"S1\",\"invoice\",\"INV-001\",\"2026-10-02\",\"USD\",\"13000\",\"\",\"\",\"true\",\"exact_reference;normalized_reference\",\"G0001;G0002\"\r\n\"C\",\"E1\",\"S1\",\"invoice\",\"inv /001\",\"2026-10-03\",\"USD\",\"12500\",\"\",\"\",\"true\",\"normalized_reference\",\"G0002\"\r\n\"D\",\"E1\",\"S1\",\"invoice\",\"SERVICE-2\",\"2026-10-01\",\"USD\",\"12500\",\"\",\"\",\"true\",\"same_amount_date\",\"G0003\"\r\n",
+            "offset": 0,
+            "returned": 4,
+            "total_rows": 4,
+            "next_offset": null
+          }
+        },
+        {
+          "name": "report_page",
+          "args": {
+            "id": "preview:9c0160f5-38cb-4cb3-aacd-cd450943e9ea",
+            "section": "records",
+            "limit": 2
+          },
+          "result": {
+            "id": "preview:9c0160f5-38cb-4cb3-aacd-cd450943e9ea",
+            "section": "records",
+            "offset": 0,
+            "limit": 2,
+            "total": 4,
+            "next_offset": 2,
+            "rows": [
+              {
+                "record_id": "A",
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-01",
+                "currency": "USD",
+                "total_minor": 12500
+              },
+              {
+                "record_id": "B",
+                "entity_id": "E1",
+                "supplier_id": "S1",
+                "document_type": "invoice",
+                "invoice_number": "INV-001",
+                "invoice_date": "2026-10-02",
+                "currency": "USD",
+                "total_minor": 13000
+              }
+            ]
+          }
+        },
+        {
+          "name": "report_delete",
+          "args": {
+            "id": "4bae72a2-f4e1-4725-a9b4-8c39ff3e52d7"
+          },
+          "result": {
+            "deleted": "4bae72a2-f4e1-4725-a9b4-8c39ff3e52d7"
+          }
+        },
+        {
+          "name": "report_delete",
+          "args": {
+            "id": "9ed6faac-851b-449b-bd89-ae9a7bc5b30d"
+          },
+          "result": {
+            "deleted": "9ed6faac-851b-449b-bd89-ae9a7bc5b30d"
+          }
+        },
+        {
+          "name": "report_delete",
+          "args": {
+            "id": "d8894a3b-2e0f-4188-b416-b86ea52c23b2"
+          },
+          "result": {
+            "deleted": "d8894a3b-2e0f-4188-b416-b86ea52c23b2"
+          }
+        },
+        {
+          "name": "report_list",
+          "args": {},
+          "result": {
+            "total": 0,
+            "offset": 0,
+            "limit": 20,
+            "reports": []
+          }
+        }
+      ]
+    }
+  ],
+  "status": "passed"
+}

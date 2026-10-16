@@ -180,7 +180,7 @@ test("free tier: the 11th own clause is refused, Pro takes it", async (t) => {
     assert.equal(JSON.parse(r.text).own_clauses, i);
   }
   const blocked = await free.call("clause_add", { title: "House rule 11", body: "One too many for {{client}}.", category: "general" });
-  assert.equal(blocked.isError, false, "a gate must not be an error result");
+  assert.equal(blocked.isError, true, "a refused operation must be an error result");
   assert.match(blocked.text, /free tier holds 10 of your own clauses/i);
   assert.match(blocked.text, /mcp\.zovo\.one\/buy\/clauses/);
   assert.equal(JSON.parse((await free.call("clause_list", {})).text).own, 10);
@@ -198,7 +198,7 @@ test("free tier: the 11th own clause is refused, Pro takes it", async (t) => {
   const nine = ["scope-of-work", "payment-terms", "late-fees", "ip-assignment", "confidentiality",
     "termination", "liability-cap", "revisions", "expenses"];
   const capped = await free.call("contract_assemble", { title: "Long form", clause_ids: nine, format: "markdown" });
-  assert.equal(capped.isError, false);
+  assert.equal(capped.isError, true);
   assert.match(capped.text, /free tier assembles up to 8 clauses/i);
 
   const key = execFileSync(process.execPath, [join(REPO, "scripts", "sign-license.mjs"), "clauses"], { encoding: "utf8" }).trim();
