@@ -1,0 +1,120 @@
+{
+  "fetched_at": "2026-10-16T03:40:11.213Z",
+  "status": "OK",
+  "host": "mcp.zovo.one",
+  "window": {
+    "start": "2026-10-16T01:20:00Z",
+    "end": "2026-10-16T03:40:08Z"
+  },
+  "method": "Read-only Cloudflare adaptive groups, exact path/host/time filters; all six groupings below 10000-row cap",
+  "rows": [
+    {
+      "name": "product",
+      "path": "/s/three-way-match",
+      "groups_returned": 4,
+      "adaptive_request_count": 5,
+      "by_ua_category": {
+        "script_or_other": 3,
+        "declared_crawler_or_assistant": 1,
+        "browser_style_including_operator_QA": 1
+      },
+      "by_http_status": {
+        "200": 5
+      },
+      "by_referrer_category": {
+        "none": 5
+      }
+    },
+    {
+      "name": "guide",
+      "path": "/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude",
+      "groups_returned": 2,
+      "adaptive_request_count": 2,
+      "by_ua_category": {
+        "script_or_other": 1,
+        "declared_crawler_or_assistant": 1
+      },
+      "by_http_status": {
+        "200": 2
+      },
+      "by_referrer_category": {
+        "none": 2
+      }
+    },
+    {
+      "name": "comparison",
+      "path": "/compare/three-way-match",
+      "groups_returned": 1,
+      "adaptive_request_count": 1,
+      "by_ua_category": {
+        "declared_crawler_or_assistant": 1
+      },
+      "by_http_status": {
+        "200": 1
+      },
+      "by_referrer_category": {
+        "none": 1
+      }
+    },
+    {
+      "name": "purchase",
+      "path": "/buy/three-way-match",
+      "groups_returned": 5,
+      "adaptive_request_count": 5,
+      "by_ua_category": {
+        "named_operator_or_monitor": 1,
+        "browser_style_including_operator_QA": 3,
+        "script_or_other": 1
+      },
+      "by_http_status": {
+        "200": 2,
+        "303": 2,
+        "504": 1
+      },
+      "by_referrer_category": {
+        "none": 4,
+        "storefront": 1
+      }
+    },
+    {
+      "name": "downloads",
+      "path": "/downloads",
+      "groups_returned": 1,
+      "adaptive_request_count": 1,
+      "by_ua_category": {
+        "declared_crawler_or_assistant": 1
+      },
+      "by_http_status": {
+        "200": 1
+      },
+      "by_referrer_category": {
+        "none": 1
+      }
+    },
+    {
+      "name": "monitor_control",
+      "path": "/health/checkout-monitor",
+      "groups_returned": 3,
+      "adaptive_request_count": 29,
+      "by_ua_category": {
+        "named_operator_or_monitor": 29
+      },
+      "by_http_status": {
+        "200": 26,
+        "503": 3
+      },
+      "by_referrer_category": {
+        "none": 29
+      }
+    }
+  ],
+  "query": "query { viewer { zones(filter: {zoneTag: \"f16be0fc9bae2ff3786d91eb7a90c023\"}) { product: httpRequestsAdaptiveGroups(limit: 10000, orderBy: [count_DESC], filter: {datetime_geq: \"2026-10-16T01:20:00Z\", datetime_leq: \"2026-10-16T03:40:08Z\", clientRequestHTTPHost: \"mcp.zovo.one\", clientRequestPath: \"/s/three-way-match\"}) { count avg { sampleInterval } dimensions { userAgent edgeResponseStatus clientRefererHost } }\nguide: httpRequestsAdaptiveGroups(limit: 10000, orderBy: [count_DESC], filter: {datetime_geq: \"2026-10-16T01:20:00Z\", datetime_leq: \"2026-10-16T03:40:08Z\", clientRequestHTTPHost: \"mcp.zovo.one\", clientRequestPath: \"/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude\"}) { count avg { sampleInterval } dimensions { userAgent edgeResponseStatus clientRefererHost } }\ncomparison: httpRequestsAdaptiveGroups(limit: 10000, orderBy: [count_DESC], filter: {datetime_geq: \"2026-10-16T01:20:00Z\", datetime_leq: \"2026-10-16T03:40:08Z\", clientRequestHTTPHost: \"mcp.zovo.one\", clientRequestPath: \"/compare/three-way-match\"}) { count avg { sampleInterval } dimensions { userAgent edgeResponseStatus clientRefererHost } }\npurchase: httpRequestsAdaptiveGroups(limit: 10000, orderBy: [count_DESC], filter: {datetime_geq: \"2026-10-16T01:20:00Z\", datetime_leq: \"2026-10-16T03:40:08Z\", clientRequestHTTPHost: \"mcp.zovo.one\", clientRequestPath: \"/buy/three-way-match\"}) { count avg { sampleInterval } dimensions { userAgent edgeResponseStatus clientRefererHost } }\ndownloads: httpRequestsAdaptiveGroups(limit: 10000, orderBy: [count_DESC], filter: {datetime_geq: \"2026-10-16T01:20:00Z\", datetime_leq: \"2026-10-16T03:40:08Z\", clientRequestHTTPHost: \"mcp.zovo.one\", clientRequestPath: \"/downloads\"}) { count avg { sampleInterval } dimensions { userAgent edgeResponseStatus clientRefererHost } }\nmonitor_control: httpRequestsAdaptiveGroups(limit: 10000, orderBy: [count_DESC], filter: {datetime_geq: \"2026-10-16T01:20:00Z\", datetime_leq: \"2026-10-16T03:40:08Z\", clientRequestHTTPHost: \"mcp.zovo.one\", clientRequestPath: \"/health/checkout-monitor\"}) { count avg { sampleInterval } dimensions { userAgent edgeResponseStatus clientRefererHost } } } } }",
+  "limitations": [
+    "Adaptive estimates may lag current time and include operator/automation requests.",
+    "Browser-style UA includes our known real Chrome QA; headers identifying probes are unavailable in this dataset.",
+    "Referrer categories do not identify people or prove interest, installs, tool success or willingness to pay.",
+    "Downloads is a shared catalog page; the monitor route is a positive logging control, not demand.",
+    "Window begins after first product deployment; zero rows are not proof of zero people."
+  ],
+  "privacy": "No client IPs, raw user agents, complete referrer hosts, tenant/session tokens or credentials exported."
+}

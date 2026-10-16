@@ -1,6 +1,6 @@
 # R36 revenue and organic distribution sprint
 
-Session: 2026-10-16 00:22:43–04:22:43 UTC. Status: product publication and unpaid lifecycle verification complete; sampled observation and report closeout remain in progress. The clock deadline has not yet been reached.
+Session: 2026-10-16 00:22:43–04:22:43 UTC. Status: completed. The read-only observation process exited zero at 04:22:46 UTC, after the four-hour deadline; final production checks pass. Report publication follows the final sample.
 
 ## Commercial result and biggest win
 
@@ -46,7 +46,7 @@ Validation evidence:
 
 ## Launch-window requests
 
-A separate Cloudflare query covers 01:20–03:40 UTC, after the first product deployment. Adaptive counts are product 5, guide 2, comparison 1, purchase route 5, shared download catalog 1. Browser-style requests include our own Chrome QA, and crawler/script requests are present. No registry referrer appears in these target-path groups. These are estimated requests, not people, installs, successful jobs or qualified leads. A nonzero monitor-route control verifies logging; all six groupings are below the row cap. Evidence: `data/r36_launch_traffic.json`.
+A separate Cloudflare query covers 01:20–04:22:43 UTC, after the first product deployment. Adaptive counts are product 5, guide 2, comparison 1, purchase route 7, shared download catalog 1. Browser-style requests include our own Chrome QA, and crawler/script requests are present. No registry referrer appears in these target-path groups. These are estimated requests, not people, installs, successful jobs or qualified leads. A nonzero monitor-route control verifies logging; all six groupings are below the row cap. Evidence: `data/r36_launch_traffic.json`; the earlier 03:40 snapshot is preserved as `data/r36_launch_traffic_initial.json`.
 
 The purchase grouping contains one GET 504 at 03:05, coinciding with the recorded deployment/pin transition. Causation is not established. A current marked GET returns 200, and both real unpaid handoff/replay checks returned 303. The earlier failure remains recorded in `data/r36_launch_504_investigation.json`; successful later checks do not certify uninterrupted availability.
 
@@ -69,10 +69,12 @@ Resend is already connected locally and on the Worker; `zovo.one` is verified an
 
 Read-only snapshots began at **00:48:50 UTC** after initial engineering work and run about every five minutes until the session deadline **04:22:43 UTC**. They check deployment/pin consistency, cron state, public checkout health and complete seven-day untagged MCP Stripe results. They generate no demand. The session is four hours; monitoring starts later and is sampled, not continuous uptime certification.
 
-Initial health returned 503 through the existing recovery cooldown after approved-version drift was repaired; it recovered by 01:14:07 UTC. Additional transient 503 samples occurred around deployments while the cron caught up. These are retained in `data/r36_watch.json`. Final sample and coverage will be recorded after the deadline. No claim of uninterrupted healthy service is made.
+Initial health returned 503 through the existing recovery cooldown after approved-version drift was repaired; it recovered by 01:14:07 UTC. Additional transient 503 samples occurred around deployments while the cron caught up. These are retained in `data/r36_watch.json`. The process finished at 04:22:46 UTC after 44 samples spanning 00:48:53–04:22:45 UTC: 36 HTTP 200, eight HTTP 503, one transient pin mismatch and zero read errors. The final approved version, cron and public HTTP 200 checks pass. Every Stripe sample proves complete seven-day coverage and records zero untagged/paid MCP Sessions. These are sampled observations, not continuous uptime. Evidence: `data/r36_watch.json` and `data/r36_final_closeout.json`.
 
-The catalog now uses version/build-bound runtime tools/list observations rather than a source regex: 49/56 existing builds measured, seven unavailable builds unmeasured, 976 summed tool exposures with office overlap explicitly disclosed. Office shows 441 tools/$39, matcher eight/$19, and free utilities have no separate Pro. Counts expire after 24 hours or build/version change. Canonical billing lists 48 products rather than fabricating one paid product per server. Historical test results and 14 current versus 32 recorded KPI rows are labeled separately. Evidence: `data/runtime-tool-inventory.json` and `data/r36_dashboard_inventory_verification.json`.
+The catalog now uses version/build-bound runtime tools/list observations rather than a source regex: 49/56 existing builds measured, seven unavailable builds unmeasured, 976 summed tool exposures with office overlap explicitly disclosed. Office shows 441 tools/$39, matcher eight/$19, and free utilities have no separate Pro. Regeneration treats counts as unmeasured after 24 hours or build/version change; the static page retains its rendered timestamp. Canonical billing lists 48 products rather than fabricating one paid product per server. Historical test results and 14 current versus 32 recorded KPI rows are labeled separately. Evidence: `data/runtime-tool-inventory.json` and `data/r36_dashboard_inventory_verification.json`.
 
 The main dashboard passes nine real Chrome tab switches with no page errors and fits a 390px phone viewport without horizontal body overflow. Desktop/mobile screenshots were inspected; mobile navigation keeps the commercial results near the top. Evidence: `data/r36_dashboard_verification.json`.
 
 Main dashboard: `../index.html`. KPI evidence: `../data/r36_kpi_audit.json` and `../data/r36_completed_checkout_audit.json`. Directory receipt: `../data/r36_directory_submission.json`. Owned test/browser/mirror work is closed and removed only after lsof proves no handles; deletion paths and sizes are retained in `../data/build-deletions.jsonl` and office cleanup evidence. No user data, browser logins or agent sessions are deleted.
+
+The direct completion sound command (`afplay` with Glass.aiff) exited zero. Final cleanup and publication evidence are recorded in `data/r36_final_closeout.json` and `data/r36_completion_audit.json`.

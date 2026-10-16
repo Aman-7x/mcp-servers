@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-16T03:57:54.065Z",
+  "generated_at": "2026-10-16T04:23:56.315Z",
   "session": {
-    "count": 103,
+    "count": 104,
     "history": [
       {
         "at": "2026-09-02T12:48:50.865Z",
@@ -414,6 +414,10 @@
       {
         "at": "2026-10-16T00:58:12.827Z",
         "note": "R36: checked live payment/search data, released checkout fixes, built line-level matcher with free pagination, hardened outreach, and started four-hour production observation. Product publication remains in progress."
+      },
+      {
+        "at": "2026-10-16T04:23:56.315Z",
+        "note": "R36 complete: four-hour sprint; matcher and buyer proof published; both unpaid probes expired with zero charges; 44 sampled checks, final checks pass; recorded MCP Checkout gross $0; dashboard runtime counts and canonical offers corrected."
       }
     ]
   },

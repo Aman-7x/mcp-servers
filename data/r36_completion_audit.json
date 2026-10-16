@@ -1,5 +1,5 @@
 {
-  "audited_at": "2026-10-16T04:02:16.814772+00:00",
+  "audited_at": "2026-10-16T04:24:24.691552+00:00",
   "status": "in_progress",
   "scope": "Completion of the authorized timed MCP monetization/distribution sprint, not a promise of commercial success or estate-wide certification",
   "requirements": [
@@ -100,10 +100,13 @@
     },
     {
       "requirement": "Complete the requested four-hour session and record final sampled checks",
-      "status": "pending",
-      "evidence": "data/r36_watch.json",
+      "status": "passed",
+      "evidence": [
+        "data/r36_watch.json",
+        "data/r36_final_closeout.json"
+      ],
       "deadline_at": "2026-10-16T04:22:43Z",
-      "note": "Monitoring began after engineering work and is sampled; no continuous four-hour uptime claim."
+      "note": "Four-hour session deadline passed. Watch terminal exited zero; 44 samples, final checks pass, eight 503s and one mismatch retained. Sampled span is shorter than session."
     },
     {
       "requirement": "Finalize and publish the resulting report/dashboard evidence",
@@ -113,19 +116,20 @@
     },
     {
       "requirement": "Make a sound when the update is ready",
-      "status": "pending",
-      "evidence": "Watch schedules Glass sound; final command result will be checked."
+      "status": "passed",
+      "evidence": "data/r36_final_closeout.json",
+      "note": "Direct afplay Glass.aiff command completed with exit zero."
     },
     {
       "requirement": "Finish scoped work cleanup and record disk/browser/deletion evidence and exceptions",
-      "status": "in_progress",
+      "status": "passed",
       "evidence": [
+        "data/r36_final_closeout.json",
         "data/build-deletions.jsonl",
         "data/r36_office_test_cleanup.jsonl",
-        "data/r36_credential_artifact_check.json",
-        "intel/R36-session.md"
+        "data/r36_credential_artifact_check.json"
       ],
-      "note": "Owned work closed/lsof checked before deletions; final scheduler/control-state cleanup pending. Earlier token exposure disclosed; artifact scan clean; shared-token rotation outside sprint not performed."
+      "note": "Owned browser/test/mirror work closed and lsof-checked before deletion; all recorded paths absent, scheduler and private probe state removed. Stable empty probe lock intentionally retained. Disk 38 GB. Earlier token exposure disclosed; no shared-token rotation."
     }
   ]
 }

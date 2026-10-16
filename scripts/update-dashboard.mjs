@@ -502,7 +502,7 @@ const html = `<!doctype html>
     <div class="kpi"><span class="n">${publishedSurfacesTotal}</span><span class="l">published surfaces</span></div>
     <div class="kpi"><span class="n">${revenue.stripe_live_sales === null ? 'unmeasured' : '$' + revenue.stripe_live_sales}</span><span class="l">revenue</span></div>
   </div>
-  <p>${escapeHtml(ledger.tool_summary.unit)}. Coverage: ${ledger.tool_summary.measured_servers}/${servers.length} server inventories current. Observations expire after ${ledger.tool_summary.max_age_hours} hours or a version/build fingerprint change. <a href="../${INVENTORY_PATH}">Runtime evidence and build fingerprint</a>. Test summaries retain historical RESULT.md evidence; inventory refresh does not rerun tests.</p>
+  <p>${escapeHtml(ledger.tool_summary.unit)}. Coverage: ${ledger.tool_summary.measured_servers}/${servers.length} server inventories current. Regeneration treats observations as unmeasured after ${ledger.tool_summary.max_age_hours} hours or a version/build fingerprint change; this static page retains its rendered timestamp. <a href="../${INVENTORY_PATH}">Runtime evidence and build fingerprint</a>. Test summaries retain historical RESULT.md evidence; inventory refresh does not rerun tests.</p>
 
   <section>
     <h2>Servers</h2>
