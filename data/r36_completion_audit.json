@@ -1,0 +1,129 @@
+{
+  "audited_at": "2026-10-16T03:25:19.360058+00:00",
+  "status": "in_progress",
+  "scope": "Completion of the authorized timed MCP monetization/distribution sprint, not a promise of commercial success or estate-wide certification",
+  "requirements": [
+    {
+      "requirement": "Read the full attached monetization/distribution request",
+      "status": "passed",
+      "evidence": "Original attachment read in full; report and release implement its bounded sprint",
+      "attachment_bytes": 1969,
+      "attachment_sha256": "608df8b4d2b51b0e981bf20447b9713540e2c369832034dab80837ea3d2b6d9b"
+    },
+    {
+      "requirement": "Deploy 5\u201310 specialist agents and use other models where applicable",
+      "status": "passed",
+      "evidence": "data/r36_agent_orchestration.json",
+      "observed_spawn_calls": 10,
+      "note": "Ten total specialist agents; this is not a claim of ten simultaneous workers."
+    },
+    {
+      "requirement": "Read the platform research and act on its relevant findings",
+      "status": "passed",
+      "evidence": [
+        "data/r36_research_source.json",
+        "intel/R36-session.md"
+      ],
+      "note": "Moved path resolved; full visible text read; private financial source exports excluded."
+    },
+    {
+      "requirement": "Ship more useful MCP capability with payment options and verifiable installation",
+      "status": "passed",
+      "evidence": [
+        "data/r36_artifact_verification.json",
+        "data/r36_office_repack_verification.json",
+        "data/r36_public_downloads.json",
+        "data/r36_release_asset_snapshot.json"
+      ],
+      "note": "One new eight-tool capability; two registry names represent the same capability. Existing estate limitations remain disclosed."
+    },
+    {
+      "requirement": "Publish/deploy and improve organic distribution",
+      "status": "passed",
+      "evidence": [
+        "data/r36_registry_verification.json",
+        "data/r36_release.json",
+        "data/r36_office_mirror_ci.json",
+        "data/r36_directory_submission.json"
+      ],
+      "note": "New official names, public release/mirror, live buyer guide/demo, corrected downloads/metadata; free directory submission pending review. No guaranteed traffic or ranking claim."
+    },
+    {
+      "requirement": "Verify the live $19/$39 handoffs, retry identity and unpaid refusal",
+      "status": "passed",
+      "evidence": "data/r36_checkout_lifecycle.json",
+      "observed_created": 2,
+      "observed_charged_minor": 0,
+      "note": "Marked unpaid handoff QA; positive live paid fulfillment is not claimed."
+    },
+    {
+      "requirement": "Close both exact owned unpaid probe Sessions by bounded expiry",
+      "status": "pending",
+      "evidence": [
+        "data/r36_checkout_lifecycle.json",
+        "data/r36_checkout_expiry_verification_result.txt"
+      ],
+      "due_at": "2026-10-16T03:36:48Z"
+    },
+    {
+      "requirement": "Measure KPIs, separate probes/populations/windows, explain money and ROI",
+      "status": "passed",
+      "evidence": [
+        "data/r36_kpi_audit.json",
+        "data/r36_completed_checkout_audit.json",
+        "docs/BLIND_RECOMMENDATION_R8.md",
+        "intel/R36-session.md"
+      ],
+      "note": "Zero available MCP Checkout gross; no revenue-lift/profit/causal ROI claim. Traffic, recommendations and IDs are independent observations."
+    },
+    {
+      "requirement": "Provide a main HTML dashboard in the project folder",
+      "status": "passed",
+      "evidence": [
+        "index.html",
+        "data/r36_dashboard_verification.json",
+        "intel/R36-dashboard-desktop.png",
+        "intel/R36-dashboard-mobile.png"
+      ],
+      "note": "Nine Chrome tab switches pass; 390px viewport has no horizontal body overflow."
+    },
+    {
+      "requirement": "Explain existing outreach access and the next useful input",
+      "status": "passed",
+      "evidence": [
+        "docs/OUTREACH_RESEND_SETUP.md",
+        "intel/R36-outreach.md"
+      ],
+      "note": "Resend already configured; no new account needed. Opted-in list, consent and campaign instruction needed for a future send. No outreach email sent."
+    },
+    {
+      "requirement": "Complete the requested four-hour session and record final sampled checks",
+      "status": "pending",
+      "evidence": "data/r36_watch.json",
+      "deadline_at": "2026-10-16T04:22:43Z",
+      "note": "Monitoring began after engineering work and is sampled; no continuous four-hour uptime claim."
+    },
+    {
+      "requirement": "Finalize and publish the resulting report/dashboard evidence",
+      "status": "pending",
+      "evidence": "https://github.com/theluckystrike/mcp-servers/pull/69",
+      "note": "Draft stays open until expiry and observation finish."
+    },
+    {
+      "requirement": "Make a sound when the update is ready",
+      "status": "pending",
+      "evidence": "Watch schedules Glass sound; final command result will be checked."
+    },
+    {
+      "requirement": "Finish scoped work cleanup and record disk/browser/deletion evidence and exceptions",
+      "status": "in_progress",
+      "evidence": [
+        "data/build-deletions.jsonl",
+        "data/r36_office_test_cleanup.jsonl",
+        "data/r36_credential_artifact_check.json",
+        "intel/R36-session.md"
+      ],
+      "note": "Owned work closed/lsof checked before deletions; final scheduler/control-state cleanup pending. Earlier token exposure disclosed; artifact scan clean; shared-token rotation outside sprint not performed."
+    }
+  ]
+}

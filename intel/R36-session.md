@@ -10,6 +10,8 @@ The biggest durable win is a working route from a specific buyer problem to evid
 
 Qualified discovery remains the constraint. GSC reports 34 MCP-host impressions and zero clicks across September 15–October 13 inclusive. GitHub reports 25 unique visitors across October 1–14, without independent human verification. A fresh unprimed documentary trial names the estate in 9/18 buyer answers, six first-listed; raw host URLs appear in 15/18. Older trials differ in model/search conditions, so this is visibility evidence, not a causal revenue comparison. These measurements do not share a funnel denominator.
 
+Ten specialist agents were used across the sprint, with separate KPI, conversion, organic research, implementation, integration, outreach, blind recommendation, release review, resume-race and artifact-verification tasks. Follow-up audits reused existing agents. Structured tool-call provenance: `data/r36_agent_orchestration.json`; this is a total-agent count, not ten simultaneous workers.
+
 ## Published product and distribution
 
 - [Three-Way Invoice Match](https://mcp.zovo.one/s/three-way-match): local stdio, eight tools, exact SKU matching, whole-unit quantities and integer minor-unit money. Inputs are a purchase order, accepted/rejected receipts, invoice and explicitly supplied prior invoicing. No OCR, PDF extraction, ERP integration or payment approval is claimed. Full diagnostics and pagination are free; free storage permits three simultaneous saved reports, Pro removes that cap.
@@ -37,7 +39,7 @@ Validation evidence:
 
 - Full root checkpoint: 2,273 tests, 2,241 pass, 32 skip, zero fail. A real resume directory-creation race was fixed with deterministic coverage distinguishing directories from files/symlinks. Later focused changes are reported separately rather than pretending the whole suite was rerun.
 - Matcher: 25 tests, 5,000 independent arithmetic cases, 1,022 real calls against the exact standalone artifact, dependency guards preventing monorepo fallback, and fresh source build. Office proxy performed real matching/get/CSV calls. Oversized outputs use free complete paging within the SDK budget; source inputs and storage are bounded.
-- Billing: 190/190. Ownership/recovery/locking: 6/6. KPI/blind selection: 6/6. Outreach sender: 30/30. Office source: 8/8. GitHub source Docker/runtime CI, matcher mirror CI and repaired office mirror CI are green.
+- Billing: 190/190. Ownership/recovery/locking: 6/6. KPI/blind selection: 6/6. Outreach sender: 30/30. Office source: 8/8. Matcher source Docker/runtime CI, matcher mirror CI and repaired office mirror CI are green.
 - Artifact verification: `intel/R36-artifact-verification.md`, `data/r36_public_downloads.json`, `data/r36_office_repack_verification.json`. Browser evidence: `data/r36_browser_demo_live_verification.json`. Checkout: `data/r36_checkout_lifecycle.json`.
 
 ## Outreach access

@@ -1,0 +1,76 @@
+{
+  "provenance": "Current root thread structured tool-call records; messages and session contents not exported",
+  "spawn_calls": 10,
+  "tasks": [
+    {
+      "at": "2026-10-16T00:23:18.874Z",
+      "tool": "spawn_agent",
+      "task_name": "kpi_audit",
+      "model": null,
+      "fork_turns": null
+    },
+    {
+      "at": "2026-10-16T00:23:24.235Z",
+      "tool": "spawn_agent",
+      "task_name": "conversion",
+      "model": null,
+      "fork_turns": null
+    },
+    {
+      "at": "2026-10-16T00:23:30.765Z",
+      "tool": "spawn_agent",
+      "task_name": "organic",
+      "model": null,
+      "fork_turns": null
+    },
+    {
+      "at": "2026-10-16T00:29:25.583Z",
+      "tool": "spawn_agent",
+      "task_name": "three_way_match",
+      "model": null,
+      "fork_turns": null
+    },
+    {
+      "at": "2026-10-16T00:29:35.756Z",
+      "tool": "spawn_agent",
+      "task_name": "outreach_readiness",
+      "model": null,
+      "fork_turns": null
+    },
+    {
+      "at": "2026-10-16T00:31:09.664Z",
+      "tool": "spawn_agent",
+      "task_name": "match_integration",
+      "model": null,
+      "fork_turns": null
+    },
+    {
+      "at": "2026-10-16T00:35:16.186Z",
+      "tool": "spawn_agent",
+      "task_name": "blind_recommendation",
+      "model": "gpt-6-astra",
+      "fork_turns": "none"
+    },
+    {
+      "at": "2026-10-16T00:38:01.748Z",
+      "tool": "spawn_agent",
+      "task_name": "release_review",
+      "model": null,
+      "fork_turns": null
+    },
+    {
+      "at": "2026-10-16T00:51:26.584Z",
+      "tool": "spawn_agent",
+      "task_name": "resume_race",
+      "model": "gpt-6-sol",
+      "fork_turns": "none"
+    },
+    {
+      "at": "2026-10-16T00:56:55.326Z",
+      "tool": "spawn_agent",
+      "task_name": "artifact_verify",
+      "model": null,
+      "fork_turns": "all"
+    }
+  ]
+}
