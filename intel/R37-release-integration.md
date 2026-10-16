@@ -1,46 +1,51 @@
 # R37 local release integration
 
-Status: PRE-FIX CHECKPOINT ONLY. Independent review found a Windows data-directory bug; both archives require rebuilding after the store corrections. No publication is authorized from these checkpoint bytes.
+Three post-fix local archives passed exact-byte, dependency-boundary and real workflow verification. This report covers local artifacts; publication, public URL bytes, customer usage and paid fulfillment remain separate evidence.
 
-The office proxy v0.22.7 adds duplicate-invoice-check as a local child. Its final bundled-entry MCP inventory measures **49 children and 447 exposed tools**. The new server has eight standalone tools; office aggregates the two license tools, so the additional child contributes six exposed tools. Names that collide with the existing three-way matcher retain separate child prefixes. The proxy exposes `three-way-match_report_get` and `duplicate-invoice-check_report_get` independently.
+Office v0.22.7 now initializes **49 local children and exposes 447 measured tools**. Duplicate invoice review exposes eight standalone tools; office aggregates the two shared license tools, so adding the child contributes six proxy tools. The existing three-way matcher and duplicate reviewer retain separate report namespaces.
 
-Commands and evidence:
+| Local archive | Runtime version | Bytes | SHA-256 | Actual calls |
+| --- | --- | ---: | --- | ---: |
+| `bundles/duplicate-invoice-check.mcpb` | 0.22.7 | 3,276,192 | `a70a2548ed418122aee80bfe7fa66de0c1927c0d4f1e3b6ed24b13d8bddc206d` | 10 |
+| `bundles/three-way-match.mcpb` | 0.22.6 | 3,276,937 | `afa608954d51d94b2a439874224b2bd592c51812076c86fe0d207b2c91899c14` | 3 |
+| `bundles/office-suite.mcpb` | 0.22.7 | 32,011,115 | `767320b858a29983da1b36e4ccc2c3d1651d13f78febea7e75d202556588d3a0` | 8 |
 
-- `buildslot env npm_config_cache=/Users/mike/.npm-cache-local npm run build --workspace @theluckystrike/mcp-office-suite` exited 0.
-- `node scripts/runtime-tool-inventory.mjs servers/office-suite/dist/index.js` measured 447 tools. `data/office-suite-tool-inventory.json` now records the final bundled-entry measurement (2026-10-16T08:11:46.330Z).
-- `buildslot env TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local node --test servers/office-suite/test/duplicate-invoice.test.mjs servers/office-suite/test/children-complete.test.mjs` reported 4 tests, 4 passed, 0 failed, 0 skipped. Actual proxy calls checked candidate grouping, source scope separation, save/get, record paging, CSV and schema errors. The completeness negative control removed a real child from a copy and detected the omission.
-- `node scripts/check-office-build-inputs.mjs` checked 49 children and 51 local package closures. A temporary mutation of the office compiled version to 9.99.99 was rejected; restoring the original bytes restored a passing gate.
+The corrected three-way matcher keeps its source/package/runtime version 0.22.6; its new archive is intended for the v0.22.7 release collection. Its older immutable registry descriptors and old hashes remain unchanged. The new duplicate descriptors bind the exact new SHA above under two names for one capability: `io.github.theluckystrike/duplicate-invoice-check` and `io.github.theluckystrike/supplier-invoice-duplicates`. `bundles/SHA256SUMS-r37.txt` covers all three archives. No archive embeds its own descriptor hash.
 
-`build-mcpb.sh --only <standalone>` now invokes all 29 per-server release checks. `--only office-suite` invokes a clearly scoped local packaging-input gate; this checks child/build-list parity, every child entry, source/dist/package versions and actual internal package version ranges. Targeted gates cannot be disabled through `RELEASE_CHECK=0`. The default release-check still covers the whole estate and runs its six estate assertions. Scoped passes do not certify the old fleet.
+## Verification
 
-The internal dependency version check now compares a dependency range with that dependency's actual package version, rather than forcing all dependencies to the umbrella release version. The new product and office package are v0.22.7 while the unchanged shared license remains v0.22.6. The source/dist version check now accepts either quote style and rejects missing/malformed versions rather than silently passing an unparsed value.
+All npm commands used `npm_config_cache=/Users/mike/.npm-cache-local`; build/test/pack commands ran through `/Users/mike/bin/buildslot`. Packing used `TMPDIR=/Users/mike/mcp-servers-work` and `/opt/homebrew/bin/bash scripts/build-mcpb.sh --only <target>`. Each standalone passed all 29 strict scoped release checks with zero gaps. Office passed its explicit packaging-only gate: 49 declared children, 51 package closures, exact build/proxy child-list parity, current source/dist/package versions and actual internal dependency version ranges. Targeted gates cannot be disabled through `RELEASE_CHECK=0`.
 
-Standalone manifests now also use actual built-entry `tools/list`, including helper-registered license tools, instead of a source parser. Outer registry descriptors are separate from archive contents; their SHA-256 values were filled after final packaging and verification. No self-referential archive hash is introduced.
+`node scripts/verify-r37-local-artifacts.mjs` exited 0 from buildslot. It checked ZIP CRC, extracted the exact archives outside the repository, initialized the actual entries, matched every manifest tool name/description to runtime, and ran real business calls. Results and command-independent hashes are retained in `data/r37_release_integration.json`. Final verification completed at 2026-10-16T08:24:34.921Z. Packaging output is retained in `data/r37_duplicate_pack_result.txt`, `data/r37_matcher_pack_result.txt` and `data/r37_office_pack_result.txt`.
 
-`scripts/verify-r37-local-artifacts.mjs` verified the exact local archives: ZIP CRC, fresh isolated extraction, initialized v0.22.7, exact manifest/runtime names and descriptions, source-scoped duplicate evidence, actual save/get/page/CSV and errors, free saved-count cap with full diagnosis, and all 49 office children. ESM and CommonJS guards constrain every child resolution to its extracted archive tree; an explicit outside-tree import is a known-bad control. Extracted derived outputs and synthetic storage are removed only after lsof proves no open handles, with size/path deletion manifests.
+ESM and CommonJS guards restricted every child file resolution to the extracted archive server tree. Both deliberate outside-artifact imports were rejected. Resolution measurements:
 
-No publication, push, commit, npm publish or live product calls were performed by this agent. The whole-estate release gate had older failures before R37; this integration does not relabel those as green.
+- duplicate-invoice-check: 512 resolution events, 223 unique files, 8 actual tools.
+- three-way-match: 511 resolution events, 223 unique files, 8 actual tools.
+- office-suite: 33,417 resolution events, 1,110 unique files, 447 actual tools.
 
-Evidence integrity: the old proxy rewrote tool-name words inside arbitrary child result text, which could corrupt a caller invoice reference such as `report_get`. R37 preserves opaque JSON, raw CSV, HTML and prose. It forwards child structuredContent and metadata, adds separate namespace metadata, and remaps only documented report retrieval hints. Regression fixtures assert literal tool-name source/CSV/HTML/prose values remain exact, and metadata still names the correct per-child callable tool.
+The verifier compared each packaged duplicate/matcher `store.js` byte-for-byte with the corrected compiled output, including both copies inside office. Duplicate business checks covered exact-scope separation, conflicting amounts, union candidate counts, save/get/page/CSV, schema errors and the free saved-count cap while full diagnosis/export remain available. Matcher checks saved offsetting-quantity exceptions, retrieved the actual accepted quantity and exported the exception. Office exercised both workflows through the proxy. Literal source references `report_get`/`report_page` remained unchanged.
 
-Pre-fix checkpoint commands:
+The office workspace integration suite before the later product-store correction passed 9/9 with zero failures/skips in 14.337 seconds. It includes completeness controls, both report namespaces, raw CSV/HTML/prose preservation, child structuredContent/metadata preservation, exact source references, and separate callable namespace metadata. Child payloads are opaque; the proxy no longer rewrites arbitrary user text. It remaps only documented retrieval hint fields and adds `_meta["office-suite/tool-names"]` plus `office://tools_map`.
 
-- `buildslot env TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local /opt/homebrew/bin/bash scripts/build-mcpb.sh --only duplicate-invoice-check` exited 0 after all 29 scoped release checks passed with zero gaps. The script uses Homebrew Bash 5. The first attempt stopped on an old double-quote-only VERSION grep; replacing it with strict Node parsing for either quote style fixed the script without changing any runtime version.
-- The same build command with `--only office-suite` exited 0. The packaging gate checked 49 children and 51 package closures. The final artifact inventory measured 447 tools. `data/r37_office_pack_result.txt` retains ASCII packaging output.
-- `buildslot env TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local node scripts/verify-r37-local-artifacts.mjs` exited 0. `data/r37_release_integration.json` records exact archive sizes, hashes, ZIP CRC, actual calls and constrained dependency resolution. Both ESM and CommonJS outside-artifact import controls were rejected.
-- The full office suite after the opaque-payload correction passed 9 tests, zero failures/skips in 14.337 seconds. This includes raw CSV/HTML/prose and child structuredContent preservation with the correct separate namespace hints.
+Independent review caught Windows ancestor traversal and escaped CSV response-budget defects before publication. The product owner's final RESULT records 24/24 duplicate tests, 4/4 matcher storage tests, and 7/7 focused independent controls. The independent audit separately tests the corrected exact standalone archives with repository fallback blocked; see `intel/R37-independent-product-audit.md` and `data/r37_product_audit.json`. No native Windows OS run is claimed; the model controls exercise the actual storage function with Windows drive and UNC path/filesystem boundaries.
 
-| Local archive | Bytes | SHA-256 | Actual runtime |
-| --- | ---: | --- | --- |
-| `bundles/duplicate-invoice-check.mcpb` | 3,275,536 | `83265138e9cea3570879c6551e689608dc29c31f0fa537c427d3a2efecb48e31` | 8 tools, 10 business calls |
-| `bundles/office-suite.mcpb` | 32,010,183 | `66fb0e60c78dcdcd784f69e20f23cbb8ba5f1f620dccb30c4cc6a46ff89d93e3` | 447 tools, 5 business calls |
+## Whole-estate baseline
 
-The standalone guard observed 511 module resolutions covering 223 unique files. Office observed 33,416 resolutions covering 1,110 unique files. Every successful file-based dependency resolution remained inside the respective extracted archive's server tree. All 49 office children initialized. No feature completeness claim is made for the older estate.
+After final local artifact verification, exactly one default check ran:
 
-The standalone verifier exercised the three-saved-report cap while confirming full diagnosis and CSV remain free; it also checked conflicting references, union candidate counts, exact scope separation, preserved literal tool-name evidence and schema errors. The office verifier exercised those duplicate review and retrieval operations through the actual proxy. It did not make a payment, exercise every legacy feature or certify paid fulfillment.
+```sh
+/Users/mike/bin/buildslot env TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local node scripts/release-check.mjs
+```
 
-The checkpoint SHA values below are superseded. Outer descriptor hashes have been removed pending post-fix packaging. Their two distinct registry names identify the same capability; the extra descriptive name is not a second product. The active SHA256SUMS file was removed pending post-fix packaging. Office's older immutable registry descriptors were not rewritten to imply a new published registry version.
+It exited **1 with 177 failures and 28 named gaps**. `data/r37_full_estate_release_check.txt` retains exact output; its JSON companion categorizes the failures. Of the 177 rows, 54 are older package versions differing from umbrella 0.22.7. Seven old standalone skeletons still fail many wiring checks, and the zip competitor-research note is expired. The estate test row also reports current integration follow-ups: two billing tests (validation counts and new download catalog entry) and two scheduled buy-page tests. Remote tests passed. These current integration failures must not be called exclusively legacy. A later coordinator repair/test is separate from this timestamped baseline.
 
-The exact-archive verifier's extracted derived artifacts and synthetic data were checked with lsof, logged with sizes/paths, and removed. Initial source inventory work files were likewise removed with manifests. No project output archive was removed after successful final packaging. Disk available at final packing was 33 GB; no low-disk threshold was triggered.
+The default gate still examines every server and its six estate assertions. Scoped standalone releases validate their own declared package/source/dist/registry versions, allowing the corrected matcher to retain version 0.22.6. Internal dependency ranges are checked against each dependency's actual local version, rather than forcing unchanged shared license code to the umbrella version. Missing/malformed compiled versions now fail; either JavaScript quote style is accepted. The default full-estate version comparison remains against the umbrella. A known-bad office compiled version was rejected, and restoring the exact original bytes restored a passing packaging gate.
 
-Hold received after the checkpoint verifier completed: product agent owns duplicate and three-way matcher Windows store fixes. Checkpoint dependency/business results remain evidence about those exact old bytes only. The final release verifier must rerun against rebuilt standalone and office archives after the orchestrator signals stable sources.
+## Cleanup and limits
+
+The first packaging checkpoint was withdrawn when independent review found the storage defect. `data/r37_release_integration_pre_fix.json` retains those superseded hashes explicitly marked not release-ready. Current archives, descriptors and checksums use the post-fix bytes above.
+
+Every owned extracted verification scope and synthetic store was checked with lsof, logged with its size/path in `data/build-deletions.jsonl`, and removed. The 24 office-test helper deletion records were consolidated there; all recorded fixture paths were absent. Initial inventory work files and the superseded checksum file were likewise removed with guarded manifests. Final project archives and current checksum output remain. Disk availability was 32 GB before final packaging and 34 GB after the default estate check; no low-disk threshold was triggered. No fixture exceeded 50 MB. No browser was started by this agent.
+
+No publication, push, commit, npm publish, live product calls, payment or outreach was performed by this agent. The local archive checks do not certify every old child feature, paid checkout fulfillment, install success, demand or ROI.

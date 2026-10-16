@@ -1,6 +1,5 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { build } from 'esbuild';
 import { appendFileSync, existsSync, lstatSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
@@ -12,6 +11,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const modulePath = process.env.MCP_MINIFLARE_MODULE;
 
 test('actual workerd SQLite DO: atomic batch, response retry, first deduplication, native rollback and bounded reads', { skip: !modulePath }, async () => {
+  const { build } = await import('esbuild');
   const workRoot = join(homedir(), 'mcp-servers-work');
   mkdirSync(workRoot, { recursive: true });
   const scope = mkdtempSync(join(workRoot, 'r37-funnel-runtime-'));
