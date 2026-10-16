@@ -2,7 +2,7 @@
 // Explicit operator QA only. Creates at most two tagged unpaid sessions and expires
 // only this run's sessions. Never opens Stripe Checkout or submits payment details.
 import { createHash, randomBytes, randomUUID } from 'node:crypto';
-import { appendFileSync, existsSync, lstatSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { appendFileSync, closeSync, existsSync, lstatSync, mkdirSync, mkdtempSync, openSync, readFileSync, readdirSync, renameSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { homedir } from 'node:os';
 import { spawnSync } from 'node:child_process';
@@ -21,7 +21,73 @@ export function canExpireProbeSession(session, state) {
   return ownsProbeSession(session, state) && session.status === 'open' && session.payment_status === 'unpaid';
 }
 
-const reference = value => createHash('sha256').update(value).digest('hex').slice(0, 16);
+export const reference = value => createHash('sha256').update(value).digest('hex').slice(0, 16);
+
+// BSD flock locks attach to the shared open-file description: lockf acquires the
+// inherited descriptor, and this process retains it until close or process exit.
+// Keep the inode in place so competing processes never lock different files.
+export function acquireProbeLock(path) {
+  const fd = openSync(path, 'a', 0o600);
+  const bsd = existsSync('/usr/bin/lockf');
+  const result = spawnSync(bsd ? '/usr/bin/lockf' : '/usr/bin/flock',
+    bsd ? ['-s', '-t', '0', '3'] : ['--nonblock', '3'],
+    { stdio: ['ignore', 'pipe', 'pipe', fd], timeout: 5000 });
+  if (result.error || result.status !== 0) {
+    closeSync(fd);
+    throw Error('Probe state is locked by another process, or OS locking is unavailable');
+  }
+  let released = false;
+  return () => { if (!released) { closeSync(fd); released = true; } };
+}
+function writeJson(path, value, privateFile = false) {
+  const pending = path + '.pending';
+  writeFileSync(pending, JSON.stringify(value, null, 2) + '\n', privateFile ? { mode: 0o600 } : {});
+  renameSync(pending, path);
+}
+export function verifyExpiryEvidence(state, report, sessions, now = new Date().toISOString()) {
+  assert.ok(typeof state.run_id === 'string' && state.run_id.length > 0, 'Run identity missing');
+  assert.equal(report.run_id, state.run_id, 'Report belongs to another run');
+  assert.equal(report.started_unix, state.started_unix, 'Run start mismatch');
+  assert.equal(report.expected_version, state.expected_version, 'Run version mismatch');
+  assert.equal(report.source_reference, reference(state.source), 'Run source mismatch');
+  assert.equal(report.tenant_reference, reference(state.tenant), 'Run tenant mismatch');
+  assert.ok(state.submitted.length <= 2 && new Set(state.submitted.map(r => r.product)).size === state.submitted.length, 'Submission bound exceeded');
+  const owned = sessions.filter(s => ownsProbeSession(s, state));
+  assert.ok(owned.length <= 2, 'Session bound exceeded');
+  assert.equal(new Set(owned.map(s => s.id)).size, owned.length, 'Duplicate session rows');
+  for (const submitted of state.submitted) {
+    if (submitted.session_reference) assert.ok(owned.some(s => reference(s.id) === submitted.session_reference), 'Known session missing from verification');
+  }
+  for (const session of owned) {
+    assert.equal(session.payment_status, 'unpaid');
+    assert.equal(session.customer, null); assert.equal(session.payment_intent, null);
+    assert.ok(['open', 'expired'].includes(session.status));
+    assert.ok(session.expires_at - session.created >= 1800 && session.expires_at - session.created <= 1865, 'Probe expiry is not bounded');
+  }
+  const rows = report.rows || [];
+  const handoff = report.handoff_complete === true && report.profile_cleanup_complete === true
+    && Number.isFinite(Date.parse(report.submission_finished_at || report.finished_at))
+    && rows.length === 2 && owned.length === 2
+    && state.submitted.length === 2 && ['three-way-match', 'bundle'].every(product => {
+      const submitted = state.submitted.find(r => r.product === product);
+      const row = rows.find(r => r.product === product);
+      const session = owned.find(s => s.metadata.product === product);
+      return submitted && row && session && submitted.session_reference === reference(session.id)
+        && row.session_reference === reference(session.id) && row.order_reference === reference(submitted.order_token)
+        && row.amount_total_minor === session.amount_total && row.currency === 'usd' && session.currency === 'usd'
+        && session.metadata.worker_version === state.expected_version && row.probe_tag === '1'
+        && row.order_replay_reused === true && row.unpaid_fulfillment_status === 402
+        && row.customer_created === false && row.payment_intent_created === false;
+    });
+  const failed = report.status === 'failed' || Boolean(report.failure || report.cleanup_failure || report.profile_cleanup || report.verification_failure);
+  const pending = owned.some(s => s.status === 'open');
+  const next = { ...report, created: owned.length, expired: owned.filter(s => s.status === 'expired').length,
+    expiry_pending: pending, last_updated_at: now, charged_minor: 0 };
+  if (!handoff && !next.verification_failure) next.verification_failure = 'Complete two-product handoff evidence is missing for this run';
+  next.status = failed || !handoff ? 'failed' : pending ? 'awaiting_expiry' : 'passed';
+  if (!pending) { next.expiry_verified_at = now; next.finished_at = now; }
+  return { pending, report: next };
+}
 function stripe(method, path, extra = [], allowError = false) {
   const result = spawnSync('stripe', [method, path, '--live', ...extra], { encoding: 'utf8', timeout: 45000, maxBuffer: 8 * 1024 * 1024 });
   let body;
@@ -30,26 +96,23 @@ function stripe(method, path, extra = [], allowError = false) {
   if (result.error || result.status !== 0 || body.error) throw Error('Stripe API operation failed: ' + (body.error?.code || 'request_error'));
   return body;
 }
-async function main() {
-  const args = process.argv.slice(2);
-  const root = fileURLToPath(new URL('../', import.meta.url));
-  const work = join(homedir(), 'mcp-servers-work');
-  const stateFile = join(work, 'r36-checkout-probe-state.json');
+async function runProbe(args, root, work, stateFile) {
   if (args.length === 1 && args[0] === '--verify-expiry') {
     const state = JSON.parse(readFileSync(stateFile, 'utf8'));
     const reportFile = join(root, 'data/r36_checkout_lifecycle.json');
     const report = JSON.parse(readFileSync(reportFile, 'utf8'));
     const latest = stripe('get', '/v1/checkout/sessions', ['-d', 'limit=100']);
     assert.ok(!latest.has_more || latest.data.at(-1)?.created < state.started_unix - 5, 'Incomplete verification window');
-    const owned = latest.data.filter(s => ownsProbeSession(s, state));
-    assert.ok(report.created >= 1 && report.created <= 2);
-    assert.equal(owned.length, report.created);
-    if (owned.some(s => s.status === 'open')) { console.log('Marked probes still await automatic expiry at ' + report.expiry_due_at); return; }
-    for (const session of owned) { assert.equal(session.status, 'expired'); assert.equal(session.payment_status, 'unpaid'); assert.equal(session.customer, null); assert.equal(session.payment_intent, null); }
-    report.status = report.failure ? 'failed' : 'passed'; report.expired = owned.length; report.charged_minor = 0; report.expiry_verified_at = new Date().toISOString(); report.finished_at = report.expiry_verified_at;
-    state.status = 'complete'; writeFileSync(stateFile, JSON.stringify(state, null, 2) + '\n', { mode: 0o600 });
-    writeFileSync(reportFile, JSON.stringify(report, null, 2) + '\n');
-    console.log('Verified automatic expiry for ' + owned.length + ' unpaid probe sessions; handoff status=' + report.status); return;
+    const result = verifyExpiryEvidence(state, report, latest.data);
+    state.status = result.pending ? 'awaiting_expiry' : 'complete';
+    writeJson(reportFile, result.report); writeJson(stateFile, state, true);
+    if (result.pending) {
+      console.log('Marked probes await automatic expiry; handoff status=' + result.report.status);
+      process.exitCode = result.report.status === 'failed' ? 1 : 2; return;
+    }
+    console.log('Verified automatic expiry for ' + result.report.expired + ' unpaid probe sessions; handoff status=' + result.report.status);
+    if (result.report.status === 'failed') process.exitCode = 1;
+    return;
   }
   if (args[0] !== '--execute-unpaid-probe' || args.length !== 3 || args[1] !== '--expected-version' || !/^[a-f0-9-]{36}$/.test(args[2])) {
     console.log('Usage: checkout-lifecycle-probe.mjs --execute-unpaid-probe --expected-version <deployed UUID> | --verify-expiry\nCreates at most two marked unpaid sessions with bounded expiry; never submits payment.');
@@ -58,10 +121,12 @@ async function main() {
   const expectedVersion = args[2];
   mkdirSync(work, { recursive: true });
   if (existsSync(stateFile) && JSON.parse(readFileSync(stateFile, 'utf8')).status !== 'complete') throw Error('An earlier probe needs scoped verification before another run');
-  const state = { started_unix: Math.floor(Date.now() / 1000), source: 'probe.r36.' + randomUUID().replaceAll('-', '').slice(0, 16), tenant: 'anon_' + randomBytes(16).toString('hex'), submitted: [], status: 'active' };
-  const save = () => writeFileSync(stateFile, JSON.stringify(state, null, 2) + '\n', { mode: 0o600 });
+  const state = { run_id: randomUUID(), expected_version: expectedVersion, started_unix: Math.floor(Date.now() / 1000), source: 'probe.r36.' + randomUUID().replaceAll('-', '').slice(0, 16), tenant: 'anon_' + randomBytes(16).toString('hex'), submitted: [], status: 'active' };
+  const save = () => writeJson(stateFile, state, true);
   save();
-  const report = { started_at: new Date().toISOString(), expected_version: expectedVersion, method: 'Real browser intent form; explicit probe header; synthetic tenant reference; Stripe page blocked; bounded expiry', rows: [], created: 0, expired: 0, charged_minor: null, payment_details_submitted: false, status: 'running' };
+  const reportFile = join(root, 'data/r36_checkout_lifecycle.json');
+  const report = { run_id: state.run_id, started_unix: state.started_unix, source_reference: reference(state.source), tenant_reference: reference(state.tenant), handoff_complete: false, profile_cleanup_complete: false, started_at: new Date().toISOString(), expected_version: expectedVersion, method: 'Real browser intent form; explicit probe header; synthetic tenant reference; Stripe page blocked; bounded expiry', rows: [], created: 0, expired: 0, charged_minor: null, payment_details_submitted: false, status: 'running' };
+  writeJson(reportFile, report);
   let browser, profile, failure, immediateExpiry = false;
   const ids = new Set();
   try {
@@ -104,6 +169,7 @@ async function main() {
       assert.equal(checkout.hostname, 'checkout.stripe.com');
       const id = checkout.pathname.split('/').find(part => /^cs_live_[A-Za-z0-9]+$/.test(part));
       assert.ok(id, 'Redirect did not contain a live Session reference'); ids.add(id);
+      state.submitted.at(-1).session_reference = reference(id); save();
       const session = stripe('get', '/v1/checkout/sessions/' + id);
       assert.ok(ownsProbeSession(session, state), 'Returned Session does not belong to this probe');
       assert.equal(session.metadata.worker_version, expectedVersion);
@@ -116,8 +182,11 @@ async function main() {
       assert.equal(replay.status(), 303); assert.equal(replay.headers().location, h.location, 'Retry created another Session');
       const unpaid = await browser.request.get(origin + '/success?session_id=' + id);
       assert.equal(unpaid.status(), 402);
-      report.rows.push({ product, session_reference: reference(id), amount_total_minor: session.amount_total, currency: session.currency, item_name: h['x-mcp-probe-item'], probe_tag: session.metadata.probe, order_replay_reused: true, unpaid_fulfillment_status: unpaid.status(), customer_created: false, payment_intent_created: false, expires_at: new Date(session.expires_at * 1000).toISOString() });
+      report.rows.push({ product, session_reference: reference(id), order_reference: reference(orderToken), amount_total_minor: session.amount_total, currency: session.currency, item_name: h['x-mcp-probe-item'], probe_tag: session.metadata.probe, order_replay_reused: true, unpaid_fulfillment_status: unpaid.status(), customer_created: false, payment_intent_created: false, expires_at: new Date(session.expires_at * 1000).toISOString() });
+      writeJson(reportFile, report);
     }
+    report.handoff_complete = true;
+    writeJson(reportFile, report);
     report.status = 'passed';
   } catch (error) { failure = error; report.status = 'failed'; report.failure = String(error.message).replace(/https:\/\/checkout\.stripe\.com\/[^\s"'<>]+/g, '[checkout URL redacted]').replace(/cs_(live|test)_[A-Za-z0-9_]+/g, '[session redacted]').slice(0, 300); }
   finally {
@@ -140,23 +209,39 @@ async function main() {
         if (!immediateExpiry && owned.length) { report.expiry_due_at = new Date(Math.max(...owned.map(s => s.expires_at)) * 1000).toISOString(); if (!failure) report.status = 'awaiting_expiry'; }
       }
     } catch { report.status = 'failed'; report.cleanup_failure = 'Scoped expiry incomplete; private run state retained'; failure ||= Error(report.cleanup_failure); }
-    await browser?.close();
-    if (profile) {
-      let open;
-      for (let i = 0; i < 40; i++) { open = spawnSync('lsof', ['-t', '+D', profile], { encoding: 'utf8' }); if (!open.error && open.status === 1 && !open.stdout.trim()) break; await new Promise(r => setTimeout(r, 250)); }
-      if (!open.error && open.status === 1 && !open.stdout.trim()) {
-        const bytes = p => { const s = lstatSync(p); return s.isDirectory() ? readdirSync(p).reduce((n, f) => n + bytes(join(p, f)), 0) : s.size; };
-        appendFileSync(join(root, 'data/build-deletions.jsonl'), JSON.stringify({ at: new Date().toISOString(), path: profile, bytes: bytes(profile), reason: 'closed isolated unpaid checkout probe', lsof: 'no open handles' }) + '\n'); rmSync(profile, { recursive: true });
-      } else { report.profile_cleanup = 'deferred: open handles unknown'; failure ||= Error('Profile cleanup deferred'); report.status = 'failed'; }
-    }
-    state.status = report.cleanup_failure ? 'active' : report.expiry_due_at ? 'awaiting_expiry' : 'complete'; save();
+    try {
+      await browser?.close();
+      if (profile) {
+        let open;
+        for (let i = 0; i < 40; i++) { open = spawnSync('lsof', ['-t', '+D', profile], { encoding: 'utf8' }); if (!open.error && open.status === 1 && !open.stdout.trim()) break; await new Promise(r => setTimeout(r, 250)); }
+        if (!open.error && open.status === 1 && !open.stdout.trim()) {
+          const bytes = p => { const s = lstatSync(p); return s.isDirectory() ? readdirSync(p).reduce((n, f) => n + bytes(join(p, f)), 0) : s.size; };
+          appendFileSync(join(root, 'data/build-deletions.jsonl'), JSON.stringify({ at: new Date().toISOString(), path: profile, bytes: bytes(profile), reason: 'closed isolated unpaid checkout probe', lsof: 'no open handles' }) + '\n'); rmSync(profile, { recursive: true });
+          report.profile_cleanup_complete = true;
+        } else { report.profile_cleanup = 'deferred: open handles unknown'; failure ||= Error('Profile cleanup deferred'); report.status = 'failed'; }
+      }
+    } catch { report.status = 'failed'; report.profile_cleanup = 'deferred: profile close or cleanup failed'; failure ||= Error('Profile cleanup deferred'); }
+    state.status = report.cleanup_failure ? 'active' : report.expiry_due_at ? 'awaiting_expiry' : 'complete';
     report.last_updated_at = new Date().toISOString();
     if (report.status === 'awaiting_expiry') report.submission_finished_at = report.last_updated_at;
     else report.finished_at = report.last_updated_at;
-    writeFileSync(join(root, 'data/r36_checkout_lifecycle.json'), JSON.stringify(report, null, 2) + '\n');
+    writeJson(reportFile, report); save();
   }
   if (failure) throw Error('Unpaid checkout probe failed; see sanitized data/r36_checkout_lifecycle.json');
   console.log(report.status === 'awaiting_expiry' ? 'PASS: marked unpaid $19/$39 handoffs, replay and refusal verified; automatic expiry awaits read-only verification at ' + report.expiry_due_at : 'PASS: both marked unpaid handoffs verified and expired');
+}
+async function main() {
+  const args = process.argv.slice(2);
+  const verify = args.length === 1 && args[0] === '--verify-expiry';
+  const execute = args.length === 3 && args[0] === '--execute-unpaid-probe' && args[1] === '--expected-version' && /^[a-f0-9-]{36}$/.test(args[2]);
+  if (!verify && !execute) {
+    console.log('Usage: checkout-lifecycle-probe.mjs --execute-unpaid-probe --expected-version <deployed UUID> | --verify-expiry'); return;
+  }
+  const root = fileURLToPath(new URL('../', import.meta.url)), work = join(homedir(), 'mcp-servers-work');
+  mkdirSync(work, { recursive: true });
+  const release = acquireProbeLock(join(work, 'r36-checkout-probe.lock'));
+  try { await runProbe(args, root, work, join(work, 'r36-checkout-probe-state.json')); }
+  finally { release(); }
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   main().catch(error => { console.error(error.message); process.exitCode = 1; });
