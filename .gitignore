@@ -8,3 +8,4 @@ test/.build/
 bundles/*.mcpb
 bundles/*/server/
 .scratch-distribution/
+bundles/releases/*/*.mcpb

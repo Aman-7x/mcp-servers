@@ -2,7 +2,7 @@
   "manifest_version": "0.2",
   "name": "mcp-duplicate-invoice-check",
   "display_name": "Duplicate Invoice Check",
-  "version": "0.22.7",
+  "version": "0.22.8",
   "description": "Review explainable duplicate supplier invoice candidates in a supplied local batch.",
   "author": {
     "name": "theluckystrike",

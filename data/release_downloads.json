@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T08:28:00Z",
-  "note": "Explicit versioned assets; duplicate-invoice-check and office-suite runtime0.22.7, corrected three-way-match runtime0.22.6 under releasev0.22.7. Older products retain their actual asset versions. Publication verification is recorded separately in data/r37_public_downloads.json.",
+  "updated_at": "2026-10-16T09:16:16.854879+00:00",
+  "note": "Explicit versioned assets; duplicate-invoice-check, three-way-match and office-suite runtime0.22.8 with shared license0.22.7 (48 paid products). Older products retain their actual asset versions. Local archive verification: data/r37_patch_release_integration.json; public publication verification is separate.",
   "bundles": {
     "amortization": {
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/amortization.mcpb",
@@ -83,8 +83,8 @@
       "bytes": 3287442
     },
     "duplicate-invoice-check": {
-      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/duplicate-invoice-check.mcpb",
-      "bytes": 3276192
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb",
+      "bytes": 3276144
     },
     "expense-tracker": {
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/expense-tracker.mcpb",
@@ -130,8 +130,8 @@
       "bytes": 3258511
     },
     "office-suite": {
-      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/office-suite.mcpb",
-      "bytes": 32011115
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/office-suite.mcpb",
+      "bytes": 32010970
     },
     "onboarding": {
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb",
@@ -210,8 +210,8 @@
       "bytes": 2527455
     },
     "three-way-match": {
-      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/three-way-match.mcpb",
-      "bytes": 3276937
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb",
+      "bytes": 3276889
     },
     "time-tracker": {
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/time-tracker.mcpb",

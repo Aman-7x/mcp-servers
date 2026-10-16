@@ -81,8 +81,8 @@ export const BUNDLE_DOWNLOADS = {
     "bytes": 3287442
   },
   "duplicate-invoice-check": {
-    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/duplicate-invoice-check.mcpb",
-    "bytes": 3276192
+    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb",
+    "bytes": 3276144
   },
   "expense-tracker": {
     "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/expense-tracker.mcpb",
@@ -128,8 +128,8 @@ export const BUNDLE_DOWNLOADS = {
     "bytes": 3258511
   },
   "office-suite": {
-    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/office-suite.mcpb",
-    "bytes": 32011115
+    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/office-suite.mcpb",
+    "bytes": 32010970
   },
   "onboarding": {
     "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb",
@@ -208,8 +208,8 @@ export const BUNDLE_DOWNLOADS = {
     "bytes": 2527455
   },
   "three-way-match": {
-    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/three-way-match.mcpb",
-    "bytes": 3276937
+    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb",
+    "bytes": 3276889
   },
   "time-tracker": {
     "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/time-tracker.mcpb",

@@ -16,6 +16,7 @@
 // the network, and imports the billing and setup modules only to read their exported
 // tables, so it cannot itself be the thing that breaks a release.
 
+import { acceptsLocalVersion } from "./dependency-version-range.mjs";
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -213,8 +214,7 @@ check("version", "version == release", (s) => {
       const candidates = [join(ROOT, "packages", base, "package.json"), join(SERVERS_DIR, base.replace(/^mcp-/, ""), "package.json")];
       const target = candidates.find(has);
       if (!target) { bad.push(`${name}@${range} (missing local package)`); continue; }
-      const expected = `^${readJson(target).version}`;
-      if (range !== expected) bad.push(`${name}@${range}, expected ${expected}`);
+      if (!acceptsLocalVersion(range, readJson(target).version)) bad.push(`${name}@${range} does not admit local ${readJson(target).version}`);
     }
   }
   return bad.length ? `ranges: ${bad.join(", ")}` : true;

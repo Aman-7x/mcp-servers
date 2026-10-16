@@ -11,15 +11,22 @@ import { setTimeout as delay } from 'node:timers/promises';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const args=process.argv.slice(2);let outputFile=join(root,'data/r37_release_integration.json'),requiredVersion;
+for(let i=0;i<args.length;i+=2){
+ const flag=args[i],value=args[i+1];assert(value,'Missing argument value');
+ if(flag==='--output'){assert(/^data\/[A-Za-z0-9_.-]+\.json$/.test(value),'Output must be a data JSON artifact');outputFile=join(root,value);}
+ else if(flag==='--expected-version'){assert(/^\d+\.\d+\.\d+$/.test(value));requiredVersion=value;}
+ else throw Error('Usage: verify-r37-local-artifacts.mjs [--output data/name.json] [--expected-version x.y.z]');
+}
 const work=join(homedir(),'mcp-servers-work');mkdirSync(work,{recursive:true});
 const scope=mkdtempSync(join(work,'r37-artifact-'));
-const output={measured_at:new Date().toISOString(),scope:'Exact post-fix v0.22.7 duplicate/office and v0.22.6 corrected matcher archives; duplicate/matcher workflows only, older child feature coverage excluded',archives:[]};
+const output={measured_at:new Date().toISOString(),scope:'Exact current standalone and office archives; declared package/manifest/runtime versions and duplicate/matcher workflows, older child feature coverage excluded',archives:[]};
 const loader=join(scope,'guard-loader.mjs'),requireGuard=join(scope,'guard-require.cjs');
 writeFileSync(loader,`import {appendFileSync} from 'node:fs';import {fileURLToPath} from 'node:url';export async function resolve(s,c,n){const r=await n(s,c);if(r.url.startsWith('file:')){const p=fileURLToPath(r.url);if(!p.startsWith(process.env.ARTIFACT_ROOT+'/'))throw Error('Outside artifact ESM resolution: '+p);appendFileSync(process.env.RESOLUTION_LOG,JSON.stringify({kind:'esm',path:p})+'\\n');}return r;}`);
 writeFileSync(requireGuard,`const M=require('node:module'),fs=require('node:fs'),old=M._resolveFilename;M._resolveFilename=function(...a){const p=old.apply(this,a);if(p.startsWith('/')){if(!p.startsWith(process.env.ARTIFACT_ROOT+'/'))throw Error('Outside artifact CJS resolution: '+p);fs.appendFileSync(process.env.RESOLUTION_LOG,JSON.stringify({kind:'cjs',path:p})+'\\n');}return p;};`);
 try{
  for(const name of ['duplicate-invoice-check','three-way-match','office-suite']){
-  const expectedVersion=name==='three-way-match'?'0.22.6':'0.22.7';
+  const expectedVersion=JSON.parse(readFileSync(join(root,'servers',name,'package.json'),'utf8')).version;if(requiredVersion)assert.equal(expectedVersion,requiredVersion,'Source package version differs from required patch');
   const archive=join(root,'bundles',name+'.mcpb');const bytes=readFileSync(archive);const sha256=createHash('sha256').update(bytes).digest('hex');
   execFileSync('/usr/bin/unzip',['-t',archive],{stdio:'pipe',maxBuffer:10_000_000});
   const extracted=join(scope,name);mkdirSync(extracted);execFileSync('/usr/bin/unzip',['-q',archive,'-d',extracted]);
@@ -40,6 +47,15 @@ try{
    const office=name==='office-suite';const prefix=office?'duplicate-invoice-check_':'';
    if(office){const map=JSON.parse((await client.readResource({uri:'office://tools_map'})).contents[0].text);result.children=map.servers.length;assert.equal(result.children,49);assert(map.servers.includes('duplicate-invoice-check'));assert(tools.some(t=>t.name==='three-way-match_report_get'));assert(tools.some(t=>t.name===prefix+'report_get'));}
    else assert.equal(tools.length,8);
+   const licenseRoot=join(artifactRoot,'node_modules/@theluckystrike/mcp-license');
+   const licensePackage=JSON.parse(readFileSync(join(licenseRoot,'package.json'),'utf8'));
+   assert.equal(licensePackage.version,JSON.parse(readFileSync(join(root,'packages/mcp-license/package.json'),'utf8')).version);result.license_version=licensePackage.version;
+   assert(readFileSync(join(licenseRoot,'dist/index.js')).equals(readFileSync(join(root,'packages/mcp-license/dist/index.js'))),'Packaged license code is stale');
+   const status=await call('license_status');
+   for(const productStatus of office?[status.children['duplicate-invoice-check'],status.children['three-way-match']]:[status]){
+    assert.equal(productStatus.tier,'free');assert.equal(productStatus.payment.alternative.grants,'lifetime Pro on all 48 servers');assert.equal(productStatus.payment.price.amount,'19.00');assert.equal(productStatus.payment.alternative.amount,'39.00');assert.equal(productStatus.payment.agent_settleable,false);
+   }
+   result.paid_bundle_count=48;result.payment_permissions='human checkout, agent_settleable=false, $19 single/$39 bundle';
    result.compiled_store_sha256={};
    for(const product of office?['duplicate-invoice-check','three-way-match']:[name]){
     const actualStore=readFileSync(office?join(artifactRoot,'node_modules/@theluckystrike/mcp-'+product+'/dist/store.js'):join(artifactRoot,'store.js'));
@@ -74,6 +90,6 @@ try{
  while(true){const handles=spawnSync('/usr/sbin/lsof',['-t','+D',scope],{encoding:'utf8'});if(handles.status===1&&!handles.stdout.trim())break;if(handles.error||handles.status!==0||Date.now()>deadline)throw Error('Retained artifact scope: open handles cannot be ruled out');await delay(100);}
  const size=p=>{const s=lstatSync(p);return s.isDirectory()?readdirSync(p).reduce((n,f)=>n+size(join(p,f)),0):s.size;};
  appendFileSync(join(root,'data/build-deletions.jsonl'),JSON.stringify({at:new Date().toISOString(),path:scope,bytes:size(scope),reason:'completed exact archive verification, derived artifacts and synthetic records',lsof:'no open handles'})+'\n');rmSync(scope,{recursive:true});assert(!existsSync(scope));output.cleanup='guarded scope removed';
- writeFileSync(join(root,'data/r37_release_integration.json'),JSON.stringify(output,null,2)+'\n');
+ writeFileSync(outputFile,JSON.stringify(output,null,2)+'\n');
 }
 console.log(JSON.stringify(output));
