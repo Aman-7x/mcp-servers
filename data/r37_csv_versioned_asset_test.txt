@@ -1,0 +1,16 @@
+TAP version 13
+# Subtest: duplicate-reference buyer proof serves the actual comparison core with fresh provenance
+ok 1 - duplicate-reference buyer proof serves the actual comparison core with fresh provenance
+  ---
+  duration_ms: 17.744375
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 112.20475

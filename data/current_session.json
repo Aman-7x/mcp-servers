@@ -1,8 +1,8 @@
 {
   "title": "R37 \u2014 useful workflows, conversion evidence and distribution, 2026-10-16",
-  "updated_at": "2026-10-16T09:26:05.077161+00:00",
-  "status_note": "Four-hour sprint in progress; deadline11:34:06 UTC. v0.22.8 archives, six registry rows,57-link catalog and both hosted deployments are published and verified. Six postpatch live controls pass; earlier paid-entry probes expired with$0charged. Scheduled organic/KPI/operations observations continue.",
-  "conclusion": "Fresh completed-history and fully covered seven-day Stripe checks still show $0 MCP Checkout gross and zero untagged paid demand. Platform traffic counts remain separate from people or installs. Success attribution is being rebuilt around actual response outcomes and atomic counters.",
+  "updated_at": "2026-10-16T10:01:49.672413+00:00",
+  "status_note": "Four-hour sprint in progress; deadline11:34:06UTC. v0.22.8 archives/six registry rows/57catalog links and hosted deployments verified. Final local CSV proof passes23productionChrome cases and exactasset/metadata checks; cached historical markup compatibility passes. Production is frozen while scheduled observations continue.",
+  "conclusion": "Fresh completed-history and fully covered seven-day Stripe checks still show$0 MCP Checkout gross and zero untagged paid demand. Google inspection finds the new product/guide unknown and older product URLs discovered but unindexed, while the homepage is indexed. Successful response measurement and working install routes are verified; qualified buyer discovery and willingness to pay remain unproven.",
   "metrics": [
     {
       "value": "$0",
@@ -33,11 +33,11 @@
       "source": "data/r37_kpi_baseline.json"
     },
     {
-      "value": "11/11",
+      "value": "23/23",
       "label": "Browser proof cases passed",
-      "window": "Live Chrome production checks, 2026-10-16 08:33 UTC",
-      "note": "Zero diagnostic requests or browser storage writes; synthetic operator examples.",
-      "source": "data/r37_duplicate_browser_live_verification.json"
+      "window": "Live production Chrome CSV/JSON checks,2026-10-16 09:59UTC",
+      "note": "11 original JSON cases plus12 CSV cases; zero diagnostic requests/storage/page errors; synthetic operator inputs.",
+      "source": "data/r37_csv_browser_live_verification.json"
     }
   ],
   "shipped": [
@@ -45,7 +45,8 @@
     "Seventeen existing server sources now return explicit MCP errors for refusal-only cap branches; useful partial results remain successful. Hosted source rebuilt and deployed; older individual archives retain their actual versions.",
     "Office proxy integration measures 447 tools across 49 children. Arbitrary tool-name rewriting no longer mutates source evidence, CSV, HTML or prose; collision maps are separate metadata.",
     "Atomic daily counters passed real workerd/SQLite controls and nine live hosted checks. Sticky probe classification, daily first-observation deduplication and success-only trailers work. Initial 59 unmarked release-check offers are retained as known operator contamination; all future release GETs are explicitly marked.",
-    "Added six local-client setup routes, source-backed comparison, mirror metadata and five frozen operator buyer tasks. Fourteen actual MCP calls pass; these are synthetic workflow checks, not customer evidence."
+    "Added six local-client setup routes, source-backed comparison, mirror metadata and five frozen operator buyer tasks. Fourteen actual MCP calls pass; these are synthetic workflow checks, not customer evidence.",
+    "Added strict local CSV input to the browser proof:2MiB/1,000records, same comparison core, complete-batch rejection and stale-read protection. Final23productionbrowsercases pass; actual cachedoldmarkup regression is fixed. No local data upload/storage."
   ],
   "next_levers": [
     "Observe buyer demand in explicitly dated organic and Checkout windows; preserve probe and ordinary-automation distinctions.",
@@ -54,5 +55,5 @@
   ],
   "report": "intel/R37-session.md",
   "watch_path": "data/r37_watch.json",
-  "known_limits": "Final wider-estate checkpoint:173 failures/28 gaps, including51 umbrella-version mismatches and seven older skeletons; current billing/catalog/batch test failures are fixed. Scoped duplicate/matcher gates29/29; office packaging49 children/447 tools. Registry aliases represent one capability. Directory received/pending review; Glama duplicate listing404/account gate. Initial59 unmarked operator offers retained. Paid fulfillment/inbox delivery untested."
+  "known_limits": "Final wider-estate checkpoint:173 failures/28 gaps, including51 umbrella-version mismatches and seven older skeletons; current billing/catalog/batch test failures are fixed. Scoped duplicate/matcher gates29/29; office packaging49 children/447 tools. Registry aliases represent one capability. Directory received/pending review; Glama duplicate listing404/account gate. Initial59 unmarked operator offers retained. Paid fulfillment/inbox delivery untested. Google indexed-version inspection09:36UTC: new duplicate product/guide unknown; homepage indexed positive control. Sitemap fetched06:58UTC before launch; no causal indexing claim."
 }

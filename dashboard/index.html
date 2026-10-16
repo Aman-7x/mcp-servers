@@ -105,14 +105,14 @@
 <div class="wrap">
   <header>
     <h1>MCP Servers by theluckystrike</h1>
-    <div class="meta">generated 2026-10-16T09:26:24.246Z — session count 104</div>
+    <div class="meta">generated 2026-10-16T10:13:30.879Z — session count 105</div>
   </header>
 
   <div class="kpi-row">
     <div class="kpi"><span class="n">57</span><span class="l">servers</span></div>
     <div class="kpi"><span class="n">990</span><span class="l">measured tool exposures</span></div>
     <div class="kpi"><span class="n">999</span><span class="l">recorded test passes (RESULT.md)</span></div>
-    <div class="kpi"><span class="n">0</span><span class="l">published surfaces</span></div>
+    <div class="kpi"><span class="n">5</span><span class="l">published surfaces</span></div>
     <div class="kpi"><span class="n">unmeasured</span><span class="l">revenue</span></div>
   </div>
   <p>Tool exposures summed across measured servers; office-suite overlaps standalone servers, so this is not a unique tool count. Coverage: 50/57 server inventories current. Regeneration treats observations as unmeasured after 24 hours or a version/build fingerprint change; this static page retains its rendered timestamp. <a href="../data/runtime-tool-inventory.json">Runtime evidence and build fingerprint</a>. Test summaries retain historical RESULT.md evidence; inventory refresh does not rerun tests.</p>
@@ -207,7 +207,7 @@
     <td class="mono"># tests 2  # pass 2  # fail 0  # duration_ms 460.433208 / ## failures<br><small><a href="../servers/bill-of-sale/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
-    <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
+    <td><span class="pill pill-bad" title="npm">npm: missing</span> <span class="pill pill-pending" title="registry">registry: pending</span> <span class="pill pill-ok" title="github">github: published</span> <span class="pill pill-pending" title="smithery">smithery: pending</span> <span class="pill pill-pending" title="glama">glama: pending</span></td>
     <td class="num mono">Pro $19</td>
     <td><a href="https://mcp.zovo.one/buy/bill-of-sale">Pro $19</a></td>
   </tr>
@@ -417,7 +417,7 @@
     <td class="mono">pending<br><small><a href="../servers/duplicate-invoice-check/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
-    <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
+    <td><span class="pill pill-pending" title="npm">npm: not_published</span> <span class="pill pill-pending" title="registry">registry: two_names_verified_0.22.8_one_capability</span> <span class="pill pill-pending" title="github">github: published mirror theluckystrike/mcp-duplicate-invoice-check</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: source_listing_404_account_gate</span></td>
     <td class="num mono">Pro $19</td>
     <td><a href="https://mcp.zovo.one/buy/duplicate-invoice-check">Pro $19</a></td>
   </tr>
@@ -445,7 +445,7 @@
     <td class="mono">pending<br><small><a href="../servers/goods-receipt/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
-    <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
+    <td><span class="pill pill-bad" title="npm">npm: missing</span> <span class="pill pill-pending" title="registry">registry: published io.github.theluckystrike/goods-receipt @0.22.0 (2026-09-22, MCPB 404 fixed by uploading bundles to release v0.22.0)</span> <span class="pill pill-ok" title="github">github: published</span> <span class="pill pill-pending" title="smithery">smithery: pending</span> <span class="pill pill-pending" title="glama">glama: pending</span></td>
     <td class="num mono">Pro $19</td>
     <td><a href="https://mcp.zovo.one/buy/goods-receipt">Pro $19</a></td>
   </tr>
@@ -585,7 +585,7 @@
     <td class="mono"># pass 1 / # fail 0<br><small><a href="../servers/office-suite/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
-    <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
+    <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: two_names_verified_0.22.8_one_capability</span> <span class="pill pill-pending" title="github">github: published mirror theluckystrike/mcp-office-suite</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
     <td class="num mono">Estate bundle $39</td>
     <td><a href="https://mcp.zovo.one/buy/bundle">Estate bundle $39</a></td>
   </tr>
@@ -613,7 +613,7 @@
     <td class="mono">pending<br><small><a href="../servers/packing-list/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
-    <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
+    <td><span class="pill pill-bad" title="npm">npm: missing</span> <span class="pill pill-pending" title="registry">registry: pending</span> <span class="pill pill-ok" title="github">github: published</span> <span class="pill pill-pending" title="smithery">smithery: pending</span> <span class="pill pill-pending" title="glama">glama: pending</span></td>
     <td class="num mono">Pro $19</td>
     <td><a href="https://mcp.zovo.one/buy/packing-list">Pro $19</a></td>
   </tr>
@@ -781,7 +781,7 @@
     <td class="mono"># pass 6 / # fail 0 / ## failures<br><small><a href="../servers/service-agreement/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
-    <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
+    <td><span class="pill pill-bad" title="npm">npm: missing</span> <span class="pill pill-pending" title="registry">registry: pending</span> <span class="pill pill-ok" title="github">github: published</span> <span class="pill pill-pending" title="smithery">smithery: pending</span> <span class="pill pill-pending" title="glama">glama: pending</span></td>
     <td class="num mono">Pro $19</td>
     <td><a href="https://mcp.zovo.one/buy/service-agreement">Pro $19</a></td>
   </tr>
@@ -809,7 +809,7 @@
     <td class="mono">- npm test -w servers/statement-of-account: # tests 47 / # pass 47 / # fail 0 / - npm test -w servers/invoice: # tests 49 / # pass 48 / # fail 0<br><small><a href="../servers/statement-of-account/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
-    <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
+    <td><span class="pill pill-bad" title="npm">npm: missing</span> <span class="pill pill-pending" title="registry">registry: pending</span> <span class="pill pill-ok" title="github">github: published</span> <span class="pill pill-pending" title="smithery">smithery: pending</span> <span class="pill pill-pending" title="glama">glama: pending</span></td>
     <td class="num mono">Pro $19</td>
     <td><a href="https://mcp.zovo.one/buy/statement-of-account">Pro $19</a></td>
   </tr>
@@ -865,7 +865,7 @@
     <td class="mono">pending<br><small><a href="../servers/three-way-match/RESULT.md">Recorded RESULT.md</a>; historical, not rerun</small></td>
     <td class="mono">DONE</td>
     <td><span class="pill pill-ok" title="readme">readme: yes</span> <span class="pill pill-ok" title="server.json">server.json: yes</span> <span class="pill pill-ok" title="smithery.yaml">smithery.yaml: yes</span> <span class="pill pill-ok" title="dockerfile">dockerfile: yes</span> <span class="pill pill-ok" title="license">license: yes</span></td>
-    <td><span class="pill pill-pending" title="npm">npm: unknown</span> <span class="pill pill-pending" title="registry">registry: unknown</span> <span class="pill pill-pending" title="github">github: unknown</span> <span class="pill pill-pending" title="smithery">smithery: unknown</span> <span class="pill pill-pending" title="glama">glama: unknown</span></td>
+    <td><span class="pill pill-bad" title="npm">npm: missing</span> <span class="pill pill-pending" title="registry">registry: two_names_verified_0.22.8_one_capability</span> <span class="pill pill-pending" title="github">github: published mirror theluckystrike/mcp-three-way-match</span> <span class="pill pill-pending" title="smithery">smithery: not submitted</span> <span class="pill pill-pending" title="glama">glama: not submitted</span></td>
     <td class="num mono">Pro $19</td>
     <td><a href="https://mcp.zovo.one/buy/three-way-match">Pro $19</a></td>
   </tr>
@@ -1003,7 +1003,7 @@
 <tr><td class="mono">backlink-checker</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">bank-statement</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">barcode</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
-<tr><td class="mono">bill-of-sale</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
+<tr><td class="mono">bill-of-sale</td><td>missing</td><td>pending</td><td>published</td><td>pending</td><td>pending</td></tr>
 <tr><td class="mono">billing-docs</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">budget</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">calendar</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
@@ -1018,9 +1018,9 @@
 <tr><td class="mono">deposits</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">docx</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">dunning-letters</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
-<tr><td class="mono">duplicate-invoice-check</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
+<tr><td class="mono">duplicate-invoice-check</td><td>not_published</td><td>two_names_verified_0.22.8_one_capability</td><td>published mirror theluckystrike/mcp-duplicate-invoice-check</td><td>unknown</td><td>source_listing_404_account_gate</td></tr>
 <tr><td class="mono">expense-tracker</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
-<tr><td class="mono">goods-receipt</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
+<tr><td class="mono">goods-receipt</td><td>missing</td><td>published io.github.theluckystrike/goods-receipt @0.22.0 (2026-09-22, MCPB 404 fixed by uploading bundles to release v0.22.0)</td><td>published</td><td>pending</td><td>pending</td></tr>
 <tr><td class="mono">hourly-rate</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">image</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">invoice</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
@@ -1030,9 +1030,9 @@
 <tr><td class="mono">loan-calculator</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">maintenance-log</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">mileage-log</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
-<tr><td class="mono">office-suite</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
+<tr><td class="mono">office-suite</td><td>unknown</td><td>two_names_verified_0.22.8_one_capability</td><td>published mirror theluckystrike/mcp-office-suite</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">onboarding</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
-<tr><td class="mono">packing-list</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
+<tr><td class="mono">packing-list</td><td>missing</td><td>pending</td><td>published</td><td>pending</td><td>pending</td></tr>
 <tr><td class="mono">payroll</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">pdf</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">per-diem</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
@@ -1044,13 +1044,13 @@
 <tr><td class="mono">receipts</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">recurring</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">resume</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
-<tr><td class="mono">service-agreement</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
+<tr><td class="mono">service-agreement</td><td>missing</td><td>pending</td><td>published</td><td>pending</td><td>pending</td></tr>
 <tr><td class="mono">spreadsheet</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
-<tr><td class="mono">statement-of-account</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
+<tr><td class="mono">statement-of-account</td><td>missing</td><td>pending</td><td>published</td><td>pending</td><td>pending</td></tr>
 <tr><td class="mono">stripe-billing</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">supplier-list</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">tax-calc</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
-<tr><td class="mono">three-way-match</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
+<tr><td class="mono">three-way-match</td><td>missing</td><td>two_names_verified_0.22.8_one_capability</td><td>published mirror theluckystrike/mcp-three-way-match</td><td>not submitted</td><td>not submitted</td></tr>
 <tr><td class="mono">time-tracker</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">timezone</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
 <tr><td class="mono">work-order</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td><td>unknown</td></tr>
@@ -1339,6 +1339,7 @@
 <tr><td class="mono">docs/RELEASE_V093.md</td><td>Release v0.9.3 (2026-09-05)</td></tr>
 <tr><td class="mono">docs/RELEASE_V094.md</td><td>Release v0.9.4 (2026-09-05)</td></tr>
 <tr><td class="mono">docs/RELEASE_V095.md</td><td>Release v0.9.5 (2026-09-05)</td></tr>
+<tr><td class="mono">docs/RELEASE_V228.md</td><td>Release v0.22.8 (2026-10-16)</td></tr>
 <tr><td class="mono">docs/REMOTE_RESULT.md</td><td>REMOTE_RESULT.md - hosted streamable-HTTP endpoints (INTEL R1)</td></tr>
 <tr><td class="mono">docs/RENAME_TEST_PLAN_R1.md</td><td>RENAME TEST R1 - mcp-invoice -&gt; mcp-invoice-generator</td></tr>
 <tr><td class="mono">docs/REPO_SIGNALS_R1.md</td><td>Repository signals round 1 — Glama Maintenance, and what a mirror is allowed to claim</td></tr>
@@ -1500,7 +1501,8 @@
     <table>
       <thead><tr><th>at</th><th>note</th></tr></thead>
       <tbody>
-        <tr><td class="mono">2026-10-16T04:23:56.315Z</td><td>R36 complete: four-hour sprint; matcher and buyer proof published; both unpaid probes expired with zero charges; 44 sampled checks, final checks pass; recorded MCP Checkout gross $0; dashboard runtime counts and canonical offers corrected.</td></tr>
+        <tr><td class="mono">2026-10-16T07:34:06Z</td><td>R37 in progress: duplicate invoice workflow, versioned registry correction, local CSV buyer proof and successful-response measurement are published. Scheduled observations continue to11:34:06UTC.</td></tr>
+<tr><td class="mono">2026-10-16T04:23:56.315Z</td><td>R36 complete: four-hour sprint; matcher and buyer proof published; both unpaid probes expired with zero charges; 44 sampled checks, final checks pass; recorded MCP Checkout gross $0; dashboard runtime counts and canonical offers corrected.</td></tr>
 <tr><td class="mono">2026-10-16T00:58:12.827Z</td><td>R36: checked live payment/search data, released checkout fixes, built line-level matcher with free pagination, hardened outreach, and started four-hour production observation. Product publication remains in progress.</td></tr>
 <tr><td class="mono">2026-10-12T03:24:07Z</td><td>s20261012c wrap: billing suite 173/173 GREEN (fixed mcp-license env: zod vendored, timezone symlinked; hourly-rate added to notYetSellable honesty gate); hourly-rate MCP server scaffolded by agent (server.json, tests, README); ledger+dashboard rendered; XTR Telegram rail now delivers real MCPL1 keys (roundtrip verified)</td></tr>
 <tr><td class="mono">2026-10-12T03:19:48Z</td><td>s20261012c monetization session: verified checkout-page fix live (329-&gt;6162 chars at buy/invoice); fixed bundle desc/pro count drift (hardcoded 46 -&gt; derived 47); XTR Telegram fulfillment wired end-to-end (pre-checkout payload gate, real Ed25519 mint on successful_payment, payments.log ledger, roundtrip PROVEN against billing verifyLicenseKey; wrong-product rejected); single-buy flow now carries server in payload; pricing copy drift fixed; agents delivered NEW-SERVER-SPECS (19KB, 6 specs) + BLIND_R2 (16KB); billing tests green except pre-existing mint.test env issue and 47-server honesty gate awaiting in-flight hourly-rate server</td></tr>
@@ -1638,11 +1640,10 @@
 <li>barcode: github not published (unknown)</li>
 <li>barcode: smithery not published (unknown)</li>
 <li>barcode: glama not published (unknown)</li>
-<li>bill-of-sale: npm not published (unknown)</li>
-<li>bill-of-sale: registry not published (unknown)</li>
-<li>bill-of-sale: github not published (unknown)</li>
-<li>bill-of-sale: smithery not published (unknown)</li>
-<li>bill-of-sale: glama not published (unknown)</li>
+<li>bill-of-sale: npm not published (missing)</li>
+<li>bill-of-sale: registry not published (pending)</li>
+<li>bill-of-sale: smithery not published (pending)</li>
+<li>bill-of-sale: glama not published (pending)</li>
 <li>billing-docs: npm not published (unknown)</li>
 <li>billing-docs: registry not published (unknown)</li>
 <li>billing-docs: github not published (unknown)</li>
@@ -1719,21 +1720,20 @@
 <li>dunning-letters: github not published (unknown)</li>
 <li>dunning-letters: smithery not published (unknown)</li>
 <li>dunning-letters: glama not published (unknown)</li>
-<li>duplicate-invoice-check: npm not published (unknown)</li>
-<li>duplicate-invoice-check: registry not published (unknown)</li>
-<li>duplicate-invoice-check: github not published (unknown)</li>
+<li>duplicate-invoice-check: npm not published (not_published)</li>
+<li>duplicate-invoice-check: registry not published (two_names_verified_0.22.8_one_capability)</li>
+<li>duplicate-invoice-check: github not published (published mirror theluckystrike/mcp-duplicate-invoice-check)</li>
 <li>duplicate-invoice-check: smithery not published (unknown)</li>
-<li>duplicate-invoice-check: glama not published (unknown)</li>
+<li>duplicate-invoice-check: glama not published (source_listing_404_account_gate)</li>
 <li>expense-tracker: npm not published (unknown)</li>
 <li>expense-tracker: registry not published (unknown)</li>
 <li>expense-tracker: github not published (unknown)</li>
 <li>expense-tracker: smithery not published (unknown)</li>
 <li>expense-tracker: glama not published (unknown)</li>
-<li>goods-receipt: npm not published (unknown)</li>
-<li>goods-receipt: registry not published (unknown)</li>
-<li>goods-receipt: github not published (unknown)</li>
-<li>goods-receipt: smithery not published (unknown)</li>
-<li>goods-receipt: glama not published (unknown)</li>
+<li>goods-receipt: npm not published (missing)</li>
+<li>goods-receipt: registry not published (published io.github.theluckystrike/goods-receipt @0.22.0 (2026-09-22, MCPB 404 fixed by uploading bundles to release v0.22.0))</li>
+<li>goods-receipt: smithery not published (pending)</li>
+<li>goods-receipt: glama not published (pending)</li>
 <li>hourly-rate: LICENSE missing</li>
 <li>hourly-rate: RESULT.md missing or has no status line</li>
 <li>hourly-rate: npm not published (unknown)</li>
@@ -1788,8 +1788,8 @@
 <li>mileage-log: smithery not published (unknown)</li>
 <li>mileage-log: glama not published (unknown)</li>
 <li>office-suite: npm not published (unknown)</li>
-<li>office-suite: registry not published (unknown)</li>
-<li>office-suite: github not published (unknown)</li>
+<li>office-suite: registry not published (two_names_verified_0.22.8_one_capability)</li>
+<li>office-suite: github not published (published mirror theluckystrike/mcp-office-suite)</li>
 <li>office-suite: smithery not published (unknown)</li>
 <li>office-suite: glama not published (unknown)</li>
 <li>onboarding: npm not published (unknown)</li>
@@ -1797,11 +1797,10 @@
 <li>onboarding: github not published (unknown)</li>
 <li>onboarding: smithery not published (unknown)</li>
 <li>onboarding: glama not published (unknown)</li>
-<li>packing-list: npm not published (unknown)</li>
-<li>packing-list: registry not published (unknown)</li>
-<li>packing-list: github not published (unknown)</li>
-<li>packing-list: smithery not published (unknown)</li>
-<li>packing-list: glama not published (unknown)</li>
+<li>packing-list: npm not published (missing)</li>
+<li>packing-list: registry not published (pending)</li>
+<li>packing-list: smithery not published (pending)</li>
+<li>packing-list: glama not published (pending)</li>
 <li>payroll: build not present (dist/index.js missing) — run npm run build</li>
 <li>payroll: tool inventory unmeasured: Built entry is missing; no build was attempted; run node scripts/collect-ledger-tool-inventory.mjs payroll</li>
 <li>payroll: LICENSE missing</li>
@@ -1875,21 +1874,19 @@
 <li>resume: github not published (unknown)</li>
 <li>resume: smithery not published (unknown)</li>
 <li>resume: glama not published (unknown)</li>
-<li>service-agreement: npm not published (unknown)</li>
-<li>service-agreement: registry not published (unknown)</li>
-<li>service-agreement: github not published (unknown)</li>
-<li>service-agreement: smithery not published (unknown)</li>
-<li>service-agreement: glama not published (unknown)</li>
+<li>service-agreement: npm not published (missing)</li>
+<li>service-agreement: registry not published (pending)</li>
+<li>service-agreement: smithery not published (pending)</li>
+<li>service-agreement: glama not published (pending)</li>
 <li>spreadsheet: npm not published (unknown)</li>
 <li>spreadsheet: registry not published (unknown)</li>
 <li>spreadsheet: github not published (unknown)</li>
 <li>spreadsheet: smithery not published (unknown)</li>
 <li>spreadsheet: glama not published (unknown)</li>
-<li>statement-of-account: npm not published (unknown)</li>
-<li>statement-of-account: registry not published (unknown)</li>
-<li>statement-of-account: github not published (unknown)</li>
-<li>statement-of-account: smithery not published (unknown)</li>
-<li>statement-of-account: glama not published (unknown)</li>
+<li>statement-of-account: npm not published (missing)</li>
+<li>statement-of-account: registry not published (pending)</li>
+<li>statement-of-account: smithery not published (pending)</li>
+<li>statement-of-account: glama not published (pending)</li>
 <li>stripe-billing: build not present (dist/index.js missing) — run npm run build</li>
 <li>stripe-billing: tool inventory unmeasured: Built entry is missing; no build was attempted; run node scripts/collect-ledger-tool-inventory.mjs stripe-billing</li>
 <li>stripe-billing: LICENSE missing</li>
@@ -1917,11 +1914,11 @@
 <li>tax-calc: github not published (unknown)</li>
 <li>tax-calc: smithery not published (unknown)</li>
 <li>tax-calc: glama not published (unknown)</li>
-<li>three-way-match: npm not published (unknown)</li>
-<li>three-way-match: registry not published (unknown)</li>
-<li>three-way-match: github not published (unknown)</li>
-<li>three-way-match: smithery not published (unknown)</li>
-<li>three-way-match: glama not published (unknown)</li>
+<li>three-way-match: npm not published (missing)</li>
+<li>three-way-match: registry not published (two_names_verified_0.22.8_one_capability)</li>
+<li>three-way-match: github not published (published mirror theluckystrike/mcp-three-way-match)</li>
+<li>three-way-match: smithery not published (not submitted)</li>
+<li>three-way-match: glama not published (not submitted)</li>
 <li>time-tracker: npm not published (unknown)</li>
 <li>time-tracker: registry not published (unknown)</li>
 <li>time-tracker: github not published (unknown)</li>

@@ -2,7 +2,7 @@
 // Read only current MCP sitemap records; no submission or account changes.
 import { createSign } from 'node:crypto';
 import { readFileSync, writeFileSync } from 'node:fs';
-const result={at:new Date().toISOString(),method:'GET Search Console sitemaps list; exact MCP host filter; aggregate other-property read control only',property:'sc-domain:zovo.one',oauth_scope:'https://www.googleapis.com/auth/webmasters.readonly',submissions:0};
+const result={at:new Date().toISOString(),method:'GET Search Console sitemaps list; exact MCP host filter; aggregate other-property read control only',resource_documentation:'https://developers.google.com/webmaster-tools/v1/sitemaps',deprecated_fields_ignored:['contents[].indexed'],property:'sc-domain:zovo.one',oauth_scope:'https://www.googleapis.com/auth/webmasters.readonly',submissions:0};
 async function get(url,options){const response=await fetch(url,{...options,signal:AbortSignal.timeout(45000)});const json=await response.json();if(!response.ok){const error=Error('read_failed');error.http_status=response.status;error.api_status=json.error?.status??null;throw error;}return json;}
 try{
  const key=JSON.parse(readFileSync('/Users/mike/.config/gcloud/legacy_credentials/zovo-gsc-cleanup@zovo-extensions.iam.gserviceaccount.com/adc.json','utf8'));const b64=value=>Buffer.from(value).toString('base64url');const now=Math.floor(Date.now()/1000);

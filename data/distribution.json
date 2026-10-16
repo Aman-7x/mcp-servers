@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T09:26:05.077161+00:00",
+  "updated_at": "2026-10-16T10:01:49.672413+00:00",
   "surfaces": {
     "github": {
       "status": "published",
@@ -11,7 +11,7 @@
     "billing": {
       "status": "published",
       "url": "https://mcp.zovo.one",
-      "note": "Current approved Worker15b4fb3e-7bcb-4fc1-8104-b2727926132b. Required gate passed60 marked GET offer paths, zero new Sessions. Earlier two tagged unpaid entry QA Sessions used priorf84bdaac version and expired with$0charged; their private state is removed. No live paid fulfillment/inbox delivery tested.",
+      "note": "Current approved Worker3376864a-7e1c-40dc-98a2-01fea2cd1af1. Required gate passed60markedGEToffer paths with zero new Sessions. Final23liveChromeCSV/JSONcases and7publicasset/link/metadata controls pass. Earlier2unpaidQA Sessions usedf84bdaac and expired with$0charged; no live paid fulfillment/inbox delivery tested.",
       "pre_r37_note": "Stripe LIVE + Resend license-delivery email LIVE (worker b8077a53, PR #2 merged): on webhook fulfillment, buyer receives license key via Resend from mike@zovo.one; idempotent via KV flag; email failure log-only.",
       "last_checked": "2026-10-16"
     },
@@ -691,8 +691,14 @@
       "status": "accepted",
       "sprint": "S50",
       "github-mirror": "https://github.com/theluckystrike/mcp-office-suite",
-      "mirror-ci": "success 38843677329;5pass3monorepo-onlyskips",
-      "mirror_verified_at": "2026-10-16T03:09:35.499402+00:00"
+      "mirror-ci": "success 38880387898",
+      "mirror_verified_at": "2026-10-16T03:09:35.499402+00:00",
+      "github": "published mirror theluckystrike/mcp-office-suite",
+      "mirror-head": "29c18e76c9436f1b15270fbb049930d60cd673d4",
+      "registry": "two_names_verified_0.22.8_one_capability",
+      "mcpb": "published_0.22.8_exact_hash_verified",
+      "hosted": "local_only",
+      "verified_at": "2026-10-16T09:29:55.696Z"
     },
     "currency": {
       "target": "mcpservers.org",
@@ -1091,17 +1097,20 @@
       }
     ],
     "three-way-match": {
-      "github": "published main via PR #65",
-      "registry": "published and exact versions verified 2026-10-16",
-      "hosted": "not hosted; local stdio only",
+      "github": "published mirror theluckystrike/mcp-three-way-match",
+      "registry": "two_names_verified_0.22.8_one_capability",
+      "hosted": "local_only",
       "npm": "missing",
       "smithery": "not submitted",
       "glama": "not submitted",
-      "mcpb": "v0.22.6 public bytes verified SHA-256",
+      "mcpb": "published_0.22.8_exact_hash_verified",
       "github-mirror": "https://github.com/theluckystrike/mcp-three-way-match",
       "registry-name": "io.github.theluckystrike/three-way-match",
       "registry-alias": "io.github.theluckystrike/supplier-invoice-matching (same capability)",
-      "mcpservers.org": "submitted free 2026-10-16; success receipt; pending review, not a published listing"
+      "mcpservers.org": "submitted free 2026-10-16; success receipt; pending review, not a published listing",
+      "mirror-ci": "success 38880365648",
+      "mirror-head": "4cd8019b2eaf49cf7c6aa1b656ae03048115f987",
+      "verified_at": "2026-10-16T09:29:55.696Z"
     },
     "duplicate-invoice-check": {
       "mirror": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
@@ -1111,7 +1120,12 @@
       "guide": "https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo",
       "directory": "received_pending_review",
       "glama": "source_listing_404_account_gate",
-      "npm": "not_published"
+      "npm": "not_published",
+      "github": "published mirror theluckystrike/mcp-duplicate-invoice-check",
+      "github-mirror": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+      "mirror-ci": "success 38880345067",
+      "mirror-head": "c1ad369cdd9d35eaf33336aae003de07890df93f",
+      "verified_at": "2026-10-16T09:29:55.696Z"
     }
   },
   "outreach": {
@@ -1220,5 +1234,22 @@
     ],
     "anthropic_directory_readiness": "metadata gate mostly green; missing vendored servers: lease-contract, loan-agreement, nondisclosure-agreement, non-compete-clause, payment-terms, performance-review (+office-suite,vat,payroll coverage check)",
     "submission_blocker": "Anthropic Connectors Directory portal may require Claude Team/Enterprise org \u2014 needs Mike's account check"
+  },
+  "totals_provenance": "Legacy top-level total_submitted/totals/outcomes/outreach counts retain their original historical windows; no fresh whole-estate submission total is asserted by R37.",
+  "r37_verified_activity": {
+    "as_of": "2026-10-16T10:03:56.012347+00:00",
+    "new_capabilities": 1,
+    "current_registry_version_rows_published": 6,
+    "current_local_archives_verified": 3,
+    "catalog_urls_head200": 57,
+    "curator_submissions_received": 1,
+    "curator_status": "pending_review",
+    "emails_sent": 0,
+    "paid_api_or_listing_purchases": 0,
+    "evidence": [
+      "data/r37_patch_public_downloads.json",
+      "data/r37_directory_submission.json",
+      "data/r37_csv_public_asset_verification.json"
+    ]
   }
 }

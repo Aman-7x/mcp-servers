@@ -26,5 +26,9 @@
   ],
   "status": "measured",
   "completed_at": "2026-10-16T09:37:31.357Z",
-  "limits": "Sitemap records do not establish URL indexing, ranking, clicks or customers. No submission, reindex request or OAuth permission escalation."
+  "limits": "Sitemap records do not establish URL indexing, ranking, clicks or customers. No submission, reindex request or OAuth permission escalation.",
+  "deprecated_fields_ignored": [
+    "contents[].indexed"
+  ],
+  "resource_documentation": "https://developers.google.com/webmaster-tools/v1/sitemaps"
 }

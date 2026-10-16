@@ -81,7 +81,7 @@
     "Local MCPs must remain local: no added phone-home telemetry.",
     "No people/install/revenue claims from platform counters, signed IDs, probes or documentary search trials."
   ],
-  "updated_at": "2026-10-16T09:26:05.077161+00:00",
+  "updated_at": "2026-10-16T10:01:49.672413+00:00",
   "agent_execution": {
     "working_specialists": 8,
     "spawn_attempts": 9,
@@ -96,7 +96,15 @@
   },
   "additional_conversion_work": {
     "scope": "Strict local CSV input for duplicate browser proof, preserving same core and no network/storage",
-    "status": "in_progress",
-    "reason": "Current proof requires JSON; fixed-column CSV makes a supplied exported batch easier to try without changing server capabilities or permission checks."
+    "status": "published_and_verified",
+    "reason": "Current proof requires JSON; fixed-column CSV makes a supplied exported batch easier to try without changing server capabilities or permission checks.",
+    "first_billing_version": "346dfbd9-248c-49f9-a51c-822b6c2deae7",
+    "gate": "60 marked GET offer routes; zero new live Stripe Sessions",
+    "next": "Backward-compatible old-markup execution, content-versioned script URL, final live browser proof",
+    "final_billing_version": "3376864a-7e1c-40dc-98a2-01fea2cd1af1",
+    "final_live_browser_cases": 23,
+    "public_metadata_controls": 7,
+    "rollout_legacy_cases": 7,
+    "independent_rollout_cases": 8
   }
 }

@@ -1,0 +1,86 @@
+{
+  "at": "2026-10-16T09:59:47.193Z",
+  "scope": "Public HTML, versioned JavaScript bytes, metadata and current install links; independent from actual Chrome workflow controls",
+  "http_method": "GET only",
+  "marked_probe": true,
+  "checks": [
+    {
+      "name": "guide points to exact versioned reviewed asset",
+      "status": "passed",
+      "url": "https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude",
+      "guide_headers": {
+        "last-modified": "Fri, 16 Oct 2026 00:00:00 GMT",
+        "etag": null,
+        "cache-control": "public, max-age=3600",
+        "x-robots-tag": null
+      },
+      "script_url": "https://mcp.zovo.one/assets/duplicate-demo.js?v=de00b0890ccc015a6bb9e40bd9ec99daaf33159c5ecfbe03e368a52404c54c0a",
+      "bytes": 74677,
+      "sha256": "607931acffaf33ee9041151006056bf8ad05daa8f64e3629f0e5bd27fbbd1449",
+      "input_sha256": "de00b0890ccc015a6bb9e40bd9ec99daaf33159c5ecfbe03e368a52404c54c0a",
+      "local_export_exact_match": true
+    },
+    {
+      "name": "duplicate-invoice-check current install links",
+      "status": "passed",
+      "url": "https://mcp.zovo.one/s/duplicate-invoice-check",
+      "version": "0.22.8",
+      "headers": {
+        "last-modified": "Fri, 16 Oct 2026 00:00:00 GMT",
+        "etag": null,
+        "cache-control": "public, max-age=3600",
+        "x-robots-tag": null
+      }
+    },
+    {
+      "name": "three-way-match current install links",
+      "status": "passed",
+      "url": "https://mcp.zovo.one/s/three-way-match",
+      "version": "0.22.8",
+      "headers": {
+        "last-modified": "Fri, 16 Oct 2026 00:00:00 GMT",
+        "etag": null,
+        "cache-control": "public, max-age=3600",
+        "x-robots-tag": null
+      }
+    },
+    {
+      "name": "office-suite current install links",
+      "status": "passed",
+      "url": "https://mcp.zovo.one/s/office-suite",
+      "version": "0.22.8",
+      "headers": {
+        "last-modified": "Fri, 16 Oct 2026 00:00:00 GMT",
+        "etag": null,
+        "cache-control": "public, max-age=3600",
+        "x-robots-tag": null
+      }
+    },
+    {
+      "name": "homepage labels historical validation and local license verification",
+      "status": "passed",
+      "url": "https://mcp.zovo.one/",
+      "headers": {
+        "last-modified": "Fri, 16 Oct 2026 00:00:00 GMT",
+        "etag": null,
+        "cache-control": "public, max-age=3600",
+        "x-robots-tag": null
+      }
+    },
+    {
+      "name": "current release chronology",
+      "status": "passed",
+      "url": "https://mcp.zovo.one/changelog"
+    },
+    {
+      "name": "sitemap current date and new URLs",
+      "status": "passed",
+      "url": "https://mcp.zovo.one/sitemap.xml",
+      "lastmod": "2026-10-16",
+      "indexing_claim": false
+    }
+  ],
+  "errors": [],
+  "status": "passed",
+  "completed_at": "2026-10-16T09:59:48.009Z"
+}

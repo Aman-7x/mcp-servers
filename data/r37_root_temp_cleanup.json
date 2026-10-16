@@ -1,0 +1,89 @@
+{
+  "at": "2026-10-16T10:14:40.704567+00:00",
+  "status": "passed",
+  "deleted": [
+    {
+      "at": "2026-10-16T10:14:38.860359+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/SHA256SUMS.txt",
+      "bytes": 266,
+      "lsof_clear": true,
+      "reason": "Completed owned PR/release drafting file"
+    },
+    {
+      "at": "2026-10-16T10:14:39.081773+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/r37-csv-cache-pr.md",
+      "bytes": 708,
+      "lsof_clear": true,
+      "reason": "Completed owned PR/release drafting file"
+    },
+    {
+      "at": "2026-10-16T10:14:39.274451+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/r37-csv-pr.md",
+      "bytes": 1235,
+      "lsof_clear": true,
+      "reason": "Completed owned PR/release drafting file"
+    },
+    {
+      "at": "2026-10-16T10:14:39.514047+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/r37-evidence-pr.md",
+      "bytes": 949,
+      "lsof_clear": true,
+      "reason": "Completed owned PR/release drafting file"
+    },
+    {
+      "at": "2026-10-16T10:14:39.702485+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/r37-live-fix-pr.md",
+      "bytes": 800,
+      "lsof_clear": true,
+      "reason": "Completed owned PR/release drafting file"
+    },
+    {
+      "at": "2026-10-16T10:14:39.900554+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/r37-matcher-mirror-notes.md",
+      "bytes": 739,
+      "lsof_clear": true,
+      "reason": "Completed owned PR/release drafting file"
+    },
+    {
+      "at": "2026-10-16T10:14:40.125603+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/r37-patch-pr.md",
+      "bytes": 942,
+      "lsof_clear": true,
+      "reason": "Completed owned PR/release drafting file"
+    },
+    {
+      "at": "2026-10-16T10:14:40.315422+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/r37-patch-release-notes.md",
+      "bytes": 888,
+      "lsof_clear": true,
+      "reason": "Completed owned PR/release drafting file"
+    },
+    {
+      "at": "2026-10-16T10:14:40.505720+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/r37-pr-body.md",
+      "bytes": 1722,
+      "lsof_clear": true,
+      "reason": "Completed owned PR/release drafting file"
+    },
+    {
+      "at": "2026-10-16T10:14:40.704209+00:00",
+      "session": "r37",
+      "path": "/Users/mike/mcp-servers-work/r37-release-notes.md",
+      "bytes": 1097,
+      "lsof_clear": true,
+      "reason": "Completed owned PR/release drafting file"
+    }
+  ],
+  "coordination_lock_retained": true,
+  "private_checkout_state_absent": true,
+  "scope": "Only explicitly identified files created by root in this sprint; shared work base and unrelated data preserved."
+}

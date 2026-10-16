@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-16T09:26:24.246Z",
+  "generated_at": "2026-10-16T10:13:30.879Z",
   "session": {
-    "count": 104,
+    "count": 105,
     "history": [
       {
         "at": "2026-09-02T12:48:50.865Z",
@@ -418,6 +418,13 @@
       {
         "at": "2026-10-16T04:23:56.315Z",
         "note": "R36 complete: four-hour sprint; matcher and buyer proof published; both unpaid probes expired with zero charges; 44 sampled checks, final checks pass; recorded MCP Checkout gross $0; dashboard runtime counts and canonical offers corrected."
+      },
+      {
+        "id": "r37-2026-10-16",
+        "at": "2026-10-16T07:34:06Z",
+        "recorded_at": "2026-10-16T10:13:30.482002+00:00",
+        "note": "R37 in progress: duplicate invoice workflow, versioned registry correction, local CSV buyer proof and successful-response measurement are published. Scheduled observations continue to11:34:06UTC.",
+        "provenance": "Retrospective session note anchored to the recorded goal/session start; recorded_at preserves insertion time."
       }
     ]
   },
@@ -785,11 +792,11 @@
         "license": true
       },
       "distribution": {
-        "npm": "unknown",
-        "registry": "unknown",
-        "github": "unknown",
-        "smithery": "unknown",
-        "glama": "unknown"
+        "npm": "missing",
+        "registry": "pending",
+        "github": "published",
+        "smithery": "pending",
+        "glama": "pending"
       }
     },
     {
@@ -1730,11 +1737,11 @@
         "license": true
       },
       "distribution": {
-        "npm": "unknown",
-        "registry": "unknown",
-        "github": "unknown",
+        "npm": "not_published",
+        "registry": "two_names_verified_0.22.8_one_capability",
+        "github": "published mirror theluckystrike/mcp-duplicate-invoice-check",
         "smithery": "unknown",
-        "glama": "unknown"
+        "glama": "source_listing_404_account_gate"
       }
     },
     {
@@ -1859,11 +1866,11 @@
         "license": true
       },
       "distribution": {
-        "npm": "unknown",
-        "registry": "unknown",
-        "github": "unknown",
-        "smithery": "unknown",
-        "glama": "unknown"
+        "npm": "missing",
+        "registry": "published io.github.theluckystrike/goods-receipt @0.22.0 (2026-09-22, MCPB 404 fixed by uploading bundles to release v0.22.0)",
+        "github": "published",
+        "smithery": "pending",
+        "glama": "pending"
       }
     },
     {
@@ -2923,8 +2930,8 @@
       },
       "distribution": {
         "npm": "unknown",
-        "registry": "unknown",
-        "github": "unknown",
+        "registry": "two_names_verified_0.22.8_one_capability",
+        "github": "published mirror theluckystrike/mcp-office-suite",
         "smithery": "unknown",
         "glama": "unknown"
       }
@@ -3049,11 +3056,11 @@
         "license": true
       },
       "distribution": {
-        "npm": "unknown",
-        "registry": "unknown",
-        "github": "unknown",
-        "smithery": "unknown",
-        "glama": "unknown"
+        "npm": "missing",
+        "registry": "pending",
+        "github": "published",
+        "smithery": "pending",
+        "glama": "pending"
       }
     },
     {
@@ -3786,11 +3793,11 @@
         "license": true
       },
       "distribution": {
-        "npm": "unknown",
-        "registry": "unknown",
-        "github": "unknown",
-        "smithery": "unknown",
-        "glama": "unknown"
+        "npm": "missing",
+        "registry": "pending",
+        "github": "published",
+        "smithery": "pending",
+        "glama": "pending"
       }
     },
     {
@@ -3908,11 +3915,11 @@
         "license": true
       },
       "distribution": {
-        "npm": "unknown",
-        "registry": "unknown",
-        "github": "unknown",
-        "smithery": "unknown",
-        "glama": "unknown"
+        "npm": "missing",
+        "registry": "pending",
+        "github": "published",
+        "smithery": "pending",
+        "glama": "pending"
       }
     },
     {
@@ -4142,11 +4149,11 @@
         "license": true
       },
       "distribution": {
-        "npm": "unknown",
-        "registry": "unknown",
-        "github": "unknown",
-        "smithery": "unknown",
-        "glama": "unknown"
+        "npm": "missing",
+        "registry": "two_names_verified_0.22.8_one_capability",
+        "github": "published mirror theluckystrike/mcp-three-way-match",
+        "smithery": "not submitted",
+        "glama": "not submitted"
       }
     },
     {
@@ -6008,6 +6015,10 @@
     {
       "file": "docs/RELEASE_V095.md",
       "first_line": "Release v0.9.5 (2026-09-05)"
+    },
+    {
+      "file": "docs/RELEASE_V228.md",
+      "first_line": "Release v0.22.8 (2026-10-16)"
     },
     {
       "file": "docs/REMOTE_RESULT.md",

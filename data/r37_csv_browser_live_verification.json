@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-16T09:59:51.263Z",
+  "origin": "https://mcp.zovo.one (marked synthetic GET probes)",
+  "browser": "155.0.8059.80",
+  "cases": [
+    "overlapping reason groups count each candidate record once",
+    "identical reference retained with conflicting total and date",
+    "only explicit reference formatting normalizes",
+    "leading zeros retained; negative output carries supplied-batch limit",
+    "exact entity supplier currency and document-type boundaries",
+    "equal amount/date produces review evidence for potentially legitimate bills",
+    "untrusted reference remains text without markup execution",
+    "duplicate record IDs rejected and stale evidence cleared",
+    "invalid calendar dates fractional totals and unsafe integers rejected",
+    "browser rejects save requests instead of implying persistence",
+    "1001 records and more than 2 MiB UTF-8 JSON text rejected",
+    "copyable sample CSV imports the complete four-record diagnosis locally",
+    "actual UTF-8 CSV file preserves quoted comma quote Unicode leading-zero IDs and conflicting evidence",
+    "CSV source reference remains inert text",
+    "bad CSV headers blank rows duplicate IDs money dates and controls reject the whole batch and clear stale results",
+    "oversized and empty CSV files rejected before any file read",
+    "invalid UTF-8 rejected instead of replacing source characters",
+    "CSV 1001-record batch rejected without partial acceptance",
+    "an older file read cannot overwrite a newer CSV diagnosis",
+    "preset changes discard pending CSV completions",
+    "manual edits discard pending CSV reads and require a new explicit check",
+    "manual submit discards an older read rejection without replacing current evidence",
+    "clearing file selection clears previous evidence"
+  ],
+  "passed": 23,
+  "baseline_cases_passed": 11,
+  "csv_cases_passed": 12,
+  "diagnostic_network_requests": 0,
+  "browser_storage_writes": 0,
+  "field_values_uploaded": false,
+  "page_errors": [],
+  "screenshots": [
+    "intel/R37-csv-demo-live-desktop.png",
+    "intel/R37-csv-demo-live-mobile.png"
+  ],
+  "profile_cleanup": {
+    "removed": true,
+    "lsof_clear": true,
+    "path": "/Users/mike/mcp-servers-work/r37-duplicate-browser-ksMPEP",
+    "bytes": 8812488,
+    "manifest": "data/build-deletions.jsonl"
+  },
+  "deployment_version": "3376864a-7e1c-40dc-98a2-01fea2cd1af1",
+  "public_asset_evidence": "data/r37_csv_public_asset_verification.json"
+}

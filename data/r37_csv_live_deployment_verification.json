@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-16T10:01:05.004Z",
+  "status": "passed",
+  "source_commit": "93ec09ebc693e41d0f3293973c9077dacbb7ecc4",
+  "billing_version": "3376864a-7e1c-40dc-98a2-01fea2cd1af1",
+  "deployment_id": "d5e2ecc9-0f01-4850-832e-1bc2624a0cb5",
+  "sole_traffic_percentage": 100,
+  "approved_pin_matches": true,
+  "method": "Read-only deployment API/approved KV pin after actual live Chrome and public byte checks",
+  "remote_and_private_actor": "Unchanged from separately verified patch controls"
+}
