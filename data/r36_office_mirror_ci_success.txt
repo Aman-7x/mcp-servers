@@ -1,0 +1,222 @@
+install, build, test	Set up job	﻿2026-10-16T03:04:36.1554841Z Current runner version: '2.337.0'
+install, build, test	Set up job	2026-10-16T03:04:36.1585061Z ##[group]Runner Image Provisioner
+install, build, test	Set up job	2026-10-16T03:04:36.1585956Z Hosted Compute Agent
+install, build, test	Set up job	2026-10-16T03:04:36.1586545Z Version: 20261012.601
+install, build, test	Set up job	2026-10-16T03:04:36.1587264Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+install, build, test	Set up job	2026-10-16T03:04:36.1587998Z Build Date: 2026-10-12T17:48:21Z
+install, build, test	Set up job	2026-10-16T03:04:36.1588761Z Worker ID: {992296b6-a742-4249-8693-e01cdb589a15}
+install, build, test	Set up job	2026-10-16T03:04:36.1589986Z Region: eastus
+install, build, test	Set up job	2026-10-16T03:04:36.1590608Z Cloud: Azure
+install, build, test	Set up job	2026-10-16T03:04:36.1591251Z ##[endgroup]
+install, build, test	Set up job	2026-10-16T03:04:36.1593029Z ##[group]Operating System
+install, build, test	Set up job	2026-10-16T03:04:36.1593808Z Ubuntu
+install, build, test	Set up job	2026-10-16T03:04:36.1594348Z 24.04.5
+install, build, test	Set up job	2026-10-16T03:04:36.1594855Z LTS
+install, build, test	Set up job	2026-10-16T03:04:36.1595411Z ##[endgroup]
+install, build, test	Set up job	2026-10-16T03:04:36.1596013Z ##[group]Runner Image
+install, build, test	Set up job	2026-10-16T03:04:36.1596723Z Image: ubuntu-24.04
+install, build, test	Set up job	2026-10-16T03:04:36.1597350Z Version: 20261012.334.1
+install, build, test	Set up job	2026-10-16T03:04:36.1598458Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+install, build, test	Set up job	2026-10-16T03:04:36.1600787Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+install, build, test	Set up job	2026-10-16T03:04:36.1601851Z ##[endgroup]
+install, build, test	Set up job	2026-10-16T03:04:36.1603338Z ##[group]GITHUB_TOKEN Permissions
+install, build, test	Set up job	2026-10-16T03:04:36.1605720Z Contents: read
+install, build, test	Set up job	2026-10-16T03:04:36.1606426Z Metadata: read
+install, build, test	Set up job	2026-10-16T03:04:36.1607074Z ##[endgroup]
+install, build, test	Set up job	2026-10-16T03:04:36.1609924Z Secret source: Actions
+install, build, test	Set up job	2026-10-16T03:04:36.1610996Z Cache mode: write
+install, build, test	Set up job	2026-10-16T03:04:36.1612125Z Prepare workflow directory
+install, build, test	Set up job	2026-10-16T03:04:36.1963632Z Prepare all required actions
+install, build, test	Set up job	2026-10-16T03:04:36.2015743Z Getting action download info
+install, build, test	Set up job	2026-10-16T03:04:36.4155466Z Download action repository 'actions/checkout@v5' (SHA:fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09)
+install, build, test	Set up job	2026-10-16T03:04:36.5333146Z Download action repository 'actions/setup-node@v5' (SHA:a0853c24544627f65ddf259abe73b1d18a591444)
+install, build, test	Set up job	2026-10-16T03:04:36.7357178Z Complete job name: install, build, test
+install, build, test	Run actions/checkout@v5	﻿2026-10-16T03:04:36.8169608Z ##[group]Run actions/checkout@v5
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8170627Z with:
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8171130Z   repository: theluckystrike/mcp-office-suite
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8175322Z   token: ***
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8175770Z   ssh-strict: true
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8176217Z   ssh-user: git
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8176698Z   persist-credentials: true
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8177187Z   clean: true
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8177638Z   sparse-checkout-cone-mode: true
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8178156Z   fetch-depth: 1
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8178585Z   fetch-tags: false
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8179032Z   show-progress: true
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8179661Z   lfs: false
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8180087Z   submodules: false
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8180588Z   set-safe-directory: true
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8181108Z   allow-unsafe-pr-checkout: false
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.8181898Z ##[endgroup]
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9236690Z Syncing repository: theluckystrike/mcp-office-suite
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9240178Z ##[group]Getting Git version info
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9241172Z Working directory is '/home/runner/work/mcp-office-suite/mcp-office-suite'
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9242435Z [command]/usr/bin/git version
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9312507Z git version 2.55.0
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9336955Z ##[endgroup]
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9354791Z Temporarily overriding HOME='/home/runner/work/_temp/7f855a50-c20b-436c-aa1a-52d38d9a4014' before making global git config changes
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9356923Z Adding repository directory to the temporary git global config as a safe directory
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9362139Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mcp-office-suite/mcp-office-suite
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9418757Z Deleting the contents of '/home/runner/work/mcp-office-suite/mcp-office-suite'
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9423408Z ##[group]Initializing the repository
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9428648Z [command]/usr/bin/git init /home/runner/work/mcp-office-suite/mcp-office-suite
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9541958Z hint: Using 'master' as the name for the initial branch. This default branch name
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9543481Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9544439Z hint: to use in all of your new repositories, which will suppress this warning,
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9545192Z hint: call:
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9545612Z hint:
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9546164Z hint: 	git config --global init.defaultBranch <name>
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9546787Z hint:
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9547378Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9548354Z hint: 'development'. The just-created branch can be renamed via this command:
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9549089Z hint:
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9549929Z hint: 	git branch -m <name>
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9550518Z hint:
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9551192Z hint: Disable this message with "git config set advice.defaultBranchName false"
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9557543Z Initialized empty Git repository in /home/runner/work/mcp-office-suite/mcp-office-suite/.git/
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9575029Z [command]/usr/bin/git remote add origin https://github.com/theluckystrike/mcp-office-suite
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9630120Z ##[endgroup]
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9631616Z ##[group]Disabling automatic garbage collection
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9632770Z [command]/usr/bin/git config --local gc.auto 0
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9665236Z ##[endgroup]
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9666640Z ##[group]Setting up auth
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9674043Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:36.9708981Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.0099033Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.0139115Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.0375338Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.0415594Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.0651240Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.0696534Z ##[endgroup]
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.0698038Z ##[group]Fetching the repository
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.0708573Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +19fa3ef803502c784e26ff8c8fd61d83e1b7caa0:refs/remotes/origin/main
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.3808872Z From https://github.com/theluckystrike/mcp-office-suite
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.3810596Z  * [new ref]         19fa3ef803502c784e26ff8c8fd61d83e1b7caa0 -> origin/main
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.3814686Z ##[endgroup]
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.3815765Z ##[group]Determining the checkout info
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.3817670Z ##[endgroup]
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.3824440Z [command]/usr/bin/git sparse-checkout disable
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.3882219Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.3920935Z ##[group]Checking out the ref
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.3926631Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.4226050Z Switched to a new branch 'main'
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.4230106Z branch 'main' set up to track 'origin/main'.
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.4237458Z ##[endgroup]
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.4290892Z [command]/usr/bin/git log -1 --format=%H
+install, build, test	Run actions/checkout@v5	2026-10-16T03:04:37.4321075Z 19fa3ef803502c784e26ff8c8fd61d83e1b7caa0
+install, build, test	Run actions/setup-node@v5	﻿2026-10-16T03:04:37.4636688Z ##[group]Run actions/setup-node@v5
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:37.4637306Z with:
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:37.4637712Z   node-version: 22
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:37.4638154Z   always-auth: false
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:37.4638601Z   check-latest: false
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:37.4642815Z   token: ***
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:37.4643529Z   package-manager-cache: true
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:37.4644036Z ##[endgroup]
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:37.6276109Z Found in cache @ /opt/hostedtoolcache/node/22.23.3/x64
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:37.6278628Z (node:2308) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:37.6281651Z (Use `node --trace-deprecation ...` to show where the warning was created)
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:37.6283629Z ##[group]Environment details
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:38.0757431Z node: v22.23.3
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:38.0759040Z npm: 10.9.9
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:38.0760463Z yarn: 1.22.22
+install, build, test	Run actions/setup-node@v5	2026-10-16T03:04:38.0762687Z ##[endgroup]
+install, build, test	Run npm install --no-audit --no-fund	﻿2026-10-16T03:04:38.0972483Z ##[group]Run npm install --no-audit --no-fund
+install, build, test	Run npm install --no-audit --no-fund	2026-10-16T03:04:38.0974261Z [36;1mnpm install --no-audit --no-fund[0m
+install, build, test	Run npm install --no-audit --no-fund	2026-10-16T03:04:38.1418902Z shell: /usr/bin/bash -e {0}
+install, build, test	Run npm install --no-audit --no-fund	2026-10-16T03:04:38.1420668Z ##[endgroup]
+install, build, test	Run npm install --no-audit --no-fund	2026-10-16T03:04:44.6519060Z npm warn deprecated crypto-js@4.2.0: Active development of CryptoJS has been discontinued. This library is no longer maintained.
+install, build, test	Run npm install --no-audit --no-fund	2026-10-16T03:04:44.6895333Z npm warn deprecated jpeg-exif@1.1.4: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+install, build, test	Run npm install --no-audit --no-fund	2026-10-16T03:04:46.5177299Z 
+install, build, test	Run npm install --no-audit --no-fund	2026-10-16T03:04:46.5671304Z added 205 packages in 8s
+install, build, test	Run npm run build	﻿2026-10-16T03:04:46.5721972Z ##[group]Run npm run build
+install, build, test	Run npm run build	2026-10-16T03:04:46.5722380Z [36;1mnpm run build[0m
+install, build, test	Run npm run build	2026-10-16T03:04:46.5790768Z shell: /usr/bin/bash -e {0}
+install, build, test	Run npm run build	2026-10-16T03:04:46.5791107Z ##[endgroup]
+install, build, test	Run npm run build	2026-10-16T03:04:46.6923550Z 
+install, build, test	Run npm run build	2026-10-16T03:04:46.6924546Z > @theluckystrike/mcp-office-suite@0.22.6 build
+install, build, test	Run npm run build	2026-10-16T03:04:46.6925578Z > tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+install, build, test	Run npm run build	2026-10-16T03:04:48.6190403Z 
+install, build, test	Run npm test	﻿2026-10-16T03:04:48.6223599Z ##[group]Run npm test
+install, build, test	Run npm test	2026-10-16T03:04:48.6223923Z [36;1mnpm test[0m
+install, build, test	Run npm test	2026-10-16T03:04:48.6288811Z shell: /usr/bin/bash -e {0}
+install, build, test	Run npm test	2026-10-16T03:04:48.6289110Z ##[endgroup]
+install, build, test	Run npm test	2026-10-16T03:04:48.7464113Z 
+install, build, test	Run npm test	2026-10-16T03:04:48.7465064Z > @theluckystrike/mcp-office-suite@0.22.6 test
+install, build, test	Run npm test	2026-10-16T03:04:48.7465762Z > node --test test/*.test.mjs
+install, build, test	Run npm test	2026-10-16T03:04:48.8010559Z 
+install, build, test	Run npm test	2026-10-16T03:04:48.8011347Z TAP version 13
+install, build, test	Run npm test	2026-10-16T03:04:48.8491292Z # Subtest: CHILDREN covers every stdio server in the estate
+install, build, test	Run npm test	2026-10-16T03:04:48.8520767Z ok 1 - CHILDREN covers every stdio server in the estate # SKIP
+install, build, test	Run npm test	2026-10-16T03:04:48.8550465Z   ---
+install, build, test	Run npm test	2026-10-16T03:04:48.8551511Z   duration_ms: 1.287831
+install, build, test	Run npm test	2026-10-16T03:04:48.8552404Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T03:04:48.8553251Z   ...
+install, build, test	Run npm test	2026-10-16T03:04:48.8554473Z # Subtest: every CHILDREN entry names the package that server actually publishes
+install, build, test	Run npm test	2026-10-16T03:04:48.8556144Z ok 2 - every CHILDREN entry names the package that server actually publishes # SKIP
+install, build, test	Run npm test	2026-10-16T03:04:48.8557373Z   ---
+install, build, test	Run npm test	2026-10-16T03:04:48.8558240Z   duration_ms: 0.20276
+install, build, test	Run npm test	2026-10-16T03:04:48.8559116Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T03:04:48.8560194Z   ...
+install, build, test	Run npm test	2026-10-16T03:04:48.8561356Z # Subtest: control: the completeness assertion fails when an entry is removed
+install, build, test	Run npm test	2026-10-16T03:04:48.8563014Z ok 3 - control: the completeness assertion fails when an entry is removed # SKIP
+install, build, test	Run npm test	2026-10-16T03:04:48.8564211Z   ---
+install, build, test	Run npm test	2026-10-16T03:04:48.8565013Z   duration_ms: 0.183644
+install, build, test	Run npm test	2026-10-16T03:04:48.8565797Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T03:04:48.8566471Z   ...
+install, build, test	Run npm test	2026-10-16T03:04:49.5871650Z # Subtest: D-P25: a child that floods stderr does not stall a tools/call
+install, build, test	Run npm test	2026-10-16T03:04:49.5893732Z ok 4 - D-P25: a child that floods stderr does not stall a tools/call
+install, build, test	Run npm test	2026-10-16T03:04:49.5900744Z   ---
+install, build, test	Run npm test	2026-10-16T03:04:49.5901258Z   duration_ms: 727.327571
+install, build, test	Run npm test	2026-10-16T03:04:49.5901711Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T03:04:49.5902293Z   ...
+install, build, test	Run npm test	2026-10-16T03:04:50.8275457Z # Subtest: D-P24: license_activate fails unless every child accepts the key
+install, build, test	Run npm test	2026-10-16T03:04:50.8277484Z ok 5 - D-P24: license_activate fails unless every child accepts the key
+install, build, test	Run npm test	2026-10-16T03:04:50.8300061Z   ---
+install, build, test	Run npm test	2026-10-16T03:04:50.8310275Z   duration_ms: 1247.434875
+install, build, test	Run npm test	2026-10-16T03:04:50.8311182Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T03:04:50.8322517Z   ...
+install, build, test	Run npm test	2026-10-16T03:04:50.9104546Z # Subtest: D-R29: a renamed tool is renamed in the child's text too, per child
+install, build, test	Run npm test	2026-10-16T03:04:50.9105847Z ok 6 - D-R29: a renamed tool is renamed in the child's text too, per child
+install, build, test	Run npm test	2026-10-16T03:04:50.9106992Z   ---
+install, build, test	Run npm test	2026-10-16T03:04:50.9107338Z   duration_ms: 731.688931
+install, build, test	Run npm test	2026-10-16T03:04:50.9107693Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T03:04:50.9108002Z   ...
+install, build, test	Run npm test	2026-10-16T03:04:50.9124560Z # Subtest: D-R29: tools_map resource lists exposed name -> child.tool
+install, build, test	Run npm test	2026-10-16T03:04:50.9125665Z ok 7 - D-R29: tools_map resource lists exposed name -> child.tool
+install, build, test	Run npm test	2026-10-16T03:04:50.9126559Z   ---
+install, build, test	Run npm test	2026-10-16T03:04:50.9127114Z   duration_ms: 720.613834
+install, build, test	Run npm test	2026-10-16T03:04:50.9127781Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T03:04:50.9128253Z   ...
+install, build, test	Run npm test	2026-10-16T03:04:53.6869315Z # Subtest: bundle proxies tools/list, forwards calls, and aggregates license_status
+install, build, test	Run npm test	2026-10-16T03:04:53.6871227Z ok 8 - bundle proxies tools/list, forwards calls, and aggregates license_status
+install, build, test	Run npm test	2026-10-16T03:04:53.6871928Z   ---
+install, build, test	Run npm test	2026-10-16T03:04:53.6872273Z   duration_ms: 4759.926652
+install, build, test	Run npm test	2026-10-16T03:04:53.6872694Z   type: 'test'
+install, build, test	Run npm test	2026-10-16T03:04:53.6873134Z   ...
+install, build, test	Run npm test	2026-10-16T03:04:53.7519042Z 1..8
+install, build, test	Run npm test	2026-10-16T03:04:53.7519893Z # tests 8
+install, build, test	Run npm test	2026-10-16T03:04:53.7520247Z # suites 0
+install, build, test	Run npm test	2026-10-16T03:04:53.7526343Z # pass 5
+install, build, test	Run npm test	2026-10-16T03:04:53.7526731Z # fail 0
+install, build, test	Run npm test	2026-10-16T03:04:53.7527613Z # cancelled 0
+install, build, test	Run npm test	2026-10-16T03:04:53.7528030Z # skipped 3
+install, build, test	Run npm test	2026-10-16T03:04:53.7528388Z # todo 0
+install, build, test	Run npm test	2026-10-16T03:04:53.7528781Z # duration_ms 4971.202136
+install, build, test	Post Run actions/setup-node@v5	﻿2026-10-16T03:04:53.7740223Z Post job cleanup.
+install, build, test	Post Run actions/setup-node@v5	2026-10-16T03:04:53.9249629Z (node:2771) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+install, build, test	Post Run actions/setup-node@v5	2026-10-16T03:04:53.9250739Z (Use `node --trace-deprecation ...` to show where the warning was created)
+install, build, test	Post Run actions/checkout@v5	﻿2026-10-16T03:04:53.9498496Z Post job cleanup.
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.0408040Z [command]/usr/bin/git version
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.0460381Z git version 2.55.0
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.0508342Z Temporarily overriding HOME='/home/runner/work/_temp/62709698-2a99-49b5-b314-b5b4eb6c8b47' before making global git config changes
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.0510349Z Adding repository directory to the temporary git global config as a safe directory
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.0516291Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/mcp-office-suite/mcp-office-suite
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.0562084Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.0602816Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.0860908Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.0889188Z http.https://github.com/.extraheader
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.0902297Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.0946984Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.1215107Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+install, build, test	Post Run actions/checkout@v5	2026-10-16T03:04:54.1256489Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+install, build, test	Complete job	﻿2026-10-16T03:04:54.1662936Z Cleaning up orphan processes

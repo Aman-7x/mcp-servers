@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-16T03:17:27.129Z",
+  "tabs": 9,
+  "tab_switches_passed": 9,
+  "page_errors": [],
+  "mobile_width": {
+    "viewport": 390,
+    "document": 390
+  },
+  "status": "passed",
+  "note": "Local file main dashboard; real Chrome; screenshots inspected separately; timestamps retain their original measurement windows"
+}

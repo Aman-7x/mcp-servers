@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-16T03:08:41.317Z",
+  "directory": "https://mcpservers.org/submit",
+  "method": "Ordinary free public submission form via Chrome",
+  "fields": {
+    "name": "MCP Three-Way Invoice Match",
+    "category": "finance",
+    "description": "Match supplier invoice SKU quantities and prices against purchase orders, receipts and prior invoices locally.",
+    "url": "https://github.com/theluckystrike/mcp-three-way-match",
+    "registryName": "io.github.theluckystrike/three-way-match",
+    "plan": "free",
+    "hasRemote": "false",
+    "valid": true
+  },
+  "fee_usd": 0,
+  "contact": "Existing project contact address",
+  "status": "received_pending_review",
+  "listing_verified": false,
+  "finished_at": "2026-10-16T03:08:46.394Z",
+  "final_url": "https://mcpservers.org/submit",
+  "confirmation_heading": "Submission Successful!",
+  "review_estimate_days": 14,
+  "approval_notification": "Email after approval, as displayed by the directory",
+  "screenshot": "intel/R36-directory-submission.png"
+}

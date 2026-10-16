@@ -47,5 +47,15 @@
     "pr": "https://github.com/theluckystrike/mcp-servers/pull/67",
     "gate": "59 live GET purchase paths, zero new live Stripe Sessions",
     "evidence": "data/r36_final_docs_deploy_result.txt"
-  }
+  },
+  "bounded_probe_release": {
+    "version": "a2d71ca6-ac77-4a12-94a7-fc2e04feda0f",
+    "source_merge": "d615670c",
+    "pr": "https://github.com/theluckystrike/mcp-servers/pull/68",
+    "gate": "190 billing tests;59 live GET purchase paths;zero new Sessions during gated deployment",
+    "gate_evidence": "data/r36_bounded_probe_deploy_result.txt",
+    "separate_live_unpaid_qa": "data/r36_checkout_lifecycle.json",
+    "office_mirror_ci": "https://github.com/theluckystrike/mcp-office-suite/actions/runs/38843677329"
+  },
+  "latest_deployed_version": "a2d71ca6-ac77-4a12-94a7-fc2e04feda0f"
 }

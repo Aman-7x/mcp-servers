@@ -4,7 +4,7 @@
 
 The project already has the email access it needs: root's current read-only account checks are recorded in `docs/OUTREACH_RESEND_SETUP.md`. No account creation or paid tool is required. Its verified sending configuration is not proof of inbox delivery.
 
-Use Resend for requested subscriber mail and customer transactions. Its [acceptable-use policy](https://resend.com/legal/acceptable-use) requires explicit opt-in and prohibits cold outreach. Public contact details are not consent. Existing directory/community research remains manual; nothing was emailed, posted, commented, submitted or DMed by this work.
+Use Resend for requested subscriber mail and customer transactions. Its [acceptable-use policy](https://resend.com/legal/acceptable-use) requires explicit opt-in and prohibits cold outreach. Public contact details are not consent. Existing directory/community research remains manual; nothing was emailed, posted, commented or DMed by the subscriber sender work. Root separately submitted the new matcher through the invited free mcpservers.org listing form; its receipt is in data/r36_directory_submission.json and review is pending.
 
 The useful next input is a real subscription request with evidence, a current mailbox check, and reconciled unsubscribes/bounces/complaints. An API key alone does not authorize a campaign. The public form and production customer mail are distinct from this local batch sender; this change does not connect new subscriber data or add a delivery webhook.
 

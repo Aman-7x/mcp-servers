@@ -1,0 +1,173 @@
+{
+  "status": 200,
+  "url": "https://mcpservers.org/submit",
+  "forms": [
+    {
+      "action": "https://mcpservers.org/submit",
+      "method": "get",
+      "inputs": [
+        {
+          "tag": "INPUT",
+          "name": "plan",
+          "type": "hidden",
+          "id": "",
+          "value": "free",
+          "placeholder": ""
+        },
+        {
+          "tag": "INPUT",
+          "name": "hasRemote",
+          "type": "hidden",
+          "id": "",
+          "value": "false",
+          "placeholder": ""
+        },
+        {
+          "tag": "INPUT",
+          "name": "name",
+          "type": "text",
+          "id": "server-name",
+          "value": "",
+          "placeholder": "e.g., Figma MCP"
+        },
+        {
+          "tag": "SELECT",
+          "name": "category",
+          "type": "select-one",
+          "id": "server-category",
+          "value": "",
+          "text": [
+            {
+              "value": "",
+              "text": "Select a category"
+            },
+            {
+              "value": "development",
+              "text": "Development"
+            },
+            {
+              "value": "productivity",
+              "text": "Productivity"
+            },
+            {
+              "value": "database",
+              "text": "Database"
+            },
+            {
+              "value": "search",
+              "text": "Search"
+            },
+            {
+              "value": "web-scraping",
+              "text": "Web Scraping"
+            },
+            {
+              "value": "file-system",
+              "text": "File System"
+            },
+            {
+              "value": "version-control",
+              "text": "Version Control"
+            },
+            {
+              "value": "communication",
+              "text": "Communication"
+            },
+            {
+              "value": "cloud-service",
+              "text": "Cloud Service"
+            },
+            {
+              "value": "cloud-storage",
+              "text": "Cloud Storage"
+            },
+            {
+              "value": "marketing",
+              "text": "Marketing"
+            },
+            {
+              "value": "finance",
+              "text": "Finance"
+            },
+            {
+              "value": "design",
+              "text": "Design"
+            },
+            {
+              "value": "memory",
+              "text": "Memory"
+            },
+            {
+              "value": "other",
+              "text": "Other"
+            }
+          ]
+        },
+        {
+          "tag": "INPUT",
+          "name": "description",
+          "type": "text",
+          "id": "server-description",
+          "value": "",
+          "placeholder": "What does your server help people do?"
+        },
+        {
+          "tag": "INPUT",
+          "name": "url",
+          "type": "url",
+          "id": "server-url",
+          "value": "",
+          "placeholder": "https://example.com/docs"
+        },
+        {
+          "tag": "INPUT",
+          "name": "registryName",
+          "type": "text",
+          "id": "registry-name",
+          "value": "",
+          "placeholder": "io.github.example/my-server"
+        },
+        {
+          "tag": "INPUT",
+          "name": "",
+          "type": "checkbox",
+          "id": "has-remote",
+          "value": "on",
+          "placeholder": ""
+        },
+        {
+          "tag": "INPUT",
+          "name": "email",
+          "type": "email",
+          "id": "contact-email",
+          "value": "",
+          "placeholder": "you@example.com"
+        },
+        {
+          "tag": "INPUT",
+          "name": "",
+          "type": "radio",
+          "id": "free-submit",
+          "value": "free",
+          "placeholder": ""
+        },
+        {
+          "tag": "INPUT",
+          "name": "",
+          "type": "radio",
+          "id": "premium-submit",
+          "value": "premium",
+          "placeholder": ""
+        },
+        {
+          "tag": "BUTTON",
+          "name": "",
+          "type": "submit",
+          "id": "",
+          "value": "",
+          "text": "Submit"
+        }
+      ]
+    }
+  ]
+}

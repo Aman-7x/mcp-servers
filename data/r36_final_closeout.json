@@ -1,0 +1,55 @@
+{
+  "at": "2026-10-16T04:23:30.198547+00:00",
+  "status": "completed",
+  "session_started_at": "2026-10-16T00:22:43Z",
+  "session_deadline_at": "2026-10-16T04:22:43.000Z",
+  "session_planned_seconds": 14400,
+  "watch_started_at": "2026-10-16T00:48:50.811Z",
+  "watch_finished_at": "2026-10-16T04:22:46.096Z",
+  "watch_sample_count": 44,
+  "watch_http_status_counts": {
+    "503": 8,
+    "200": 36
+  },
+  "watch_pin_mismatch_samples": 1,
+  "watch_read_errors": 0,
+  "final_checks_pass": true,
+  "watch_terminal_exit_code": 0,
+  "sound": {
+    "command": "/usr/bin/afplay /System/Library/Sounds/Glass.aiff",
+    "exit_code": 0,
+    "note": "Direct awaited completion in addition to the watch notification"
+  },
+  "disk_available_gb": 38,
+  "commercial": {
+    "untagged_mcp_sessions_7d": 0,
+    "paid_mcp_sessions_7d": 0,
+    "recorded_mcp_checkout_gross_usd": 0,
+    "roi_demonstrated": false
+  },
+  "publication": {
+    "status": "published",
+    "commit": "346b9f70e491e36b52883968d93b91b701948aeb",
+    "commit_url": "https://github.com/theluckystrike/mcp-servers/commit/346b9f70e491e36b52883968d93b91b701948aeb",
+    "pull_request": "https://github.com/theluckystrike/mcp-servers/pull/69",
+    "note": "Public final-result commit verified before this audit bookkeeping; merge verified separately."
+  },
+  "notes": [
+    "Four-hour session; later sampled observation does not certify continuous uptime.",
+    "Both owned unpaid Sessions expired at 03:37:04 UTC with zero charges.",
+    "No outreach emails, paid directory fees or new paid data calls."
+  ],
+  "cleanup": {
+    "verified_at": "2026-10-16T04:24:24.691243+00:00",
+    "owned_today_deletion_records": 115,
+    "remaining_recorded_paths": [],
+    "private_probe_state_removed": true,
+    "expiry_timer_removed": true,
+    "owned_browser_profiles_removed": true,
+    "permanent_empty_probe_lock_retained": "/Users/mike/mcp-servers-work/r36-checkout-probe.lock",
+    "lock_reason": "Stable cross-process lock inode intentionally retained; unlinking breaks lock semantics",
+    "manifest": "data/build-deletions.jsonl",
+    "disk_available_gb": 38
+  },
+  "completed_at": "2026-10-16T04:24:56.807797+00:00"
+}
