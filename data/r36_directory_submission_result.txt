@@ -1,0 +1,1 @@
+{"status": "received_pending_review", "url": "https://mcpservers.org/submit", "fee_usd": 0, "listing_verified": false, "review_estimate_days": 14}

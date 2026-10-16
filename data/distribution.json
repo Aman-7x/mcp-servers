@@ -678,7 +678,10 @@
     "office-suite": {
       "target": "mcpservers.org",
       "status": "accepted",
-      "sprint": "S50"
+      "sprint": "S50",
+      "github-mirror": "https://github.com/theluckystrike/mcp-office-suite",
+      "mirror-ci": "success 38843677329;5pass3monorepo-onlyskips",
+      "mirror_verified_at": "2026-10-16T03:09:35.499402+00:00"
     },
     "currency": {
       "target": "mcpservers.org",
@@ -1086,7 +1089,8 @@
       "mcpb": "v0.22.6 public bytes verified SHA-256",
       "github-mirror": "https://github.com/theluckystrike/mcp-three-way-match",
       "registry-name": "io.github.theluckystrike/three-way-match",
-      "registry-alias": "io.github.theluckystrike/supplier-invoice-matching (same capability)"
+      "registry-alias": "io.github.theluckystrike/supplier-invoice-matching (same capability)",
+      "mcpservers.org": "submitted free 2026-10-16; success receipt; pending review, not a published listing"
     }
   },
   "outreach": {
