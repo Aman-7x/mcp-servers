@@ -34,8 +34,9 @@ test("download catalog covers every listed server with an explicit release asset
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /releases\/download\/v0\.22\.0\/invoice\.mcpb/);
-  assert.match(html, /releases\/download\/v0\.22\.7\/three-way-match\.mcpb/);
-  assert.match(html, /releases\/download\/v0\.22\.7\/office-suite\.mcpb/);
+  assert.match(html, /releases\/download\/v0\.22\.8\/three-way-match\.mcpb/);
+  assert.match(html, /releases\/download\/v0\.22\.8\/office-suite\.mcpb/);
+  assert.match(html, /releases\/download\/v0\.22\.8\/duplicate-invoice-check\.mcpb/);
   assert.doesNotMatch(html, /releases\/latest/);
 });
 
