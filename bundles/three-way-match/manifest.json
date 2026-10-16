@@ -2,7 +2,7 @@
   "manifest_version": "0.2",
   "name": "mcp-three-way-match",
   "display_name": "Three-Way Invoice Match",
-  "version": "0.22.6",
+  "version": "0.22.8",
   "description": "Match supplier invoice lines to purchase orders and accepted receipts by SKU with local evidence.",
   "author": {
     "name": "theluckystrike",

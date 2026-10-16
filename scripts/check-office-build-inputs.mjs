@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Local packaging gate only: this does not certify every child's business features.
+import { acceptsLocalVersion } from './dependency-version-range.mjs';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
@@ -33,7 +34,7 @@ function check(dir,expectedName){
   const target=[join(root,'packages',base),join(root,'servers',base.replace(/^mcp-/,''))].find(d=>existsSync(join(d,'package.json')));
   assert(target,`${name}: missing dependency source`);
   const dependency=json(join(target,'package.json'));
-  assert.equal(range,`^${dependency.version}`,`${p.name}: ${name} range mismatches its actual version`);
+  assert(acceptsLocalVersion(range,dependency.version),`${p.name}: ${name}@${range} does not admit local ${dependency.version}`);
   check(target,name);
  }
 }
