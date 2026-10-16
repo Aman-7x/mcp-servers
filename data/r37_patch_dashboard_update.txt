@@ -1,0 +1,2 @@
+ledger written: /Users/mike/mcp-servers/data/ledger.json
+dashboard written: /Users/mike/mcp-servers/dashboard/index.html (237926 bytes)

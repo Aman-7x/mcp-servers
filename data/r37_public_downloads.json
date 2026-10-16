@@ -1,0 +1,486 @@
+{
+  "started_at": "2026-10-16T08:35:40.063Z",
+  "release_url": "https://github.com/theluckystrike/mcp-servers/releases/tag/v0.22.7",
+  "authenticated": false,
+  "scope": "Unauthenticated public artifact bytes and controlled synthetic stdio; no installation, user, demand or revenue claim",
+  "initial_release_probe": {
+    "status": 404,
+    "observation": "Release API initially unavailable during publication; later all four assets downloaded HTTP 200"
+  },
+  "assets": [
+    {
+      "name": "duplicate-invoice-check.mcpb",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/duplicate-invoice-check.mcpb",
+      "status": 200,
+      "bytes": 3276192,
+      "sha256": "a70a2548ed418122aee80bfe7fa66de0c1927c0d4f1e3b6ed24b13d8bddc206d",
+      "local_bytes_identical": true,
+      "runtime_version": "0.22.7",
+      "authenticated": false
+    },
+    {
+      "name": "three-way-match.mcpb",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/three-way-match.mcpb",
+      "status": 200,
+      "bytes": 3276937,
+      "sha256": "afa608954d51d94b2a439874224b2bd592c51812076c86fe0d207b2c91899c14",
+      "local_bytes_identical": true,
+      "runtime_version": "0.22.6",
+      "authenticated": false
+    },
+    {
+      "name": "office-suite.mcpb",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/office-suite.mcpb",
+      "status": 200,
+      "bytes": 32011115,
+      "sha256": "767320b858a29983da1b36e4ccc2c3d1651d13f78febea7e75d202556588d3a0",
+      "local_bytes_identical": true,
+      "runtime_version": "0.22.7",
+      "authenticated": false
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/SHA256SUMS.txt",
+      "status": 200,
+      "bytes": 266,
+      "sha256": "e7a551cbcdbab4ce69c6d8fe74ae193656a805329c2d752d90485514b25b961f",
+      "local_bytes_identical": true,
+      "authenticated": false
+    }
+  ],
+  "sha256sums_all_assets_match": true,
+  "public_standalone_runtime": {
+    "status": "passed",
+    "version": "0.22.7",
+    "tools": 8,
+    "actual_stdio_calls": 4,
+    "external_resolution_controls": {
+      "esm": "rejected",
+      "cjs": "rejected"
+    },
+    "checks": [
+      "free license",
+      "normalized-reference positive",
+      "exact supplier negative",
+      "record paging",
+      "complete CSV"
+    ],
+    "outbound_product_network": "blocked",
+    "unique_internal_resolved_files": 223
+  },
+  "catalog": {
+    "method": "HEAD with redirects",
+    "concurrency": 4,
+    "total": 57,
+    "reachable": 57,
+    "results": [
+      {
+        "name": "amortization",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/amortization.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "asset-register",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/asset-register.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "backlink-checker",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/backlink-checker.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "bank-statement",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bank-statement.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "barcode",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/barcode.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "bill-of-sale",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bill-of-sale.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "billing-docs",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/billing-docs.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "budget",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/budget.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "calendar",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/calendar.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "cash-book",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/cash-book.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "catalogue",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/catalogue.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "change-order",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/change-order.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "checklist",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/checklist.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "clauses",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/clauses.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "credit-note",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/credit-note.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "currency",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/currency.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "delivery-schedule",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/delivery-schedule.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "deposits",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/deposits.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "docx",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/docx.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "dunning-letters",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/dunning-letters.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "duplicate-invoice-check",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/duplicate-invoice-check.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "expense-tracker",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/expense-tracker.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "goods-receipt",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/goods-receipt.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "hourly-rate",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.5/hourly-rate.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "image",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/image.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "invoice",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/invoice.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "job-card",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/job-card.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "kanban",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/kanban.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "leave",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/leave.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "loan-calculator",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/loan-calculator.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "maintenance-log",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/maintenance-log.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "mileage-log",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/mileage-log.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "office-suite",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/office-suite.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "onboarding",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "packing-list",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/packing-list.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "payroll",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/payroll.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "pdf",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pdf.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "per-diem",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/per-diem.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "petty-cash",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/petty-cash.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "pomodoro",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pomodoro.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "price-tracker",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/price-tracker.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "purchase-requisition",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/purchase-requisition.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "quotes",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/quotes.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "receipts",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/receipts.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "recurring",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/recurring.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "resume",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/resume.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "service-agreement",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/service-agreement.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "spreadsheet",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/spreadsheet.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "statement-of-account",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/statement-of-account.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "stripe-billing",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/stripe-billing.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "supplier-list",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/supplier-list.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "tax-calc",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/tax-calc.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "three-way-match",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.7/three-way-match.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "time-tracker",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/time-tracker.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "timezone",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/timezone.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "work-order",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/work-order.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      },
+      {
+        "name": "zip",
+        "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/zip.mcpb",
+        "status": 200,
+        "attempts": 1,
+        "authenticated": false
+      }
+    ]
+  },
+  "status": "passed",
+  "completed_at": "2026-10-16T08:35:51.049Z",
+  "cleanup": {
+    "scope_removed": true,
+    "lsof_clear": true,
+    "bytes": 48964709,
+    "initial_cleanup_refused_open_handles": true
+  }
+}

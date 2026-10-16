@@ -1,0 +1,425 @@
+{
+  "started_at": "2026-10-16T08:37:37.179Z",
+  "status": "passed",
+  "deployment_versions": {
+    "funnel": "c09f6360-34da-4107-82ae-15e7ae4ac387",
+    "remote": "fce85227-ab19-4bb3-98f7-3d7cd4891f54",
+    "billing": "f84bdaac-4d09-4a56-b5f8-3fb8085aecea"
+  },
+  "controls": [
+    {
+      "name": "initialize_discovery",
+      "http_status": 200,
+      "trailer_count": 0,
+      "declared_error": false,
+      "passed": true
+    },
+    {
+      "name": "tools_list_discovery",
+      "http_status": 200,
+      "trailer_count": 0,
+      "declared_error": false,
+      "passed": true
+    },
+    {
+      "name": "license_status_administration",
+      "http_status": 200,
+      "trailer_count": 0,
+      "declared_error": false,
+      "passed": true
+    },
+    {
+      "name": "unknown_tool_error",
+      "http_status": 200,
+      "trailer_count": 0,
+      "declared_error": true,
+      "passed": true
+    },
+    {
+      "name": "argument_validation_error",
+      "http_status": 200,
+      "trailer_count": 0,
+      "declared_error": true,
+      "passed": true
+    },
+    {
+      "name": "explicit_free_pro_refusal",
+      "http_status": 200,
+      "trailer_count": 0,
+      "declared_error": true,
+      "passed": true
+    },
+    {
+      "name": "pure_time_conversion",
+      "http_status": 200,
+      "trailer_count": 1,
+      "current_probe_header": true,
+      "passed": true
+    },
+    {
+      "name": "second_success_same_token_endpoint_day",
+      "http_status": 200,
+      "trailer_count": 1,
+      "current_probe_header": true,
+      "passed": true
+    },
+    {
+      "name": "sticky_probe_without_current_header",
+      "http_status": 200,
+      "trailer_count": 1,
+      "current_probe_header": false,
+      "passed": true
+    }
+  ],
+  "live_checkout_sessions_created": 0,
+  "payments": 0,
+  "emails": 0,
+  "external_tool_apis": 0,
+  "baseline": {
+    "instrument": 2,
+    "generated_at": "2026-10-16T08:37:37.606Z",
+    "complete": true,
+    "window": {
+      "start": "2026-10-10T00:00:00.000Z",
+      "end": "2026-10-16T08:37:37.606Z",
+      "utc_dates": [
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16"
+      ],
+      "today_partial": true
+    },
+    "interpretation": "Recorded hosted response/event counts pooled across servers. ordinary means unmarked, not human or customer. Source labels are unverified declarations. First success is per anonymous token/server/UTC day, not lifetime use. No local usage or conversion rate is measured.",
+    "coverage": "Starts only on deployment. Empty counters do not prove deployment, full-window coverage or zero historic use. Anonymous observations with missing/expired sidecars are unmeasured, except explicitly marked current probes.",
+    "limitations": "Durable transactions preserve admitted batches and daily deduplication. Deferred write failures or unresolved cohort metadata drop observations. complete concerns bounded counter retrieval only, not full traffic capture. Sidecars expire 31 days after mint; their missing/negative-cached lookups never become ordinary.",
+    "ordinary": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 59,
+      "checkout_handoff": 0
+    },
+    "probe": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 14,
+      "checkout_handoff": 4
+    },
+    "days": [
+      {
+        "day": "2026-10-10",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-11",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-12",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-13",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-14",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-15",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-16",
+        "complete": true,
+        "first_recorded_at": "2026-10-16T08:32:08.915Z"
+      }
+    ],
+    "rows": [
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 59
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 14
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "checkout_handoff",
+        "count": 4
+      }
+    ]
+  },
+  "mint": {
+    "http_status": 200,
+    "source_sidecar_verified": true,
+    "source": "guide",
+    "cohort": "probe"
+  },
+  "after_negatives": {
+    "instrument": 2,
+    "generated_at": "2026-10-16T08:38:17.853Z",
+    "complete": true,
+    "window": {
+      "start": "2026-10-10T00:00:00.000Z",
+      "end": "2026-10-16T08:38:17.853Z",
+      "utc_dates": [
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16"
+      ],
+      "today_partial": true
+    },
+    "interpretation": "Recorded hosted response/event counts pooled across servers. ordinary means unmarked, not human or customer. Source labels are unverified declarations. First success is per anonymous token/server/UTC day, not lifetime use. No local usage or conversion rate is measured.",
+    "coverage": "Starts only on deployment. Empty counters do not prove deployment, full-window coverage or zero historic use. Anonymous observations with missing/expired sidecars are unmeasured, except explicitly marked current probes.",
+    "limitations": "Durable transactions preserve admitted batches and daily deduplication. Deferred write failures or unresolved cohort metadata drop observations. complete concerns bounded counter retrieval only, not full traffic capture. Sidecars expire 31 days after mint; their missing/negative-cached lookups never become ordinary.",
+    "ordinary": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 59,
+      "checkout_handoff": 0
+    },
+    "probe": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 74,
+      "checkout_handoff": 4
+    },
+    "days": [
+      {
+        "day": "2026-10-10",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-11",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-12",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-13",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-14",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-15",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-16",
+        "complete": true,
+        "first_recorded_at": "2026-10-16T08:32:08.915Z"
+      }
+    ],
+    "rows": [
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 59
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 74
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "checkout_handoff",
+        "count": 4
+      }
+    ]
+  },
+  "final": {
+    "instrument": 2,
+    "generated_at": "2026-10-16T08:38:18.791Z",
+    "complete": true,
+    "window": {
+      "start": "2026-10-10T00:00:00.000Z",
+      "end": "2026-10-16T08:38:18.791Z",
+      "utc_dates": [
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16"
+      ],
+      "today_partial": true
+    },
+    "interpretation": "Recorded hosted response/event counts pooled across servers. ordinary means unmarked, not human or customer. Source labels are unverified declarations. First success is per anonymous token/server/UTC day, not lifetime use. No local usage or conversion rate is measured.",
+    "coverage": "Starts only on deployment. Empty counters do not prove deployment, full-window coverage or zero historic use. Anonymous observations with missing/expired sidecars are unmeasured, except explicitly marked current probes.",
+    "limitations": "Durable transactions preserve admitted batches and daily deduplication. Deferred write failures or unresolved cohort metadata drop observations. complete concerns bounded counter retrieval only, not full traffic capture. Sidecars expire 31 days after mint; their missing/negative-cached lookups never become ordinary.",
+    "ordinary": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 59,
+      "checkout_handoff": 0
+    },
+    "probe": {
+      "successful_business_call": 3,
+      "first_successful_anon_token_server_day": 1,
+      "upgrade_impression": 3,
+      "offer_view": 74,
+      "checkout_handoff": 4
+    },
+    "days": [
+      {
+        "day": "2026-10-10",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-11",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-12",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-13",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-14",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-15",
+        "complete": true,
+        "first_recorded_at": null
+      },
+      {
+        "day": "2026-10-16",
+        "complete": true,
+        "first_recorded_at": "2026-10-16T08:32:08.915Z"
+      }
+    ],
+    "rows": [
+      {
+        "day": "2026-10-16",
+        "cohort": "ordinary",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 59
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "offer_view",
+        "count": 74
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "unattributed",
+        "event": "checkout_handoff",
+        "count": 4
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "successful_business_call",
+        "count": 3
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "first_successful_anon_token_server_day",
+        "count": 1
+      },
+      {
+        "day": "2026-10-16",
+        "cohort": "probe",
+        "source": "guide",
+        "event": "upgrade_impression",
+        "count": 3
+      }
+    ]
+  },
+  "guide_probe_delta": {
+    "successful_business_call": 3,
+    "first_successful_anon_token_server_day": 1,
+    "upgrade_impression": 3,
+    "offer_view": 0,
+    "checkout_handoff": 0
+  },
+  "ordinary_unchanged": true,
+  "response_events_atomic_coherent": true,
+  "cleanup": {
+    "exact_owned_kv_keys_considered": 7,
+    "deleted": 4,
+    "already_absent": 3,
+    "failed": 0,
+    "global_funnel_counters_deleted": false,
+    "proof": "Successful exact-key Cloudflare DELETE acknowledgments; absent keys returned404. This does not claim immediate eviction of already cached credentials at every edge.",
+    "shared_ip_mint_and_discovery_rate_limits": "Untouched: shared counters are not exclusively owned by this token."
+  },
+  "finished_at": "2026-10-16T08:38:23.087Z",
+  "scope": "Hosted response counts pooled across servers. guide is an unverified declared source. ordinary means unmarked, not human. First observation is anonymous token/server/UTC date. Counts before deployment and missing sidecars are unmeasured. Controls do not prove paid fulfillment, demand or ROI.",
+  "deployment_verification": {
+    "verified_at": "2026-10-16T08:38:17.399Z",
+    "source": "Cloudflare account Workers deployments API; latest deployment, one version at100percent for each script",
+    "all_expected_versions_match": true,
+    "scope": "Snapshot inside coordinated stable QA window; no deployment performed by this agent."
+  },
+  "known_operator_contamination": {
+    "ordinary_offer_views_at_baseline": 59,
+    "cause": "Root identified59unmarked production GETs from earlier billing-release-gate probeBuyPages; these are operator responses, not qualified demand. Source now marks every gateGET. Historical counters retained without subtraction.",
+    "source_file": "scripts/billing-release-gate.mjs",
+    "ordinary_human_or_buyer_claim": false
+  }
+}

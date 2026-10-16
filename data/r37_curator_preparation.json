@@ -1,0 +1,223 @@
+{
+  "at": "2026-10-16T08:40:59.231Z",
+  "submission": {
+    "directory": "https://mcpservers.org/submit",
+    "status": "prepared_not_submitted",
+    "fields": {
+      "name": "MCP Duplicate Supplier Invoice Check",
+      "category": "finance",
+      "description": "Review supplied supplier-invoice history locally for repeated references and equal amount/date candidates, with complete evidence and free CSV.",
+      "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+      "registryName": "io.github.theluckystrike/duplicate-invoice-check",
+      "plan": "free",
+      "hasRemote": false,
+      "email": "mike@zovo.one"
+    },
+    "fee_usd": 0,
+    "submitted": false,
+    "listing_verified": false,
+    "review_estimate_days": 14,
+    "screenshot": "intel/R37-directory-submission-prepared.png",
+    "form_controls": [
+      {
+        "tag": "INPUT",
+        "name": "plan",
+        "id": "",
+        "type": "hidden",
+        "placeholder": "",
+        "required": false
+      },
+      {
+        "tag": "INPUT",
+        "name": "hasRemote",
+        "id": "",
+        "type": "hidden",
+        "placeholder": "",
+        "required": false
+      },
+      {
+        "tag": "INPUT",
+        "name": "name",
+        "id": "server-name",
+        "type": "text",
+        "placeholder": "e.g., Figma MCP",
+        "required": true
+      },
+      {
+        "tag": "SELECT",
+        "name": "category",
+        "id": "server-category",
+        "type": "select-one",
+        "required": true
+      },
+      {
+        "tag": "INPUT",
+        "name": "description",
+        "id": "server-description",
+        "type": "text",
+        "placeholder": "What does your server help people do?",
+        "required": true
+      },
+      {
+        "tag": "INPUT",
+        "name": "url",
+        "id": "server-url",
+        "type": "url",
+        "placeholder": "https://example.com/docs",
+        "required": true
+      },
+      {
+        "tag": "INPUT",
+        "name": "registryName",
+        "id": "registry-name",
+        "type": "text",
+        "placeholder": "io.github.example/my-server",
+        "required": false
+      },
+      {
+        "tag": "INPUT",
+        "name": "",
+        "id": "has-remote",
+        "type": "checkbox",
+        "placeholder": "",
+        "required": false
+      },
+      {
+        "tag": "INPUT",
+        "name": "email",
+        "id": "contact-email",
+        "type": "email",
+        "placeholder": "you@example.com",
+        "required": true
+      },
+      {
+        "tag": "INPUT",
+        "name": "",
+        "id": "free-submit",
+        "type": "radio",
+        "placeholder": "",
+        "required": false
+      },
+      {
+        "tag": "INPUT",
+        "name": "",
+        "id": "premium-submit",
+        "type": "radio",
+        "placeholder": "",
+        "required": false
+      }
+    ],
+    "actual_values": {
+      "values": {
+        "plan": "free",
+        "hasRemote": "false",
+        "name": "MCP Duplicate Supplier Invoice Check",
+        "category": "finance",
+        "description": "Review supplied supplier-invoice history locally for repeated references and equal amount/date candidates, with complete evidence and free CSV.",
+        "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+        "registryName": "io.github.theluckystrike/duplicate-invoice-check",
+        "email": "mike@zovo.one"
+      },
+      "valid": true
+    },
+    "screenshot_visually_verified": true
+  },
+  "glama": {
+    "add_server_visible": true,
+    "url": "https://glama.ai/mcp/servers",
+    "dialogs": 1,
+    "form_controls": [
+      {
+        "type": "text",
+        "placeholder": "Search for MCP servers, tools, and more",
+        "name": ""
+      },
+      {
+        "type": "hidden",
+        "placeholder": "",
+        "name": "returnPath"
+      },
+      {
+        "type": "hidden",
+        "placeholder": "",
+        "name": "returnPath"
+      },
+      {
+        "type": "hidden",
+        "placeholder": "",
+        "name": "returnPath"
+      },
+      {
+        "type": "hidden",
+        "placeholder": "",
+        "name": "returnPath"
+      },
+      {
+        "type": "text",
+        "placeholder": "Frank Fiegel",
+        "name": "name"
+      },
+      {
+        "type": "email",
+        "placeholder": "frank@glama.ai",
+        "name": "email"
+      },
+      {
+        "type": "checkbox",
+        "placeholder": "",
+        "name": ""
+      },
+      {
+        "type": "hidden",
+        "placeholder": "",
+        "name": "altcha"
+      }
+    ],
+    "signin_required": false,
+    "relevant_headings": [
+      "Popular MCP Servers",
+      "PubShipofficial",
+      "fixragent-mcp",
+      "aziel-runtime",
+      "AskOne: Live Q&A and Polls",
+      "Ploriofficial",
+      "GoBuy Product Trust MCP Serverofficial",
+      "Australian Accounting MCP",
+      "santismm-knowledgeofficial",
+      "Local SEO Dataofficial",
+      "ThinAir Geoofficial",
+      "renderform-mcpofficial",
+      "Plane MCP Serverofficial",
+      "proofcore-mcpofficial",
+      "Tribeunal Decision-Makingofficial",
+      "Context3D MCP Serverofficial",
+      "FoundRole Jobs - AI Job Searchofficial",
+      "AISIX AI Gatewayofficial",
+      "Network Sketcherofficial",
+      "CoDesignofficial",
+      "Seaworthy Insuranceofficial",
+      "All-in-one AI workspace",
+      "Trusted by 50,000+ Businesses"
+    ],
+    "submitted": false,
+    "screenshot": "intel/R37-glama-add-server-gate.png",
+    "auth_phrase": "Account sign-up/SSO form with existing-account alternative visible after Add Server",
+    "mcp-duplicate-invoice-check": {
+      "url": "https://glama.ai/mcp/servers/theluckystrike/mcp-duplicate-invoice-check",
+      "http_status": 404,
+      "title": "theluckystrike/mcp-duplicate-invoice-check: MCP server not found | Glama",
+      "listing_verified": false
+    },
+    "mcp-three-way-match": {
+      "url": "https://glama.ai/mcp/servers/theluckystrike/mcp-three-way-match",
+      "http_status": 200,
+      "title": "three-way-match by theluckystrike | Glama",
+      "listing_verified": false
+    },
+    "account_required": true,
+    "gate_type": "account_signup_or_existing_account_signin",
+    "gate_verification": "Visual inspection of intel/R37-glama-add-server-gate.png after browser closure"
+  },
+  "non_get_requests_blocked": 5,
+  "completed_at": "2026-10-16T08:41:06.742Z"
+}

@@ -6,9 +6,12 @@ code and that has been expensive to learn.
 
 ## What this project is, stated honestly
 
-Current audit (2026-10-16, R36): 56 listed server pages, 47 paid single products, 46 hosted servers, and 48 children in the local office proxy. The proxy exposes 441 measured tools. Prices remain $19 single / $39 bundle. Seven older free standalone skeletons still fail integration/release checks; do not describe the full estate as release-green.
+Current audit (2026-10-16, R37): 57 listed server pages, 48 paid singles, 46 hosted servers, and 49 children in the local office proxy. The proxy exposes 447 measured tools. Runtime inventory initializes 50 of 57 listed builds; seven older free builds are missing. Wider estate release check remains red: 173 failures/28 gaps, including 51 umbrella-version mismatches. Targeted duplicate/matcher archive gates pass; do not describe the full estate as release-green. Prices remain $19 single/$39 bundle.
 
-The complete rolling seven-day MCP Stripe window has zero checkout sessions and $0 gross paid amount. Lifetime revenue remains unmeasured. Google Search Console for the exact MCP host reports 34 impressions and zero clicks for September 15 through October 13 (29 dates). Stored anonymous IDs and GitHub unique visitors include probes/bots and are not proven customers. Audience remains the constraint. See `intel/R36-kpi-audit.md` and `intel/R36-session.md`.
+The complete rolling seven-day MCP Stripe window still has zero untagged Checkout Sessions and $0 gross paid amount; tagged operator probes are excluded. Available completed-history MCP Checkout gross is also zero, with a shared-account paid positive control. This is neither a lifetime/net-profit audit nor demonstrated ROI. GSC retains 34 impressions/0 clicks for September 15–October13 (29 dates), before these launches. Platform IDs, GitHub reported clients, search positions and directory receipts are not proven people or customers. See `intel/R37-session.md` and `data/r37_kpi_baseline.json`.
+
+R37 hosted funnel counters measure returned protocol responses and declared checkout stages, pooled across servers; no local telemetry. Probe controls pass, but the first release gate left 59 ordinary offer counts from operator checks. Those remain in history; all future gate GETs are now explicitly marked. Ordinary still means unmarked, not human. See `data/r37_funnel_live_verification.json`.
+
 
 ## Blind recommendation measurement
 

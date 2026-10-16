@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-16T08:41:54.883189+00:00",
+  "scope": "Exact public listing pages; source repository identity inspected, no usage/customer/quality claims",
+  "pages": [
+    {
+      "url": "https://glama.ai/mcp/servers/theluckystrike/mcp-three-way-match",
+      "http_status": 200,
+      "bytes": 294065,
+      "sha256": "72b3367cfc9f491dd768926d8721c35c29b67ce66ae864583fce5ec10360db1a",
+      "title": "three-way-match by theluckystrike | Glama",
+      "exact_github_repo_link": true,
+      "listing_verified": true
+    },
+    {
+      "url": "https://glama.ai/mcp/servers/theluckystrike/mcp-duplicate-invoice-check",
+      "http_status": 404,
+      "listing_verified": false
+    }
+  ]
+}

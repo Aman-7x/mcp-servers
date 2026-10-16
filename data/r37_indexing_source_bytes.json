@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://smithery.ai/docs/build/publish.md",
+    "http_status": 200,
+    "bytes": 7432,
+    "sha256": "6c3862e56ed94b2244b2d58d1ecf940e63cd6a7007d92dfde6cb8b97407e84ae"
+  },
+  {
+    "url": "https://smithery.ai/docs/api-reference/servers/publish-a-server.md",
+    "http_status": 200,
+    "bytes": 5113,
+    "sha256": "3e83c1934ed2c71db52a13afacf3c4fa1d7cdd54be74051dd56aed3ae27433d1"
+  }
+]

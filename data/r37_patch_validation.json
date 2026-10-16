@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-10-16T09:17:54.884Z",
+  "patch_version": "0.22.8",
+  "license_version": "0.22.7",
+  "paid_single_count": 48,
+  "source_implementations_unchanged": 8,
+  "source_snapshot": "data/r37_patch_source_snapshot.json",
+  "workspace_tests": {
+    "license": {
+      "pass": 45,
+      "fail": 0,
+      "skip": 0
+    },
+    "duplicate": {
+      "pass": 24,
+      "fail": 0,
+      "skip": 0
+    },
+    "matcher": {
+      "pass": 25,
+      "fail": 0,
+      "skip": 0
+    },
+    "office": {
+      "pass": 9,
+      "fail": 0,
+      "skip": 0
+    },
+    "total_pass": 103,
+    "output": "data/r37_patch_tests.txt"
+  },
+  "range_controls": {
+    "tests": 1,
+    "cases": 11,
+    "pass": 1,
+    "output": "data/r37_patch_range_test.txt"
+  },
+  "strict_standalone_gates": {
+    "duplicate": {
+      "checks": 29,
+      "gaps": 0,
+      "output": "data/r37_patch_duplicate_gate.txt"
+    },
+    "matcher": {
+      "checks": 29,
+      "gaps": 0,
+      "output": "data/r37_patch_matcher_gate.txt"
+    }
+  },
+  "office_packaging_gate": {
+    "children": 49,
+    "packages": 51,
+    "scope": "Packaging inputs only; older feature suites not certified"
+  },
+  "exact_artifact_evidence": "data/r37_patch_release_integration.json",
+  "sha_manifest": "bundles/SHA256SUMS-r37-patch.txt",
+  "previous_artifact_backups": "bundles/releases/v0.22.7/",
+  "previous_evidence": "data/r37_release_integration_v0.22.7.json",
+  "default_estate_check": "Not run in this patch by release agent; root will run after generated-data refresh",
+  "publication": "Not performed by release agent",
+  "independent_audit": {
+    "status": "passed_local_public_bytes_pending",
+    "evidence": "data/r37_patch_product_audit.json",
+    "actual_stdio_calls": 32,
+    "completed_at": "2026-10-16T09:18:46.015Z",
+    "public_bytes_verified": false
+  }
+}

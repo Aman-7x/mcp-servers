@@ -1,0 +1,50 @@
+{
+  "at": "2026-10-16T08:42:41.073750+00:00",
+  "read_only": true,
+  "paid_spend_usd": 0,
+  "glama": {
+    "sources": [
+      "https://glama.ai/mcp/faq",
+      "https://glama.ai/mcp/reference"
+    ],
+    "source_submission": "GitHub repo submission via Add Server; actual anonymous browser opens account signup/SSO gate",
+    "anonymous_write_api_verified": false,
+    "automated_sources_documented": [
+      "official MCP Registry",
+      "automated discovery with manual curation"
+    ],
+    "new_listing_verified": false,
+    "positive_control_listing_verified": true,
+    "evidence": [
+      "data/r37_curator_preparation.json",
+      "data/r37_glama_listing_snapshot.json",
+      "intel/R37-glama-add-server-gate.png"
+    ]
+  },
+  "smithery": {
+    "sources": [
+      "https://smithery.ai/docs/build/publish",
+      "https://smithery.ai/docs/api-reference/servers/publish-a-server"
+    ],
+    "local_mcpb_publication_documented": true,
+    "endpoint": "PUT https://api.smithery.ai/servers/{qualifiedName}/releases",
+    "authentication": "Bearer API key required in current OpenAPI",
+    "anonymous_source_only_index_route_verified": false,
+    "publication_attempted": false,
+    "new_listing_verified": false,
+    "evidence": [
+      "data/r37_indexing_source_bytes.json"
+    ]
+  },
+  "curator": {
+    "url": "https://mcpservers.org/submit",
+    "status": "prepared_not_submitted",
+    "fee_usd": 0,
+    "review_estimate_days": 14,
+    "form_valid": true,
+    "evidence": [
+      "data/r37_curator_preparation.json",
+      "intel/R37-directory-submission-prepared.png"
+    ]
+  }
+}

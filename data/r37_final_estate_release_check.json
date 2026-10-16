@@ -1,0 +1,31 @@
+{
+  "measured_at": "2026-10-16T08:52:19.418982+00:00",
+  "command": "TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local buildslot node scripts/release-check.mjs",
+  "exit_code": 1,
+  "failures": 176,
+  "gaps": 28,
+  "failure_categories": {
+    "version": 54,
+    "dist-version": 7,
+    "manifests": 7,
+    "names": 7,
+    "children": 7,
+    "mcpb-lists": 7,
+    "mirrors": 7,
+    "tools": 7,
+    "product": 7,
+    "compare": 8,
+    "gif": 7,
+    "logo": 7,
+    "docker": 7,
+    "smithery": 7,
+    "glama": 7,
+    "llms": 7,
+    "spec": 7,
+    "contract": 7,
+    "guide": 2
+  },
+  "scope": "Second default full-estate checkpoint after fixing the current billing/catalog/batch tests and standalone cleanup; initial177/28 checkpoint retained separately.",
+  "output": "data/r37_final_estate_release_check.txt",
+  "limits": "Wider estate remains red; scoped exact archive checks do not certify seven older skeletons or umbrella-version coherence."
+}

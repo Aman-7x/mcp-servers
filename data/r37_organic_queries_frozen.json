@@ -1,0 +1,38 @@
+{
+  "frozen_at": "2026-10-16T08:38:48.219562+00:00",
+  "method": "GitHub REST repository search; q fixed before run, default best-match order, per_page20, public repository projection only. One snapshot; no search volume, people, installs or causal ranking claim.",
+  "queries": [
+    {
+      "id": "buyer_duplicate_invoice",
+      "q": "mcp duplicate invoice in:name,description"
+    },
+    {
+      "id": "buyer_supplier_invoice",
+      "q": "mcp duplicate supplier invoice in:name,description"
+    },
+    {
+      "id": "buyer_vendor_bills",
+      "q": "mcp duplicate vendor bills in:name,description"
+    },
+    {
+      "id": "buyer_invoice_duplicate_check",
+      "q": "mcp invoice duplicate check in:name,description"
+    },
+    {
+      "id": "exact_capability",
+      "q": "duplicate-invoice-check in:name"
+    },
+    {
+      "id": "exact_mirror",
+      "q": "repo:theluckystrike/mcp-duplicate-invoice-check"
+    },
+    {
+      "id": "existing_matcher_control",
+      "q": "mcp three way match in:name,description"
+    },
+    {
+      "id": "existing_competitor",
+      "q": "invoice triage copilot in:name"
+    }
+  ]
+}

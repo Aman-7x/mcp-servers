@@ -1,0 +1,52 @@
+{
+  "at": "2026-10-16T09:23:37.782Z",
+  "scope": "Current public mirror main head CI; skipped signed-key/sibling controls are not claimed as passing business checks",
+  "mirrors": [
+    {
+      "id": "duplicate-invoice-check",
+      "repo": "theluckystrike/mcp-duplicate-invoice-check",
+      "head_sha": "b40544aa05a0c801b683aa999fdbf034b4a0ba1b",
+      "runs": [
+        {
+          "id": 38879860686,
+          "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check/actions/runs/38879860686",
+          "name": "ci",
+          "head_sha": "b40544aa05a0c801b683aa999fdbf034b4a0ba1b",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": "three-way-match",
+      "repo": "theluckystrike/mcp-three-way-match",
+      "head_sha": "52407e98474ef58310d87549a3a4b12c74de39a2",
+      "runs": [
+        {
+          "id": 38879935013,
+          "url": "https://github.com/theluckystrike/mcp-three-way-match/actions/runs/38879935013",
+          "name": "ci",
+          "head_sha": "52407e98474ef58310d87549a3a4b12c74de39a2",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": "office-suite",
+      "repo": "theluckystrike/mcp-office-suite",
+      "head_sha": "4e5501f64885ac327a6178cb6737a0204dfe3f59",
+      "runs": [
+        {
+          "id": 38879892370,
+          "url": "https://github.com/theluckystrike/mcp-office-suite/actions/runs/38879892370",
+          "name": "ci",
+          "head_sha": "4e5501f64885ac327a6178cb6737a0204dfe3f59",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "status": "passed"
+}

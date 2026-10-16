@@ -1,0 +1,46 @@
+{
+  "at": "2026-10-16T09:20:59.403Z",
+  "version": "0.22.8",
+  "scope": "Six registry names representing three local capabilities; one new capability introduced in R37",
+  "published": [
+    {
+      "name": "io.github.theluckystrike/duplicate-invoice-check",
+      "version": "0.22.8",
+      "file": "servers/duplicate-invoice-check/server.json",
+      "sha256": "181379eb6dcff3d90b55e080dd9c180f6c96802e991872865a6b0ce422b3aaea"
+    },
+    {
+      "name": "io.github.theluckystrike/supplier-invoice-duplicates",
+      "version": "0.22.8",
+      "file": "servers/duplicate-invoice-check/server.supplier-invoice-duplicates.json",
+      "sha256": "181379eb6dcff3d90b55e080dd9c180f6c96802e991872865a6b0ce422b3aaea"
+    },
+    {
+      "name": "io.github.theluckystrike/three-way-match",
+      "version": "0.22.8",
+      "file": "servers/three-way-match/server.json",
+      "sha256": "6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040"
+    },
+    {
+      "name": "io.github.theluckystrike/supplier-invoice-matching",
+      "version": "0.22.8",
+      "file": "servers/three-way-match/server.supplier-invoice-matching.json",
+      "sha256": "6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040"
+    },
+    {
+      "name": "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price",
+      "version": "0.22.8",
+      "file": "servers/office-suite/server.json",
+      "sha256": "7f50d6d16d445dddcee054b24e8586de4daff9d91b77d22a28730647305cc91d"
+    },
+    {
+      "name": "io.github.theluckystrike/office-suite",
+      "version": "0.22.8",
+      "file": "servers/office-suite/server.office-suite.json",
+      "sha256": "7f50d6d16d445dddcee054b24e8586de4daff9d91b77d22a28730647305cc91d"
+    }
+  ],
+  "failed": [],
+  "credentials_printed": false,
+  "completed_at": "2026-10-16T09:21:21.880Z"
+}

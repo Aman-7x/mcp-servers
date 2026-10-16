@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-16T08:33:35.421Z",
+  "url": "https://mcp.zovo.one/assets/duplicate-demo.js",
+  "method": "marked GET, no submitted fields",
+  "http_status": 200,
+  "content_type": "text/javascript; charset=utf-8",
+  "live_bytes": 69642,
+  "live_sha256": "ecf4a6432d9bed34c3f942b7862d450f5915c6c99b374c4a71e72d2a23470504",
+  "local_sha256": "ecf4a6432d9bed34c3f942b7862d450f5915c6c99b374c4a71e72d2a23470504",
+  "source_input_sha256": "4e8663e6b97fd4d2b6486760fe60e9d4bb8f1a4eafb538e12574690bfa3a64ce",
+  "exact_match": true,
+  "diagnostic_data_uploaded": false
+}

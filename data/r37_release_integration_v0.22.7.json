@@ -1,0 +1,69 @@
+{
+  "measured_at": "2026-10-16T08:24:18.403Z",
+  "scope": "Exact post-fix v0.22.7 duplicate/office and v0.22.6 corrected matcher archives; duplicate/matcher workflows only, older child feature coverage excluded",
+  "archives": [
+    {
+      "name": "duplicate-invoice-check",
+      "version": "0.22.7",
+      "bytes": 3276192,
+      "sha256": "a70a2548ed418122aee80bfe7fa66de0c1927c0d4f1e3b6ed24b13d8bddc206d",
+      "zip_crc": "passed",
+      "resolution_guard": "ESM and CommonJS constrained to extracted server tree",
+      "known_bad_external_import": "ESM and CommonJS rejected",
+      "calls": 10,
+      "tools": 8,
+      "compiled_store_sha256": {
+        "duplicate-invoice-check": "7e4c65ff913d80bac2a9732fe12d10c6dbc32d604fa0f26d3971af467613391d"
+      },
+      "free_cap_preserves_full_diagnosis": true,
+      "business_checks": "candidate union, scope negative control, conflicting amount, save/get/page/CSV, unknown-field error, literal tool-name source/CSV preservation",
+      "status": "passed",
+      "resolution_events": 512,
+      "unique_resolved_files": 223
+    },
+    {
+      "name": "three-way-match",
+      "version": "0.22.6",
+      "bytes": 3276937,
+      "sha256": "afa608954d51d94b2a439874224b2bd592c51812076c86fe0d207b2c91899c14",
+      "zip_crc": "passed",
+      "resolution_guard": "ESM and CommonJS constrained to extracted server tree",
+      "known_bad_external_import": "ESM and CommonJS rejected",
+      "calls": 3,
+      "tools": 8,
+      "compiled_store_sha256": {
+        "three-way-match": "033bf31dcf216c7fa00b255ed4580c84fc182838c8c6f3d636d6a6ebdb196932"
+      },
+      "matcher_business_checks": "saved offsetting-quantity exceptions, source-reference preservation, get and CSV through exact artifact",
+      "status": "passed",
+      "resolution_events": 511,
+      "unique_resolved_files": 223
+    },
+    {
+      "name": "office-suite",
+      "version": "0.22.7",
+      "bytes": 32011115,
+      "sha256": "767320b858a29983da1b36e4ccc2c3d1651d13f78febea7e75d202556588d3a0",
+      "zip_crc": "passed",
+      "resolution_guard": "ESM and CommonJS constrained to extracted server tree",
+      "known_bad_external_import": "ESM and CommonJS rejected",
+      "calls": 8,
+      "tools": 447,
+      "children": 49,
+      "compiled_store_sha256": {
+        "duplicate-invoice-check": "7e4c65ff913d80bac2a9732fe12d10c6dbc32d604fa0f26d3971af467613391d",
+        "three-way-match": "033bf31dcf216c7fa00b255ed4580c84fc182838c8c6f3d636d6a6ebdb196932"
+      },
+      "matcher_business_checks": "saved offsetting-quantity exceptions, source-reference preservation, get and CSV through exact artifact",
+      "business_checks": "candidate union, scope negative control, conflicting amount, save/get/page/CSV, unknown-field error, literal tool-name source/CSV preservation",
+      "status": "passed",
+      "resolution_events": 33417,
+      "unique_resolved_files": 1110
+    }
+  ],
+  "status": "passed",
+  "release_ready": true,
+  "completed_at": "2026-10-16T08:24:34.921Z",
+  "cleanup": "guarded scope removed",
+  "release_ready_scope": "Local archive verification only; publication, independent review and broader estate checks remain separate."
+}

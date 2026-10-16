@@ -1,0 +1,812 @@
+{
+  "at": "2026-10-16T08:49:50.207Z",
+  "method": "Ordinary owned Chrome GET navigation; capture actual public frontend JS responses, script and performance inventory. Never click Submit, dispatch submit or allow non-GET/HEAD requests.",
+  "blocked_requests": [
+    {
+      "method": "POST",
+      "url": "https://u.lessbutbetter.studio/api/send"
+    },
+    {
+      "method": "POST",
+      "url": "https://mcpservers.org/cdn-cgi/challenge-platform/h/b/jsd/oneshot/d2d3316b729e/0.021183988313592028:1792137635:nXMYTkKRQzCxXLjsk5Mm_jJKKp1f1RZJB6pSJXrP7nc/a4b5d00948a484b2"
+    }
+  ],
+  "resources": [
+    {
+      "url": "https://mcpservers.org/icon.png",
+      "initiatorType": "link"
+    },
+    {
+      "url": "https://mcpservers.org/assets/globals-BBuXXjED.css",
+      "initiatorType": "link"
+    },
+    {
+      "url": "https://mcpservers.org/assets/github-markdown-light-C3INj2oG.css",
+      "initiatorType": "link"
+    },
+    {
+      "url": "https://analytics.ahrefs.com/analytics.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://mcpservers.org/assets/index-DBcflKmE.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/jsx-runtime-Cx0BB4qO.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/react-3BKWdGy3.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/not-found-i5RsCZif.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/lazyRouteComponent-Di5X7ueD.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/redirect-Dhm19zUi.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/matchContext-BS1nh9PE.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/link-CQMhWUPs.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/createServerFn-DZZNDdqS.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/useMatch-BiHrb9zr.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/runtime-CPM_Grvh.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/preload-helper-Czpn1I53.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/createLucideIcon-DMASS5FJ.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/useStore-JNfaS1_g.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/x-VQNqR9pZ.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/i18n-CETc4eR1.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/button-CNTnyc-7.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/utils-D0Cejml6.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/server-fns-6ATEu-AV.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/head-jOs1nvy8.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/consts-yvGoLR-z.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/seo-Cyr8HRbJ.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/og-image-ISjVsj6a.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/server-logo-BqQrpHr6.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/schemas-BiNf9ivD.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/coerce-fdxEfkz8.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/route-canonicalization-BPIDVtAJ.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/indexable-queries-dctGpuai.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/official-skills-BDn1xZXt.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/topic-pages-BYPIdzsW.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/skill-list-B_RvNX7B.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/check-BAQzfXtB.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/submit-DNfgvcXs.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/circle-alert-1yL3Ohnu.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/loader-circle-C4GsJvK_.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/useButton-auNSOaTB.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/useIsoLayoutEffect-BoiiRVnf.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/useRenderElement-DA5B_qKT.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/shadowDom-99PZFfZr.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/input-group-Ade-D1J1.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/input-DntQ37Zj.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/createBaseUIEventDetails-C3oQ2dtL.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/useControlled-DmaWe-m-.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/CompositeItem-CvU2RmI2.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/useCompositeListItem-DxmlVuCC.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/server-url-UxGAswEU.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/name-CzniQQQF.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/submit-success-panel-D_Affh7p.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/useTransitionStatus-DaFN4-dQ.js",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://u.lessbutbetter.studio/script.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://assets.onedollarstats.com/tracker.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://mcpservers.org/assets/geist-latin-wght-normal-BgDaEnEv.woff2",
+      "initiatorType": "css"
+    },
+    {
+      "url": "https://mcpservers.org/assets/dist-CEraulXR.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://mcpservers.org/assets/skill-source-Da-QL1AR.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://mcpservers.org/assets/skill-card-Duuvlv02.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://mcpservers.org/assets/star-BJE53v6l.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://mcpservers.org/assets/badge-BqRBr90M.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://mcpservers.org/assets/search-ZI_JR9Wo.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://mcpservers.org/assets/useRender-C2URmLkl.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://mcpservers.org/assets/sparkles-Bt4PmK5O.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://mcpservers.org/assets/card-CGP6TQAn.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://mcpservers.org/assets/circle-check-65PL3a8n.js",
+      "initiatorType": "script"
+    },
+    {
+      "url": "https://u.lessbutbetter.studio/api/send",
+      "initiatorType": "fetch"
+    },
+    {
+      "url": "https://mcpservers.org/icon.png",
+      "initiatorType": "other"
+    },
+    {
+      "url": "https://mcpservers.org/assets/en-B8L5BF9a.js",
+      "initiatorType": "script"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://mcpservers.org/assets/jsx-runtime-Cx0BB4qO.js",
+      "status": 200,
+      "bytes": 1088,
+      "sha256": "fdbddafba9c23d4689f1dcfd2456b383f9f52828fd1a3618cecf0ce2565a3299",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/not-found-i5RsCZif.js",
+      "status": 200,
+      "bytes": 118,
+      "sha256": "57d667bbd7d641de6b5996a24f079c309a620ddba01e59f53cde4a86f16390f0",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/redirect-Dhm19zUi.js",
+      "status": 200,
+      "bytes": 500,
+      "sha256": "ee48fafd5499fa3bcbf9a9389e25bd6bcca2d405a4acab574fd59e302d071e50",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/matchContext-BS1nh9PE.js",
+      "status": 200,
+      "bytes": 190,
+      "sha256": "e59e0636714a5f50128ce724b32c1d3a16add62e889fe18a26bbb601bfa60d81",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/lazyRouteComponent-Di5X7ueD.js",
+      "status": 200,
+      "bytes": 4094,
+      "sha256": "c5d780c4b3d6040e1c6297163edb1e056a2b71045833e8f5ff860234dc2d8cfd",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/react-3BKWdGy3.js",
+      "status": 200,
+      "bytes": 7527,
+      "sha256": "3d6994f700dfe634e0ff6883ff90d08c0bf763339b146950fb076ffd2e4056da",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/link-CQMhWUPs.js",
+      "status": 200,
+      "bytes": 19377,
+      "sha256": "13dc7410bee2ddaad81a1cf20902969855e16ecf789fe1f07c39820e164d450f",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/createServerFn-DZZNDdqS.js",
+      "status": 200,
+      "bytes": 38012,
+      "sha256": "1e3c5d304927d63470251ee36457eddf6f4cbeaf495da3868ba1ee7880fa0991",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/useMatch-BiHrb9zr.js",
+      "status": 200,
+      "bytes": 601,
+      "sha256": "efd7b8d1e01c3d223794fb519702382a7937752cd11881bd09b1022637907396",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/runtime-CPM_Grvh.js",
+      "status": 200,
+      "bytes": 3661,
+      "sha256": "7726a265af85b9bf0aaba6cfec36ff64e0d8bc8ce9cde3b6206d12af51731473",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/server-fns-6ATEu-AV.js",
+      "status": 200,
+      "bytes": 1953,
+      "sha256": "c0ac6179aa431b93a52cec09bbe81cd73e1833134b3acd0a31724924e0c3bab0",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/preload-helper-Czpn1I53.js",
+      "status": 200,
+      "bytes": 1196,
+      "sha256": "aba87f2a53e45ecdc9113fc30387d16e449d1676428cf5f82dd624c1df97d152",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/createLucideIcon-DMASS5FJ.js",
+      "status": 200,
+      "bytes": 1413,
+      "sha256": "1630f994aaa1cb75d07663da5330a199c5a6550b88670fd49e3e609fbfbe3801",
+      "matches": []
+    },
+    {
+      "url": "https://analytics.ahrefs.com/analytics.js",
+      "status": 200,
+      "bytes": 6947,
+      "sha256": "b270afc5f9df7bcd9239c22857fb1511bba1398a28b1c3548272d720cb433c62",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/x-VQNqR9pZ.js",
+      "status": 200,
+      "bytes": 154,
+      "sha256": "59f898a54962c56d3b72bd3d823e163bfa898e499ec0a787e03ae6325201647a",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/useStore-JNfaS1_g.js",
+      "status": 200,
+      "bytes": 2210,
+      "sha256": "5e7509d9bc660a030ef233b1279c6ecf0f9c66448e3e721c11271bc5df6fe39c",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/i18n-CETc4eR1.js",
+      "status": 200,
+      "bytes": 2423,
+      "sha256": "fc0bf783b8bb9d9a98e813372002a8d271f3a6c41f19e97b791117e025784fa5",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/button-CNTnyc-7.js",
+      "status": 200,
+      "bytes": 3154,
+      "sha256": "af5420a8ff7871d830986d5413fbbdf775706797bef9c71f5b4d49949a648bdb",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/head-jOs1nvy8.js",
+      "status": 200,
+      "bytes": 169,
+      "sha256": "e9d3f27581c28c7d8be76582343227f6e19243f6fda8fdaa8c5a94bae9bba48c",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/consts-yvGoLR-z.js",
+      "status": 200,
+      "bytes": 3625,
+      "sha256": "706a938c71c7f7350b2d3f230b0b49323219916610060b384336719a7ba81859",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/seo-Cyr8HRbJ.js",
+      "status": 200,
+      "bytes": 1819,
+      "sha256": "b37e694d057065fde95330dc2761b98802733687fbf45e83d28b3b5d84a286ab",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/utils-D0Cejml6.js",
+      "status": 200,
+      "bytes": 27481,
+      "sha256": "fc17e5a109da7e01497bff71b72aced8d7ffcd263796dbf4d8d4892dec638884",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/og-image-ISjVsj6a.js",
+      "status": 200,
+      "bytes": 633,
+      "sha256": "ef5ccc2f3d95798b1fa68621185f65a68ed2ed88475c70172245e4451c44253e",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/server-logo-BqQrpHr6.js",
+      "status": 200,
+      "bytes": 578,
+      "sha256": "e8df3e825dda0d898611101d96d9017616561bf4df8b43ce114dc3973551e976",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/coerce-fdxEfkz8.js",
+      "status": 200,
+      "bytes": 87,
+      "sha256": "05881ba472fae5ed317451644a5d1935ba83af3660c42c41719e63c7b91cbb3b",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/route-canonicalization-BPIDVtAJ.js",
+      "status": 200,
+      "bytes": 904,
+      "sha256": "cb591d40ce205ec733d1578f43e03f5454528844aec645decd18a3359c1a0251",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/indexable-queries-dctGpuai.js",
+      "status": 200,
+      "bytes": 1203,
+      "sha256": "81c109d218cf3109a94353cd41ab434e95013ecb30bc2e4514b5b642c5227af7",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/index-DBcflKmE.js",
+      "status": 200,
+      "bytes": 353910,
+      "sha256": "d89f773ba0b7169ed0d1f95e6e6fe12ac49ff4f752c8ce5327f3959654159174",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/official-skills-BDn1xZXt.js",
+      "status": 200,
+      "bytes": 6622,
+      "sha256": "8a3b4119e50739d4044bcd8deef7fde57a5569037055d523569356aa53edaef1",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/topic-pages-BYPIdzsW.js",
+      "status": 200,
+      "bytes": 72145,
+      "sha256": "7e5f0a2867c35662913dc052734ba2658baccdeda87cf69861b1b3b2d5dd2f7e",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/schemas-BiNf9ivD.js",
+      "status": 200,
+      "bytes": 66859,
+      "sha256": "a7dba320aac4e189b1bc51a8cad8498de7d214c46f822cf201d502481a08743c",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/skill-list-B_RvNX7B.js",
+      "status": 200,
+      "bytes": 8246,
+      "sha256": "23049833d92f1f6409c191c9c3d1048fd342546a9ed94e0dfa46d4d6283e8e13",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/check-BAQzfXtB.js",
+      "status": 200,
+      "bytes": 124,
+      "sha256": "c581ba0aad084ebd8d7b4c8bc556a078658c5aab2ca182a80aa1e1b897c1d295",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/circle-alert-1yL3Ohnu.js",
+      "status": 200,
+      "bytes": 250,
+      "sha256": "1a69c1142c60f47103c75913fb230454a18abf2aa571c9194ce9360210968b17",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/loader-circle-C4GsJvK_.js",
+      "status": 200,
+      "bytes": 144,
+      "sha256": "ca7db911eab539cf2f46ad74dd0b66ad72f3364097bd4e4ec8413b4de939ec74",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/submit-DNfgvcXs.js",
+      "status": 200,
+      "bytes": 35489,
+      "sha256": "abbd986f2b9ea4a339ed4cd28588f3bde66dfd9c0529143f537516982ecc5a02",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/useButton-auNSOaTB.js",
+      "status": 200,
+      "bytes": 4810,
+      "sha256": "32e901d09320ce6eb6292a492b667143a90fa103fe04585cc8c774aeab72aa93",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/useIsoLayoutEffect-BoiiRVnf.js",
+      "status": 200,
+      "bytes": 505,
+      "sha256": "2da01f6a74a7e596db90e5de932f9365e58913022fdc4f200cd9a20c1e3bfb62",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/useRenderElement-DA5B_qKT.js",
+      "status": 200,
+      "bytes": 4267,
+      "sha256": "3d00b45eec44f6a9363b46260affdf4f56dff8f63d8941546a28c67e4ccd2af1",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/shadowDom-99PZFfZr.js",
+      "status": 200,
+      "bytes": 476,
+      "sha256": "5b41ab330fdd919e1b6349d31cc09c37daecf4d1ce15f140cd483f0c725f5daa",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/input-DntQ37Zj.js",
+      "status": 200,
+      "bytes": 4645,
+      "sha256": "502938581ca88a804254d86dc49fb1dccbf57a9a31287ed1a50c45fe9c8477bf",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/createBaseUIEventDetails-C3oQ2dtL.js",
+      "status": 200,
+      "bytes": 967,
+      "sha256": "0ac296c99418e307b9f1c5e56d175f33eb2a0869018bc86d4beb03ccdbbfe89e",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/useControlled-DmaWe-m-.js",
+      "status": 200,
+      "bytes": 272,
+      "sha256": "b13467ea0a74d9111b4c3e3102c47d4dc37e769fa16ba3ca623d9dc0b7b5db2f",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/CompositeItem-CvU2RmI2.js",
+      "status": 200,
+      "bytes": 4228,
+      "sha256": "908ce398e20ec842e3fd7a3c21e5a2672d52d4a34fd8ab3886d1552db7a8b359",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/input-group-Ade-D1J1.js",
+      "status": 200,
+      "bytes": 29595,
+      "sha256": "49d6764a774512ecd16d9c1f5da0d98927461639253dbc280db026d5b2c04181",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/useCompositeListItem-DxmlVuCC.js",
+      "status": 200,
+      "bytes": 3107,
+      "sha256": "a9a1c87fb7fc746cd64bd5a23160650482411e46fa25c795a681de38203f9f3c",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/server-url-UxGAswEU.js",
+      "status": 200,
+      "bytes": 669,
+      "sha256": "d0aa06e10726f2b44d33adcac0b566a4db62d0324e692decf368841afe0165c8",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/name-CzniQQQF.js",
+      "status": 200,
+      "bytes": 4359,
+      "sha256": "661297bc6b50809cd8c025ed51521d6665a7cbde53cc2c01009c67b7797c1c66",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/submit-success-panel-D_Affh7p.js",
+      "status": 200,
+      "bytes": 1133,
+      "sha256": "b122b272e89c533b979c1bd3488e90ec504349394041a0bac3777c27d0ba67af",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/useTransitionStatus-DaFN4-dQ.js",
+      "status": 200,
+      "bytes": 3016,
+      "sha256": "f9fc9c267b2fdc5b0bcdc635ad09c0f9e7f9df3a940de50f52e59b1ef3b5a28f",
+      "matches": []
+    },
+    {
+      "url": "https://u.lessbutbetter.studio/script.js",
+      "status": 200,
+      "bytes": 4773,
+      "sha256": "654f12c7548be726eba5b71d5ef8bffc2a41a39a0053e2a49a847869ccd7ac3f",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/skill-source-Da-QL1AR.js",
+      "status": 200,
+      "bytes": 480,
+      "sha256": "cd55b061f05eb4d44ed9de93cb3193338c56d54d91718757cab0aa8b1db3a772",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/dist-CEraulXR.js",
+      "status": 200,
+      "bytes": 641,
+      "sha256": "3480859fbfa98d01f996a04edf1ea06c4e1af28e918c11d194e7296941d513e2",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/star-BJE53v6l.js",
+      "status": 200,
+      "bytes": 472,
+      "sha256": "66b089d2860312d180f4c5c56bf6d952a8fa1294d8de80dc83f106a495e19f68",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/badge-BqRBr90M.js",
+      "status": 200,
+      "bytes": 1461,
+      "sha256": "159503b22bce51f1ed7c9a5b4eadb11071939dd762dc29ea689f634d215f505d",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/search-ZI_JR9Wo.js",
+      "status": 200,
+      "bytes": 174,
+      "sha256": "5877e55ae39c05a27d68e02b5cdf8066fae04444799ceaa75166b03d956dccf4",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/skill-card-Duuvlv02.js",
+      "status": 200,
+      "bytes": 4151,
+      "sha256": "498ded019be529067a85665bd2fafabe8185fd746d678738c45e506720a33926",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/useRender-C2URmLkl.js",
+      "status": 200,
+      "bytes": 113,
+      "sha256": "4bf53af872c436c9948da752294d5e1946bb35859c3dd44ddf9257d078d98e75",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/sparkles-Bt4PmK5O.js",
+      "status": 200,
+      "bytes": 494,
+      "sha256": "c6d9ef0333262e9b0d08396ae7f125d2cd273b6e96e57ae32574d3f2fe12b79f",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/card-CGP6TQAn.js",
+      "status": 200,
+      "bytes": 1498,
+      "sha256": "21f086001b8622e05e8ee71e464072fa9e3d16a42e1da4d120ef62c4c8de8151",
+      "matches": []
+    },
+    {
+      "url": "https://assets.onedollarstats.com/tracker.js",
+      "status": 200,
+      "bytes": 2424,
+      "sha256": "3906f0b4a0930384c2db06f2d4583b599ed30bddd2d30abae47413509c2cb7ef",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/assets/circle-check-65PL3a8n.js",
+      "status": 200,
+      "bytes": 178,
+      "sha256": "036cf30bd2b8e257f2557e2c55b4a068b6c37c17808d65a39fd1d9e21602ec1d",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/cdn-cgi/challenge-platform/scripts/jsd/main.js",
+      "error": "response.text: Response body is unavailable for redirect responses"
+    },
+    {
+      "url": "https://mcpservers.org/assets/en-B8L5BF9a.js",
+      "status": 200,
+      "bytes": 29875,
+      "sha256": "4163e8b98ea4849e1f13f8e19d251f9ea29e1ad1e4be17d79ad9cd1160c131ce",
+      "matches": []
+    },
+    {
+      "url": "https://mcpservers.org/cdn-cgi/challenge-platform/h/b/scripts/jsd/d2d3316b729e/main.js?",
+      "status": 200,
+      "bytes": 24065,
+      "sha256": "0aab4740374dfd012cb3a39047aec3dfeb9ac190e02eaeae8270906100fcfcc4",
+      "matches": []
+    }
+  ],
+  "form": {
+    "method": "get",
+    "action": "https://mcpservers.org/submit",
+    "attributes": [
+      [
+        "aria-busy",
+        "false"
+      ]
+    ],
+    "react_handlers": [
+      {
+        "onSubmit": "e=>{e.preventDefault(),O(new FormData(e.currentTarget))}"
+      }
+    ]
+  },
+  "proof": {
+    "rpc_url_generator": {
+      "offset": 33466,
+      "excerpt": "function Wr(e){let t=`/_serverFn/`+e;return Object.assign((...e)=>{let n=f()?.serverFns?.fetch;return Rr(t,e,n??fetch)},{url:t,serverFnMeta:{id:e},[a]:!0})}function Gr(e){if(Arr"
+    },
+    "rpc_post": {
+      "offset": 31457,
+      "excerpt": "r.method===`POST`&&(c=await Vr(r),typeof c==`string`&&o.set(`content-type`,`application/json`)),await Hr(async()=>i(e,{method:r.method,headers:o,signal:r.signal,body:c}))}async function zr(e){let t=!1,n={};if(e.data!==void"
+    },
+    "mutation_function_id": "62b9fa2877951ac582b1d0a4835a88ab4b119b1d5fd1a39a67a6a9faadcbc72d",
+    "endpoint": "https://mcpservers.org/_serverFn/62b9fa2877951ac582b1d0a4835a88ab4b119b1d5fd1a39a67a6a9faadcbc72d",
+    "definition": {
+      "offset": 22639,
+      "excerpt": "At=i({method:`POST`}).handler(r(`62b9fa2877951ac582b1d0a4835a88ab4b119b1d5fd1a39a67a6a9faadcbc72d`))"
+    },
+    "call": {
+      "offset": 23459,
+      "excerpt": "await At({data:e})"
+    },
+    "import_binding": "import{n as r,t as i}from\"./createServerFn-DZZNDdqS.js\""
+  },
+  "http_status": 200,
+  "title": "Submit Your MCP Server | Awesome MCP Servers",
+  "scripts": [
+    {
+      "src": "https://analytics.ahrefs.com/analytics.js",
+      "type": "",
+      "inline_bytes": 0
+    },
+    {
+      "src": "https://mcpservers.org/assets/index-DBcflKmE.js",
+      "type": "module",
+      "inline_bytes": 0
+    },
+    {
+      "src": "",
+      "type": "",
+      "inline_bytes": 921
+    }
+  ],
+  "final_url": "https://mcpservers.org/submit",
+  "completed_at": "2026-10-16T08:49:55.274Z",
+  "conclusion": {
+    "actual_transport": "POST to the exact /_serverFn/<public-function-id> endpoint, not POST /submit",
+    "first_attempt_network_capture": "Unavailable: first root attempt did not retain rejected URLs",
+    "route_policy_comparison": "Root submit script permits POST only to /submit and aborts every other nonGET request. The current frontend mutation RPC cannot pass that policy.",
+    "status": "transport_block_inferred_from_primary_frontend_and_actual_root_route_policy",
+    "not_a_server_rejection": true,
+    "no_retry_performed": true,
+    "uncertainty": "No direct first-attempt request log exists; client validation could also have prevented a mutation attempt. Neither path establishes an accepted submission."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-16T08:44:06.549Z",
+  "directory": "https://mcpservers.org/submit",
+  "method": "Ordinary free public form via Chrome",
+  "fields": {
+    "name": "MCP Duplicate Supplier Invoice Check",
+    "category": "finance",
+    "description": "Review supplied supplier-invoice history locally for repeated references and equal amount/date candidates, with complete evidence and free CSV.",
+    "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+    "registryName": "io.github.theluckystrike/duplicate-invoice-check",
+    "plan": "free",
+    "hasRemote": false,
+    "email": "mike@zovo.one"
+  },
+  "fee_usd": 0,
+  "status": "submitted_awaiting_receipt",
+  "listing_verified": false,
+  "submission_attempts": 1,
+  "failure": "locator.waitFor: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('heading', { name: 'Submission Successful!', exact: true }) to be visible\u001b[22m\n",
+  "profile_cleanup_complete": true
+}

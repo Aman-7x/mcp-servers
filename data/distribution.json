@@ -1,15 +1,19 @@
 {
-  "updated_at": "2026-10-12T09:47:36.343Z",
+  "updated_at": "2026-10-16T09:26:05.077161+00:00",
   "surfaces": {
     "github": {
       "status": "published",
       "url": "https://github.com/theluckystrike/mcp-servers",
-      "note": "public, topics set, release v0.1.0"
+      "note": "Implementation merged in PR70/71; current versioned registry/archive correction merged in PR72. Current three mirrors have fresh-install main-head CI; final documentation sync is checked separately. Frozen query snapshots measure public result positions, not demand.",
+      "pre_r37_note": "public, topics set, release v0.1.0",
+      "last_checked": "2026-10-16"
     },
     "billing": {
       "status": "published",
       "url": "https://mcp.zovo.one",
-      "note": "Stripe LIVE + Resend license-delivery email LIVE (worker b8077a53, PR #2 merged): on webhook fulfillment, buyer receives license key via Resend from mike@zovo.one; idempotent via KV flag; email failure log-only."
+      "note": "Current approved Worker15b4fb3e-7bcb-4fc1-8104-b2727926132b. Required gate passed60 marked GET offer paths, zero new Sessions. Earlier two tagged unpaid entry QA Sessions used priorf84bdaac version and expired with$0charged; their private state is removed. No live paid fulfillment/inbox delivery tested.",
+      "pre_r37_note": "Stripe LIVE + Resend license-delivery email LIVE (worker b8077a53, PR #2 merged): on webhook fulfillment, buyer receives license key via Resend from mike@zovo.one; idempotent via KV flag; email failure log-only.",
+      "last_checked": "2026-10-16"
     },
     "npm": {
       "status": "blocked_token_expired",
@@ -20,7 +24,10 @@
     "registry": {
       "status": "published",
       "url": "https://registry.modelcontextprotocol.io/v0/servers?search=theluckystrike",
-      "note": "85 distinct names live at v0.21.0, verified by a version=latest search after the release. All of them now carry websiteUrl https://mcp.zovo.one/s/<server> (office-suite points at /bundle, which is what it sells) instead of https://mcp.zovo.one/buy/<server>, which robots.txt Disallows and which 303s a browser straight into Stripe. The registry is the only channel measurably delivering humans (19 views from 9 uniques in 14 days), so it was dropping every one of them on a payment form and passing no link value. 32 manifest variants still fail to publish: they declare an npm package that does not exist, and they will validate only after the operator runs npm login. Every one of those 32 shares a name with a manifest that did publish, so no server is missing from the registry."
+      "note": "Six .22.8 rows published and unauthenticated verified for duplicate, matcher and office primary/alias names, exact public MCPB hashes. Three capabilities, only one new this sprint. Prior immutable rows preserved. Platform counters do not establish people or customers.",
+      "pre_r37_note": "85 distinct names live at v0.21.0, verified by a version=latest search after the release. All of them now carry websiteUrl https://mcp.zovo.one/s/<server> (office-suite points at /bundle, which is what it sells) instead of https://mcp.zovo.one/buy/<server>, which robots.txt Disallows and which 303s a browser straight into Stripe. The registry is the only channel measurably delivering humans (19 views from 9 uniques in 14 days), so it was dropping every one of them on a payment form and passing no link value. 32 manifest variants still fail to publish: they declare an npm package that does not exist, and they will validate only after the operator runs npm login. Every one of those 32 shares a name with a manifest that did publish, so no server is missing from the registry.",
+      "last_checked": "2026-10-16",
+      "r37_evidence": "data/r37_patch_public_downloads.json"
     },
     "smithery": {
       "status": "blocked",
@@ -28,16 +35,20 @@
       "note": "CLI 4.11.1 + REST api.smithery.ai are scriptable with a bearer key, but obtaining one needs one browser login: run `npx -y @smithery/cli auth login` and open the printed https://smithery.ai/auth/cli?s=<session> URL. smithery.yaml validated against the CLI schema (name + target, loose)"
     },
     "glama": {
-      "status": "live",
+      "status": "partly_indexed_account_gated",
       "url": "https://glama.ai/mcp/servers/theluckystrike/mcp-statement-of-account",
-      "note": "org page 200; 4 connectors auto-indexed; mcp-invoice inconsistent (cache)",
-      "last_checked": "2026-10-12"
+      "note": "Existing matcher source listing returns200 with correct title/repository positive control. New duplicate source listing returns404. Add Server requires account sign-up/SSO; none attempted. Exact current listing snapshots retained.",
+      "last_checked": "2026-10-16",
+      "pre_r37_note": "org page 200; 4 connectors auto-indexed; mcp-invoice inconsistent (cache)",
+      "r37_evidence": "data/r37_glama_listing_snapshot.json"
     },
     "mcpb": {
       "status": "published",
-      "url": "https://github.com/theluckystrike/mcp-servers/releases/tag/v0.20.0",
-      "note": "31 .mcpb bundles on release v0.20.0; every bundle boots standalone (initialize returns serverInfo 0.20.0 from an unzipped copy outside the monorepo; change-order, invoice and office-suite checked this release)",
-      "last_checked": "2026-09-21"
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/tag/v0.22.8",
+      "note": "All three current runtime0.22.8 archives have unauthenticated bytes equal to independently reviewed SHA256 and license count48. Current57-link catalog passes public HEAD200. Older public assets retain their versions and bytes; URL reachability is not full product certification.",
+      "last_checked": "2026-10-16",
+      "pre_r37_note": "31 .mcpb bundles on release v0.20.0; every bundle boots standalone (initialize returns serverInfo 0.20.0 from an unzipped copy outside the monorepo; change-order, invoice and office-suite checked this release)",
+      "r37_evidence": "data/r37_patch_public_downloads.json"
     },
     "awesome-mcp-servers": {
       "status": "open: 12 PRs open, 2 closed unmerged (13473, 5768); repo backlog ~2220 open PRs",
@@ -1091,6 +1102,16 @@
       "registry-name": "io.github.theluckystrike/three-way-match",
       "registry-alias": "io.github.theluckystrike/supplier-invoice-matching (same capability)",
       "mcpservers.org": "submitted free 2026-10-16; success receipt; pending review, not a published listing"
+    },
+    "duplicate-invoice-check": {
+      "mirror": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+      "hosted": "local_only",
+      "registry": "two_names_verified_0.22.8_one_capability",
+      "mcpb": "published_0.22.8_exact_hash_verified",
+      "guide": "https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo",
+      "directory": "received_pending_review",
+      "glama": "source_listing_404_account_gate",
+      "npm": "not_published"
     }
   },
   "outreach": {
@@ -1156,18 +1177,13 @@
   },
   "remote_http": {
     "endpoint": "https://mcp.zovo.one/mcp/{server}",
-    "servers_live": 45,
-    "servers_total_vendored": 45,
-    "tools_live": 529,
-    "tools_metadata_complete_estimate": "370+/529 (license pairs + upload tools patched in deploy 859c7f30, paced re-verify pending)",
-    "auth": "no-auth discovery; KV tenant tokens for data ops",
-    "annotations_codemod_commit": "e5ee1d28",
-    "worker_versions": [
-      "59a94aaf",
-      "859c7f30"
-    ],
-    "anthropic_directory_readiness": "metadata gate mostly green; missing vendored servers: lease-contract, loan-agreement, nondisclosure-agreement, non-compete-clause, payment-terms, performance-review (+office-suite,vat,payroll coverage check)",
-    "submission_blocker": "Anthropic Connectors Directory portal may require Claude Team/Enterprise org \u2014 needs Mike's account check"
+    "source_declared_hosted_servers": 46,
+    "servers_live": null,
+    "tools_live": null,
+    "measurement_scope": "R37 live controls verify timezone successes, barcode Pro refusal, tools/list, license administration and schema errors. No fresh full-hosted-fleet live tool count; historical529/45 figures retained under pre_r37_remote_http.",
+    "auth": "no-auth discovery; KV tenant tokens for data operations",
+    "worker_version": "2e375e9d-344b-4da5-a451-20784e055381",
+    "evidence": "data/r37_patch_funnel_live_verification.json"
   },
   "mcpmarketplace": {
     "site": "https://mcp-marketplace.io",
@@ -1189,5 +1205,20 @@
       "note": "PRs welcome per README; DevOps focus; CONTRIBUTING.md 404"
     }
   ],
-  "checked_at": "2026-10-12"
+  "checked_at": "2026-10-16",
+  "pre_r37_remote_http": {
+    "endpoint": "https://mcp.zovo.one/mcp/{server}",
+    "servers_live": 45,
+    "servers_total_vendored": 45,
+    "tools_live": 529,
+    "tools_metadata_complete_estimate": "370+/529 (license pairs + upload tools patched in deploy 859c7f30, paced re-verify pending)",
+    "auth": "no-auth discovery; KV tenant tokens for data ops",
+    "annotations_codemod_commit": "e5ee1d28",
+    "worker_versions": [
+      "59a94aaf",
+      "859c7f30"
+    ],
+    "anthropic_directory_readiness": "metadata gate mostly green; missing vendored servers: lease-contract, loan-agreement, nondisclosure-agreement, non-compete-clause, payment-terms, performance-review (+office-suite,vat,payroll coverage check)",
+    "submission_blocker": "Anthropic Connectors Directory portal may require Claude Team/Enterprise org \u2014 needs Mike's account check"
+  }
 }

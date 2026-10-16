@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-16T08:41:30.844Z",
+  "endpoint": "https://api.indexnow.org/indexnow",
+  "urls": [
+    "https://mcp.zovo.one/s/duplicate-invoice-check",
+    "https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude",
+    "https://mcp.zovo.one/compare/duplicate-invoice-check",
+    "https://mcp.zovo.one/downloads"
+  ],
+  "http_status": 200,
+  "accepted": 4,
+  "key_verified": true,
+  "live_sitemap_verified": true,
+  "cost_usd": 0,
+  "interpretation": "Submission accepted; indexing, ranking, clicks and customers are not established."
+}

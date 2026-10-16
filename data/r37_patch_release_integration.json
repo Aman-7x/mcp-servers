@@ -1,0 +1,78 @@
+{
+  "measured_at": "2026-10-16T09:15:28.146Z",
+  "scope": "Exact current standalone and office archives; declared package/manifest/runtime versions and duplicate/matcher workflows, older child feature coverage excluded",
+  "archives": [
+    {
+      "name": "duplicate-invoice-check",
+      "version": "0.22.8",
+      "bytes": 3276144,
+      "sha256": "181379eb6dcff3d90b55e080dd9c180f6c96802e991872865a6b0ce422b3aaea",
+      "zip_crc": "passed",
+      "resolution_guard": "ESM and CommonJS constrained to extracted server tree",
+      "known_bad_external_import": "ESM and CommonJS rejected",
+      "calls": 11,
+      "tools": 8,
+      "license_version": "0.22.7",
+      "paid_bundle_count": 48,
+      "payment_permissions": "human checkout, agent_settleable=false, $19 single/$39 bundle",
+      "compiled_store_sha256": {
+        "duplicate-invoice-check": "7e4c65ff913d80bac2a9732fe12d10c6dbc32d604fa0f26d3971af467613391d"
+      },
+      "free_cap_preserves_full_diagnosis": true,
+      "business_checks": "candidate union, scope negative control, conflicting amount, save/get/page/CSV, unknown-field error, literal tool-name source/CSV preservation",
+      "status": "passed",
+      "resolution_events": 512,
+      "unique_resolved_files": 223
+    },
+    {
+      "name": "three-way-match",
+      "version": "0.22.8",
+      "bytes": 3276889,
+      "sha256": "6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040",
+      "zip_crc": "passed",
+      "resolution_guard": "ESM and CommonJS constrained to extracted server tree",
+      "known_bad_external_import": "ESM and CommonJS rejected",
+      "calls": 4,
+      "tools": 8,
+      "license_version": "0.22.7",
+      "paid_bundle_count": 48,
+      "payment_permissions": "human checkout, agent_settleable=false, $19 single/$39 bundle",
+      "compiled_store_sha256": {
+        "three-way-match": "033bf31dcf216c7fa00b255ed4580c84fc182838c8c6f3d636d6a6ebdb196932"
+      },
+      "matcher_business_checks": "saved offsetting-quantity exceptions, source-reference preservation, get and CSV through exact artifact",
+      "status": "passed",
+      "resolution_events": 511,
+      "unique_resolved_files": 223
+    },
+    {
+      "name": "office-suite",
+      "version": "0.22.8",
+      "bytes": 32010970,
+      "sha256": "7f50d6d16d445dddcee054b24e8586de4daff9d91b77d22a28730647305cc91d",
+      "zip_crc": "passed",
+      "resolution_guard": "ESM and CommonJS constrained to extracted server tree",
+      "known_bad_external_import": "ESM and CommonJS rejected",
+      "calls": 9,
+      "tools": 447,
+      "children": 49,
+      "license_version": "0.22.7",
+      "paid_bundle_count": 48,
+      "payment_permissions": "human checkout, agent_settleable=false, $19 single/$39 bundle",
+      "compiled_store_sha256": {
+        "duplicate-invoice-check": "7e4c65ff913d80bac2a9732fe12d10c6dbc32d604fa0f26d3971af467613391d",
+        "three-way-match": "033bf31dcf216c7fa00b255ed4580c84fc182838c8c6f3d636d6a6ebdb196932"
+      },
+      "matcher_business_checks": "saved offsetting-quantity exceptions, source-reference preservation, get and CSV through exact artifact",
+      "business_checks": "candidate union, scope negative control, conflicting amount, save/get/page/CSV, unknown-field error, literal tool-name source/CSV preservation",
+      "status": "passed",
+      "resolution_events": 33417,
+      "unique_resolved_files": 1110
+    }
+  ],
+  "status": "passed",
+  "release_ready": true,
+  "release_ready_scope": "Local archive verification only; publication, independent review and broader estate checks remain separate.",
+  "completed_at": "2026-10-16T09:15:45.710Z",
+  "cleanup": "guarded scope removed"
+}
