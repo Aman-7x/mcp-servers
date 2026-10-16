@@ -1,0 +1,16 @@
+{
+  "verified_at": "2026-10-16T02:08:57.821682+00:00",
+  "requested_path": "/Users/mike/Desktop/platform-analysis-2026/index.html",
+  "resolved_path": "/Users/mike/Desktop/research/platform-analysis-2026/index.html",
+  "html_bytes_read": 168257,
+  "visible_text_characters_read": 68576,
+  "sha256": "ef9a60f6ff3367b1bbce8e64d5d0adeee93553591e328d5d8bf220a7e75afadc",
+  "snapshot": "2026-09-01; revised 2026-09-02",
+  "scope": "Dated background research. Current MCP commercial measurements come from the R36 account audit.",
+  "applied_findings": [
+    "Product throughput does not establish demand or revenue.",
+    "Marketplace prices and platform use counters are not realized revenue or verified customers.",
+    "Keep explicit falsifiers and test installation, useful output and payment entry."
+  ],
+  "privacy": "No source-page financial exports or full research copy were added to this public repository."
+}

@@ -354,7 +354,7 @@ The source of truth for this server is the monorepo:
 ${MONOREPO}/tree/main/servers/${NAME}
 
 Issues and pull requests belong there, not here. Anything pushed to this repository is
-overwritten on the next sync, which squashes the monorepo folder into a single commit.
+replaced from the monorepo on the next sync. Mirror history is preserved with new sync commits.
 
 ## Why the mirror exists
 
@@ -397,7 +397,23 @@ EOF
   if python3 "$ROOT/scripts/mirror-seo.py" gemini "$NAME" > "$MIRROR/gemini-extension.json.tmp" 2>/dev/null; then
     mv "$MIRROR/gemini-extension.json.tmp" "$MIRROR/gemini-extension.json"
   else
-    rm -f "$MIRROR/gemini-extension.json.tmp" "$MIRROR/gemini-extension.json"
+    python3 - "$ROOT" "$MIRROR" <<'PY'
+import datetime, json, pathlib, subprocess, sys
+root, mirror = map(pathlib.Path, sys.argv[1:])
+for name in ['gemini-extension.json.tmp', 'gemini-extension.json']:
+    path = mirror / name
+    if not path.exists():
+        continue
+    if path.is_symlink() or not path.is_file():
+        raise SystemExit('Refusing unexpected mirror config entry')
+    opened = subprocess.run(['lsof', '-t', '--', str(path)], capture_output=True, text=True)
+    if opened.returncode != 1 or opened.stdout.strip():
+        raise SystemExit('Refusing mirror config removal: open handles unknown')
+    record = {'at': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'path': str(path), 'bytes': path.stat().st_size, 'reason': 'unsupported optional mirror configuration', 'lsof': 'no open handles'}
+    with (root / 'data/build-deletions.jsonl').open('a') as manifest:
+        manifest.write(json.dumps(record) + '\n')
+    path.unlink()
+PY
   fi
 
   # 5a2. office-suite test fixtures (proxy.test.mjs, round7.test.mjs, ...) symlink the

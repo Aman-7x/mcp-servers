@@ -13,3 +13,6 @@
 {"at":"2026-10-16T01:35:56.436Z","path":"/Users/mike/mcp-servers-work/browser-demo-KMzK4s","bytes":8547467,"reason":"completed isolated browser QA profile","lsof":"no open handles"}
 {"at":"2026-10-16T01:41:12.668Z","path":"/Users/mike/mcp-servers-work/browser-demo-KU3MME","bytes":8547465,"reason":"completed isolated browser QA profile","lsof":"no open handles"}
 {"at":"2026-10-16T01:51:01.838Z","path":"/Users/mike/mcp-servers-work/browser-demo-31wVLC","bytes":8547467,"reason":"completed isolated browser QA profile","lsof":"no open handles"}
+{"at": "2026-10-16T01:56:32.559480+00:00", "path": "/Users/mike/mcp-servers-work/mirror-office-suite.xM78Bd/gemini-extension.json.tmp", "bytes": 0, "reason": "unsupported optional mirror configuration", "lsof": "no open handles"}
+{"at": "2026-10-16T01:59:51.358015+00:00", "path": "/Users/mike/mcp-servers-work/mirror-office-suite.gI5Uf2/gemini-extension.json.tmp", "bytes": 0, "reason": "unsupported optional mirror configuration", "lsof": "no open handles"}
+{"at": "2026-10-16T02:09:00.116706+00:00", "path": "/Users/mike/mcp-servers-work/mirror-office-suite.ZxbZxE/gemini-extension.json.tmp", "bytes": 0, "reason": "unsupported optional mirror configuration", "lsof": "no open handles"}
