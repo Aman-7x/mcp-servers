@@ -22,14 +22,17 @@ const server = createServer(async (req, res) => {
   } catch { res.writeHead(500); res.end('Local QA bridge failed'); }
 });
 server.listen(0, '127.0.0.1'); await once(server, 'listening');
-const origin = 'http://127.0.0.1:' + server.address().port;
+const live = process.argv.includes('--live');
+const origin = live ? 'https://mcp.zovo.one' : 'http://127.0.0.1:' + server.address().port;
 let browser;
 const failures = [], requests = [];
 try {
-  browser = await chromium.launchPersistentContext(profile, { executablePath: chrome, headless: true, viewport: { width: 1280, height: 1000 }, args: ['--disable-dev-shm-usage', '--disk-cache-size=1'] });
+  browser = await chromium.launchPersistentContext(profile, { executablePath: chrome, headless: true, userAgent: 'mcp-browser-qa/1', extraHTTPHeaders: { 'x-mcp-probe': '1' }, viewport: { width: 1280, height: 1000 }, args: ['--disable-dev-shm-usage', '--disk-cache-size=1'] });
   await browser.route('**/*', route => route.request().url().startsWith(origin + '/') ? route.continue() : route.abort());
   const page = browser.pages()[0]; page.on('pageerror', error => failures.push(error.message)); page.on('request', request => requests.push({ method: request.method(), url: request.url() }));
-  await page.goto(origin + '/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude', { waitUntil: 'networkidle' });
+  await page.goto(origin + '/s/three-way-match', { waitUntil: 'networkidle' });
+  await page.getByRole('link', { name: 'Try invoice matching in this browser', exact: true }).click();
+  await page.waitForLoadState('networkidle');
   const status = page.locator('#matcher-demo-status'), issues = page.locator('#matcher-demo-issues');
   await status.waitFor();
   assert.match(await status.textContent(), /Exceptions found: 2 issues/);
@@ -60,8 +63,8 @@ try {
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Mobile page overflows');
     await page.locator('#matcher-demo').screenshot({ path: 'intel/R36-browser-demo-mobile.png' });
   }
-  const report = { at: new Date().toISOString(), origin: 'local read-only Worker bridge', browser: await browser.browser().version(), cases: ['offsetting receipt quantities', 'offsetting unit prices', 'valid partial with rejected units', 'prior billing exceeds accepted', 'fractional input rejected', 'unsafe invoice money rejected'], passed: 6, diagnostic_network_requests: requests.length - requestCount, page_errors: failures, field_values_uploaded: false, screenshots: process.argv.includes('--screenshots') ? ['intel/R36-browser-demo-desktop.png', 'intel/R36-browser-demo-mobile.png'] : [] };
-  writeFileSync('data/r36_browser_demo_verification.json', JSON.stringify(report, null, 2) + '\n');
+  const report = { at: new Date().toISOString(), origin: live ? 'https://mcp.zovo.one (marked probe)' : 'local read-only Worker bridge', browser: await browser.browser().version(), cases: ['offsetting receipt quantities', 'offsetting unit prices', 'valid partial with rejected units', 'prior billing exceeds accepted', 'fractional input rejected', 'unsafe invoice money rejected'], passed: 6, diagnostic_network_requests: requests.length - requestCount, page_errors: failures, field_values_uploaded: false, screenshots: process.argv.includes('--screenshots') ? ['intel/R36-browser-demo-desktop.png', 'intel/R36-browser-demo-mobile.png'] : [] };
+  writeFileSync(live ? 'data/r36_browser_demo_live_verification.json' : 'data/r36_browser_demo_verification.json', JSON.stringify(report, null, 2) + '\n');
   console.log('PASS: six browser scenarios, zero diagnostic network requests, zero page errors');
 } finally {
   await browser?.close(); await new Promise(resolve => server.close(resolve));

@@ -9,3 +9,5 @@
 {"at":"2026-10-16T01:26:14.857Z","path":"/Users/mike/mcp-servers-work/browser-demo-xkdtbj","bytes":8522122,"reason":"completed isolated browser QA profile","lsof":"no open handles"}
 {"at": "2026-10-16T01:28:04.092200+00:00", "path": "/Users/mike/mcp-servers-work/browser-demo-04jWZn", "bytes": 8520279, "reason": "completed prior isolated browser QA profile after helper exit", "lsof": "no open handles"}
 {"at":"2026-10-16T01:28:05.416Z","path":"/Users/mike/mcp-servers-work/browser-demo-S6V04y","bytes":8526501,"reason":"completed isolated browser QA profile","lsof":"no open handles"}
+{"at":"2026-10-16T01:34:27.716Z","path":"/Users/mike/mcp-servers-work/browser-demo-6EIg1h","bytes":8529501,"reason":"completed isolated browser QA profile","lsof":"no open handles"}
+{"at":"2026-10-16T01:35:56.436Z","path":"/Users/mike/mcp-servers-work/browser-demo-KMzK4s","bytes":8547467,"reason":"completed isolated browser QA profile","lsof":"no open handles"}

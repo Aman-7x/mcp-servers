@@ -1757,7 +1757,8 @@ ${relatedGuidesBlock("invoice")}`;
       // the only bundle cross-sell on this page sits several thousand words down inside
       // pg.html. The reason anyone buys the set rather than one server is that $39 beats
       // $${SERVER_COUNT * PRODUCTS[SERVER_IDS[0]].usd}, and that argument has to be reachable without scrolling.
-      const body = `<p><a href="/">All servers</a> &middot; <a class="buy" href="/buy/${esc(id)}?src=store.s.${esc(id)}">Buy Pro $${soldUsd}</a> &middot; <a href="/bundle">All ${SERVER_COUNT} for $${PRODUCTS.bundle.usd}</a> &middot; <a href="${REPO}/tree/main/servers/${esc(id)}">Source</a></p>${hostedLine}${pg.html}
+      const demoLine = id === 'three-way-match' ? '<p class="feat"><a href="/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo">Try invoice matching in this browser</a> — change the example quantities and prices before installing. No account is needed.</p>' : '';
+      const body = `<p><a href="/">All servers</a> &middot; <a class="buy" href="/buy/${esc(id)}?src=store.s.${esc(id)}">Buy Pro $${soldUsd}</a> &middot; <a href="/bundle">All ${SERVER_COUNT} for $${PRODUCTS.bundle.usd}</a> &middot; <a href="${REPO}/tree/main/servers/${esc(id)}">Source</a></p>${demoLine}${hostedLine}${pg.html}
 ${setupLinks ? `<h2>Set it up in your client</h2>\n<p>Exact config path, entry and caveats: ${setupLinks} &middot; <a href="/setup">all clients</a></p>` : ""}
 ${COMPARE[id] ? `<h2>Compared with the alternatives</h2>\n<p><a href="/compare/${esc(id)}">${esc(COMPARE[id].title)}</a> &middot; <a href="/compare">all comparisons</a></p>` : ""}
 <h2>Guides</h2>

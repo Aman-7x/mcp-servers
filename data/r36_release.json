@@ -32,5 +32,13 @@
     "public_archive_hashes": "data/r36_public_downloads.json",
     "product_pages": "data/r36_live_product_verification.json",
     "mirror_ci": "https://github.com/theluckystrike/mcp-three-way-match/actions/runs/38834062038"
+  },
+  "browser_demo_release": {
+    "verified_at": "2026-10-16T01:37:29.325694+00:00",
+    "version": "f944fd24-bacb-47ba-b1dc-223799e61f9f",
+    "source_merge": "517342e962487090c9963f3ec11080638533c4e8",
+    "pr": "https://github.com/theluckystrike/mcp-servers/pull/66",
+    "gate": "189 billing tests,59 live GET buy paths,zero new Stripe sessions",
+    "live_browser": "data/r36_browser_demo_live_verification.json"
   }
 }
