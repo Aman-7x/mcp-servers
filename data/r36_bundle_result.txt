@@ -1,6 +1,6 @@
 sync-versions: 0 file(s) written
 === three-way-match ===
-    vendored siblings: @theluckystrike/mcp-license @theluckystrike/mcp-timezone 
+    vendored siblings: @theluckystrike/mcp-license @theluckystrike/mcp-timezone
 Manifest schema validation passes!
 Validating manifest...
 Manifest schema validation passes!

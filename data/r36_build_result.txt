@@ -206,4 +206,3 @@ sync-versions: 0 file(s) written
 
 > @theluckystrike/mcp-zip@0.22.6 build
 > tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
-
