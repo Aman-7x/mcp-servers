@@ -1,4 +1,5 @@
 import { SINGLE_USD, BUNDLE_USD } from './figures.js';
+import { DUPLICATE_DEMO_INPUT_SHA256 } from './duplicate-demo-bundle.js';
 import { CSV_REQUIRED_COLUMNS, CSV_OPTIONAL_COLUMNS, CSV_TEMPLATE, CSV_MAX_FILE_BYTES } from '../browser/duplicate-csv.mjs';
 
 export const DUPLICATE_DEMO_HTML = `<section id="duplicate-demo" aria-labelledby="duplicate-demo-heading">
@@ -40,4 +41,4 @@ export const DUPLICATE_DEMO_HTML = `<section id="duplicate-demo" aria-labelledby
 <details><summary>Full structured report, including scope and original records</summary><pre id="duplicate-demo-output"></pre></details>
 <noscript><p>Enable JavaScript to run the editable example. The worked explanation and installation below remain available.</p></noscript>
 <p><a href="/s/duplicate-invoice-check">See the local MCP product</a> or <a href="/downloads#duplicate-invoice-check">install the free server</a>. Full candidate evidence is free; <a href="/buy/duplicate-invoice-check?src=store.guide.duplicate-demo">$${SINGLE_USD} Pro</a> removes the saved-report-count cap. The <a href="/bundle">$${BUNDLE_USD} bundle</a> also includes it.</p>
-</section><script defer src="/assets/duplicate-demo.js"></script>`;
+</section><script defer src="/assets/duplicate-demo.js?v=${DUPLICATE_DEMO_INPUT_SHA256}"></script>`;

@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-16T09:52:43.084Z",
+  "legacy_markup_commit": "d6da6293",
+  "legacy_markup_sha256": "332ac40bf880efa44a3ae3362e0b4f7e40df3b136e07f09367d335b55c727ca0",
+  "pre_compatibility_asset_commit": "f5fb8522",
+  "pre_compatibility_asset_sha256": "00131aed63f83fdc24766ec7ae065fbfec7e7b902ff7c639e06e115e6fbca5cb",
+  "final_asset_sha256": "00131aed63f83fdc24766ec7ae065fbfec7e7b902ff7c639e06e115e6fbca5cb",
+  "final_asset_bytes": 74634,
+  "final_input_sha256": "73006c8f0de163c6cd81cd4a10c1d64d4a9a3567eddfc40f96b5d3079b383467",
+  "origin": "local historical markup bridge; no production calls",
+  "status": "red_control_verified_final_pending",
+  "red_control": {
+    "at": "2026-10-16T09:52:44.343Z",
+    "reproduced": true,
+    "page_errors": [
+      "Cannot read properties of null (reading 'addEventListener')"
+    ],
+    "initial_report_empty": true
+  },
+  "profile_cleanup": {
+    "closed": true,
+    "lsof": "no open handles",
+    "removed": true
+  }
+}
