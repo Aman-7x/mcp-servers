@@ -1,0 +1,40 @@
+{
+  "at": "2026-10-16T09:53:04.281Z",
+  "legacy_markup_commit": "d6da6293",
+  "legacy_markup_sha256": "332ac40bf880efa44a3ae3362e0b4f7e40df3b136e07f09367d335b55c727ca0",
+  "pre_compatibility_asset_commit": "f5fb8522",
+  "pre_compatibility_asset_sha256": "00131aed63f83fdc24766ec7ae065fbfec7e7b902ff7c639e06e115e6fbca5cb",
+  "final_asset_sha256": "607931acffaf33ee9041151006056bf8ad05daa8f64e3629f0e5bd27fbbd1449",
+  "final_asset_bytes": 74677,
+  "final_input_sha256": "de00b0890ccc015a6bb9e40bd9ec99daaf33159c5ecfbe03e368a52404c54c0a",
+  "origin": "local historical markup bridge; no production calls",
+  "status": "passed",
+  "red_control": {
+    "at": "2026-10-16T09:53:05.305Z",
+    "reproduced": true,
+    "page_errors": [
+      "Cannot read properties of null (reading 'addEventListener')"
+    ],
+    "initial_report_empty": true
+  },
+  "green_control": {
+    "passed": true,
+    "cases": [
+      "actual old markup has no CSV controls",
+      "initial complete JSON diagnosis",
+      "zero-preserving preset",
+      "normalized reference preset",
+      "manual edit clears stale result",
+      "manual JSON submit works",
+      "preset still works after manual edit"
+    ],
+    "page_errors": [],
+    "diagnostic_network_requests": 0,
+    "browser_storage_writes": 0
+  },
+  "profile_cleanup": {
+    "closed": true,
+    "lsof": "no open handles",
+    "removed": true
+  }
+}

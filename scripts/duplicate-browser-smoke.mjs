@@ -25,6 +25,7 @@ const server = createServer(async (req, res) => {
 server.listen(0, '127.0.0.1'); await once(server, 'listening');
 const live = process.argv.includes('--live');
 const csvMode = process.argv.includes('--csv');
+const rolloutCheck = process.argv.includes('--rollout-check');
 const origin = live ? 'https://mcp.zovo.one' : 'http://127.0.0.1:' + server.address().port;
 let browser;
 const errors = [], requests = [], cases = [];
@@ -196,7 +197,7 @@ try {
   assert.deepEqual(errors, []);
   const screenshots = [];
   if (process.argv.includes('--screenshots')) {
-    const prefix = csvMode ? (live ? 'intel/R37-csv-demo-live' : 'intel/R37-csv-demo') : (live ? 'intel/R37-duplicate-demo-live' : 'intel/R37-duplicate-demo');
+    const prefix = rolloutCheck ? 'intel/R37-csv-rollout-current' : csvMode ? (live ? 'intel/R37-csv-demo-live' : 'intel/R37-csv-demo') : (live ? 'intel/R37-duplicate-demo-live' : 'intel/R37-duplicate-demo');
     screenshots.push(prefix + '-desktop.png', prefix + '-mobile.png');
     await page.locator('#duplicate-demo').screenshot({ path: screenshots[0] });
     await page.setViewportSize({ width: 390, height: 844 });
@@ -204,7 +205,7 @@ try {
     await page.locator('#duplicate-demo').screenshot({ path: screenshots[1] });
   }
   const evidence = { at: new Date().toISOString(), origin: live ? 'https://mcp.zovo.one (marked synthetic GET probes)' : 'local read-only Worker bridge', browser: await browser.browser().version(), cases, passed: cases.length, ...(csvMode ? { baseline_cases_passed: baselineCaseCount, csv_cases_passed: cases.length - baselineCaseCount } : {}), diagnostic_network_requests: requests.length - requestCount, browser_storage_writes: 0, field_values_uploaded: false, page_errors: errors, screenshots };
-  const evidenceFile = csvMode ? (live ? 'data/r37_csv_browser_live_verification.json' : 'data/r37_csv_browser_verification.json') : (live ? 'data/r37_duplicate_browser_live_verification.json' : 'data/r37_duplicate_browser_verification.json');
+  const evidenceFile = rolloutCheck ? 'data/r37_csv_rollout_current_browser_verification.json' : csvMode ? (live ? 'data/r37_csv_browser_live_verification.json' : 'data/r37_csv_browser_verification.json') : (live ? 'data/r37_duplicate_browser_live_verification.json' : 'data/r37_duplicate_browser_verification.json');
   writeFileSync(evidenceFile, JSON.stringify(evidence, null, 2) + '\n');
   console.log(`PASS: ${cases.length} browser cases; zero diagnostic requests, storage writes or page errors`);
 } finally {

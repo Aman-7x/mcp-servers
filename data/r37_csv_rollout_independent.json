@@ -1,0 +1,68 @@
+{
+  "status": "passed_local_deployment_pending",
+  "started_at": "2026-10-16T09:52:06.827Z",
+  "scope": "/Users/mike/mcp-servers-work/r37-csv-rollout-independent-ekmtVg",
+  "legacy_source_commit": "137c8517",
+  "legacy_markup_source_sha256": "dd55e356f3e6d0406af432e19226577a7fb894caf00ceaef79d4ca80def9d2df",
+  "baseline": {
+    "billing/browser/duplicate-csv.mjs": "cf3578e1426888537b0bcc008757c2c0601100c9ea674e4f8de40c1de892fd75",
+    "servers/duplicate-invoice-check/src/core.ts": "258f925cb0e262bfe3f489df2675fa1bf7e282fab03e7c2e5d97463bf73ddc5c",
+    "servers/duplicate-invoice-check/src/store.ts": "29d9bed0ec632b665b01472ddacdbae20fd1d0b3a9ee6f00441c2c4641587cdd",
+    "servers/duplicate-invoice-check/src/output.ts": "1040693da568952e1ab5dc7cb3dcdd621eafb0e8773dc0328257f6d7a8ef042e"
+  },
+  "served_asset_sha256": "607931acffaf33ee9041151006056bf8ad05daa8f64e3629f0e5bd27fbbd1449",
+  "served_asset_bytes": 74677,
+  "input_sha256": "de00b0890ccc015a6bb9e40bd9ec99daaf33159c5ecfbe03e368a52404c54c0a",
+  "cases": [
+    {
+      "name": "actual preCSV markup with current unversioned asset initializes JSON demo",
+      "status": "passed"
+    },
+    {
+      "name": "legacy JSON input and submit work without any CSV DOM nodes",
+      "status": "passed"
+    },
+    {
+      "name": "legacy invalid JSON clears previous evidence",
+      "status": "passed"
+    },
+    {
+      "name": "legacy preset switching restores computed results",
+      "status": "passed"
+    },
+    {
+      "name": "modern markup requests final input-versioned asset and sample works",
+      "status": "passed"
+    },
+    {
+      "name": "modern file import still binds and validates complete input",
+      "status": "passed"
+    },
+    {
+      "name": "modern malformed CSV including double BOM rejects with no stale evidence",
+      "status": "passed"
+    },
+    {
+      "name": "modern canceled old file cannot overwrite preset after optional binding guards",
+      "status": "passed"
+    }
+  ],
+  "browser_version": "155.0.8059.80",
+  "diagnostic_network_requests": 0,
+  "storage_attempts": 0,
+  "page_errors": [],
+  "legacy_cases": 4,
+  "modern_cases": 4,
+  "protected_sources_unchanged": true,
+  "completed_at": "2026-10-16T09:53:51.149Z",
+  "legacy_markup_identical_to_previous_release_commit": "d6da6293",
+  "guard_source_sha256": "cac2f3842cd1132403c457241f99236965ba1cff7c25567f42e1d560fa81212a",
+  "markup_source_sha256": "4e9313e445e2dcf470da872c9c17a67b3d0efe3903a322a2f219766aa7cb5756",
+  "runner_sha256": "6830e01ea78a513b2416312da1b9828d9720ad655350fadb09bd8f06f7d1817d",
+  "cleanup": {
+    "scope_removed": true,
+    "lsof_clear": true,
+    "bytes": 8562940,
+    "browser_closed": true
+  }
+}

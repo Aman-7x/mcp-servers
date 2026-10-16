@@ -31,7 +31,14 @@ function errorText(error) {
   return error.issues ? 'Invalid input: ' + error.issues.slice(0, 3).map(i => `${i.path.join('.')}: ${i.message}`).join('; ') : 'Invalid input: ' + error.message;
 }
 function cancelRead(message) {
-  readGeneration++; csvFile.value = ''; csvStatus.textContent = message;
+  readGeneration++;
+  if (csvFile) csvFile.value = '';
+  showCsvStatus(message);
+}
+function showCsvStatus(message) { if (csvStatus) csvStatus.textContent = message; }
+function markCustomInput() {
+  // Cached pre-CSV markup has neither the controls nor the custom option.
+  if (presetSelect.querySelector('option[value="custom"]')) presetSelect.value = 'custom';
 }
 function run() {
   clearEvidence();
@@ -72,16 +79,16 @@ function importCsv(text, source) {
   let json = JSON.stringify(parsed, null, 2);
   if (new TextEncoder().encode(json).byteLength > CSV_MAX_FILE_BYTES) json = JSON.stringify(parsed);
   if (new TextEncoder().encode(json).byteLength > CSV_MAX_FILE_BYTES) throw Error('CSV expands beyond the 2 MiB JSON editor limit. Use a smaller complete batch; no rows were imported.');
-  input.value = json; input.scrollTop = 0; presetSelect.value = 'custom';
+  input.value = json; input.scrollTop = 0; markCustomInput();
   if (!run()) throw Error('The converted CSV could not be checked. No rows were accepted.');
-  csvStatus.textContent = `Imported ${parsed.records.length} records from ${source} locally. No rows skipped. The JSON editor shows the exact parsed input.`;
+  showCsvStatus(`Imported ${parsed.records.length} records from ${source} locally. No rows skipped. The JSON editor shows the exact parsed input.`);
 }
-csvFile.addEventListener('change', async () => {
+csvFile?.addEventListener('change', async () => {
   const file = csvFile.files?.[0], generation = ++readGeneration;
   input.value = ''; clearEvidence(); status.dataset.status = 'pending';
-  if (!file) { status.textContent = 'No CSV selected; no records have been checked.'; csvStatus.textContent = 'No CSV selected. Previous evidence cleared.'; return; }
+  if (!file) { status.textContent = 'No CSV selected; no records have been checked.'; showCsvStatus('No CSV selected. Previous evidence cleared.'); return; }
   status.textContent = 'Reading a local CSV. Previous evidence cleared.';
-  csvStatus.textContent = 'Reading the selected file on this device…';
+  showCsvStatus('Reading the selected file on this device…');
   try {
     // File size is checked before any read; bytes and UTF-8 decoding are checked
     // again afterward. A newer file/edit/preset invalidates this completion.
@@ -95,16 +102,16 @@ csvFile.addEventListener('change', async () => {
   } catch (error) {
     if (generation !== readGeneration) return;
     input.value = ''; clearEvidence(); status.dataset.status = 'invalid'; status.textContent = errorText(error);
-    csvStatus.textContent = 'CSV import rejected. No rows were imported; previous evidence cleared.';
+    showCsvStatus('CSV import rejected. No rows were imported; previous evidence cleared.');
   } finally { if (generation === readGeneration) csvFile.value = ''; }
 });
-document.getElementById('duplicate-demo-csv-sample').addEventListener('click', () => {
+document.getElementById('duplicate-demo-csv-sample')?.addEventListener('click', () => {
   cancelRead('Reviewing the sample CSV locally.');
   try { importCsv(CSV_TEMPLATE, 'the synthetic sample CSV'); }
   catch (error) { input.value = ''; clearEvidence(); status.dataset.status = 'invalid'; status.textContent = errorText(error); }
 });
 input.addEventListener('input', () => {
-  cancelRead('JSON input changed. Any pending CSV read was discarded.'); clearEvidence(); presetSelect.value = 'custom';
+  cancelRead('JSON input changed. Any pending CSV read was discarded.'); clearEvidence(); markCustomInput();
   status.dataset.status = 'pending'; status.textContent = 'Input changed. Run the check to produce new evidence.';
 });
 form.addEventListener('submit', event => { event.preventDefault(); cancelRead('Reviewing the JSON editor; any pending CSV read was discarded.'); run(); });
