@@ -44,6 +44,14 @@ jobs:
         with:
           node-version: '22'
 
+      # CSV browser-adapter tests validate against the actual compiled product schema.
+      # Fresh CI checkouts have no ignored dist outputs or workspace dependencies.
+      - name: Build duplicate-invoice schema for browser adapter tests
+        if: steps.scope.outputs.check == 'true'
+        run: |
+          npm ci --ignore-scripts
+          npm run build -w packages/mcp-license -w servers/duplicate-invoice-check
+
       # Match the Wrangler version used by the current production release
       # path. No Cloudflare credential is needed for a dry run.
       - name: Install pinned Wrangler
