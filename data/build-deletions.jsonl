@@ -568,3 +568,5 @@
 {"at": "2026-10-16T11:04:07.192997+00:00", "path": "/Users/mike/mcp-servers-work/r37-sheetjs-release", "bytes": 254, "reason": "Completed R37 SheetJS publication/mirror or prior observation draft", "lsof": "no open handles"}
 {"at": "2026-10-16T11:04:07.371143+00:00", "path": "/Users/mike/mcp-servers-work/r37-sheetjs-pr.md", "bytes": 1606, "reason": "Completed R37 SheetJS publication/mirror or prior observation draft", "lsof": "no open handles"}
 {"at": "2026-10-16T11:04:07.571004+00:00", "path": "/Users/mike/mcp-servers-work/r37-observation-pr.md", "bytes": 923, "reason": "Completed R37 SheetJS publication/mirror or prior observation draft", "lsof": "no open handles"}
+{"at": "2026-10-16T11:31:48.890492+00:00", "path": "/Users/mike/mcp-servers-work/r37-rollout-evidence-pr.md", "bytes": 991, "reason": "R37 merged PR78 temporary body", "lsof": "no open handles"}
+{"at":"2026-10-16T11:34:34.494Z","session":"r37","path":"/Users/mike/mcp-servers-work/r37-dashboard-browser-vCCI1R","bytes":8534469,"lsof_clear":true,"reason":"Completed owned dashboard browser QA"}

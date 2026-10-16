@@ -1,0 +1,5 @@
+R37 final evidence replaces provisional dashboard figures with the11:29 native KPI refresh and retains the original baseline. MCP Checkout gross remains $0, with four tagged probes excluded. Final Google inspections show no indexing gain; one accepted sitemap resubmission remains pending. Frozen organic-query snapshots retain their original query set and initial evidence.
+
+The report links the shipped invoice/CSV workflow, separately published SheetJS0.20.3 archives, current deployments, exact mirror heads and explicit commercial/security limits. It preserves the single R37 history entry and records observer completion and dashboard-render recovery separately from production health.
+
+Validation: final observer receipt; offline Chrome dashboard controls at desktop/390px; sitemap helper syntax; publication credential scan across source and all five current archives; git diff --check. This PR contains final evidence, dashboard outputs and the guarded sitemap helper. Earlier product and deployment checks retain their actual versions and times.

@@ -1,9 +1,12 @@
 {
-  "status": "waiting",
+  "status": "finished",
   "pid": 62141,
   "launched_at": "2026-10-16T09:53:23.352Z",
   "scheduled_for": "2026-10-16T11:20:00.000Z",
   "initial_sha256": "11a386a4a1ab5d05890cb2ad11e6b7d557bf82f8485a3ba94fe188c79e608874",
   "output": "data/r37_google_index_after_final.json",
-  "purpose": "Same six fixed URL inspections after deployment; no causal indexing claim"
+  "purpose": "Same six fixed URL inspections after deployment; no causal indexing claim",
+  "snapshot_status": "measured",
+  "initial_unchanged": true,
+  "finished_at": "2026-10-16T11:20:42.996Z"
 }

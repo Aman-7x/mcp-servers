@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-16T11:23:03.539Z",
+  "property": "sc-domain:zovo.one",
+  "sitemap": "https://mcp.zovo.one/sitemap.xml",
+  "scope": "One existing sitemap resubmission after exact project/permission/content checks; no property/account/key/role changes and no URL Indexing API call",
+  "documentation": "https://developers.google.com/webmaster-tools/v1/sitemaps/submit",
+  "submission_attempts": 1,
+  "submissions_accepted": 1,
+  "existing_property_permission": "siteFullUser",
+  "before": {
+    "path": "https://mcp.zovo.one/sitemap.xml",
+    "lastSubmitted": "2026-10-12T01:29:13.136Z",
+    "lastDownloaded": "2026-10-16T06:58:29.397Z",
+    "errors": "0",
+    "warnings": "0"
+  },
+  "content_preflight": {
+    "http_status": 200,
+    "url_count": 296,
+    "sha256": "86c50ccf928c2d05556e85c2311f5359e04ec044b0cab91aadf37942f1ac9bf5",
+    "new_product_and_guide_present": true,
+    "all_urls_exact_project_host": true
+  },
+  "oauth_write_scope": "https://www.googleapis.com/auth/webmasters",
+  "submitted_at": "2026-10-16T11:23:04.755Z",
+  "submit_http_status": 204,
+  "after": {
+    "path": "https://mcp.zovo.one/sitemap.xml",
+    "lastSubmitted": "2026-10-16T11:23:05.049Z",
+    "lastDownloaded": "2026-10-16T06:58:29.397Z",
+    "isPending": true,
+    "errors": "0",
+    "warnings": "0"
+  },
+  "status": "accepted",
+  "finished_at": "2026-10-16T11:23:05.633Z",
+  "limits": "Acceptance and lastSubmitted do not establish a new crawl, URL indexing, rank, traffic or customers. Deprecated contents[].indexed is not used. Credentials and OAuth assertions stayed in memory."
+}

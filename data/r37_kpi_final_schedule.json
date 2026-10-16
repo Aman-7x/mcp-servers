@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "status": "waiting",
-  "pid": 778,
-  "launched_at": "2026-10-16T09:06:40.249Z",
+  "status": "finished",
+  "pid": 56355,
+  "launched_at": "2026-10-16T11:15:35.363Z",
   "scheduled_for": "2026-10-16T11:29:00.000Z",
   "initial_baseline_sha256": "3cb3261837bd217270af57c60bb516530718324b4d103a38cbd6ed82c8fad7b1",
   "outputs": [
@@ -10,5 +10,8 @@
     "intel/R37-kpi-final.md",
     "data/kpi.json"
   ],
-  "purpose": "One bounded read-only KPI refresh; existing four-hour monitor remains authoritative for session completion."
+  "purpose": "One bounded read-only KPI refresh; existing four-hour monitor remains authoritative for session completion.",
+  "executed_at": "2026-10-16T11:29:00.003Z",
+  "result": "OK",
+  "finished_at": "2026-10-16T11:29:03.577Z"
 }

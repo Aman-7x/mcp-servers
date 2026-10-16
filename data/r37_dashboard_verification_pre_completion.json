@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-16T09:27:45.373Z",
+  "status": "passed",
+  "scope": "Actual offline local HTML in Chrome; no deployment, login or business actions",
+  "checks": [
+    "Current session is R37",
+    "Observation evidence links to R37",
+    "Five explicitly scoped current metrics",
+    "All nine tab interactions",
+    "390px viewport has no horizontal page overflow",
+    "No browser page errors; external requests blocked"
+  ],
+  "page_errors": [],
+  "profile_removed": true
+}

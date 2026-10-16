@@ -1,0 +1,96 @@
+{
+  "at": "2026-10-16T11:26:30.212730+00:00",
+  "status": "passed",
+  "initial_snapshot_unchanged_from_first_commit": "ab534d1d225bde3b4fd5644ce6b60655096c8959",
+  "initial_snapshot_sha256": "663a4fb66c6dc12a683f759165878eba9bf6cb2fe0f80faced980fdec4f5eed8",
+  "frozen_query_file_sha256": "f7f5c4e3c1c34f61e8c32b3dbc6854fd32b23463bb5ce5e6bcdc6616f28b4e6f",
+  "snapshots": [
+    {
+      "path": "data/r37_organic_github.json",
+      "at": "2026-10-16T08:39:16.795Z",
+      "completed_at": "2026-10-16T08:39:35.692Z"
+    },
+    {
+      "path": "data/r37_organic_after_1.json",
+      "at": "2026-10-16T09:15:00.075Z",
+      "completed_at": "2026-10-16T09:15:19.889Z"
+    },
+    {
+      "path": "data/r37_organic_after_2.json",
+      "at": "2026-10-16T10:15:00.153Z",
+      "completed_at": "2026-10-16T10:15:18.766Z"
+    },
+    {
+      "path": "data/r37_organic_after_3.json",
+      "at": "2026-10-16T11:24:59.892Z",
+      "completed_at": "2026-10-16T11:25:18.688Z"
+    }
+  ],
+  "queries": [
+    {
+      "id": "buyer_duplicate_invoice",
+      "query": "mcp duplicate invoice in:name,description",
+      "initial_position": 1,
+      "initial_total": 8,
+      "final_position": 1,
+      "final_total": 8
+    },
+    {
+      "id": "buyer_supplier_invoice",
+      "query": "mcp duplicate supplier invoice in:name,description",
+      "initial_position": 1,
+      "initial_total": 1,
+      "final_position": 1,
+      "final_total": 1
+    },
+    {
+      "id": "buyer_vendor_bills",
+      "query": "mcp duplicate vendor bills in:name,description",
+      "initial_position": null,
+      "initial_total": 1,
+      "final_position": 1,
+      "final_total": 2
+    },
+    {
+      "id": "buyer_invoice_duplicate_check",
+      "query": "mcp invoice duplicate check in:name,description",
+      "initial_position": 1,
+      "initial_total": 1,
+      "final_position": 1,
+      "final_total": 1
+    },
+    {
+      "id": "exact_capability",
+      "query": "duplicate-invoice-check in:name",
+      "initial_position": 2,
+      "initial_total": 7,
+      "final_position": 2,
+      "final_total": 7
+    },
+    {
+      "id": "exact_mirror",
+      "query": "repo:theluckystrike/mcp-duplicate-invoice-check",
+      "initial_position": 1,
+      "initial_total": 1,
+      "final_position": 1,
+      "final_total": 1
+    },
+    {
+      "id": "existing_matcher_control",
+      "query": "mcp three way match in:name,description",
+      "initial_position": null,
+      "initial_total": 9,
+      "final_position": null,
+      "final_total": 9
+    },
+    {
+      "id": "existing_competitor",
+      "query": "invoice triage copilot in:name",
+      "initial_position": null,
+      "initial_total": 1,
+      "final_position": null,
+      "final_total": 1
+    }
+  ],
+  "limits": "Four frozen query snapshots, not search volume, durable ranking, customers or causal traffic evidence. Exact-repository query is a control. Control-query target position can be null while its intended control appears."
+}

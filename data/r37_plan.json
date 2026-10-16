@@ -1,6 +1,6 @@
 {
   "session": "R37",
-  "status": "in_progress",
+  "status": "complete",
   "started_at": "2026-10-16T07:34:06Z",
   "deadline_at": "2026-10-16T11:34:06Z",
   "attachment": {
@@ -52,27 +52,27 @@
     {
       "id": "dashboard",
       "requirement": "Update the main HTML dashboard with accurate current evidence and preserved history",
-      "status": "in_progress"
+      "status": "passed"
     },
     {
       "id": "duration",
       "requirement": "Complete the requested four-hour work loop and record final checks",
-      "status": "pending"
+      "status": "passed"
     },
     {
       "id": "report",
       "requirement": "Publish results, biggest cumulative win, commercial limits and next action",
-      "status": "pending"
+      "status": "passed"
     },
     {
       "id": "sound",
       "requirement": "Make a sound when ready",
-      "status": "pending"
+      "status": "passed"
     },
     {
       "id": "cleanup",
       "requirement": "Close owned browsers, remove owned temp work with lsof/manifest evidence and check disk",
-      "status": "pending"
+      "status": "passed"
     }
   ],
   "scope_notes": [
@@ -81,7 +81,7 @@
     "Local MCPs must remain local: no added phone-home telemetry.",
     "No people/install/revenue claims from platform counters, signed IDs, probes or documentary search trials."
   ],
-  "updated_at": "2026-10-16T10:59:39.468351+00:00",
+  "updated_at": "2026-10-16T11:35:04.299902+00:00",
   "agent_execution": {
     "working_specialists": 10,
     "spawn_attempts": 11,
@@ -109,7 +109,7 @@
   },
   "dependency_triage": {
     "status": "published_and_verified",
-    "scope": "Root lock reports six production packages; five are patched in all three exact published archives. Office xlsx0.18.5 has a reachable spreadsheet-read parser path; both standalone products lack xlsx.",
+    "scope": "Historical v0.22.8 triage: root lock reported six production packages; five were already patched in the three exact v0.22.8 published archives. Old Office contained reachable xlsx0.18.5; the two invoice standalones lacked xlsx. Current v0.22.9 spreadsheet/expense/Office rollout uses SheetJS0.20.3; see sheetjs_rollout.",
     "evidence": "data/r37_dependency_scope.json",
     "rehearsal": "Official0.20.3 source review and135passes/1oldskip; three0.22.9 archives33calls; sixpublicregistryrows/threepublicbytechecks/57HEAD; tenlivehostedcontrols/threeXLSXreadbacks; eightcurrentHTTP/deploymentchecks; threeexact-headmirrorCIgreen."
   },
@@ -124,5 +124,17 @@
     "hosted_verification": "data/r37_sheetjs_hosted_verification.json",
     "current_deployments": "data/r37_sheetjs_live_verification.json",
     "limits": "Older releases unchanged; five source-lock advisories remain; inherited number-format loss and corrected numeric-date interpretation documented."
-  }
+  },
+  "google_sitemap_hint": {
+    "status": "accepted_pending",
+    "submission_attempts": 1,
+    "http_status": 204,
+    "url_count": 296,
+    "existing_permission": "siteFullUser",
+    "new_account_or_role_changes": 0,
+    "evidence": "data/r37_google_sitemap_resubmission.json",
+    "limits": "Last downloaded remains before launch; no crawl/index/rank/customer claim."
+  },
+  "completed_at": "2026-10-16T11:35:04.299902+00:00",
+  "completion_evidence": "data/r37_completion.json"
 }

@@ -2,7 +2,7 @@
   "schema": 1,
   "session": "r37",
   "pid": 28853,
-  "status": "running",
+  "status": "finished",
   "started_at": "2026-10-16T07:42:45.374Z",
   "deadline_at": "2026-10-16T11:34:06.000Z",
   "interval_seconds": 300,
@@ -1196,8 +1196,184 @@
         "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
       },
       "pin_matches": true
+    },
+    {
+      "at": "2026-10-16T11:09:31.061Z",
+      "errors": [],
+      "deployed_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "approved_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "cron": {
+        "ok": true,
+        "version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "checked_at": "2026-10-16T11:05:49.374Z",
+        "operations_checked_at": "2026-10-16T10:55:50.764Z",
+        "last_failure_at": "2026-10-16T00:30:21.261Z",
+        "operations_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 200,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-09T11:09:31.061Z",
+          "end": "2026-10-16T11:09:31.061Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true
+    },
+    {
+      "at": "2026-10-16T11:14:33.591Z",
+      "errors": [],
+      "deployed_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "approved_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "cron": {
+        "ok": true,
+        "version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "checked_at": "2026-10-16T11:10:49.334Z",
+        "operations_checked_at": "2026-10-16T10:55:50.764Z",
+        "last_failure_at": "2026-10-16T00:30:21.261Z",
+        "operations_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 200,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-09T11:14:33.591Z",
+          "end": "2026-10-16T11:14:33.591Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true
+    },
+    {
+      "at": "2026-10-16T11:19:35.968Z",
+      "errors": [],
+      "deployed_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "approved_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "cron": {
+        "ok": true,
+        "version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "checked_at": "2026-10-16T11:15:49.389Z",
+        "operations_checked_at": "2026-10-16T10:55:50.764Z",
+        "last_failure_at": "2026-10-16T00:30:21.261Z",
+        "operations_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 200,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-09T11:19:35.968Z",
+          "end": "2026-10-16T11:19:35.968Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true
+    },
+    {
+      "at": "2026-10-16T11:24:38.379Z",
+      "errors": [],
+      "deployed_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "approved_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "cron": {
+        "ok": true,
+        "version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "checked_at": "2026-10-16T11:20:49.387Z",
+        "operations_checked_at": "2026-10-16T10:55:50.764Z",
+        "last_failure_at": "2026-10-16T00:30:21.261Z",
+        "operations_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 200,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-09T11:24:38.379Z",
+          "end": "2026-10-16T11:24:38.379Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true
+    },
+    {
+      "at": "2026-10-16T11:29:40.945Z",
+      "errors": [],
+      "deployed_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "approved_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "cron": {
+        "ok": true,
+        "version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "checked_at": "2026-10-16T11:25:49.360Z",
+        "operations_checked_at": "2026-10-16T10:55:50.764Z",
+        "last_failure_at": "2026-10-16T00:30:21.261Z",
+        "operations_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 200,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-09T11:29:40.945Z",
+          "end": "2026-10-16T11:29:40.945Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true
+    },
+    {
+      "at": "2026-10-16T11:34:07.575Z",
+      "errors": [],
+      "deployed_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "approved_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "cron": {
+        "ok": true,
+        "version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "checked_at": "2026-10-16T11:30:49.445Z",
+        "operations_checked_at": "2026-10-16T10:55:50.764Z",
+        "last_failure_at": "2026-10-16T00:30:21.261Z",
+        "operations_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 200,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-09T11:34:07.575Z",
+          "end": "2026-10-16T11:34:07.575Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true
     }
   ],
-  "last_observed_at": "2026-10-16T11:04:28.947Z",
-  "dashboard_error": "dashboard regeneration failed"
+  "last_observed_at": "2026-10-16T11:34:07.575Z",
+  "dashboard_error": "dashboard regeneration failed",
+  "finished_at": "2026-10-16T11:34:08.102Z",
+  "final_checks_pass": true
 }
