@@ -1,6 +1,6 @@
 # R36 revenue and organic distribution sprint
 
-Session: 2026-10-16 00:22:43–04:22:43 UTC. Status: completed. The read-only observation process exited zero at 04:22:46 UTC, after the four-hour deadline; final production checks pass. Report publication follows the final sample.
+Session: 2026-10-16 00:22:43–04:22:43 UTC. Status: completed. The read-only observation process exited zero at 04:22:46 UTC, after the four-hour deadline; final production checks pass. Final report and dashboard evidence is published through [PR #69](https://github.com/theluckystrike/mcp-servers/pull/69).
 
 ## Commercial result and biggest win
 

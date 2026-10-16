@@ -1,7 +1,7 @@
 {
   "title": "R36 \u2014 revenue and organic distribution, 2026-10-16",
-  "updated_at": "2026-10-16T04:23:30.198547+00:00",
-  "status_note": "Four-hour session complete. Final sampled production checks pass; report and evidence publication is in closeout. Earlier failures remain recorded.",
+  "updated_at": "2026-10-16T04:24:56.807797+00:00",
+  "status_note": "Four-hour session complete. Final sampled production checks pass, both unpaid probes expired without charges, and final report/dashboard evidence is published. Earlier failures remain recorded.",
   "conclusion": "Qualified demand remains the constraint: the MCP host has 34 Google impressions and no clicks across 29 dates. Exhaustive completed-only Stripe pagination finds zero MCP paid checkouts among 182 paid account Sessions. Recorded MCP checkout gross is $0; profit and other payment channels are not measured.",
   "metrics": [
     {

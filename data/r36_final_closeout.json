@@ -1,6 +1,6 @@
 {
   "at": "2026-10-16T04:23:30.198547+00:00",
-  "status": "final_report_ready_for_publication",
+  "status": "completed",
   "session_started_at": "2026-10-16T00:22:43Z",
   "session_deadline_at": "2026-10-16T04:22:43.000Z",
   "session_planned_seconds": 14400,
@@ -28,8 +28,11 @@
     "roi_demonstrated": false
   },
   "publication": {
-    "url": "https://github.com/theluckystrike/mcp-servers/pull/69",
-    "status": "awaiting_final_commit"
+    "status": "published",
+    "commit": "346b9f70e491e36b52883968d93b91b701948aeb",
+    "commit_url": "https://github.com/theluckystrike/mcp-servers/commit/346b9f70e491e36b52883968d93b91b701948aeb",
+    "pull_request": "https://github.com/theluckystrike/mcp-servers/pull/69",
+    "note": "Public final-result commit verified before this audit bookkeeping; merge verified separately."
   },
   "notes": [
     "Four-hour session; later sampled observation does not certify continuous uptime.",
@@ -47,5 +50,6 @@
     "lock_reason": "Stable cross-process lock inode intentionally retained; unlinking breaks lock semantics",
     "manifest": "data/build-deletions.jsonl",
     "disk_available_gb": 38
-  }
+  },
+  "completed_at": "2026-10-16T04:24:56.807797+00:00"
 }
