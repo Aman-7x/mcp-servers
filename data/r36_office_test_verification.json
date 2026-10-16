@@ -1,0 +1,13 @@
+{
+  "command": "buildslot node --test --test-concurrency=1 servers/office-suite/test/*.test.mjs",
+  "tests": 8,
+  "pass": 8,
+  "fail": 0,
+  "runtime_source_changed": false,
+  "max_measured_fixture_bytes": 31994,
+  "cleanup_records": 17,
+  "all_recorded_paths_absent": true,
+  "cleanup_evidence": "data/r36_office_test_cleanup.jsonl",
+  "evidence_collected_at": "2026-10-16T03:01:56.941144+00:00",
+  "test_result_provenance": "artifact_verify agent ran focused tests and committed 1300dd23"
+}
