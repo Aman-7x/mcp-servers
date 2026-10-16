@@ -20,5 +20,17 @@
       "purchase page describes confirmation-page key delivery",
       "legacy bank PDF guide serves CSV-to-Excel title"
     ]
+  },
+  "final_release": {
+    "verified_at": "2026-10-16T01:19:43.600150+00:00",
+    "version": "75afcc7c-8bb9-4bf2-8e2a-ac331c8e8b94",
+    "method": "npm run deploy through unchanged billing gate",
+    "result": "PASS local preflight, sole deployment,59 live GET purchase paths,zero new live Stripe sessions,approved pin updated",
+    "source_merge": "8c7f724ed3f16364fd819ed14e97d7e3d9522e60",
+    "pr": "https://github.com/theluckystrike/mcp-servers/pull/65",
+    "release": "https://github.com/theluckystrike/mcp-servers/releases/tag/v0.22.6",
+    "public_archive_hashes": "data/r36_public_downloads.json",
+    "product_pages": "data/r36_live_product_verification.json",
+    "mirror_ci": "https://github.com/theluckystrike/mcp-three-way-match/actions/runs/38834062038"
   }
 }

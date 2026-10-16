@@ -1,0 +1,400 @@
+{
+  "at": "2026-10-16T01:15:40.086Z",
+  "method": "Unauthenticated public HEAD; reachability only, not installation or feature tests",
+  "count": 56,
+  "passed": 56,
+  "rows": [
+    {
+      "id": "amortization",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/amortization.mcpb",
+      "status": 200,
+      "bytes": 7094989,
+      "attempt": 1
+    },
+    {
+      "id": "asset-register",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/asset-register.mcpb",
+      "status": 200,
+      "bytes": 3268774,
+      "attempt": 1
+    },
+    {
+      "id": "backlink-checker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/backlink-checker.mcpb",
+      "status": 200,
+      "bytes": 3248335,
+      "attempt": 1
+    },
+    {
+      "id": "bank-statement",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bank-statement.mcpb",
+      "status": 200,
+      "bytes": 7490293,
+      "attempt": 1
+    },
+    {
+      "id": "barcode",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/barcode.mcpb",
+      "status": 200,
+      "bytes": 15128495,
+      "attempt": 1
+    },
+    {
+      "id": "bill-of-sale",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bill-of-sale.mcpb",
+      "status": 200,
+      "bytes": 3258294,
+      "attempt": 1
+    },
+    {
+      "id": "billing-docs",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/billing-docs.mcpb",
+      "status": 200,
+      "bytes": 7072317,
+      "attempt": 1
+    },
+    {
+      "id": "budget",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/budget.mcpb",
+      "status": 200,
+      "bytes": 2527500,
+      "attempt": 1
+    },
+    {
+      "id": "calendar",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/calendar.mcpb",
+      "status": 200,
+      "bytes": 3271826,
+      "attempt": 1
+    },
+    {
+      "id": "cash-book",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/cash-book.mcpb",
+      "status": 200,
+      "bytes": 7157182,
+      "attempt": 1
+    },
+    {
+      "id": "catalogue",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/catalogue.mcpb",
+      "status": 200,
+      "bytes": 7092810,
+      "attempt": 1
+    },
+    {
+      "id": "change-order",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/change-order.mcpb",
+      "status": 200,
+      "bytes": 7070953,
+      "attempt": 1
+    },
+    {
+      "id": "checklist",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/checklist.mcpb",
+      "status": 200,
+      "bytes": 7067652,
+      "attempt": 1
+    },
+    {
+      "id": "clauses",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/clauses.mcpb",
+      "status": 200,
+      "bytes": 4911301,
+      "attempt": 1
+    },
+    {
+      "id": "credit-note",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/credit-note.mcpb",
+      "status": 200,
+      "bytes": 3259341,
+      "attempt": 1
+    },
+    {
+      "id": "currency",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/currency.mcpb",
+      "status": 200,
+      "bytes": 3262861,
+      "attempt": 1
+    },
+    {
+      "id": "delivery-schedule",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/delivery-schedule.mcpb",
+      "status": 200,
+      "bytes": 7072222,
+      "attempt": 1
+    },
+    {
+      "id": "deposits",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/deposits.mcpb",
+      "status": 200,
+      "bytes": 7087854,
+      "attempt": 1
+    },
+    {
+      "id": "docx",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/docx.mcpb",
+      "status": 200,
+      "bytes": 4886907,
+      "attempt": 1
+    },
+    {
+      "id": "dunning-letters",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/dunning-letters.mcpb",
+      "status": 200,
+      "bytes": 3287442,
+      "attempt": 1
+    },
+    {
+      "id": "expense-tracker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/expense-tracker.mcpb",
+      "status": 200,
+      "bytes": 7460493,
+      "attempt": 1
+    },
+    {
+      "id": "goods-receipt",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/goods-receipt.mcpb",
+      "status": 200,
+      "bytes": 6964390,
+      "attempt": 1
+    },
+    {
+      "id": "hourly-rate",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.5/hourly-rate.mcpb",
+      "status": 200,
+      "bytes": 3213368,
+      "attempt": 1
+    },
+    {
+      "id": "image",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/image.mcpb",
+      "status": 200,
+      "bytes": 14616956,
+      "attempt": 1
+    },
+    {
+      "id": "invoice",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/invoice.mcpb",
+      "status": 200,
+      "bytes": 7027503,
+      "attempt": 1
+    },
+    {
+      "id": "job-card",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/job-card.mcpb",
+      "status": 200,
+      "bytes": 3256363,
+      "attempt": 1
+    },
+    {
+      "id": "kanban",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/kanban.mcpb",
+      "status": 200,
+      "bytes": 3262408,
+      "attempt": 1
+    },
+    {
+      "id": "leave",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/leave.mcpb",
+      "status": 200,
+      "bytes": 6966607,
+      "attempt": 1
+    },
+    {
+      "id": "loan-calculator",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/loan-calculator.mcpb",
+      "status": 200,
+      "bytes": 2527535,
+      "attempt": 1
+    },
+    {
+      "id": "maintenance-log",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/maintenance-log.mcpb",
+      "status": 200,
+      "bytes": 3256717,
+      "attempt": 1
+    },
+    {
+      "id": "mileage-log",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/mileage-log.mcpb",
+      "status": 200,
+      "bytes": 3258511,
+      "attempt": 1
+    },
+    {
+      "id": "office-suite",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.6/office-suite.mcpb",
+      "status": 200,
+      "bytes": 32000493,
+      "attempt": 1
+    },
+    {
+      "id": "onboarding",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb",
+      "status": 200,
+      "bytes": 6962046,
+      "attempt": 1
+    },
+    {
+      "id": "packing-list",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/packing-list.mcpb",
+      "status": 200,
+      "bytes": 7069427,
+      "attempt": 1
+    },
+    {
+      "id": "payroll",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/payroll.mcpb",
+      "status": 200,
+      "bytes": 2527440,
+      "attempt": 1
+    },
+    {
+      "id": "pdf",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pdf.mcpb",
+      "status": 200,
+      "bytes": 6101327,
+      "attempt": 1
+    },
+    {
+      "id": "per-diem",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/per-diem.mcpb",
+      "status": 200,
+      "bytes": 3268242,
+      "attempt": 1
+    },
+    {
+      "id": "petty-cash",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/petty-cash.mcpb",
+      "status": 200,
+      "bytes": 7173074,
+      "attempt": 1
+    },
+    {
+      "id": "pomodoro",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pomodoro.mcpb",
+      "status": 200,
+      "bytes": 2527344,
+      "attempt": 1
+    },
+    {
+      "id": "price-tracker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/price-tracker.mcpb",
+      "status": 200,
+      "bytes": 3263675,
+      "attempt": 1
+    },
+    {
+      "id": "purchase-requisition",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/purchase-requisition.mcpb",
+      "status": 200,
+      "bytes": 6973539,
+      "attempt": 1
+    },
+    {
+      "id": "quotes",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/quotes.mcpb",
+      "status": 200,
+      "bytes": 7048852,
+      "attempt": 1
+    },
+    {
+      "id": "receipts",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/receipts.mcpb",
+      "status": 200,
+      "bytes": 2527379,
+      "attempt": 1
+    },
+    {
+      "id": "recurring",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/recurring.mcpb",
+      "status": 200,
+      "bytes": 7047235,
+      "attempt": 1
+    },
+    {
+      "id": "resume",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/resume.mcpb",
+      "status": 200,
+      "bytes": 4913905,
+      "attempt": 1
+    },
+    {
+      "id": "service-agreement",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/service-agreement.mcpb",
+      "status": 200,
+      "bytes": 3260061,
+      "attempt": 1
+    },
+    {
+      "id": "spreadsheet",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/spreadsheet.mcpb",
+      "status": 200,
+      "bytes": 7461883,
+      "attempt": 1
+    },
+    {
+      "id": "statement-of-account",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/statement-of-account.mcpb",
+      "status": 200,
+      "bytes": 7107283,
+      "attempt": 1
+    },
+    {
+      "id": "stripe-billing",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/stripe-billing.mcpb",
+      "status": 200,
+      "bytes": 2527810,
+      "attempt": 1
+    },
+    {
+      "id": "supplier-list",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/supplier-list.mcpb",
+      "status": 200,
+      "bytes": 3255270,
+      "attempt": 1
+    },
+    {
+      "id": "tax-calc",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/tax-calc.mcpb",
+      "status": 200,
+      "bytes": 2527455,
+      "attempt": 1
+    },
+    {
+      "id": "three-way-match",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.6/three-way-match.mcpb",
+      "status": 200,
+      "bytes": 3276647,
+      "attempt": 1
+    },
+    {
+      "id": "time-tracker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/time-tracker.mcpb",
+      "status": 200,
+      "bytes": 3263313,
+      "attempt": 1
+    },
+    {
+      "id": "timezone",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/timezone.mcpb",
+      "status": 200,
+      "bytes": 3276699,
+      "attempt": 1
+    },
+    {
+      "id": "work-order",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/work-order.mcpb",
+      "status": 200,
+      "bytes": 7091660,
+      "attempt": 1
+    },
+    {
+      "id": "zip",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/zip.mcpb",
+      "status": 200,
+      "bytes": 3433523,
+      "attempt": 1
+    }
+  ]
+}

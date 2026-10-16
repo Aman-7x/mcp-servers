@@ -1,0 +1,4 @@
+1 manifests to publish
+  logged in, token good for 300s
+  ok        io.github.theluckystrike/three-way-match@0.22.6
+published 1, duplicate 0, failed 0

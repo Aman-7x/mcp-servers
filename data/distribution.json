@@ -1077,15 +1077,16 @@
       }
     ],
     "three-way-match": {
-      "github": "local source ready; root publication pending",
-      "registry": "pending publication",
+      "github": "published main via PR #65",
+      "registry": "published and exact versions verified 2026-10-16",
       "hosted": "not hosted; local stdio only",
       "npm": "missing",
       "smithery": "not submitted",
       "glama": "not submitted",
-      "mcpb": "local build pending",
-      "github-mirror": "pending publication theluckystrike/mcp-three-way-match",
-      "registry-name": "io.github.theluckystrike/three-way-match"
+      "mcpb": "v0.22.6 public bytes verified SHA-256",
+      "github-mirror": "https://github.com/theluckystrike/mcp-three-way-match",
+      "registry-name": "io.github.theluckystrike/three-way-match",
+      "registry-alias": "io.github.theluckystrike/supplier-invoice-matching (same capability)"
     }
   },
   "outreach": {

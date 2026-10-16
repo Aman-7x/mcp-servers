@@ -10,11 +10,15 @@
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present && node --test test/*.test.mjs",
-    "prebuild": "node scripts/bootstrap-timezone.mjs && node scripts/sync-versions.mjs",
+    "prebuild": "node scripts/bootstrap-timezone.mjs && node scripts/sync-versions.mjs && node scripts/build-matcher-demo.mjs",
     "release:check": "node scripts/release-check.mjs",
-    "digest": "node scripts/digest.mjs"
+    "digest": "node scripts/digest.mjs",
+    "build:matcher-demo": "node scripts/build-matcher-demo.mjs",
+    "test:matcher-browser": "node scripts/matcher-browser-smoke.mjs"
   },
   "devDependencies": {
+    "@playwright/test": "1.59.1",
+    "esbuild": "0.27.3",
     "marked": "^18.0.11"
   }
 }

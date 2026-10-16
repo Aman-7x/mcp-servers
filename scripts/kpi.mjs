@@ -4,6 +4,11 @@
 import { execFileSync } from "node:child_process";
 import { kvPopulation, stripePopulation, paidProTenants, latestBlindInstrument, blindKpiRows } from "./kpi-populations.mjs";
 import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
+if (process.argv.includes('--help')) {
+  console.log('Usage: node scripts/kpi.mjs [--from-audit]\nDefault collects live read-only KPIs; --from-audit refreshes reviewed local measurements without network.');
+  process.exit(0);
+}
+if (process.argv.slice(2).some(arg => arg !== '--from-audit')) throw Error('Unknown argument; use --help');
 const ROOT = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const js = (p, d) => { try { return JSON.parse(readFileSync(`${ROOT}/${p}`, "utf8")); } catch { return d; } };
 const blind = latestBlindInstrument(readdirSync(`${ROOT}/data`).filter(n => /^blind_recommendation_r\d+\.json$/.test(n)).map(n => ({ source: `data/${n}`, record: js(`data/${n}`, null) })), js("data/blind_questions.json", null));

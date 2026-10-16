@@ -1,6 +1,7 @@
 import { mintLicense, verifyLicenseKey, sha256Hex } from "./license.js";
 import { PAGES, CHANGELOG } from "./pages.js";
 import { BUNDLE_DOWNLOADS } from "./downloads.js";
+import { MATCHER_DEMO_JAVASCRIPT } from './matcher-demo-bundle.js';
 import { GUIDES, GUIDE_INDEX, GUIDE_PRODUCT_LINKS, GUIDE_RELATED, relatedGuidesBlock } from "./content.js";
 import { COMPARE, COMPARE_INDEX } from "./compare.js";
 import { setupPage, clientHub, setupIndex, setupUrls, serversFor, CLIENTS, CLIENT_ORDER, SETUP_SERVERS } from "./setup.js";
@@ -260,7 +261,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 179;
+export const BILLING_TEST_COUNT = 180;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -1611,6 +1612,10 @@ const worker = {
       // not touch /mcp* (served by the remote worker) or any MCP protocol path.
       const body = serversPage();
       return new Response(body, { headers: await contentHeaders(body) });
+    }
+
+    if (path === '/assets/matcher-demo.js' && method === 'GET') {
+      return new Response(MATCHER_DEMO_JAVASCRIPT, { headers: await contentHeaders(MATCHER_DEMO_JAVASCRIPT, { 'content-type': 'text/javascript; charset=utf-8', 'x-content-type-options': 'nosniff' }) });
     }
 
     if (path === "/downloads" && method === "GET") {
