@@ -1,0 +1,3 @@
+buildslot[12945] 17:38:55: slot 1 acquired: npm install --ignore-scripts --no-audit --no-fund --offline
+
+removed 8 packages, and changed 1 package in 584ms

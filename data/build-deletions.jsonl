@@ -468,3 +468,32 @@
 {"at": "2026-10-16T10:14:40.315422+00:00", "session": "r37", "path": "/Users/mike/mcp-servers-work/r37-patch-release-notes.md", "bytes": 888, "lsof_clear": true, "reason": "Completed owned PR/release drafting file"}
 {"at": "2026-10-16T10:14:40.505720+00:00", "session": "r37", "path": "/Users/mike/mcp-servers-work/r37-pr-body.md", "bytes": 1722, "lsof_clear": true, "reason": "Completed owned PR/release drafting file"}
 {"at": "2026-10-16T10:14:40.704209+00:00", "session": "r37", "path": "/Users/mike/mcp-servers-work/r37-release-notes.md", "bytes": 1097, "lsof_clear": true, "reason": "Completed owned PR/release drafting file"}
+{"at":"2026-10-16T10:38:15.367Z","path":"/Users/mike/mcp-servers-work/r37-sheetjs-artifact-CLCzid","bytes":22186704,"reason":"SheetJS exact-archive synthetic verification","lsof":"no open handles"}
+{"at":"2026-10-16T10:38:38.671Z","path":"/Users/mike/mcp-servers-work/r37-sheetjs-artifact-gTMBPS","bytes":22186704,"reason":"SheetJS exact-archive synthetic verification","lsof":"no open handles"}
+{"at": "2026-10-16T10:40:21.757496+00:00", "path": "/Users/mike/mcp-servers-work/r37-sheetjs-format-baseline-o3r9v4wv", "bytes": 5650555, "reason": "SheetJS old/candidate number-format baseline synthetic fixtures", "lsof": "no open handles"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-yrW5FY","bytes":31304,"lsof":"no open handles","at":"2026-10-16T10:40:27.786Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-4jzPsW","bytes":64447,"lsof":"no open handles","at":"2026-10-16T10:40:28.265Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-fGkhT1","bytes":64447,"lsof":"no open handles","at":"2026-10-16T10:40:28.497Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-869vQ9","bytes":64447,"lsof":"no open handles","at":"2026-10-16T10:40:28.745Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-z5rsuM","bytes":52965,"lsof":"no open handles","at":"2026-10-16T10:40:30.484Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-10-16T10:41:02.774Z","path":"/Users/mike/mcp-servers/bundles/spreadsheet","bytes":28990132,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T10:41:02.774Z","path":"/Users/mike/mcp-servers/bundles/expense-tracker","bytes":28983627,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T10:41:07.415Z","path":"/Users/mike/mcp-servers-work/tool-inventory-iUWBV3","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T10:41:07.466Z","path":"/Users/mike/mcp-servers-work/tool-inventory-NsGVHT","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T10:41:09.655Z","path":"/Users/mike/mcp-servers/bundles/spreadsheet.mcpb","bytes":7477093,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T10:41:09.655Z","path":"/Users/mike/mcp-servers/bundles/expense-tracker.mcpb","bytes":7476124,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T10:42:00.160Z","path":"/Users/mike/mcp-servers/bundles/office-suite","bytes":116844055,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T10:42:26.739Z","path":"/Users/mike/mcp-servers-work/tool-inventory-5HWpb9","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-16T10:42:28.789Z","path":"/Users/mike/mcp-servers/bundles/office-suite.mcpb","bytes":32010970,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-16T10:43:32.903Z","path":"/Users/mike/mcp-servers-work/r37-sheetjs-artifact-b1uSOh","bytes":120823345,"reason":"SheetJS exact-archive synthetic verification","lsof":"no open handles"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-d91GS3","bytes":52965,"lsof":"no open handles","at":"2026-10-16T10:29:27.896Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-XDLDYb","bytes":31304,"lsof":"no open handles","at":"2026-10-16T10:29:28.470Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Cqtopg","bytes":52965,"lsof":"no open handles","at":"2026-10-16T10:30:14.349Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Vw7XqR","bytes":31304,"lsof":"no open handles","at":"2026-10-16T10:30:14.731Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-pj2n3N","bytes":52965,"lsof":"no open handles","at":"2026-10-16T10:35:25.587Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-uxNTNf","bytes":31304,"lsof":"no open handles","at":"2026-10-16T10:35:26.659Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-olHhu5","bytes":64447,"lsof":"no open handles","at":"2026-10-16T10:35:27.827Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-o880sS","bytes":64447,"lsof":"no open handles","at":"2026-10-16T10:35:28.056Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-RK6Ylv","bytes":64447,"lsof":"no open handles","at":"2026-10-16T10:35:28.264Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-10-16T10:38:25.257469+00:00","path":"/Users/mike/mcp-servers-work/r37-sheetjs-rehearsal/keys","bytes":28,"lsof":"no open handles","purpose":"R37 SheetJS rehearsal remove temporary key-directory symlink; target untouched"}
+{"at":"2026-10-16T10:44:39.963608+00:00","path":"/Users/mike/mcp-servers-work/r37-sheetjs-rehearsal","bytes":257057593,"lsof":"no open handles","purpose":"R37 isolated SheetJS remediation rehearsal; root copied and verified 14 candidate files; independent review complete","status":"deleted","method":"git worktree remove --force"}

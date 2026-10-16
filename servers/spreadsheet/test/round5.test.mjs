@@ -9,6 +9,8 @@ import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as XLSX from "xlsx";
+import * as sheetFixtureFs from "node:fs";
+XLSX.set_fs(sheetFixtureFs);
 import { coerce } from "../dist/csv.js";
 
 const here = dirname(fileURLToPath(import.meta.url));

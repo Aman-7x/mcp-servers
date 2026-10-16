@@ -34,7 +34,7 @@ for raw in set(files):
         count+=1
         if matches(path.read_bytes()):hits.append(str(path))
 archives=[]
-for name in ('duplicate-invoice-check','three-way-match','office-suite'):
+for name in ('duplicate-invoice-check','three-way-match','spreadsheet','expense-tracker','office-suite'):
     path=root/'bundles'/(name+'.mcpb');members=0
     with zipfile.ZipFile(path) as archive:
         for entry in archive.infolist():

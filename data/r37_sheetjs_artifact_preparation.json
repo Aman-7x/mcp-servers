@@ -1,0 +1,63 @@
+{
+  "measured_at": "2026-10-16T10:40:21.579072+00:00",
+  "status": "prepared_and_exact_archives_passed",
+  "script": "scripts/verify-r37-sheetjs-artifacts.mjs",
+  "required_archives": [
+    "spreadsheet",
+    "expense-tracker",
+    "office-suite"
+  ],
+  "expected_version": "0.22.9",
+  "expected_xlsx_version": "0.20.3",
+  "old_archive_negative_controls": [
+    "data/r37_sheetjs_old_archive_red.json",
+    "data/r37_sheetjs_old_dependency_red.json"
+  ],
+  "source_load_options": {
+    "cellDates": true,
+    "cellNF": false,
+    "cellText": false
+  },
+  "format_baseline": {
+    "old": {
+      "version": "0.18.5",
+      "false": {
+        "formula": "A1*2",
+        "cached": 20,
+        "value": 1234.5,
+        "number_format": null
+      },
+      "true": {
+        "formula": "A1*2",
+        "cached": 20,
+        "value": 1234.5,
+        "number_format": "#,##0.00"
+      }
+    },
+    "candidate": {
+      "version": "0.20.3",
+      "false": {
+        "formula": "A1*2",
+        "cached": 20,
+        "value": 1234.5,
+        "number_format": null
+      },
+      "true": {
+        "formula": "A1*2",
+        "cached": 20,
+        "value": 1234.5,
+        "number_format": "#,##0.00"
+      }
+    }
+  },
+  "format_finding": "Both old0.18.5 and candidate0.20.3 omit the number format under the existing source cellNF:false option. This is inherited, not migration regression; exact-archive test requires untouched formula and numeric value, records format loss as limitation.",
+  "candidate_archive_execution": {
+    "status": "passed",
+    "completed_at": "2026-10-16T10:43:32.256Z",
+    "receipt": "data/r37_sheetjs_artifacts.json",
+    "actual_tools_calls": 33,
+    "cleanup": "lsof checked; synthetic scope removed"
+  },
+  "production_mutations": false,
+  "cleanup": "lsof checked and synthetic baseline scope removed"
+}

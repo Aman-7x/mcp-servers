@@ -1,0 +1,12 @@
+buildslot[13059] 17:39:01: slot 1 acquired: npm run build --workspace @theluckystrike/mcp-spreadsheet --workspace @theluckystrike/mcp-expense-tracker --workspace @theluckystrike/mcp-office-suite
+
+> @theluckystrike/mcp-spreadsheet@0.22.9 build
+> tsc -p tsconfig.json --declaration && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-expense-tracker@0.22.9 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+
+
+> @theluckystrike/mcp-office-suite@0.22.9 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"

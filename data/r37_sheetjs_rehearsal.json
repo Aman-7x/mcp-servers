@@ -1,0 +1,902 @@
+{
+  "generated_at": "2026-10-16T10:38:25.257469+00:00",
+  "status": "source_candidate_passed_requires_versioned_release",
+  "base_commit": "d31617c1035f485c69efacb50d595bf4528a8b5c",
+  "isolated_worktree": "/Users/mike/mcp-servers-work/r37-sheetjs-rehearsal",
+  "production_mutations": false,
+  "version_changes": false,
+  "candidate_files": [
+    {
+      "path": "package-lock.json",
+      "bytes": 176953,
+      "sha256": "64fbf74fc69dd5d687323db2563ab1c5d1c67ba467c11d501f3a60665a67c09c"
+    },
+    {
+      "path": "remote/src/vendor/expense-tracker/index.ts",
+      "bytes": 64967,
+      "sha256": "d970850e49ea178e78ad2035f6011130833daed2e2a45e099b1eb4d729d793ba"
+    },
+    {
+      "path": "remote/src/vendor/spreadsheet/sheet.ts",
+      "bytes": 15947,
+      "sha256": "3450eea5bc6fe0d86b97753a2ecc8d3b7352dd0556172935130efc140ade69fb"
+    },
+    {
+      "path": "servers/expense-tracker/package.json",
+      "bytes": 1440,
+      "sha256": "01b69b05d135b2d669123c2e6bb703288d95ae468c173cb9c0d93cf8b040f213"
+    },
+    {
+      "path": "servers/expense-tracker/src/index.ts",
+      "bytes": 65044,
+      "sha256": "d2a1519bd38d2f63a0aab4b46a69f0cd49b7be8d8eb67d78079417d5e4c311de"
+    },
+    {
+      "path": "servers/expense-tracker/test/smoke.test.mjs",
+      "bytes": 14692,
+      "sha256": "e4cb06aebb1d60443904eadfbe8bc0ee83eb55b9716f17066a30af7b835188b1"
+    },
+    {
+      "path": "servers/spreadsheet/package.json",
+      "bytes": 1474,
+      "sha256": "d081e44dc7b482cf4a59fbae3f4d934b22c897fea3470abf2a1c06650afeb025"
+    },
+    {
+      "path": "servers/spreadsheet/src/sheet.ts",
+      "bytes": 15211,
+      "sha256": "b9c560bcfe51b9b75c3af976905107ce0e8c0505271492a5f3bce1f5577acb7d"
+    },
+    {
+      "path": "servers/spreadsheet/test/codexv3.test.mjs",
+      "bytes": 15906,
+      "sha256": "a4ff899a038d1b4124654e915a98987ae2eb3324d8ec7f37a9ef72145cfc3af7"
+    },
+    {
+      "path": "servers/spreadsheet/test/round5.test.mjs",
+      "bytes": 7720,
+      "sha256": "87a5decb9048db1d3aaaa748a44898116b15864c0293f2de1121ac195d38fc45"
+    },
+    {
+      "path": "servers/spreadsheet/test/smoke.test.mjs",
+      "bytes": 11587,
+      "sha256": "5e8518bf7655da95ef1d8c142c98f0d67f9e02d5656a29fecff7ddccf3605eef"
+    },
+    {
+      "path": "servers/spreadsheet/test/sheetjs-date-policy.test.mjs",
+      "bytes": 2274,
+      "sha256": "79fc107b084f0ea5e1bd866e9971f843556ac184ea5994b0cc3c4fc3213ddf63"
+    },
+    {
+      "path": "servers/spreadsheet/test/fixtures/canonical-numeric-dates.xlsx",
+      "bytes": 16084,
+      "sha256": "0b3d494bddf3f2beeab24be23273360e13265da34c1ef4d5e1d7e8e0eda43418"
+    },
+    {
+      "path": "servers/spreadsheet/test/fixtures/canonical-iso-dates.xlsx",
+      "bytes": 16121,
+      "sha256": "50526dcee2c975a3212a5fd11043cc3cd22fbb4d86c7990ebfe1d4440ad8ca99"
+    }
+  ],
+  "vendor": {
+    "version": "0.20.3",
+    "url": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
+    "bytes": 2409319,
+    "sha256": "8dc73fc3b00203e72d176e85b50938627c7b086e607c682e8d3c22c02bb99fe8",
+    "lock_integrity": "sha512-oLDq3jw7AcLqKWH2AhCpVTZl8mf6X2YReP+Neh0SJUzV/BdZYjth94tG5toiMB1PPrYtxOCfaoUCkvtuH+3AJA=="
+  },
+  "primary_sources": [
+    "https://docs.sheetjs.com/docs/getting-started/installation/nodejs/",
+    "https://docs.sheetjs.com/docs/csf/features/dates/",
+    "https://cdn.sheetjs.com/advisories/CVE-2023-30533",
+    "https://cdn.sheetjs.com/advisories/CVE-2024-22363"
+  ],
+  "verification": {
+    "source_build": {
+      "status": "passed",
+      "command": "TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local BUILDSLOT_MIN_FREE_GB=20 BUILDSLOT_MAX_WAIT=90 buildslot sh -c \"node scripts/bootstrap-timezone.mjs && npm run build --workspace @theluckystrike/mcp-license && npm run build --workspace @theluckystrike/mcp-timezone && npm run build --workspace @theluckystrike/mcp-spreadsheet && npm run build --workspace @theluckystrike/mcp-expense-tracker\"",
+      "log": "/Users/mike/mcp-servers-work/r37-sheetjs-rehearsal/rehearsal-build.log"
+    },
+    "affected_tests": {
+      "command": "TMPDIR=/Users/mike/mcp-servers-work node --test servers/spreadsheet/test/*.test.mjs servers/expense-tracker/test/*.test.mjs",
+      "tests": 127,
+      "passed": 126,
+      "failed": 0,
+      "skipped": 1,
+      "skip_reason": "spreadsheet is stateless: it owns no store under the data dir, so there is nothing to corrupt",
+      "signed_pro_expense_xlsx_export": "passed",
+      "log": "/Users/mike/mcp-servers-work/r37-sheetjs-rehearsal/rehearsal-final-target-tests.log"
+    },
+    "date_policy": {
+      "status": "passed",
+      "business_calls": 36,
+      "canonical_fixtures": 2,
+      "timezones": [
+        "UTC",
+        "Asia/Ho_Chi_Minh",
+        "America/New_York"
+      ],
+      "records": [
+        {
+          "TZ": "UTC",
+          "kind": "canonical-numeric",
+          "read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ],
+          "reread": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "TZ": "UTC",
+          "kind": "canonical-iso",
+          "read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ],
+          "reread": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "TZ": "Asia/Ho_Chi_Minh",
+          "kind": "canonical-numeric",
+          "read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ],
+          "reread": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "TZ": "Asia/Ho_Chi_Minh",
+          "kind": "canonical-iso",
+          "read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ],
+          "reread": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "TZ": "America/New_York",
+          "kind": "canonical-numeric",
+          "read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ],
+          "reread": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "TZ": "America/New_York",
+          "kind": "canonical-iso",
+          "read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ],
+          "reread": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "UTC",
+          "writer_timezone": "UTC",
+          "kind": "canonical-numeric",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "UTC",
+          "writer_timezone": "UTC",
+          "kind": "canonical-iso",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "UTC",
+          "writer_timezone": "Asia/Ho_Chi_Minh",
+          "kind": "canonical-numeric",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "UTC",
+          "writer_timezone": "Asia/Ho_Chi_Minh",
+          "kind": "canonical-iso",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "UTC",
+          "writer_timezone": "America/New_York",
+          "kind": "canonical-numeric",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "UTC",
+          "writer_timezone": "America/New_York",
+          "kind": "canonical-iso",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "Asia/Ho_Chi_Minh",
+          "writer_timezone": "UTC",
+          "kind": "canonical-numeric",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "Asia/Ho_Chi_Minh",
+          "writer_timezone": "UTC",
+          "kind": "canonical-iso",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "Asia/Ho_Chi_Minh",
+          "writer_timezone": "Asia/Ho_Chi_Minh",
+          "kind": "canonical-numeric",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "Asia/Ho_Chi_Minh",
+          "writer_timezone": "Asia/Ho_Chi_Minh",
+          "kind": "canonical-iso",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "Asia/Ho_Chi_Minh",
+          "writer_timezone": "America/New_York",
+          "kind": "canonical-numeric",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "Asia/Ho_Chi_Minh",
+          "writer_timezone": "America/New_York",
+          "kind": "canonical-iso",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "America/New_York",
+          "writer_timezone": "UTC",
+          "kind": "canonical-numeric",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "America/New_York",
+          "writer_timezone": "UTC",
+          "kind": "canonical-iso",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "America/New_York",
+          "writer_timezone": "Asia/Ho_Chi_Minh",
+          "kind": "canonical-numeric",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "America/New_York",
+          "writer_timezone": "Asia/Ho_Chi_Minh",
+          "kind": "canonical-iso",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "America/New_York",
+          "writer_timezone": "America/New_York",
+          "kind": "canonical-numeric",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        },
+        {
+          "reader_timezone": "America/New_York",
+          "writer_timezone": "America/New_York",
+          "kind": "canonical-iso",
+          "cross_timezone_read": [
+            {
+              "When": "2026-09-03T15:30:00"
+            },
+            {
+              "When": "2026-09-04"
+            }
+          ]
+        }
+      ]
+    },
+    "remote_existing_tests": {
+      "command": "TMPDIR=/Users/mike/mcp-servers-work node --test remote/test/*.test.mjs",
+      "passed": 89,
+      "failed": 0,
+      "skipped": 0
+    },
+    "vendor_generation": {
+      "command": "node remote/build-vendor.mjs",
+      "status": "passed"
+    },
+    "remote_bundle_dry_run": {
+      "command": "TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local BUILDSLOT_MIN_FREE_GB=20 buildslot wrangler deploy --dry-run --outdir /Users/mike/mcp-servers-work/r37-sheetjs-rehearsal/remote-dry-run",
+      "status": "passed",
+      "upload_kib": 8116.07,
+      "gzip_kib": 1844.76,
+      "log": "/Users/mike/mcp-servers-work/r37-sheetjs-rehearsal/remote/rehearsal-remote-dry-run.log"
+    },
+    "scoped_release_checks": {
+      "commands": [
+        "node scripts/release-check.mjs --only spreadsheet",
+        "node scripts/release-check.mjs --only expense-tracker"
+      ],
+      "checks_per_server": 29,
+      "failures": 0,
+      "versions": "unchanged source 0.22.6; future metadata and exact archives not verified"
+    },
+    "baseline_refusal_red": {
+      "command": "TMPDIR=/Users/mike/mcp-servers-work node --test --test-name-pattern=\"free caps:\" /Users/mike/mcp-servers/servers/expense-tracker/test/smoke.test.mjs",
+      "failure": "unchanged main source/compiled runtime returns isError:true while old test expects false at line234",
+      "log": "/Users/mike/mcp-servers-work/r37-sheetjs-rehearsal/rehearsal-expense-baseline-refusal.log"
+    }
+  },
+  "legacy_date_observations": {
+    "old_generated_workbooks": {
+      "utc": {
+        "timezone": "UTC",
+        "records": [
+          {
+            "cellDates": false,
+            "same_input_json": true,
+            "same_converted_json": true,
+            "baseline": {
+              "label": "baseline",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            },
+            "candidate": {
+              "label": "candidate",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            }
+          },
+          {
+            "cellDates": true,
+            "same_input_json": true,
+            "same_converted_json": true,
+            "baseline": {
+              "label": "baseline",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            },
+            "candidate": {
+              "label": "candidate",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "hcm": {
+        "timezone": "Asia/Saigon",
+        "records": [
+          {
+            "cellDates": false,
+            "same_input_json": false,
+            "same_converted_json": false,
+            "baseline": {
+              "label": "baseline",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            },
+            "candidate": {
+              "label": "candidate",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:30\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04T00:00:30\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:30\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:30\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04T00:00:30\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:30\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            }
+          },
+          {
+            "cellDates": true,
+            "same_input_json": true,
+            "same_converted_json": true,
+            "baseline": {
+              "label": "baseline",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            },
+            "candidate": {
+              "label": "candidate",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "ny": {
+        "timezone": "America/New_York",
+        "records": [
+          {
+            "cellDates": false,
+            "same_input_json": true,
+            "same_converted_json": true,
+            "baseline": {
+              "label": "baseline",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            },
+            "candidate": {
+              "label": "candidate",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            }
+          },
+          {
+            "cellDates": true,
+            "same_input_json": true,
+            "same_converted_json": true,
+            "baseline": {
+              "label": "baseline",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            },
+            "candidate": {
+              "label": "candidate",
+              "read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ],
+              "converted_read": [
+                {
+                  "type": "text",
+                  "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\",\n    \"Value\": 0\n  },\n  {\n    \"When\": \"2026-09-04\",\n    \"Value\": 1\n  },\n  {\n    \"When\": \"2026-03-08T01:30:00\",\n    \"Value\": 2\n  }\n]"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "canonical": {
+      "timezone": "Asia/Saigon",
+      "records": [
+        {
+          "cellDates": "canonical-numeric",
+          "same_input_json": false,
+          "same_converted_json": false,
+          "baseline": {
+            "label": "baseline",
+            "read": [
+              {
+                "type": "text",
+                "text": "[\n  {\n    \"When\": \"2026-09-03T15:29:30\"\n  },\n  {\n    \"When\": \"2026-09-03T23:59:30\"\n  }\n]"
+              }
+            ],
+            "converted_read": [
+              {
+                "type": "text",
+                "text": "[\n  {\n    \"When\": \"2026-09-03T15:29:30\"\n  },\n  {\n    \"When\": \"2026-09-03T23:59:30\"\n  }\n]"
+              }
+            ]
+          },
+          "candidate": {
+            "label": "candidate",
+            "read": [
+              {
+                "type": "text",
+                "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\"\n  },\n  {\n    \"When\": \"2026-09-04\"\n  }\n]"
+              }
+            ],
+            "converted_read": [
+              {
+                "type": "text",
+                "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\"\n  },\n  {\n    \"When\": \"2026-09-04\"\n  }\n]"
+              }
+            ]
+          }
+        },
+        {
+          "cellDates": "canonical-iso",
+          "same_input_json": true,
+          "same_converted_json": true,
+          "baseline": {
+            "label": "baseline",
+            "read": [
+              {
+                "type": "text",
+                "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\"\n  },\n  {\n    \"When\": \"2026-09-04\"\n  }\n]"
+              }
+            ],
+            "converted_read": [
+              {
+                "type": "text",
+                "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\"\n  },\n  {\n    \"When\": \"2026-09-04\"\n  }\n]"
+              }
+            ]
+          },
+          "candidate": {
+            "label": "candidate",
+            "read": [
+              {
+                "type": "text",
+                "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\"\n  },\n  {\n    \"When\": \"2026-09-04\"\n  }\n]"
+              }
+            ],
+            "converted_read": [
+              {
+                "type": "text",
+                "text": "[\n  {\n    \"When\": \"2026-09-03T15:30:00\"\n  },\n  {\n    \"When\": \"2026-09-04\"\n  }\n]"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "utc_option_matrix": [
+      {
+        "kind": false,
+        "raw": "2026-09-03T15:30:30.000Z",
+        "model": "2026-09-03T08:30:30.000Z",
+        "local": "Thu Sep 03 2026 15:30:30 GMT+0700 (Indochina Time)"
+      },
+      {
+        "kind": false,
+        "jsonUTC": false,
+        "raw": "2026-09-03T15:30:30.000Z",
+        "model": "2026-09-03T08:30:30.000Z",
+        "local": "Thu Sep 03 2026 15:30:30 GMT+0700 (Indochina Time)"
+      },
+      {
+        "kind": false,
+        "jsonUTC": true,
+        "raw": "2026-09-03T15:30:30.000Z",
+        "model": "2026-09-03T15:30:30.000Z",
+        "local": "Thu Sep 03 2026 22:30:30 GMT+0700 (Indochina Time)"
+      },
+      {
+        "kind": false,
+        "readUTC": false,
+        "raw": "2026-09-03T15:30:30.000Z",
+        "model": "2026-09-03T08:30:30.000Z",
+        "local": "Thu Sep 03 2026 15:30:30 GMT+0700 (Indochina Time)"
+      },
+      {
+        "kind": false,
+        "readUTC": false,
+        "jsonUTC": false,
+        "raw": "2026-09-03T15:30:30.000Z",
+        "model": "2026-09-03T08:30:30.000Z",
+        "local": "Thu Sep 03 2026 15:30:30 GMT+0700 (Indochina Time)"
+      },
+      {
+        "kind": false,
+        "readUTC": false,
+        "jsonUTC": true,
+        "raw": "2026-09-03T15:30:30.000Z",
+        "model": "2026-09-03T15:30:30.000Z",
+        "local": "Thu Sep 03 2026 22:30:30 GMT+0700 (Indochina Time)"
+      },
+      {
+        "kind": false,
+        "readUTC": true,
+        "raw": "2026-09-03T15:30:30.000Z",
+        "model": "2026-09-03T08:30:30.000Z",
+        "local": "Thu Sep 03 2026 15:30:30 GMT+0700 (Indochina Time)"
+      },
+      {
+        "kind": false,
+        "readUTC": true,
+        "jsonUTC": false,
+        "raw": "2026-09-03T15:30:30.000Z",
+        "model": "2026-09-03T08:30:30.000Z",
+        "local": "Thu Sep 03 2026 15:30:30 GMT+0700 (Indochina Time)"
+      },
+      {
+        "kind": false,
+        "readUTC": true,
+        "jsonUTC": true,
+        "raw": "2026-09-03T15:30:30.000Z",
+        "model": "2026-09-03T15:30:30.000Z",
+        "local": "Thu Sep 03 2026 22:30:30 GMT+0700 (Indochina Time)"
+      }
+    ],
+    "interpretation": "Old numeric Date writer encoded a 30-second offset under Ho Chi Minh and old reader masked it. Patched parser reads literal canonical Excel serials correctly. Those old-produced numeric-date file outputs change by 30 seconds. No heuristic date shift was added."
+  },
+  "limitations": [
+    "No actual hosted spreadsheet or expense business calls in this rehearsal; existing remote tests and dry-run are not live execution.",
+    "No valid encoded legacy XLS/XLSB positive control. One discarded BIFF5 fixture was already lossy at generation.",
+    "No new MCPB archives built, published, deployed or downloaded.",
+    "Root npm lock retains independent inherited dependency advisories; this patch only changes SheetJS and removes its former unneeded transitive dependencies.",
+    "Node host v22.23.2 only; not native Windows."
+  ],
+  "handoff": {
+    "copy_only_candidate_files": true,
+    "worktree_preserved_until_root_copies_and_reviewer_finishes": true,
+    "temporary_key_symlink_removed": true,
+    "private_key_target_untouched": true,
+    "cleanup_records": "/Users/mike/mcp-servers-work/r37-sheetjs-rehearsal/data/build-deletions.jsonl",
+    "rollback": "Discard isolated candidate before publication. If released, retain old immutable assets; restore previous catalog selection and previous hosted Worker version. Do not overwrite 0.22.8 bytes.",
+    "remaining_release_work": [
+      "Root review/copy exact candidate files; bump spreadsheet, expense-tracker and Office immutable versions.",
+      "Rebuild/version-check those products, regenerate remote vendor after version changes, pack three immutable MCPBs and verify installed SheetJS versions/hashes.",
+      "Update affected aliases, mirrors and catalog descriptors; never mutate old assets.",
+      "Run exact-archive and hosted spreadsheet/expense read-write calls, required deployment gates and publication receipts."
+    ],
+    "estimated_remaining_minutes": "20\u201335 if packaging and gates stay green; not a guarantee"
+  }
+}

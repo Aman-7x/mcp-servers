@@ -1,0 +1,24 @@
+{
+  "measured_at": "2026-10-16T10:38:14.412Z",
+  "expected_version": "0.22.6",
+  "scope": "Exact spreadsheet, expense-tracker and Office archives: canonical dates, conversion, untouched-sheet formula/number-format, free refusals and signed offline-Pro XLSX export",
+  "limitations": [
+    "Not an exploit test or blanket security certification",
+    "No guarantee for arbitrary formatting, macros, external links or all Office children",
+    "Network guard covers ordinary Node fetch/http/https/net/tls/dgram APIs and inherited Node child processes; not an OS network sandbox",
+    "Only untouched-sheet formulas and number formats are preserved; edited and converted sheets intentionally replace formulas and formatting with values"
+  ],
+  "archives": [
+    {
+      "name": "spreadsheet",
+      "bytes": 7477093,
+      "sha256": "3dac916b2219a6b1028ddc92c8fceea01a4014d557392b9cc8e0700eae8498d1",
+      "calls": 0,
+      "status": "running",
+      "zip_crc_and_safe_paths": "passed"
+    }
+  ],
+  "status": "failed",
+  "error": "Expected values to be strictly equal:\n\n'0.22.5' !== '0.22.6'\n",
+  "cleanup": "lsof checked; synthetic scope removed"
+}

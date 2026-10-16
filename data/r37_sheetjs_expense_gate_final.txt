@@ -1,0 +1,9 @@
+release-check: 1 servers at 0.22.9, 29 checks each
+
+server           version profile-reader dist-version manifests desc names remotes hosted-row endpoint web children mcpb-lists mirrors pages facts tools product first-five setup compare guide gif logo docker smithery glama llms spec contract
+---------------  ------- -------------- ------------ --------- ---- ----- ------- ---------- -------- --- -------- ---------- ------- ----- ----- ----- ------- ---------- ----- ------- ----- --- ---- ------ -------- ----- ---- ---- --------
+expense-tracker  ok      ok             ok           ok        ok   ok    ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok
+
+Scoped release: all 29 checks for expense-tracker; 6 estate assertions excluded. This does not certify other servers.
+
+release-check: green (0 recorded gap(s))

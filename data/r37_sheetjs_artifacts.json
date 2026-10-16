@@ -1,0 +1,142 @@
+{
+  "measured_at": "2026-10-16T10:42:55.854Z",
+  "expected_version": "0.22.9",
+  "scope": "Exact spreadsheet, expense-tracker and Office archives: canonical dates, conversion, untouched-sheet formula/numeric-value, free refusals and signed offline-Pro XLSX export",
+  "limitations": [
+    "Not an exploit test or blanket security certification",
+    "No guarantee for arbitrary formatting, macros, external links or all Office children",
+    "Network guard covers ordinary Node fetch/http/https/net/tls/dgram APIs and inherited Node child processes; not an OS network sandbox",
+    "Untouched-sheet formula and numeric value are checked; existing cellNF:false drops number formats in both old and new readers; edited and converted sheets replace formulas and formatting with values"
+  ],
+  "archives": [
+    {
+      "name": "spreadsheet",
+      "bytes": 5179288,
+      "sha256": "38a13a55c122fd3c1709a91e90805366268a183f937d1dd1414aa10b8e14b7f6",
+      "calls": 11,
+      "status": "passed",
+      "zip_crc_and_safe_paths": "passed",
+      "version": "0.22.9",
+      "xlsx_packages": [
+        {
+          "path": "node_modules/xlsx",
+          "version": "0.20.3"
+        }
+      ],
+      "vendor_payload_hashes": "xlsx.js, xlsx.mjs and cpexcel.full.mjs match vetted official tarball",
+      "negative_controls": "outside ESM/CJS imports and fetch/net.connect rejected",
+      "tools": 10,
+      "untouched_sheet_number_format": {
+        "original": "#,##0.00",
+        "after": "General",
+        "limitation": "Existing source cellNF:false drops the format in both old0.18.5 and candidate0.20.3; no format-preservation claim"
+      },
+      "spreadsheet_checks": "numeric and ISO-date info/read; XLSX conversion/reread; source immutable; untouched-sheet formula/numeric-value; 501-row free refusal",
+      "cpexcel_runtime_resolution": "verified",
+      "resolution_events": 518,
+      "unique_resolved_files": 228,
+      "outbound_attempts": 0,
+      "archive_bytes_unchanged": true
+    },
+    {
+      "name": "expense-tracker",
+      "bytes": 5178277,
+      "sha256": "363ef8958bf7fbc4022488ae5af885a6087ddac45b71e431234e348359e48048",
+      "calls": 6,
+      "status": "passed",
+      "zip_crc_and_safe_paths": "passed",
+      "version": "0.22.9",
+      "xlsx_packages": [
+        {
+          "path": "node_modules/xlsx",
+          "version": "0.20.3"
+        }
+      ],
+      "vendor_payload_hashes": "xlsx.js, xlsx.mjs and cpexcel.full.mjs match vetted official tarball",
+      "negative_controls": "outside ESM/CJS imports and fetch/net.connect rejected",
+      "tools": 14,
+      "expense_free_checks": "synthetic receipt; free XLSX isError and no output file; free CSV remains available",
+      "expense_pro_checks": "locally signed one-hour bundle key only in child environment; exported XLSX bytes reopened and money/currency/date/merchant validated",
+      "resolution_events": 1016,
+      "unique_resolved_files": 225,
+      "outbound_attempts": 0,
+      "archive_bytes_unchanged": true
+    },
+    {
+      "name": "office-suite",
+      "bytes": 29703676,
+      "sha256": "0555833c1465b2a5583179eab963d8f068888077cc6410d3008254dbc469c300",
+      "calls": 16,
+      "status": "passed",
+      "zip_crc_and_safe_paths": "passed",
+      "version": "0.22.9",
+      "xlsx_packages": [
+        {
+          "path": "node_modules/xlsx",
+          "version": "0.20.3"
+        }
+      ],
+      "vendor_payload_hashes": "xlsx.js, xlsx.mjs and cpexcel.full.mjs match vetted official tarball",
+      "negative_controls": "outside ESM/CJS imports and fetch/net.connect rejected",
+      "tools": 447,
+      "children": 49,
+      "untouched_sheet_number_format": {
+        "original": "#,##0.00",
+        "after": "General",
+        "limitation": "Existing source cellNF:false drops the format in both old0.18.5 and candidate0.20.3; no format-preservation claim"
+      },
+      "spreadsheet_checks": "numeric and ISO-date info/read; XLSX conversion/reread; source immutable; untouched-sheet formula/numeric-value; 501-row free refusal",
+      "expense_free_checks": "synthetic receipt; free XLSX isError and no output file; free CSV remains available",
+      "expense_pro_checks": "locally signed one-hour bundle key only in child environment; exported XLSX bytes reopened and money/currency/date/merchant validated",
+      "cpexcel_runtime_resolution": "verified",
+      "resolution_events": 66834,
+      "unique_resolved_files": 1112,
+      "outbound_attempts": 0,
+      "archive_bytes_unchanged": true
+    }
+  ],
+  "status": "passed",
+  "vetted_vendor": {
+    "url": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
+    "tarball_sha256": "8dc73fc3b00203e72d176e85b50938627c7b086e607c682e8d3c22c02bb99fe8",
+    "payload_sha256": {
+      "xlsx.js": "fd159f1e2d694e12cd0709c1ec1b63c6e1f045d2c4ce857a346f9b965798cbfa",
+      "xlsx.mjs": "1a0fb062ee9781b13f6687371b202aaefc53b6ce55b530c027e01f9c087b77db",
+      "dist/cpexcel.full.mjs": "7a7bba23b6b6f23b5c69fbb631f78d1d455f74b57e4aa54e9a2f81a8ab844964"
+    }
+  },
+  "canonical_fixtures": [
+    {
+      "kind": "numeric",
+      "bytes": 2119,
+      "sha256": "8cec9f8f6a68547ee6338a7a16a18e8004bfa9440aef4afe9ef6830736f55993",
+      "expected": [
+        {
+          "When": "2026-09-03T15:30:00",
+          "Value": 7
+        },
+        {
+          "When": "2026-09-04",
+          "Value": 8
+        }
+      ]
+    },
+    {
+      "kind": "iso",
+      "bytes": 2125,
+      "sha256": "97f443084f10e848c2a6f7e75932a0bdd4303d7d2a6c80ae40cc111ab6455556",
+      "expected": [
+        {
+          "When": "2026-09-03T15:30:00",
+          "Value": 7
+        },
+        {
+          "When": "2026-09-04",
+          "Value": 8
+        }
+      ]
+    }
+  ],
+  "completed_at": "2026-10-16T10:43:32.256Z",
+  "cleanup": "lsof checked; synthetic scope removed"
+}

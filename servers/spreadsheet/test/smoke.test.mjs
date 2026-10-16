@@ -7,6 +7,8 @@ import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as XLSX from "xlsx";
+import * as sheetFixtureFs from "node:fs";
+XLSX.set_fs(sheetFixtureFs);
 
 const here = dirname(fileURLToPath(import.meta.url));
 const ENTRY = join(here, "..", "dist", "index.js");

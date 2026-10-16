@@ -1,0 +1,859 @@
+buildslot[14787] 17:40:26: slot 1 acquired: npm test --workspace @theluckystrike/mcp-spreadsheet --workspace @theluckystrike/mcp-expense-tracker --workspace @theluckystrike/mcp-office-suite
+
+> @theluckystrike/mcp-spreadsheet@0.22.9 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: v3 \#4: one locale-aware parser for csv coercion, aggregation and comparison
+ok 1 - v3 \#4: one locale-aware parser for csv coercion, aggregation and comparison
+  ---
+  duration_ms: 2.462375
+  type: 'test'
+  ...
+# Subtest: v3 \#4: aggregation over a semicolon file with decimal commas
+ok 2 - v3 \#4: aggregation over a semicolon file with decimal commas
+  ---
+  duration_ms: 8.787833
+  type: 'test'
+  ...
+# Subtest: v3 \#7: comparisons keep preserved text as text
+ok 3 - v3 \#7: comparisons keep preserved text as text
+  ---
+  duration_ms: 1.179042
+  type: 'test'
+  ...
+# Subtest: v3 \#8: an ordered comparison of a number against non-numeric text is false
+ok 4 - v3 \#8: an ordered comparison of a number against non-numeric text is false
+  ---
+  duration_ms: 0.194916
+  type: 'test'
+  ...
+# Subtest: v3 \#5: integers beyond MAX_SAFE_INTEGER stay strings
+ok 5 - v3 \#5: integers beyond MAX_SAFE_INTEGER stay strings
+  ---
+  duration_ms: 1.131
+  type: 'test'
+  ...
+# Subtest: v3 \#3: an unterminated quoted field is a parse error
+ok 6 - v3 \#3: an unterminated quoted field is a parse error
+  ---
+  duration_ms: 2.680917
+  type: 'test'
+  ...
+# Subtest: v3 \#6: limit/offset on a 50k-row csv stops parsing after the rows needed
+ok 7 - v3 \#6: limit/offset on a 50k-row csv stops parsing after the rows needed
+  ---
+  duration_ms: 452.023709
+  type: 'test'
+  ...
+# Subtest: v3 \#9: a one-cell title row is not the header row
+ok 8 - v3 \#9: a one-cell title row is not the header row
+  ---
+  duration_ms: 0.819917
+  type: 'test'
+  ...
+# Subtest: v3 \#13: an aggregate alias colliding with a group column is refused
+ok 9 - v3 \#13: an aggregate alias colliding with a group column is refused
+  ---
+  duration_ms: 343.61975
+  type: 'test'
+  ...
+# Subtest: v3 \#16: append and overwrite keep the other sheets of an xlsx
+ok 10 - v3 \#16: append and overwrite keep the other sheets of an xlsx
+  ---
+  duration_ms: 278.740125
+  type: 'test'
+  ...
+# Subtest: v3 \#17: xlsx date cells survive a convert to xlsx and keep their time
+ok 11 - v3 \#17: xlsx date cells survive a convert to xlsx and keep their time
+  ---
+  duration_ms: 227.102875
+  type: 'test'
+  ...
+# Subtest: v3 \#14: min/max over 150000 numbers does not blow the argument limit
+ok 12 - v3 \#14: min/max over 150000 numbers does not blow the argument limit
+  ---
+  duration_ms: 3.611209
+  type: 'test'
+  ...
+# Subtest: v3 \#14: min/max aggregates still return the right values
+ok 13 - v3 \#14: min/max aggregates still return the right values
+  ---
+  duration_ms: 190.574167
+  type: 'test'
+  ...
+# Subtest: v3 \#11: a global aggregate over zero matching rows returns count 0
+ok 14 - v3 \#11: a global aggregate over zero matching rows returns count 0
+  ---
+  duration_ms: 209.319958
+  type: 'test'
+  ...
+# Subtest: v3 \#12: sum over "*" is refused instead of returning the row count
+ok 15 - v3 \#12: sum over "*" is refused instead of returning the row count
+  ---
+  duration_ms: 190.409208
+  type: 'test'
+  ...
+# Subtest: v3 \#15: an array append does not write the header row as data
+ok 16 - v3 \#15: an array append does not write the header row as data
+  ---
+  duration_ms: 175.342292
+  type: 'test'
+  ...
+# Subtest: stdout carries JSON-RPC only across initialize, tools/list and one call
+ok 17 - stdout carries JSON-RPC only across initialize, tools/list and one call
+  ---
+  duration_ms: 580.9865
+  type: 'test'
+  ...
+# Subtest: every tool description is non-empty, single-paragraph, and within the hard ceiling
+ok 18 - every tool description is non-empty, single-paragraph, and within the hard ceiling
+  ---
+  duration_ms: 382.086792
+  type: 'test'
+  ...
+# Subtest: a tool that takes a file path or a URL opens with an imperative sentence
+ok 19 - a tool that takes a file path or a URL opens with an imperative sentence
+  ---
+  duration_ms: 234.300583
+  type: 'test'
+  ...
+# Subtest: corrupt store is quarantined
+ok 20 - corrupt store is quarantined # SKIP spreadsheet is stateless: it owns no store under the data dir, so there is nothing to corrupt
+  ---
+  duration_ms: 0.29
+  type: 'test'
+  ...
+# Subtest: cap: a write over the free 500-row cap writes no file at all
+ok 21 - cap: a write over the free 500-row cap writes no file at all
+  ---
+  duration_ms: 214.717292
+  type: 'test'
+  ...
+# Subtest: license_status reports free with no key and pro with a signed key
+ok 22 - license_status reports free with no key and pro with a signed key
+  ---
+  duration_ms: 646.284417
+  type: 'test'
+  ...
+# Subtest: quoted commas stay in one field
+ok 23 - quoted commas stay in one field
+  ---
+  duration_ms: 3.943875
+  type: 'test'
+  ...
+# Subtest: CRLF line endings
+ok 24 - CRLF line endings
+  ---
+  duration_ms: 0.223166
+  type: 'test'
+  ...
+# Subtest: embedded newline inside quotes
+ok 25 - embedded newline inside quotes
+  ---
+  duration_ms: 0.079583
+  type: 'test'
+  ...
+# Subtest: doubled quotes unescape
+ok 26 - doubled quotes unescape
+  ---
+  duration_ms: 0.077083
+  type: 'test'
+  ...
+# Subtest: semicolon delimiter is sniffed
+ok 27 - semicolon delimiter is sniffed
+  ---
+  duration_ms: 0.252375
+  type: 'test'
+  ...
+# Subtest: tab delimiter is sniffed
+ok 28 - tab delimiter is sniffed
+  ---
+  duration_ms: 0.160292
+  type: 'test'
+  ...
+# Subtest: comma wins over stray semicolons in data
+ok 29 - comma wins over stray semicolons in data
+  ---
+  duration_ms: 0.218167
+  type: 'test'
+  ...
+# Subtest: BOM is stripped from the first header
+ok 30 - BOM is stripped from the first header
+  ---
+  duration_ms: 0.071708
+  type: 'test'
+  ...
+# Subtest: trailing newline does not create an empty row
+ok 31 - trailing newline does not create an empty row
+  ---
+  duration_ms: 0.276875
+  type: 'test'
+  ...
+# Subtest: empty fields are preserved
+ok 32 - empty fields are preserved
+  ---
+  duration_ms: 0.28175
+  type: 'test'
+  ...
+# Subtest: round trip through toCsv re-parses identically
+ok 33 - round trip through toCsv re-parses identically
+  ---
+  duration_ms: 0.151417
+  type: 'test'
+  ...
+# Subtest: coerce keeps leading zeros as text but converts real numbers
+ok 34 - coerce keeps leading zeros as text but converts real numbers
+  ---
+  duration_ms: 2.144042
+  type: 'test'
+  ...
+# Subtest: comparison on a bracketed column
+ok 35 - comparison on a bracketed column
+  ---
+  duration_ms: 2.383125
+  type: 'test'
+  ...
+# Subtest: bare column names without spaces
+ok 36 - bare column names without spaces
+  ---
+  duration_ms: 0.768625
+  type: 'test'
+  ...
+# Subtest: string equality is case and whitespace insensitive
+ok 37 - string equality is case and whitespace insensitive
+  ---
+  duration_ms: 0.0755
+  type: 'test'
+  ...
+# Subtest: contains / startswith / endswith
+ok 38 - contains / startswith / endswith
+  ---
+  duration_ms: 0.202833
+  type: 'test'
+  ...
+# Subtest: AND binds tighter than OR
+ok 39 - AND binds tighter than OR
+  ---
+  duration_ms: 0.15825
+  type: 'test'
+  ...
+# Subtest: parentheses group correctly
+ok 40 - parentheses group correctly
+  ---
+  duration_ms: 0.071292
+  type: 'test'
+  ...
+# Subtest: NOT negates
+ok 41 - NOT negates
+  ---
+  duration_ms: 0.058292
+  type: 'test'
+  ...
+# Subtest: arithmetic precedence in formulas
+ok 42 - arithmetic precedence in formulas
+  ---
+  duration_ms: 0.389167
+  type: 'test'
+  ...
+# Subtest: quoted strings with embedded quotes
+ok 43 - quoted strings with embedded quotes
+  ---
+  duration_ms: 0.647625
+  type: 'test'
+  ...
+# Subtest: currency and comma text compares numerically
+ok 44 - currency and comma text compares numerically
+  ---
+  duration_ms: 0.473375
+  type: 'test'
+  ...
+# Subtest: missing and empty columns are falsy, never throw
+ok 45 - missing and empty columns are falsy, never throw
+  ---
+  duration_ms: 0.116958
+  type: 'test'
+  ...
+# Subtest: string concatenation when a side is not numeric
+ok 46 - string concatenation when a side is not numeric
+  ---
+  duration_ms: 0.045958
+  type: 'test'
+  ...
+# Subtest: division by zero yields null instead of Infinity
+ok 47 - division by zero yields null instead of Infinity
+  ---
+  duration_ms: 0.035166
+  type: 'test'
+  ...
+# Subtest: column lookup is case insensitive
+ok 48 - column lookup is case insensitive
+  ---
+  duration_ms: 0.033458
+  type: 'test'
+  ...
+# Subtest: malformed expressions raise ExprError
+ok 49 - malformed expressions raise ExprError
+  ---
+  duration_ms: 0.219667
+  type: 'test'
+  ...
+# Subtest: no code execution: identifiers are columns, not globals
+ok 50 - no code execution: identifiers are columns, not globals
+  ---
+  duration_ms: 0.232125
+  type: 'test'
+  ...
+# Subtest: sheet_info refuses a URL instead of resolving it against cwd
+ok 51 - sheet_info refuses a URL instead of resolving it against cwd
+  ---
+  duration_ms: 436.49075
+  type: 'test'
+  ...
+# Subtest: sheet_read refuses a URL the same way
+ok 52 - sheet_read refuses a URL the same way
+  ---
+  duration_ms: 318.871208
+  type: 'test'
+  ...
+# Subtest: toNumber coerces money-shaped text
+ok 53 - toNumber coerces money-shaped text
+  ---
+  duration_ms: 1.819959
+  type: 'test'
+  ...
+# Subtest: group_by + aggregate + sort by alias answers the top-5 question in one call
+ok 54 - group_by + aggregate + sort by alias answers the top-5 question in one call
+  ---
+  duration_ms: 388.593208
+  type: 'test'
+  ...
+# Subtest: D-10: sheet_query echoes where, group_by, aggregate, sort and limit in the first line
+ok 55 - D-10: sheet_query echoes where, group_by, aggregate, sort and limit in the first line
+  ---
+  duration_ms: 342.041125
+  type: 'test'
+  ...
+# Subtest: spreadsheet three write refusals are errors without output; truncated reads remain successful
+ok 56 - spreadsheet three write refusals are errors without output; truncated reads remain successful
+  ---
+  duration_ms: 831.005959
+  type: 'test'
+  ...
+# Subtest: D-R12: coerce decides by pattern, not by string length
+ok 57 - D-R12: coerce decides by pattern, not by string length
+  ---
+  duration_ms: 1.134917
+  type: 'test'
+  ...
+# Subtest: D-R12: sheet_convert writes .00 money as numeric xlsx cells
+ok 58 - D-R12: sheet_convert writes .00 money as numeric xlsx cells
+  ---
+  duration_ms: 435.974791
+  type: 'test'
+  ...
+# Subtest: D-R13: a VAT column over 2-decimal money is rounded to 2 decimals
+ok 59 - D-R13: a VAT column over 2-decimal money is rounded to 2 decimals
+  ---
+  duration_ms: 301.420083
+  type: 'test'
+  ...
+# Subtest: D-R13: decimals overrides the inferred precision
+ok 60 - D-R13: decimals overrides the inferred precision
+  ---
+  duration_ms: 301.178167
+  type: 'test'
+  ...
+# Subtest: D-R11/D-R19: sheet_info, sheet_read, sheet_query and sheet_stats lead with the client-directed claim
+ok 61 - D-R11/D-R19: sheet_info, sheet_read, sheet_query and sheet_stats lead with the client-directed claim
+  ---
+  duration_ms: 231.524709
+  type: 'test'
+  ...
+# Subtest: literal numeric and ISO worksheet dates survive read, conversion and cross-timezone reads
+ok 62 - literal numeric and ISO worksheet dates survive read, conversion and cross-timezone reads
+  ---
+  duration_ms: 1802.137541
+  type: 'test'
+  ...
+# Subtest: stdio: initialize, tools/list, and the full read-query-edit-convert path
+ok 63 - stdio: initialize, tools/list, and the full read-query-edit-convert path
+  ---
+  duration_ms: 452.237416
+  type: 'test'
+  ...
+# Subtest: safety: missing files, clobbering and bad expressions are refused with a clear message
+ok 64 - safety: missing files, clobbering and bad expressions are refused with a clear message
+  ---
+  duration_ms: 397.2275
+  type: 'test'
+  ...
+# Subtest: free write cap: 300 rows write in full, 600 rows write nothing at all
+ok 65 - free write cap: 300 rows write in full, 600 rows write nothing at all
+  ---
+  duration_ms: 530.208333
+  type: 'test'
+  ...
+1..65
+# tests 65
+# suites 0
+# pass 64
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 2283.35275
+
+> @theluckystrike/mcp-expense-tracker@0.22.9 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: regex safety: a catastrophic pattern is refused and never runs
+ok 1 - regex safety: a catastrophic pattern is refused and never runs
+  ---
+  duration_ms: 0.644791
+  type: 'test'
+  ...
+# Subtest: ISO 4217: real codes accepted, made-up codes rejected
+ok 2 - ISO 4217: real codes accepted, made-up codes rejected
+  ---
+  duration_ms: 0.127916
+  type: 'test'
+  ...
+# Subtest: hostile inputs: bounded, refused, and stdout stays JSON-RPC
+ok 3 - hostile inputs: bounded, refused, and stdout stays JSON-RPC
+  ---
+  duration_ms: 470.570083
+  type: 'test'
+  ...
+# Subtest: mixed currencies rebill as separate groups, never summed
+ok 4 - mixed currencies rebill as separate groups, never summed
+  ---
+  duration_ms: 275.8125
+  type: 'test'
+  ...
+# Subtest: free export cap writes no partial file
+ok 5 - free export cap writes no partial file
+  ---
+  duration_ms: 307.452875
+  type: 'test'
+  ...
+# Subtest: expense_settings: an opted-in default VAT rate splits an expense that names no rate
+ok 6 - expense_settings: an opted-in default VAT rate splits an expense that names no rate
+  ---
+  duration_ms: 329.587
+  type: 'test'
+  ...
+# Subtest: markup rebill is free and keeps the tax_rate on the net line
+ok 7 - markup rebill is free and keeps the tax_rate on the net line
+  ---
+  duration_ms: 201.913875
+  type: 'test'
+  ...
+# Subtest: D-R4: expense_to_invoice does not mark rebilled, expense_mark_rebilled does
+ok 8 - D-R4: expense_to_invoice does not mark rebilled, expense_mark_rebilled does
+  ---
+  duration_ms: 177.2855
+  type: 'test'
+  ...
+# Subtest: D-R3: an expense with no VAT rate is never emitted as a silent net line
+ok 9 - D-R3: an expense with no VAT rate is never emitted as a silent net line
+  ---
+  duration_ms: 151.260083
+  type: 'test'
+  ...
+# Subtest: D-R9: a stored vat_rate of 0 is a known rate, not a gap
+ok 10 - D-R9: a stored vat_rate of 0 is a known rate, not a gap
+  ---
+  duration_ms: 144.056833
+  type: 'test'
+  ...
+# Subtest: D-R5: an invoice line reproduces the receipt gross exactly
+ok 11 - D-R5: an invoice line reproduces the receipt gross exactly
+  ---
+  duration_ms: 144.053834
+  type: 'test'
+  ...
+# Subtest: D-R6: marking a range is scoped to one currency and to unbilled billable rows
+ok 12 - D-R6: marking a range is scoped to one currency and to unbilled billable rows
+  ---
+  duration_ms: 136.069459
+  type: 'test'
+  ...
+# Subtest: D-R7: money fields cannot be edited on a rebilled expense without unlinking it
+ok 13 - D-R7: money fields cannot be edited on a rebilled expense without unlinking it
+  ---
+  duration_ms: 134.791958
+  type: 'test'
+  ...
+# Subtest: D-R10: a category named __proto__ or constructor is counted, not dropped
+ok 14 - D-R10: a category named __proto__ or constructor is counted, not dropped
+  ---
+  duration_ms: 141.196833
+  type: 'test'
+  ...
+# Subtest: D-R8: mileage currency is only accepted with your own rate
+ok 15 - D-R8: mileage currency is only accepted with your own rate
+  ---
+  duration_ms: 140.450542
+  type: 'test'
+  ...
+# Subtest: D-R3: expense_add accepts tax_rate and vat as aliases for vat_rate
+ok 16 - D-R3: expense_add accepts tax_rate and vat as aliases for vat_rate
+  ---
+  duration_ms: 136.135875
+  type: 'test'
+  ...
+# Subtest: expense_summary names the bank tool when bank-statement holds transactions in range
+ok 17 - expense_summary names the bank tool when bank-statement holds transactions in range
+  ---
+  duration_ms: 422.538875
+  type: 'test'
+  ...
+# Subtest: expense_summary is unchanged when there is no bank-statement store
+ok 18 - expense_summary is unchanged when there is no bank-statement store
+  ---
+  duration_ms: 290.289
+  type: 'test'
+  ...
+# Subtest: expense_summary is unchanged when the bank store has nothing in the requested period
+ok 19 - expense_summary is unchanged when the bank store has nothing in the requested period
+  ---
+  duration_ms: 242.768625
+  type: 'test'
+  ...
+# Subtest: expense_summary stays silent when the bank store is unreadable
+ok 20 - expense_summary stays silent when the bank store is unreadable
+  ---
+  duration_ms: 338.576083
+  type: 'test'
+  ...
+# Subtest: expense_export names the bank tool when bank-statement holds transactions in range
+ok 21 - expense_export names the bank tool when bank-statement holds transactions in range
+  ---
+  duration_ms: 226.856625
+  type: 'test'
+  ...
+# Subtest: expense_export is unchanged with no bank-statement store
+ok 22 - expense_export is unchanged with no bank-statement store
+  ---
+  duration_ms: 160.91175
+  type: 'test'
+  ...
+# Subtest: tool descriptions say receipts only and name bank-statement, under 220 chars
+ok 23 - tool descriptions say receipts only and name bank-statement, under 220 chars
+  ---
+  duration_ms: 141.243875
+  type: 'test'
+  ...
+# Subtest: expense_add takes its currency from the shared business profile
+ok 24 - expense_add takes its currency from the shared business profile
+  ---
+  duration_ms: 148.885125
+  type: 'test'
+  ...
+# Subtest: expense_add with no profile currency still falls back to EUR, unannotated
+ok 25 - expense_add with no profile currency still falls back to EUR, unannotated
+  ---
+  duration_ms: 137.548416
+  type: 'test'
+  ...
+# Subtest: two processes, one data dir: 40 concurrent expense_add all persist
+ok 26 - two processes, one data dir: 40 concurrent expense_add all persist
+  ---
+  duration_ms: 496.587834
+  type: 'test'
+  ...
+# Subtest: stdout carries JSON-RPC only across initialize, tools/list and one call
+ok 27 - stdout carries JSON-RPC only across initialize, tools/list and one call
+  ---
+  duration_ms: 563.580292
+  type: 'test'
+  ...
+# Subtest: every tool description is non-empty, single-paragraph, and within the hard ceiling
+ok 28 - every tool description is non-empty, single-paragraph, and within the hard ceiling
+  ---
+  duration_ms: 263.071625
+  type: 'test'
+  ...
+# Subtest: a tool that takes a file path or a URL opens with an imperative sentence
+ok 29 - a tool that takes a file path or a URL opens with an imperative sentence
+  ---
+  duration_ms: 280.653333
+  type: 'test'
+  ...
+# Subtest: corrupt store: the garbage is quarantined byte-for-byte and nothing is overwritten
+ok 30 - corrupt store: the garbage is quarantined byte-for-byte and nothing is overwritten
+  ---
+  duration_ms: 299.992541
+  type: 'test'
+  ...
+# Subtest: cap: an export over the free 200-row cap writes no file at all
+ok 31 - cap: an export over the free 200-row cap writes no file at all
+  ---
+  duration_ms: 187.641958
+  type: 'test'
+  ...
+# Subtest: license_status reports free with no key and pro with a signed key
+ok 32 - license_status reports free with no key and pro with a signed key
+  ---
+  duration_ms: 511.616458
+  type: 'test'
+  ...
+# Subtest: \#1 P0: garbage in data.json is quarantined byte-for-byte and every tool refuses
+ok 33 - \#1 P0: garbage in data.json is quarantined byte-for-byte and every tool refuses
+  ---
+  duration_ms: 442.293
+  type: 'test'
+  ...
+# Subtest: D-R14: mixed currencies without fx_rates state the exact argument to pass
+ok 34 - D-R14: mixed currencies without fx_rates state the exact argument to pass
+  ---
+  duration_ms: 505.513791
+  type: 'test'
+  ...
+# Subtest: D-R14: target_currency + fx_rates return ONE converted group
+ok 35 - D-R14: target_currency + fx_rates return ONE converted group
+  ---
+  duration_ms: 257.528209
+  type: 'test'
+  ...
+# Subtest: D-R14: a missing rate is refused and names the argument, and fx_rates alone is refused
+ok 36 - D-R14: a missing rate is refused and names the argument, and fx_rates alone is refused
+  ---
+  duration_ms: 296.172792
+  type: 'test'
+  ...
+# Subtest: D-R14: target_currency with nothing to convert leaves the lines alone
+ok 37 - D-R14: target_currency with nothing to convert leaves the lines alone
+  ---
+  duration_ms: 335.909459
+  type: 'test'
+  ...
+# Subtest: currency decimals: 2 by default, 0 for JPY
+ok 38 - currency decimals: 2 by default, 0 for JPY
+  ---
+  duration_ms: 3.947417
+  type: 'test'
+  ...
+# Subtest: toMinor and formatMoney round-trip per currency
+ok 39 - toMinor and formatMoney round-trip per currency
+  ---
+  duration_ms: 0.178625
+  type: 'test'
+  ...
+# Subtest: roundHalfUp is half-up and float-stable
+ok 40 - roundHalfUp is half-up and float-stable
+  ---
+  duration_ms: 0.049375
+  type: 'test'
+  ...
+# Subtest: VAT split: net + vat is exactly the gross
+ok 41 - VAT split: net + vat is exactly the gross
+  ---
+  duration_ms: 0.181458
+  type: 'test'
+  ...
+# Subtest: D-R1: a half-cent of VAT rounds up, it does not vanish
+ok 42 - D-R1: a half-cent of VAT rounds up, it does not vanish
+  ---
+  duration_ms: 3.108833
+  type: 'test'
+  ...
+# Subtest: D-R2: minor units follow the ISO 4217 table, not a 2-decimal guess
+ok 43 - D-R2: minor units follow the ISO 4217 table, not a 2-decimal guess
+  ---
+  duration_ms: 0.503959
+  type: 'test'
+  ...
+# Subtest: VAT split with no rate leaves everything as net
+ok 44 - VAT split with no rate leaves everything as net
+  ---
+  duration_ms: 0.226083
+  type: 'test'
+  ...
+# Subtest: mileage rate table matches the documented defaults
+ok 45 - mileage rate table matches the documented defaults
+  ---
+  duration_ms: 0.136708
+  type: 'test'
+  ...
+# Subtest: mileage money is distance x rate in minor units
+ok 46 - mileage money is distance x rate in minor units
+  ---
+  duration_ms: 0.253042
+  type: 'test'
+  ...
+# Subtest: per-currency grouping never mixes currencies
+ok 47 - per-currency grouping never mixes currencies
+  ---
+  duration_ms: 0.352209
+  type: 'test'
+  ...
+# Subtest: toMajor gives a spreadsheet-safe number
+ok 48 - toMajor gives a spreadsheet-safe number
+  ---
+  duration_ms: 0.117208
+  type: 'test'
+  ...
+# Subtest: date helpers accept only real calendar dates
+ok 49 - date helpers accept only real calendar dates
+  ---
+  duration_ms: 2.830708
+  type: 'test'
+  ...
+# Subtest: expense project, rule, format and row caps are errors; free CSV and clamped reads still succeed
+ok 50 - expense project, rule, format and row caps are errors; free CSV and clamped reads still succeed
+  ---
+  duration_ms: 1203.704
+  type: 'test'
+  ...
+# Subtest: D-R77: a range entirely older than the free window says nothing was read
+ok 51 - D-R77: a range entirely older than the free window says nothing was read
+  ---
+  duration_ms: 420.12425
+  type: 'test'
+  ...
+# Subtest: D-R77: a range that straddles the cutoff is still shortened and named, not refused
+ok 52 - D-R77: a range that straddles the cutoff is still shortened and named, not refused
+  ---
+  duration_ms: 271.553791
+  type: 'test'
+  ...
+# Subtest: D-R77: a range wholly inside the window carries no note at all
+ok 53 - D-R77: a range wholly inside the window carries no note at all
+  ---
+  duration_ms: 311.165542
+  type: 'test'
+  ...
+# Subtest: D-R41: a project-filtered export counts and names the expenses it left out
+ok 54 - D-R41: a project-filtered export counts and names the expenses it left out
+  ---
+  duration_ms: 411.26225
+  type: 'test'
+  ...
+# Subtest: D-R41: an unfiltered export carries no exclusion note
+ok 55 - D-R41: an unfiltered export carries no exclusion note
+  ---
+  duration_ms: 277.247084
+  type: 'test'
+  ...
+# Subtest: D-R41: a filter that excludes nothing stays silent about exclusions
+ok 56 - D-R41: a filter that excludes nothing stays silent about exclusions
+  ---
+  duration_ms: 278.677041
+  type: 'test'
+  ...
+# Subtest: D-R21: billable defaults to true when a project is given, false without one, and the response says so
+ok 57 - D-R21: billable defaults to true when a project is given, false without one, and the response says so
+  ---
+  duration_ms: 354.720959
+  type: 'test'
+  ...
+# Subtest: D-R20: an empty rebill set returns count 0, a plain reason and NO fx_note
+ok 58 - D-R20: an empty rebill set returns count 0, a plain reason and NO fx_note
+  ---
+  duration_ms: 240.200542
+  type: 'test'
+  ...
+# Subtest: D-R23: the .corrupt marker holds self-describing one-line JSON
+ok 59 - D-R23: the .corrupt marker holds self-describing one-line JSON
+  ---
+  duration_ms: 308.669083
+  type: 'test'
+  ...
+# Subtest: stdio: initialize, tools/list, expenses, rules, summary, mileage, rebill
+ok 60 - stdio: initialize, tools/list, expenses, rules, summary, mileage, rebill
+  ---
+  duration_ms: 326.47875
+  type: 'test'
+  ...
+# Subtest: free caps: 30-day window, 3 projects, 5 rules, 200-row csv export writes zero bytes
+ok 61 - free caps: 30-day window, 3 projects, 5 rules, 200-row csv export writes zero bytes
+  ---
+  duration_ms: 626.539667
+  type: 'test'
+  ...
+# Subtest: pro: full history, xlsx export, markup rebill
+ok 62 - pro: full history, xlsx export, markup rebill
+  ---
+  duration_ms: 227.972625
+  type: 'test'
+  ...
+1..62
+# tests 62
+# suites 0
+# pass 62
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2950.34475
+
+> @theluckystrike/mcp-office-suite@0.22.9 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: CHILDREN covers every stdio server in the estate
+ok 1 - CHILDREN covers every stdio server in the estate
+  ---
+  duration_ms: 41.011625
+  type: 'test'
+  ...
+# Subtest: every CHILDREN entry names the package that server actually publishes
+ok 2 - every CHILDREN entry names the package that server actually publishes
+  ---
+  duration_ms: 3.975125
+  type: 'test'
+  ...
+# Subtest: control: the completeness assertion fails when an entry is removed
+ok 3 - control: the completeness assertion fails when an entry is removed
+  ---
+  duration_ms: 6.811958
+  type: 'test'
+  ...
+# Subtest: office proxy diagnoses duplicate candidates and preserves both report namespaces
+ok 4 - office proxy diagnoses duplicate candidates and preserves both report namespaces
+  ---
+  duration_ms: 11925.990667
+  type: 'test'
+  ...
+# Subtest: D-P25: a child that floods stderr does not stall a tools/call
+ok 5 - D-P25: a child that floods stderr does not stall a tools/call
+  ---
+  duration_ms: 898.735875
+  type: 'test'
+  ...
+# Subtest: D-P24: license_activate fails unless every child accepts the key
+ok 6 - D-P24: license_activate fails unless every child accepts the key
+  ---
+  duration_ms: 1555.928
+  type: 'test'
+  ...
+# Subtest: D-R29/R37: child payload stays intact and collision names are separately mapped
+ok 7 - D-R29/R37: child payload stays intact and collision names are separately mapped
+  ---
+  duration_ms: 897.917083
+  type: 'test'
+  ...
+# Subtest: D-R29: tools_map resource lists exposed name -> child.tool
+ok 8 - D-R29: tools_map resource lists exposed name -> child.tool
+  ---
+  duration_ms: 797.509542
+  type: 'test'
+  ...
+# Subtest: bundle proxies tools/list, forwards calls, and aggregates license_status
+ok 9 - bundle proxies tools/list, forwards calls, and aggregates license_status
+  ---
+  duration_ms: 10252.599458
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12248.499125
