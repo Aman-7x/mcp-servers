@@ -1,0 +1,43 @@
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	﻿2026-10-16T09:45:39.2781336Z ##[group]Run npm ci --ignore-scripts
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:39.2781844Z [36;1mnpm ci --ignore-scripts[0m
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:39.2782293Z [36;1mnpm run build -w packages/mcp-license -w servers/duplicate-invoice-check[0m
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:39.2823550Z shell: /usr/bin/bash -e {0}
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:39.2823925Z ##[endgroup]
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:42.0595341Z npm warn deprecated jpeg-exif@1.1.4: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:42.2315767Z npm warn deprecated crypto-js@4.2.0: Active development of CryptoJS has been discontinued. This library is no longer maintained.
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8377931Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8379081Z added 346 packages, and audited 405 packages in 5s
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8379484Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8379758Z 78 packages are looking for funding
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8380190Z   run `npm fund` for details
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8439744Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8441029Z 7 vulnerabilities (1 low, 3 moderate, 2 high, 1 critical)
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8441450Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8441824Z To address issues that do not require attention, run:
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8442163Z   npm audit fix
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8442332Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8442564Z To address all issues possible (including breaking changes), run:
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8442956Z   npm audit fix --force
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8443079Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8443267Z Some issues need review, and may require choosing
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8443563Z a different dependency.
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8443720Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.8443839Z Run `npm audit` for details.
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.9611043Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.9611863Z > @theluckystrike/mcp-license@0.22.7 build
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.9612445Z > tsc -p tsconfig.json
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:43.9612659Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7162886Z ##[error]src/profile.ts(5,29): error TS2307: Cannot find module '@theluckystrike/mcp-timezone/lib' or its corresponding type declarations.
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7261032Z npm error Lifecycle script `build` failed with error:
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7261865Z npm error code 2
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7262378Z npm error path /home/runner/work/mcp-servers/mcp-servers/packages/mcp-license
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7262933Z npm error workspace @theluckystrike/mcp-license@0.22.7
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7263742Z npm error location /home/runner/work/mcp-servers/mcp-servers/packages/mcp-license
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7264137Z npm error command failed
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7264482Z npm error command sh -c tsc -p tsconfig.json
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7264640Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7268365Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7268635Z > @theluckystrike/mcp-duplicate-invoice-check@0.22.8 build
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7269212Z > tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:44.7269510Z
+Billing preflight	Build duplicate-invoice schema for browser adapter tests	2026-10-16T09:45:45.8080511Z ##[error]Process completed with exit code 2.

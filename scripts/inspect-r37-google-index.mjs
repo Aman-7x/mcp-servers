@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 // Read-only Google indexed-version inspection using the existing service account.
 import { createSign } from 'node:crypto';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+const args=process.argv.slice(2);
+if(args.length && (args.length!==2 || args[0]!=='--output' || !/^data\/r37_google_index_after_[a-z0-9_]+\.json$/.test(args[1]))) throw Error('Use --output data/r37_google_index_after_<label>.json');
+const output=new URL('../'+(args[1]||'data/r37_google_index_inspection.json'),import.meta.url);
+if(existsSync(output)) throw Error('Refusing to overwrite an existing index-inspection snapshot');
 const urls = [
  ['new_product','https://mcp.zovo.one/s/duplicate-invoice-check'],
  ['new_guide','https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude'],
@@ -28,4 +32,4 @@ try{
  result.status=result.urls.every(row=>row.status==='measured')?'measured':'partial';
 }catch(error){result.status='unavailable';result.auth_error={http_status:error.http_status??null,api_status:error.api_status??null};}
 result.completed_at=new Date().toISOString();result.limits=['Indexed-version snapshot only; no live crawl, indexing submission, position, traffic or customer inference.','Unknown/not-indexed URLs are not treated as request failures. API failures remain unavailable.'];
-writeFileSync(new URL('../data/r37_google_index_inspection.json',import.meta.url),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));
+writeFileSync(output,JSON.stringify(result,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify(result));
