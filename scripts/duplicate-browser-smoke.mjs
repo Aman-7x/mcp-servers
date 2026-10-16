@@ -9,6 +9,7 @@ import { homedir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { chromium } from '@playwright/test';
 import worker from '../billing/src/index.js';
+import { CSV_REQUIRED_COLUMNS, CSV_TEMPLATE, CSV_MAX_FILE_BYTES } from '../billing/browser/duplicate-csv.mjs';
 
 const baseWork = join(homedir(), 'mcp-servers-work'); mkdirSync(baseWork, { recursive: true });
 const profile = mkdtempSync(join(baseWork, 'r37-duplicate-browser-'));
@@ -23,6 +24,7 @@ const server = createServer(async (req, res) => {
 });
 server.listen(0, '127.0.0.1'); await once(server, 'listening');
 const live = process.argv.includes('--live');
+const csvMode = process.argv.includes('--csv');
 const origin = live ? 'https://mcp.zovo.one' : 'http://127.0.0.1:' + server.address().port;
 let browser;
 const errors = [], requests = [], cases = [];
@@ -95,6 +97,98 @@ try {
   assert.match(await status.textContent(), /at most 2 MiB/);
   cases.push('1001 records and more than 2 MiB UTF-8 JSON text rejected');
   await preset('worked');
+  const baselineCaseCount = cases.length;
+  if (csvMode) {
+    const csvFile = page.locator('#duplicate-demo-csv-file');
+    const csvStatus = page.locator('#duplicate-demo-csv-status');
+    const importFile = async (text, name = 'synthetic.csv') => {
+      await csvFile.setInputFiles({ name, mimeType: 'text/csv', buffer: Buffer.isBuffer(text) ? text : Buffer.from(text) });
+    };
+    const imported = () => page.waitForFunction(() => document.getElementById('duplicate-demo-csv-status').textContent.startsWith('Imported'));
+    const rejected = () => page.waitForFunction(() => document.getElementById('duplicate-demo-csv-status').textContent.startsWith('CSV import rejected'));
+    const quoted = value => '"' + String(value).replaceAll('"', '""') + '"';
+    const asCsv = (records, columns = CSV_REQUIRED_COLUMNS) => columns.join(',') + '\r\n' + records.map(r => columns.map(c => quoted(r[c] ?? '')).join(',')).join('\r\n') + '\r\n';
+    const base = JSON.parse(await page.locator('#duplicate-demo-input').inputValue()).records[0];
+    await page.locator('#duplicate-demo .csv-import summary').click();
+    await page.click('#duplicate-demo-csv-sample');
+    assert.deepEqual((await result()).summary, initial.summary);
+    assert.equal(await page.locator('#duplicate-demo-preset').inputValue(), 'custom');
+    cases.push('copyable sample CSV imports the complete four-record diagnosis locally');
+    const reference = '000é, "réf"';
+    const source = [{ ...base, record_id: '0001', entity_id: '001', supplier_id: 'Supplier "é", SA', invoice_number: reference }, { ...base, record_id: '0002', entity_id: '001', supplier_id: 'Supplier "é", SA', invoice_number: reference, total_minor: 15000, invoice_date: '2026-10-17' }];
+    await importFile('\uFEFF' + asCsv(source)); await imported();
+    report = await result(); assert.deepEqual(report.records, source);
+    assert.deepEqual(report.groups.map(g => g.rule).sort(), ['exact_reference', 'normalized_reference']);
+    assert.deepEqual(JSON.parse(await page.locator('#duplicate-demo-input').inputValue()), { records: source, save: false });
+    cases.push('actual UTF-8 CSV file preserves quoted comma quote Unicode leading-zero IDs and conflicting evidence');
+    await importFile(asCsv([{ ...base, invoice_number: '<img src="/csv-must-not-request" onerror="alert(1)">' }])); await imported();
+    assert.equal(await page.locator('#duplicate-demo-records img').count(), 0);
+    assert.match(await page.locator('#duplicate-demo-records').textContent(), /<img/);
+    cases.push('CSV source reference remains inert text');
+    for (const text of [CSV_TEMPLATE.replace('record_id,', 'unknown,'), '\uFEFF\uFEFF' + CSV_TEMPLATE, CSV_TEMPLATE + '\n', asCsv([base, base]), asCsv([{ ...base, total_minor: 0 }]), asCsv([{ ...base, invoice_date: '2026-02-30' }]), asCsv([{ ...base, invoice_number: 'broken\nreference' }])]) {
+      await importFile(text); await rejected();
+      assert.equal(await page.locator('#duplicate-demo-output').textContent(), '');
+      assert.equal(await page.locator('#duplicate-demo-records tr').count(), 0);
+      assert.equal(await page.locator('#duplicate-demo-input').inputValue(), '');
+    }
+    cases.push('bad CSV headers blank rows duplicate IDs money dates and controls reject the whole batch and clear stale results');
+    await page.evaluate(() => {
+      window.__csvOriginalRead = File.prototype.arrayBuffer; window.__csvReads = 0;
+      File.prototype.arrayBuffer = function () { window.__csvReads++; return window.__csvOriginalRead.call(this); };
+    });
+    await importFile(Buffer.alloc(CSV_MAX_FILE_BYTES + 1, 97), 'oversize.csv'); await rejected();
+    assert.equal(await page.evaluate(() => window.__csvReads), 0);
+    await importFile(Buffer.alloc(0), 'empty.csv'); await rejected();
+    assert.equal(await page.evaluate(() => window.__csvReads), 0);
+    cases.push('oversized and empty CSV files rejected before any file read');
+    await importFile(Buffer.from([0xc3, 0x28]), 'invalid-utf8.csv'); await rejected();
+    assert.equal(await page.locator('#duplicate-demo-output').textContent(), '');
+    cases.push('invalid UTF-8 rejected instead of replacing source characters');
+    await importFile(asCsv(Array.from({ length: 1001 }, (_, i) => ({ ...base, record_id: 'CSV-' + i })))); await rejected();
+    assert.match(await status.textContent(), /1,000-record limit/);
+    cases.push('CSV 1001-record batch rejected without partial acceptance');
+    await page.evaluate(() => {
+      window.__csvPending = [];
+      File.prototype.arrayBuffer = function () {
+        if (this.name.startsWith('deferred-')) return new Promise((resolve, reject) => window.__csvPending.push({ resolve, reject, file: this }));
+        return window.__csvOriginalRead.call(this);
+      };
+    });
+    const releaseOldRead = async (reject = false) => {
+      await page.evaluate(async reject => { const pending = window.__csvPending.shift(); if (reject) pending.reject(Error('Older read failed')); else pending.resolve(await window.__csvOriginalRead.call(pending.file)); }, reject);
+      await page.waitForTimeout(30);
+    };
+    await importFile(asCsv([{ ...base, invoice_number: 'OLD-CSV' }]), 'deferred-first.csv');
+    assert.equal(await page.locator('#duplicate-demo-output').textContent(), '');
+    await importFile(asCsv([{ ...base, invoice_number: 'NEW-CSV' }]), 'newer.csv'); await imported();
+    await releaseOldRead(); assert.equal((await result()).records[0].invoice_number, 'NEW-CSV');
+    cases.push('an older file read cannot overwrite a newer CSV diagnosis');
+    await importFile(asCsv([{ ...base, invoice_number: 'OLD-CSV' }]), 'deferred-preset.csv');
+    await preset('zeros'); await releaseOldRead();
+    assert.equal((await result()).status, 'no_candidates_in_supplied_batch');
+    assert.notEqual((await result()).records[0].invoice_number, 'OLD-CSV');
+    cases.push('preset changes discard pending CSV completions');
+    await importFile(asCsv([{ ...base, invoice_number: 'OLD-CSV' }]), 'deferred-edit.csv');
+    const manual = { records: [{ ...base, invoice_number: 'MANUAL-JSON' }], save: false };
+    await page.fill('#duplicate-demo-input', JSON.stringify(manual)); await releaseOldRead();
+    assert.equal(await page.locator('#duplicate-demo-output').textContent(), '');
+    assert.deepEqual(JSON.parse(await page.locator('#duplicate-demo-input').inputValue()), manual);
+    await page.click('#duplicate-demo-form button');
+    assert.equal((await result()).records[0].invoice_number, 'MANUAL-JSON');
+    cases.push('manual edits discard pending CSV reads and require a new explicit check');
+    await importFile(asCsv([{ ...base, invoice_number: 'OLD-CSV' }]), 'deferred-submit.csv');
+    await page.locator('#duplicate-demo-input').evaluate((el, value) => { el.value = value; }, JSON.stringify(manual));
+    await page.click('#duplicate-demo-form button'); await releaseOldRead(true);
+    assert.equal((await result()).records[0].invoice_number, 'MANUAL-JSON');
+    assert.doesNotMatch(await csvStatus.textContent(), /rejected|Older read failed/);
+    cases.push('manual submit discards an older read rejection without replacing current evidence');
+    await csvFile.setInputFiles([]);
+    assert.equal(await page.locator('#duplicate-demo-output').textContent(), '');
+    cases.push('clearing file selection clears previous evidence');
+    await page.evaluate(() => { File.prototype.arrayBuffer = window.__csvOriginalRead; });
+    await page.click('#duplicate-demo-csv-sample');
+    await page.locator('#duplicate-demo-input').evaluate(el => { el.scrollTop = 0; });
+  }
   await page.waitForTimeout(100);
   assert.equal(requests.length, requestCount, 'Editing/running diagnostics caused a network request');
   assert.deepEqual(await page.evaluate(() => window.__storageAttempts), []);
@@ -102,15 +196,16 @@ try {
   assert.deepEqual(errors, []);
   const screenshots = [];
   if (process.argv.includes('--screenshots')) {
-    const prefix = live ? 'intel/R37-duplicate-demo-live' : 'intel/R37-duplicate-demo';
+    const prefix = csvMode ? (live ? 'intel/R37-csv-demo-live' : 'intel/R37-csv-demo') : (live ? 'intel/R37-duplicate-demo-live' : 'intel/R37-duplicate-demo');
     screenshots.push(prefix + '-desktop.png', prefix + '-mobile.png');
     await page.locator('#duplicate-demo').screenshot({ path: screenshots[0] });
     await page.setViewportSize({ width: 390, height: 844 });
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Mobile page overflows horizontally');
     await page.locator('#duplicate-demo').screenshot({ path: screenshots[1] });
   }
-  const evidence = { at: new Date().toISOString(), origin: live ? 'https://mcp.zovo.one (marked synthetic GET probes)' : 'local read-only Worker bridge', browser: await browser.browser().version(), cases, passed: cases.length, diagnostic_network_requests: requests.length - requestCount, browser_storage_writes: 0, field_values_uploaded: false, page_errors: errors, screenshots };
-  writeFileSync(live ? 'data/r37_duplicate_browser_live_verification.json' : 'data/r37_duplicate_browser_verification.json', JSON.stringify(evidence, null, 2) + '\n');
+  const evidence = { at: new Date().toISOString(), origin: live ? 'https://mcp.zovo.one (marked synthetic GET probes)' : 'local read-only Worker bridge', browser: await browser.browser().version(), cases, passed: cases.length, ...(csvMode ? { baseline_cases_passed: baselineCaseCount, csv_cases_passed: cases.length - baselineCaseCount } : {}), diagnostic_network_requests: requests.length - requestCount, browser_storage_writes: 0, field_values_uploaded: false, page_errors: errors, screenshots };
+  const evidenceFile = csvMode ? (live ? 'data/r37_csv_browser_live_verification.json' : 'data/r37_csv_browser_verification.json') : (live ? 'data/r37_duplicate_browser_live_verification.json' : 'data/r37_duplicate_browser_verification.json');
+  writeFileSync(evidenceFile, JSON.stringify(evidence, null, 2) + '\n');
   console.log(`PASS: ${cases.length} browser cases; zero diagnostic requests, storage writes or page errors`);
 } finally {
   await browser?.close(); await new Promise(resolve => server.close(resolve));

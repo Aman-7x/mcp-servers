@@ -7,7 +7,7 @@ import { DUPLICATE_DEMO_INPUT_SHA256, DUPLICATE_DEMO_JAVASCRIPT } from '../src/d
 
 test('duplicate-reference buyer proof serves the actual comparison core with fresh provenance', async () => {
   const hash = createHash('sha256');
-  for (const file of ['servers/duplicate-invoice-check/src/core.ts', 'billing/browser/duplicate-demo.mjs']) {
+  for (const file of ['servers/duplicate-invoice-check/src/core.ts', 'billing/browser/duplicate-demo.mjs', 'billing/browser/duplicate-csv.mjs']) {
     hash.update(file); hash.update(readFileSync(new URL('../../' + file, import.meta.url)));
   }
   assert.equal(hash.digest('hex'), DUPLICATE_DEMO_INPUT_SHA256, 'Rebuild the browser asset after a core or UI edit');
@@ -21,6 +21,8 @@ test('duplicate-reference buyer proof serves the actual comparison core with fre
   assert.equal(response.status, 200);
   const guide = await response.text();
   assert.match(guide, /id="duplicate-demo-form"/);
+  assert.match(guide, /id="duplicate-demo-csv-file"[^>]*type="file"/);
+  assert.match(guide, /id="duplicate-demo-csv-sample"/);
   assert.match(guide, /src="\/assets\/duplicate-demo\.js"/);
   assert.match(guide, /same_amount_date/);
   assert.match(guide, /preserves leading zeros/i);

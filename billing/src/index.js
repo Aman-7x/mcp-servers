@@ -264,7 +264,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 204;
+export const BILLING_TEST_COUNT = 215;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -775,9 +775,9 @@ function home() {
 </ol>
 <p class="muted">Suite hubs: <a href="/suites/freelancer">freelancer</a>, <a href="/suites/documents">documents</a>, <a href="/suites/field-ops">field ops</a>.</p>
 <p class="muted">${NPM_PENDING_NOTE} The first three paths above need no npm.</p>
-<p>A Pro key removes the free-tier limits on any of these three paths: run <code>license_activate</code> with the key in Claude, set <code>MCP_LICENSE_KEY</code>, or paste the key where the connect-by-URL token goes. Keys verify offline; nothing is sent anywhere after checkout. Refunds within 14 days: support@zovo.one.</p>
-<h2>Measured, not claimed</h2>
-<p>As of ${VALIDATION.at}: ${VALIDATION.pass} of ${VALIDATION.total} automated checks passing across all ${VALIDATION.servers} servers, ${BILLING_TEST_COUNT} unit tests green on the billing service, and a <code>tools/list</code> call answers at a ${VALIDATION.medianMs}&nbsp;ms median (p50) across those servers. Full detail: <a href="${REPO}/blob/main/data/validation.json">validation.json</a>.</p>
+<p>A Pro key removes the free-tier limits on any of these three paths: run <code>license_activate</code> with the key in Claude, set <code>MCP_LICENSE_KEY</code>, or paste the key where the connect-by-URL token goes. Local servers verify the license signature offline without contacting a licensing service. Refunds within 14 days: support@zovo.one.</p>
+<h2>Dated validation snapshot</h2>
+<p>The ${VALIDATION.at} snapshot recorded ${VALIDATION.pass} of ${VALIDATION.total} automated checks passing across ${VALIDATION.servers} tested servers, with <code>tools/list</code> at a ${VALIDATION.medianMs}&nbsp;ms median (p50). This historical snapshot does not certify every currently listed build. Full detail: <a href="${REPO}/blob/main/data/validation.json">validation.json</a>.</p>
 <h2 id="servers">Free and Pro limits, server by server</h2>
 <table><tr><th>Product</th><th>Price</th><th></th></tr>${rows}</table>
 <h2>Hosted endpoints</h2><p>No install: <a href="/mcp/connect?acq=store.product">/mcp/connect</a> mints an anonymous token and prints a URL per server, <code>mcp.zovo.one/mcp/&lt;server&gt;/t/&lt;token&gt;</code>, that needs no headers. A Pro key can replace the token to remove free-tier limits.</p><h2>How activation works</h2>

@@ -1,7 +1,6 @@
 // GET /changelog is generated at scripts/build-pages.mjs time from docs/RELEASE_V*.md into
 // billing/src/pages.js (CHANGELOG). Every version present in docs/ must appear on the page,
-// and the newest version must render first, since the source files are read newest-first by
-// the build script's own version sort.
+// and release dates determine chronology across different semantic version lines.
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
@@ -36,17 +35,12 @@ test("every release version under docs/ appears on the changelog page", async ()
   }
 });
 
-test("the newest version renders first in CHANGELOG.releases and on the page", async () => {
-  const versions = versionsFromDocs();
-  const numeric = versions.map((v) => v.slice(1).split(".").map(Number));
-  numeric.sort((a, b) => {
-    for (let i = 0; i < 3; i++) if (a[i] !== b[i]) return b[i] - a[i];
-    return 0;
-  });
-  const newest = "v" + numeric[0].join(".");
-
-  assert.equal(CHANGELOG.releases[0].version, newest);
-  assert.equal(CHANGELOG.currentVersion, newest);
+test("the most recently dated release renders first in CHANGELOG and on the page", async () => {
+  const dated = CHANGELOG.releases.filter(r => /^\d{4}-\d{2}-\d{2}$/.test(r.date || ''));
+  const latestDate = dated.map(r => r.date).sort().at(-1);
+  assert.equal(CHANGELOG.releases[0].date, latestDate);
+  assert.equal(CHANGELOG.currentVersion, CHANGELOG.releases[0].version);
+  for (let i = 1; i < dated.length; i++) assert.ok(dated[i - 1].date >= dated[i].date, 'Release dates must descend even across different semantic version lines');
 
   const req = new Request("https://mcp.zovo.one/changelog");
   const res = await worker.fetch(req, {}, { waitUntil: () => {} });
@@ -65,7 +59,11 @@ test("no sentence on the changelog page is invented: evidence and insight text t
   // exact substring match against the raw, line-wrapped markdown.
   const norm = (s) => s.replace(/\s+/g, " ").trim();
   for (const r of CHANGELOG.releases) {
-    const content = norm(readFileSync(join(DOCS, r.file), "utf8"));
+    const raw = readFileSync(join(DOCS, r.file), "utf8");
+    const header = /^#\s*Release\s+(v[0-9]+\.[0-9]+\.[0-9]+)(?:\s*\((\d{4}-\d{2}-\d{2})\))?/im.exec(raw);
+    assert.equal(r.version, header[1]);
+    assert.equal(r.date, header[2] || null);
+    const content = norm(raw);
     if (r.evidence) assert.ok(content.includes(norm(r.evidence)), `${r.file}: evidence not found verbatim in source`);
     if (r.insightSentence) assert.ok(content.includes(norm(r.insightSentence)), `${r.file}: insight sentence not found verbatim in source`);
   }
