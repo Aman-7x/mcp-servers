@@ -105,8 +105,8 @@ export async function probeBuyPages(fetcher = fetch) {
       accept: "text/html,application/xhtml+xml",
       "sec-fetch-mode": "navigate",
       "sec-fetch-dest": "document",
+      "x-mcp-probe": "1",
     };
-    if (path.includes("release.gate.probe")) headers["x-mcp-probe"] = "1";
     const response = await fetcher(`${ORIGIN}${path}`, { method: "GET", headers, redirect: "manual", cache: "no-store" });
     const body = await response.text();
     assertIntentResponse(response.status, response.headers, body, path);
