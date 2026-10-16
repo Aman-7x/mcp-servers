@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T08:24:01.828Z",
+  "generated_at": "2026-10-16T11:29:03.576Z",
   "kpis": [
     {
       "cat": "Discovery",
@@ -58,18 +58,17 @@
       "name": "Google impressions, storefront",
       "value": 34,
       "target": 1,
-      "unit": "impressions, 29 dates",
-      "how": "GSC host-filtered date query, HTTP/API errors checked; control zovo.one: 5486 impressions/49 clicks",
+      "unit": "impressions, 29 frozen dates",
+      "how": "GSC finalized page rows, exact MCP URL.hostname check, parent-host nonzero positive control; frozen prelaunch window.",
       "why": "Finalized exact-host search impressions for Sep 15–Oct 13; 34 impressions and zero clicks precede the matcher launch.",
       "status": "measured",
-      "stale": true,
-      "measured_at": "2026-10-16T00:24:26.503Z",
+      "stale": false,
+      "measured_at": "2026-10-16T11:29:00.920Z",
       "window": {
         "start": "2026-09-15",
         "end": "2026-10-13"
       },
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
-      "source_artifact": "data/r36_kpi_audit.json"
+      "source_artifact": "data/r37_kpi_final.json"
     },
     {
       "cat": "Discovery",
@@ -133,17 +132,17 @@
       "name": "GitHub unique visitors",
       "value": 32,
       "target": 200,
-      "unit": "GitHub uniques, 14 dates",
-      "how": "gh api repos/theluckystrike/mcp-servers/traffic/views; source dataset Oct 2–15, platform-reported clients, not independently verified people or installs",
+      "unit": "GitHub uniques, rolling source dates",
+      "how": "GitHub traffic/views API; platform-reported clients, not proven people or successful jobs.",
       "why": "Repository reach is observable; visitor identities and successful usage are unproven.",
       "status": "measured",
       "stale": false,
-      "measured_at": "2026-10-16T07:37:10.093Z",
+      "measured_at": "2026-10-16T11:29:00.784Z",
       "window": {
         "start": "2026-10-02",
         "end": "2026-10-15"
       },
-      "source_artifact": "data/r37_kpi_baseline.json"
+      "source_artifact": "data/r37_kpi_final.json"
     },
     {
       "cat": "Install",
@@ -337,15 +336,15 @@
       "value": 0,
       "target": 50,
       "unit": "sessions, 7d",
-      "how": "Stripe live list; exact MCP success_url hostname; latest 100 reach Sep 24 and cover the full window; two tagged operator probes excluded; untagged does not mean human",
+      "how": "Stripe live fully covered seven-day window; exact MCP success_url hostname; tagged probes excluded; untagged is not verified human.",
       "status": "zero",
       "stale": false,
-      "measured_at": "2026-10-16T07:37:11.126Z",
+      "measured_at": "2026-10-16T11:29:02.034Z",
       "window": {
-        "start": "2026-10-09T07:37:09.441Z",
-        "end": "2026-10-16T07:37:09.441Z"
+        "start": "2026-10-09T11:29:00.005Z",
+        "end": "2026-10-16T11:29:00.005Z"
       },
-      "source_artifact": "data/r37_kpi_baseline.json"
+      "source_artifact": "data/r37_kpi_final.json"
     },
     {
       "cat": "Monetization",
@@ -353,15 +352,15 @@
       "value": 0,
       "target": 5,
       "unit": "paid sessions, 7d",
-      "how": "Same completely covered Stripe window; payment_status=paid and metadata.probe!=1; exact MCP success_url hostname",
+      "how": "Same fully covered Stripe window; payment_status=paid, exact MCP success_url hostname, metadata.probe!=1.",
       "status": "zero",
       "stale": false,
-      "measured_at": "2026-10-16T07:37:11.126Z",
+      "measured_at": "2026-10-16T11:29:02.034Z",
       "window": {
-        "start": "2026-10-09T07:37:09.441Z",
-        "end": "2026-10-16T07:37:09.441Z"
+        "start": "2026-10-09T11:29:00.005Z",
+        "end": "2026-10-16T11:29:00.005Z"
       },
-      "source_artifact": "data/r37_kpi_baseline.json"
+      "source_artifact": "data/r37_kpi_final.json"
     },
     {
       "cat": "Monetization",
@@ -400,16 +399,16 @@
       "value": null,
       "target": 40,
       "unit": "%",
-      "how": "Undefined: no verified aligned-window click/buyer denominator. Retained R36 clicks and current R37 Stripe Sessions must not be divided.",
+      "how": "Undefined: no verified aligned-window buyer/click denominator. No cross-window or person-level conversion claim.",
       "why": "A ratio requires matched populations and time windows; request counters cannot identify buyers.",
       "status": "unmeasured",
       "stale": false,
-      "measured_at": "2026-10-16T08:24:01.828Z",
+      "measured_at": "2026-10-16T11:29:03.571Z",
       "window": {
-        "start": "2026-10-09T07:37:09.441Z",
-        "end": "2026-10-16T07:37:09.441Z"
+        "start": "2026-10-09T11:29:00.005Z",
+        "end": "2026-10-16T11:29:00.005Z"
       },
-      "source_artifact": "data/r37_kpi_baseline.json"
+      "source_artifact": "data/r37_kpi_final.json"
     },
     {
       "cat": "Monetization",
@@ -519,19 +518,33 @@
       "name": "Recorded MCP paid Checkout gross (available completed history)",
       "target": null,
       "value": 0,
-      "unit": "gross paid amount; no paid MCP Sessions",
-      "how": "Stripe live status=complete list exhausted in two pages; 182 paid shared-account Sessions prove nonzero reads; zero exact-host MCP Sessions. Not all payment channels, net revenue or profit.",
-      "measured_at": "2026-10-16T07:37:13.108Z",
+      "unit": "paid Checkout gross; available completed history",
+      "how": "Stripe completed-Session pagination exhausted; shared-account paid count is positive read control. Not all payment channels, net revenue or profit.",
+      "measured_at": "2026-10-16T11:29:03.571Z",
       "window": {
-        "scope": "All available completed Checkout Sessions at snapshot; not a seven-day or all-payment-channel total",
-        "oldest_account_completed_at": "2024-10-09T14:18:09.000Z",
-        "newest_account_completed_at": "2026-10-15T13:47:49.000Z"
+        "scope": "All available completed Checkout Sessions at this snapshot"
       },
       "stale": false,
       "status": "zero",
-      "source_artifact": "data/r37_kpi_baseline.json",
+      "source_artifact": "data/r37_kpi_final.json",
       "why": "Commercial outcome measured separately from shared-account sales and synthetic unpaid QA.",
       "currency_totals_minor": {}
+    },
+    {
+      "name": "Google clicks, storefront",
+      "cat": "Discovery",
+      "target": null,
+      "value": 0,
+      "unit": "clicks, 29 frozen dates",
+      "how": "Same finalized GSC exact-host rows and frozen window; no postlaunch outcome claim.",
+      "measured_at": "2026-10-16T11:29:00.920Z",
+      "window": {
+        "start": "2026-09-15",
+        "end": "2026-10-13"
+      },
+      "stale": false,
+      "status": "zero",
+      "source_artifact": "data/r37_kpi_final.json"
     }
   ],
   "raw": {
@@ -630,9 +643,269 @@
         "Different model/search environment from older rounds; no causal ranking or revenue claim",
         "Some public product pages contain historical test references; runner says those were not followed"
       ]
+    },
+    "r37_final": {
+      "source": "data/r37_kpi_final.json",
+      "stripe_7d": {
+        "status": "OK",
+        "fetched_at": "2026-10-16T11:29:02.034Z",
+        "window": {
+          "start": "2026-10-09T11:29:00.005Z",
+          "end": "2026-10-16T11:29:00.005Z"
+        },
+        "method": "stripe checkout sessions list --live --limit 100; paginate until exhausted or oldest record predates window",
+        "pages": 1,
+        "records_read": 100,
+        "oldest_record_at": "2026-09-25T05:50:30.000Z",
+        "entire_window_covered": true,
+        "nonzero_account_read_control": true,
+        "mcp_total_sessions": 4,
+        "mcp_tagged_probes": 4,
+        "mcp_untagged_sessions": 0,
+        "mcp_untagged_paid_sessions": 0,
+        "mcp_untagged_paid_checkout_gross_minor_by_currency": {},
+        "limitations": [
+          "Untagged does not establish a person.",
+          "Explicit probe=1 Sessions excluded from commercial totals; expected four earlier probes are not hardcoded into results."
+        ]
+      },
+      "stripe_completed": {
+        "status": "OK",
+        "fetched_at": "2026-10-16T11:29:03.571Z",
+        "method": "stripe get /v1/checkout/sessions --live -d status=complete -d limit=100; cursor pagination to has_more=false",
+        "pages": 2,
+        "complete_history_of_completed_sessions": true,
+        "counts": {
+          "account_completed": 182,
+          "account_paid": 182,
+          "mcp_completed": 0,
+          "mcp_tagged_probes": 0,
+          "mcp_untagged_completed": 0,
+          "mcp_untagged_paid": 0
+        },
+        "oldest_account_completed_at": "2024-10-09T14:18:09.000Z",
+        "newest_account_completed_at": "2026-10-15T13:47:49.000Z",
+        "paid_account_positive_control": true,
+        "mcp_untagged_paid_checkout_gross_minor_by_currency": {},
+        "limitations": [
+          "All available completed Checkout Sessions, not every Stripe payment channel.",
+          "Gross before fees/refunds/disputes/taxes; not net revenue or profit.",
+          "Other-storefront counts are read controls; unrelated amounts omitted."
+        ]
+      },
+      "github": {
+        "status": "OK",
+        "fetched_at": "2026-10-16T11:29:00.784Z",
+        "method": "gh api repos/theluckystrike/mcp-servers/traffic/{views,clones,popular/referrers}; repository GET",
+        "window": {
+          "start": "2026-10-02",
+          "end": "2026-10-15"
+        },
+        "views": 58,
+        "unique_visitors": 32,
+        "views_daily": [
+          {
+            "date": "2026-10-02",
+            "count": 2,
+            "uniques": 2
+          },
+          {
+            "date": "2026-10-03",
+            "count": 2,
+            "uniques": 2
+          },
+          {
+            "date": "2026-10-04",
+            "count": 4,
+            "uniques": 1
+          },
+          {
+            "date": "2026-10-05",
+            "count": 3,
+            "uniques": 3
+          },
+          {
+            "date": "2026-10-06",
+            "count": 8,
+            "uniques": 3
+          },
+          {
+            "date": "2026-10-07",
+            "count": 2,
+            "uniques": 2
+          },
+          {
+            "date": "2026-10-08",
+            "count": 12,
+            "uniques": 9
+          },
+          {
+            "date": "2026-10-09",
+            "count": 5,
+            "uniques": 5
+          },
+          {
+            "date": "2026-10-10",
+            "count": 1,
+            "uniques": 1
+          },
+          {
+            "date": "2026-10-11",
+            "count": 0,
+            "uniques": 0
+          },
+          {
+            "date": "2026-10-12",
+            "count": 1,
+            "uniques": 1
+          },
+          {
+            "date": "2026-10-13",
+            "count": 3,
+            "uniques": 2
+          },
+          {
+            "date": "2026-10-14",
+            "count": 4,
+            "uniques": 3
+          },
+          {
+            "date": "2026-10-15",
+            "count": 11,
+            "uniques": 7
+          }
+        ],
+        "clones": 3457,
+        "clone_unique_clients": 279,
+        "clones_daily": [
+          {
+            "date": "2026-10-02",
+            "count": 33,
+            "uniques": 12
+          },
+          {
+            "date": "2026-10-03",
+            "count": 43,
+            "uniques": 12
+          },
+          {
+            "date": "2026-10-04",
+            "count": 791,
+            "uniques": 14
+          },
+          {
+            "date": "2026-10-05",
+            "count": 90,
+            "uniques": 16
+          },
+          {
+            "date": "2026-10-06",
+            "count": 71,
+            "uniques": 24
+          },
+          {
+            "date": "2026-10-07",
+            "count": 265,
+            "uniques": 51
+          },
+          {
+            "date": "2026-10-08",
+            "count": 230,
+            "uniques": 28
+          },
+          {
+            "date": "2026-10-09",
+            "count": 148,
+            "uniques": 28
+          },
+          {
+            "date": "2026-10-10",
+            "count": 28,
+            "uniques": 10
+          },
+          {
+            "date": "2026-10-11",
+            "count": 267,
+            "uniques": 12
+          },
+          {
+            "date": "2026-10-12",
+            "count": 91,
+            "uniques": 34
+          },
+          {
+            "date": "2026-10-13",
+            "count": 41,
+            "uniques": 17
+          },
+          {
+            "date": "2026-10-14",
+            "count": 1134,
+            "uniques": 77
+          },
+          {
+            "date": "2026-10-15",
+            "count": 225,
+            "uniques": 79
+          }
+        ],
+        "referrers": [
+          {
+            "referrer": "Google",
+            "count": 3,
+            "uniques": 2
+          },
+          {
+            "referrer": "github.com",
+            "count": 2,
+            "uniques": 2
+          },
+          {
+            "referrer": "registry.modelcontextprotocol.io",
+            "count": 2,
+            "uniques": 1
+          }
+        ],
+        "stars": 2,
+        "forks": 0,
+        "nonzero_read_control": true,
+        "limitations": [
+          "Platform-reported clients, not proven people, installs or successful jobs.",
+          "Rolling dataset can lag; daily unique clients are not additive."
+        ]
+      },
+      "search_console": {
+        "status": "OK",
+        "fetched_at": "2026-10-16T11:29:00.920Z",
+        "method": "Read-only service-account OAuth; GSC searchAnalytics/query, finalized page rows, contains-host prefilter then URL.hostname exact check; row cap checked",
+        "window": {
+          "start": "2026-09-15",
+          "end": "2026-10-13"
+        },
+        "data_state": "final",
+        "mcp": {
+          "host": "mcp.zovo.one",
+          "rows_returned": 3,
+          "exact_host_page_rows": 3,
+          "clicks": 0,
+          "impressions": 34
+        },
+        "positive_control": {
+          "host": "zovo.one",
+          "rows_returned": 317,
+          "exact_host_page_rows": 317,
+          "clicks": 49,
+          "impressions": 5486
+        },
+        "query_row_limit": 25000,
+        "limitations": [
+          "Frozen 29-date prelaunch window; refresh is not current-day or postlaunch search evidence.",
+          "Search Console excludes some data; page totals are not indexed-page counts."
+        ]
+      }
     }
   },
-  "audit_source": "data/r37_kpi_baseline.json",
+  "audit_source": "data/r37_kpi_final.json",
   "windows": {
     "traffic": {
       "start": "2026-10-09T00:23:54Z",
@@ -640,8 +913,8 @@
       "days": 7
     },
     "stripe": {
-      "start": "2026-10-09T07:37:09.441Z",
-      "end": "2026-10-16T07:37:09.441Z"
+      "start": "2026-10-09T11:29:00.005Z",
+      "end": "2026-10-16T11:29:00.005Z"
     },
     "search": {
       "start": "2026-09-15",
@@ -653,9 +926,10 @@
     }
   },
   "audit_sources": {
-    "current": "data/r37_kpi_baseline.json",
+    "current": "data/r37_kpi_final.json",
     "retained": "data/r36_kpi_audit.json",
-    "blind_retained": "data/blind_recommendation_r8.json"
+    "blind_retained": "data/blind_recommendation_r8.json",
+    "initial_r37": "data/r37_kpi_baseline.json"
   },
   "freshness_note": "Only non-stale rows were freshly evaluated from R37 evidence; retained rows preserve actual source timestamps/windows. Data regeneration is not remeasurement."
 }

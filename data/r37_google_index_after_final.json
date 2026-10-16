@@ -1,0 +1,119 @@
+{
+  "at": "2026-10-16T11:20:00.037Z",
+  "method": "POST urlInspection/index:inspect; Google indexed version only, not a live URL test or indexing request",
+  "documentation": "https://developers.google.com/webmaster-tools/v1/urlInspection.index/inspect",
+  "oauth_scope": "https://www.googleapis.com/auth/webmasters.readonly",
+  "property": "sc-domain:zovo.one",
+  "urls": [
+    {
+      "role": "new_product",
+      "url": "https://mcp.zovo.one/s/duplicate-invoice-check",
+      "at": "2026-10-16T11:20:07.542Z",
+      "status": "measured",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverageState": "URL is unknown to Google",
+        "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexingState": "INDEXING_STATE_UNSPECIFIED",
+        "lastCrawlTime": null,
+        "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "googleCanonical": null,
+        "userCanonical": null,
+        "crawledAs": null
+      }
+    },
+    {
+      "role": "new_guide",
+      "url": "https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude",
+      "at": "2026-10-16T11:20:14.575Z",
+      "status": "measured",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverageState": "URL is unknown to Google",
+        "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexingState": "INDEXING_STATE_UNSPECIFIED",
+        "lastCrawlTime": null,
+        "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "googleCanonical": null,
+        "userCanonical": null,
+        "crawledAs": null
+      }
+    },
+    {
+      "role": "matcher_product",
+      "url": "https://mcp.zovo.one/s/three-way-match",
+      "at": "2026-10-16T11:20:21.647Z",
+      "status": "measured",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverageState": "URL is unknown to Google",
+        "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexingState": "INDEXING_STATE_UNSPECIFIED",
+        "lastCrawlTime": null,
+        "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "googleCanonical": null,
+        "userCanonical": null,
+        "crawledAs": null
+      }
+    },
+    {
+      "role": "download_catalogue",
+      "url": "https://mcp.zovo.one/downloads",
+      "at": "2026-10-16T11:20:28.603Z",
+      "status": "measured",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverageState": "Discovered - currently not indexed",
+        "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexingState": "INDEXING_STATE_UNSPECIFIED",
+        "lastCrawlTime": null,
+        "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "googleCanonical": null,
+        "userCanonical": null,
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+      }
+    },
+    {
+      "role": "older_home_control",
+      "url": "https://mcp.zovo.one/",
+      "at": "2026-10-16T11:20:35.799Z",
+      "status": "measured",
+      "index": {
+        "verdict": "PASS",
+        "coverageState": "Submitted and indexed",
+        "robotsTxtState": "ALLOWED",
+        "indexingState": "INDEXING_ALLOWED",
+        "lastCrawlTime": "2026-09-29T11:44:31Z",
+        "pageFetchState": "SUCCESSFUL",
+        "googleCanonical": "https://mcp.zovo.one/",
+        "userCanonical": "https://mcp.zovo.one/",
+        "crawledAs": "MOBILE"
+      }
+    },
+    {
+      "role": "older_invoice_control",
+      "url": "https://mcp.zovo.one/s/invoice",
+      "at": "2026-10-16T11:20:42.984Z",
+      "status": "measured",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverageState": "Discovered - currently not indexed",
+        "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexingState": "INDEXING_STATE_UNSPECIFIED",
+        "lastCrawlTime": null,
+        "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "googleCanonical": null,
+        "userCanonical": null,
+        "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+      }
+    }
+  ],
+  "credentials_printed": false,
+  "indexing_requests": 0,
+  "status": "measured",
+  "completed_at": "2026-10-16T11:20:42.984Z",
+  "limits": [
+    "Indexed-version snapshot only; no live crawl, indexing submission, position, traffic or customer inference.",
+    "Unknown/not-indexed URLs are not treated as request failures. API failures remain unavailable."
+  ]
+}

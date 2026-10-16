@@ -85,3 +85,18 @@ All owned follow-up Chrome contexts were closed; fresh profiles were checked wit
 Root publication update: source merged through PR70/71; three current mirror main commits pass install/build/tests (`data/r37_mirror_ci.json`). The shared generator now includes direct product-page links for local servers and the missing “vendor bills” phrase in new-product metadata. Registry two-name/same-capability rows and all57 download links are verified; IndexNow accepted four live URLs, not indexing proof.
 
 The directory received the free listing at08:51UTC, pending review (`data/r37_directory_submission.json`, screenshot visually inspected). First form attempt timed out because root allowed only POST /submit; current public frontend uses /_serverFn/. The initial transport block is inferred from source and policy, without a first-run rejected-request log. One scoped retry recorded exactly one actual RPC POST, HTTP200 and the success heading. Initial receipt and read-only endpoint diagnosis remain preserved. No email campaign, account sign-in or paid listing occurred.
+
+## Final fixed-query observation
+
+The 11:25:18 UTC snapshot completed with the same eight query texts as all earlier snapshots.
+
+| New mirror query | Position / total |
+| --- | --- |
+| buyer_duplicate_invoice | 1 / 8 |
+| buyer_supplier_invoice | 1 / 1 |
+| buyer_vendor_bills | 1 / 2 |
+| buyer_invoice_duplicate_check | 1 / 1 |
+| exact_capability | 2 / 7 |
+| exact_mirror | 1 / 1 |
+
+The two control queries retain their actual complete result arrays; a null position for the new duplicate mirror is not an API failure. This is documentary search visibility in small result fields, not search volume, people, installs, customer preference or a causal traffic result. [Final snapshot](../data/r37_organic_after_3.json).

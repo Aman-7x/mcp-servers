@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-16T11:34:31.643657+00:00",
+  "status": "passed",
+  "task_started_at": "2026-10-16T07:34:06Z",
+  "four_hour_deadline_at": "2026-10-16T11:34:06Z",
+  "observer_finished_at": "2026-10-16T11:34:08.102Z",
+  "observer_terminal_exit": 0,
+  "observations": 47,
+  "final_checks_pass": true,
+  "health_503_samples": 4,
+  "all_four_recovered_next_sample": true,
+  "observer_started_after_task_start": true,
+  "uninterrupted_four_hour_uptime_claimed": false,
+  "dashboard_error_retained": "dashboard regeneration failed",
+  "dashboard_recovery": "Independent render-main succeeded11:31:09Z; final dashboard render and Chrome QA recorded separately. Original observer flag retained; cause of earlier failure unknown.",
+  "specialists": 10,
+  "kpi_final": "data/r37_kpi_final.json",
+  "final_dashboard_qa": "data/r37_dashboard_verification.json",
+  "desktop_and_mobile_visually_inspected": true,
+  "sound": {
+    "at": "2026-10-16T11:35:04.299902+00:00",
+    "command": "/usr/bin/afplay /System/Library/Sounds/Glass.aiff",
+    "exit_code": 0
+  },
+  "cleanup": {
+    "owned_profiles_closed_and_removed": true,
+    "checkout_private_state_absent": true,
+    "empty_checkout_coordination_lock_retained": true,
+    "remaining_disk_available_gb": 24,
+    "manifest": "data/build-deletions.jsonl"
+  },
+  "ready_at": "2026-10-16T11:35:04.299902+00:00"
+}
