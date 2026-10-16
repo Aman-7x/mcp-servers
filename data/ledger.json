@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T10:13:30.879Z",
+  "generated_at": "2026-10-16T11:05:38.288Z",
   "session": {
     "count": 105,
     "history": [
@@ -449,12 +449,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:16.807Z",
+        "measured_at": "2026-10-16T10:55:18.189Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/amortization/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -510,12 +510,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:17.479Z",
+        "measured_at": "2026-10-16T10:55:18.882Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/asset-register/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -570,12 +570,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:17.847Z",
+        "measured_at": "2026-10-16T10:55:19.547Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/backlink-checker/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -634,12 +634,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:18.268Z",
+        "measured_at": "2026-10-16T10:55:20.103Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/bank-statement/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -696,12 +696,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:18.596Z",
+        "measured_at": "2026-10-16T10:55:20.701Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/barcode/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -758,12 +758,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:19.004Z",
+        "measured_at": "2026-10-16T10:55:21.265Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/bill-of-sale/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -826,12 +826,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:19.324Z",
+        "measured_at": "2026-10-16T10:55:21.702Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/billing-docs/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -877,12 +877,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:19.709Z",
+        "measured_at": "2026-10-16T10:55:22.126Z",
         "status": "unmeasured",
         "reason": "Built entry is missing; no build was attempted",
         "built_entry": "servers/budget/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -946,12 +946,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:19.709Z",
+        "measured_at": "2026-10-16T10:55:22.126Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/calendar/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1007,12 +1007,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:20.028Z",
+        "measured_at": "2026-10-16T10:55:22.481Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/cash-book/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1071,12 +1071,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:20.438Z",
+        "measured_at": "2026-10-16T10:55:22.907Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/catalogue/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1134,12 +1134,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:20.851Z",
+        "measured_at": "2026-10-16T10:55:23.463Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/change-order/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1202,12 +1202,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:21.256Z",
+        "measured_at": "2026-10-16T10:55:23.994Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/checklist/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1266,12 +1266,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:21.681Z",
+        "measured_at": "2026-10-16T10:55:24.418Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/clauses/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1328,12 +1328,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:22.035Z",
+        "measured_at": "2026-10-16T10:55:24.861Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/credit-note/dist/index.js",
         "version": "0.22.8",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1390,12 +1390,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:22.363Z",
+        "measured_at": "2026-10-16T10:55:25.270Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/currency/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1454,12 +1454,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:22.695Z",
+        "measured_at": "2026-10-16T10:55:25.613Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/delivery-schedule/dist/index.js",
         "version": "0.22.7",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1517,12 +1517,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:23.087Z",
+        "measured_at": "2026-10-16T10:55:26.028Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/deposits/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1580,12 +1580,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:23.482Z",
+        "measured_at": "2026-10-16T10:55:26.449Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/docx/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1643,12 +1643,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:23.831Z",
+        "measured_at": "2026-10-16T10:55:26.818Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/dunning-letters/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1703,12 +1703,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:24.162Z",
+        "measured_at": "2026-10-16T10:55:27.174Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/duplicate-invoice-check/dist/index.js",
         "version": "0.22.8",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1747,7 +1747,7 @@
     {
       "id": "expense-tracker",
       "npm_name": "@theluckystrike/mcp-expense-tracker",
-      "version": "0.22.6",
+      "version": "0.22.9",
       "dir": "servers/expense-tracker",
       "tools": [
         "expense_add",
@@ -1769,12 +1769,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:24.491Z",
+        "measured_at": "2026-10-16T10:55:27.521Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/expense-tracker/dist/index.js",
-        "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "version": "0.22.9",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1794,7 +1794,7 @@
         "freshness": "Historical recorded result; inventory collection does not rerun tests"
       },
       "result_status": "DONE",
-      "loc": 1420,
+      "loc": 1423,
       "files_present": {
         "readme": true,
         "server_json": true,
@@ -1804,8 +1804,8 @@
       },
       "distribution": {
         "npm": "unknown",
-        "registry": "unknown",
-        "github": "unknown",
+        "registry": "two_names_verified_0.22.9_one_capability",
+        "github": "https://github.com/theluckystrike/mcp-expense-tracker",
         "smithery": "unknown",
         "glama": "unknown"
       }
@@ -1832,12 +1832,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:24.930Z",
+        "measured_at": "2026-10-16T10:55:27.890Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/goods-receipt/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1889,12 +1889,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:25.269Z",
+        "measured_at": "2026-10-16T10:55:28.235Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/hourly-rate/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -1958,12 +1958,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:25.617Z",
+        "measured_at": "2026-10-16T10:55:28.575Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/image/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -2023,12 +2023,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:26.038Z",
+        "measured_at": "2026-10-16T10:55:29.004Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/invoice/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -2086,12 +2086,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:26.443Z",
+        "measured_at": "2026-10-16T10:55:29.536Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/job-card/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -2155,12 +2155,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:26.794Z",
+        "measured_at": "2026-10-16T10:55:29.945Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/kanban/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -2219,12 +2219,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:27.126Z",
+        "measured_at": "2026-10-16T10:55:30.321Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/leave/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -2270,12 +2270,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:27.511Z",
+        "measured_at": "2026-10-16T10:55:30.802Z",
         "status": "unmeasured",
         "reason": "Built entry is missing; no build was attempted",
         "built_entry": "servers/loan-calculator/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -2335,12 +2335,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:27.511Z",
+        "measured_at": "2026-10-16T10:55:30.803Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/maintenance-log/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -2396,12 +2396,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:27.842Z",
+        "measured_at": "2026-10-16T10:55:31.173Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/mileage-log/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -2440,7 +2440,7 @@
     {
       "id": "office-suite",
       "npm_name": "@theluckystrike/mcp-office-suite",
-      "version": "0.22.8",
+      "version": "0.22.9",
       "dir": "servers/office-suite",
       "tools": [
         "timer_start",
@@ -2895,12 +2895,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:28.168Z",
+        "measured_at": "2026-10-16T10:55:31.558Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/office-suite/dist/index.js",
-        "version": "0.22.8",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "version": "0.22.9",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "| Free | Pro bundle |",
@@ -2930,7 +2930,7 @@
       },
       "distribution": {
         "npm": "unknown",
-        "registry": "two_names_verified_0.22.8_one_capability",
+        "registry": "two_names_verified_0.22.9_one_capability",
         "github": "published mirror theluckystrike/mcp-office-suite",
         "smithery": "unknown",
         "glama": "unknown"
@@ -2956,12 +2956,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:39.256Z",
+        "measured_at": "2026-10-16T10:55:42.683Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/onboarding/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3022,12 +3022,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:39.676Z",
+        "measured_at": "2026-10-16T10:55:43.102Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/packing-list/dist/index.js",
         "version": "0.22.8",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3073,12 +3073,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:40.077Z",
+        "measured_at": "2026-10-16T10:55:43.518Z",
         "status": "unmeasured",
         "reason": "Built entry is missing; no build was attempted",
         "built_entry": "servers/payroll/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3142,12 +3142,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:40.077Z",
+        "measured_at": "2026-10-16T10:55:43.518Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/pdf/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3203,12 +3203,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:40.526Z",
+        "measured_at": "2026-10-16T10:55:43.925Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/per-diem/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3264,12 +3264,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:40.888Z",
+        "measured_at": "2026-10-16T10:55:44.300Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/petty-cash/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3315,12 +3315,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:41.326Z",
+        "measured_at": "2026-10-16T10:55:44.746Z",
         "status": "unmeasured",
         "reason": "Built entry is missing; no build was attempted",
         "built_entry": "servers/pomodoro/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3382,12 +3382,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:41.327Z",
+        "measured_at": "2026-10-16T10:55:44.747Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/price-tracker/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3450,12 +3450,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:41.686Z",
+        "measured_at": "2026-10-16T10:55:45.110Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/purchase-requisition/dist/index.js",
         "version": "0.22.8",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3514,12 +3514,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:42.105Z",
+        "measured_at": "2026-10-16T10:55:45.531Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/quotes/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3565,12 +3565,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:42.523Z",
+        "measured_at": "2026-10-16T10:55:45.940Z",
         "status": "unmeasured",
         "reason": "Built entry is missing; no build was attempted",
         "built_entry": "servers/receipts/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3636,12 +3636,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:42.523Z",
+        "measured_at": "2026-10-16T10:55:45.940Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/recurring/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3698,12 +3698,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:42.919Z",
+        "measured_at": "2026-10-16T10:55:46.351Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/resume/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3759,12 +3759,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:43.274Z",
+        "measured_at": "2026-10-16T10:55:46.733Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/service-agreement/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3803,7 +3803,7 @@
     {
       "id": "spreadsheet",
       "npm_name": "@theluckystrike/mcp-spreadsheet",
-      "version": "0.22.6",
+      "version": "0.22.9",
       "dir": "servers/spreadsheet",
       "tools": [
         "license_status",
@@ -3821,12 +3821,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:43.774Z",
+        "measured_at": "2026-10-16T10:55:47.094Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/spreadsheet/dist/index.js",
-        "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "version": "0.22.9",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3846,7 +3846,7 @@
         "freshness": "Historical recorded result; inventory collection does not rerun tests"
       },
       "result_status": "DONE",
-      "loc": 1616,
+      "loc": 1620,
       "files_present": {
         "readme": true,
         "server_json": true,
@@ -3856,8 +3856,8 @@
       },
       "distribution": {
         "npm": "unknown",
-        "registry": "unknown",
-        "github": "unknown",
+        "registry": "two_names_verified_0.22.9_one_capability",
+        "github": "https://github.com/theluckystrike/mcp-spreadsheet",
         "smithery": "unknown",
         "glama": "unknown"
       }
@@ -3881,12 +3881,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:44.236Z",
+        "measured_at": "2026-10-16T10:55:47.529Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/statement-of-account/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3932,12 +3932,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:44.658Z",
+        "measured_at": "2026-10-16T10:55:47.955Z",
         "status": "unmeasured",
         "reason": "Built entry is missing; no build was attempted",
         "built_entry": "servers/stripe-billing/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -3999,12 +3999,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:44.658Z",
+        "measured_at": "2026-10-16T10:55:47.955Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/supplier-list/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -4050,12 +4050,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:45.009Z",
+        "measured_at": "2026-10-16T10:55:48.324Z",
         "status": "unmeasured",
         "reason": "Built entry is missing; no build was attempted",
         "built_entry": "servers/tax-calc/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -4115,12 +4115,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:45.009Z",
+        "measured_at": "2026-10-16T10:55:48.325Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/three-way-match/dist/index.js",
         "version": "0.22.8",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -4187,12 +4187,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:45.433Z",
+        "measured_at": "2026-10-16T10:55:48.674Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/time-tracker/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -4250,12 +4250,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:45.799Z",
+        "measured_at": "2026-10-16T10:55:49.027Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/timezone/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -4314,12 +4314,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:46.201Z",
+        "measured_at": "2026-10-16T10:55:49.382Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/work-order/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -4375,12 +4375,12 @@
       "tool_inventory": {
         "source": "data/runtime-tool-inventory.json",
         "method": "MCP stdio initialize + complete paginated tools/list; no tools/call",
-        "measured_at": "2026-10-16T09:19:46.683Z",
+        "measured_at": "2026-10-16T10:55:49.813Z",
         "status": "measured",
         "reason": null,
         "built_entry": "servers/zip/dist/index.js",
         "version": "0.22.6",
-        "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615",
+        "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16",
         "max_age_hours": 24
       },
       "free_limits": "pending",
@@ -4424,7 +4424,7 @@
     "unit": "Tool exposures summed across measured servers; office-suite overlaps standalone servers, so this is not a unique tool count",
     "source": "data/runtime-tool-inventory.json",
     "max_age_hours": 24,
-    "build_fingerprint": "24f62200e121cb85cc56004ca336ac38ac8ebba544d97e082e43a26cee128615"
+    "build_fingerprint": "2dd9a732b0c639ff6658c9a1330de9708db8cad53c5ef517202c29bb90600d16"
   },
   "billing": {
     "status": "DONE",
@@ -6019,6 +6019,10 @@
     {
       "file": "docs/RELEASE_V228.md",
       "first_line": "Release v0.22.8 (2026-10-16)"
+    },
+    {
+      "file": "docs/RELEASE_V229.md",
+      "first_line": "Release v0.22.9 (2026-10-16)"
     },
     {
       "file": "docs/REMOTE_RESULT.md",

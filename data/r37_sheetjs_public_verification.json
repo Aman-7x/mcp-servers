@@ -1,0 +1,375 @@
+{
+  "at": "2026-10-16T10:49:27.161Z",
+  "method": "Unauthenticated full-byte GETs, exact registry descriptor comparisons with documented omitted-false defaults, and catalogue HEAD availability only",
+  "archives": [
+    {
+      "name": "spreadsheet",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/spreadsheet.mcpb",
+      "bytes": 5179288,
+      "sha256": "38a13a55c122fd3c1709a91e90805366268a183f937d1dd1414aa10b8e14b7f6",
+      "status": 200,
+      "matches_independently_verified_archive": true
+    },
+    {
+      "name": "expense-tracker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/expense-tracker.mcpb",
+      "bytes": 5178277,
+      "sha256": "363ef8958bf7fbc4022488ae5af885a6087ddac45b71e431234e348359e48048",
+      "status": 200,
+      "matches_independently_verified_archive": true
+    },
+    {
+      "name": "office-suite",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/office-suite.mcpb",
+      "bytes": 29703676,
+      "sha256": "0555833c1465b2a5583179eab963d8f068888077cc6410d3008254dbc469c300",
+      "status": 200,
+      "matches_independently_verified_archive": true
+    }
+  ],
+  "registry": [
+    {
+      "name": "io.github.theluckystrike/excel-spreadsheet-xlsx-csv",
+      "version": "0.22.9",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fexcel-spreadsheet-xlsx-csv/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/spreadsheet.mcpb",
+      "sha256": "38a13a55c122fd3c1709a91e90805366268a183f937d1dd1414aa10b8e14b7f6",
+      "matches_published_source": true
+    },
+    {
+      "name": "io.github.theluckystrike/pivot",
+      "version": "0.22.9",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fpivot/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/spreadsheet.mcpb",
+      "sha256": "38a13a55c122fd3c1709a91e90805366268a183f937d1dd1414aa10b8e14b7f6",
+      "matches_published_source": true
+    },
+    {
+      "name": "io.github.theluckystrike/expense-tracker-receipts-mileage",
+      "version": "0.22.9",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fexpense-tracker-receipts-mileage/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/expense-tracker.mcpb",
+      "sha256": "363ef8958bf7fbc4022488ae5af885a6087ddac45b71e431234e348359e48048",
+      "matches_published_source": true
+    },
+    {
+      "name": "io.github.theluckystrike/expense-tracker",
+      "version": "0.22.9",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fexpense-tracker/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/expense-tracker.mcpb",
+      "sha256": "363ef8958bf7fbc4022488ae5af885a6087ddac45b71e431234e348359e48048",
+      "matches_published_source": true
+    },
+    {
+      "name": "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price",
+      "version": "0.22.9",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Foffice-suite-time-invoice-expense-excel-price/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/office-suite.mcpb",
+      "sha256": "0555833c1465b2a5583179eab963d8f068888077cc6410d3008254dbc469c300",
+      "matches_published_source": true
+    },
+    {
+      "name": "io.github.theluckystrike/office-suite",
+      "version": "0.22.9",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Foffice-suite/versions",
+      "asset_url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/office-suite.mcpb",
+      "sha256": "0555833c1465b2a5583179eab963d8f068888077cc6410d3008254dbc469c300",
+      "matches_published_source": true
+    }
+  ],
+  "catalogue": [
+    {
+      "name": "amortization",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/amortization.mcpb",
+      "status": 200
+    },
+    {
+      "name": "asset-register",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/asset-register.mcpb",
+      "status": 200
+    },
+    {
+      "name": "backlink-checker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/backlink-checker.mcpb",
+      "status": 200
+    },
+    {
+      "name": "bank-statement",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bank-statement.mcpb",
+      "status": 200
+    },
+    {
+      "name": "barcode",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/barcode.mcpb",
+      "status": 200
+    },
+    {
+      "name": "bill-of-sale",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bill-of-sale.mcpb",
+      "status": 200
+    },
+    {
+      "name": "billing-docs",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/billing-docs.mcpb",
+      "status": 200
+    },
+    {
+      "name": "budget",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/budget.mcpb",
+      "status": 200
+    },
+    {
+      "name": "calendar",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/calendar.mcpb",
+      "status": 200
+    },
+    {
+      "name": "cash-book",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/cash-book.mcpb",
+      "status": 200
+    },
+    {
+      "name": "catalogue",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/catalogue.mcpb",
+      "status": 200
+    },
+    {
+      "name": "change-order",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/change-order.mcpb",
+      "status": 200
+    },
+    {
+      "name": "checklist",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/checklist.mcpb",
+      "status": 200
+    },
+    {
+      "name": "clauses",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/clauses.mcpb",
+      "status": 200
+    },
+    {
+      "name": "credit-note",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/credit-note.mcpb",
+      "status": 200
+    },
+    {
+      "name": "currency",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/currency.mcpb",
+      "status": 200
+    },
+    {
+      "name": "delivery-schedule",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/delivery-schedule.mcpb",
+      "status": 200
+    },
+    {
+      "name": "deposits",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/deposits.mcpb",
+      "status": 200
+    },
+    {
+      "name": "docx",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/docx.mcpb",
+      "status": 200
+    },
+    {
+      "name": "dunning-letters",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/dunning-letters.mcpb",
+      "status": 200
+    },
+    {
+      "name": "duplicate-invoice-check",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb",
+      "status": 200
+    },
+    {
+      "name": "expense-tracker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/expense-tracker.mcpb",
+      "status": 200
+    },
+    {
+      "name": "goods-receipt",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/goods-receipt.mcpb",
+      "status": 200
+    },
+    {
+      "name": "hourly-rate",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.5/hourly-rate.mcpb",
+      "status": 200
+    },
+    {
+      "name": "image",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/image.mcpb",
+      "status": 200
+    },
+    {
+      "name": "invoice",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/invoice.mcpb",
+      "status": 200
+    },
+    {
+      "name": "job-card",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/job-card.mcpb",
+      "status": 200
+    },
+    {
+      "name": "kanban",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/kanban.mcpb",
+      "status": 200
+    },
+    {
+      "name": "leave",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/leave.mcpb",
+      "status": 200
+    },
+    {
+      "name": "loan-calculator",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/loan-calculator.mcpb",
+      "status": 200
+    },
+    {
+      "name": "maintenance-log",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/maintenance-log.mcpb",
+      "status": 200
+    },
+    {
+      "name": "mileage-log",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/mileage-log.mcpb",
+      "status": 200
+    },
+    {
+      "name": "office-suite",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/office-suite.mcpb",
+      "status": 200
+    },
+    {
+      "name": "onboarding",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb",
+      "status": 200
+    },
+    {
+      "name": "packing-list",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/packing-list.mcpb",
+      "status": 200
+    },
+    {
+      "name": "payroll",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/payroll.mcpb",
+      "status": 200
+    },
+    {
+      "name": "pdf",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pdf.mcpb",
+      "status": 200
+    },
+    {
+      "name": "per-diem",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/per-diem.mcpb",
+      "status": 200
+    },
+    {
+      "name": "petty-cash",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/petty-cash.mcpb",
+      "status": 200
+    },
+    {
+      "name": "pomodoro",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pomodoro.mcpb",
+      "status": 200
+    },
+    {
+      "name": "price-tracker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/price-tracker.mcpb",
+      "status": 200
+    },
+    {
+      "name": "purchase-requisition",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/purchase-requisition.mcpb",
+      "status": 200
+    },
+    {
+      "name": "quotes",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/quotes.mcpb",
+      "status": 200
+    },
+    {
+      "name": "receipts",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/receipts.mcpb",
+      "status": 200
+    },
+    {
+      "name": "recurring",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/recurring.mcpb",
+      "status": 200
+    },
+    {
+      "name": "resume",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/resume.mcpb",
+      "status": 200
+    },
+    {
+      "name": "service-agreement",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/service-agreement.mcpb",
+      "status": 200
+    },
+    {
+      "name": "spreadsheet",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/spreadsheet.mcpb",
+      "status": 200
+    },
+    {
+      "name": "statement-of-account",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/statement-of-account.mcpb",
+      "status": 200
+    },
+    {
+      "name": "stripe-billing",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/stripe-billing.mcpb",
+      "status": 200
+    },
+    {
+      "name": "supplier-list",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/supplier-list.mcpb",
+      "status": 200
+    },
+    {
+      "name": "tax-calc",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/tax-calc.mcpb",
+      "status": 200
+    },
+    {
+      "name": "three-way-match",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb",
+      "status": 200
+    },
+    {
+      "name": "time-tracker",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/time-tracker.mcpb",
+      "status": 200
+    },
+    {
+      "name": "timezone",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/timezone.mcpb",
+      "status": 200
+    },
+    {
+      "name": "work-order",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/work-order.mcpb",
+      "status": 200
+    },
+    {
+      "name": "zip",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/zip.mcpb",
+      "status": 200
+    }
+  ],
+  "errors": [],
+  "checksums": {
+    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/SHA256SUMS.txt",
+    "bytes": 254,
+    "exact_match": true
+  },
+  "status": "passed",
+  "finished_at": "2026-10-16T10:49:58.306Z"
+}

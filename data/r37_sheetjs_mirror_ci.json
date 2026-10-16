@@ -1,0 +1,95 @@
+{
+  "scope": "Native own-repository latest-main SHA and exact-head CI checks; not customer installs",
+  "snapshots": [
+    {
+      "at": "2026-10-16T10:54:18.950Z",
+      "mirrors": [
+        {
+          "name": "spreadsheet",
+          "repo": "theluckystrike/mcp-spreadsheet",
+          "head": "ef0129b61c66ddc16cc55a2130ea6e3cf958d799",
+          "commit_message": "sync from monorepo 13566473d101d246482b979dd00b9a585fc0ba7b",
+          "run": {
+            "id": 38889969417,
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/theluckystrike/mcp-spreadsheet/actions/runs/38889969417",
+            "head_sha": "ef0129b61c66ddc16cc55a2130ea6e3cf958d799"
+          }
+        },
+        {
+          "name": "expense-tracker",
+          "repo": "theluckystrike/mcp-expense-tracker",
+          "head": "ceb60cd70fc653686520dbb4612bfcdabd28fbdd",
+          "commit_message": "sync from monorepo 13566473d101d246482b979dd00b9a585fc0ba7b",
+          "run": {
+            "id": 38890000908,
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/theluckystrike/mcp-expense-tracker/actions/runs/38890000908",
+            "head_sha": "ceb60cd70fc653686520dbb4612bfcdabd28fbdd"
+          }
+        },
+        {
+          "name": "office-suite",
+          "repo": "theluckystrike/mcp-office-suite",
+          "head": "fb4aecac42eed3b56a7642a20788b971a72b7e84",
+          "commit_message": "sync from monorepo 13566473d101d246482b979dd00b9a585fc0ba7b",
+          "run": {
+            "id": 38890029724,
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/theluckystrike/mcp-office-suite/actions/runs/38890029724",
+            "head_sha": "fb4aecac42eed3b56a7642a20788b971a72b7e84"
+          }
+        }
+      ]
+    }
+  ],
+  "status": "passed",
+  "test_summary_read_at": "2026-10-16T10:55:21.096Z",
+  "test_summaries": [
+    {
+      "name": "spreadsheet",
+      "head": "ef0129b61c66ddc16cc55a2130ea6e3cf958d799",
+      "run_id": 38889969417,
+      "tap_summaries": [
+        {
+          "tests": 65,
+          "pass": 62,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 3
+        }
+      ]
+    },
+    {
+      "name": "expense-tracker",
+      "head": "ceb60cd70fc653686520dbb4612bfcdabd28fbdd",
+      "run_id": 38890000908,
+      "tap_summaries": [
+        {
+          "tests": 62,
+          "pass": 60,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 2
+        }
+      ]
+    },
+    {
+      "name": "office-suite",
+      "head": "fb4aecac42eed3b56a7642a20788b971a72b7e84",
+      "run_id": 38890029724,
+      "tap_summaries": [
+        {
+          "tests": 9,
+          "pass": 5,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 4
+        }
+      ]
+    }
+  ]
+}

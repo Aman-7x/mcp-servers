@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T10:01:49.672413+00:00",
+  "updated_at": "2026-10-16T10:59:39.468351+00:00",
   "surfaces": {
     "github": {
       "status": "published",
@@ -666,7 +666,14 @@
       "category": "Productivity",
       "accepted": "2026-09-20T04:42:18Z",
       "session": "S52",
-      "hosted": "published https://mcp.zovo.one/mcp/spreadsheet"
+      "hosted": "published https://mcp.zovo.one/mcp/spreadsheet",
+      "github-mirror": "https://github.com/theluckystrike/mcp-spreadsheet",
+      "mirror-head": "ef0129b61c66ddc16cc55a2130ea6e3cf958d799",
+      "mirror-ci": "success 38889969417",
+      "mirror_verified_at": "2026-10-16T10:54:18.950Z",
+      "registry": "two_names_verified_0.22.9_one_capability",
+      "mcpb": "published_0.22.9_exact_hash_verified",
+      "verified_at": "2026-10-16T10:59:39.468351+00:00"
     },
     "invoice": {
       "target": "mcpservers.org",
@@ -684,21 +691,28 @@
       "category": "Finance",
       "accepted": "2026-09-19T00:00:00Z",
       "session": "S49",
-      "hosted": "published https://mcp.zovo.one/mcp/expense-tracker"
+      "hosted": "published https://mcp.zovo.one/mcp/expense-tracker",
+      "github-mirror": "https://github.com/theluckystrike/mcp-expense-tracker",
+      "mirror-head": "ceb60cd70fc653686520dbb4612bfcdabd28fbdd",
+      "mirror-ci": "success 38890000908",
+      "mirror_verified_at": "2026-10-16T10:54:18.950Z",
+      "registry": "two_names_verified_0.22.9_one_capability",
+      "mcpb": "published_0.22.9_exact_hash_verified",
+      "verified_at": "2026-10-16T10:59:39.468351+00:00"
     },
     "office-suite": {
       "target": "mcpservers.org",
       "status": "accepted",
       "sprint": "S50",
       "github-mirror": "https://github.com/theluckystrike/mcp-office-suite",
-      "mirror-ci": "success 38880387898",
-      "mirror_verified_at": "2026-10-16T03:09:35.499402+00:00",
+      "mirror-ci": "success 38890029724",
+      "mirror_verified_at": "2026-10-16T10:54:18.950Z",
       "github": "published mirror theluckystrike/mcp-office-suite",
-      "mirror-head": "29c18e76c9436f1b15270fbb049930d60cd673d4",
-      "registry": "two_names_verified_0.22.8_one_capability",
-      "mcpb": "published_0.22.8_exact_hash_verified",
+      "mirror-head": "fb4aecac42eed3b56a7642a20788b971a72b7e84",
+      "registry": "two_names_verified_0.22.9_one_capability",
+      "mcpb": "published_0.22.9_exact_hash_verified",
       "hosted": "local_only",
-      "verified_at": "2026-10-16T09:29:55.696Z"
+      "verified_at": "2026-10-16T10:59:39.468351+00:00"
     },
     "currency": {
       "target": "mcpservers.org",
@@ -1251,5 +1265,16 @@
       "data/r37_directory_submission.json",
       "data/r37_csv_public_asset_verification.json"
     ]
+  },
+  "r37_sheetjs_verified_activity": {
+    "at": "2026-10-16T10:59:39.468351+00:00",
+    "existing_capabilities_patched": 3,
+    "new_capabilities": 0,
+    "archives": 3,
+    "registry_rows": 6,
+    "public_byte_checks": 3,
+    "catalogue_head_checks": 57,
+    "emails_sent": 0,
+    "purchases": 0
   }
 }

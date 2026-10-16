@@ -1,0 +1,133 @@
+{
+  "at": "2026-10-16T11:00:10.182633+00:00",
+  "status": "passed",
+  "scope": "Every package.json entry inspected in three exact0.22.9 archives; the six named package versions exceed the fixes from the bounded earlier advisory triage. Not an audit against every possible advisory. Root-lock audit is separate.",
+  "archives": [
+    {
+      "archive": "bundles/spreadsheet.mcpb",
+      "sha256": "38a13a55c122fd3c1709a91e90805366268a183f937d1dd1414aa10b8e14b7f6",
+      "packages": [
+        {
+          "name": "@modelcontextprotocol/sdk",
+          "version": "1.32.1",
+          "path": "server/node_modules/@modelcontextprotocol/sdk/package.json",
+          "listed_advisory_fixed_from": "1.31.0"
+        },
+        {
+          "name": "fast-uri",
+          "version": "3.1.8",
+          "path": "server/node_modules/fast-uri/package.json",
+          "listed_advisory_fixed_from": "3.1.8"
+        },
+        {
+          "name": "hono",
+          "version": "4.13.13",
+          "path": "server/node_modules/hono/package.json",
+          "listed_advisory_fixed_from": "4.13.7"
+        },
+        {
+          "name": "ip-address",
+          "version": "10.7.4",
+          "path": "server/node_modules/ip-address/package.json",
+          "listed_advisory_fixed_from": "10.7.1"
+        },
+        {
+          "name": "proxy-addr",
+          "version": "2.0.8",
+          "path": "server/node_modules/proxy-addr/package.json",
+          "listed_advisory_fixed_from": "2.0.8"
+        },
+        {
+          "name": "xlsx",
+          "version": "0.20.3",
+          "path": "server/node_modules/xlsx/package.json",
+          "listed_advisory_fixed_from": "0.20.2"
+        }
+      ]
+    },
+    {
+      "archive": "bundles/expense-tracker.mcpb",
+      "sha256": "363ef8958bf7fbc4022488ae5af885a6087ddac45b71e431234e348359e48048",
+      "packages": [
+        {
+          "name": "@modelcontextprotocol/sdk",
+          "version": "1.32.1",
+          "path": "server/node_modules/@modelcontextprotocol/sdk/package.json",
+          "listed_advisory_fixed_from": "1.31.0"
+        },
+        {
+          "name": "fast-uri",
+          "version": "3.1.8",
+          "path": "server/node_modules/fast-uri/package.json",
+          "listed_advisory_fixed_from": "3.1.8"
+        },
+        {
+          "name": "hono",
+          "version": "4.13.13",
+          "path": "server/node_modules/hono/package.json",
+          "listed_advisory_fixed_from": "4.13.7"
+        },
+        {
+          "name": "ip-address",
+          "version": "10.7.4",
+          "path": "server/node_modules/ip-address/package.json",
+          "listed_advisory_fixed_from": "10.7.1"
+        },
+        {
+          "name": "proxy-addr",
+          "version": "2.0.8",
+          "path": "server/node_modules/proxy-addr/package.json",
+          "listed_advisory_fixed_from": "2.0.8"
+        },
+        {
+          "name": "xlsx",
+          "version": "0.20.3",
+          "path": "server/node_modules/xlsx/package.json",
+          "listed_advisory_fixed_from": "0.20.2"
+        }
+      ]
+    },
+    {
+      "archive": "bundles/office-suite.mcpb",
+      "sha256": "0555833c1465b2a5583179eab963d8f068888077cc6410d3008254dbc469c300",
+      "packages": [
+        {
+          "name": "@modelcontextprotocol/sdk",
+          "version": "1.32.1",
+          "path": "server/node_modules/@modelcontextprotocol/sdk/package.json",
+          "listed_advisory_fixed_from": "1.31.0"
+        },
+        {
+          "name": "fast-uri",
+          "version": "3.1.8",
+          "path": "server/node_modules/fast-uri/package.json",
+          "listed_advisory_fixed_from": "3.1.8"
+        },
+        {
+          "name": "hono",
+          "version": "4.13.13",
+          "path": "server/node_modules/hono/package.json",
+          "listed_advisory_fixed_from": "4.13.7"
+        },
+        {
+          "name": "ip-address",
+          "version": "10.7.4",
+          "path": "server/node_modules/ip-address/package.json",
+          "listed_advisory_fixed_from": "10.7.1"
+        },
+        {
+          "name": "proxy-addr",
+          "version": "2.0.8",
+          "path": "server/node_modules/proxy-addr/package.json",
+          "listed_advisory_fixed_from": "2.0.8"
+        },
+        {
+          "name": "xlsx",
+          "version": "0.20.3",
+          "path": "server/node_modules/xlsx/package.json",
+          "listed_advisory_fixed_from": "0.20.2"
+        }
+      ]
+    }
+  ]
+}

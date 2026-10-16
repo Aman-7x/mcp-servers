@@ -81,7 +81,7 @@
     "Local MCPs must remain local: no added phone-home telemetry.",
     "No people/install/revenue claims from platform counters, signed IDs, probes or documentary search trials."
   ],
-  "updated_at": "2026-10-16T10:46:08.961318+00:00",
+  "updated_at": "2026-10-16T10:59:39.468351+00:00",
   "agent_execution": {
     "working_specialists": 10,
     "spawn_attempts": 11,
@@ -108,9 +108,21 @@
     "independent_rollout_cases": 8
   },
   "dependency_triage": {
-    "status": "reviewed_patch_and_three_exact_archives_passed_publication_pending",
+    "status": "published_and_verified",
     "scope": "Root lock reports six production packages; five are patched in all three exact published archives. Office xlsx0.18.5 has a reachable spreadsheet-read parser path; both standalone products lack xlsx.",
     "evidence": "data/r37_dependency_scope.json",
-    "rehearsal": "Reviewed official0.20.3 candidate applied; exact0.22.9 spreadsheet/expense/Office archives pass33actualcalls,135sourcepasses/1oldskip,89remote tests. Public bytes,registry and livehosted workflows pending."
+    "rehearsal": "Official0.20.3 source review and135passes/1oldskip; three0.22.9 archives33calls; sixpublicregistryrows/threepublicbytechecks/57HEAD; tenlivehostedcontrols/threeXLSXreadbacks; eightcurrentHTTP/deploymentchecks; threeexact-headmirrorCIgreen."
+  },
+  "sheetjs_rollout": {
+    "release": "v0.22.9",
+    "status": "published_and_verified",
+    "current_billing": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+    "current_remote": "4bd75932-3eff-4475-8df3-3c8c5ccc35d7",
+    "source_pr": 77,
+    "source_merge": "a3d848a64cbbf2352a5ca1957a47e8efc8c8f6d1",
+    "public_verification": "data/r37_sheetjs_public_verification.json",
+    "hosted_verification": "data/r37_sheetjs_hosted_verification.json",
+    "current_deployments": "data/r37_sheetjs_live_verification.json",
+    "limits": "Older releases unchanged; five source-lock advisories remain; inherited number-format loss and corrected numeric-date interpretation documented."
   }
 }

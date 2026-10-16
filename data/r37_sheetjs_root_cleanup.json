@@ -1,0 +1,65 @@
+{
+  "at": "2026-10-16T11:04:07.571467+00:00",
+  "status": "passed",
+  "records": [
+    {
+      "at": "2026-10-16T11:04:06.361139+00:00",
+      "path": "/Users/mike/mcp-servers-work/mirror-spreadsheet.0PT6rI",
+      "bytes": 712392,
+      "reason": "Completed R37 SheetJS publication/mirror or prior observation draft",
+      "lsof": "no open handles",
+      "status": "removed"
+    },
+    {
+      "at": "2026-10-16T11:04:06.570861+00:00",
+      "path": "/Users/mike/mcp-servers-work/mirror-expense-tracker.eSHneg",
+      "bytes": 719244,
+      "reason": "Completed R37 SheetJS publication/mirror or prior observation draft",
+      "lsof": "no open handles",
+      "status": "removed"
+    },
+    {
+      "at": "2026-10-16T11:04:06.784564+00:00",
+      "path": "/Users/mike/mcp-servers-work/mirror-office-suite.SvVdtH",
+      "bytes": 1968796,
+      "reason": "Completed R37 SheetJS publication/mirror or prior observation draft",
+      "lsof": "no open handles",
+      "status": "removed"
+    },
+    {
+      "at": "2026-10-16T11:04:06.991612+00:00",
+      "path": "/Users/mike/mcp-servers-work/mirror-office-suite.GckjiI",
+      "bytes": 1964193,
+      "reason": "Completed R37 SheetJS publication/mirror or prior observation draft",
+      "lsof": "no open handles",
+      "status": "removed"
+    },
+    {
+      "at": "2026-10-16T11:04:07.192997+00:00",
+      "path": "/Users/mike/mcp-servers-work/r37-sheetjs-release",
+      "bytes": 254,
+      "reason": "Completed R37 SheetJS publication/mirror or prior observation draft",
+      "lsof": "no open handles",
+      "status": "removed"
+    },
+    {
+      "at": "2026-10-16T11:04:07.371143+00:00",
+      "path": "/Users/mike/mcp-servers-work/r37-sheetjs-pr.md",
+      "bytes": 1606,
+      "reason": "Completed R37 SheetJS publication/mirror or prior observation draft",
+      "lsof": "no open handles",
+      "status": "removed"
+    },
+    {
+      "at": "2026-10-16T11:04:07.571004+00:00",
+      "path": "/Users/mike/mcp-servers-work/r37-observation-pr.md",
+      "bytes": 923,
+      "reason": "Completed R37 SheetJS publication/mirror or prior observation draft",
+      "lsof": "no open handles",
+      "status": "removed"
+    }
+  ],
+  "stable_checkout_lock_retained": true,
+  "private_checkout_state_absent": true,
+  "scope": "Only seven explicitly owned completed scopes/files; no browser profile, user data, agent session, snapshot or unrelated work folder removed."
+}

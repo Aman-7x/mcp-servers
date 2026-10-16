@@ -1,0 +1,40 @@
+{
+  "at": "2026-10-16T10:48:43.172Z",
+  "scope": "Six named MCPB rows for three existing local capabilities; new immutable0.22.9 versions",
+  "published": [
+    {
+      "name": "io.github.theluckystrike/excel-spreadsheet-xlsx-csv",
+      "version": "0.22.9",
+      "file": "servers/spreadsheet/server.json"
+    },
+    {
+      "name": "io.github.theluckystrike/pivot",
+      "version": "0.22.9",
+      "file": "servers/spreadsheet/server.pivot.json"
+    },
+    {
+      "name": "io.github.theluckystrike/expense-tracker-receipts-mileage",
+      "version": "0.22.9",
+      "file": "servers/expense-tracker/server.json"
+    },
+    {
+      "name": "io.github.theluckystrike/expense-tracker",
+      "version": "0.22.9",
+      "file": "servers/expense-tracker/server.expense-tracker.json"
+    },
+    {
+      "name": "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price",
+      "version": "0.22.9",
+      "file": "servers/office-suite/server.json"
+    },
+    {
+      "name": "io.github.theluckystrike/office-suite",
+      "version": "0.22.9",
+      "file": "servers/office-suite/server.office-suite.json"
+    }
+  ],
+  "duplicates": [],
+  "failed": [],
+  "finished_at": "2026-10-16T10:49:01.231Z",
+  "status": "published_pending_public_descriptor_verification"
+}

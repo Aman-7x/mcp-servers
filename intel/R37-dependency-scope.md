@@ -1,5 +1,7 @@
 # R37 dependency advisory scope
 
+Follow-up status: the follow-up [v0.22.9 patch](R37-sheetjs-artifacts.md) and [hosted XLSX checks](R37-sheetjs-hosted.md) now pass; public byte/registry and deployment checks are recorded separately. Current spreadsheet/expense/Office archives use vetted0.20.3. The original v0.22.8 triage below remains historical evidence; those older bytes were not replaced. The root audit now reports five other packages, with XLSX absent from its advisory results.
+
 **Material inherited risk remains in the office archive's spreadsheet reader: `xlsx@0.18.5` is packaged and ordinary read tools reach its affected parser.** The other five flagged packages are present in all three published archives at versions beyond the listed advisory fixes. They remain older in the repository lock/install, so the root CI warning is not dismissed.
 
 Evidence: `data/r37_dependency_scope.json`. This was a read-only review of primary advisories, repository source and exact ZIP contents. The three local archive hashes matched the previously independently downloaded v0.22.8 public assets. No dependency update, exploit, tool invocation, build, browser, deployment or temporary extraction occurred. Available disk was 24 GB.
