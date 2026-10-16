@@ -14,7 +14,7 @@ const t = (rows) =>
   rows.body.map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join("\n") +
   `\n</tbody>\n</table>`;
 
-const RELEASES = "https://github.com/theluckystrike/mcp-servers/releases/latest";
+const RELEASES = "https://mcp.zovo.one/downloads";
 
 /**
  * Our own install lines on a comparison page.
@@ -32,7 +32,7 @@ const RELEASES = "https://github.com/theluckystrike/mcp-servers/releases/latest"
  * hosted URL is real for all of them.
  */
 const ours = (slug) => `<p>Ours, one click: download <code>${slug}.mcpb</code> from
-<a href="${RELEASES}">the latest release</a> and open it in Claude Desktop. No JSON, no terminal.</p>
+<a href="${RELEASES}">the bundle catalog</a> and open it in Claude Desktop. No JSON, no terminal.</p>
 <p>Or by URL, with nothing installed. <a href="/mcp/connect">/mcp/connect</a> mints a free token and
 prints the ready line:</p>
 <pre><code>claude mcp add --transport http ${slug} https://mcp.zovo.one/mcp/${slug}/t/&lt;token&gt;</code></pre>
@@ -55,7 +55,7 @@ export const COMPARE = {
 <ul><li>Choose procurement tooling when you want a broader purchasing workflow and its own records.</li><li>Choose document reconciliation infrastructure when parsing files is part of your requirement.</li><li>Choose ours when you already have structured line values and want a small local check with per-SKU exception evidence, explicit prior-invoiced quantities and CSV reports.</li></ul>
 <p>Our full previews up to 500 PO/invoice lines are free, with complete large-report evidence available through free pages. Three saved reports fit the free tier; Pro removes that storage cap for $19 once, or through the $39 bundle. No API credentials or ERP connection are required. It cannot discover earlier invoices or authorize payment.</p>
 <h2>Install ours locally</h2>
-<p>Open <code>three-way-match.mcpb</code> from the <a href="${RELEASES}">latest release</a> in Claude Desktop, or clone <a href="https://github.com/theluckystrike/mcp-three-way-match">the self-contained mirror</a> and run <code>npm install &amp;&amp; npm run build</code>. Point your MCP client at the built <code>dist/index.js</code> with an absolute path. No hosted endpoint is provided; npm publication is pending.</p>
+<p>Open <code>three-way-match.mcpb</code> from the <a href="${RELEASES}">bundle catalog</a> in Claude Desktop, or clone <a href="https://github.com/theluckystrike/mcp-three-way-match">the self-contained mirror</a> and run <code>npm install &amp;&amp; npm run build</code>. Point your MCP client at the built <code>dist/index.js</code> with an absolute path. No hosted endpoint is provided; npm publication is pending.</p>
 <p><a href="/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude">Worked example</a> · <a href="/setup/claude-code/three-way-match">Claude Code setup</a> · <a href="/buy/three-way-match?src=store.compare.three-way-match">Get Pro</a></p>`,
     faq: [
       { q: "Is this the first local MCP matcher?", a: "No. zavora-ai/mcp-procurement already has a local three_way_match tool. Our distinction is the priced invoice-line contract and per-SKU source evidence." },
@@ -826,7 +826,7 @@ to 31 March instead of moving permanently to the 28th.</p>
 
 <h2>Install lines</h2>
 <p>Ours, one click: download <code>recurring.mcpb</code> and <code>invoice.mcpb</code> from
-<a href="${RELEASES}">the latest release</a> and open both in Claude Desktop. The pair share one
+<a href="${RELEASES}">the bundle catalog</a> and open both in Claude Desktop. The pair share one
 invoice store, so the schedule writes into the same number series the invoice server reads.</p>
 <p>Or by URL, with nothing installed. <a href="/mcp/connect">/mcp/connect</a> mints one token that
 works for both:</p>

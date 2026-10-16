@@ -1,5 +1,6 @@
 import { mintLicense, verifyLicenseKey, sha256Hex } from "./license.js";
 import { PAGES, CHANGELOG } from "./pages.js";
+import { BUNDLE_DOWNLOADS } from "./downloads.js";
 import { GUIDES, GUIDE_INDEX, GUIDE_PRODUCT_LINKS, GUIDE_RELATED, relatedGuidesBlock } from "./content.js";
 import { COMPARE, COMPARE_INDEX } from "./compare.js";
 import { setupPage, clientHub, setupIndex, setupUrls, serversFor, CLIENTS, CLIENT_ORDER, SETUP_SERVERS } from "./setup.js";
@@ -259,7 +260,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 178;
+export const BILLING_TEST_COUNT = 179;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -271,7 +272,7 @@ export const BILLING_TEST_COUNT = 178;
 export const NPM_PENDING_NOTE =
   `The npm publish of these packages is pending, so <code>npx -y @theluckystrike/mcp-&lt;server&gt;</code> returns 404 ` +
   `for everyone, and a client config whose <code>"command"</code> is <code>"npx"</code> will not start a server. ` +
-  `Use the hosted URL, the <code>.mcpb</code> bundle from <a href="${REPO}/releases/latest">the latest release</a>, ` +
+  `Use the hosted URL, the <code>.mcpb</code> bundle from <a href="https://mcp.zovo.one/downloads">the bundle catalog</a>, ` +
   `or a clone and build, which all work today.`;
 
 /**
@@ -757,14 +758,14 @@ function home() {
   const html = page("MCP servers for Claude: invoices, time tracking and freelance tools", `<h1>${LISTED_COUNT} MCP servers for Claude, for freelancers and small businesses</h1>
 <p>Each row below is one MCP server. ${HOSTED_COUNT} of the ${LISTED_COUNT} answer at a URL, so you can use them with nothing installed. Get a free token with one request, then paste the URL into whatever asks for a remote MCP server.</p>
 <pre><code>curl -X POST https://mcp.zovo.one/mcp/token</code></pre>
-<p>It returns a token shaped <code>anon_&lt;32 hex&gt;</code>. No account, no email, no OAuth. The token is good for ${ANON_TOKEN_DAYS} days and allows ${RATE_LIMIT_FREE} calls an hour. The two servers with no URL run from the <a href="${REPO}/releases/latest">.mcpb bundle</a> or a clone.</p>
+<p>It returns a token shaped <code>anon_&lt;32 hex&gt;</code>. No account, no email, no OAuth. The token is good for ${ANON_TOKEN_DAYS} days and allows ${RATE_LIMIT_FREE} calls an hour. The two servers with no URL run from the <a href="https://mcp.zovo.one/downloads">.mcpb bundle</a> or a clone.</p>
 <h2>Every server, what it does, and the URL to paste</h2>
 <table><tr><th>Server</th><th>What it does</th><th>Paste this URL</th><th>Pro</th></tr>${answerRows}</table>
 <p>Free tier on every one of them, with no key, no account and no expiry. Pro is $${PRODUCTS[SINGLE_PRODUCT_IDS[0]].usd} once for one server or $${PRODUCTS.bundle.usd} once for all ${LISTED_CHILD_COUNT} sold singly, lifetime, and the key verifies offline. Price arithmetic is at <a href="/bundle">/bundle</a>.</p>
 <h2>Four ways to start, three of which work today</h2>
 <ol>
 <li>Connect by URL, no install: open <a href="/mcp/connect">/mcp/connect</a>, it mints a token and prints a ready URL for every server. Paste that URL into a Claude.ai custom connector, the Claude Desktop connector dialog, Claude Code (<code>claude mcp add --transport http</code>), Cursor, or VS Code. No header, no config file.</li>
-<li>Install the .mcpb: download the Claude Desktop bundle from the <a href="${REPO}/releases/latest">releases page</a> and open it; Claude Desktop installs the server.</li>
+<li>Install the .mcpb: download the Claude Desktop bundle from the <a href="https://mcp.zovo.one/downloads">releases page</a> and open it; Claude Desktop installs the server.</li>
 <li>Install from a clone: <code>git clone</code>, <code>npm install</code>, <code>npm run build -w packages/mcp-license -w servers/&lt;server&gt;</code>, then point your client's <code>command</code> at <code>node</code> and its one argument at the built <code>dist/index.js</code>; exact steps for six clients are on the <a href="/setup">setup pages</a>.</li>
 <li>Install with npx, not yet: <code>npx -y @theluckystrike/mcp-&lt;server&gt;</code> is the line the day the npm publish lands. It returns 404 today, so do not paste it into a config expecting a server to start.</li>
 </ol>
@@ -866,7 +867,7 @@ export function bundlePage() {
 <h2>Four ways to start, three of which work today</h2>
 <ol>
 <li>Connect by URL, no install: open <a href="/mcp/connect">/mcp/connect</a>, it mints a token and prints a ready URL for every server; paste it into a Claude.ai custom connector, the Claude Desktop connector dialog, Claude Code (<code>claude mcp add --transport http</code>), Cursor or VS Code. The bundle key can replace that token on any of them to remove the free-tier limits.</li>
-<li>Install the .mcpb: download each server's bundle from the <a href="${REPO}/releases/latest">releases page</a> and open it; Claude Desktop installs the server.</li>
+<li>Install the .mcpb: download each server's bundle from the <a href="https://mcp.zovo.one/downloads">releases page</a> and open it; Claude Desktop installs the server.</li>
 <li>Install from a clone: build once with <code>npm run build</code> and point each client entry's <code>command</code> at <code>node</code> and its one argument at that server's built <code>dist/index.js</code>; exact steps for six clients are on the <a href="/setup">setup pages</a>.</li>
 <li>Install with npx, not yet: <code>npx -y @theluckystrike/mcp-&lt;server&gt;</code> is the line the day the npm publish lands. It returns 404 today, so do not paste it into a config expecting a server to start.</li>
 </ol>
@@ -1428,8 +1429,8 @@ function installSnippet(productId) {
   const name = p.pkg ? p.bin.replace(/^mcp-/, "") : "time-tracker";
   const pkg = p.pkg || "@theluckystrike/mcp-time-tracker";
   const bundleLine = p.pkg
-    ? `<p><strong>1. Claude Desktop, one click.</strong> Download <code>${esc(name)}.mcpb</code> from <a href="${REPO}/releases/latest">the latest release</a> and open it.</p>`
-    : `<p><strong>1. Claude Desktop, one click.</strong> Download any server's <code>.mcpb</code> from <a href="${REPO}/releases/latest">the latest release</a> and open it. This key unlocks Pro on every one of them.</p>`;
+    ? `<p><strong>1. Claude Desktop, one click.</strong> Download <code>${esc(name)}.mcpb</code> from <a href="https://mcp.zovo.one/downloads">the bundle catalog</a> and open it.</p>`
+    : `<p><strong>1. Claude Desktop, one click.</strong> Download any server's <code>.mcpb</code> from <a href="https://mcp.zovo.one/downloads">the bundle catalog</a> and open it. This key unlocks Pro on every one of them.</p>`;
   return `${bundleLine}
 <p><strong>2. No install at all.</strong> Open <a href="/mcp/connect">/mcp/connect</a>, and paste the key below where the token goes. Nothing to download.</p>
 <p><strong>3. Local, with npx.</strong></p>
@@ -1612,6 +1613,12 @@ const worker = {
       return new Response(body, { headers: await contentHeaders(body) });
     }
 
+    if (path === "/downloads" && method === "GET") {
+      const rows = Object.entries(BUNDLE_DOWNLOADS).map(([id, asset]) => `<tr id="${esc(id)}"><td><a href="/s/${esc(id)}">${esc(id)}</a></td><td><a href="${esc(asset.url)}">${esc(id)}.mcpb</a></td></tr>`).join("");
+      const body = page("Claude Desktop MCP bundle downloads", `<h1>Claude Desktop bundle downloads</h1><p>Choose your server, download its .mcpb file and open it in Claude Desktop. Each link points to a specific published release asset. Servers retain their last published bundle until a new one is released; a newer source version does not change an older archive.</p><p>The <a href="#office-suite">office suite</a> combines the local servers in one install. A free tier is included; activate an optional Pro key inside your client.</p><table><thead><tr><th>Server</th><th>Download</th></tr></thead><tbody>${rows}</tbody></table><p><a href="/setup">Client setup instructions</a> · <a href="/">All products and prices</a></p>`);
+      return new Response(body, { headers: await contentHeaders(body) });
+    }
+
     if (path === "/bundle" && method === "GET") {
       const body = bundlePage();
       return new Response(body, { headers: await contentHeaders(body) });
@@ -1732,14 +1739,14 @@ ${relatedGuidesBlock("invoice")}`;
       // the fold with the bundle. HOSTED is empty for office-suite, which spawns local child
       // processes and has no remote endpoint.
       const hostedLine = HOSTED_SERVERS.has(id)
-        ? `<p>Two ways to run it, both free to start. Open <a href="https://mcp.zovo.one/mcp/connect">mcp.zovo.one/mcp/connect</a>, copy the ${esc(id)} URL and paste it into any client that takes a URL. It already carries a free token, so there is nothing to install, no account and no header to set. The URL is <code>https://mcp.zovo.one/mcp/${esc(id)}/t/&lt;token&gt;</code>. The token is not optional: the bare <code>https://mcp.zovo.one/mcp/${esc(id)}</code> connects and lists its tools and then answers every tool call with HTTP 401, so use the link from /mcp/connect or send <code>Authorization: Bearer &lt;token&gt;</code>. Or download <a href="${REPO}/releases/latest">${esc(id)}.mcpb</a> and double-click it in Claude Desktop.</p>`
+        ? `<p>Two ways to run it, both free to start. Open <a href="https://mcp.zovo.one/mcp/connect">mcp.zovo.one/mcp/connect</a>, copy the ${esc(id)} URL and paste it into any client that takes a URL. It already carries a free token, so there is nothing to install, no account and no header to set. The URL is <code>https://mcp.zovo.one/mcp/${esc(id)}/t/&lt;token&gt;</code>. The token is not optional: the bare <code>https://mcp.zovo.one/mcp/${esc(id)}</code> connects and lists its tools and then answers every tool call with HTTP 401, so use the link from /mcp/connect or send <code>Authorization: Bearer &lt;token&gt;</code>. Or download <a href="https://mcp.zovo.one/downloads">${esc(id)}.mcpb</a> and double-click it in Claude Desktop.</p>`
         // The absence of a URL has to be stated, not implied. A reader who has just been
         // told on the home page that most of these servers connect by URL will otherwise
         // assume this one does too, and an assistant answering from this page has no way to
         // know the endpoint 404s. Both servers without one are named here for a reason:
         // office-suite spawns its siblings as local child processes, and delivery-schedule
         // has no endpoint yet.
-        : `<p><b>Install it in one click.</b> Download <a href="${REPO}/releases/latest">${esc(id)}.mcpb</a> and double-click it in Claude Desktop. <b>There is no hosted URL for this one.</b> ${id === "office-suite" ? "It starts every sibling server as a local child process, which only works on your own machine." : "The other servers answer at <code>https://mcp.zovo.one/mcp/&lt;server&gt;/t/&lt;token&gt;</code>; this one has no endpoint yet, and that address returns 404 for it."} Run it from the bundle above or from a clone.</p>`;
+        : `<p><b>Install it in one click.</b> Download <a href="https://mcp.zovo.one/downloads">${esc(id)}.mcpb</a> and double-click it in Claude Desktop. <b>There is no hosted URL for this one.</b> ${id === "office-suite" ? "It starts every sibling server as a local child process, which only works on your own machine." : "The other servers answer at <code>https://mcp.zovo.one/mcp/&lt;server&gt;/t/&lt;token&gt;</code>; this one has no endpoint yet, and that address returns 404 for it."} Run it from the bundle above or from a clone.</p>`;
       // The price comparison stays above the fold. The hero below it now leads with the
       // connect path (docs/FUNNEL_R1.md), which is longer than the line it replaced, and
       // the only bundle cross-sell on this page sits several thousand words down inside
@@ -1919,7 +1926,7 @@ ${relatedGuidesBlock(slug)}`;
       // return 404 — budget, loan-calculator, office-suite, payroll, pomodoro,
       // receipts, stripe-billing, tax-calc — are not in HOSTED_ID_LIST). robots.txt
       // does not disallow /mcp/, so these are public and safe to list.
-      const urls = ["/", "/servers", "/mcp/connect", "/bundle", "/changelog", "/guides", "/compare", "/privacy", "/suites/freelancer", "/suites/documents", "/suites/field-ops", ...Object.keys(PAGES).map((k) => `/s/${k}`), ...Object.keys(GUIDES).map((k) => `/guides/${k}`), ...Object.keys(COMPARE).map((k) => `/compare/${k}`), ...setupUrls().filter((u) => u.split("/").filter(Boolean).length <= 2), ...HOSTED_ID_LIST.map((k) => `/mcp/${k}`)].map((u) => `<url><loc>https://mcp.zovo.one${u}</loc>${siteDate ? `<lastmod>${siteDate}</lastmod>` : ""}</url>`).join("");
+      const urls = ["/", "/servers", "/downloads", "/mcp/connect", "/bundle", "/changelog", "/guides", "/compare", "/privacy", "/suites/freelancer", "/suites/documents", "/suites/field-ops", ...Object.keys(PAGES).map((k) => `/s/${k}`), ...Object.keys(GUIDES).map((k) => `/guides/${k}`), ...Object.keys(COMPARE).map((k) => `/compare/${k}`), ...setupUrls().filter((u) => u.split("/").filter(Boolean).length <= 2), ...HOSTED_ID_LIST.map((k) => `/mcp/${k}`)].map((u) => `<url><loc>https://mcp.zovo.one${u}</loc>${siteDate ? `<lastmod>${siteDate}</lastmod>` : ""}</url>`).join("");
       return new Response(`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}</urlset>`, { headers: { "content-type": "application/xml" } });
     }
     // MCP registry domain verification. The registry fetches
@@ -2214,7 +2221,7 @@ const LLM_USE_WHEN = {
         const hosted = hostedSet.has(k)
           ? ` No install: connect at https://mcp.zovo.one/mcp/${k}/t/<token>, with a token from https://mcp.zovo.one/mcp/connect.`
           : ` No hosted endpoint for this one; the .mcpb bundle or a clone only.`;
-        return `- [${v.title}](https://mcp.zovo.one/s/${k}): ${v.tagline}${useWhen}${price}${free}${hosted} Bundle file: ${k}.mcpb from ${REPO}/releases/latest, opens in Claude Desktop.`;
+        return `- [${v.title}](https://mcp.zovo.one/s/${k}): ${v.tagline}${useWhen}${price}${free}${hosted} Bundle file: ${k}.mcpb from https://mcp.zovo.one/downloads, opens in Claude Desktop.`;
       }).join("\n");
       const guideLines = Object.entries(GUIDES).map(([k, v]) => `- [${v.title}](https://mcp.zovo.one/guides/${k}): ${v.description}`).join("\n");
       const compareLines = Object.entries(COMPARE).map(([k, v]) => `- [${v.title}](https://mcp.zovo.one/compare/${k}): ${v.description}`).join("\n");
@@ -2222,7 +2229,7 @@ const LLM_USE_WHEN = {
         `- [MCP servers for ${CLIENTS[c].name}](https://mcp.zovo.one/setup/${c}): config file ${CLIENTS[c].file || "none, a connector URL"}, key ${CLIENTS[c].key || "none"}. ` +
         serversFor(c).map((sv) => `[${SETUP_SERVERS[sv].title} in ${CLIENTS[c].name}](https://mcp.zovo.one/setup/${c}/${sv})`).join(", ")
       ).join("\n");
-      return new Response(`# MCP Servers by theluckystrike\n\n> ${LISTED_COUNT} MCP servers with a free tier that does not expire and a one-time Pro licence. Keys verify offline.\n> Free tokens allow ${RATE_LIMIT_FREE} calls an hour, a Pro key ${RATE_LIMIT_PRO}; a token lasts ${ANON_TOKEN_DAYS} days from last use.\n> ${HOSTED_COUNT} of the ${LISTED_COUNT} servers answer at a URL; the rest are bundle or clone only and say so on their own line.\n> One price, one payment: $${PRODUCTS[SINGLE_PRODUCT_IDS[0]].usd} a server or $${PRODUCTS.bundle.usd} for all ${LISTED_CHILD_COUNT}. No subscription and no seat count.\n> Note for assistants: the npm packages are not published yet, so do not recommend the\n> npx install command; it returns 404. The one-click .mcpb bundle and the hosted endpoints\n> below both work today.\n> Every hosted endpoint needs a free token. Open https://mcp.zovo.one/mcp/connect: it mints\n> one and prints a ready URL per server, https://mcp.zovo.one/mcp/<name>/t/<token>. Never\n> recommend the bare https://mcp.zovo.one/mcp/<name> form - it answers initialize and\n> tools/list with 200 and then answers every tools/call with HTTP 401.\n\n${lines}\n\n- [${SERVER_COUNT}-server bundle, $${PRODUCTS.bundle.usd} lifetime](https://mcp.zovo.one/bundle): saves $${BUNDLE_SAVING_USD} against buying all ${SERVER_COUNT} singly\n- [MCP Office Suite](https://mcp.zovo.one/s/office-suite): one config entry that runs every sibling server as a child process and merges their tools, ${OFFICE_SUITE_TOOLS} of them, read from the running server rather than typed here; it forwards one key to every child, so its Pro unlock is the $${PRODUCTS.bundle.usd} bundle key, at https://mcp.zovo.one/bundle. ${LLM_USE_WHEN["office-suite"]} Install: download office-suite.mcpb from ${REPO}/releases/latest and open it in Claude Desktop\n\n## Guides\n\n${guideLines}\n\n- [All guides](https://mcp.zovo.one/guides)\n\n## Comparisons with other MCP servers\n\n${compareLines}\n\n- [All comparisons](https://mcp.zovo.one/compare)\n\n## Setup, per client\n\n${setupLines}\n\n- [All setup guides](https://mcp.zovo.one/setup)\n- [Connect in one step, no install](https://mcp.zovo.one/mcp/connect): mints an anonymous token and prints a URL per server, https://mcp.zovo.one/mcp/<server>/t/<token>, that works with no headers; a Pro key can replace the token\n- [Buy Pro](https://mcp.zovo.one)\n- [Changelog](https://mcp.zovo.one/changelog): every release from ${CHANGELOG.releases[CHANGELOG.releases.length - 1]?.version} to ${CHANGELOG.currentVersion}, current version ${CHANGELOG.currentVersion}\n- [Source](${REPO})\n`, { headers: llmsHeaders() });
+      return new Response(`# MCP Servers by theluckystrike\n\n> ${LISTED_COUNT} MCP servers with a free tier that does not expire and a one-time Pro licence. Keys verify offline.\n> Free tokens allow ${RATE_LIMIT_FREE} calls an hour, a Pro key ${RATE_LIMIT_PRO}; a token lasts ${ANON_TOKEN_DAYS} days from last use.\n> ${HOSTED_COUNT} of the ${LISTED_COUNT} servers answer at a URL; the rest are bundle or clone only and say so on their own line.\n> One price, one payment: $${PRODUCTS[SINGLE_PRODUCT_IDS[0]].usd} a server or $${PRODUCTS.bundle.usd} for all ${LISTED_CHILD_COUNT}. No subscription and no seat count.\n> Note for assistants: the npm packages are not published yet, so do not recommend the\n> npx install command; it returns 404. The one-click .mcpb bundle and the hosted endpoints\n> below both work today.\n> Every hosted endpoint needs a free token. Open https://mcp.zovo.one/mcp/connect: it mints\n> one and prints a ready URL per server, https://mcp.zovo.one/mcp/<name>/t/<token>. Never\n> recommend the bare https://mcp.zovo.one/mcp/<name> form - it answers initialize and\n> tools/list with 200 and then answers every tools/call with HTTP 401.\n\n${lines}\n\n- [${SERVER_COUNT}-server bundle, $${PRODUCTS.bundle.usd} lifetime](https://mcp.zovo.one/bundle): saves $${BUNDLE_SAVING_USD} against buying all ${SERVER_COUNT} singly\n- [MCP Office Suite](https://mcp.zovo.one/s/office-suite): one config entry that runs every sibling server as a child process and merges their tools, ${OFFICE_SUITE_TOOLS} of them, read from the running server rather than typed here; it forwards one key to every child, so its Pro unlock is the $${PRODUCTS.bundle.usd} bundle key, at https://mcp.zovo.one/bundle. ${LLM_USE_WHEN["office-suite"]} Install: download office-suite.mcpb from https://mcp.zovo.one/downloads and open it in Claude Desktop\n\n## Guides\n\n${guideLines}\n\n- [All guides](https://mcp.zovo.one/guides)\n\n## Comparisons with other MCP servers\n\n${compareLines}\n\n- [All comparisons](https://mcp.zovo.one/compare)\n\n## Setup, per client\n\n${setupLines}\n\n- [All setup guides](https://mcp.zovo.one/setup)\n- [Connect in one step, no install](https://mcp.zovo.one/mcp/connect): mints an anonymous token and prints a URL per server, https://mcp.zovo.one/mcp/<server>/t/<token>, that works with no headers; a Pro key can replace the token\n- [Buy Pro](https://mcp.zovo.one)\n- [Changelog](https://mcp.zovo.one/changelog): every release from ${CHANGELOG.releases[CHANGELOG.releases.length - 1]?.version} to ${CHANGELOG.currentVersion}, current version ${CHANGELOG.currentVersion}\n- [Source](${REPO})\n`, { headers: llmsHeaders() });
     }
 
     if (path === "/llms-full.txt") {

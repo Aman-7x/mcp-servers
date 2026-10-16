@@ -379,7 +379,7 @@ def header(name, demo, monorepo, raw):
                  "with no token answers 401 on `tools/call`, so the token is not optional." % name)
         L.append("")
     L.append("**Claude Desktop, one click.** Download `%s.mcpb` from the "
-             "[latest release](%s/releases/latest) and double-click it." % (name, monorepo))
+             "[bundle catalog](https://mcp.zovo.one/downloads#%s) and double-click it." % (name, name))
     L.append("")
     L.append("**From source.** The mirror is self-contained: every `@%s/*` dependency is "
              "vendored, so a fresh clone builds with no extra setup." % OWNER)

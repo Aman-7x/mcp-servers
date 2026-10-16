@@ -485,9 +485,11 @@ test("a probe reads back what Stripe stored, and a buyer sees none of it", async
 // was either untrue or stale, on the pages where being wrong costs the most.
 // ---------------------------------------------------------------------------
 
-test("no page links a pinned release tag: v0.1.1 carried 4 bundles, the current release carries 31", () => {
-  assert.ok(!INDEX.includes("releases/tag/"), "a pinned release tag is back; use /releases/latest");
-  assert.ok(INDEX.includes("releases/latest"));
+test("install links use the asset catalog rather than assuming latest contains every bundle", () => {
+  // R36: latest v0.22.5 contains only hourly-rate; v0.22.0 holds the older fleet.
+  assert.ok(!INDEX.includes("releases/tag/"), "link the download catalog rather than one incomplete release");
+  assert.ok(!INDEX.includes("releases/latest"), "latest is not a complete asset catalog");
+  assert.ok(INDEX.includes("https://mcp.zovo.one/downloads"));
 });
 
 test("VALIDATION and BILLING_TEST_COUNT match the files they claim to report", () => {

@@ -1802,7 +1802,7 @@ function fitDesc(d) {
   return out;
 }
 
-const RELEASES = "https://github.com/theluckystrike/mcp-servers/releases/latest";
+const RELEASES = "https://mcp.zovo.one/downloads";
 
 /**
  * The config block for this client, with a command that actually starts a server.
@@ -1852,13 +1852,13 @@ function npxJson(clientId, s) {
 function bundleBlock(clientId, s) {
   if (clientId === "claude-desktop") {
     return `<p>One click, with no JSON. Download <code>${s.slug}.mcpb</code> from the
-<a href="${RELEASES}">latest release</a> and open it. Claude Desktop installs it as an extension and runs
+<a href="${RELEASES}">bundle catalog</a> and open it. Claude Desktop installs it as an extension and runs
 it on the Node runtime it ships with, so neither your PATH nor your node version comes into it, and there
 is no file to edit. Everything below is the manual route, for when you want the entry in the config file
 itself.</p>`;
   }
   return `<p>If you also run Claude Desktop, the shortest path there is one click: <code>${s.slug}.mcpb</code>
-from the <a href="${RELEASES}">latest release</a> opens as an extension, with no JSON and no terminal.
+from the <a href="${RELEASES}">bundle catalog</a> opens as an extension, with no JSON and no terminal.
 ${CLIENTS[clientId].name} reads its own config, so here it is:</p>`;
 }
 
@@ -2031,7 +2031,7 @@ ${relatedGuidesBlock(s.hosted || serverId)}`;
 <table><tr><th>Scope</th><th>Path</th></tr>${pathRows}</table>
 ${installBlock(clientId, s)}
 <p>${esc(c.restart)}</p>
-<p class="muted">Nothing is published to npm yet, so the working install paths are the ones above: the <code>.mcpb</code> bundle from <a href="${REPO}/releases/latest">the latest release</a>, a clone and build, or the hosted URL.</p>
+<p class="muted">Nothing is published to npm yet, so the working install paths are the ones above: the <code>.mcpb</code> bundle from <a href="https://mcp.zovo.one/downloads">the bundle catalog</a>, a clone and build, or the hosted URL.</p>
 
 <h2>No install: the hosted endpoint</h2>
 ${hostedBlock(clientId, s)}

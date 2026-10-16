@@ -1,6 +1,19 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import worker, { PRODUCTS, checkoutCustomText, successPage, bindDecision } from "../src/index.js";
+import { BUNDLE_DOWNLOADS } from "../src/downloads.js";
+import { LISTED_IDS } from "../src/figures.js";
+
+test("download catalog covers every listed server with an explicit release asset", async () => {
+  assert.deepEqual(Object.keys(BUNDLE_DOWNLOADS).sort(), [...LISTED_IDS].sort());
+  const response = await worker.fetch(new Request("https://mcp.zovo.one/downloads"), {}, { waitUntil() {} });
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /releases\/download\/v0\.22\.0\/invoice\.mcpb/);
+  assert.match(html, /releases\/download\/v0\.22\.6\/three-way-match\.mcpb/);
+  assert.match(html, /releases\/download\/v0\.22\.6\/office-suite\.mcpb/);
+  assert.doesNotMatch(html, /releases\/latest/);
+});
 
 test("catalogue leads to working setup and labels free-only calculators as free", async () => {
   const response = await worker.fetch(new Request("https://mcp.zovo.one/"), {}, { waitUntil() {} });

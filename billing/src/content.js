@@ -4,7 +4,7 @@
 // The FAQ section, the related links and the footer are appended by index.js.
 const FOOT = "";
 const BASE = "https://mcp.zovo.one";
-const RELEASES = "https://github.com/theluckystrike/mcp-servers/releases/latest";
+const RELEASES = "https://mcp.zovo.one/downloads";
 
 // Every number these pages quote comes from billing/src/figures.js, which
 // scripts/build-figures.mjs writes out of servers/*/src/index.ts, remote/src/index.ts,
@@ -73,7 +73,7 @@ function install(slug) {
 anonymous token and prints the ready line${hosted.length > 1 ? "s" : ""}:</p>
 <pre><code>${hosted.map((id) => `claude mcp add --transport http ${id.padEnd(width)} https://mcp.zovo.one/mcp/${id}/t/&lt;token&gt;`).join("\n")}</code></pre>`;
   return `<p>One click, with no JSON. Download ${files} from the
-<a href="${RELEASES}">latest release</a> and open ${many ? "them" : "it"} in Claude Desktop. ${many ? "They run" : "It runs"} on the
+<a href="${RELEASES}">bundle catalog</a> and open ${many ? "them" : "it"} in Claude Desktop. ${many ? "They run" : "It runs"} on the
 Node runtime Claude Desktop ships with, so your own PATH and node version never come into it.</p>${hostedBlock}
 <p>Or from a clone, for a client with no bundle installer. Build once, then point the
 client at the built file:</p>
@@ -104,7 +104,7 @@ export const GUIDES = {
 <p>A supplier bills ten units of A and ten of B. The order says ten of each, but the delivery note records five A and fifteen B. The aggregate is twenty units everywhere. Comparing only totals misses five billed units of A that were never accepted.</p>
 <p><a href="/s/three-way-match">MCP Three-Way Invoice Match</a> compares the lines by exact SKU and returns ordered, accepted, previously invoiced and currently billed quantities beside every exception. It takes structured data from your conversation; it does not extract PDFs, connect to an ERP, read sibling MCP stores or approve payment.</p>
 <h2>Install the local server</h2>
-<p>Download <code>three-way-match.mcpb</code> from the <a href="${RELEASES}">latest release</a> and open it in Claude Desktop. For a terminal client, build the self-contained mirror:</p>
+<p>Download <code>three-way-match.mcpb</code> from the <a href="${RELEASES}">bundle catalog</a> and open it in Claude Desktop. For a terminal client, build the self-contained mirror:</p>
 <pre><code>git clone https://github.com/theluckystrike/mcp-three-way-match.git
 cd mcp-three-way-match
 npm install &amp;&amp; npm run build
@@ -3318,7 +3318,7 @@ and build. A probe of <code>registry.npmjs.org</code> on 2026-09-07 returned no 
 <code>@theluckystrike/mcp-*</code> packages, which matches the npm status section of the repository
 README.</p>
 <p><strong>One click.</strong> Download <code>office-suite.mcpb</code> from the
-<a href="https://github.com/theluckystrike/mcp-servers/releases/latest">latest release</a> and
+<a href="https://mcp.zovo.one/downloads">bundle catalog</a> and
 double-click it in Claude Desktop. It runs on the Node runtime Claude Desktop ships with, so nothing
 about your own PATH matters.</p>
 <p><strong>Clone and build.</strong> This one needs a full build rather than a per-server one,
@@ -3472,7 +3472,7 @@ The full measurement is in <a href="https://github.com/theluckystrike/mcp-server
 repeating yourself: the VAT rate, the payment terms, the timezone and the IBAN are stated once and
 every child server reads them.</p>
 <p>One click: download <code>office-suite.mcpb</code> from
-<a href="${RELEASES}">the latest release</a> and open it in Claude Desktop. From a clone, build the whole
+<a href="${RELEASES}">the bundle catalog</a> and open it in Claude Desktop. From a clone, build the whole
 repository once (the bundle spawns every child) and add it by path:</p>
 <pre><code>claude mcp add --scope user office-suite -- node /absolute/path/to/mcp-servers/servers/office-suite/dist/index.js</code></pre>
 <p>The <code>npx</code> line the READMEs print is not live yet, because nothing is published to npm.
@@ -3666,7 +3666,7 @@ above at once.</p>
 <h2>The install that skips the file entirely</h2>
 <p>Claude Desktop takes <code>.mcpb</code> bundles, which are a zip of the server plus its manifest,
 and it ships its own Node runtime, so nothing about your PATH matters. Download a bundle from the
-<a href="https://github.com/theluckystrike/mcp-servers/releases/latest">latest release</a> and double
+<a href="https://mcp.zovo.one/downloads">bundle catalog</a> and double
 click it. The v0.20.0 release carries 31 of them, one per server, measured with
 <code>gh api repos/theluckystrike/mcp-servers/releases/latest</code> on 2026-09-07.</p>
 <p>If you built a bundle yourself, it goes in through Settings, Extensions, Advanced settings,
@@ -3729,7 +3729,7 @@ limited PATH a GUI app inherits. On a machine where node came from nvm or Homebr
 <code>which node</code> in a terminal prints the string to paste.</p>
 <p>Both disappear if you use a <code>.mcpb</code> bundle instead: Claude Desktop unpacks it, records
 it as an extension, and runs it with its own bundled Node. The
-<a href="https://github.com/theluckystrike/mcp-servers/releases/latest">latest release</a> has one per
+<a href="https://mcp.zovo.one/downloads">bundle catalog</a> has one per
 server, 31 in v0.20.0.</p>
 
 <h2>The same file under other names</h2>
@@ -3844,7 +3844,7 @@ file per server, and that is where a startup crash prints its reason.</p>
 <p>A <code>.mcpb</code> bundle is a zip of the server plus a manifest, and Claude Desktop opens one
 with an install dialog and runs it on its own bundled Node. There is no cmd wrapper, no PATH question
 and no JSON to escape. Download from the
-<a href="https://github.com/theluckystrike/mcp-servers/releases/latest">latest release</a>; v0.20.0
+<a href="https://mcp.zovo.one/downloads">bundle catalog</a>; v0.20.0
 carries 31 bundles, one per server, which is what
 <code>gh api repos/theluckystrike/mcp-servers/releases/latest</code> returned on 2026-09-07.</p>
 <p>Building from source on Windows works the same way it does elsewhere:</p>
@@ -3887,7 +3887,7 @@ throughout the READMEs start working the moment that happens, and nothing else a
 one with an install dialog and runs it on the Node runtime it ships with, so your own PATH, your nvm
 version and your JSON escaping never enter into it.</p>
 <ol>
-<li>Open the <a href="https://github.com/theluckystrike/mcp-servers/releases/latest">latest release</a>.</li>
+<li>Open the <a href="https://mcp.zovo.one/downloads">bundle catalog</a>.</li>
 <li>Download the bundle you want, for example <code>invoice.mcpb</code>.</li>
 <li>Double click it. Claude Desktop shows an install dialog.</li>
 </ol>
@@ -4568,7 +4568,7 @@ deleting unlimited on every tier. The document itself is never metered, because 
 record of the sale is the question this server exists to answer. Pro is $19 once for unlimited drafts and
 finalized documents, or $39 for the whole collection.</p>
 <p>It has no hosted endpoint, so it installs from the <code>bill-of-sale.mcpb</code> bundle on
-<a href="${RELEASES}">the latest release</a> or from a clone and build, and the document it renders is a
+<a href="${RELEASES}">the bundle catalog</a> or from a clone and build, and the document it renders is a
 generic template, not legal advice: bills of sale for vehicles, boats and regulated goods can have
 statutory form or filing requirements where the sale happens.</p>
 ${FOOT}`,
