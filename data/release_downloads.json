@@ -87,8 +87,8 @@
       "bytes": 3276144
     },
     "expense-tracker": {
-      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/expense-tracker.mcpb",
-      "bytes": 7460493
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/expense-tracker.mcpb",
+      "bytes": 5178277
     },
     "goods-receipt": {
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/goods-receipt.mcpb",
@@ -130,8 +130,8 @@
       "bytes": 3258511
     },
     "office-suite": {
-      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/office-suite.mcpb",
-      "bytes": 32010970
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/office-suite.mcpb",
+      "bytes": 29703676
     },
     "onboarding": {
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb",
@@ -190,8 +190,8 @@
       "bytes": 3260061
     },
     "spreadsheet": {
-      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/spreadsheet.mcpb",
-      "bytes": 7461883
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/spreadsheet.mcpb",
+      "bytes": 5179288
     },
     "statement-of-account": {
       "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/statement-of-account.mcpb",

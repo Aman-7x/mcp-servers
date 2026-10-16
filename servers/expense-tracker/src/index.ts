@@ -8,6 +8,9 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { createLicenseGate, readSharedProfile, withFileLock } from "@theluckystrike/mcp-license";
 import { z } from "zod";
 import * as XLSX from "xlsx";
+
+// SheetJS ESM requires filesystem injection for writeFile.
+XLSX.set_fs({ writeFileSync });
 import {
   currencyDecimals, defaultRegion, formatMoney, hasRegexMetacharacters, isIsoDate, isKnownCurrency,
   isoDaysAgo, isoToday, isSafeRegexSource, MAX_MATCH_INPUT, MILEAGE_RATES, mileageAmount,

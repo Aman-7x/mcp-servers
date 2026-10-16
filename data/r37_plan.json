@@ -81,10 +81,10 @@
     "Local MCPs must remain local: no added phone-home telemetry.",
     "No people/install/revenue claims from platform counters, signed IDs, probes or documentary search trials."
   ],
-  "updated_at": "2026-10-16T10:01:49.672413+00:00",
+  "updated_at": "2026-10-16T10:46:08.961318+00:00",
   "agent_execution": {
-    "working_specialists": 8,
-    "spawn_attempts": 9,
+    "working_specialists": 10,
+    "spawn_attempts": 11,
     "capacity_failure": "gpt-6-sol product reviewer unavailable; independent product audit reassigned to existing gpt-6-astra reviewer",
     "note": "Counts are for this R37 sprint, not prior R36 agents or simultaneous workers."
   },
@@ -100,11 +100,17 @@
     "reason": "Current proof requires JSON; fixed-column CSV makes a supplied exported batch easier to try without changing server capabilities or permission checks.",
     "first_billing_version": "346dfbd9-248c-49f9-a51c-822b6c2deae7",
     "gate": "60 marked GET offer routes; zero new live Stripe Sessions",
-    "next": "Backward-compatible old-markup execution, content-versioned script URL, final live browser proof",
+    "next": "Observe dated commercial outcomes; retain final rollout proof.",
     "final_billing_version": "3376864a-7e1c-40dc-98a2-01fea2cd1af1",
     "final_live_browser_cases": 23,
     "public_metadata_controls": 7,
     "rollout_legacy_cases": 7,
     "independent_rollout_cases": 8
+  },
+  "dependency_triage": {
+    "status": "reviewed_patch_and_three_exact_archives_passed_publication_pending",
+    "scope": "Root lock reports six production packages; five are patched in all three exact published archives. Office xlsx0.18.5 has a reachable spreadsheet-read parser path; both standalone products lack xlsx.",
+    "evidence": "data/r37_dependency_scope.json",
+    "rehearsal": "Reviewed official0.20.3 candidate applied; exact0.22.9 spreadsheet/expense/Office archives pass33actualcalls,135sourcepasses/1oldskip,89remote tests. Public bytes,registry and livehosted workflows pending."
   }
 }

@@ -1,0 +1,12 @@
+release-check: 1 servers at 0.22.9, 29 checks each
+
+server       version profile-reader dist-version manifests desc names remotes hosted-row endpoint web children mcpb-lists mirrors pages facts tools product first-five setup compare guide gif logo docker smithery glama llms spec contract
+-----------  ------- -------------- ------------ --------- ---- ----- ------- ---------- -------- --- -------- ---------- ------- ----- ----- ----- ------- ---------- ----- ------- ----- --- ---- ------ -------- ----- ---- ---- --------
+spreadsheet  ok      ok             ok           ok        ok   ok    FAIL    ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      ok         ok    ok      ok    ok  ok   ok     ok       ok    ok   ok   ok
+
+Scoped release: all 29 checks for spreadsheet; 6 estate assertions excluded. This does not certify other servers.
+
+1 failure(s):
+  spreadsheet  remotes: server.mcpb.json has no remotes block
+
+legend: version=version == release, profile-reader=PROFILE_READERS wiring, dist-version=dist/version.js equals src/version.ts, manifests=server.json + mcpb, desc=descriptions < 100, names=second registry name, remotes=remotes.json merged, hosted-row=distribution.json hosted, endpoint=remote /mcp/<x>, web=claude-web setup page, children=office-suite CHILDREN, mcpb-lists=build-mcpb 3 lists, mirrors=sync-mirrors, pages=build-pages ids, facts=facts.json, tools=tools.json, product=Stripe PRODUCTS, first-five=measured evidence on the page, setup=SETUP_SERVERS + 6 ANGLE, compare=COMPARE page, guide=a guide mentions it, gif=demo GIF, logo=logo, docker=Dockerfile, smithery=smithery.yaml, glama=glama.json, llms=llms-install.md, spec=SPEC.md, contract=contract test

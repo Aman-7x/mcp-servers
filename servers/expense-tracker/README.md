@@ -10,54 +10,36 @@ Log receipts and mileage in chat, split the VAT, and rebill them onto an invoice
 
 ## 60-second install
 
-npm publish for `@theluckystrike/mcp-expense-tracker` is pending. Until then, the `.mcpb` one-click bundle or a
-clone+build is the working path, both are verified below.
+Use [**expense-tracker.mcpb v0.22.9**](https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/expense-tracker.mcpb) in Claude Desktop. [Published checksums](https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/SHA256SUMS.txt) and the [versioned download catalog](https://mcp.zovo.one/downloads#expense-tracker) identify the exact release. The npm package is not published.
 
-One-click (.mcpb): download `expense-tracker.mcpb` from the latest release and double-click it in Claude Desktop:
-https://github.com/theluckystrike/mcp-servers/releases/latest
-
-(`claude_desktop_config.json`):
-
-```json
-{
-  "mcpServers": {
-    "expense-tracker": {
-      "command": "npx",
-      "args": ["-y", "@theluckystrike/mcp-expense-tracker"]
-    }
-  }
-}
-```
-
-Claude Code:
+For a source installation, use Node.js 22 or newer and build the shared dependency first:
 
 ```sh
-claude mcp add expense-tracker -- npx -y @theluckystrike/mcp-expense-tracker
-```
-
-(`.cursor/mcp.json`):
-
-```json
-{
-  "mcpServers": {
-    "expense-tracker": {
-      "command": "npx",
-      "args": ["-y", "@theluckystrike/mcp-expense-tracker"]
-    }
-  }
-}
-```
-
-The `npx` form above starts working the moment the package is published. Until then, use the .mcpb bundle above, or
-build from source with exactly these three commands:
-
-```sh
-git clone https://github.com/theluckystrike/mcp-servers.git && cd mcp-servers
-npm install
+git clone https://github.com/theluckystrike/mcp-servers.git
+cd mcp-servers
+npm ci
+node scripts/bootstrap-timezone.mjs
 npm run build -w packages/mcp-license -w servers/expense-tracker
 ```
 
-Then point your client's `command` at `node` with one arg: the absolute path to `servers/expense-tracker/dist/index.js`.
+Merge this entry into Claude Desktop's `mcpServers`, or into `.cursor/mcp.json` for Cursor. Replace the absolute path with your checkout:
+
+```json
+{
+  "mcpServers": {
+    "expense-tracker": {
+      "command": "node",
+      "args": ["/absolute/path/mcp-servers/servers/expense-tracker/dist/index.js"]
+    }
+  }
+}
+```
+
+For Claude Code:
+
+```sh
+claude mcp add expense-tracker -- node /absolute/path/mcp-servers/servers/expense-tracker/dist/index.js
+```
 
 To run in Pro mode set `MCP_LICENSE_KEY` in the same config block, or call `license_activate` once with your key.
 

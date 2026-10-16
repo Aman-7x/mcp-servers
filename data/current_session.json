@@ -1,7 +1,7 @@
 {
   "title": "R37 \u2014 useful workflows, conversion evidence and distribution, 2026-10-16",
-  "updated_at": "2026-10-16T10:01:49.672413+00:00",
-  "status_note": "Four-hour sprint in progress; deadline11:34:06UTC. v0.22.8 archives/six registry rows/57catalog links and hosted deployments verified. Final local CSV proof passes23productionChrome cases and exactasset/metadata checks; cached historical markup compatibility passes. Production is frozen while scheduled observations continue.",
+  "updated_at": "2026-10-16T10:46:08.961318+00:00",
+  "status_note": "Four-hour sprint in progress; deadline11:34:06UTC. Invoice/CSV proof remains verified. Reviewed SheetJS0.20.3 patch and three new0.22.9 exact archives pass source/runtime tests; publication and hosted rollout pending. Scheduled observations continue.",
   "conclusion": "Fresh completed-history and fully covered seven-day Stripe checks still show$0 MCP Checkout gross and zero untagged paid demand. Google inspection finds the new product/guide unknown and older product URLs discovered but unindexed, while the homepage is indexed. Successful response measurement and working install routes are verified; qualified buyer discovery and willingness to pay remain unproven.",
   "metrics": [
     {
@@ -55,5 +55,5 @@
   ],
   "report": "intel/R37-session.md",
   "watch_path": "data/r37_watch.json",
-  "known_limits": "Final wider-estate checkpoint:173 failures/28 gaps, including51 umbrella-version mismatches and seven older skeletons; current billing/catalog/batch test failures are fixed. Scoped duplicate/matcher gates29/29; office packaging49 children/447 tools. Registry aliases represent one capability. Directory received/pending review; Glama duplicate listing404/account gate. Initial59 unmarked operator offers retained. Paid fulfillment/inbox delivery untested. Google indexed-version inspection09:36UTC: new duplicate product/guide unknown; homepage indexed positive control. Sitemap fetched06:58UTC before launch; no causal indexing claim."
+  "known_limits": "Final wider-estate checkpoint:173 failures/28 gaps, including51 umbrella-version mismatches and seven older skeletons; current billing/catalog/batch test failures are fixed. Scoped duplicate/matcher gates29/29; office packaging49 children/447 tools. Registry aliases represent one capability. Directory received/pending review; Glama duplicate listing404/account gate. Initial59 unmarked operator offers retained. Paid fulfillment/inbox delivery untested. Google indexed-version inspection09:36UTC: new duplicate product/guide unknown; homepage indexed positive control. Sitemap fetched06:58UTC before launch; no causal indexing claim. Dependency triage: five flagged packages are patched in exact published archives but older in root lock. Office includes xlsx0.18.5 with a reachable spreadsheet-read parser; standalone duplicate/matcher lack xlsx. A bounded patch rehearsal is underway, with no security clearance claimed."
 }

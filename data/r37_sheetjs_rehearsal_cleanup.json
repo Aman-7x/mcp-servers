@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-16T10:44:38.406377+00:00",
+  "status": "passed",
+  "path": "/Users/mike/mcp-servers-work/r37-sheetjs-rehearsal",
+  "bytes": 257057593,
+  "files": 12649,
+  "directories": 1805,
+  "symlinks": 78,
+  "lsof": "no open handles",
+  "isolated_manifest_records": 480,
+  "manifest_records_merged_without_duplicates": 10,
+  "private_key_symlink_absent": true,
+  "private_key_target_modified_by_rehearsal": false,
+  "disk_before": "Filesystem   1G-blocks Used Available Capacity  iused     ifree %iused  Mounted on\n/dev/disk3s5       460  401        24    95% 10050570 258609520    4%   /System/Volumes/Data\n",
+  "other_temp_folders_deleted": [],
+  "git_worktree_remove_exit": 0,
+  "git_worktree_remove_stdout": "",
+  "git_worktree_remove_stderr": "",
+  "worktree_absent": true,
+  "disk_after": "Filesystem   1G-blocks Used Available Capacity  iused     ifree %iused  Mounted on\n/dev/disk3s5       460  400        24    95% 10036054 261522960    4%   /System/Volumes/Data\n",
+  "completed_at": "2026-10-16T10:44:39.963608+00:00",
+  "original_key_target_files_present_with_original_sizes": {
+    "license-private.pem": true,
+    "license-public.pem": true,
+    "license-public.raw.b64": true
+  },
+  "registered_worktrees_after": "worktree /Users/mike/mcp-servers\nHEAD d31617c1035f485c69efacb50d595bf4528a8b5c\nbranch refs/heads/r37-final-observations\n\n"
+}

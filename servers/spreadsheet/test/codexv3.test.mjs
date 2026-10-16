@@ -9,6 +9,8 @@ import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import * as XLSX from "xlsx";
+import * as sheetFixtureFs from "node:fs";
+XLSX.set_fs(sheetFixtureFs);
 import { statSync } from "node:fs";
 import { coerce, parseCsv } from "../dist/csv.js";
 import { loadWorkbook, toNumber, guessHeaderRow, minMax } from "../dist/sheet.js";
@@ -264,8 +266,9 @@ test("v3 #17: xlsx date cells survive a convert to xlsx and keep their time", as
   const back = XLSX.read(readFileSync(out), { cellDates: true });
   const ws = back.Sheets[back.SheetNames[0]];
   assert.equal(ws.A2.t, "d", "still a date cell, not text");
-  assert.equal(new Date(ws.A2.v).getHours(), 15);
-  assert.equal(new Date(ws.A2.v).getMinutes(), 30);
+  // SheetJS 0.20 stores raw date-cell values in UTC; public JSON stays local wall time.
+  assert.equal(new Date(ws.A2.v).getUTCHours(), 15);
+  assert.equal(new Date(ws.A2.v).getUTCMinutes(), 30);
 
   // ISO with the time only when there is one
   const j = await c.call("sheet_read", { path: f, as: "json" });

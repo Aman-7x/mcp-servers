@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-16T10:43:19.142372+00:00",
+  "status": "built_pending_independent_runtime_verification",
+  "archives": [
+    {
+      "name": "spreadsheet",
+      "version": "0.22.9",
+      "bytes": 5179288,
+      "sha256": "38a13a55c122fd3c1709a91e90805366268a183f937d1dd1414aa10b8e14b7f6",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/spreadsheet.mcpb"
+    },
+    {
+      "name": "expense-tracker",
+      "version": "0.22.9",
+      "bytes": 5178277,
+      "sha256": "363ef8958bf7fbc4022488ae5af885a6087ddac45b71e431234e348359e48048",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/expense-tracker.mcpb"
+    },
+    {
+      "name": "office-suite",
+      "version": "0.22.9",
+      "bytes": 29703676,
+      "sha256": "0555833c1465b2a5583179eab963d8f068888077cc6410d3008254dbc469c300",
+      "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/office-suite.mcpb"
+    }
+  ]
+}

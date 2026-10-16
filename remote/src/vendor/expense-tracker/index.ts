@@ -16,6 +16,12 @@ import { dataDir, load, lockPath, readBankTransactions, save, type DB, type Expe
 import { VERSION } from "./version.js";
 
 export function createServer() {
+// SheetJS ESM requires filesystem injection for writeFile.
+XLSX.set_fs({ writeFileSync });
+
+
+
+
 const PRODUCT = "expense-tracker";
 const FREE_WINDOW_DAYS = 30;
 const FREE_PROJECTS = 3;

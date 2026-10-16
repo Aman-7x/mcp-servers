@@ -4,6 +4,10 @@ import { StringDecoder } from "node:string_decoder";
 import { homedir } from "../../shims/os.js";
 import { resolve, extname, dirname, basename, join } from "node:path";
 import * as XLSX from "xlsx";
+import * as cptable from "xlsx/dist/cpexcel.full.mjs";
+
+// SheetJS ESM does not load legacy workbook encodings automatically.
+XLSX.set_cptable(cptable);
 import { parseCsv, coerce } from "./csv.js";
 import { parseNumberLoose } from "./num.js";
 

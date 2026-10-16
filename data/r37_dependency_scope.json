@@ -1,0 +1,1118 @@
+{
+  "scope": "Exact published v0.22.8 MCPBs (hash matched prior unauthenticated public-byte proof), source and primary advisory review only; no builds, execution, exploits or dependency changes",
+  "archives": [
+    {
+      "name": "duplicate-invoice-check",
+      "sha256": "181379eb6dcff3d90b55e080dd9c180f6c96802e991872865a6b0ce422b3aaea",
+      "packages": [
+        {
+          "name": "@modelcontextprotocol/sdk",
+          "version": "1.32.1",
+          "path": "server/node_modules/@modelcontextprotocol/sdk/package.json",
+          "dependencies": {
+            "@hono/node-server": "^1.19.9 || ^2.0.5",
+            "ajv": "^8.17.1",
+            "ajv-formats": "^3.0.1",
+            "content-type": "^1.0.5",
+            "cors": "^2.8.5",
+            "cross-spawn": "^7.0.5",
+            "eventsource": "^3.0.2",
+            "eventsource-parser": "^3.0.0",
+            "express": "^5.2.1",
+            "express-rate-limit": "^8.2.1",
+            "hono": "^4.11.4",
+            "jose": "^6.1.3",
+            "json-schema-typed": "^8.0.2",
+            "pkce-challenge": "^5.0.0",
+            "raw-body": "^3.0.0",
+            "zod": "^3.25 || ^4.0",
+            "zod-to-json-schema": "^3.25.1"
+          }
+        },
+        {
+          "name": "ajv",
+          "version": "8.20.0",
+          "path": "server/node_modules/ajv/package.json",
+          "dependencies": {
+            "fast-deep-equal": "^3.1.3",
+            "fast-uri": "^3.0.1",
+            "json-schema-traverse": "^1.0.0",
+            "require-from-string": "^2.0.2"
+          }
+        },
+        {
+          "name": "express",
+          "version": "5.3.0",
+          "path": "server/node_modules/express/package.json",
+          "dependencies": {
+            "accepts": "^2.0.0",
+            "body-parser": "^2.3.0",
+            "content-disposition": "^2.0.1",
+            "content-type": "^2.0.0",
+            "cookie": "^0.7.1",
+            "cookie-signature": "^1.2.1",
+            "debug": "^4.4.0",
+            "depd": "^2.0.0",
+            "encodeurl": "^2.0.0",
+            "escape-html": "^1.0.3",
+            "etag": "^1.8.1",
+            "finalhandler": "^2.1.0",
+            "fresh": "^2.0.0",
+            "http-errors": "^2.0.0",
+            "merge-descriptors": "^2.0.0",
+            "mime-types": "^3.0.0",
+            "on-finished": "^2.4.1",
+            "once": "^1.4.0",
+            "parseurl": "^1.3.3",
+            "proxy-addr": "^2.0.8",
+            "qs": "^6.16.0",
+            "range-parser": "^1.2.1",
+            "router": "^2.2.0",
+            "send": "^1.1.0",
+            "serve-static": "^2.2.0",
+            "statuses": "^2.0.1",
+            "type-is": "^2.1.0",
+            "vary": "^1.1.2"
+          }
+        },
+        {
+          "name": "fast-uri",
+          "version": "3.1.8",
+          "path": "server/node_modules/fast-uri/package.json",
+          "dependencies": {}
+        },
+        {
+          "name": "hono",
+          "version": "4.13.13",
+          "path": "server/node_modules/hono/package.json",
+          "dependencies": {}
+        },
+        {
+          "name": "ip-address",
+          "version": "10.7.4",
+          "path": "server/node_modules/ip-address/package.json",
+          "dependencies": {}
+        },
+        {
+          "name": "proxy-addr",
+          "version": "2.0.8",
+          "path": "server/node_modules/proxy-addr/package.json",
+          "dependencies": {
+            "forwarded": "0.2.0",
+            "ipaddr.js": "1.9.1"
+          }
+        }
+      ],
+      "absent_requested_packages": [
+        "xlsx",
+        "socks",
+        "@tootallnate/quickjs-emscripten",
+        "pac-resolver"
+      ],
+      "first_party_matches": [],
+      "exact_file_evidence": [
+        {
+          "path": "server/index.js",
+          "sha256": "b54bf43fa767a06382e810379ad19bce60beab175c80ad9a191dd865ebc15012",
+          "matches": [
+            {
+              "line": 2,
+              "text": "import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';"
+            },
+            {
+              "line": 3,
+              "text": "import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';"
+            },
+            {
+              "line": 4,
+              "text": "import { z } from 'zod';"
+            },
+            {
+              "line": 5,
+              "text": "import { createLicenseGate } from '@theluckystrike/mcp-license';"
+            },
+            {
+              "line": 6,
+              "text": "import { checkSchema, check } from './core.js';"
+            },
+            {
+              "line": 7,
+              "text": "import { saveReport, listReports, getReport, deleteReport } from './store.js';"
+            },
+            {
+              "line": 8,
+              "text": "import { VERSION } from './version.js';"
+            },
+            {
+              "line": 9,
+              "text": "import { boundedReport, reportPage, pageSections, resolveReport, csvPage } from './output.js';"
+            },
+            {
+              "line": 68,
+              "text": "server.connect(new StdioServerTransport()).catch(e => { process.stderr.write(`duplicate-invoice-check: ${e instanceof Error ? e.message : String(e)}\\n`); process.exitCode = 1; });"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/server/index.js",
+          "sha256": "8b4fbdc0d0bbdc9ad74f385c41c0152d85445187f47cfc3941ff0d2a14a2696e",
+          "matches": [
+            {
+              "line": 1,
+              "text": "import { mergeCapabilities, Protocol } from '../shared/protocol.js';"
+            },
+            {
+              "line": 2,
+              "text": "import { CreateMessageResultSchema, CreateMessageResultWithToolsSchema, ElicitResultSchema, EmptyResultSchema, ErrorCode, InitializedNotificationSchema, InitializeRequestSchema, LATEST_PROTOCOL_VERSION, ListRootsResultSchema, LoggingLevelSchema, McpE"
+            },
+            {
+              "line": 3,
+              "text": "import { AjvJsonSchemaValidator } from '../validation/ajv-provider.js';"
+            },
+            {
+              "line": 4,
+              "text": "import { getLiteralValue, getObjectShape, safeParse } from './zod-compat.js';"
+            },
+            {
+              "line": 5,
+              "text": "import { ExperimentalServerTasks } from '../experimental/tasks/server.js';"
+            },
+            {
+              "line": 6,
+              "text": "import { assertToolsCallTaskCapability, assertClientRequestTaskCapability } from '../experimental/tasks/helpers.js';"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/validation/ajv-provider.js",
+          "sha256": "1893726b2b43d0688e8c37ce48b3c5f87a55eb93ca370433f882ae81c09c491a",
+          "matches": [
+            {
+              "line": 4,
+              "text": "import Ajv from 'ajv';"
+            },
+            {
+              "line": 5,
+              "text": "import _addFormats from 'ajv-formats';"
+            },
+            {
+              "line": 21,
+              "text": "* import { AjvJsonSchemaValidator } from '@modelcontextprotocol/sdk/validation/ajv';"
+            },
+            {
+              "line": 25,
+              "text": "* import { Ajv } from 'ajv';"
+            },
+            {
+              "line": 39,
+              "text": "* import { AjvJsonSchemaValidator } from '@modelcontextprotocol/sdk/validation/ajv';"
+            },
+            {
+              "line": 43,
+              "text": "* import { Ajv } from 'ajv';"
+            },
+            {
+              "line": 44,
+              "text": "* import addFormats from 'ajv-formats';"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/ajv/dist/runtime/uri.js",
+          "sha256": "d1d61baf97ed87d7310df847a78ed73d19c8cc003207bf5aaec977500bdb1578",
+          "matches": []
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/server/express.js",
+          "sha256": "49b60b26ee5a21108853d5a21ea45b6ccffcc388697adc8168705e22557703f5",
+          "matches": [
+            {
+              "line": 1,
+              "text": "import express from 'express';"
+            },
+            {
+              "line": 2,
+              "text": "import { hostHeaderValidation, localhostHostValidation } from './middleware/hostHeaderValidation.js';"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/transport.js",
+          "sha256": "f7dcd589ddb082ace39102be318b781992eca999bf0ecf3468bed1d8a4cc67bc",
+          "matches": []
+        }
+      ]
+    },
+    {
+      "name": "three-way-match",
+      "sha256": "6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040",
+      "packages": [
+        {
+          "name": "@modelcontextprotocol/sdk",
+          "version": "1.32.1",
+          "path": "server/node_modules/@modelcontextprotocol/sdk/package.json",
+          "dependencies": {
+            "@hono/node-server": "^1.19.9 || ^2.0.5",
+            "ajv": "^8.17.1",
+            "ajv-formats": "^3.0.1",
+            "content-type": "^1.0.5",
+            "cors": "^2.8.5",
+            "cross-spawn": "^7.0.5",
+            "eventsource": "^3.0.2",
+            "eventsource-parser": "^3.0.0",
+            "express": "^5.2.1",
+            "express-rate-limit": "^8.2.1",
+            "hono": "^4.11.4",
+            "jose": "^6.1.3",
+            "json-schema-typed": "^8.0.2",
+            "pkce-challenge": "^5.0.0",
+            "raw-body": "^3.0.0",
+            "zod": "^3.25 || ^4.0",
+            "zod-to-json-schema": "^3.25.1"
+          }
+        },
+        {
+          "name": "ajv",
+          "version": "8.20.0",
+          "path": "server/node_modules/ajv/package.json",
+          "dependencies": {
+            "fast-deep-equal": "^3.1.3",
+            "fast-uri": "^3.0.1",
+            "json-schema-traverse": "^1.0.0",
+            "require-from-string": "^2.0.2"
+          }
+        },
+        {
+          "name": "express",
+          "version": "5.3.0",
+          "path": "server/node_modules/express/package.json",
+          "dependencies": {
+            "accepts": "^2.0.0",
+            "body-parser": "^2.3.0",
+            "content-disposition": "^2.0.1",
+            "content-type": "^2.0.0",
+            "cookie": "^0.7.1",
+            "cookie-signature": "^1.2.1",
+            "debug": "^4.4.0",
+            "depd": "^2.0.0",
+            "encodeurl": "^2.0.0",
+            "escape-html": "^1.0.3",
+            "etag": "^1.8.1",
+            "finalhandler": "^2.1.0",
+            "fresh": "^2.0.0",
+            "http-errors": "^2.0.0",
+            "merge-descriptors": "^2.0.0",
+            "mime-types": "^3.0.0",
+            "on-finished": "^2.4.1",
+            "once": "^1.4.0",
+            "parseurl": "^1.3.3",
+            "proxy-addr": "^2.0.8",
+            "qs": "^6.16.0",
+            "range-parser": "^1.2.1",
+            "router": "^2.2.0",
+            "send": "^1.1.0",
+            "serve-static": "^2.2.0",
+            "statuses": "^2.0.1",
+            "type-is": "^2.1.0",
+            "vary": "^1.1.2"
+          }
+        },
+        {
+          "name": "fast-uri",
+          "version": "3.1.8",
+          "path": "server/node_modules/fast-uri/package.json",
+          "dependencies": {}
+        },
+        {
+          "name": "hono",
+          "version": "4.13.13",
+          "path": "server/node_modules/hono/package.json",
+          "dependencies": {}
+        },
+        {
+          "name": "ip-address",
+          "version": "10.7.4",
+          "path": "server/node_modules/ip-address/package.json",
+          "dependencies": {}
+        },
+        {
+          "name": "proxy-addr",
+          "version": "2.0.8",
+          "path": "server/node_modules/proxy-addr/package.json",
+          "dependencies": {
+            "forwarded": "0.2.0",
+            "ipaddr.js": "1.9.1"
+          }
+        }
+      ],
+      "absent_requested_packages": [
+        "xlsx",
+        "socks",
+        "@tootallnate/quickjs-emscripten",
+        "pac-resolver"
+      ],
+      "first_party_matches": [],
+      "exact_file_evidence": [
+        {
+          "path": "server/index.js",
+          "sha256": "d5950c5ac118e1034696f34ee8d9a0cb3ec1e3b66844d0736c71737bd4621f09",
+          "matches": [
+            {
+              "line": 2,
+              "text": "import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';"
+            },
+            {
+              "line": 3,
+              "text": "import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';"
+            },
+            {
+              "line": 4,
+              "text": "import { z } from 'zod';"
+            },
+            {
+              "line": 5,
+              "text": "import { createLicenseGate } from '@theluckystrike/mcp-license';"
+            },
+            {
+              "line": 6,
+              "text": "import { checkSchema, match, exportCsv } from './core.js';"
+            },
+            {
+              "line": 7,
+              "text": "import { saveReport, listReports, getReport, deleteReport } from './store.js';"
+            },
+            {
+              "line": 8,
+              "text": "import { VERSION } from './version.js';"
+            },
+            {
+              "line": 9,
+              "text": "import { boundedReport, reportPage, pageSections, fitsInline } from './output.js';"
+            },
+            {
+              "line": 93,
+              "text": "server.connect(new StdioServerTransport()).catch(e => { process.stderr.write(`three-way-match: ${e instanceof Error ? e.message : String(e)}\\n`); process.exitCode = 1; });"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/server/index.js",
+          "sha256": "8b4fbdc0d0bbdc9ad74f385c41c0152d85445187f47cfc3941ff0d2a14a2696e",
+          "matches": [
+            {
+              "line": 1,
+              "text": "import { mergeCapabilities, Protocol } from '../shared/protocol.js';"
+            },
+            {
+              "line": 2,
+              "text": "import { CreateMessageResultSchema, CreateMessageResultWithToolsSchema, ElicitResultSchema, EmptyResultSchema, ErrorCode, InitializedNotificationSchema, InitializeRequestSchema, LATEST_PROTOCOL_VERSION, ListRootsResultSchema, LoggingLevelSchema, McpE"
+            },
+            {
+              "line": 3,
+              "text": "import { AjvJsonSchemaValidator } from '../validation/ajv-provider.js';"
+            },
+            {
+              "line": 4,
+              "text": "import { getLiteralValue, getObjectShape, safeParse } from './zod-compat.js';"
+            },
+            {
+              "line": 5,
+              "text": "import { ExperimentalServerTasks } from '../experimental/tasks/server.js';"
+            },
+            {
+              "line": 6,
+              "text": "import { assertToolsCallTaskCapability, assertClientRequestTaskCapability } from '../experimental/tasks/helpers.js';"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/validation/ajv-provider.js",
+          "sha256": "1893726b2b43d0688e8c37ce48b3c5f87a55eb93ca370433f882ae81c09c491a",
+          "matches": [
+            {
+              "line": 4,
+              "text": "import Ajv from 'ajv';"
+            },
+            {
+              "line": 5,
+              "text": "import _addFormats from 'ajv-formats';"
+            },
+            {
+              "line": 21,
+              "text": "* import { AjvJsonSchemaValidator } from '@modelcontextprotocol/sdk/validation/ajv';"
+            },
+            {
+              "line": 25,
+              "text": "* import { Ajv } from 'ajv';"
+            },
+            {
+              "line": 39,
+              "text": "* import { AjvJsonSchemaValidator } from '@modelcontextprotocol/sdk/validation/ajv';"
+            },
+            {
+              "line": 43,
+              "text": "* import { Ajv } from 'ajv';"
+            },
+            {
+              "line": 44,
+              "text": "* import addFormats from 'ajv-formats';"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/ajv/dist/runtime/uri.js",
+          "sha256": "d1d61baf97ed87d7310df847a78ed73d19c8cc003207bf5aaec977500bdb1578",
+          "matches": []
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/server/express.js",
+          "sha256": "49b60b26ee5a21108853d5a21ea45b6ccffcc388697adc8168705e22557703f5",
+          "matches": [
+            {
+              "line": 1,
+              "text": "import express from 'express';"
+            },
+            {
+              "line": 2,
+              "text": "import { hostHeaderValidation, localhostHostValidation } from './middleware/hostHeaderValidation.js';"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/transport.js",
+          "sha256": "f7dcd589ddb082ace39102be318b781992eca999bf0ecf3468bed1d8a4cc67bc",
+          "matches": []
+        }
+      ]
+    },
+    {
+      "name": "office-suite",
+      "sha256": "7f50d6d16d445dddcee054b24e8586de4daff9d91b77d22a28730647305cc91d",
+      "packages": [
+        {
+          "name": "@modelcontextprotocol/sdk",
+          "version": "1.32.1",
+          "path": "server/node_modules/@modelcontextprotocol/sdk/package.json",
+          "dependencies": {
+            "@hono/node-server": "^1.19.9 || ^2.0.5",
+            "ajv": "^8.17.1",
+            "ajv-formats": "^3.0.1",
+            "content-type": "^1.0.5",
+            "cors": "^2.8.5",
+            "cross-spawn": "^7.0.5",
+            "eventsource": "^3.0.2",
+            "eventsource-parser": "^3.0.0",
+            "express": "^5.2.1",
+            "express-rate-limit": "^8.2.1",
+            "hono": "^4.11.4",
+            "jose": "^6.1.3",
+            "json-schema-typed": "^8.0.2",
+            "pkce-challenge": "^5.0.0",
+            "raw-body": "^3.0.0",
+            "zod": "^3.25 || ^4.0",
+            "zod-to-json-schema": "^3.25.1"
+          }
+        },
+        {
+          "name": "ajv",
+          "version": "8.20.0",
+          "path": "server/node_modules/ajv/package.json",
+          "dependencies": {
+            "fast-deep-equal": "^3.1.3",
+            "fast-uri": "^3.0.1",
+            "json-schema-traverse": "^1.0.0",
+            "require-from-string": "^2.0.2"
+          }
+        },
+        {
+          "name": "express",
+          "version": "5.3.0",
+          "path": "server/node_modules/express/package.json",
+          "dependencies": {
+            "accepts": "^2.0.0",
+            "body-parser": "^2.3.0",
+            "content-disposition": "^2.0.1",
+            "content-type": "^2.0.0",
+            "cookie": "^0.7.1",
+            "cookie-signature": "^1.2.1",
+            "debug": "^4.4.0",
+            "depd": "^2.0.0",
+            "encodeurl": "^2.0.0",
+            "escape-html": "^1.0.3",
+            "etag": "^1.8.1",
+            "finalhandler": "^2.1.0",
+            "fresh": "^2.0.0",
+            "http-errors": "^2.0.0",
+            "merge-descriptors": "^2.0.0",
+            "mime-types": "^3.0.0",
+            "on-finished": "^2.4.1",
+            "once": "^1.4.0",
+            "parseurl": "^1.3.3",
+            "proxy-addr": "^2.0.8",
+            "qs": "^6.16.0",
+            "range-parser": "^1.2.1",
+            "router": "^2.2.0",
+            "send": "^1.1.0",
+            "serve-static": "^2.2.0",
+            "statuses": "^2.0.1",
+            "type-is": "^2.1.0",
+            "vary": "^1.1.2"
+          }
+        },
+        {
+          "name": "fast-uri",
+          "version": "3.1.8",
+          "path": "server/node_modules/fast-uri/package.json",
+          "dependencies": {}
+        },
+        {
+          "name": "hono",
+          "version": "4.13.13",
+          "path": "server/node_modules/hono/package.json",
+          "dependencies": {}
+        },
+        {
+          "name": "ip-address",
+          "version": "10.7.4",
+          "path": "server/node_modules/ip-address/package.json",
+          "dependencies": {}
+        },
+        {
+          "name": "proxy-addr",
+          "version": "2.0.8",
+          "path": "server/node_modules/proxy-addr/package.json",
+          "dependencies": {
+            "forwarded": "0.2.0",
+            "ipaddr.js": "1.9.1"
+          }
+        },
+        {
+          "name": "xlsx",
+          "version": "0.18.5",
+          "path": "server/node_modules/xlsx/package.json",
+          "dependencies": {
+            "adler-32": "~1.3.0",
+            "cfb": "~1.2.1",
+            "codepage": "~1.15.0",
+            "crc-32": "~1.2.1",
+            "ssf": "~0.11.2",
+            "wmf": "~1.0.1",
+            "word": "~0.3.0"
+          }
+        }
+      ],
+      "absent_requested_packages": [
+        "socks",
+        "@tootallnate/quickjs-emscripten",
+        "pac-resolver"
+      ],
+      "first_party_matches": [
+        {
+          "path": "server/node_modules/@theluckystrike/mcp-expense-tracker/dist/index.js",
+          "matches": [
+            {
+              "line": 10,
+              "text": "import * as XLSX from \"xlsx\";"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@theluckystrike/mcp-spreadsheet/dist/index.js",
+          "matches": [
+            {
+              "line": 11,
+              "text": "import * as XLSX from \"xlsx\";"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@theluckystrike/mcp-spreadsheet/dist/sheet.js",
+          "matches": [
+            {
+              "line": 5,
+              "text": "import * as XLSX from \"xlsx\";"
+            },
+            {
+              "line": 165,
+              "text": "wb = XLSX.read(readFileSync(full), { type: \"buffer\", cellDates: true, cellNF: false, cellText: false });"
+            }
+          ]
+        }
+      ],
+      "exact_file_evidence": [
+        {
+          "path": "server/index.js",
+          "sha256": "691b49d78e1a2e70626e37fe75354912b5b1675d7c91b4ce8796755e944e2025",
+          "matches": [
+            {
+              "line": 2,
+              "text": "import { existsSync } from \"node:fs\";"
+            },
+            {
+              "line": 3,
+              "text": "import { createRequire } from \"node:module\";"
+            },
+            {
+              "line": 4,
+              "text": "import { dirname, join } from \"node:path\";"
+            },
+            {
+              "line": 5,
+              "text": "import { fileURLToPath } from \"node:url\";"
+            },
+            {
+              "line": 6,
+              "text": "import { Server } from \"@modelcontextprotocol/sdk/server/index.js\";"
+            },
+            {
+              "line": 7,
+              "text": "import { StdioServerTransport } from \"@modelcontextprotocol/sdk/server/stdio.js\";"
+            },
+            {
+              "line": 8,
+              "text": "import { Client } from \"@modelcontextprotocol/sdk/client/index.js\";"
+            },
+            {
+              "line": 9,
+              "text": "import { StdioClientTransport } from \"@modelcontextprotocol/sdk/client/stdio.js\";"
+            },
+            {
+              "line": 10,
+              "text": "import { ListToolsRequestSchema, CallToolRequestSchema, ListResourcesRequestSchema, ReadResourceRequestSchema, ListResourceTemplatesRequestSchema, ListPromptsRequestSchema, GetPromptRequestSchema, } from \"@modelcontextprotocol/sdk/types.js\";"
+            },
+            {
+              "line": 11,
+              "text": "import { VERSION } from \"./version.js\";"
+            },
+            {
+              "line": 123,
+              "text": "const transport = new StdioClientTransport({"
+            },
+            {
+              "line": 160,
+              "text": "const transport = new StdioClientTransport({"
+            },
+            {
+              "line": 261,
+              "text": "const r = await child.client.callTool({ name: \"license_status\", arguments: {} });"
+            },
+            {
+              "line": 282,
+              "text": "const r = await child.client.callTool({ name: \"license_activate\", arguments: { key } });"
+            },
+            {
+              "line": 332,
+              "text": "const r = await child.client.callTool({ name: tool.childName, arguments: (args ?? {}) });"
+            },
+            {
+              "line": 431,
+              "text": "const transport = new StdioServerTransport();"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/server/index.js",
+          "sha256": "8b4fbdc0d0bbdc9ad74f385c41c0152d85445187f47cfc3941ff0d2a14a2696e",
+          "matches": [
+            {
+              "line": 1,
+              "text": "import { mergeCapabilities, Protocol } from '../shared/protocol.js';"
+            },
+            {
+              "line": 2,
+              "text": "import { CreateMessageResultSchema, CreateMessageResultWithToolsSchema, ElicitResultSchema, EmptyResultSchema, ErrorCode, InitializedNotificationSchema, InitializeRequestSchema, LATEST_PROTOCOL_VERSION, ListRootsResultSchema, LoggingLevelSchema, McpE"
+            },
+            {
+              "line": 3,
+              "text": "import { AjvJsonSchemaValidator } from '../validation/ajv-provider.js';"
+            },
+            {
+              "line": 4,
+              "text": "import { getLiteralValue, getObjectShape, safeParse } from './zod-compat.js';"
+            },
+            {
+              "line": 5,
+              "text": "import { ExperimentalServerTasks } from '../experimental/tasks/server.js';"
+            },
+            {
+              "line": 6,
+              "text": "import { assertToolsCallTaskCapability, assertClientRequestTaskCapability } from '../experimental/tasks/helpers.js';"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/validation/ajv-provider.js",
+          "sha256": "1893726b2b43d0688e8c37ce48b3c5f87a55eb93ca370433f882ae81c09c491a",
+          "matches": [
+            {
+              "line": 4,
+              "text": "import Ajv from 'ajv';"
+            },
+            {
+              "line": 5,
+              "text": "import _addFormats from 'ajv-formats';"
+            },
+            {
+              "line": 21,
+              "text": "* import { AjvJsonSchemaValidator } from '@modelcontextprotocol/sdk/validation/ajv';"
+            },
+            {
+              "line": 25,
+              "text": "* import { Ajv } from 'ajv';"
+            },
+            {
+              "line": 39,
+              "text": "* import { AjvJsonSchemaValidator } from '@modelcontextprotocol/sdk/validation/ajv';"
+            },
+            {
+              "line": 43,
+              "text": "* import { Ajv } from 'ajv';"
+            },
+            {
+              "line": 44,
+              "text": "* import addFormats from 'ajv-formats';"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/ajv/dist/runtime/uri.js",
+          "sha256": "d1d61baf97ed87d7310df847a78ed73d19c8cc003207bf5aaec977500bdb1578",
+          "matches": []
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/server/express.js",
+          "sha256": "49b60b26ee5a21108853d5a21ea45b6ccffcc388697adc8168705e22557703f5",
+          "matches": [
+            {
+              "line": 1,
+              "text": "import express from 'express';"
+            },
+            {
+              "line": 2,
+              "text": "import { hostHeaderValidation, localhostHostValidation } from './middleware/hostHeaderValidation.js';"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/transport.js",
+          "sha256": "f7dcd589ddb082ace39102be318b781992eca999bf0ecf3468bed1d8a4cc67bc",
+          "matches": []
+        },
+        {
+          "path": "server/node_modules/@theluckystrike/mcp-spreadsheet/dist/index.js",
+          "sha256": "c7a4b778e9a3557adf79e1c3ee5941087a37fd24fca3deb96868c2462d919613",
+          "matches": [
+            {
+              "line": 6,
+              "text": "import { McpServer, ResourceTemplate } from \"@modelcontextprotocol/sdk/server/mcp.js\";"
+            },
+            {
+              "line": 7,
+              "text": "import { StdioServerTransport } from \"@modelcontextprotocol/sdk/server/stdio.js\";"
+            },
+            {
+              "line": 8,
+              "text": "import { createLicenseGate } from \"@theluckystrike/mcp-license\";"
+            },
+            {
+              "line": 9,
+              "text": "import { existsSync, mkdirSync, renameSync, writeFileSync, statSync } from \"node:fs\";"
+            },
+            {
+              "line": 10,
+              "text": "import { dirname, extname } from \"node:path\";"
+            },
+            {
+              "line": 11,
+              "text": "import * as XLSX from \"xlsx\";"
+            },
+            {
+              "line": 12,
+              "text": "import { z } from \"zod\";"
+            },
+            {
+              "line": 13,
+              "text": "import { toCsv } from \"./csv.js\";"
+            },
+            {
+              "line": 14,
+              "text": "import { compile, compilePredicate, columnsUsed, parse, ExprError } from \"./expr.js\";"
+            },
+            {
+              "line": 15,
+              "text": "import { FREE_MAX_BYTES, FREE_MAX_ROWS, FREE_WRITE_ROWS, UserError, cellText, colLetter, expandPath, guessHeaderRow, headerNames, inferType, jsonCell, loadWorkbook, minMax, outputPath, parseRange, recentOpened, renderTable, toNumber, toTable, } from "
+            },
+            {
+              "line": 16,
+              "text": "import { VERSION } from \"./version.js\";"
+            },
+            {
+              "line": 104,
+              "text": "const wb = loadWorkbook(path, { maxRows: pro ? Infinity : FREE_MAX_ROWS, rowBudget: budget });"
+            },
+            {
+              "line": 233,
+              "text": "// ---------------------------------------------------------------- sheet_info"
+            },
+            {
+              "line": 234,
+              "text": "async function infoText(path) {"
+            },
+            {
+              "line": 236,
+              "text": "const wb = loadWorkbook(path, { maxRows: pro ? Infinity : FREE_MAX_ROWS });"
+            },
+            {
+              "line": 263,
+              "text": "server.registerTool(\"sheet_info\", { annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false },"
+            },
+            {
+              "line": 267,
+              "text": "}, guard(async ({ path }) => text(await infoText(path))));"
+            },
+            {
+              "line": 268,
+              "text": "// ---------------------------------------------------------------- sheet_read"
+            },
+            {
+              "line": 269,
+              "text": "server.registerTool(\"sheet_read\", { annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },"
+            },
+            {
+              "line": 401,
+              "text": "description: \"Call this tool for any spreadsheet or CSV file path; built-in file readers cannot parse spreadsheets and must not be used for them. Filter, group, aggregate and sort in one call; never hand sums over sheet_read rows.\","
+            },
+            {
+              "line": 536,
+              "text": "const wb = loadWorkbook(path, { maxRows: pro ? Infinity : FREE_MAX_ROWS });"
+            },
+            {
+              "line": 704,
+              "text": "server.registerResource(\"sheet\", new ResourceTemplate(\"sheet://{path}\", { list: undefined }), { title: \"Spreadsheet overview\", description: \"sheet://<path> returns the sheet_info summary for a spreadsheet file\", mimeType: \"application/json\" }, async "
+            },
+            {
+              "line": 707,
+              "text": "return { contents: [{ uri: uri.href, mimeType: \"application/json\", text: await infoText(decodeURIComponent(String(raw))) }] };"
+            },
+            {
+              "line": 715,
+              "text": "description: \"Look at an unfamiliar spreadsheet: run sheet_info first, then propose concrete sheet_query calls over the columns it actually has.\","
+            },
+            {
+              "line": 730,
+              "text": "`1. sheet_info {path: ${JSON.stringify(p)}} first, always. Report the sheet names, the row count, the header row and, for every column, its name, letter, inferred type and sample values.`,"
+            },
+            {
+              "line": 731,
+              "text": "`2. Do not guess column names. Every later call must use the exact header strings sheet_info printed.`,"
+            },
+            {
+              "line": 761,
+              "text": "const transport = new StdioServerTransport();"
+            }
+          ]
+        },
+        {
+          "path": "server/node_modules/@theluckystrike/mcp-spreadsheet/dist/sheet.js",
+          "sha256": "b9a085ae8de73485b5cef783826f32821b15ae45f586f4b82424d2c0c7b0cb6e",
+          "matches": [
+            {
+              "line": 1,
+              "text": "import { closeSync, existsSync, openSync, readSync, statSync, readFileSync } from \"node:fs\";"
+            },
+            {
+              "line": 2,
+              "text": "import { StringDecoder } from \"node:string_decoder\";"
+            },
+            {
+              "line": 3,
+              "text": "import { homedir } from \"node:os\";"
+            },
+            {
+              "line": 4,
+              "text": "import { resolve, extname, dirname, basename, join } from \"node:path\";"
+            },
+            {
+              "line": 5,
+              "text": "import * as XLSX from \"xlsx\";"
+            },
+            {
+              "line": 6,
+              "text": "import { parseCsv, coerce } from \"./csv.js\";"
+            },
+            {
+              "line": 7,
+              "text": "import { parseNumberLoose } from \"./num.js\";"
+            },
+            {
+              "line": 136,
+              "text": "export function loadWorkbook(pathIn, opts = {}) {"
+            },
+            {
+              "line": 165,
+              "text": "wb = XLSX.read(readFileSync(full), { type: \"buffer\", cellDates: true, cellNF: false, cellText: false });"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "reviewed_at": "2026-10-16T10:25:06.622511+00:00",
+  "status": "bounded_triage_complete_material_office_xlsx_risk",
+  "root_versions": {
+    "@modelcontextprotocol/sdk": {
+      "lock": "1.30.0",
+      "installed": "1.30.0"
+    },
+    "proxy-addr": {
+      "lock": "2.0.7",
+      "installed": "2.0.7"
+    },
+    "fast-uri": {
+      "lock": "3.1.7",
+      "installed": "3.1.7"
+    },
+    "hono": {
+      "lock": "4.13.5",
+      "installed": "4.13.5"
+    },
+    "ip-address": {
+      "lock": "10.7.0",
+      "installed": "10.7.0"
+    },
+    "xlsx": {
+      "lock": "0.18.5",
+      "installed": "0.18.5"
+    }
+  },
+  "artifact_root_dependency_difference": {
+    "explanation": "Pack staging resolves production ranges independently of the root lock, so actual archive dependencies differ from npm audit at repository root",
+    "source": [
+      "scripts/build-mcpb.sh:333",
+      "scripts/build-mcpb.sh:432"
+    ],
+    "command": "npm install --omit=dev --no-audit --no-fund --ignore-scripts --no-package-lock"
+  },
+  "findings": [
+    {
+      "package": "@modelcontextprotocol/sdk",
+      "advisories": [
+        "https://github.com/advisories/GHSA-6qxp-vccf-f47h"
+      ],
+      "fixed_versions": [
+        "1.31.0"
+      ],
+      "archive_classification": "All three package1.32.1 outside affected range; root1.30.0 remains flagged but these entrypoints are stdio servers/clients, explicitly outside this OAuth-client advisory",
+      "call_paths": [
+        "Duplicate/matcher: server/index.js imports server/stdio and connects StdioServerTransport",
+        "Office: server/index.js imports client/stdio and server/stdio, spawns local child entrypoints; no authProvider/auth/fetchToken call found in packaged first-party JS"
+      ],
+      "advisory_conditions": "Requires HTTP OAuth client accepting server-selected authorization server while holding credentials; not ordinary MCP server or stdio client"
+    },
+    {
+      "package": "proxy-addr",
+      "advisories": [
+        "https://github.com/advisories/GHSA-jqcg-44mw-7w3h"
+      ],
+      "fixed_versions": [
+        "2.0.8"
+      ],
+      "archive_classification": "All three package2.0.8 outside affected range; package present through Express, no affected first-party HTTP trust-proxy path found",
+      "call_paths": [
+        "SDK server/express.js -> express5.3.0 -> proxy-addr2.0.8"
+      ],
+      "advisory_conditions": "Affected proxy trust configuration with improperly represented IPv4-mapped IPv6 subnet and spoofed X-Forwarded-For"
+    },
+    {
+      "package": "fast-uri",
+      "advisories": [
+        "https://github.com/advisories/GHSA-hrr3-gc8f-f4qj"
+      ],
+      "fixed_versions": [
+        "2.4.7",
+        "3.1.8",
+        "4.1.5"
+      ],
+      "archive_classification": "All three package3.1.8 outside affected range; URI library is in SDK validation dependency chain",
+      "call_paths": [
+        "SDK server/index.js and client/index.js -> validation/ajv-provider.js -> ajv8.20.0 -> fast-uri3.1.8"
+      ],
+      "advisory_conditions": "Security decision comparing scheme-relative host output case-sensitively after percent-decoding inconsistency"
+    },
+    {
+      "package": "hono",
+      "advisories": [
+        "https://github.com/advisories/GHSA-hxh3-vqpv-xpqv"
+      ],
+      "fixed_versions": [
+        "4.13.7"
+      ],
+      "archive_classification": "All three package4.13.13 outside affected range; no first-party hono/jsx rendering path found",
+      "call_paths": [
+        "SDK HTTP dependencies package Hono; published application entrypoints use stdio, not JSX rendering"
+      ],
+      "advisory_conditions": "Attacker-controlled strings in affected server-side JSX boundary/root render positions"
+    },
+    {
+      "package": "ip-address",
+      "advisories": [
+        "https://github.com/advisories/GHSA-j6r3-76f7-8jcv",
+        "https://github.com/advisories/GHSA-h3mg-xc3c-68pw"
+      ],
+      "fixed_versions": [
+        "10.7.1"
+      ],
+      "archive_classification": "All three package10.7.4 outside affected ranges; no first-party Address6 or subnet-check call found",
+      "call_paths": [
+        "SDK HTTP auth handlers -> express-rate-limit -> ip-address10.7.4"
+      ],
+      "advisory_conditions": "Cross-family subnet allowlist comparison or unbounded untrusted string passed to Address6 constructor/isValid"
+    },
+    {
+      "package": "xlsx",
+      "advisories": [
+        "https://github.com/advisories/GHSA-4r6h-8v6p-xvw6",
+        "https://github.com/advisories/GHSA-5pgg-2g8v-p4x9"
+      ],
+      "fixed_versions": [
+        "0.19.3 for prototype pollution",
+        "0.20.2 for ReDoS"
+      ],
+      "archive_classification": "Absent from both standalone package trees/import paths; office contains0.18.5 and has a statically confirmed input path into affected file parser",
+      "call_paths": [
+        "office server/index.js:17 spreadsheet child; :332 child.client.callTool",
+        "office server/node_modules/@theluckystrike/mcp-spreadsheet/dist/index.js:263 sheet_info -> :234 infoText -> :236 loadWorkbook",
+        "office spreadsheet/dist/index.js:269 sheet_read -> :102 open -> :104 loadWorkbook",
+        "office spreadsheet/dist/sheet.js:136 loadWorkbook -> :165 XLSX.read(readFileSync(full),...)",
+        "office expense-tracker/dist/index.js:762-765 XLSX utils/writeFile export-only observed"
+      ],
+      "advisory_conditions": "Reading specially crafted input workbook; exact exploitability/impact not executed or established in this triage"
+    }
+  ],
+  "xlsx_primary_sources": [
+    "https://cdn.sheetjs.com/advisories/CVE-2023-30533",
+    "https://cdn.sheetjs.com/advisories/CVE-2024-22363",
+    "https://docs.sheetjs.com/docs/getting-started/installation/nodejs/"
+  ],
+  "material_risk": {
+    "archive": "office-suite",
+    "package": "xlsx",
+    "version": "0.18.5",
+    "reachability": "statically confirmed source/compiled call path from ordinary spreadsheet read tools to XLSX.read; no exploit executed",
+    "free_limits_do_not_mitigate": "XLSX.read executes before row slicing and before the >5MiB free-tier notice",
+    "followup": "Dedicated SheetJS update to vetted official >=0.20.2 (current vendor instructions0.20.3), pin artifact integrity/provenance, run focused spreadsheet/expense export regressions, repack and publish new immutable spreadsheet/office versions; do not perform broad audit fix --force"
+  },
+  "limits": [
+    "Only the named advisories were reviewed; no blanket security-safe conclusion",
+    "Root lock and clone installs remain separately affected; no remediation performed",
+    "No exhaustive runtime import graph or every office child behavior audit",
+    "No independent assessment of hosted vendor bundle or user filesystem trust policy",
+    "Version inventory derives from all archive package.json entries plus selected exact JS bytes; no archive extraction required"
+  ],
+  "cleanup": {
+    "temporary_files_created": false,
+    "browser_started": false,
+    "build_or_tests_run": false,
+    "exploit_executed": false
+  }
+}

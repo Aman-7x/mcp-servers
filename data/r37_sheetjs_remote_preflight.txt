@@ -1,0 +1,607 @@
+buildslot[17191] 17:41:58: slot 2 acquired: /bin/zsh -c set -e; node build-vendor.mjs; npm test; npx wrangler deploy --dry-run --strict
+vendored time-tracker: index.ts, version.ts, day.ts, jsonstore.ts
+vendored price-tracker: index.ts, version.ts, extract.ts, fetch.ts, redirect.ts, store.ts
+vendored invoice: index.ts, version.ts, money.ts, store.ts, lib.ts
+vendored expense-tracker: index.ts, version.ts, money.ts, store.ts
+vendored spreadsheet: index.ts, version.ts, csv.ts, expr.ts, sheet.ts, num.ts, lib.ts
+vendored currency: index.ts, version.ts, ecb.ts, money.ts, rates.ts, store.ts
+vendored timezone: index.ts, version.ts, jsonstore.ts, tz.ts, zones.ts, lib.ts
+vendored docx: index.ts, version.ts, blocks.ts, build.ts, md.ts, store.ts, wordxml.ts, zip.ts, lib.ts
+vendored resume: index.ts, version.ts, letter.ts, profile.ts, read.ts, render.ts, tailor.ts
+vendored recurring: index.ts, version.ts, currency.ts, period.ts, store.ts
+vendored clauses: index.ts, version.ts, assemble.ts, library.ts, starter.ts, store.ts
+vendored pdf: index.ts, version.ts, pdfio.ts, store.ts, text.ts
+vendored calendar: index.ts, version.ts, ics.ts, fetch.ts, store.ts
+vendored kanban: index.ts, version.ts, board.ts, day.ts, jsonstore.ts
+vendored image: index.ts, version.ts, imageio.ts, store.ts
+vendored bank-statement: index.ts, version.ts, detect.ts, money.ts, store.ts
+vendored quotes: index.ts, version.ts, day.ts, store.ts, lib.ts
+vendored barcode: index.ts, version.ts, payloads.ts, render.ts, store.ts, symbology.ts
+vendored zip: index.ts, version.ts, lib.ts, paths.ts, store.ts, zipfile.ts
+vendored billing-docs: index.ts, version.ts, lib.ts, store.ts, text.ts
+vendored deposits: index.ts, version.ts, lib.ts, store.ts
+vendored per-diem tables: pl-domestic.json, pl-foreign.json, uk-domestic.json, uk-overseas.json, us-gsa.json
+vendored per-diem: index.ts, version.ts, lib.ts, schemes.ts, store.ts, tables.ts
+vendored asset-register tables: pl-kst.json, uk-capital-allowances.json, us-macrs.json
+vendored asset-register: index.ts, version.ts, lib.ts, depreciation.ts, store.ts, tables.ts
+vendored statement-of-account: index.ts, version.ts, lib.ts, sources.ts, statement.ts, store.ts
+vendored cash-book: index.ts, version.ts, lib.ts, ledger.ts, sources.ts, store.ts
+vendored amortization: index.ts, version.ts, lib.ts, accounts.ts, schedule.ts, store.ts
+vendored petty-cash: index.ts, version.ts, lib.ts, accounts.ts, float.ts, store.ts
+vendored work-order: index.ts, version.ts, lib.ts, order.ts, store.ts
+vendored catalogue: index.ts, version.ts, lib.ts, catalogue.ts, store.ts
+vendored change-order: index.ts, version.ts, lib.ts, order.ts, store.ts
+vendored bill-of-sale: index.ts, version.ts, lib.ts, render.ts, store.ts
+vendored credit-note: index.ts, version.ts, jsonstore.ts, lib.ts, money.ts, note.ts, render.ts, store.ts
+vendored job-card: index.ts, version.ts, card.ts, store.ts
+vendored dunning-letters: index.ts, version.ts, engine.ts, letters.ts, lib.ts, store.ts
+vendored checklist: index.ts, version.ts, checklist.ts, lib.ts, store.ts
+vendored packing-list: index.ts, version.ts, lib.ts, packing.ts, store.ts
+vendored delivery-schedule: index.ts, version.ts, lib.ts, schedule.ts, store.ts
+vendored supplier-list: index.ts, version.ts, supplier.ts, store.ts
+vendored service-agreement: index.ts, version.ts, agreement.ts, store.ts
+vendored maintenance-log: index.ts, version.ts, maintenance.ts, store.ts
+vendored mileage-log: index.ts, version.ts, log.ts, store.ts
+vendored goods-receipt: index.ts, version.ts, lib.ts, store.ts
+vendored onboarding: index.ts, version.ts, lib.ts, onboarding.ts, store.ts
+vendored leave: index.ts, version.ts, lib.ts, leave.ts, store.ts
+vendored purchase-requisition: index.ts, version.ts, lib.ts, purchase_requisition.ts, store.ts
+vendored backlink-checker: index.ts, version.ts
+
+> test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: the SDK still rejects on a literal substring test (the reason this module exists)
+ok 1 - the SDK still rejects on a literal substring test (the reason this module exists)
+  ---
+  duration_ms: 1.0775
+  type: 'test'
+  ...
+# Subtest: the measured before/after matrix
+ok 2 - the measured before/after matrix
+  ---
+  duration_ms: 19.403083
+  type: 'test'
+  ...
+# Subtest: a header that already spells both types out is returned untouched
+ok 3 - a header that already spells both types out is returned untouched
+  ---
+  duration_ms: 0.129166
+  type: 'test'
+  ...
+# Subtest: a rewrite copies the headers rather than mutating the caller's
+ok 4 - a rewrite copies the headers rather than mutating the caller's
+  ---
+  duration_ms: 0.146667
+  type: 'test'
+  ...
+# Subtest: only the Accept header is ever rewritten
+ok 5 - only the Accept header is ever rewritten
+  ---
+  duration_ms: 0.203583
+  type: 'test'
+  ...
+# Subtest: acceptsType ranks by specificity, not by q alone
+ok 6 - acceptsType ranks by specificity, not by q alone
+  ---
+  duration_ms: 0.059125
+  type: 'test'
+  ...
+# Subtest: the worker calls negotiatedHeaders on the request it hands the transport
+ok 7 - the worker calls negotiatedHeaders on the request it hands the transport
+  ---
+  duration_ms: 0.407958
+  type: 'test'
+  ...
+# Subtest: end-to-end: the rewrite turns the measured 406 into a 200 on the real SDK transport
+ok 8 - end-to-end: the rewrite turns the measured 406 into a 200 on the real SDK transport
+  ---
+  duration_ms: 143.375209
+  type: 'test'
+  ...
+# Subtest: no binding in KV leaves the tenant free
+ok 9 - no binding in KV leaves the tenant free
+  ---
+  duration_ms: 0.64025
+  type: 'test'
+  ...
+# Subtest: a bound key that verifies makes the tenant Pro
+ok 10 - a bound key that verifies makes the tenant Pro
+  ---
+  duration_ms: 0.1145
+  type: 'test'
+  ...
+# Subtest: a bound key with a bad signature is ignored, not an error
+ok 11 - a bound key with a bad signature is ignored, not an error
+  ---
+  duration_ms: 0.310875
+  type: 'test'
+  ...
+# Subtest: an expired bound key falls back to free
+ok 12 - an expired bound key falls back to free
+  ---
+  duration_ms: 14.17625
+  type: 'test'
+  ...
+# Subtest: a bound key signed for another product falls back to free
+ok 13 - a bound key signed for another product falls back to free
+  ---
+  duration_ms: 0.075917
+  type: 'test'
+  ...
+# Subtest: the limits are parameters, not constants baked into the decision
+ok 14 - the limits are parameters, not constants baked into the decision
+  ---
+  duration_ms: 0.05825
+  type: 'test'
+  ...
+# Subtest: a person opening the page in a browser still gets a token with no extra click
+ok 15 - a person opening the page in a browser still gets a token with no extra click
+  ---
+  duration_ms: 40.835
+  type: 'test'
+  ...
+# Subtest: no crawler mints, wherever the bot token sits in its User-Agent
+ok 16 - no crawler mints, wherever the bot token sits in its User-Agent
+  ---
+  duration_ms: 0.27825
+  type: 'test'
+  ...
+# Subtest: a fetch, an empty UA and a prefetch do not mint
+ok 17 - a fetch, an empty UA and a prefetch do not mint
+  ---
+  duration_ms: 0.1105
+  type: 'test'
+  ...
+# Subtest: the route mints only on a real navigation or an explicit ?mint=1, and never on HEAD
+ok 18 - the route mints only on a real navigation or an explicit ?mint=1, and never on HEAD
+  ---
+  duration_ms: 0.168209
+  type: 'test'
+  ...
+# Subtest: the page served without a token is still a complete page, with one link that mints
+ok 19 - the page served without a token is still a complete page, with one link that mints
+  ---
+  duration_ms: 0.19225
+  type: 'test'
+  ...
+# Subtest: 10.0.0.1 is refused, and nothing is fetched
+ok 20 - 10.0.0.1 is refused, and nothing is fetched
+  ---
+  duration_ms: 1.621542
+  type: 'test'
+  ...
+# Subtest: 169.254.169.254 (cloud metadata) is refused
+ok 21 - 169.254.169.254 (cloud metadata) is refused
+  ---
+  duration_ms: 2.141375
+  type: 'test'
+  ...
+# Subtest: [::1] is refused, IPv6 parsed to bytes not matched by regex
+ok 22 - [::1] is refused, IPv6 parsed to bytes not matched by regex
+  ---
+  duration_ms: 4.70475
+  type: 'test'
+  ...
+# Subtest: the worker's own zone is refused with the D-R73 reason
+ok 23 - the worker's own zone is refused with the D-R73 reason
+  ---
+  duration_ms: 7.143125
+  type: 'test'
+  ...
+# Subtest: a redirect into a private range is refused on the hop, not only on the first URL
+ok 24 - a redirect into a private range is refused on the hop, not only on the first URL
+  ---
+  duration_ms: 21.238084
+  type: 'test'
+  ...
+# Subtest: a redirect chain longer than 3 hops is refused
+ok 25 - a redirect chain longer than 3 hops is refused
+  ---
+  duration_ms: 8.156584
+  type: 'test'
+  ...
+# Subtest: non-http(s) schemes are refused
+ok 26 - non-http(s) schemes are refused
+  ---
+  duration_ms: 0.229209
+  type: 'test'
+  ...
+# Subtest: localhost and the internal name patterns are refused
+ok 27 - localhost and the internal name patterns are refused
+  ---
+  duration_ms: 1.171209
+  type: 'test'
+  ...
+# Subtest: the inet_aton literal forms of 127.0.0.1 are all refused
+ok 28 - the inet_aton literal forms of 127.0.0.1 are all refused
+  ---
+  duration_ms: 3.630542
+  type: 'test'
+  ...
+# Subtest: non-vacuity: a public URL is allowed by the same guard
+ok 29 - non-vacuity: a public URL is allowed by the same guard
+  ---
+  duration_ms: 0.522542
+  type: 'test'
+  ...
+# Subtest: a declared content-length over the cap is refused before the body is read
+ok 30 - a declared content-length over the cap is refused before the body is read
+  ---
+  duration_ms: 0.453875
+  type: 'test'
+  ...
+# Subtest: a lying content-length is caught on the stream, and nothing is truncated into storage
+ok 31 - a lying content-length is caught on the stream, and nothing is truncated into storage
+  ---
+  duration_ms: 1.301625
+  type: 'test'
+  ...
+# Subtest: a body with no content-length at all is still capped on the stream
+ok 32 - a body with no content-length at all is still capped on the stream
+  ---
+  duration_ms: 1.035125
+  type: 'test'
+  ...
+# Subtest: wrong magic bytes are refused after the fetch and before anything is staged
+ok 33 - wrong magic bytes are refused after the fetch and before anything is staged
+  ---
+  duration_ms: 3.666042
+  type: 'test'
+  ...
+# Subtest: an empty body is refused
+ok 34 - an empty body is refused
+  ---
+  duration_ms: 0.579709
+  type: 'test'
+  ...
+# Subtest: a non-200 is reported as a fetch failure, not as a bad file
+ok 35 - a non-200 is reported as a fetch failure, not as a bad file
+  ---
+  duration_ms: 0.453084
+  type: 'test'
+  ...
+# Subtest: a public PDF is fetched whole, and the host and byte count come back
+ok 36 - a public PDF is fetched whole, and the host and byte count come back
+  ---
+  duration_ms: 0.735792
+  type: 'test'
+  ...
+# Subtest: up to 3 redirects between public hosts are followed and the final host is reported
+ok 37 - up to 3 redirects between public hosts are followed and the final host is reported
+  ---
+  duration_ms: 2.243041
+  type: 'test'
+  ...
+# Subtest: a hung server is abandoned on the timeout
+ok 38 - a hung server is abandoned on the timeout
+  ---
+  duration_ms: 62.276458
+  type: 'test'
+  ...
+# Subtest: exactlyOne demands exactly one source
+ok 39 - exactlyOne demands exactly one source
+  ---
+  duration_ms: 0.316125
+  type: 'test'
+  ...
+# Subtest: every url argument carries the same recommendation sentence
+ok 40 - every url argument carries the same recommendation sentence
+  ---
+  duration_ms: 0.034167
+  type: 'test'
+  ...
+# Subtest: the virtual filesystem root exists
+ok 41 - the virtual filesystem root exists
+  ---
+  duration_ms: 0.547666
+  type: 'test'
+  ...
+# Subtest: a bounded ancestor walk can create the virtual out directory
+ok 42 - a bounded ancestor walk can create the virtual out directory
+  ---
+  duration_ms: 0.130208
+  type: 'test'
+  ...
+# Subtest: a path with no reachable ancestor is still refused
+ok 43 - a path with no reachable ancestor is still refused
+  ---
+  duration_ms: 0.05725
+  type: 'test'
+  ...
+# Subtest: lstat describes only entries in the current virtual filesystem
+ok 44 - lstat describes only entries in the current virtual filesystem
+  ---
+  duration_ms: 0.413542
+  type: 'test'
+  ...
+# Subtest: positive business response and trailer preserve structured content under any property order
+ok 45 - positive business response and trailer preserve structured content under any property order
+  ---
+  duration_ms: 2.441375
+  type: 'test'
+  ...
+# Subtest: negative controls never classify discovery, license administration, errors or malformed data as success
+ok 46 - negative controls never classify discovery, license administration, errors or malformed data as success
+  ---
+  duration_ms: 0.802458
+  type: 'test'
+  ...
+# Subtest: source declarations are a bounded allowlist, and unknown raw input never becomes a label
+ok 47 - source declarations are a bounded allowlist, and unknown raw input never becomes a label
+  ---
+  duration_ms: 20.683833
+  type: 'test'
+  ...
+# Subtest: mint sidecar stores a hash and fixed labels, retains probe classification without later headers
+ok 48 - mint sidecar stores a hash and fixed labels, retains probe classification without later headers
+  ---
+  duration_ms: 6.956375
+  type: 'test'
+  ...
+# Subtest: old-token acquisition cannot be rewritten by query; explicit probe excludes just that request
+ok 49 - old-token acquisition cannot be rewritten by query; explicit probe excludes just that request
+  ---
+  duration_ms: 4.426
+  type: 'test'
+  ...
+# Subtest: OAuth mints use fixed OAuth source and corrupt or unavailable sidecars cannot leak into ordinary counts
+ok 50 - OAuth mints use fixed OAuth source and corrupt or unavailable sidecars cannot leak into ordinary counts
+  ---
+  duration_ms: 1.401458
+  type: 'test'
+  ...
+# Subtest: first success deduplicates per token/server/UTC date, with probes isolated from ordinary
+ok 51 - first success deduplicates per token/server/UTC date, with probes isolated from ordinary
+  ---
+  duration_ms: 10.527333
+  type: 'test'
+  ...
+# Subtest: same-day window reads bounded atomic summaries, excludes old days and never exports markers or raw inputs
+ok 52 - same-day window reads bounded atomic summaries, excludes old days and never exports markers or raw inputs
+  ---
+  duration_ms: 29.51225
+  type: 'test'
+  ...
+# Subtest: invalid event and time inputs cannot create unbounded telemetry keys
+ok 53 - invalid event and time inputs cannot create unbounded telemetry keys
+  ---
+  duration_ms: 16.951333
+  type: 'test'
+  ...
+# Subtest: empty measurement is explicitly not a historic zero or deployment proof
+ok 54 - empty measurement is explicitly not a historic zero or deployment proof
+  ---
+  duration_ms: 2.897417
+  type: 'test'
+  ...
+# Subtest: real SDK HTTP envelopes: only successful business calls receive an upgrade and observation
+ok 55 - real SDK HTTP envelopes: only successful business calls receive an upgrade and observation
+  ---
+  duration_ms: 153.113916
+  type: 'test'
+  ...
+# Subtest: bill-of-sale: initialize + the 10 stdio tools + create/render/publish with the shared profile
+ok 56 - bill-of-sale: initialize + the 10 stdio tools + create/render/publish with the shared profile
+  ---
+  duration_ms: 34.507417
+  type: 'test'
+  ...
+# Subtest: credit-note: the 10 stdio tools + draft to finalized, and nothing is ever published
+ok 57 - credit-note: the 10 stdio tools + draft to finalized, and nothing is ever published
+  ---
+  duration_ms: 27.817166
+  type: 'test'
+  ...
+# Subtest: job-card: the 11 stdio tools + create/log/status/print, and nothing is ever published
+ok 58 - job-card: the 11 stdio tools + create/log/status/print, and nothing is ever published
+  ---
+  duration_ms: 18.044167
+  type: 'test'
+  ...
+# Subtest: dunning-letters: the 11 stdio tools + register/render/send/pay, and nothing is ever published
+ok 59 - dunning-letters: the 11 stdio tools + register/render/send/pay, and nothing is ever published
+  ---
+  duration_ms: 24.103791
+  type: 'test'
+  ...
+# Subtest: the vendored bill-of-sale never persists the JSON store into a published download
+ok 60 - the vendored bill-of-sale never persists the JSON store into a published download
+  ---
+  duration_ms: 0.435959
+  type: 'test'
+  ...
+# Subtest: supplier-list: the 10 stdio tools + add/list/export inline, register persists, nothing published
+ok 61 - supplier-list: the 10 stdio tools + add/list/export inline, register persists, nothing published
+  ---
+  duration_ms: 51.956875
+  type: 'test'
+  ...
+# Subtest: service-agreement: the 9 stdio tools + create/render inline, the one-step machine, nothing published
+ok 62 - service-agreement: the 9 stdio tools + create/render inline, the one-step machine, nothing published
+  ---
+  duration_ms: 13.755625
+  type: 'test'
+  ...
+# Subtest: maintenance-log: the 8 stdio tools + add/log/history/export inline, nothing published
+ok 63 - maintenance-log: the 8 stdio tools + add/log/history/export inline, nothing published
+  ---
+  duration_ms: 12.256542
+  type: 'test'
+  ...
+# Subtest: mileage-log: the 9 stdio tools + rate/trip/summary pricing, nothing published
+ok 64 - mileage-log: the 9 stdio tools + rate/trip/summary pricing, nothing published
+  ---
+  duration_ms: 9.863042
+  type: 'test'
+  ...
+# Subtest: the four loop-35 endpoints carry no publish rule: no tool writes a file on any of them
+ok 65 - the four loop-35 endpoints carry no publish rule: no tool writes a file on any of them
+  ---
+  duration_ms: 0.789416
+  type: 'test'
+  ...
+# Subtest: RFC 9728 protected-resource metadata advertises this host as its own AS
+ok 66 - RFC 9728 protected-resource metadata advertises this host as its own AS
+  ---
+  duration_ms: 1.87525
+  type: 'test'
+  ...
+# Subtest: RFC 8414 authorization-server metadata has the endpoints an MCP client needs
+ok 67 - RFC 8414 authorization-server metadata has the endpoints an MCP client needs
+  ---
+  duration_ms: 1.469833
+  type: 'test'
+  ...
+# Subtest: dynamic client registration derives a stable id from the metadata
+ok 68 - dynamic client registration derives a stable id from the metadata
+  ---
+  duration_ms: 8.881334
+  type: 'test'
+  ...
+# Subtest: S256 challenge matches RFC 7636 appendix B test vector
+ok 69 - S256 challenge matches RFC 7636 appendix B test vector
+  ---
+  duration_ms: 0.285334
+  type: 'test'
+  ...
+# Subtest: route contract: all five endpoints are wired into the fetch router
+ok 70 - route contract: all five endpoints are wired into the fetch router
+  ---
+  duration_ms: 0.380792
+  type: 'test'
+  ...
+# Subtest: route contract: the 401 advertises RFC 9728 resource metadata
+ok 71 - route contract: the 401 advertises RFC 9728 resource metadata
+  ---
+  duration_ms: 0.05125
+  type: 'test'
+  ...
+# Subtest: route contract: authorization codes are single-use and short-lived
+ok 72 - route contract: authorization codes are single-use and short-lived
+  ---
+  duration_ms: 0.066709
+  type: 'test'
+  ...
+# Subtest: route contract: consent mints an anon token, so authenticate() works unchanged
+ok 73 - route contract: consent mints an anon token, so authenticate() works unchanged
+  ---
+  duration_ms: 0.094167
+  type: 'test'
+  ...
+# Subtest: the hosted gate registers pricing://<product> and upgrade_to_pro, and renames no tool
+ok 74 - the hosted gate registers pricing://<product> and upgrade_to_pro, and renames no tool
+  ---
+  duration_ms: 1.178833
+  type: 'test'
+  ...
+# Subtest: a host that only implements registerTool is skipped, not thrown at
+ok 75 - a host that only implements registerTool is skipped, not thrown at
+  ---
+  duration_ms: 0.133833
+  type: 'test'
+  ...
+# Subtest: reading the pricing resource returns the descriptor, token-bound to this connection
+ok 76 - reading the pricing resource returns the descriptor, token-bound to this connection
+  ---
+  duration_ms: 0.5125
+  type: 'test'
+  ...
+# Subtest: a licence-key caller has no token to carry and is told so
+ok 77 - a licence-key caller has no token to carry and is told so
+  ---
+  duration_ms: 0.126583
+  type: 'test'
+  ...
+# Subtest: license_status carries the descriptor without losing a field it already had
+ok 78 - license_status carries the descriptor without losing a field it already had
+  ---
+  duration_ms: 0.202333
+  type: 'test'
+  ...
+# Subtest: the upgrade prompt points at the resource and forbids inventing a price
+ok 79 - the upgrade prompt points at the resource and forbids inventing a price
+  ---
+  duration_ms: 0.177375
+  type: 'test'
+  ...
+# Subtest: the worker attaches the descriptor to a free 429 and withholds it from a Pro 429
+ok 80 - the worker attaches the descriptor to a free 429 and withholds it from a Pro 429
+  ---
+  duration_ms: 0.930083
+  type: 'test'
+  ...
+# Subtest: the two copies of payment.ts have not drifted
+ok 81 - the two copies of payment.ts have not drifted
+  ---
+  duration_ms: 0.746083
+  type: 'test'
+  ...
+# Subtest: the message names where to GET a token, not only where to put one
+ok 82 - the message names where to GET a token, not only where to put one
+  ---
+  duration_ms: 0.475417
+  type: 'test'
+  ...
+# Subtest: the message explains the symptom the reader is actually looking at
+ok 83 - the message explains the symptom the reader is actually looking at
+  ---
+  duration_ms: 0.063125
+  type: 'test'
+  ...
+# Subtest: the body still carries every machine-readable field a client may key off
+ok 84 - the body still carries every machine-readable field a client may key off
+  ---
+  duration_ms: 0.373458
+  type: 'test'
+  ...
+# Subtest: every URL in the message is a per-product URL for the product that refused the call
+ok 85 - every URL in the message is a per-product URL for the product that refused the call
+  ---
+  duration_ms: 0.505042
+  type: 'test'
+  ...
+# Subtest: the 401 route uses the builder rather than a second copy of the body
+ok 86 - the 401 route uses the builder rather than a second copy of the body
+  ---
+  duration_ms: 0.316708
+  type: 'test'
+  ...
+# Subtest: the vendor tree exists and is not empty (non-vacuity)
+ok 87 - the vendor tree exists and is not empty (non-vacuity)
+  ---
+  duration_ms: 2.61225
+  type: 'test'
+  ...
+# Subtest: no hosted response interpolates a data directory into text a caller reads
+ok 88 - no hosted response interpolates a data directory into text a caller reads
+  ---
+  duration_ms: 26.774833
+  type: 'test'
+  ...
+# Subtest: the scanner would catch the two lines round 14 found (non-vacuity, both directions)
+ok 89 - the scanner would catch the two lines round 14 found (non-vacuity, both directions)
+  ---
+  duration_ms: 0.078959
+  type: 'test'
+  ...
+1..89
+# tests 89
+# suites 0
+# pass 89
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 399.267625
+
+ ⛅️ wrangler 4.80.0 (update available 4.151.1)
+──────────────────────────────────────────────
+Total Upload: 8115.94 KiB / gzip: 1844.76 KiB
+Your Worker has access to the following bindings:
+Binding                                                   Resource
+env.FUNNEL (FunnelState, defined in mcp-funnel)           Durable Object
+env.REMOTE_DATA (cf848cc5c07d4e0a9c7c65ad1c70055c)        KV Namespace
+
+--dry-run: exiting now.

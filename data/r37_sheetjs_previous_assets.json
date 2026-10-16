@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-16T10:37:21.369192+00:00",
+  "status": "preserved",
+  "note": "Exact pre-patch local bytes; only Office was already verified against current public bytes. Older two local standalone versions differ from older catalog assets. No public asset overwritten.",
+  "archives": [
+    {
+      "name": "spreadsheet",
+      "local_archive_manifest_version": "0.22.5",
+      "bytes": 7477093,
+      "sha256": "3dac916b2219a6b1028ddc92c8fceea01a4014d557392b9cc8e0700eae8498d1",
+      "preserved_at": "bundles/releases/v0.22.5-pre-r37-sheetjs/spreadsheet.mcpb",
+      "public_byte_equivalence_previously_verified": false
+    },
+    {
+      "name": "expense-tracker",
+      "local_archive_manifest_version": "0.22.5",
+      "bytes": 7476124,
+      "sha256": "cb32253318fb895825b8ee44160998fc9fcafe7e3a0551af85625182208c8f6a",
+      "preserved_at": "bundles/releases/v0.22.5-pre-r37-sheetjs/expense-tracker.mcpb",
+      "public_byte_equivalence_previously_verified": false
+    },
+    {
+      "name": "office-suite",
+      "local_archive_manifest_version": "0.22.8",
+      "bytes": 32010970,
+      "sha256": "7f50d6d16d445dddcee054b24e8586de4daff9d91b77d22a28730647305cc91d",
+      "preserved_at": "bundles/releases/v0.22.8-pre-r37-sheetjs/office-suite.mcpb",
+      "public_byte_equivalence_previously_verified": true
+    }
+  ]
+}

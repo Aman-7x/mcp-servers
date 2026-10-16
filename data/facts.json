@@ -237,7 +237,7 @@
       "for": "Anyone who says: open this file, tell me what is in it, filter it, add a column, save it.",
       "example": "\"Open orders.xlsx and show open orders over 5 units sorted by amount\" ... \"Add a Total column and save as CSV.\"",
       "free": "Read, query (filters, group by, sum/avg/min/max), stats and find on files up to 5,000 rows; writes up to 500 rows, never a partial file above that.",
-      "pro": "No limits.",
+      "pro": "Removes the free-tier file and row caps.",
       "storage": "Works on the user's own files; nothing else stored."
     },
     "invoice": {
@@ -253,7 +253,7 @@
     "expense-tracker": {
       "title": "MCP Expense Tracker \u2014 Log Expenses from Claude",
       "tagline": "Receipts, mileage and expenses that turn into invoice lines.",
-      "does": "Log expenses from Claude with a free MCP server. Quick entry, categories, mileage, receipts and CSV export, ready to repbill with markup. No install.",
+      "does": "Log receipts and mileage, categorise expenses, split VAT and export CSV; prepare invoice line items for rebilling with markup. Use the local MCPB archive or the hosted endpoint.",
       "for": "Freelancers and small businesses who already track time and invoice from chat and want the receipts side closed in the same place.",
       "example": "\"I paid 61.50 EUR at Media Markt for a USB hub, Acme project, billable\" ... \"Give me the invoice lines to rebill Acme this month with 10% markup.\"",
       "free": "Unlimited logging; list and summary cover the last 30 days; 3 projects; 5 rules; CSV export up to 200 rows, never partial.",
@@ -263,7 +263,7 @@
     "office-suite": {
       "title": "MCP Office Suite (bundle server)",
       "tagline": "One local config entry for invoicing, documents, time tracking and supplier checks.",
-      "does": "A local stdio proxy for 49 child servers, exposing 447 measured tools in the v0.22.8 integration on 2026-10-16. Includes supplier three-way matching and supplied-history duplicate invoice review. The runtime office://tools_map resource gives exact child ownership and collision-prefixed names. It forwards tools, resources and prompts; full child functionality is not certified by tool discovery.",
+      "does": "A local stdio proxy for 49 child servers, exposing 447 measured tools in the v0.22.9 integration on 2026-10-16. Includes supplier three-way matching and supplied-history duplicate invoice review. The runtime office://tools_map resource gives exact child ownership and collision-prefixed names. It forwards tools, resources and prompts; full child functionality is not certified by tool discovery.",
       "for": "People who want the local office workflow through one MCP config entry.",
       "example": "\"Start a timer for Acme\" ... \"Invoice Acme for this week's hours plus the USB hub receipt.\"",
       "free": "Each child's free tier.",
