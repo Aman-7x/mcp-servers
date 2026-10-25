@@ -1,4 +1,4 @@
-// Contract: what mcp-goods-receipt promises consumers — tool catalogue, output shape,
+// Contract: what mcp-goods-receipt promises consumers - tool catalogue, output shape,
 // licensing, and the exact strings other documents quote.
 import { test } from "node:test";
 import assert from "node:assert/strict";

@@ -361,7 +361,7 @@ def header(name, demo, monorepo, raw):
                  "endpoint, so install it from the bundle or from source.")
     L.append("")
     # Every mirror links its own product page, including local-only servers.
-    L.append("Product page: <https://mcp.zovo.one/s/%s> — capabilities, free limits "
+    L.append("Product page: <https://mcp.zovo.one/s/%s> - capabilities, free limits "
              "and supported installation paths." % name)
     L.append("")
     if name == "duplicate-invoice-check":

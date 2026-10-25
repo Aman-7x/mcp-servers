@@ -62,7 +62,7 @@ test("the version is one number: package.json, src/version.ts, serverInfo and ev
     }
     assert.ok((j.description ?? "").length < 100, `${file} description is ${(j.description ?? "").length} chars; the registry 422s at 100`);
     assert.ok(!/[,.]\.$|,$/.test(j.description), `${file} description ends in a machine truncation`);
-    assert.ok(!/—/.test(JSON.stringify(j)), `${file} carries an em dash`);
+    assert.ok(!/\u2014/.test(JSON.stringify(j)), `${file} carries an em dash`);
   }
   assert.ok(existsSync(join(HERE, "remotes.json")), "remotes.json is missing: this server has a hosted route in remote/src/index.ts");
 
@@ -123,7 +123,7 @@ test("every tool description is non-empty, single-paragraph, and within the ceil
     assert.equal(d, d.trim(), `${tool.name} description has leading or trailing whitespace`);
     assert.ok(d.length <= HARD_MAX_DESCRIPTION, `${tool.name} description is ${d.length} chars, over ${HARD_MAX_DESCRIPTION}`);
     assert.ok(!/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(d), `${tool.name} description carries an emoji`);
-    assert.ok(!/—/.test(d), `${tool.name} description carries an em dash`);
+    assert.ok(!/\u2014/.test(d), `${tool.name} description carries an em dash`);
   }
 
   const over = tools.filter((x) => (x.description ?? "").length > MAX_DESCRIPTION).map((x) => x.name).sort();
@@ -262,7 +262,7 @@ test("src, tests and docs carry no em dash and no emoji", () => {
     if (!existsSync(p)) continue;
     if (f === "test/contract.test.mjs") continue; // this file holds the em-dash regex literal itself
     const text = readFileSync(p, "utf8");
-    assert.ok(!/—/.test(text), `${f} carries an em dash`);
+    assert.ok(!/\u2014/.test(text), `${f} carries an em dash`);
     assert.ok(!/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(text), `${f} carries an emoji`);
   }
 });
