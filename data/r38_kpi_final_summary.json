@@ -1,0 +1,162 @@
+{
+  "schema": 1,
+  "collected_until": "2026-10-26T09:12:56.135Z",
+  "audit": "data/r38_kpi_final_audit.json",
+  "canonical_index_inspection": "data/r38_kpi_final_index_inspection.json",
+  "scope": "End-of-session native snapshot. MCP gross is not net profit; unmarked responses, reported clients and submissions are not people or buyers.",
+  "headline": {
+    "mcp_paid_completed_checkout_sessions": 0,
+    "mcp_checkout_gross_minor_by_currency": {},
+    "mcp_finalized_gsc_impressions": 38,
+    "mcp_finalized_gsc_clicks": 0,
+    "hosted_ordinary_protocol_successes": 19,
+    "hosted_first_anon_token_server_day_observations": 7,
+    "hosted_ordinary_checkout_handoffs": 0,
+    "guard_passing_clicks_7_utc_dates": 4,
+    "unknown_product_route_clicks_7_utc_dates": 4,
+    "other_guard_passing_clicks_7_utc_dates": 0
+  },
+  "comparisons": {
+    "baseline": "data/r38_kpi_audit.json",
+    "caution": "Overlapping windows and a short observation period; descriptive changes cannot establish causation or SEO impact.",
+    "mcp_paid_completed_sessions": {
+      "previous": 0,
+      "current": 0
+    },
+    "account_completed_paid_positive_control": {
+      "previous": 186,
+      "current": 186
+    },
+    "stripe_28d_untagged_sessions": {
+      "previous": 4,
+      "current": 4,
+      "previous_window": {
+        "start": "2026-09-28T05:11:17.265Z",
+        "end": "2026-10-26T05:11:17.265Z"
+      },
+      "current_window": {
+        "start": "2026-09-28T09:11:52.301Z",
+        "end": "2026-10-26T09:11:52.301Z"
+      }
+    },
+    "github": {
+      "previous_window": {
+        "start": "2026-10-11",
+        "end": "2026-10-24"
+      },
+      "current_window": {
+        "start": "2026-10-11",
+        "end": "2026-10-24"
+      },
+      "previous_views": 83,
+      "current_views": 83,
+      "previous_unique_clients": 43,
+      "current_unique_clients": 43,
+      "previous_clones": 2972,
+      "current_clones": 2972,
+      "previous_clone_clients": 360,
+      "current_clone_clients": 360
+    }
+  },
+  "funnel": {
+    "window": {
+      "start": "2026-10-20T00:00:00.000Z",
+      "end": "2026-10-26T09:11:56.007Z",
+      "utc_dates": [
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26"
+      ],
+      "today_partial": true
+    },
+    "ordinary": {
+      "successful_business_call": 19,
+      "first_successful_anon_token_server_day": 7,
+      "upgrade_impression": 19,
+      "offer_view": 1612,
+      "checkout_handoff": 0
+    },
+    "probe": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 762,
+      "checkout_handoff": 4
+    },
+    "success_sources": [
+      "unattributed"
+    ],
+    "per_server_breakdown_available": false,
+    "observed_success_days": [
+      {
+        "day": "2026-10-20",
+        "successful_responses": 1
+      },
+      {
+        "day": "2026-10-21",
+        "successful_responses": 1
+      },
+      {
+        "day": "2026-10-22",
+        "successful_responses": 2
+      },
+      {
+        "day": "2026-10-23",
+        "successful_responses": 0
+      },
+      {
+        "day": "2026-10-24",
+        "successful_responses": 12
+      },
+      {
+        "day": "2026-10-25",
+        "successful_responses": 0
+      },
+      {
+        "day": "2026-10-26",
+        "successful_responses": 3
+      }
+    ],
+    "limits": [
+      "Ordinary means unmarked, not human.",
+      "Success is a returned response shape, not a verified buyer outcome.",
+      "Separate Stripe, Google, GitHub and hosted windows cannot be combined into a conversion rate.",
+      "GitHub traffic may include operator work and automated systems."
+    ]
+  },
+  "controls": {
+    "stripe_paid_account": true,
+    "stripe_full_completed_history": true,
+    "stripe_all_line_items": true,
+    "stripe_7d_coverage": true,
+    "stripe_28d_coverage": true,
+    "gsc_parent_impressions": 4939,
+    "gsc_parent_clicks": 46,
+    "funnel_bounded_read_complete": true,
+    "prior_evidence_unchanged": true
+  },
+  "navigation": {
+    "status": "interpreted",
+    "instrument": 3,
+    "generated_at": "2026-10-26T09:11:56.970Z",
+    "guard_passing_navigation_total": 983,
+    "guard_passing_navigation_7d": 4,
+    "known_dead_product_navigation_total": 5,
+    "known_dead_product_navigation_7d": 4,
+    "other_guard_passing_navigation_total": 978,
+    "other_guard_passing_navigation_7d": 0,
+    "verified_valid_product_navigation_7d": 0,
+    "verified_buyers": null,
+    "interpretation": "Known dead-route observations are a minimum: unknown-product requests can retain a supplied source. The remainder is not verified valid-product intent, people, successful jobs or purchases. Zero remaining observations applies only to the counted population, not all traffic.",
+    "window": "Seven UTC dates in the source instrument; current UTC date is partial. Lifetime counters have a different window."
+  },
+  "limits": [
+    "Marked operator checkout, browser and licensing probes are reliability checks, not customers or revenue.",
+    "No paid API spending or outreach sends; agent and hosting costs are unreconciled.",
+    "Indexing inspection is an indexed-version observation, not a live test or a removal request."
+  ]
+}

@@ -7,6 +7,11 @@ import { homedir } from 'node:os';
 import { spawnSync } from 'node:child_process';
 
 const root = new URL('../', import.meta.url);
+const args = process.argv.slice(2);
+assert(args.length === 0 || (args.length === 1 && args[0] === '--final'));
+const final = args.length === 1;
+const imagePrefix = final ? 'intel/R38-dashboard-final' : 'intel/R38-dashboard';
+const receiptPath = final ? 'data/r38_dashboard_browser_final_verification.json' : 'data/r38_dashboard_browser_verification.json';
 const base = join(homedir(), 'mcp-servers-work');
 mkdirSync(base, { recursive: true });
 const disk = spawnSync('df', ['-g', '/System/Volumes/Data'], { encoding: 'utf8' });
@@ -36,6 +41,11 @@ try {
   assert.equal(await page.locator('#previous-session').count(), 0);
   await page.locator('#current-session').waitFor({ state: 'visible' });
   assert.match(await page.locator('#current-session').innerText(), /R38/);
+  if (final) {
+    assert.match(await page.locator('#current-session').innerText(), /Completed/);
+    await page.locator('#current-session').screenshot({ path: new URL(imagePrefix + '-session.png', root).pathname });
+    assert.equal(await page.locator('#session-health-chart circle').count(), 48);
+  }
   assert.match(await page.locator('.review-meta').innerText(), /26 October 2026/);
   const expected = JSON.parse(readFileSync(new URL('data/revenue_review.json', root), 'utf8'));
   for (const [i, metric] of expected.metrics.entries()) {
@@ -46,7 +56,7 @@ try {
   }
   assert.match(await page.locator('#revenue-review').innerText(), /dead-route clicks/);
   assert.match(await page.locator('#revenue-review').innerText(), /unmarked successful responses/);
-  checks.push('Exact legacy entry redirects to26Oct review and visible activeR38; every metric/window matches receipt-backed data; prior sales correction retained');
+  checks.push('Exact legacy entry redirects to26Oct review and visible R38 completion status; every metric/window matches receipt-backed data; prior sales correction retained');
 
   await page.locator('#revenue-scenario summary').click();
   const output = id => page.locator('#scenario-' + id).innerText();
@@ -78,23 +88,25 @@ try {
   await page.locator('#scenario-target').fill('1000');
   await page.locator('#scenario-cost').fill('');
   await page.locator('#scenario-price').selectOption('19');
-  await page.locator('#revenue-scenario').screenshot({ path: new URL('intel/R38-dashboard-calculator.png', root).pathname });
+  await page.locator('#revenue-scenario').screenshot({ path: new URL(imagePrefix + '-calculator.png', root).pathname });
   await page.locator('#revenue-scenario summary').click();
   await page.evaluate(() => scrollTo(0, 0));
-  await page.screenshot({ path: new URL('intel/R38-dashboard-desktop.png', root).pathname });
+  await page.screenshot({ path: new URL(imagePrefix + '-desktop.png', root).pathname });
 
   for (const tab of ['overview', 'servers', 'validation', 'promotion', 'uservalue', 'organic', 'sprints', 'kpi', 'truth']) {
     await page.locator(`button[data-tab="${tab}"]`).click();
     assert.equal(await page.locator('#tab-' + tab).evaluate(el => getComputedStyle(el).display !== 'none'), true);
   }
   checks.push('All nine existing dashboard tabs still work');
+  await page.locator('button[data-tab=truth]').click();
+  if (await page.locator('#session-health-chart').count()) await page.locator('#session-health-chart').screenshot({ path: new URL(imagePrefix + '-observation.png', root).pathname });
   for (const width of [390, 320]) {
     await page.setViewportSize({ width, height: 844 });
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Horizontal overflow at ' + width);
   }
   await page.setViewportSize({ width: 390, height: 844 });
   await page.evaluate(() => scrollTo(0, 0));
-  await page.screenshot({ path: new URL('intel/R38-dashboard-mobile.png', root).pathname });
+  await page.screenshot({ path: new URL(imagePrefix + '-mobile.png', root).pathname });
   checks.push('390px and320px layouts have no horizontal page overflow');
   assert.equal(await page.evaluate(() => localStorage.length + sessionStorage.length), 0);
   assert.deepEqual(errors, []); assert.deepEqual(external, []);
@@ -115,6 +127,6 @@ try {
   }) + '\n');
   rmSync(profile, { recursive: true });
 }
-const receipt = { at: new Date().toISOString(), status: 'passed', scope: 'Offline Chrome, current26Oct actual DASHBOARD.html redirect and generated HTML; no production actions', checks, page_errors: errors, external_requests: external.length, profile_removed: true };
-writeFileSync(new URL('data/r38_dashboard_browser_verification.json', root), JSON.stringify(receipt, null, 2) + '\n');
+const receipt = { mode: final ? 'final' : 'initial', at: new Date().toISOString(), status: 'passed', scope: 'Offline Chrome, current26Oct actual DASHBOARD.html redirect and generated HTML; no production actions', checks, page_errors: errors, external_requests: external.length, profile_removed: true };
+writeFileSync(new URL(receiptPath, root), JSON.stringify(receipt, null, 2) + '\n');
 console.log(JSON.stringify(receipt));

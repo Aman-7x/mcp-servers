@@ -1,0 +1,49 @@
+{
+  "at": "2026-10-26T09:00:56.635013+00:00",
+  "status": "passed",
+  "deleted": [
+    {
+      "at": "2026-10-26T09:00:55.410290+00:00",
+      "path": "/Users/mike/mcp-servers/.scratch-distribution/r38-compress-build-cache.py",
+      "bytes": 3625,
+      "lsof": "no open handles",
+      "reason": "Completed owned R38 administrative helper or published PR body; source, provider receipts and recovery ZIPs retained"
+    },
+    {
+      "at": "2026-10-26T09:00:55.630597+00:00",
+      "path": "/Users/mike/mcp-servers/.scratch-distribution/r38-csv-pr-body.md",
+      "bytes": 2230,
+      "lsof": "no open handles",
+      "reason": "Completed owned R38 administrative helper or published PR body; source, provider receipts and recovery ZIPs retained"
+    },
+    {
+      "at": "2026-10-26T09:00:55.859267+00:00",
+      "path": "/Users/mike/mcp-servers/.scratch-distribution/r38-deploy-pr-body.md",
+      "bytes": 949,
+      "lsof": "no open handles",
+      "reason": "Completed owned R38 administrative helper or published PR body; source, provider receipts and recovery ZIPs retained"
+    },
+    {
+      "at": "2026-10-26T09:00:56.121342+00:00",
+      "path": "/Users/mike/mcp-servers/.scratch-distribution/r38-monitor-pr-body.md",
+      "bytes": 2339,
+      "lsof": "no open handles",
+      "reason": "Completed owned R38 administrative helper or published PR body; source, provider receipts and recovery ZIPs retained"
+    },
+    {
+      "at": "2026-10-26T09:00:56.407547+00:00",
+      "path": "/Users/mike/mcp-servers/.scratch-distribution/r38-pr-body.md",
+      "bytes": 1434,
+      "lsof": "no open handles",
+      "reason": "Completed owned R38 administrative helper or published PR body; source, provider receipts and recovery ZIPs retained"
+    },
+    {
+      "at": "2026-10-26T09:00:56.634558+00:00",
+      "path": "/Users/mike/mcp-servers/.scratch-distribution/r38-redundant-bundle-plan.py",
+      "bytes": 2370,
+      "lsof": "no open handles",
+      "reason": "Completed owned R38 administrative helper or published PR body; source, provider receipts and recovery ZIPs retained"
+    }
+  ],
+  "scope": "Only the six named R38 temporary files; preexisting scratch folders, private outreach inputs and agent sessions retained."
+}

@@ -1,0 +1,8 @@
+{
+  "status": "complete",
+  "trees": 1,
+  "original_bytes": 37699134,
+  "backup_bytes": 10320947,
+  "scope": "One additional ignored generated tree safely archived. A subsequent candidate contained tracked files and was preserved; no further compression attempted.",
+  "manifest": "data/r38_build_cache_backups.jsonl"
+}

@@ -12,6 +12,7 @@ assert(audit.status === 'OK' && audit.previous_evidence_unchanged === true);
 assert(Object.entries(baseline.previous_evidence_sha256).every(([path, hash]) => audit.previous_evidence_sha256[path] === hash), 'Historical receipts must retain their original R38 baseline hashes');
 const nav = summarizeNavigation(audit.upgrade_clicks); assert(nav.status === 'interpreted');
 const f = audit.funnel, s = audit.stripe_completed, g = audit.search_console, github = audit.github;
+for (const population of [f.ordinary, f.probe]) assert(Object.values(population).every(value => Number.isSafeInteger(value) && value >= 0), 'Event counters must be measured nonnegative integers');
 const summary = {
   schema: 1, collected_until: audit.finished_at, audit: 'data/r38_kpi_final_audit.json',
   canonical_index_inspection: 'data/r38_kpi_final_index_inspection.json',

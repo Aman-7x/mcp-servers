@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "source": "data/r38_watch.json",
+  "observation_index": 31,
+  "snapshot": {
+    "at": "2026-10-26T07:53:49.829Z",
+    "errors": [],
+    "deployed_version": "14a6e84d-6157-4787-b458-9ebbbf456abe",
+    "approved_version": "14a6e84d-6157-4787-b458-9ebbbf456abe",
+    "cron": {
+      "ok": true,
+      "version": "14a6e84d-6157-4787-b458-9ebbbf456abe",
+      "checked_at": "2026-10-26T07:51:35.269Z",
+      "operations_checked_at": "2026-10-26T07:51:37.617Z",
+      "last_failure_at": "2026-10-26T07:10:43.303Z",
+      "operations_version": "14a6e84d-6157-4787-b458-9ebbbf456abe",
+      "webhook_failures": 0,
+      "missing_fulfillments": 0
+    },
+    "public_health_status": 200,
+    "stripe": {
+      "covered_7d": true,
+      "window": {
+        "start": "2026-10-19T07:53:49.829Z",
+        "end": "2026-10-26T07:53:49.829Z"
+      },
+      "sessions_7d": 0,
+      "paid_7d": 0,
+      "gross_paid_minor_by_currency": {},
+      "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+    },
+    "pin_matches": true
+  },
+  "scope": "Native scheduled/version/pin/public-health and read-only Stripe checkpoint after the final rollout. Original four-hour observation continues."
+}

@@ -1,0 +1,95 @@
+{
+  "at": "2026-10-26T09:12:56.128Z",
+  "source": "data/r38_kpi_final_audit.json",
+  "urls": [
+    {
+      "url": "https://mcp.zovo.one/s/duplicate-invoice-check",
+      "status": "OK",
+      "verdict": "NEUTRAL",
+      "coverage": "URL is unknown to Google",
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexing": "INDEXING_STATE_UNSPECIFIED",
+      "crawled_at": null,
+      "google_canonical": null,
+      "user_canonical": null
+    },
+    {
+      "url": "https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude",
+      "status": "OK",
+      "verdict": "NEUTRAL",
+      "coverage": "URL is unknown to Google",
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexing": "INDEXING_STATE_UNSPECIFIED",
+      "crawled_at": null,
+      "google_canonical": null,
+      "user_canonical": null
+    },
+    {
+      "url": "https://mcp.zovo.one/s/three-way-match",
+      "status": "OK",
+      "verdict": "NEUTRAL",
+      "coverage": "URL is unknown to Google",
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexing": "INDEXING_STATE_UNSPECIFIED",
+      "crawled_at": null,
+      "google_canonical": null,
+      "user_canonical": null
+    },
+    {
+      "url": "https://mcp.zovo.one/downloads",
+      "status": "OK",
+      "verdict": "NEUTRAL",
+      "coverage": "URL is unknown to Google",
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexing": "INDEXING_STATE_UNSPECIFIED",
+      "crawled_at": null,
+      "google_canonical": null,
+      "user_canonical": null
+    },
+    {
+      "url": "https://mcp.zovo.one/",
+      "status": "OK",
+      "verdict": "PASS",
+      "coverage": "Submitted and indexed",
+      "robots": "ALLOWED",
+      "indexing": "INDEXING_ALLOWED",
+      "crawled_at": "2026-10-26T08:35:08Z",
+      "google_canonical": "https://mcp.zovo.one/",
+      "user_canonical": "https://mcp.zovo.one/"
+    },
+    {
+      "url": "https://mcp.zovo.one/s/invoice",
+      "status": "OK",
+      "verdict": "NEUTRAL",
+      "coverage": "URL is unknown to Google",
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexing": "INDEXING_STATE_UNSPECIFIED",
+      "crawled_at": null,
+      "google_canonical": null,
+      "user_canonical": null
+    },
+    {
+      "url": "https://mcp.zovo.one/s/supplier-statement-check",
+      "status": "OK",
+      "verdict": "NEUTRAL",
+      "coverage": "URL is unknown to Google",
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexing": "INDEXING_STATE_UNSPECIFIED",
+      "crawled_at": null,
+      "google_canonical": null,
+      "user_canonical": null
+    },
+    {
+      "url": "https://mcp.zovo.one/guides/compare-supplier-statement-ap-open-items-in-claude",
+      "status": "OK",
+      "verdict": "NEUTRAL",
+      "coverage": "URL is unknown to Google",
+      "robots": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexing": "INDEXING_STATE_UNSPECIFIED",
+      "crawled_at": null,
+      "google_canonical": null,
+      "user_canonical": null
+    }
+  ],
+  "scope": "Exact canonical URLs and new supplier routes; read-only indexed-version inspection, no per-URL indexing request."
+}

@@ -6,7 +6,7 @@ Resend is already configured. The missing commercial input is relevant people wh
 
 [data/r38_kpi_email_config.json](../data/r38_kpi_email_config.json), read at 05:15 UTC, confirms a present local key and a verified zovo.one domain with sending enabled. The local campaign has 18 manual research rows, zero email rows, zero explicit opt-in rows and zero eligible recipients. Its dry-run attempts zero sends. This inventory is not a production subscriber census. Resend receiving is disabled; another provider's inbound mailbox status is unknown. The configuration receipt does not prove send scope or inbox delivery.
 
-No contacts, raw personal addresses, keys, email bodies or consent receipts were fetched from an external API for this task. No email was attempted. The exact source/outbox hashes retained in the preceding receipt remain the preservation control.
+At the 05:15 review checkpoint, no contacts, raw personal addresses, keys, email bodies or consent receipts were fetched from an external API, and no email was attempted. The later 07:03 key inventory below reads subscription key names in memory and retains only aggregate counts. The exact source/outbox hashes retained in the preceding receipt remain the preservation control.
 
 Official sources were opened on October 26:
 
