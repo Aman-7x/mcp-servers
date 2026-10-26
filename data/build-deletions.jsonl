@@ -689,3 +689,41 @@
 {"at":"2026-10-26T06:59:03.931Z","path":"/Users/mike/mcp-servers-work/r38-remote-config-TLvtOc","bytes":22972204,"lsof":"no open handles","reason":"Owned strict remote dry-run after correcting TOML limits section placement; no live upload"}
 {"at": "2026-10-26T07:00:14.752902+00:00", "path": "/Users/mike/mcp-servers-work/mirror-supplier-statement-check.f4Cc69/gemini-extension.json.tmp", "bytes": 0, "reason": "unsupported optional mirror configuration", "lsof": "no open handles"}
 {"at": "2026-10-26T07:00:48.930620+00:00", "path": "/Users/mike/mcp-servers-work/mirror-supplier-statement-check.f4Cc69", "bytes": 418820, "lsof": "no open handles", "reason": "Completed supplier metadata-only resync; native readbacks retained"}
+{"at":"2026-10-26T07:08:58.284Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-gn55ck","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-10-26T07:11:09.621Z","path":"/Users/mike/mcp-servers-work/r38-supplier-browser-WMYScd","bytes":9410200,"lsof":"no open handles","reason":"R38 real supplier browser QA, synthetic CSV downloads and GIF source frames"}
+{"at":"2026-10-26T07:19:13.694Z","path":"/Users/mike/mcp-servers-work/r38-checkout-probe-state.json","bytes":693,"lsof":"no open handles","reason":"Completed owned two-session unpaid checkout probe; verified expired without payment"}
+{"at":"2026-10-26T07:19:13.899Z","path":"/Users/mike/mcp-servers-work/r38-checkout-probe.lock","bytes":0,"lsof":"no open handles","reason":"Completed owned two-session unpaid checkout probe; verified expired without payment"}
+{"at":"2026-10-26T07:24:58.837Z","path":"/Users/mike/mcp-servers/bundles/catalogue/server","bytes":29820246,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:01.605Z","path":"/Users/mike/mcp-servers/bundles/change-order/server","bytes":29736315,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:04.285Z","path":"/Users/mike/mcp-servers/bundles/checklist/server","bytes":29717645,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:07.039Z","path":"/Users/mike/mcp-servers/bundles/clauses/server","bytes":37693600,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:09.291Z","path":"/Users/mike/mcp-servers/bundles/credit-note/server","bytes":14901329,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:11.280Z","path":"/Users/mike/mcp-servers/bundles/currency/server","bytes":14903096,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:13.875Z","path":"/Users/mike/mcp-servers/bundles/delivery-schedule/server","bytes":29744084,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:16.749Z","path":"/Users/mike/mcp-servers/bundles/deposits/server","bytes":29794856,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:19.333Z","path":"/Users/mike/mcp-servers/bundles/docx/server","bytes":37622795,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:21.462Z","path":"/Users/mike/mcp-servers/bundles/dunning-letters/server","bytes":14998678,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:23.625Z","path":"/Users/mike/mcp-servers/bundles/duplicate-invoice-check/server","bytes":14910808,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:25.779Z","path":"/Users/mike/mcp-servers/bundles/expense-tracker/server","bytes":23049530,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:28.325Z","path":"/Users/mike/mcp-servers/bundles/goods-receipt/server","bytes":29701168,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:30.357Z","path":"/Users/mike/mcp-servers/bundles/hourly-rate/server","bytes":14697929,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:33.134Z","path":"/Users/mike/mcp-servers/bundles/image/server","bytes":37999287,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:35.242Z","path":"/Users/mike/mcp-servers/bundles/job-card/server","bytes":14894131,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:37.369Z","path":"/Users/mike/mcp-servers/bundles/kanban/server","bytes":14904082,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:39.837Z","path":"/Users/mike/mcp-servers/bundles/leave/server","bytes":29706243,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:40.721Z","path":"/Users/mike/mcp-servers/bundles/loan-calculator/server","bytes":3127,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:42.309Z","path":"/Users/mike/mcp-servers/bundles/maintenance-log/server","bytes":14881315,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:44.539Z","path":"/Users/mike/mcp-servers/bundles/mileage-log/server","bytes":14891100,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:47.462Z","path":"/Users/mike/mcp-servers/bundles/onboarding/server","bytes":29687247,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:50.113Z","path":"/Users/mike/mcp-servers/bundles/packing-list/server","bytes":29724091,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:51.234Z","path":"/Users/mike/mcp-servers/bundles/payroll/server","bytes":2677,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:53.643Z","path":"/Users/mike/mcp-servers/bundles/pdf/server","bytes":36728426,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:56.155Z","path":"/Users/mike/mcp-servers/bundles/per-diem/server","bytes":14926566,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:58.655Z","path":"/Users/mike/mcp-servers/bundles/petty-cash/server","bytes":30106694,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:25:59.568Z","path":"/Users/mike/mcp-servers/bundles/pomodoro/server","bytes":2168,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:26:01.937Z","path":"/Users/mike/mcp-servers/bundles/purchase-requisition/server","bytes":29734033,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:26:04.956Z","path":"/Users/mike/mcp-servers/bundles/quotes/server","bytes":29650182,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:26:05.961Z","path":"/Users/mike/mcp-servers/bundles/receipts/server","bytes":2313,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:26:08.297Z","path":"/Users/mike/mcp-servers/bundles/recurring/server","bytes":29639724,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T07:30:32.392Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-mmGfvZ","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-10-26T07:35:09.524Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-LEOkA5","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}

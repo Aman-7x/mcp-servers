@@ -5,5 +5,11 @@
   "http_status": 401,
   "accounts_created": 0,
   "packages_published": 0,
-  "scope": "Existing npm identity is unauthorized. Self-contained public MCPB and source mirrors remain valid installation paths; no npm installation claim."
+  "scope": "Existing npm identity is unauthorized. Self-contained public MCPB and source mirrors remain valid installation paths; no npm installation claim.",
+  "public_package_lookup": {
+    "at": "2026-10-26T07:11:03.028Z",
+    "status": 404,
+    "url": "https://registry.npmjs.org/@theluckystrike%2Fmcp-supplier-statement-check",
+    "meaning": "No published package found; source and MCPB remain actual install routes."
+  }
 }

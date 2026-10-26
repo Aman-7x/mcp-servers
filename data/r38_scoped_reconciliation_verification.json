@@ -1,0 +1,74 @@
+{
+  "at": "2026-10-26T07:31:50.943Z",
+  "status": "targeted_pass_source_frozen_for_root_gate",
+  "scope": "Synthetic mocked Stripe/KV with ephemeral Ed25519 fixture signer; no production calls, sends, payments or deployment",
+  "problem": "Legacy-only exact-key reconciliation falsely marked the first of two valid hosted purchases missing after the second replaced its compatibility slot",
+  "implementation": {
+    "shared_validator": "billing/src/scheduled-monitor.js:paidSessionEntitlementIssue",
+    "consumers": [
+      "scheduled Worker operations check",
+      "native billing-operations-monitor CLI"
+    ],
+    "issued_record": "Required, cryptographically valid for canonical paid scope; unknown metadata fails closed",
+    "current_access": "Shared readBinding verifies current bundle/product/legacy candidates; a paid bundle requires signed wildcard and cannot fall back to a single",
+    "historical_expiry": "Only signature/shape/scope-verified expired issued keys with signed expiry later than Session creation establish past fulfillment; current effective key must remain valid now",
+    "aliases": "Existing own-property PRODUCTS/PRODUCT_ALIASES canonical resolution; prototype names, object/array/unknown metadata rejected",
+    "privacy": "Only fixed issue labels and hashed Session references; no key values or customer identities reported",
+    "cli": "paidSessionFindings is now asynchronous; all known callers awaited; URL-only exact MCP host Sessions included"
+  },
+  "negative_controls": {
+    "historical_commit": "e290ce3cfec0cf7c9f44e9273485473d0fea2da6",
+    "source_files": [
+      "billing/src/scheduled-monitor.js",
+      "scripts/billing-operations-monitor.mjs"
+    ],
+    "actual_old_functions_executed": true,
+    "synthetic_paid_sessions": 2,
+    "legacy_slot_contains_second_purchase": true,
+    "old_first_purchase_binding_alert": true,
+    "fixed_scheduled_paid_checked": 2,
+    "fixed_native_paid_checked": 2,
+    "fixed_missing_bindings": 0,
+    "real_paid_transaction": false
+  },
+  "tests": {
+    "command": "BUILDSLOT_MIN_FREE_GB=20 BUILDSLOT_MAX_WAIT=120 TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local /Users/mike/bin/buildslot node --test billing/test/scheduled-entitlements.test.mjs scripts/test/billing-operations-monitor.test.mjs scripts/test/billing-scheduled-monitor.test.mjs",
+    "output": "data/r38_scoped_reconciliation_tests.tap",
+    "tests": 22,
+    "passed": 22,
+    "failed": 0,
+    "skipped": 0,
+    "new_billing_declarations": 8,
+    "new_native_declarations": 2,
+    "disk_avail_gb_before_run": 21
+  },
+  "controls": [
+    "old scheduled and native false-positive reproduction",
+    "two independent paid singles retain valid reconciliation",
+    "bundle and renewal/replacement coverage without historical byte equality",
+    "wildcard required for bundle and known bundle aliases",
+    "missing/corrupt/wrong-scope/expired effective keys rejected",
+    "issued key missing/corrupt/tampered/wrong-scope rejected separately",
+    "historical expiry valid at purchase versus expired before purchase",
+    "unknown/prototype/object/array product metadata rejected",
+    "malformed anonymous tenant rejected",
+    "valid local paid purchase requires issued key but no hosted slot",
+    "native exact-host URL fallback and lookalike-host exclusion",
+    "settlement grace period and existing webhook/sweep checks retained"
+  ],
+  "source_sha256": {
+    "billing/src/scheduled-monitor.js": "305afd5bcbe0ceb7a22acf8b141a4df5bd547a119aa40d44a4c180f83788e209",
+    "billing/test/scheduled-entitlements.test.mjs": "891a2bc00b94db6cd44cc5698bf4e97ecb4aef3f16873f42d47dfc0de0c00e50",
+    "scripts/billing-operations-monitor.mjs": "09d46740dfe9d6bbb0079051a145c9c11b320f3d9ec02e584c9f99d4f34eb874",
+    "scripts/test/billing-operations-monitor.test.mjs": "effdb6a0c4dca2f0584ae05ee6b62c092f6ce3f1c2b71752f20f29361079ec7b"
+  },
+  "remaining": [
+    "Root must increase BILLING_TEST_COUNT by8 and run complete stable billing/release gates",
+    "Changes are not deployed; source freeze requested before root gate",
+    "Mocked paid records prove control behavior, not actual buyer payment or live fulfillment"
+  ],
+  "paid_api_calls": 0,
+  "production_requests": 0,
+  "external_writes": 0,
+  "temporary_fixture_files_created": 0
+}

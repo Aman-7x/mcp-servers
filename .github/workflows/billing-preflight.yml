@@ -73,6 +73,7 @@ jobs:
           node --test scripts/test/deploy-billing-gated.test.mjs \
             scripts/test/billing-release-gate.test.mjs \
             scripts/test/billing-scheduled-monitor.test.mjs \
+            scripts/test/billing-operations-monitor.test.mjs \
             scripts/test/billing-mint-ephemeral.test.mjs \
             scripts/test/billing-route-ci.test.mjs
           node --test test/checkout-probe-ownership.test.mjs \

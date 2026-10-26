@@ -9,6 +9,7 @@ const output = 'data/r38_kpi_final_summary.json';
 assert(!existsSync(new URL(output, root)), 'Preserve the completed final summary');
 const audit = read('data/r38_kpi_final_audit.json'), baseline = read('data/r38_kpi_audit.json');
 assert(audit.status === 'OK' && audit.previous_evidence_unchanged === true);
+assert(Object.entries(baseline.previous_evidence_sha256).every(([path, hash]) => audit.previous_evidence_sha256[path] === hash), 'Historical receipts must retain their original R38 baseline hashes');
 const nav = summarizeNavigation(audit.upgrade_clicks); assert(nav.status === 'interpreted');
 const f = audit.funnel, s = audit.stripe_completed, g = audit.search_console, github = audit.github;
 const summary = {

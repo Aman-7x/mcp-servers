@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-26T07:17:23.754Z",
+  "status": "unavailable",
+  "read_retries": [],
+  "scope": "Native configuration/pin checks and marked public GETs after the supported deployment. No payment, token mint, business tool or email.",
+  "failure": "release_validation_failed",
+  "finished_at": "2026-10-26T07:17:30.257Z",
+  "limits": [
+    "Code/configuration proof and current monitor health are separate fields. The original bounded watch must establish final healthy observation.",
+    "The native signed entitlement sequence was executed against the preceding billing version; its modules and all MCP package source are unchanged by this site follow-up.",
+    "Synthetic browser/operator controls do not establish buyers, paid fulfillment or ROI."
+  ],
+  "diagnosis": "The verifier incorrectly expected an HTTP Last-Modified header on sitemap.xml. That route declares per-URL XML lastmod dates and intentionally has no such header. Native content routes and XML dates read back correctly; production code was not changed to satisfy the check."
+}

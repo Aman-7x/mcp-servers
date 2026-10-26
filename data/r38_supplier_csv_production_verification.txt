@@ -1,0 +1,1 @@
+{"status":"passed","monitor_healthy":false,"public_health":503,"retry_count":0,"failure":null}

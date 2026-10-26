@@ -1,0 +1,155 @@
+buildslot[52831] 14:29:49: slot 1 acquired: node --test billing/test/scheduled-entitlements.test.mjs scripts/test/billing-operations-monitor.test.mjs scripts/test/billing-scheduled-monitor.test.mjs
+TAP version 13
+# Subtest: actual old scheduled function falsely rejects the first of two fulfilled paid singles
+ok 1 - actual old scheduled function falsely rejects the first of two fulfilled paid singles
+  ---
+  duration_ms: 40.982709
+  type: 'test'
+  ...
+# Subtest: current bundle and replacement keys cover historical singles without byte equality
+ok 2 - current bundle and replacement keys cover historical singles without byte equality
+  ---
+  duration_ms: 1.822
+  type: 'test'
+  ...
+# Subtest: paid bundle and known bundle aliases require a verified wildcard, never a single
+ok 3 - paid bundle and known bundle aliases require a verified wildcard, never a single
+  ---
+  duration_ms: 3.094166
+  type: 'test'
+  ...
+# Subtest: missing, corrupt, expired and wrong-scope effective bindings remain alerts
+ok 4 - missing, corrupt, expired and wrong-scope effective bindings remain alerts
+  ---
+  duration_ms: 1.1945
+  type: 'test'
+  ...
+# Subtest: issued key signature and paid scope are independent fulfillment evidence
+ok 5 - issued key signature and paid scope are independent fulfillment evidence
+  ---
+  duration_ms: 0.735959
+  type: 'test'
+  ...
+# Subtest: historically valid issued expiry is accepted only with valid current coverage
+ok 6 - historically valid issued expiry is accepted only with valid current coverage
+  ---
+  duration_ms: 0.643875
+  type: 'test'
+  ...
+# Subtest: unresolved paid metadata, prototype names and malformed tenants fail closed
+ok 7 - unresolved paid metadata, prototype names and malformed tenants fail closed
+  ---
+  duration_ms: 0.225458
+  type: 'test'
+  ...
+# Subtest: local paid purchases require a valid issued key without a hosted binding
+ok 8 - local paid purchases require a valid issued key without a hosted binding
+  ---
+  duration_ms: 0.213084
+  type: 'test'
+  ...
+# Subtest: paid Session with missing license or hosted binding is an alert
+ok 9 - paid Session with missing license or hosted binding is an alert
+  ---
+  duration_ms: 3.775333
+  type: 'test'
+  ...
+# Subtest: paid Session with matching records clears; recent payment gets settlement time
+ok 10 - paid Session with matching records clears; recent payment gets settlement time
+  ---
+  duration_ms: 0.767125
+  type: 'test'
+  ...
+# Subtest: old native equality check falsely alerts after two singles; scoped verification clears
+ok 11 - old native equality check falsely alerts after two singles; scoped verification clears
+  ---
+  duration_ms: 19.512041
+  type: 'test'
+  ...
+# Subtest: native reconciliation detects exact-host Sessions with unresolved metadata
+ok 12 - native reconciliation detects exact-host Sessions with unresolved metadata
+  ---
+  duration_ms: 0.1775
+  type: 'test'
+  ...
+# Subtest: webhook check detects duplicate destination and overdue MCP event
+ok 13 - webhook check detects duplicate destination and overdue MCP event
+  ---
+  duration_ms: 0.171209
+  type: 'test'
+  ...
+# Subtest: Cloudflare rows flag observed Stripe HTTP 4xx/5xx and ignore unrelated traffic
+ok 14 - Cloudflare rows flag observed Stripe HTTP 4xx/5xx and ignore unrelated traffic
+  ---
+  duration_ms: 0.2935
+  type: 'test'
+  ...
+# {"event":"billing_monitor_pass","checkedAt":"2026-10-26T07:29:49.307Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":true,"operationsCheckedAt":"2026-10-26T07:29:49.306Z","operationsVersion":"6d41c702-9584-441e-bbdf-9748b276b798","lastFailureAt":null,"buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"}}
+# {"event":"billing_monitor_pass","checkedAt":"2026-10-26T07:29:49.321Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":true,"operationsCheckedAt":"2026-10-26T07:29:49.321Z","operationsVersion":"6d41c702-9584-441e-bbdf-9748b276b798","lastFailureAt":null,"buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"}}
+# {"event":"billing_monitor_fail","checkedAt":"2026-10-26T07:29:49.326Z","batch":1,"version":"new-version","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-26T07:29:49.326Z","error":"deployed version differs from approved release"}
+# {"event":"billing_monitor_pass","checkedAt":"2026-10-26T07:29:49.326Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":true,"operationsCheckedAt":"2026-10-26T07:29:49.327Z","operationsVersion":"6d41c702-9584-441e-bbdf-9748b276b798","lastFailureAt":null,"buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"operations":{"sweepHours":0,"paidChecked":0,"paidSettling":0,"missing":[],"enabled":1,"destinationOk":true,"overdue":0,"webhookFailures":0,"webhookObserved":0}}
+# {"event":"billing_monitor_pass","checkedAt":"2026-10-26T07:29:49.328Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":true,"operationsCheckedAt":"2026-10-26T07:29:49.328Z","operationsVersion":"6d41c702-9584-441e-bbdf-9748b276b798","lastFailureAt":null,"buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"}}
+# {"event":"billing_monitor_fail","checkedAt":"2026-10-26T07:29:49.328Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":"2026-10-26T07:29:49.328Z","operationsVersion":"6d41c702-9584-441e-bbdf-9748b276b798","lastFailureAt":"2026-10-26T07:29:49.329Z","error":"new live Stripe Session attributable to GET checkout probe"}
+# Subtest: scheduled monitor checks a buy-page batch without creating a live Session
+ok 15 - scheduled monitor checks a buy-page batch without creating a live Session
+  ---
+  duration_ms: 14.617541
+  type: 'test'
+  ...
+# Subtest: scheduled probe exercises real billing GET handler without a Stripe create call
+ok 16 - scheduled probe exercises real billing GET handler without a Stripe create call
+  ---
+  duration_ms: 5.056583
+  type: 'test'
+  ...
+# Subtest: unapproved version fails closed and records a failing heartbeat
+ok 17 - unapproved version fails closed and records a failing heartbeat
+  ---
+  duration_ms: 0.269667
+  type: 'test'
+  ...
+# Subtest: first scheduled run on a new version refreshes operations despite a recent prior checkpoint
+ok 18 - first scheduled run on a new version refreshes operations despite a recent prior checkpoint
+  ---
+  duration_ms: 1.429834
+  type: 'test'
+  ...
+# Subtest: concurrent customer POST is ignored but a Session tagged to GET probe alerts
+ok 19 - concurrent customer POST is ignored but a Session tagged to GET probe alerts
+  ---
+  duration_ms: 1.582375
+  type: 'test'
+  ...
+# Subtest: status endpoint requires a token and webhook response status is stored without payload
+ok 20 - status endpoint requires a token and webhook response status is stored without payload
+  ---
+  duration_ms: 2.72375
+  type: 'test'
+  ...
+# Subtest: public monitor health fails closed on stale Cron, failed operations, or unapproved version
+ok 21 - public monitor health fails closed on stale Cron, failed operations, or unapproved version
+  ---
+  duration_ms: 0.363083
+  type: 'test'
+  ...
+# {"event":"billing_monitor_fail","checkedAt":"2026-10-26T07:29:49.332Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-26T07:29:49.335Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":0,\\"paidChecked\\":1,\\"paidSettling\\":0,\\"missing\\":[\\"016ee5651295:license\\"],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":0,\\"webhookObserved\\":0}"}
+# {"event":"billing_monitor_fail","checkedAt":"2026-10-26T07:29:49.335Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-26T07:29:49.336Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":0,\\"paidChecked\\":1,\\"paidSettling\\":0,\\"missing\\":[\\"636d5b061a13:license\\"],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":0,\\"webhookObserved\\":0}"}
+# {"event":"billing_monitor_fail","checkedAt":"2026-10-26T07:29:49.336Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-26T07:29:49.337Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":0,\\"paidChecked\\":1,\\"paidSettling\\":0,\\"missing\\":[\\"016ee5651295:binding_product\\"],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":0,\\"webhookObserved\\":0}"}
+# {"event":"billing_monitor_fail","checkedAt":"2026-10-26T07:29:49.337Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-26T07:29:49.338Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":1,\\"paidChecked\\":0,\\"paidSettling\\":0,\\"missing\\":[],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":0,\\"webhookObserved\\":0}"}
+# {"event":"billing_monitor_fail","checkedAt":"2026-10-26T07:29:49.338Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-26T07:29:49.339Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":1,\\"paidChecked\\":0,\\"paidSettling\\":0,\\"missing\\":[],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":0,\\"webhookObserved\\":0}"}
+# {"event":"billing_monitor_fail","checkedAt":"2026-10-26T07:29:49.339Z","batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798","ok":false,"operationsCheckedAt":null,"operationsVersion":null,"lastFailureAt":"2026-10-26T07:29:49.340Z","buy":{"paths":11,"batch":1,"version":"6d41c702-9584-441e-bbdf-9748b276b798"},"error":"operations check failed: {\\"sweepHours\\":0,\\"paidChecked\\":0,\\"paidSettling\\":0,\\"missing\\":[],\\"enabled\\":1,\\"destinationOk\\":true,\\"overdue\\":0,\\"webhookFailures\\":1,\\"webhookObserved\\":1}"}
+# Subtest: scheduled reconciliation alerts on missing paid fulfillment, an expired sweep, and webhook 5xx
+ok 22 - scheduled reconciliation alerts on missing paid fulfillment, an expired sweep, and webhook 5xx
+  ---
+  duration_ms: 7.759292
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 114.141833

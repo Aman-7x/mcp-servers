@@ -61,3 +61,7 @@ No billing runtime file was edited here because the entitlement review owns it. 
 - data/r38_commercial_navigation.json and data/r38_outreach_metric_tests.tap: actual output and tests.
 
 The shared dashboard, shared KPI files and billing runtime remain owned by the parent and other agents.
+
+## Later bounded production inventory, 07:03 UTC
+
+Four stored setup-subscription base keys, one suppression and three base keys without a current matching suppression are present. One E2 marker and one E3 marker exist. The inventory lists only exact sub:/unsub: prefixes with bounded complete pagination; record values and contact APIs were not fetched. No names, email addresses or raw keys are saved or printed. These records are not proven people, deliverable contacts or eligible supplier-trial recipients. The current disclosed signup purpose is the welcome/invoice-setup/bundle sequence. No outreach campaign was sent by this session, and existing setup-tip automation was not changed; historical markers do not prove when or whether mail was delivered. [Aggregate receipt](../data/r38_production_subscriber_inventory.json).

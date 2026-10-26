@@ -1,0 +1,195 @@
+{
+  "at": "2026-10-26T07:11:02.301Z",
+  "status": "passed",
+  "mode": "live_read_only",
+  "source": "Actual public guide and generated JavaScript; marked read-only GETs in Chrome; exact deployed asset bytes checked against current source",
+  "core_ui_sha256": "ef56af4758cea30cfe87dbe85759627faae55eee0f237f6ee991c66c30356933",
+  "synthetic_inputs": true,
+  "disk_available_gb": 20,
+  "checks": [
+    {
+      "name": "Actual worked comparison",
+      "detail": "9 original records,5groups,1matched,4review; every original field retained, amount and date issues both present"
+    },
+    {
+      "name": "Preset editor position",
+      "detail": "A scrolled editor returns to the start of each newly selected preset"
+    },
+    {
+      "name": "Actual complete CSV download",
+      "detail": "Downloaded9rows, one per source-side item; original source values match independent Pythoncsv parsing"
+    },
+    {
+      "name": "All preset boundaries",
+      "detail": "Agreement1matched; leading-zero and credit/type cases2unmatched; repeated-reference case1ambiguous, no guessed pairing"
+    },
+    {
+      "name": "Stale evidence and save refusal",
+      "detail": "Any edit immediately clears report/groups and disables CSV; invalid JSON and save:true retain no prior evidence"
+    },
+    {
+      "name": "DOM and CSV hostile strings",
+      "detail": "HTML-like references render as text; no img/onerror execution; formula escaped and comma/quote reference byte-preserved in actual CSV"
+    },
+    {
+      "name": "Bounded browser input",
+      "detail": "Over2MiB rejected before JSON parsing; no report or export retained"
+    },
+    {
+      "name": "Two actual UTF-8 CSV files",
+      "detail": "Both real file controls import the complete9record pair; every source field survives actual downloaded CSV; no partial side is accepted"
+    },
+    {
+      "name": "CSV source identity and quoting",
+      "detail": "Real UTF-8BOM/reordered-header uploads preserve leading-zeroIDs, Unicode and quoted comma/quote references in both report and downloaded CSV"
+    },
+    {
+      "name": "Complete-pair invalid-row refusal",
+      "detail": "A bad final AP date clears all prior source/evidence; no valid first row or statement side is retained"
+    },
+    {
+      "name": "Actual CSV encoding/header/amount rejection",
+      "detail": "MalformedUTF-8, unknown/duplicate headers, malformedquote and leading-zeroamount file inputs each reject the whole pair; no source values are silently repaired"
+    },
+    {
+      "name": "Combined real file-size guard",
+      "detail": "Two real files just over2MiB combined are refused before either arrayBuffer reader runs; previous evidence stays empty"
+    },
+    {
+      "name": "Complete1000+1000 CSV boundary",
+      "detail": "Exactly1000items per side yield1000matches and a complete2000-row downloadedCSV;1001items on one side reject without truncation"
+    },
+    {
+      "name": "Real editor expansion guard",
+      "detail": "A raw-bounded2000item pair uses compactJSON when pretty form exceeds2MiB; another raw-bounded pair whose compact form exceeds2MiB rejects completely"
+    },
+    {
+      "name": "Actual late-read file race",
+      "detail": "A later real two-file selection remains current after both earlier delayed File reads finish"
+    },
+    {
+      "name": "Actual file-to-JSON cancellation",
+      "detail": "An edited JSON input cancels both pending real File reads; old completion cannot repopulate source/evidence"
+    },
+    {
+      "name": "Actual file-to-preset cancellation",
+      "detail": "A selected synthetic preset remains current after both older real File reads complete"
+    },
+    {
+      "name": "Actual common-date race",
+      "detail": "Changing the date clears old evidence immediately; only the complete pair read for the newly declared date becomes current"
+    },
+    {
+      "name": "Actual local template route",
+      "detail": "Both downloaded syntheticCSV templates match their copyable sourcebytes; sample button runs the same strict parser/core and declares its fixed as-of date"
+    },
+    {
+      "name": "Actual preserved-old-markup compatibility",
+      "detail": "Preserved firstrelease markup withoutCSVcontrols runs the new generated bundle, presets and invalid-input clearing in a real second page"
+    },
+    {
+      "name": "Responsive guide layout",
+      "detail": "390px and320px guide/body stay within viewport"
+    },
+    {
+      "name": "Privacy and execution controls",
+      "detail": "Zero pageerrors, diagnostic fetch/XHR/beacon requests or storagewrites. Only marked GETs to the selected guide/assets were permitted. Existing static GoogleFonts stylesheet and 2 Cloudflare infrastructure script request(s) were blocked; those scripts were not executed by this isolated workflow check. No request to another host was allowed."
+    }
+  ],
+  "frames": [
+    {
+      "label": "Two local synthetic CSV exports selected",
+      "summary": "5 statement records; 4 AP ledger records. 1 matching groups; 4 groups to review: 1 statement only, 1 ledger only, 1 amount/date differences, 1 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Actual CSV-source comparison evidence",
+      "summary": "5 statement records; 4 AP ledger records. 1 matching groups; 4 groups to review: 1 statement only, 1 ledger only, 1 amount/date differences, 1 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Leading zeros remain significant",
+      "summary": "1 statement records; 1 AP ledger records. 0 matching groups; 2 groups to review: 1 statement only, 1 ledger only, 0 amount/date differences, 0 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Credit notes remain separate from invoices",
+      "summary": "1 statement records; 1 AP ledger records. 0 matching groups; 2 groups to review: 1 statement only, 1 ledger only, 0 amount/date differences, 0 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Repeated reference remains ambiguous",
+      "summary": "2 statement records; 1 AP ledger records. 0 matching groups; 1 groups to review: 0 statement only, 0 ledger only, 0 amount/date differences, 1 repeated references.",
+      "status": "Differences or repeated references need review."
+    }
+  ],
+  "page_errors": [],
+  "blocked_external_requests": [
+    "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Space+Mono&display=swap",
+    "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Space+Mono&display=swap"
+  ],
+  "blocked_route_requests": [
+    {
+      "method": "GET",
+      "path": "/cdn-cgi/challenge-platform/scripts/jsd/main.js"
+    },
+    {
+      "method": "GET",
+      "path": "/cdn-cgi/challenge-platform/scripts/jsd/main.js"
+    }
+  ],
+  "diagnostic_requests": [],
+  "initial_local_requests": [
+    {
+      "type": "document",
+      "path": "/guides/compare-supplier-statement-ap-open-items-in-claude"
+    },
+    {
+      "type": "stylesheet",
+      "path": "/css2"
+    },
+    {
+      "type": "script",
+      "path": "/assets/supplier-demo.js"
+    },
+    {
+      "type": "script",
+      "path": "/cdn-cgi/challenge-platform/scripts/jsd/main.js"
+    }
+  ],
+  "production_requests": 3,
+  "checkout_sessions_created": 0,
+  "emails_sent": 0,
+  "origin": "https://mcp.zovo.one",
+  "csv_iteration": {
+    "csv_cases": 13,
+    "synthetic_csv_values_uploaded": false,
+    "core_changed": false
+  },
+  "infrastructure_requests_blocked": 2,
+  "browser": "155.0.8059.86",
+  "artifacts": [
+    {
+      "path": "intel/R38-supplier-csv-live-demo.gif",
+      "bytes": 415027,
+      "sha256": "78339bfd77936f306c9e806ac0ed07d6abd7d61140a8c78221d90f242b5a5ea5"
+    },
+    {
+      "path": "intel/R38-supplier-csv-live-desktop.png",
+      "bytes": 113330,
+      "sha256": "fd1a6a155b8e82615b2a1c5f6306975d0e94f3a2829dfb6410b78fcd7d5aec3f"
+    },
+    {
+      "path": "intel/R38-supplier-csv-live-mobile-390.png",
+      "bytes": 342055,
+      "sha256": "6e16d31aafb11e24fe8a7cbee8d8203c1d4bb3960fe80b1673702cd474606f0c"
+    },
+    {
+      "path": "intel/R38-supplier-csv-live-mobile-320.png",
+      "bytes": 354094,
+      "sha256": "b79ef012100a292be97a07e6e2220c6d975c32301ede327d6cbcba3c04a0d76a"
+    }
+  ],
+  "owned_scope_removed": true,
+  "finished_at": "2026-10-26T07:11:09.642Z"
+}

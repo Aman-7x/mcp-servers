@@ -116,11 +116,11 @@ next.push("Submit the .mcpb bundles to the Claude Desktop extensions directory a
 const currentPanel = currentSession ? `
 <div class="card" id="current-session"><h2 style="margin-top:0">${esc(currentSession.title)}</h2>
 <p>${esc(currentSession.conclusion)}</p>
-<p class="dim">Updated ${esc(currentSession.updated_at)}. ${esc(currentSession.status_note || "")}</p>
+<p class="dim">${currentSession.active ? "In progress" : "Completed"}. Updated ${esc(currentSession.updated_at)}. ${esc(currentSession.status_note || "")}</p>
 <div class="kpis">${(currentSession.metrics || []).map(x => `<div class="kpi"><div class="n">${esc(x.value ?? "unavailable")}</div><div class="k">${esc(x.label)}</div><div class="dim">${esc(x.window)}<br>${esc(x.note || "")}<br><a href="${esc(x.source)}">Evidence</a></div></div>`).join("")}</div>
 <p class="dim">These are separate observations. Requests, tokens, documents and checkout sessions have different populations and time windows; no conversion rate is inferred from them.</p>
 <h2>Delivered this session</h2><ul>${(currentSession.shipped || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul>
-<h2>Highest return next actions</h2><ol>${(currentSession.next_levers || []).map(x => `<li>${esc(x)}</li>`).join("")}</ol>
+<h2>Next commercial checks</h2><ol>${(currentSession.next_levers || []).map(x => `<li>${esc(x)}</li>`).join("")}</ol>
 ${currentSession.known_limits ? `<p class="dim"><b>Known limits.</b> ${esc(currentSession.known_limits)}</p>` : ""}
 <p><a href="${esc(currentSession.report || "session-log.md")}">Full session report</a> · <a href="docs/OUTREACH_RESEND_SETUP.md">Outreach access and sending setup</a></p></div>` : "";
 
@@ -176,7 +176,7 @@ details summary{cursor:pointer;color:var(--acc);font-size:12.5px}
 <div class="tabs"><button class="on" data-tab="truth">Reality check</button><button data-tab="overview">Overview</button><button data-tab="servers">What each server does</button><button data-tab="validation">Validation archive${lastRun ? ` (${lastRun.pass}/${lastRun.total})` : ""}</button><button data-tab="promotion">Promotion playbook</button><button data-tab="uservalue">User value history${uv7 ? ` (R7 ${uv7.totals?.score}/${uv7.totals?.max})` : uv5 ? ` (R5 ${uv5.totals?.score ?? uv5.totals?.r5}/${uv5.totals?.max})` : uv4 ? ` (R4 ${uv4.totals?.r4 ?? uv4.totals?.score}/${uv4.totals?.max})` : uv2 ? ` (${uv2.totals.score}/${uv2.totals.max})` : ""}</button><button data-tab="organic">Organic history (${orgHeadline}/100)</button><button data-tab="sprints">Sprint notes${slog ? ` (${slog.sessions})` : ""}</button><button data-tab="kpi">KPIs${kpi ? ` (${kpi.kpis.filter(k => !k.stale).length} current / ${kpi.kpis.length} recorded)` : ""}</button></div>
 <div class="tab on" id="tab-truth">
 ${renderRevenueReview(revenueReview)}
-${currentSession?.active ? currentPanel : revenueReview ? `<details id="previous-session"><summary>Previous completed implementation sprint — original dated evidence</summary>${currentPanel}</details>` : currentPanel}
+${currentPanel}
 ${watch ? `<div class="card"><b>Session observation: ${esc(watch.status)}</b><p class="dim">Sampled since ${esc(watch.started_at)}. Last observation ${esc(watch.last_observed_at || 'pending')}; session deadline ${esc(watch.deadline_at)}. ${watch.snapshots.length} production observations. This panel is an observation record; a live process must be confirmed with its terminal handle.</p><p>Latest: approved version ${watch.snapshots.at(-1)?.pin_matches === true ? 'matches production' : 'not verified'}, scheduled monitor ${watch.snapshots.at(-1)?.cron?.ok === true ? 'passed' : 'not verified'}, public health HTTP ${esc(watch.snapshots.at(-1)?.public_health_status ?? 'unknown')}. ${esc(watch.snapshots.at(-1)?.health_note || '')}</p><a href="${esc(currentSession?.watch_path || "data/r36_watch.json")}">Observation evidence</a></div>` : ''}
 <details><summary>Historical research and experiments, September 2026 (superseded where newer evidence exists)</summary>
 <div class="card"><b>Historical panel.</b> The observations below retain their original dates and were not refreshed by regenerating this page. Read the current session panel above for recent measurements.</div>
