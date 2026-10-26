@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-26T06:27:14.811397+00:00",
+  "scope": "Lossless private compressed backups of ignored generated dependency trees; every file and symlink byte re-read and matched before lsof-guarded removal. Original production MCPBs/manifests and all project source retained. No agent sessions or user records touched.",
+  "available_before_bytes": 22456573952,
+  "available_after_bytes": 22639271936,
+  "trees": 10,
+  "original_bytes": 218017898,
+  "backup_bytes": 80466711,
+  "manifest": "data/r38_build_cache_backups.jsonl",
+  "restore": "Extract the named private backup ZIP into its original bundles/<server>/ parent; entries include server/.",
+  "status": "complete"
+}

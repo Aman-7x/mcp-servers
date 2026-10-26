@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-26T06:45:39.529Z",
+  "status": "passed",
+  "routes": [
+    {
+      "pattern": "mcp.zovo.one/.well-known/*",
+      "script": "mcp-remote"
+    },
+    {
+      "pattern": "mcp.zovo.one/oauth*",
+      "script": "mcp-remote"
+    },
+    {
+      "pattern": "mcp.zovo.one/mcp*",
+      "script": "mcp-remote"
+    }
+  ],
+  "custom_domain": [
+    {
+      "hostname": "mcp.zovo.one",
+      "service": "mcp-billing",
+      "environment": "production"
+    }
+  ],
+  "remote_crons": [
+    "0 4 * * *"
+  ],
+  "billing_crons": [
+    "*/5 * * * *"
+  ],
+  "scope": "Native readback only; no route/custom-domain/schedule changes."
+}

@@ -1,0 +1,2 @@
+buildslot[46671] 13:15:25: WAITING: only 19 GB free on /System/Volumes/Data (need 20 GB). No heavy build until disk is freed (delete target/, node_modules/, build caches, finished clones). Re-checking every 5s, giving up at 13:15.
+buildslot[46671] 13:15:46: GAVE UP after 20s (disk 19 GB free, need 20; holders: none). Not running: node --test .scratch-distribution/r38-supplier-csv/supplier-csv.test.mjs

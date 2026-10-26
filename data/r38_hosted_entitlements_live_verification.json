@@ -1,0 +1,138 @@
+{
+  "started_at": "2026-10-26T06:45:09.393Z",
+  "status": "passed",
+  "checks": [
+    {
+      "name": "Valid legacy single recognized",
+      "product": "invoice",
+      "expected": "pro",
+      "observed": "pro",
+      "seconds": 0.472
+    },
+    {
+      "name": "Other product starts free",
+      "product": "docx",
+      "expected": "free",
+      "observed": "free",
+      "seconds": 0.412
+    },
+    {
+      "name": "Second single activated",
+      "product": "docx",
+      "expected": "pro",
+      "observed": "pro",
+      "seconds": 0.327
+    },
+    {
+      "name": "First single retained after second activation",
+      "product": "invoice",
+      "expected": "pro",
+      "observed": "pro",
+      "seconds": 0.32
+    },
+    {
+      "name": "Independent migrated and activated scopes have no KV token expiry",
+      "passed": true
+    },
+    {
+      "name": "Bundle activates a third endpoint",
+      "product": "pdf",
+      "expected": "pro",
+      "observed": "pro",
+      "seconds": 0.405
+    },
+    {
+      "name": "Older single replay retains bundle access",
+      "product": "pdf",
+      "expected": "pro",
+      "observed": "pro",
+      "seconds": 0.334
+    },
+    {
+      "name": "Older single replay retains the second product",
+      "product": "docx",
+      "expected": "pro",
+      "observed": "pro",
+      "seconds": 0.305
+    },
+    {
+      "name": "Wrong-scope, expired and malformed signed expiry tokens rejected by actual edge authentication",
+      "passed": true
+    },
+    {
+      "name": "Billing product-specific binding status agrees across all three endpoints",
+      "passed": true
+    }
+  ],
+  "protocol_calls": 13,
+  "payments": 0,
+  "checkout_sessions_created": 0,
+  "business_tool_calls": 0,
+  "cohort": "explicit operator probe",
+  "cleanup": [
+    {
+      "kind": "owned probe token",
+      "key_sha256": "e319063421200e823e86c82f7e406cbcce9cfe195193cad2a2ed6d7e903a0eb4",
+      "bytes": 13,
+      "deleted": true
+    },
+    {
+      "kind": "owned probe metadata",
+      "key_sha256": "9679f0cd68ef0d26593620e0d25e1190bacb1f4e19e18c0d69df3811fa569399",
+      "bytes": 37,
+      "deleted": true
+    },
+    {
+      "kind": "owned entitlement binding",
+      "key_sha256": "a7abc6387ba4a55f0d5b088717bc77daf2a6188287ece7c74bbca21ee5674ba6",
+      "bytes": 253,
+      "deleted": true
+    },
+    {
+      "kind": "owned entitlement binding",
+      "key_sha256": "91e7b85bde31da4722791ebdba4f0812396a29daab1f403688ba677fee231bfe",
+      "bytes": 253,
+      "deleted": true
+    },
+    {
+      "kind": "owned entitlement binding",
+      "key_sha256": "67c31cc7ab021af4c414bdf826d46b0683ff3ebddd3d1860a707f7aa51130143",
+      "bytes": 245,
+      "deleted": true
+    },
+    {
+      "kind": "owned entitlement binding",
+      "key_sha256": "7da95388e50ac6865a3425db75fa3e76bb9e73cdf712a0acc1e9f4a51b341d95",
+      "bytes": 244,
+      "deleted": true
+    },
+    {
+      "kind": "owned probe metadata",
+      "key_sha256": "195fb4760fe6ae75c3fded94b8b030ed347825647ec2181587f4d5bffc5ecb23",
+      "bytes": 27,
+      "deleted": true
+    },
+    {
+      "kind": "owned probe metadata",
+      "key_sha256": "2af415f08b022d8d9c054f5462448498eca32bafec6ba62c1ac3cb358ea0dcda",
+      "bytes": 35,
+      "deleted": true
+    },
+    {
+      "kind": "owned probe metadata",
+      "key_sha256": "2e0ef02c80d31cc7127ced38824c99793b58049b4e114c36840304570bc0f63b",
+      "bytes": 2,
+      "deleted": true
+    }
+  ],
+  "expected_remote_version": "323083e6-f55a-4195-8ba8-71a6c568eed6",
+  "expected_billing_version": "718485e7-1d17-43f8-aaa4-3c638177be35",
+  "cleanup_complete": true,
+  "private_journal_retained": false,
+  "finished_at": "2026-10-26T06:45:44.014Z",
+  "limits": [
+    "Synthetic short-lived signed operator keys, not a real paid transaction or email delivery.",
+    "KV metadata and actual edge responses inspected; long-term retention is additionally covered by the 31-day simulated signed-key regression.",
+    "Only this run’s token, scoped keys and documents are removed; shared mint counters remain untouched. KV edge caches may outlive an authoritative deletion briefly."
+  ]
+}

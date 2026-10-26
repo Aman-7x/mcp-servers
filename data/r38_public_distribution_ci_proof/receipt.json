@@ -1,0 +1,1095 @@
+{
+  "started_at": "2026-10-26T06:03:32.111Z",
+  "status": "passed",
+  "source_commit": "596f02f043899e918f9d014453351ef0b325159c",
+  "node": "v22.23.3",
+  "platform": "linux",
+  "commands": [
+    {
+      "label": "bootstrap-timezone",
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.3/x64/bin/node",
+        "scripts/bootstrap-timezone.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.375,
+      "log": "data/r38_ci_office_mirror/bootstrap-timezone.log"
+    },
+    {
+      "label": "build-00-mcp-license",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "packages/mcp-license"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.332,
+      "log": "data/r38_ci_office_mirror/build-00-mcp-license.log"
+    },
+    {
+      "label": "build-01-timezone",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/timezone"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.314,
+      "log": "data/r38_ci_office_mirror/build-01-timezone.log"
+    },
+    {
+      "label": "build-02-time-tracker",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/time-tracker"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.109,
+      "log": "data/r38_ci_office_mirror/build-02-time-tracker.log"
+    },
+    {
+      "label": "build-03-price-tracker",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/price-tracker"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.973,
+      "log": "data/r38_ci_office_mirror/build-03-price-tracker.log"
+    },
+    {
+      "label": "build-04-spreadsheet",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/spreadsheet"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.26,
+      "log": "data/r38_ci_office_mirror/build-04-spreadsheet.log"
+    },
+    {
+      "label": "build-05-invoice",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/invoice"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.15,
+      "log": "data/r38_ci_office_mirror/build-05-invoice.log"
+    },
+    {
+      "label": "build-06-expense-tracker",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/expense-tracker"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.146,
+      "log": "data/r38_ci_office_mirror/build-06-expense-tracker.log"
+    },
+    {
+      "label": "build-07-currency",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/currency"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.949,
+      "log": "data/r38_ci_office_mirror/build-07-currency.log"
+    },
+    {
+      "label": "build-08-docx",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/docx"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.193,
+      "log": "data/r38_ci_office_mirror/build-08-docx.log"
+    },
+    {
+      "label": "build-09-resume",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/resume"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.07,
+      "log": "data/r38_ci_office_mirror/build-09-resume.log"
+    },
+    {
+      "label": "build-10-recurring",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/recurring"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.056,
+      "log": "data/r38_ci_office_mirror/build-10-recurring.log"
+    },
+    {
+      "label": "build-11-clauses",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/clauses"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.923,
+      "log": "data/r38_ci_office_mirror/build-11-clauses.log"
+    },
+    {
+      "label": "build-12-pdf",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/pdf"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.078,
+      "log": "data/r38_ci_office_mirror/build-12-pdf.log"
+    },
+    {
+      "label": "build-13-calendar",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/calendar"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.163,
+      "log": "data/r38_ci_office_mirror/build-13-calendar.log"
+    },
+    {
+      "label": "build-14-kanban",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/kanban"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.058,
+      "log": "data/r38_ci_office_mirror/build-14-kanban.log"
+    },
+    {
+      "label": "build-15-image",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/image"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.184,
+      "log": "data/r38_ci_office_mirror/build-15-image.log"
+    },
+    {
+      "label": "build-16-bank-statement",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/bank-statement"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.109,
+      "log": "data/r38_ci_office_mirror/build-16-bank-statement.log"
+    },
+    {
+      "label": "build-17-quotes",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/quotes"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.072,
+      "log": "data/r38_ci_office_mirror/build-17-quotes.log"
+    },
+    {
+      "label": "build-18-barcode",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/barcode"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.141,
+      "log": "data/r38_ci_office_mirror/build-18-barcode.log"
+    },
+    {
+      "label": "build-19-zip",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/zip"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.931,
+      "log": "data/r38_ci_office_mirror/build-19-zip.log"
+    },
+    {
+      "label": "build-20-billing-docs",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/billing-docs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.096,
+      "log": "data/r38_ci_office_mirror/build-20-billing-docs.log"
+    },
+    {
+      "label": "build-21-deposits",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/deposits"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.918,
+      "log": "data/r38_ci_office_mirror/build-21-deposits.log"
+    },
+    {
+      "label": "build-22-per-diem",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/per-diem"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.994,
+      "log": "data/r38_ci_office_mirror/build-22-per-diem.log"
+    },
+    {
+      "label": "build-23-asset-register",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/asset-register"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.033,
+      "log": "data/r38_ci_office_mirror/build-23-asset-register.log"
+    },
+    {
+      "label": "build-24-statement-of-account",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/statement-of-account"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.965,
+      "log": "data/r38_ci_office_mirror/build-24-statement-of-account.log"
+    },
+    {
+      "label": "build-25-cash-book",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/cash-book"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.033,
+      "log": "data/r38_ci_office_mirror/build-25-cash-book.log"
+    },
+    {
+      "label": "build-26-amortization",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/amortization"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.972,
+      "log": "data/r38_ci_office_mirror/build-26-amortization.log"
+    },
+    {
+      "label": "build-27-petty-cash",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/petty-cash"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.964,
+      "log": "data/r38_ci_office_mirror/build-27-petty-cash.log"
+    },
+    {
+      "label": "build-28-work-order",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/work-order"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.968,
+      "log": "data/r38_ci_office_mirror/build-28-work-order.log"
+    },
+    {
+      "label": "build-29-catalogue",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/catalogue"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 2.053,
+      "log": "data/r38_ci_office_mirror/build-29-catalogue.log"
+    },
+    {
+      "label": "build-30-change-order",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/change-order"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.965,
+      "log": "data/r38_ci_office_mirror/build-30-change-order.log"
+    },
+    {
+      "label": "build-31-delivery-schedule",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/delivery-schedule"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.988,
+      "log": "data/r38_ci_office_mirror/build-31-delivery-schedule.log"
+    },
+    {
+      "label": "build-32-packing-list",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/packing-list"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.96,
+      "log": "data/r38_ci_office_mirror/build-32-packing-list.log"
+    },
+    {
+      "label": "build-33-checklist",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/checklist"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.938,
+      "log": "data/r38_ci_office_mirror/build-33-checklist.log"
+    },
+    {
+      "label": "build-34-purchase-requisition",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/purchase-requisition"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.953,
+      "log": "data/r38_ci_office_mirror/build-34-purchase-requisition.log"
+    },
+    {
+      "label": "build-35-bill-of-sale",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/bill-of-sale"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.857,
+      "log": "data/r38_ci_office_mirror/build-35-bill-of-sale.log"
+    },
+    {
+      "label": "build-36-credit-note",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/credit-note"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.901,
+      "log": "data/r38_ci_office_mirror/build-36-credit-note.log"
+    },
+    {
+      "label": "build-37-job-card",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/job-card"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.835,
+      "log": "data/r38_ci_office_mirror/build-37-job-card.log"
+    },
+    {
+      "label": "build-38-dunning-letters",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/dunning-letters"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.977,
+      "log": "data/r38_ci_office_mirror/build-38-dunning-letters.log"
+    },
+    {
+      "label": "build-39-supplier-list",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/supplier-list"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.754,
+      "log": "data/r38_ci_office_mirror/build-39-supplier-list.log"
+    },
+    {
+      "label": "build-40-service-agreement",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/service-agreement"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.801,
+      "log": "data/r38_ci_office_mirror/build-40-service-agreement.log"
+    },
+    {
+      "label": "build-41-maintenance-log",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/maintenance-log"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.764,
+      "log": "data/r38_ci_office_mirror/build-41-maintenance-log.log"
+    },
+    {
+      "label": "build-42-mileage-log",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/mileage-log"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.812,
+      "log": "data/r38_ci_office_mirror/build-42-mileage-log.log"
+    },
+    {
+      "label": "build-43-goods-receipt",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/goods-receipt"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.822,
+      "log": "data/r38_ci_office_mirror/build-43-goods-receipt.log"
+    },
+    {
+      "label": "build-44-leave",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/leave"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.845,
+      "log": "data/r38_ci_office_mirror/build-44-leave.log"
+    },
+    {
+      "label": "build-45-onboarding",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/onboarding"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.863,
+      "log": "data/r38_ci_office_mirror/build-45-onboarding.log"
+    },
+    {
+      "label": "build-46-backlink-checker",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/backlink-checker"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.634,
+      "log": "data/r38_ci_office_mirror/build-46-backlink-checker.log"
+    },
+    {
+      "label": "build-47-three-way-match",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/three-way-match"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.851,
+      "log": "data/r38_ci_office_mirror/build-47-three-way-match.log"
+    },
+    {
+      "label": "build-48-duplicate-invoice-check",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/duplicate-invoice-check"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.849,
+      "log": "data/r38_ci_office_mirror/build-48-duplicate-invoice-check.log"
+    },
+    {
+      "label": "build-49-supplier-statement-check",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/supplier-statement-check"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.839,
+      "log": "data/r38_ci_office_mirror/build-49-supplier-statement-check.log"
+    },
+    {
+      "label": "build-50-hourly-rate",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/hourly-rate"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.603,
+      "log": "data/r38_ci_office_mirror/build-50-hourly-rate.log"
+    },
+    {
+      "label": "build-51-office-suite",
+      "command": [
+        "npm",
+        "run",
+        "build",
+        "--workspace",
+        "servers/office-suite"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.832,
+      "log": "data/r38_ci_office_mirror/build-51-office-suite.log"
+    },
+    {
+      "label": "closure-regression",
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.3/x64/bin/node",
+        "--test",
+        "test/r38-office-mirror-closure.test.mjs"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 0.393,
+      "log": "data/r38_ci_office_mirror/closure-regression.log"
+    },
+    {
+      "label": "generate-office-mirror",
+      "command": [
+        "bash",
+        "scripts/sync-mirrors.sh",
+        "office-suite"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 5.131,
+      "log": "data/r38_ci_office_mirror/generate-office-mirror.log"
+    },
+    {
+      "label": "mirror-install",
+      "command": [
+        "npm",
+        "install",
+        "--ignore-scripts",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 8.64,
+      "log": "data/r38_ci_office_mirror/mirror-install.log"
+    },
+    {
+      "label": "mirror-build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 1.879,
+      "log": "data/r38_ci_office_mirror/mirror-build.log"
+    },
+    {
+      "label": "mirror-tests",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 23.113,
+      "log": "data/r38_ci_office_mirror/mirror-tests.log"
+    },
+    {
+      "label": "actual-mirror-runtime",
+      "command": [
+        "/opt/hostedtoolcache/node/22.23.3/x64/bin/node",
+        "scripts/r38-verify-office-mirror.mjs",
+        "--directory",
+        "/home/runner/mcp-servers-work/mirror-office-suite.PTOpNe"
+      ],
+      "exit_code": 0,
+      "signal": null,
+      "seconds": 18.399,
+      "log": "data/r38_ci_office_mirror/actual-mirror-runtime.log"
+    }
+  ],
+  "external_publications": 0,
+  "production_credentials_required": false,
+  "source_children": [
+    {
+      "id": "time-tracker",
+      "pkg": "@theluckystrike/mcp-time-tracker"
+    },
+    {
+      "id": "price-tracker",
+      "pkg": "@theluckystrike/mcp-price-tracker"
+    },
+    {
+      "id": "spreadsheet",
+      "pkg": "@theluckystrike/mcp-spreadsheet"
+    },
+    {
+      "id": "invoice",
+      "pkg": "@theluckystrike/mcp-invoice"
+    },
+    {
+      "id": "expense-tracker",
+      "pkg": "@theluckystrike/mcp-expense-tracker"
+    },
+    {
+      "id": "currency",
+      "pkg": "@theluckystrike/mcp-currency"
+    },
+    {
+      "id": "docx",
+      "pkg": "@theluckystrike/mcp-docx"
+    },
+    {
+      "id": "timezone",
+      "pkg": "@theluckystrike/mcp-timezone"
+    },
+    {
+      "id": "resume",
+      "pkg": "@theluckystrike/mcp-resume"
+    },
+    {
+      "id": "recurring",
+      "pkg": "@theluckystrike/mcp-recurring"
+    },
+    {
+      "id": "clauses",
+      "pkg": "@theluckystrike/mcp-clauses"
+    },
+    {
+      "id": "pdf",
+      "pkg": "@theluckystrike/mcp-pdf"
+    },
+    {
+      "id": "calendar",
+      "pkg": "@theluckystrike/mcp-calendar"
+    },
+    {
+      "id": "kanban",
+      "pkg": "@theluckystrike/mcp-kanban"
+    },
+    {
+      "id": "image",
+      "pkg": "@theluckystrike/mcp-image"
+    },
+    {
+      "id": "bank-statement",
+      "pkg": "@theluckystrike/mcp-bank-statement"
+    },
+    {
+      "id": "quotes",
+      "pkg": "@theluckystrike/mcp-quotes"
+    },
+    {
+      "id": "barcode",
+      "pkg": "@theluckystrike/mcp-barcode"
+    },
+    {
+      "id": "zip",
+      "pkg": "@theluckystrike/mcp-zip"
+    },
+    {
+      "id": "billing-docs",
+      "pkg": "@theluckystrike/mcp-billing-docs"
+    },
+    {
+      "id": "deposits",
+      "pkg": "@theluckystrike/mcp-deposits"
+    },
+    {
+      "id": "per-diem",
+      "pkg": "@theluckystrike/mcp-per-diem"
+    },
+    {
+      "id": "asset-register",
+      "pkg": "@theluckystrike/mcp-asset-register"
+    },
+    {
+      "id": "statement-of-account",
+      "pkg": "@theluckystrike/mcp-statement-of-account"
+    },
+    {
+      "id": "cash-book",
+      "pkg": "@theluckystrike/mcp-cash-book"
+    },
+    {
+      "id": "amortization",
+      "pkg": "@theluckystrike/mcp-amortization"
+    },
+    {
+      "id": "petty-cash",
+      "pkg": "@theluckystrike/mcp-petty-cash"
+    },
+    {
+      "id": "work-order",
+      "pkg": "@theluckystrike/mcp-work-order"
+    },
+    {
+      "id": "catalogue",
+      "pkg": "@theluckystrike/mcp-catalogue"
+    },
+    {
+      "id": "change-order",
+      "pkg": "@theluckystrike/mcp-change-order"
+    },
+    {
+      "id": "delivery-schedule",
+      "pkg": "@theluckystrike/mcp-delivery-schedule"
+    },
+    {
+      "id": "packing-list",
+      "pkg": "@theluckystrike/mcp-packing-list"
+    },
+    {
+      "id": "checklist",
+      "pkg": "@theluckystrike/mcp-checklist"
+    },
+    {
+      "id": "purchase-requisition",
+      "pkg": "@theluckystrike/mcp-purchase-requisition"
+    },
+    {
+      "id": "bill-of-sale",
+      "pkg": "@theluckystrike/mcp-bill-of-sale"
+    },
+    {
+      "id": "credit-note",
+      "pkg": "@theluckystrike/mcp-credit-note"
+    },
+    {
+      "id": "job-card",
+      "pkg": "@theluckystrike/mcp-job-card"
+    },
+    {
+      "id": "dunning-letters",
+      "pkg": "@theluckystrike/mcp-dunning-letters"
+    },
+    {
+      "id": "supplier-list",
+      "pkg": "@theluckystrike/mcp-supplier-list"
+    },
+    {
+      "id": "service-agreement",
+      "pkg": "@theluckystrike/mcp-service-agreement"
+    },
+    {
+      "id": "maintenance-log",
+      "pkg": "@theluckystrike/mcp-maintenance-log"
+    },
+    {
+      "id": "mileage-log",
+      "pkg": "@theluckystrike/mcp-mileage-log"
+    },
+    {
+      "id": "goods-receipt",
+      "pkg": "@theluckystrike/mcp-goods-receipt"
+    },
+    {
+      "id": "leave",
+      "pkg": "@theluckystrike/mcp-leave"
+    },
+    {
+      "id": "onboarding",
+      "pkg": "@theluckystrike/mcp-onboarding"
+    },
+    {
+      "id": "backlink-checker",
+      "pkg": "@theluckystrike/mcp-backlink-checker"
+    },
+    {
+      "id": "three-way-match",
+      "pkg": "@theluckystrike/mcp-three-way-match"
+    },
+    {
+      "id": "duplicate-invoice-check",
+      "pkg": "@theluckystrike/mcp-duplicate-invoice-check"
+    },
+    {
+      "id": "supplier-statement-check",
+      "pkg": "@theluckystrike/mcp-supplier-statement-check"
+    },
+    {
+      "id": "hourly-rate",
+      "pkg": "@theluckystrike/mcp-hourly-rate"
+    }
+  ],
+  "build_order": [
+    "packages/mcp-license",
+    "servers/timezone",
+    "servers/time-tracker",
+    "servers/price-tracker",
+    "servers/spreadsheet",
+    "servers/invoice",
+    "servers/expense-tracker",
+    "servers/currency",
+    "servers/docx",
+    "servers/resume",
+    "servers/recurring",
+    "servers/clauses",
+    "servers/pdf",
+    "servers/calendar",
+    "servers/kanban",
+    "servers/image",
+    "servers/bank-statement",
+    "servers/quotes",
+    "servers/barcode",
+    "servers/zip",
+    "servers/billing-docs",
+    "servers/deposits",
+    "servers/per-diem",
+    "servers/asset-register",
+    "servers/statement-of-account",
+    "servers/cash-book",
+    "servers/amortization",
+    "servers/petty-cash",
+    "servers/work-order",
+    "servers/catalogue",
+    "servers/change-order",
+    "servers/delivery-schedule",
+    "servers/packing-list",
+    "servers/checklist",
+    "servers/purchase-requisition",
+    "servers/bill-of-sale",
+    "servers/credit-note",
+    "servers/job-card",
+    "servers/dunning-letters",
+    "servers/supplier-list",
+    "servers/service-agreement",
+    "servers/maintenance-log",
+    "servers/mileage-log",
+    "servers/goods-receipt",
+    "servers/leave",
+    "servers/onboarding",
+    "servers/backlink-checker",
+    "servers/three-way-match",
+    "servers/duplicate-invoice-check",
+    "servers/supplier-statement-check",
+    "servers/hourly-rate",
+    "servers/office-suite"
+  ],
+  "mirror": {
+    "path": "/home/runner/mcp-servers-work/mirror-office-suite.PTOpNe",
+    "child_count": 50,
+    "all_source_children_vendored": true,
+    "tests": {
+      "tests": 10,
+      "pass": 6,
+      "fail": 0,
+      "skipped": 4
+    },
+    "runtime_tools": 453,
+    "version": "0.25.0"
+  },
+  "mirror_removed": true,
+  "finished_at": "2026-10-26T06:06:14.449Z"
+}

@@ -1,0 +1,107 @@
+{
+  "at": "2026-10-26T06:40:10.243Z",
+  "status": "failed",
+  "mode": "live_read_only",
+  "source": "Actual public guide and generated JavaScript; marked read-only GETs in Chrome; exact deployed asset bytes checked against current source",
+  "core_ui_sha256": "b79724ee04f8df6b93a4246ae7d213f6dc4dda0704954e76a9ae5d083ae80ad1",
+  "synthetic_inputs": true,
+  "disk_available_gb": 21,
+  "checks": [
+    {
+      "name": "Actual worked comparison",
+      "detail": "9 original records,5groups,1matched,4review; every original field retained, amount and date issues both present"
+    },
+    {
+      "name": "Preset editor position",
+      "detail": "A scrolled editor returns to the start of each newly selected preset"
+    },
+    {
+      "name": "Actual complete CSV download",
+      "detail": "Downloaded9rows, one per source-side item; original source values match independent Pythoncsv parsing"
+    },
+    {
+      "name": "All preset boundaries",
+      "detail": "Agreement1matched; leading-zero and credit/type cases2unmatched; repeated-reference case1ambiguous, no guessed pairing"
+    },
+    {
+      "name": "Stale evidence and save refusal",
+      "detail": "Any edit immediately clears report/groups and disables CSV; invalid JSON and save:true retain no prior evidence"
+    },
+    {
+      "name": "DOM and CSV hostile strings",
+      "detail": "HTML-like references render as text; no img/onerror execution; formula escaped and comma/quote reference byte-preserved in actual CSV"
+    },
+    {
+      "name": "Bounded browser input",
+      "detail": "Over2MiB rejected before JSON parsing; no report or export retained"
+    },
+    {
+      "name": "Responsive guide layout",
+      "detail": "390px and320px guide/body stay within viewport"
+    }
+  ],
+  "frames": [
+    {
+      "label": "Editable synthetic exports",
+      "summary": "5 statement records; 4 AP ledger records. 1 matching groups; 4 groups to review: 1 statement only, 1 ledger only, 1 amount/date differences, 1 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Actual differences and repeated-reference evidence",
+      "summary": "5 statement records; 4 AP ledger records. 1 matching groups; 4 groups to review: 1 statement only, 1 ledger only, 1 amount/date differences, 1 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Leading zeros remain significant",
+      "summary": "1 statement records; 1 AP ledger records. 0 matching groups; 2 groups to review: 1 statement only, 1 ledger only, 0 amount/date differences, 0 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Credit notes remain separate from invoices",
+      "summary": "1 statement records; 1 AP ledger records. 0 matching groups; 2 groups to review: 1 statement only, 1 ledger only, 0 amount/date differences, 0 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Repeated reference remains ambiguous",
+      "summary": "2 statement records; 1 AP ledger records. 0 matching groups; 1 groups to review: 0 statement only, 0 ledger only, 0 amount/date differences, 1 repeated references.",
+      "status": "Differences or repeated references need review."
+    }
+  ],
+  "page_errors": [],
+  "blocked_external_requests": [
+    "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Space+Mono&display=swap"
+  ],
+  "blocked_route_requests": [
+    {
+      "method": "GET",
+      "path": "/cdn-cgi/challenge-platform/scripts/jsd/main.js"
+    }
+  ],
+  "diagnostic_requests": [],
+  "initial_local_requests": [
+    {
+      "type": "document",
+      "path": "/guides/compare-supplier-statement-ap-open-items-in-claude"
+    },
+    {
+      "type": "stylesheet",
+      "path": "/css2"
+    },
+    {
+      "type": "script",
+      "path": "/assets/supplier-demo.js"
+    },
+    {
+      "type": "script",
+      "path": "/cdn-cgi/challenge-platform/scripts/jsd/main.js"
+    }
+  ],
+  "production_requests": 2,
+  "checkout_sessions_created": 0,
+  "emails_sent": 0,
+  "origin": "https://mcp.zovo.one",
+  "failure": "Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     method: 'GET',\n+     path: '/cdn-cgi/challenge-platform/scripts/jsd/main.js'\n+   }\n+ ]\n- []\n",
+  "failure_stack": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   {\n+     method: 'GET',\n+     path: '/cdn-cgi/challenge-platform/scripts/jsd/main.js'\n+   }\n+ ]\n- []\n\n    at file:///Users/mike/mcp-servers/scripts/verify-r38-supplier-browser.mjs:141:106",
+  "owned_scope_removed": true,
+  "finished_at": "2026-10-26T06:40:15.289Z"
+}

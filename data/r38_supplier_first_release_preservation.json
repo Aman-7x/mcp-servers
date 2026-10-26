@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-26T06:43:10.942284+00:00",
+  "scope": "Preserve initial9-check browser source and GIF before CSV iteration; original local/live receipts and images keep their existing paths",
+  "files": [
+    {
+      "original": "billing/browser/supplier-demo.mjs",
+      "preserved": "data/r38_supplier_first_release_source/billing__browser__supplier-demo.mjs",
+      "bytes": 4906,
+      "sha256": "31bfcfcc542e7f6426d3d11622791eec143fbfbfda62e80836bf5e8035f55d6b"
+    },
+    {
+      "original": "billing/src/supplier-demo-markup.js",
+      "preserved": "data/r38_supplier_first_release_source/billing__src__supplier-demo-markup.js",
+      "bytes": 4244,
+      "sha256": "40f1c5d7eedb1d9604d8d18b71b30542ead2cab9fa44263a8509095abe4ff1c5"
+    },
+    {
+      "original": "billing/src/supplier-demo-bundle.js",
+      "preserved": "data/r38_supplier_first_release_source/billing__src__supplier-demo-bundle.js",
+      "bytes": 72829,
+      "sha256": "ef3ebe9eb2118c86cac28afa79c5042503e0b8d91cafbc1fcc6ec1b91785bbdd"
+    },
+    {
+      "original": "scripts/build-supplier-demo.mjs",
+      "preserved": "data/r38_supplier_first_release_source/scripts__build-supplier-demo.mjs",
+      "bytes": 1605,
+      "sha256": "bd38e5f3ae9c53014e67e40eec6868a98523258cdc78ef032818f904a2f257be"
+    },
+    {
+      "original": "scripts/verify-r38-supplier-browser.mjs",
+      "preserved": "data/r38_supplier_first_release_source/scripts__verify-r38-supplier-browser.mjs",
+      "bytes": 18766,
+      "sha256": "449ce5e95db50408c23ac453f3e5fb3e201d55b2564082cf3e03d43a73d26c89"
+    },
+    {
+      "original": "assets/demo-supplier-statement-check.gif",
+      "preserved": "intel/R38-supplier-first-release-demo.gif",
+      "bytes": 358960,
+      "sha256": "5096f306c1393dbcbea2d0e748f8759b6ceb06221ee9df0304d18413e75419ba"
+    }
+  ]
+}

@@ -12,15 +12,16 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { chromium } from '@playwright/test';
 import worker from '../billing/src/index.js';
 import { SUPPLIER_DEMO_INPUT_SHA256, SUPPLIER_DEMO_JAVASCRIPT } from '../billing/src/supplier-demo-bundle.js';
+import { runSupplierCsvBrowserCases } from './r38-supplier-csv-browser-cases.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2);
 if (args.length && (args.length !== 2 || args[0] !== '--origin' || !['https://mcp.zovo.one', 'https://mcp.zovo.one/'].includes(args[1]))) throw Error('Usage: verify-r38-supplier-browser.mjs [--origin https://mcp.zovo.one]');
 const live = args.length > 0;
 const guide = '/guides/compare-supplier-statement-ap-open-items-in-claude';
-const receiptPath = live ? 'data/r38_supplier_browser_live_verification.json' : 'data/r38_supplier_browser_verification.json';
-const imagePrefix = live ? 'intel/R38-supplier-live' : 'intel/R38-supplier';
-const gifPath = live ? 'intel/R38-supplier-live-demo.gif' : 'assets/demo-supplier-statement-check.gif';
+const receiptPath = live ? 'data/r38_supplier_csv_browser_live_verification.json' : 'data/r38_supplier_csv_browser_verification.json';
+const imagePrefix = live ? 'intel/R38-supplier-csv-live' : 'intel/R38-supplier-csv';
+const gifPath = live ? 'intel/R38-supplier-csv-live-demo.gif' : 'assets/demo-supplier-statement-check.gif';
 const disk = execFileSync('df', ['-g', '/System/Volumes/Data'], { encoding: 'utf8' });
 const available = Number(disk.trim().split('\n').at(-1).split(/\s+/)[3]);
 assert(available >= 20, 'Need at least20GB per user disk safety before Chrome; run coldstore procedure first');
@@ -70,6 +71,7 @@ try {
   });
   const assetPromise = page.waitForResponse(response => response.url().startsWith(origin + '/assets/supplier-demo.js?'));
   const response = await page.goto(origin + guide); assert.equal(response.status(), 200);
+  const originalGuideHtml = await response.text();
   const asset = await assetPromise; assert.equal(asset.status(), 200);
   assert.equal((await asset.body()).toString('utf8'), SUPPLIER_DEMO_JAVASCRIPT, 'Guide must load the exact freshly generated engine/UI bytes');
   assert.equal(await page.locator('script[src^="/assets/supplier-demo.js"]').getAttribute('src'), '/assets/supplier-demo.js?v=' + SUPPLIER_DEMO_INPUT_SHA256);
@@ -130,7 +132,7 @@ try {
   recordCheck('DOM and CSV hostile strings', 'HTML-like references render as text; no img/onerror execution; formula escaped and comma/quote reference byte-preserved in actual CSV');
   await page.locator('#supplier-demo-input').fill('x'.repeat(2 * 1024 * 1024 + 1)); await page.locator('#supplier-demo-form button[type=submit]').click(); assert.match(await page.locator('#supplier-demo-status').innerText(), /at most 2 MiB/); assert(await page.locator('#supplier-demo-csv').isDisabled()); assert.equal(await page.locator('#supplier-demo-output').textContent(), '');
   recordCheck('Bounded browser input', 'Over2MiB rejected before JSON parsing; no report or export retained');
-  await page.selectOption('#supplier-demo-preset', 'worked');
+  evidence.csv_iteration = await runSupplierCsvBrowserCases({ page, context, origin, guide, originalGuideHtml, workedInput, root, frames, evidence, recordCheck, csvRows });
   for (const width of [390, 320]) {
     await page.setViewportSize({ width, height: 844 });
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Horizontal guide overflow at ' + width);
@@ -138,10 +140,13 @@ try {
   }
   recordCheck('Responsive guide layout', '390px and320px guide/body stay within viewport');
   assert.equal(await page.evaluate(() => localStorage.length + sessionStorage.length), 0); assert.equal(await page.evaluate(() => window.__qaStorageWrites), 0);
-  assert.deepEqual(evidence.diagnostic_requests, []); assert.deepEqual(evidence.page_errors, []); assert.deepEqual(evidence.blocked_route_requests, []);
+  assert.deepEqual(evidence.diagnostic_requests, []); assert.deepEqual(evidence.page_errors, []);
+  const edgeChallenge = '/cdn-cgi/challenge-platform/scripts/jsd/main.js';
+  assert(evidence.blocked_route_requests.every(row => live && row.method === 'GET' && row.path === edgeChallenge), 'Unexpected same-origin request beyond the separately blocked Cloudflare infrastructure script');
+  evidence.infrastructure_requests_blocked = evidence.blocked_route_requests.length;
   const staticFont = 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Space+Mono&display=swap';
-  assert(evidence.blocked_external_requests.length <= 1 && evidence.blocked_external_requests.every(url => url === staticFont), 'Unexpected external request beyond the existing static font stylesheet');
-  recordCheck('Privacy and execution controls', `Zero pageerrors, diagnostic fetch/XHR/beacon requests or storagewrites; only marked GETs to the selected guide/assets were permitted. Existing static GoogleFonts stylesheet was blocked${evidence.blocked_external_requests.length ? ' once' : ' or absent'}; no request to another host was allowed.`);
+  assert(evidence.blocked_external_requests.length <= 2 && evidence.blocked_external_requests.every(url => url === staticFont), 'Unexpected external request beyond the existing static font stylesheet on the current and preserved-old-markup pages');
+  recordCheck('Privacy and execution controls', `Zero pageerrors, diagnostic fetch/XHR/beacon requests or storagewrites. Only marked GETs to the selected guide/assets were permitted. Existing static GoogleFonts stylesheet and ${evidence.infrastructure_requests_blocked} Cloudflare infrastructure script request(s) were blocked; those scripts were not executed by this isolated workflow check. No request to another host was allowed.`);
   // Code-native extension of the existing simple icon system; no borrowed raster art.
   if (!live) {
   const icon = await context.newPage(); await icon.setViewportSize({ width: 400, height: 400 });

@@ -1,0 +1,110 @@
+buildslot[72428] 13:38:33: slot 1 acquired: npm run deploy
+
+> mcp-billing@1.0.0 deploy
+> node ../scripts/deploy-billing-gated.mjs
+
+PASS: local GET-to-Stripe guard, billing tests, Wrangler dry-run
+
+ ⛅️ wrangler 4.80.0
+───────────────────
+? Would you like to continue?
+🤖 Using fallback value in non-interactive context: yes
+Total Upload: 2590.78 KiB / gzip: 712.28 KiB
+Worker Startup Time: 7 ms
+Your Worker has access to the following bindings:
+Binding                                                           Resource                     
+env.FULFILLMENT (FulfillmentState)                                Durable Object               
+env.FUNNEL (FunnelState, defined in mcp-funnel)                   Durable Object               
+env.LICENSES (75f8bf4872a0433285d11575cece8641)                   KV Namespace                 
+env.REMOTE_DATA (cf848cc5c07d4e0a9c7c65ad1c70055c)                KV Namespace                 
+env.CF_VERSION_METADATA                                           Worker Version Metadata      
+
+Uploaded mcp-billing (8.01 sec)
+Worker Version ID: 718485e7-1d17-43f8-aaa4-3c638177be35
+
+To deploy this version to production traffic use the command wrangler versions deploy
+
+Changes to non-versioned settings (config properties 'logpush' or 'tail_consumers') take effect after your next deployment using the command wrangler versions deploy
+
+Changes to triggers (routes, custom domains, cron schedules, etc) must be applied with the command wrangler triggers deploy
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mYou are about to upload a Workers Version that was last updated via the API.[0m
+
+  Edits that have been made via the API will be overridden by your local code and config.
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDuplicate key "bank-statement" in object literal[0m [duplicate-object-key]
+
+    src/content.js:10159:2:
+[37m      10159 │   [32m"bank-statement"[37m: ["bank-statement-csv-categorize-reconcile",...
+            ╵   [32m~~~~~~~~~~~~~~~~[0m
+
+  The original key "bank-statement" is here:
+
+    src/content.js:10131:2:
+[37m      10131 │   [32m"bank-statement"[37m: ["bank-statement-csv-categorize-reconcile",...
+            ╵   [32m~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mDuplicate key "barcode" in object literal[0m [duplicate-object-key]
+
+    src/content.js:10160:2:
+[37m      10160 │   [32mbarcode[37m: ["barcode-and-qr-code-generation-from-chat", "barcod...
+            ╵   [32m~~~~~~~[0m
+
+  The original key "barcode" is here:
+
+    src/content.js:10134:2:
+[37m      10134 │   [32mbarcode[37m: ["sepa-payment-qr-codes-on-invoices-from-chat"],
+            ╵   [32m~~~~~~~[0m
+
+
+
+ ⛅️ wrangler 4.80.0
+───────────────────
+╭ Deploy Worker Versions by splitting traffic between multiple versions
+│
+├ Fetching latest deployment
+│
+├ Your current deployment has 1 version(s):
+│
+│ (100%) d32701dd-eb34-4f71-8a64-cb2baf71ba00
+│       Created:  2026-10-17T02:07:43.294985Z
+│           Tag:  -
+│       Message:  -
+│
+├ Fetching versions
+│
+├ Which version(s) do you want to deploy?
+├ 1 Worker Version(s) selected
+│
+├     Worker Version 1:  718485e7-1d17-43f8-aaa4-3c638177be35
+│              Created:  2026-10-26T06:39:16.427898Z
+│                  Tag:  -
+│              Message:  -
+│
+├ What percentage of traffic should Worker Version 1 receive?
+├ 100% of traffic
+├
+├ Add a deployment message (skipped)
+│
+├ Deploying 1 version(s)
+│
+├ Syncing non-versioned settings
+│
+│ Synced non-versioned settings:
+│                      logpush:  false
+│                observability:  enabled:             true
+│                                head_sampling_rate:  1
+│               tail_consumers:  <skipped>
+│     streaming_tail_consumers:  <skipped>
+│
+╰  SUCCESS  Deployed mcp-billing version 718485e7-1d17-43f8-aaa4-3c638177be35 at 100% (2.62 sec)
+PASS: deployed version 718485e7-1d17-43f8-aaa4-3c638177be35; 61 GET /buy paths returned intent pages; zero new live Stripe Sessions
+
+ ⛅️ wrangler 4.80.0
+───────────────────
+Resource location: remote 
+
+Writing the value "718485e7-1d17-43f8-aaa4-3c638177be35" to key "monitor:approved-version" on namespace binding: "REMOTE_DATA" (id: "cf848cc5c07d4e0a9c7c65ad1c70055c").
+Billing release verified: 718485e7-1d17-43f8-aaa4-3c638177be35

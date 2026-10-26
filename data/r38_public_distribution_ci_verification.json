@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-26T06:10:53.654Z",
+  "status": "passed",
+  "run_id": 40277599771,
+  "job_id": 121423559948,
+  "artifact_id": 12630788333,
+  "artifact_size_bytes": 21311,
+  "run_url": "https://github.com/theluckystrike/mcp-servers/actions/runs/40277599771",
+  "run_head_sha": "016619f4128d51358ccc85cc379217181c0c6097",
+  "merge_ref_checkout_sha": "596f02f043899e918f9d014453351ef0b325159c",
+  "source_children": 50,
+  "built_packages": 52,
+  "mirror_tests": {
+    "tests": 10,
+    "pass": 6,
+    "fail": 0,
+    "skipped": 4
+  },
+  "mirror_skip_reason": "Three completeness fixtures and one duplicate source fixture require monorepo sibling source; complete child registration and actual 453-tool mirror/runtime equivalence are independently checked by this CI pipeline.",
+  "actual_stdio_tools": 453,
+  "actual_tool_calls": 3,
+  "version": "0.25.0",
+  "all_runtime_names_and_descriptions_match_archive": true,
+  "checks": [
+    "All 453 actual mirror tool names and descriptions match the tested archive; no partial capability tree",
+    "Actual comparison, prefixed retrieval hints, complete free CSV and source-page values survive the standalone proxy",
+    "Authoritative tool-map resource includes new names; no child initialization failure or missing-child warning"
+  ],
+  "fixture_cleanup": true,
+  "production_credentials_used": false,
+  "external_publications": 0,
+  "receipt_sha256": "258c51ed6c833b06664992fe5fa3e2ac42cfc3f4314a441435a65092801b43a6",
+  "runtime_sha256": "2aefcfdc74d0651fed561aec0d2c91f67412e0a85745d4fc3ff2c92cdc4dfae9",
+  "evidence": [
+    "data/r38_public_distribution_ci_proof/receipt.json",
+    "data/r38_public_distribution_ci_proof/runtime.json",
+    "data/r38_public_distribution_ci_proof/mirror-tests.log"
+  ]
+}

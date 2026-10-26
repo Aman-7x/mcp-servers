@@ -1,0 +1,522 @@
+{
+  "at": "2026-10-26T06:02:58.470Z",
+  "source": "Completed fixed Office mirror install/build; runtime proof not run due disk policy",
+  "path": "/Users/mike/mcp-servers-work/mirror-office-suite.W3RgRr",
+  "version": "0.25.0",
+  "source_child_dependencies": [
+    [
+      "@theluckystrike/mcp-time-tracker",
+      "file:vendor/mcp-time-tracker"
+    ],
+    [
+      "@theluckystrike/mcp-price-tracker",
+      "file:vendor/mcp-price-tracker"
+    ],
+    [
+      "@theluckystrike/mcp-spreadsheet",
+      "file:vendor/mcp-spreadsheet"
+    ],
+    [
+      "@theluckystrike/mcp-invoice",
+      "file:vendor/mcp-invoice"
+    ],
+    [
+      "@theluckystrike/mcp-currency",
+      "file:vendor/mcp-currency"
+    ],
+    [
+      "@theluckystrike/mcp-timezone",
+      "file:vendor/mcp-timezone"
+    ],
+    [
+      "@theluckystrike/mcp-docx",
+      "file:vendor/mcp-docx"
+    ],
+    [
+      "@theluckystrike/mcp-resume",
+      "file:vendor/mcp-resume"
+    ],
+    [
+      "@theluckystrike/mcp-recurring",
+      "file:vendor/mcp-recurring"
+    ],
+    [
+      "@theluckystrike/mcp-clauses",
+      "file:vendor/mcp-clauses"
+    ],
+    [
+      "@theluckystrike/mcp-pdf",
+      "file:vendor/mcp-pdf"
+    ],
+    [
+      "@theluckystrike/mcp-calendar",
+      "file:vendor/mcp-calendar"
+    ],
+    [
+      "@theluckystrike/mcp-duplicate-invoice-check",
+      "file:vendor/mcp-duplicate-invoice-check"
+    ],
+    [
+      "@theluckystrike/mcp-supplier-statement-check",
+      "file:vendor/mcp-supplier-statement-check"
+    ],
+    [
+      "@theluckystrike/mcp-expense-tracker",
+      "file:vendor/mcp-expense-tracker"
+    ],
+    [
+      "@theluckystrike/mcp-kanban",
+      "file:vendor/mcp-kanban"
+    ],
+    [
+      "@theluckystrike/mcp-image",
+      "file:vendor/mcp-image"
+    ],
+    [
+      "@theluckystrike/mcp-bank-statement",
+      "file:vendor/mcp-bank-statement"
+    ],
+    [
+      "@theluckystrike/mcp-quotes",
+      "file:vendor/mcp-quotes"
+    ],
+    [
+      "@theluckystrike/mcp-barcode",
+      "file:vendor/mcp-barcode"
+    ],
+    [
+      "@theluckystrike/mcp-zip",
+      "file:vendor/mcp-zip"
+    ],
+    [
+      "@theluckystrike/mcp-billing-docs",
+      "file:vendor/mcp-billing-docs"
+    ],
+    [
+      "@theluckystrike/mcp-deposits",
+      "file:vendor/mcp-deposits"
+    ],
+    [
+      "@theluckystrike/mcp-per-diem",
+      "file:vendor/mcp-per-diem"
+    ],
+    [
+      "@theluckystrike/mcp-asset-register",
+      "file:vendor/mcp-asset-register"
+    ],
+    [
+      "@theluckystrike/mcp-statement-of-account",
+      "file:vendor/mcp-statement-of-account"
+    ],
+    [
+      "@theluckystrike/mcp-cash-book",
+      "file:vendor/mcp-cash-book"
+    ],
+    [
+      "@theluckystrike/mcp-amortization",
+      "file:vendor/mcp-amortization"
+    ],
+    [
+      "@theluckystrike/mcp-petty-cash",
+      "file:vendor/mcp-petty-cash"
+    ],
+    [
+      "@theluckystrike/mcp-work-order",
+      "file:vendor/mcp-work-order"
+    ],
+    [
+      "@theluckystrike/mcp-catalogue",
+      "file:vendor/mcp-catalogue"
+    ],
+    [
+      "@theluckystrike/mcp-change-order",
+      "file:vendor/mcp-change-order"
+    ],
+    [
+      "@theluckystrike/mcp-delivery-schedule",
+      "file:vendor/mcp-delivery-schedule"
+    ],
+    [
+      "@theluckystrike/mcp-packing-list",
+      "file:vendor/mcp-packing-list"
+    ],
+    [
+      "@theluckystrike/mcp-checklist",
+      "file:vendor/mcp-checklist"
+    ],
+    [
+      "@theluckystrike/mcp-purchase-requisition",
+      "file:vendor/mcp-purchase-requisition"
+    ],
+    [
+      "@theluckystrike/mcp-bill-of-sale",
+      "file:vendor/mcp-bill-of-sale"
+    ],
+    [
+      "@theluckystrike/mcp-credit-note",
+      "file:vendor/mcp-credit-note"
+    ],
+    [
+      "@theluckystrike/mcp-job-card",
+      "file:vendor/mcp-job-card"
+    ],
+    [
+      "@theluckystrike/mcp-dunning-letters",
+      "file:vendor/mcp-dunning-letters"
+    ],
+    [
+      "@theluckystrike/mcp-supplier-list",
+      "file:vendor/mcp-supplier-list"
+    ],
+    [
+      "@theluckystrike/mcp-service-agreement",
+      "file:vendor/mcp-service-agreement"
+    ],
+    [
+      "@theluckystrike/mcp-maintenance-log",
+      "file:vendor/mcp-maintenance-log"
+    ],
+    [
+      "@theluckystrike/mcp-mileage-log",
+      "file:vendor/mcp-mileage-log"
+    ],
+    [
+      "@theluckystrike/mcp-goods-receipt",
+      "file:vendor/mcp-goods-receipt"
+    ],
+    [
+      "@theluckystrike/mcp-leave",
+      "file:vendor/mcp-leave"
+    ],
+    [
+      "@theluckystrike/mcp-onboarding",
+      "file:vendor/mcp-onboarding"
+    ],
+    [
+      "@theluckystrike/mcp-backlink-checker",
+      "file:vendor/mcp-backlink-checker"
+    ],
+    [
+      "@theluckystrike/mcp-three-way-match",
+      "file:vendor/mcp-three-way-match"
+    ],
+    [
+      "@theluckystrike/mcp-hourly-rate",
+      "file:vendor/mcp-hourly-rate"
+    ]
+  ],
+  "vendor_packages": [
+    {
+      "name": "@theluckystrike/mcp-amortization",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "00358e2e0e664345b685ea65765ab4ecf26699cb2596722303f57565d7b94dfb"
+    },
+    {
+      "name": "@theluckystrike/mcp-asset-register",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "fcc2076051cb22bc0d431a0c2d64bfb52c5b1faf701a07e06aa2d4a3bfde56b6"
+    },
+    {
+      "name": "@theluckystrike/mcp-backlink-checker",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "fb83cf03d9f4484fbfc16a393bb422e0c33832aad48c6e56df6e1fb386668c49"
+    },
+    {
+      "name": "@theluckystrike/mcp-bank-statement",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "b8b60eca678a020e0bd4ac8f64d80fc703700f79fb665358da769275da63dc53"
+    },
+    {
+      "name": "@theluckystrike/mcp-barcode",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "40f842848a8575eef43ac1729b2e298e05a03f146a50d929cb568aa09295b9ae"
+    },
+    {
+      "name": "@theluckystrike/mcp-bill-of-sale",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "45d5bf4cfe2ed468e891636a152d16629e57fc620bbd97ceb5e3dba31b2aedd0"
+    },
+    {
+      "name": "@theluckystrike/mcp-billing-docs",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "b92551c44ffefc15d9be4153b1cf649c156fb8287a717b08a4c6fbe5a69533c5"
+    },
+    {
+      "name": "@theluckystrike/mcp-calendar",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "44ad7c8073652ec4c10d2d7f1b946731828687f3f362eac7bd92fff66a1b622c"
+    },
+    {
+      "name": "@theluckystrike/mcp-cash-book",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "5ba298e969342d4dfe911fbe668bbe7f1b073b46fae20d668bfd139355cb69e1"
+    },
+    {
+      "name": "@theluckystrike/mcp-catalogue",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "e7362a1f4e5e1d1755aada9b9fa03221b717884301ffe75dadf7f66fa73885cf"
+    },
+    {
+      "name": "@theluckystrike/mcp-change-order",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "545c02ff79229e492e60b731bdc7c7d8224b8dde3ac76c7a60bbbf15466b35b6"
+    },
+    {
+      "name": "@theluckystrike/mcp-checklist",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "65429e413faf7e23d3e5c3d0e7198809d721e5898136118205e90b558f525f25"
+    },
+    {
+      "name": "@theluckystrike/mcp-clauses",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "556657466afdc94a490b961dedc4a6bab042cfec3c8562fdfbb95ab39c0bad75"
+    },
+    {
+      "name": "@theluckystrike/mcp-credit-note",
+      "version": "0.22.8",
+      "built_entry_present": true,
+      "entry_sha256": "0f53fcb1df402efaa651978da90771229acf61a72369f468f18ffe127b1aa30a"
+    },
+    {
+      "name": "@theluckystrike/mcp-currency",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "4ca35babe1fe84076ce81f3e3cb10b7f8a7d8196d90ed8403322b562a9d9e002"
+    },
+    {
+      "name": "@theluckystrike/mcp-delivery-schedule",
+      "version": "0.22.7",
+      "built_entry_present": true,
+      "entry_sha256": "f9265f77504b2981f196ebf5451b55281b74a89d40715f9099591094a5ac956b"
+    },
+    {
+      "name": "@theluckystrike/mcp-deposits",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "642c9ca050a75f9b5ac3d45f71d8786ef29d49731366a63f70117c4f39a24547"
+    },
+    {
+      "name": "@theluckystrike/mcp-docx",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "c265151ee32de7c0d20716d46fba14f569e2e4a1636f5b81677ea2f062c18c65"
+    },
+    {
+      "name": "@theluckystrike/mcp-dunning-letters",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "919b2fe314d11578ca165b238aced214975f102d04c31a1da491fcf9cd844686"
+    },
+    {
+      "name": "@theluckystrike/mcp-duplicate-invoice-check",
+      "version": "0.22.8",
+      "built_entry_present": true,
+      "entry_sha256": "b54bf43fa767a06382e810379ad19bce60beab175c80ad9a191dd865ebc15012"
+    },
+    {
+      "name": "@theluckystrike/mcp-expense-tracker",
+      "version": "0.22.9",
+      "built_entry_present": true,
+      "entry_sha256": "8823957adaf9a43ec50d22e9cef7b4b5b904dabcc581a64041e86b7c655d0bf5"
+    },
+    {
+      "name": "@theluckystrike/mcp-goods-receipt",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "7ad3cedc9cb4b92189d719cd718ab710ef59fc76ea252638a0d65fd85578deb4"
+    },
+    {
+      "name": "@theluckystrike/mcp-hourly-rate",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "a81af09b7e1f4bca8a19a4c75e60f18cddf9f7ff11f6f211ae7bc5fb765846de"
+    },
+    {
+      "name": "@theluckystrike/mcp-image",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "25d36dc95752ccfc4b7072e0e1d58d7dcc20e9e3427d551972311f620ec11016"
+    },
+    {
+      "name": "@theluckystrike/mcp-invoice",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "6bb894932d3946ae6454eb50db7a8014b90730c53b38ba62ff6bae0bd9ae022e"
+    },
+    {
+      "name": "@theluckystrike/mcp-job-card",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "73a4c4144006aeb49fb6d5b4b9695ac11945633c0f60ebb0293ea2bdf6b3684f"
+    },
+    {
+      "name": "@theluckystrike/mcp-kanban",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "21f8fc4695b2d4f007a821c0bc883487fc7eaf9f6af54e098cd7222a259cd37e"
+    },
+    {
+      "name": "@theluckystrike/mcp-leave",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "2adc45d95e75b9e647c1b384c058d32560719341b2603d158995660a15aaea6b"
+    },
+    {
+      "name": "@theluckystrike/mcp-license",
+      "version": "0.22.7",
+      "built_entry_present": true,
+      "entry_sha256": "23adb208cc2c9f8510de0ef6829fccad2b80cc4b7999f37405c75c9263b5cdce"
+    },
+    {
+      "name": "@theluckystrike/mcp-maintenance-log",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "a8ea903b172264a3f55a359c66e08874275ded37b6d7e08c844c78d0c8426e70"
+    },
+    {
+      "name": "@theluckystrike/mcp-mileage-log",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "a76cef3427c140f5b247f7ac4a8ec5aa80f305cbc131fb2071f5b5b4ef422bf7"
+    },
+    {
+      "name": "@theluckystrike/mcp-onboarding",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "c0dfba469c46428dd7004ee73e7182213862ae24dfd79645bdaf81e9bb7ef455"
+    },
+    {
+      "name": "@theluckystrike/mcp-packing-list",
+      "version": "0.22.8",
+      "built_entry_present": true,
+      "entry_sha256": "100e0be0974465fea5df274869f982beeb861fdbfdca6c41f03b4eb19d7ffa1f"
+    },
+    {
+      "name": "@theluckystrike/mcp-pdf",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "d5adce14ad0cf93fe65a2dd4d46c6b106f0910e53675964b5d3a80091d95fc39"
+    },
+    {
+      "name": "@theluckystrike/mcp-per-diem",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "b69ed177da6dad48702b3fdfa99c62ffb15d8d36e706ca4bc33e21c77a227016"
+    },
+    {
+      "name": "@theluckystrike/mcp-petty-cash",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "bb7c6ed317c82c7f11bc6d64ba68e822ec8d9e034ec4821cba9e79faab35c3b3"
+    },
+    {
+      "name": "@theluckystrike/mcp-price-tracker",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "4922bcbee89e332c1c57d3829b8f25e35597ccc64903b77558582cbf657a3328"
+    },
+    {
+      "name": "@theluckystrike/mcp-purchase-requisition",
+      "version": "0.22.8",
+      "built_entry_present": true,
+      "entry_sha256": "d93a4d0725777e13c308baeb5b874696ecd0068a24d7f9f324de5f817b86c1a7"
+    },
+    {
+      "name": "@theluckystrike/mcp-quotes",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "c0a232a2c98b28ed25bab156043b9925a515505628c95786abdf8124ba086293"
+    },
+    {
+      "name": "@theluckystrike/mcp-recurring",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "d9e1868c8515afa87c701ca9f95ca325231a580f4b39f3ef02b0c892bd7cfe55"
+    },
+    {
+      "name": "@theluckystrike/mcp-resume",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "4dec13c053ae9f0ac6824ec3d5eb81ad72f9d306a8dfd7cf7f7034db79da522c"
+    },
+    {
+      "name": "@theluckystrike/mcp-service-agreement",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "77296dffb83d870853feeac2ce7e3e2a17b1447d44211bfc7b9e8fb98586238c"
+    },
+    {
+      "name": "@theluckystrike/mcp-spreadsheet",
+      "version": "0.22.9",
+      "built_entry_present": true,
+      "entry_sha256": "c7a4b778e9a3557adf79e1c3ee5941087a37fd24fca3deb96868c2462d919613"
+    },
+    {
+      "name": "@theluckystrike/mcp-statement-of-account",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "fafdc9838242f18c05ee86937034a9c5c56070a2ca3cf89ff05ef7722b17306d"
+    },
+    {
+      "name": "@theluckystrike/mcp-supplier-list",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "8218546d03271d4af4e20c4c10d01e47ba308a51d9d1b0425faced466204310b"
+    },
+    {
+      "name": "@theluckystrike/mcp-supplier-statement-check",
+      "version": "0.25.0",
+      "built_entry_present": true,
+      "entry_sha256": "748532c27831010698d6152ae09cfa148651ffb73b4c8893bbfd6cb8bf9b1392"
+    },
+    {
+      "name": "@theluckystrike/mcp-three-way-match",
+      "version": "0.22.8",
+      "built_entry_present": true,
+      "entry_sha256": "d5950c5ac118e1034696f34ee8d9a0cb3ec1e3b66844d0736c71737bd4621f09"
+    },
+    {
+      "name": "@theluckystrike/mcp-time-tracker",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "3652e0dd91f02ad7707976809349172ee1c97a267af42198803d9691786a46fc"
+    },
+    {
+      "name": "@theluckystrike/mcp-timezone",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "c4b8994381024da183ae562cde39bb9d6dec0a64b1b602b63452274638cd362f"
+    },
+    {
+      "name": "@theluckystrike/mcp-work-order",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "99214d420f96394ce69eb2968f8ecec3b92cab0ef344fb7e420884b8c3c28ab7"
+    },
+    {
+      "name": "@theluckystrike/mcp-zip",
+      "version": "0.22.6",
+      "built_entry_present": true,
+      "entry_sha256": "20b705c416fc607ef78b7af5d69c25e061062e575c74d40fac3cb2532ab25291"
+    }
+  ],
+  "installed_lock_sha256": "f504ac36eac6cca4541799c49e608ad6e9bd4c79d3e7229e5f0d5323608645c8",
+  "mirror_source_sha256": "0b324e0fc8bdbd235a5d3ede5a999bedb0608816712e7c52663cb403c3a4f441",
+  "expected_archive_tools": 453,
+  "runtime_verified": false,
+  "tests_executed_after_fix": false,
+  "reproducible_ci_script": "scripts/r38-ci-office-mirror.mjs"
+}

@@ -1,0 +1,120 @@
+{
+  "at": "2026-10-26T07:01:56.784084+00:00",
+  "status": "passed",
+  "authorization": "Coordinator GO after public source, anonymous asset hashes, live storefront paths and Chrome verification",
+  "prerequisites": [
+    "data/r38_public_storefront_verification.json",
+    "data/r38_public_release_verification.json",
+    "data/r38_public_distribution_ci_verification.json"
+  ],
+  "source_commit": "c81b1c1f",
+  "mirrors": [
+    "supplier-statement-check",
+    "office-suite",
+    "duplicate-invoice-check",
+    "three-way-match"
+  ],
+  "registry_rows": 4,
+  "force_push": false,
+  "emails_sent": 0,
+  "paid_api_usd": 0,
+  "new_mirrors": {
+    "published_at": "2026-10-26T06:46:15.505Z",
+    "repos": [
+      "https://github.com/theluckystrike/mcp-supplier-statement-check",
+      "https://github.com/theluckystrike/mcp-office-suite"
+    ],
+    "version": "0.25.0",
+    "log": "data/r38_public_distribution_new_mirrors_publish.txt",
+    "exit_code": 0
+  },
+  "mirrors_verified": 4,
+  "registry_rows_verified": 4,
+  "new_capabilities": 1,
+  "updated_proxy_capabilities": 1,
+  "aliases_are_not_extra_servers": true,
+  "public_mirror_ci": [
+    {
+      "id": "supplier-statement-check",
+      "main_commit": "ddce2b9790ad30b0216bb28479d7adeb9d7456c9",
+      "run_id": 40283156119,
+      "url": "https://github.com/theluckystrike/mcp-supplier-statement-check/actions/runs/40283156119",
+      "conclusion": "success",
+      "receipt": "data/r38_supplier_metadata_iteration.json"
+    },
+    {
+      "id": "office-suite",
+      "main_commit": "f5e57dfb92e1143e28e4eb680194a4ed742c0dc6",
+      "run_id": 40281707989,
+      "url": "https://github.com/theluckystrike/mcp-office-suite/actions/runs/40281707989",
+      "conclusion": "success"
+    },
+    {
+      "id": "duplicate-invoice-check",
+      "main_commit": "814fc449fa1f52f97e491ccb306b8cd73d613416",
+      "run_id": 40281787894,
+      "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check/actions/runs/40281787894",
+      "conclusion": "success"
+    },
+    {
+      "id": "three-way-match",
+      "main_commit": "bbfbaa67ad7c5fbc765dbd916e2d528e5b06f4e2",
+      "run_id": 40281816971,
+      "url": "https://github.com/theluckystrike/mcp-three-way-match/actions/runs/40281816971",
+      "conclusion": "success"
+    }
+  ],
+  "old_immutable_tags_preserved": true,
+  "mirror_receipt": "data/r38_public_distribution_mirror_verification.json",
+  "registry_receipt": "data/r38_public_distribution_registry_publication.json",
+  "ci_receipt": "data/r38_public_distribution_mirror_ci.json",
+  "search_receipt": "data/r38_public_distribution_search_after.json",
+  "cleanup_receipt": "data/r38_public_distribution_publish_cleanup.json",
+  "smithery_receipt": "data/r38_smithery_publication_feasibility.json",
+  "owned_publish_trees_remaining": 0,
+  "search_observations": [
+    {
+      "q": "mcp supplier statement in:name,description",
+      "supplier_position": 1,
+      "total_count": 2
+    },
+    {
+      "q": "mcp vendor statement in:name,description",
+      "supplier_position": 1,
+      "total_count": 1
+    },
+    {
+      "q": "mcp supplier reconciliation in:name,description",
+      "supplier_position": 3,
+      "total_count": 4
+    },
+    {
+      "q": "mcp statement reconciliation in:name,description",
+      "supplier_position": 4,
+      "total_count": 6
+    },
+    {
+      "q": "mcp accounts payable in:name,description",
+      "supplier_position": null,
+      "total_count": 17
+    },
+    {
+      "q": "mcp three way match in:name,description",
+      "supplier_position": null,
+      "total_count": 11
+    }
+  ],
+  "traffic_or_revenue_claim": false,
+  "account_creation": false,
+  "outreach_messages": 0,
+  "supplier_metadata_iteration_receipt": "data/r38_supplier_metadata_iteration.json",
+  "supplier_metadata_iteration": {
+    "description_characters": 333,
+    "literal_accounts_payable": true,
+    "no_release": true,
+    "tag_unchanged": true,
+    "readme_only": true,
+    "query_position": 12,
+    "query_results": 18
+  }
+}

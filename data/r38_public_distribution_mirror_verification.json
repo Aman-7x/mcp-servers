@@ -1,0 +1,203 @@
+{
+  "at": "2026-10-26T06:49:37.192Z",
+  "status": "passed",
+  "method": "Native GitHub public repository/main/package/README/release readbacks plus exact old tag refs",
+  "mirrors": [
+    {
+      "id": "supplier-statement-check",
+      "repo": "theluckystrike/mcp-supplier-statement-check",
+      "url": "https://github.com/theluckystrike/mcp-supplier-statement-check",
+      "public": true,
+      "main_commit": "631eff4c45e7033e226d90952f0728ada08e33e8",
+      "package_version": "0.25.0",
+      "description": "Model Context Protocol (MCP) server for supplier statement and vendor statement open-item reconciliation checks against a supplied AP ledger, with exact reference evidence. Compare supplied supplier statement and AP ledger open items, with complete exact-key evidence. Works with Claude Desktop, Claude Code and Cursor.",
+      "homepage": "https://mcp.zovo.one/s/supplier-statement-check",
+      "topics": [
+        "accounts-payable",
+        "ai",
+        "claude",
+        "claude-code",
+        "claude-desktop",
+        "cursor",
+        "invoice-reconciliation",
+        "llm",
+        "local-first",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "nodejs",
+        "open-items",
+        "supplier-statement",
+        "typescript",
+        "vendor-statement"
+      ],
+      "readme_sha256": "31cf3c2c66f92d0ede774b3463d0498f393599027d9274167edacb8de8f973c5",
+      "source_readme_url": "https://github.com/theluckystrike/mcp-supplier-statement-check/blob/631eff4c45e7033e226d90952f0728ada08e33e8/README.md",
+      "contains_product_link": true,
+      "contains_offline_or_local_install": true,
+      "contains_exact_browser_proof": true,
+      "description_covers_reconciliation": true,
+      "release": {
+        "url": "https://github.com/theluckystrike/mcp-supplier-statement-check/releases/tag/v0.25.0",
+        "draft": false,
+        "tag": "v0.25.0",
+        "published_at": "2026-10-26T06:45:15Z"
+      }
+    },
+    {
+      "id": "office-suite",
+      "repo": "theluckystrike/mcp-office-suite",
+      "url": "https://github.com/theluckystrike/mcp-office-suite",
+      "public": true,
+      "main_commit": "f5e57dfb92e1143e28e4eb680194a4ed742c0dc6",
+      "package_version": "0.25.0",
+      "description": "Model Context Protocol (MCP) server for small business accounting and paperwork: invoices, PDFs, spreadsheets, Word documents, time tracking and expenses. One local config entry for invoicing, documents, time tracking and supplier checks. Works with Claude Desktop, Claude Code and Cursor.",
+      "homepage": "https://mcp.zovo.one/s/office-suite",
+      "topics": [
+        "ai",
+        "back-office",
+        "bundle",
+        "claude",
+        "claude-code",
+        "claude-desktop",
+        "cursor",
+        "llm",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "nodejs",
+        "office",
+        "productivity",
+        "typescript"
+      ],
+      "readme_sha256": "28f491c96ea3b536f7b103bc79aed461df1f5319a9a937c9ff5b1824726e57ae",
+      "source_readme_url": "https://github.com/theluckystrike/mcp-office-suite/blob/f5e57dfb92e1143e28e4eb680194a4ed742c0dc6/README.md",
+      "contains_product_link": true,
+      "contains_offline_or_local_install": true,
+      "declared_local_children": 50,
+      "all_child_dependencies_vendored": true,
+      "release": {
+        "url": "https://github.com/theluckystrike/mcp-office-suite/releases/tag/v0.25.0",
+        "draft": false,
+        "tag": "v0.25.0",
+        "published_at": "2026-10-26T06:45:49Z"
+      }
+    },
+    {
+      "id": "duplicate-invoice-check",
+      "repo": "theluckystrike/mcp-duplicate-invoice-check",
+      "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check",
+      "public": true,
+      "main_commit": "814fc449fa1f52f97e491ccb306b8cd73d613416",
+      "package_version": "0.22.8",
+      "description": "Model Context Protocol (MCP) server for duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+      "homepage": "https://mcp.zovo.one/s/duplicate-invoice-check",
+      "topics": [
+        "accounts-payable",
+        "ai",
+        "claude",
+        "claude-code",
+        "claude-desktop",
+        "cursor",
+        "duplicate-invoices",
+        "invoice-review",
+        "llm",
+        "local-first",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "nodejs",
+        "typescript",
+        "vendor-bills"
+      ],
+      "readme_sha256": "4f9d3a8895b2cc225766e70abced196a93fa0a6ae9b9209302332c4b2b9dc74f",
+      "source_readme_url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check/blob/814fc449fa1f52f97e491ccb306b8cd73d613416/README.md",
+      "contains_product_link": true,
+      "contains_offline_or_local_install": true,
+      "contains_exact_browser_proof": true
+    },
+    {
+      "id": "three-way-match",
+      "repo": "theluckystrike/mcp-three-way-match",
+      "url": "https://github.com/theluckystrike/mcp-three-way-match",
+      "public": true,
+      "main_commit": "bbfbaa67ad7c5fbc765dbd916e2d528e5b06f4e2",
+      "package_version": "0.22.8",
+      "description": "Model Context Protocol (MCP) server for three way matching: supplier invoice matching against purchase orders and accepted receipts by SKU. Supplier invoice, purchase order and receipt checks by exact SKU. Works with Claude Desktop, Claude Code and Cursor.",
+      "homepage": "https://mcp.zovo.one/s/three-way-match",
+      "topics": [
+        "accounts-payable",
+        "ai",
+        "claude",
+        "claude-code",
+        "claude-desktop",
+        "cursor",
+        "invoice-matching",
+        "llm",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "nodejs",
+        "purchase-order",
+        "supplier-invoice",
+        "three-way-matching",
+        "typescript"
+      ],
+      "readme_sha256": "212837cff4ef0dce1a66aadf6e334a99384a28152b4beaa474682c2f0daf6353",
+      "source_readme_url": "https://github.com/theluckystrike/mcp-three-way-match/blob/bbfbaa67ad7c5fbc765dbd916e2d528e5b06f4e2/README.md",
+      "contains_product_link": true,
+      "contains_offline_or_local_install": true,
+      "contains_exact_browser_proof": true
+    }
+  ],
+  "older_tags": [
+    {
+      "repo": "mcp-duplicate-invoice-check",
+      "tag": "v0.22.8",
+      "refs": [
+        {
+          "sha": "50813448f1aa967aeaab4ed46efe55d64fed67d4",
+          "ref": "refs/tags/v0.22.8"
+        },
+        {
+          "sha": "b40544aa05a0c801b683aa999fdbf034b4a0ba1b",
+          "ref": "refs/tags/v0.22.8^{}"
+        }
+      ],
+      "unchanged_after_publication": true
+    },
+    {
+      "repo": "mcp-three-way-match",
+      "tag": "v0.22.8",
+      "refs": [
+        {
+          "sha": "4d50720e4e041e599cc89fefbd345b59758dc896",
+          "ref": "refs/tags/v0.22.8"
+        },
+        {
+          "sha": "52407e98474ef58310d87549a3a4b12c74de39a2",
+          "ref": "refs/tags/v0.22.8^{}"
+        }
+      ],
+      "unchanged_after_publication": true
+    },
+    {
+      "repo": "mcp-office-suite",
+      "tag": "v0.22.9",
+      "refs": [
+        {
+          "sha": "a8e595b11f0d671fdb36cfe9a1708bdc85b7310b",
+          "ref": "refs/tags/v0.22.9"
+        },
+        {
+          "sha": "fb4aecac42eed3b56a7642a20788b971a72b7e84",
+          "ref": "refs/tags/v0.22.9^{}"
+        }
+      ],
+      "unchanged_after_publication": true
+    }
+  ],
+  "force_push": false,
+  "paid_api_usd": 0,
+  "emails_sent": 0
+}

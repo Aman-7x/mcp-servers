@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-26T06:01:26.041Z",
+  "scope": "Remove only complete byte-identical ignored generated bundle server trees; retain every original MCPB archive, manifest, source file and user record. Each deletion separately lsof-checked and recorded in data/build-deletions.jsonl.",
+  "plan": "data/r38_redundant_bundle_plan.json",
+  "removed": [],
+  "bytes_removed": 0,
+  "available_before_df": "Filesystem   1024-blocks      Used Available Capacity  iused     ifree %iused  Mounted on\n/dev/disk3s5   482797652 421955556  20787268    96% 11261210 207872680    5%   /System/Volumes/Data",
+  "available_after_bytes": 21286084608,
+  "userdata_deleted": false,
+  "source_or_archives_deleted": false
+}

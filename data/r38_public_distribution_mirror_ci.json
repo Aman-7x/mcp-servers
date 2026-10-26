@@ -1,0 +1,116 @@
+{
+  "at": "2026-10-26T06:52:38.542Z",
+  "method": "Native exact public mirror workflow run readbacks; pending jobs not counted as passed",
+  "rows": [
+    {
+      "id": "supplier-statement-check",
+      "runs": [
+        {
+          "id": 40281654631,
+          "name": "ci",
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "631eff4c45e7033e226d90952f0728ada08e33e8",
+          "url": "https://github.com/theluckystrike/mcp-supplier-statement-check/actions/runs/40281654631",
+          "created_at": "2026-10-26T06:45:07Z"
+        }
+      ]
+    },
+    {
+      "id": "office-suite",
+      "runs": [
+        {
+          "id": 40281707989,
+          "name": "ci",
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "f5e57dfb92e1143e28e4eb680194a4ed742c0dc6",
+          "url": "https://github.com/theluckystrike/mcp-office-suite/actions/runs/40281707989",
+          "created_at": "2026-10-26T06:45:38Z"
+        },
+        {
+          "id": 38890029724,
+          "name": "ci",
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "fb4aecac42eed3b56a7642a20788b971a72b7e84",
+          "url": "https://github.com/theluckystrike/mcp-office-suite/actions/runs/38890029724",
+          "created_at": "2026-10-16T10:52:01Z"
+        },
+        {
+          "id": 38880387898,
+          "name": "ci",
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "29c18e76c9436f1b15270fbb049930d60cd673d4",
+          "url": "https://github.com/theluckystrike/mcp-office-suite/actions/runs/38880387898",
+          "created_at": "2026-10-16T09:25:46Z"
+        }
+      ]
+    },
+    {
+      "id": "duplicate-invoice-check",
+      "runs": [
+        {
+          "id": 40281787894,
+          "name": "ci",
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "814fc449fa1f52f97e491ccb306b8cd73d613416",
+          "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check/actions/runs/40281787894",
+          "created_at": "2026-10-26T06:46:28Z"
+        },
+        {
+          "id": 38880345067,
+          "name": "ci",
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "c1ad369cdd9d35eaf33336aae003de07890df93f",
+          "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check/actions/runs/38880345067",
+          "created_at": "2026-10-16T09:25:24Z"
+        },
+        {
+          "id": 38879860686,
+          "name": "ci",
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "b40544aa05a0c801b683aa999fdbf034b4a0ba1b",
+          "url": "https://github.com/theluckystrike/mcp-duplicate-invoice-check/actions/runs/38879860686",
+          "created_at": "2026-10-16T09:21:10Z"
+        }
+      ]
+    },
+    {
+      "id": "three-way-match",
+      "runs": [
+        {
+          "id": 40281816971,
+          "name": "ci",
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "bbfbaa67ad7c5fbc765dbd916e2d528e5b06f4e2",
+          "url": "https://github.com/theluckystrike/mcp-three-way-match/actions/runs/40281816971",
+          "created_at": "2026-10-26T06:46:46Z"
+        },
+        {
+          "id": 38880365648,
+          "name": "ci",
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "4cd8019b2eaf49cf7c6aa1b656ae03048115f987",
+          "url": "https://github.com/theluckystrike/mcp-three-way-match/actions/runs/38880365648",
+          "created_at": "2026-10-16T09:25:34Z"
+        },
+        {
+          "id": 38879935013,
+          "name": "ci",
+          "status": "completed",
+          "conclusion": "success",
+          "head_sha": "52407e98474ef58310d87549a3a4b12c74de39a2",
+          "url": "https://github.com/theluckystrike/mcp-three-way-match/actions/runs/38879935013",
+          "created_at": "2026-10-16T09:21:50Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+buildslot[65467] 13:31:04: slot 1 acquired: node --test scripts/test/deploy-billing-gated.test.mjs
+TAP version 13
+# Subtest: rollback is allowed only for our observed active deployment and unchanged remote pin
+ok 1 - rollback is allowed only for our observed active deployment and unchanged remote pin
+  ---
+  duration_ms: 0.497541
+  type: 'test'
+  ...
+# Subtest: an ambiguous final KV pin write requires manual recovery
+ok 2 - an ambiguous final KV pin write requires manual recovery
+  ---
+  duration_ms: 0.12625
+  type: 'test'
+  ...
+# Subtest: the upload parser requires one explicit uploaded version rather than another UUID
+ok 3 - the upload parser requires one explicit uploaded version rather than another UUID
+  ---
+  duration_ms: 0.344084
+  type: 'test'
+  ...
+# Subtest: staged activation preserves binding identities, migration state and runtime bounds
+ok 4 - staged activation preserves binding identities, migration state and runtime bounds
+  ---
+  duration_ms: 6.229125
+  type: 'test'
+  ...
+# Subtest: release uploads after preflight, checks staged configuration, activates then verifies and pins
+ok 5 - release uploads after preflight, checks staged configuration, activates then verifies and pins
+  ---
+  duration_ms: 0.378208
+  type: 'test'
+  ...
+# Subtest: preflight and upload-only failures never activate, pin or request rollback
+ok 6 - preflight and upload-only failures never activate, pin or request rollback
+  ---
+  duration_ms: 0.373417
+  type: 'test'
+  ...
+# Subtest: ambiguous activation observes authoritative traffic before choosing recovery
+ok 7 - ambiguous activation observes authoritative traffic before choosing recovery
+  ---
+  duration_ms: 0.201375
+  type: 'test'
+  ...
+# Subtest: postactivation source, verification or ownership failure cannot approve a version
+ok 8 - postactivation source, verification or ownership failure cannot approve a version
+  ---
+  duration_ms: 0.227625
+  type: 'test'
+  ...
+# Subtest: deployment source hash detects changes to every release-critical file
+ok 9 - deployment source hash detects changes to every release-critical file
+  ---
+  duration_ms: 342.413333
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 391.750416

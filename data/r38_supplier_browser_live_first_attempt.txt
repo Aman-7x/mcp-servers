@@ -1,0 +1,14 @@
+buildslot[74209] 13:40:09: slot 2 acquired: node scripts/verify-r38-supplier-browser.mjs --origin https://mcp.zovo.one
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
++ [
++   {
++     method: 'GET',
++     path: '/cdn-cgi/challenge-platform/scripts/jsd/main.js'
++   }
++ ]
+- []
+
+    at file:///Users/mike/mcp-servers/scripts/verify-r38-supplier-browser.mjs:141:106
+{"status":"failed","checks":8,"diagnostics":0,"page_errors":0}

@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-26T05:41:01.878Z",
+  "scope": "Office mirror preparation",
+  "initial_attempt": {
+    "exit_code": 2,
+    "observed_errors": "TypeScript could not resolve SDK modules while npm install was still in progress.",
+    "cause": "Build was started before the install process had completed; not a demonstrated source defect.",
+    "correction": "Waited for npm install exit0 (196 packages), then reran unchanged npm run build; exit0.",
+    "failed_source_modified": false
+  },
+  "final_build_log": "data/r38_public_distribution_office_build.txt",
+  "final_tests": "data/r38_public_distribution_office_tests.tap"
+}

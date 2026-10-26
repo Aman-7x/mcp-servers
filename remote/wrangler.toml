@@ -5,10 +5,6 @@ compatibility_flags = ["nodejs_compat"]
 account_id = "dd3f2a29b7707e21a87f26a622c0bb9d"
 workers_dev = true
 
-# Preserve the production CPU bound verified in the R38 runtime snapshot.
-[limits]
-cpu_ms = 1500
-
 # mcp-billing owns mcp.zovo.one as a custom domain; a route pattern is more
 # specific than a custom domain, so /mcp* lands here and everything else there.
 # The OAuth discovery/flow paths must also land here (RFC 9728 says the protected-resource
@@ -18,6 +14,10 @@ routes = [
   { pattern = "mcp.zovo.one/.well-known/*", zone_name = "zovo.one" },
   { pattern = "mcp.zovo.one/oauth*", zone_name = "zovo.one" },
 ]
+
+# Preserve the production CPU bound verified in the R38 runtime snapshot.
+[limits]
+cpu_ms = 1500
 
 [[kv_namespaces]]
 binding = "REMOTE_DATA"

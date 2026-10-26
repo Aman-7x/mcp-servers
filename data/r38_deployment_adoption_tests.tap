@@ -1,0 +1,2 @@
+buildslot[48794] 13:17:53: WAITING: only 19 GB free on /System/Volumes/Data (need 20 GB). No heavy build until disk is freed (delete target/, node_modules/, build caches, finished clones). Re-checking every 10s, giving up at 13:21.
+buildslot[48794] 13:21:53: GAVE UP after 240s (disk 19 GB free, need 20; holders: none). Not running: node --test scripts/test/deploy-billing-gated.test.mjs

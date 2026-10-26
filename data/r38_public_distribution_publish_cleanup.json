@@ -1,0 +1,34 @@
+{
+  "at": "2026-10-26T06:56:20.447Z",
+  "status": "passed",
+  "removed_owned_publish_trees": [
+    {
+      "at": "2026-10-26T06:56:19.740Z",
+      "path": "/Users/mike/mcp-servers-work/mirror-supplier-statement-check.RkPXpL",
+      "bytes": 411035,
+      "lsof": "no open handles",
+      "reason": "Completed and publicly verified own mirror publication staging tree"
+    },
+    {
+      "at": "2026-10-26T06:56:19.957Z",
+      "path": "/Users/mike/mcp-servers-work/mirror-office-suite.lsijKJ",
+      "bytes": 5701537,
+      "lsof": "no open handles",
+      "reason": "Completed and publicly verified own mirror publication staging tree"
+    },
+    {
+      "at": "2026-10-26T06:56:20.234Z",
+      "path": "/Users/mike/mcp-servers-work/mirror-duplicate-invoice-check.fYoKm5",
+      "bytes": 467637,
+      "lsof": "no open handles",
+      "reason": "Completed and publicly verified own mirror publication staging tree"
+    },
+    {
+      "at": "2026-10-26T06:56:20.420Z",
+      "path": "/Users/mike/mcp-servers-work/mirror-three-way-match.gJxCHy",
+      "bytes": 485943,
+      "lsof": "no open handles",
+      "reason": "Completed and publicly verified own mirror publication staging tree"
+    }
+  ]
+}

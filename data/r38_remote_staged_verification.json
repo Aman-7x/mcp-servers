@@ -1,0 +1,44 @@
+{
+  "at": "2026-10-26T06:31:10.394Z",
+  "script": "mcp-remote",
+  "status": "passed",
+  "prior_version": "00f4f00b-aac0-4e15-bc1d-fb318bf113c8",
+  "staged_version": "323083e6-f55a-4195-8ba8-71a6c568eed6",
+  "production_version_before": "00f4f00b-aac0-4e15-bc1d-fb318bf113c8",
+  "production_deployment_before": "c2ba596b-07e6-4aca-98e7-e6434862a6d9",
+  "prior_configuration_sha256": "419aa260d27db842b4b3c4a2904da57d69b554aca8752a3cc8e5e7af8097f859",
+  "staged_configuration_sha256": "419aa260d27db842b4b3c4a2904da57d69b554aca8752a3cc8e5e7af8097f859",
+  "cpu_limit_prior": 1500,
+  "cpu_limit_staged": 1500,
+  "bindings_prior": [
+    {
+      "name": "FUNNEL",
+      "type": "durable_object_namespace"
+    },
+    {
+      "name": "REMOTE_DATA",
+      "type": "kv_namespace"
+    },
+    {
+      "name": "SWEEP_SECRET",
+      "type": "secret_text"
+    }
+  ],
+  "bindings_staged": [
+    {
+      "name": "FUNNEL",
+      "type": "durable_object_namespace"
+    },
+    {
+      "name": "REMOTE_DATA",
+      "type": "kv_namespace"
+    },
+    {
+      "name": "SWEEP_SECRET",
+      "type": "secret_text"
+    }
+  ],
+  "mismatch": null,
+  "traffic_changed": false,
+  "scope": "Full in-memory canonical resource comparison; no secret values exported; code upload only, activation not yet performed."
+}

@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-26T06:44:51.554Z",
+  "status": "unavailable",
+  "method": "npm whoami --registry=https://registry.npmjs.org using existing configuration and local cache",
+  "http_status": 401,
+  "accounts_created": 0,
+  "packages_published": 0,
+  "scope": "Existing npm identity is unauthorized. Self-contained public MCPB and source mirrors remain valid installation paths; no npm installation claim."
+}

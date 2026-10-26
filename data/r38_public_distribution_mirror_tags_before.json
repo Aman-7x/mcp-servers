@@ -1,0 +1,48 @@
+{
+  "at": "2026-10-26T06:44:15.756Z",
+  "method": "Read-only git ls-remote exact existing tag refs before mirror sync",
+  "rows": [
+    {
+      "repo": "mcp-duplicate-invoice-check",
+      "tag": "v0.22.8",
+      "refs": [
+        {
+          "sha": "50813448f1aa967aeaab4ed46efe55d64fed67d4",
+          "ref": "refs/tags/v0.22.8"
+        },
+        {
+          "sha": "b40544aa05a0c801b683aa999fdbf034b4a0ba1b",
+          "ref": "refs/tags/v0.22.8^{}"
+        }
+      ]
+    },
+    {
+      "repo": "mcp-three-way-match",
+      "tag": "v0.22.8",
+      "refs": [
+        {
+          "sha": "4d50720e4e041e599cc89fefbd345b59758dc896",
+          "ref": "refs/tags/v0.22.8"
+        },
+        {
+          "sha": "52407e98474ef58310d87549a3a4b12c74de39a2",
+          "ref": "refs/tags/v0.22.8^{}"
+        }
+      ]
+    },
+    {
+      "repo": "mcp-office-suite",
+      "tag": "v0.22.9",
+      "refs": [
+        {
+          "sha": "a8e595b11f0d671fdb36cfe9a1708bdc85b7310b",
+          "ref": "refs/tags/v0.22.9"
+        },
+        {
+          "sha": "fb4aecac42eed3b56a7642a20788b971a72b7e84",
+          "ref": "refs/tags/v0.22.9^{}"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-26T06:38:36.081Z",
+  "status": "passed",
+  "http": 200,
+  "tools": 13,
+  "business_tool_calls": 0,
+  "token_mints": 0
+}

@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-26T06:05:54.691Z",
+  "mirror": "/home/runner/mcp-servers-work/mirror-office-suite.PTOpNe",
+  "method": "Actual standalone mirror stdio; compare complete runtime names/descriptions against exact byte-verified Office archive manifest",
+  "tools": 453,
+  "calls": 3,
+  "buyers": 0,
+  "payments": 0,
+  "checks": [
+    "All 453 actual mirror tool names and descriptions match the tested archive; no partial capability tree",
+    "Actual comparison, prefixed retrieval hints, complete free CSV and source-page values survive the standalone proxy",
+    "Authoritative tool-map resource includes new names; no child initialization failure or missing-child warning"
+  ],
+  "version": "0.25.0",
+  "status": "passed",
+  "finished_at": "2026-10-26T06:06:12.926Z"
+}

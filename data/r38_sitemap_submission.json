@@ -1,0 +1,50 @@
+{
+  "started_at": "2026-10-26T06:46:07.443Z",
+  "status": "passed",
+  "sitemap": "https://mcp.zovo.one/sitemap.xml",
+  "scope": "One owned sitemap resubmission only. No per-URL indexing API, messages, payments or accounts.",
+  "submissions": 1,
+  "public_route_count": 2,
+  "sitemap_sha256": "ae1769b9133fbcc5d6894b4429d796956d53d86dc5398964e369a92304cc7677",
+  "before": {
+    "path": "https://mcp.zovo.one/sitemap.xml",
+    "lastSubmitted": "2026-10-16T11:23:05.049Z",
+    "isPending": false,
+    "isSitemapsIndex": false,
+    "type": "sitemap",
+    "lastDownloaded": "2026-10-24T13:39:58.162Z",
+    "warnings": "0",
+    "errors": "0",
+    "contents": [
+      {
+        "type": "web",
+        "submitted": "296",
+        "indexed": "0"
+      }
+    ]
+  },
+  "submission_http_status": 204,
+  "action": "Submitted the existing owned sitemap containing the new public product and guide",
+  "after": {
+    "path": "https://mcp.zovo.one/sitemap.xml",
+    "lastSubmitted": "2026-10-26T06:46:13.778Z",
+    "isPending": false,
+    "isSitemapsIndex": false,
+    "type": "sitemap",
+    "lastDownloaded": "2026-10-26T06:46:14.435Z",
+    "warnings": "0",
+    "errors": "0",
+    "contents": [
+      {
+        "type": "web",
+        "submitted": "299",
+        "indexed": "0"
+      }
+    ]
+  },
+  "finished_at": "2026-10-26T06:46:16.459Z",
+  "limits": [
+    "A successful submission and native readback do not establish crawling, indexing, ranking, clicks or buyers.",
+    "Only the exact owned sitemap record is retained; credentials and unrelated account records stay in memory."
+  ]
+}
