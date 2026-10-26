@@ -1,0 +1,1 @@
+Verified automatic expiry for 2 unpaid probe sessions; handoff status=passed

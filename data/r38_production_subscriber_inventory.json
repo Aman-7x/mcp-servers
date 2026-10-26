@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-26T07:03:30.354Z",
+  "status": "passed",
+  "method": "Read-only native Cloudflare KV key listing of exact sub:/unsub: prefixes; full bounded pagination. Values and Resend contact APIs were not fetched.",
+  "subscriber_base_records": 4,
+  "subscriber_e2_markers": 1,
+  "subscriber_e3_markers": 1,
+  "suppression_records": 1,
+  "base_records_without_current_suppression": 3,
+  "pages": {
+    "sub": 1,
+    "unsub": 1
+  },
+  "purpose_from_current_source": "Footer setup tips: welcome, invoice setup after two days, bundle offer after about a week. Purchase does not subscribe a buyer.",
+  "trial_outreach_eligible": "not established by key inventory; actual requested task and consent scope must be reviewed",
+  "messages_sent": 0,
+  "external_writes": 0,
+  "privacy": "No addresses, key names, customer IDs, record values, credentials or consent receipts persisted or printed."
+}

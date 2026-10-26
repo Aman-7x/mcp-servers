@@ -13,6 +13,11 @@ The fresh [configuration and dry-run receipt](../data/r38_kpi_email_config.json)
 
 The Worker previously exposed the `RESEND_API_KEY` secret name to the account audit. A secret name proves presence, not its value or present send behavior. Purchased-license mail and the disclosed welcome/+2-day/+7-day setup sequence are already implemented; avoid sending a duplicate sequence from the local kit. Anonymous hosted tokens and successful tool responses are not email addresses or subscription consent.
 
+
+A separate read-only production inventory at 07:03 UTC lists four stored setup-subscription base keys, one suppression key, and three base keys without a matching current suppression. There is one stored E2 marker and one E3 marker. Only key names were read in memory; no addresses or record values were persisted, and no contact API was queried. These are storage records, not verified people, currently deliverable mailboxes or eligible workflow-trial recipients. The current signup purpose is the disclosed welcome/invoice-setup/bundle sequence; it does not establish a requested supplier trial. [Production aggregate inventory](../data/r38_production_subscriber_inventory.json).
+
+This session sent no outreach campaign. Existing setup-tip automation was not changed; its historical markers do not establish message timing or delivery during this session. Avoid starting a second setup sequence from the local sender.
+
 ## What to provide now
 
 1. **Requested trial contacts.** Keep actual recipients and their consent receipts in a private local file. For each person, record their requested task, the source/date of their request, the matching email purpose, a recent mailbox confirmation, and a working recipient-specific opt-out. A public address, directory entry or scraped contact is not a request.

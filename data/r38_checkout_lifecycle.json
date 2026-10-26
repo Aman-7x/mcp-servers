@@ -39,13 +39,16 @@
     }
   ],
   "created": 2,
-  "expired": 0,
+  "expired": 2,
   "charged_minor": 0,
   "payment_details_submitted": false,
-  "status": "awaiting_expiry",
+  "status": "passed",
   "expiry_mode": "automatic_31_minutes",
   "account_read_control": "Worker retrieved a CLI-visible unpaid session and refused fulfillment with 402",
   "expiry_due_at": "2026-10-26T07:12:45.000Z",
-  "last_updated_at": "2026-10-26T06:41:52.876Z",
-  "submission_finished_at": "2026-10-26T06:41:52.876Z"
+  "last_updated_at": "2026-10-26T07:15:10.519Z",
+  "submission_finished_at": "2026-10-26T06:41:52.876Z",
+  "expiry_pending": false,
+  "expiry_verified_at": "2026-10-26T07:15:10.519Z",
+  "finished_at": "2026-10-26T07:15:10.519Z"
 }

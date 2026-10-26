@@ -4,6 +4,7 @@ import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
+import { paidSessionEntitlementIssue } from "../billing/src/scheduled-monitor.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const CONFIG = join(ROOT, "billing", "wrangler.toml");
@@ -62,18 +63,21 @@ function remoteKey(binding, key) {
   if (!entries.some((entry) => entry.name === key)) return null;
   const value = run("npx", ["wrangler", "kv", "key", "get", key, "--binding", binding,
     "--remote", "--text", "--config", CONFIG]).trim();
-  if (!/^MCPL1\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(value)) {
-    throw new Error(`Malformed ${binding} license value`);
-  }
-  return value;
+  // Let the shared cryptographic validator classify malformed records per Session
+  // and fall back past a corrupt slot when another scope legitimately covers it.
+  return value || null;
 }
 
 export function isMcpSession(session) {
-  return session?.metadata?.site === "mcp.zovo.one" ||
-    session?.metadata?.campaign === "mcp_lifetime_checkout";
+  if (session?.metadata?.site === "mcp.zovo.one" ||
+    session?.metadata?.campaign === "mcp_lifetime_checkout") return true;
+  return [session?.success_url, session?.cancel_url].some(value => {
+    try { return typeof value === "string" && new URL(value).hostname === "mcp.zovo.one"; }
+    catch { return false; }
+  });
 }
 
-export function paidSessionFindings(sessions, readKey, nowSeconds) {
+export async function paidSessionFindings(sessions, readKey, nowSeconds) {
   const findings = [];
   let checked = 0;
   let pending = 0;
@@ -86,17 +90,13 @@ export function paidSessionFindings(sessions, readKey, nowSeconds) {
     if (session.payment_status !== "paid" && session.payment_status !== "no_payment_required") continue;
     if (session.created > nowSeconds - SETTLE_SECONDS) { pending++; continue; }
     checked++;
-    const issued = readKey("LICENSES", `session:${session.id}`);
-    if (!issued) {
-      findings.push({ sessionRef: sessionRef(session.id), issue: "issued key missing" });
-      continue;
-    }
-    const tenant = session.metadata?.tenant;
-    if (typeof tenant === "string" && /^anon_[0-9a-f]{32}$/.test(tenant)) {
-      const bound = readKey("REMOTE_DATA", `bind:${tenant}`);
-      if (!bound) findings.push({ sessionRef: sessionRef(session.id), issue: "hosted binding missing" });
-      else if (bound !== issued) findings.push({ sessionRef: sessionRef(session.id), issue: "hosted binding differs from issued key" });
-    }
+    const issued = await readKey("LICENSES", `session:${session.id}`);
+    const issue = await paidSessionEntitlementIssue(session, issued, {
+      get: key => readKey("REMOTE_DATA", key),
+    });
+    const messages = { license: "issued key missing or invalid", binding_product: "paid product metadata unresolved",
+      binding_tenant: "hosted tenant metadata invalid", binding: "hosted binding missing or invalid" };
+    if (issue) findings.push({ sessionRef: sessionRef(session.id), issue: messages[issue] });
   }
   return { checked, pending, findings };
 }
@@ -189,7 +189,7 @@ async function cloudflareWebhookStatuses(nowSeconds) {
 async function main() {
   const now = Math.floor(Date.now() / 1000);
   const sessions = stripeList("/v1/checkout/sessions", [["status", "complete"], ["created[gte]", now - LOOKBACK_SECONDS]]);
-  const paid = paidSessionFindings(sessions, remoteKey, now);
+  const paid = await paidSessionFindings(sessions, remoteKey, now);
   const endpoints = stripeList("/v1/webhook_endpoints");
   const events = stripeList("/v1/events", [["created[gte]", now - 7 * 86400],
     ["type", "checkout.session.completed"], ["delivery_success", "false"]]);

@@ -1,7 +1,9 @@
 // Scheduled, read-only checkout reconciliation. Only aggregate counts and hashed
 // Session references are logged; customer data and license values stay in memory.
-import app, { PRODUCTS, PRODUCT_ALIASES, SERVER_COUNT } from "./index.js";
+import app, { PRODUCTS, PRODUCT_ALIASES, SERVER_COUNT, resolveProductId } from "./index.js";
 import { FREE_IDS } from "./figures.js";
+import { readBinding } from "./hosted-bindings.js";
+import { verifyLicenseKey } from "./license.js";
 
 const ORIGIN = "https://mcp.zovo.one";
 const WEBHOOK = `${ORIGIN}/webhook`;
@@ -151,6 +153,35 @@ async function listWebhookStatuses(env, since) {
   return { inspected, failed };
 }
 
+/** Shared by the scheduled and native read-only monitors; never return key material. */
+export async function paidSessionEntitlementIssue(session, issued, remote) {
+  if (!issued) return "license";
+  const asked = session.metadata?.product;
+  const product = typeof asked === "string" &&
+    (Object.hasOwn(PRODUCTS, asked) || Object.hasOwn(PRODUCT_ALIASES, asked)) ? resolveProductId(asked) : "";
+  if (typeof product !== "string" || !Object.hasOwn(PRODUCTS, product)) return "binding_product";
+  const scope = product === "bundle" ? "*" : product;
+  const issuedCheck = await verifyLicenseKey(issued, scope);
+  if (!issuedCheck.ok) {
+    // An expired historical key can prove fulfillment at purchase time, while a
+    // later valid key covers current access. Signature, shape and scope are checked
+    // before verifyLicenseKey returns "expired"; no other refusal is accepted.
+    if (issuedCheck.reason !== "expired") return "license";
+    const body = issued.trim().split(".")[1].replace(/-/g, "+").replace(/_/g, "/");
+    const payload = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(body), c => c.charCodeAt(0))));
+    if (!Number.isSafeInteger(session.created) || payload.exp <= session.created) return "license";
+  }
+  const tenant = session.metadata?.tenant;
+  if (tenant == null || tenant === "") return null;
+  if (typeof tenant !== "string" || !/^anon_[0-9a-f]{32}$/.test(tenant)) return "binding_tenant";
+  const bound = await readBinding(remote, tenant, scope, async (key, wanted) => {
+    // Here "*" is an actual paid bundle, not whoami's "any product" lookup.
+    const result = await verifyLicenseKey(key, wanted);
+    return { ...result, p: result.payload?.p };
+  });
+  return bound?.ok ? null : "binding";
+}
+
 async function checkOperations(env, now) {
   const recent = await stripeList(env, "/v1/checkout/sessions", [
     ["created[gte]", now - 48 * 3600], ["created[lt]", now - 24 * 3600],
@@ -180,12 +211,8 @@ async function checkOperations(env, now) {
     if (session.created > now - SETTLE_SECONDS) { paidSettling++; continue; }
     paidChecked++;
     const issued = await env.LICENSES.get(`session:${session.id}`);
-    if (!issued) { missing.push(`${await sessionRef(session.id)}:license`); continue; }
-    const tenant = session.metadata?.tenant;
-    if (typeof tenant === "string" && /^anon_[0-9a-f]{32}$/.test(tenant)) {
-      const bound = await env.REMOTE_DATA.get(`bind:${tenant}`);
-      if (!bound || bound !== issued) missing.push(`${await sessionRef(session.id)}:binding`);
-    }
+    const issue = await paidSessionEntitlementIssue(session, issued, env.REMOTE_DATA);
+    if (issue) missing.push(`${await sessionRef(session.id)}:${issue}`);
   }
 
   const endpoints = await stripeList(env, "/v1/webhook_endpoints");

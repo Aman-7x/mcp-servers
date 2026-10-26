@@ -1,0 +1,84 @@
+{
+  "at": "2026-10-26T07:20:20.303Z",
+  "status": "passed",
+  "read_retries": [],
+  "scope": "Native configuration/pin checks and marked public GETs after the supported deployment. No payment, token mint, business tool or email.",
+  "rows": [
+    {
+      "path": "/downloads",
+      "status": 200,
+      "bytes": 21580,
+      "sha256": "aa32087525ff41739ebb8980e68a11350db4976d49183735133835b023c6cef3",
+      "last_modified": "Mon, 26 Oct 2026 00:00:00 GMT",
+      "etag": null,
+      "cache_control": "public, max-age=3600"
+    },
+    {
+      "path": "/guides/compare-supplier-statement-ap-open-items-in-claude",
+      "status": 200,
+      "bytes": 25187,
+      "sha256": "64785b1d279bb3afe21575fdcb0b820afee07008e08f0a07d6ee492f56fc17fa",
+      "last_modified": "Mon, 26 Oct 2026 00:00:00 GMT",
+      "etag": null,
+      "cache_control": "public, max-age=3600"
+    },
+    {
+      "path": "/changelog",
+      "status": 200,
+      "bytes": 38409,
+      "sha256": "8508563d510a37e07fe8e79f8721e013464fea4efd31fb0ed61dd66877230030",
+      "last_modified": "Mon, 26 Oct 2026 00:00:00 GMT",
+      "etag": null,
+      "cache_control": "public, max-age=3600"
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "bytes": 29819,
+      "sha256": "56ab2f55b69396503cd508e5ae69d145c16071f486efe6b01d5834e7c0c32155",
+      "last_modified": null,
+      "etag": null,
+      "cache_control": null
+    },
+    {
+      "path": "/assets/supplier-demo.js?v=ef56af4758cea30cfe87dbe85759627faae55eee0f237f6ee991c66c30356933",
+      "status": 200,
+      "bytes": 78487,
+      "sha256": "afda00f3473f0d24c397b54cb154716c0bcfde5b81cfae7f8d88940748c717e7",
+      "last_modified": "Mon, 26 Oct 2026 00:00:00 GMT",
+      "etag": "W/\"afda00f3473f0d24\"",
+      "cache_control": "public, max-age=3600"
+    }
+  ],
+  "monitor": {
+    "ok": true,
+    "version": "9d4dfc45-3d89-4b26-854c-f368037ef467",
+    "checked_at": "2026-10-26T07:15:41.293Z",
+    "last_failure_at": "2026-10-26T07:10:43.303Z",
+    "operations_checked_at": "2026-10-26T07:15:42.265Z",
+    "operations_version": "9d4dfc45-3d89-4b26-854c-f368037ef467",
+    "webhook_failures": 0,
+    "missing_fulfillments": 0
+  },
+  "public_health_status": 503,
+  "monitor_healthy": false,
+  "billing_version": "9d4dfc45-3d89-4b26-854c-f368037ef467",
+  "prior_version": "718485e7-1d17-43f8-aaa4-3c638177be35",
+  "deployment_id": "89e39d7e-cc8e-447b-8437-636311a1b4c0",
+  "local_and_remote_pins_match": true,
+  "full_version_configuration_equal": true,
+  "configuration_sha256": "b3c7d1dda0ccdfbf60cba7651fdff8973e91e57d2c238277c376d1c264a6d4a3",
+  "cpu_limit": 400,
+  "release_source_commit": "e290ce3cfec0cf7c9f44e9273485473d0fea2da6",
+  "billing_gate_source_sha256": "61c95997f00b199022b5ab35f49717fe7c8802c757b1149cece9e17f78a3cd8f",
+  "supplier_asset_input_sha256": "ef56af4758cea30cfe87dbe85759627faae55eee0f237f6ee991c66c30356933",
+  "core_and_archives_unchanged_from_release": true,
+  "buy_get_paths": 61,
+  "stripe_sessions_created_by_gate": 0,
+  "finished_at": "2026-10-26T07:20:25.772Z",
+  "limits": [
+    "Code/configuration proof and current monitor health are separate fields. The original bounded watch must establish final healthy observation.",
+    "The native signed entitlement sequence was executed against the preceding billing version; its modules and all MCP package source are unchanged by this site follow-up.",
+    "Synthetic browser/operator controls do not establish buyers, paid fulfillment or ROI."
+  ]
+}

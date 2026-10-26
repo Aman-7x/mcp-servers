@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-26T07:19:13.899Z",
+  "status": "passed",
+  "deleted": [
+    {
+      "path": "/Users/mike/mcp-servers-work/r38-checkout-probe-state.json",
+      "bytes": 693
+    },
+    {
+      "path": "/Users/mike/mcp-servers-work/r38-checkout-probe.lock",
+      "bytes": 0
+    }
+  ],
+  "charged_minor": 0,
+  "expired_sessions": 2,
+  "scope": "Only this run private local state/lock; Stripe audit objects remain expired and tagged."
+}
