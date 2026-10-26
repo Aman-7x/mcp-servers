@@ -88,7 +88,7 @@ def repo_name(name):
 # The capability, in the words a buyer types. Each is a statement about what the server
 # does, taken from its manifest and README -- not a positioning claim.
 CAPABILITY = {
-    "supplier-statement-check": "supplier statement and vendor statement checks against AP ledger open items, with exact reference evidence",
+    "supplier-statement-check": "supplier statement and vendor statement open-item reconciliation checks against a supplied AP ledger, with exact reference evidence",
     "duplicate-invoice-check": "duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence",
     "three-way-match": "three way matching: supplier invoice matching against purchase orders and accepted receipts by SKU",
     "amortization": "loan and lease amortization schedules",

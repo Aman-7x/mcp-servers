@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-26T06:22:04.796Z",
+  "status": "implemented_local_tests_not_started_disk_floor",
+  "scope": "Read-only research and local code only; no version upload, traffic activation, trigger, secret or payment mutation",
+  "baseline": "data/r38_deployment_adoption_baseline.json",
+  "official_sources": [
+    "https://developers.cloudflare.com/workers/versions-and-deployments/deployment-management/",
+    "https://developers.cloudflare.com/workers/wrangler/commands/workers/",
+    "https://developers.cloudflare.com/workers/versions-and-deployments/gradual-deployments/"
+  ],
+  "implementation": {
+    "staged_upload": true,
+    "explicit_single_uploaded_uuid_required": true,
+    "staged_configuration_match_required": [
+      "binding identities and values",
+      "Durable Object namespaces",
+      "migration tag",
+      "compatibility date and flags",
+      "CPU limits",
+      "handlers and named handlers"
+    ],
+    "source_hash_checks": [
+      "after preflight",
+      "after upload",
+      "immediately before activation",
+      "after activation",
+      "after postdeploy verification"
+    ],
+    "active_deployment_and_pin_checks": [
+      "before preflight",
+      "before upload",
+      "before activation",
+      "before pin write",
+      "before guarded rollback"
+    ],
+    "postdeploy_gate_retained": true,
+    "local_and_remote_pin_update_retained": true,
+    "no_bypass_flags": true,
+    "ci_strict_dry_run_unchanged": true,
+    "uncertain_activation_authoritatively_observed": true,
+    "upload_only_failure_never_rolls_back": true,
+    "unknown_activation_or_pin_commit_requires_manual_recovery": true
+  },
+  "verification": {
+    "disk_available_gb_at_start": 19,
+    "coldstore_plan_candidates": 0,
+    "tests_file": "data/r38_deployment_adoption_tests.tap",
+    "status": "Actual host buildslot exited75 after240seconds; disk stayed19GB, required20GB. Node test runner never started.",
+    "test_declarations": 9,
+    "git_diff_check_passed": true,
+    "buildslot_exit_code": 75
+  },
+  "source_sha256": {
+    "scripts/deploy-billing-gated.mjs": "00d8cd20029f0c2105a9027dc303b8172bbd8cb24de7beb70fa240dd7a9277b4",
+    "scripts/test/deploy-billing-gated.test.mjs": "66ee4e253b7d9c88b6ba87a3176088277aafafa29a2d3118d6482de6992b69a7",
+    "intel/R38-deployment-adoption.md": "6fc3954119031703dc7d844c9879ce0f2fde29693ae73057d05b5efc387bc0cf"
+  },
+  "limitations": [
+    "No live upload/activation proof; installed Wrangler4.80 may encounter API error10211 if Cloudflare detects a pending Durable Object migration",
+    "Only releases preserving the approved version configuration are accepted by this path; intentional binding/runtime/lifecycle changes need separate reviewed handling",
+    "versionsdeploy synchronizes explicitly configured observability; routes/crons are untouched without triggersdeploy",
+    "Ownership checks remain best-effort rather than atomic compare-and-swap",
+    "Local test execution awaiting diskfloor; require successful offline tests and normalCI/preflight gates before deployment"
+  ],
+  "external_writes": 0,
+  "paid_api_calls": 0
+}

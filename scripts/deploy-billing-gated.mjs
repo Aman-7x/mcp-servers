@@ -74,6 +74,69 @@ function remoteApprovedVersion() {
   return version;
 }
 
+export function uploadedVersionId(output) {
+  // Upload is deliberately separate from traffic activation. Do not accept a
+  // preview URL, deployment ID or an unanchored UUID as evidence of the upload.
+  const lines = String(output).replace(/\u001b\[[0-9;]*m/g, "").split(/\r?\n/);
+  const ids = lines.filter(line => /^Worker Version ID:\s*/.test(line))
+    .map(line => /^Worker Version ID:\s*([a-f0-9-]+)\s*$/i.exec(line)?.[1]);
+  if (ids.length !== 1 || !UUID.test(ids[0] || "")) {
+    throw new Error("Wrangler did not report exactly one uploaded Worker Version ID");
+  }
+  return ids[0];
+}
+
+function canonical(value) {
+  if (Array.isArray(value)) return value.map(canonical);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.keys(value).sort().map(key => [key, canonical(value[key])]));
+  }
+  return value;
+}
+
+export function versionConfiguration(version) {
+  const resources = version?.resources;
+  if (!UUID.test(version?.id || "") || !Array.isArray(resources?.bindings) ||
+      !resources?.script_runtime || typeof resources.script_runtime !== "object" ||
+      !Array.isArray(resources?.script?.handlers)) {
+    throw new Error("Worker version configuration response is missing required fields");
+  }
+  const names = new Set();
+  for (const binding of resources.bindings) {
+    if (typeof binding?.name !== "string" || !binding.name || typeof binding.type !== "string" ||
+        names.has(binding.name)) throw new Error("Worker version bindings are malformed or duplicated");
+    names.add(binding.name);
+  }
+  const runtime = { ...resources.script_runtime };
+  if (runtime.compatibility_flags) runtime.compatibility_flags = [...runtime.compatibility_flags].sort();
+  return canonical({
+    bindings: [...resources.bindings].sort((a, b) => a.name.localeCompare(b.name)),
+    runtime,
+    handlers: [...resources.script.handlers].sort(),
+    named_handlers: [...(resources.script.named_handlers || [])]
+      .map(handler => ({ ...handler, handlers: [...handler.handlers].sort() }))
+      .sort((a, b) => a.name.localeCompare(b.name)),
+  });
+}
+
+export function assertVersionConfiguration(approved, uploaded) {
+  const before = versionConfiguration(approved);
+  const after = versionConfiguration(uploaded);
+  for (const field of ["bindings", "runtime", "handlers", "named_handlers"]) {
+    if (JSON.stringify(before[field]) !== JSON.stringify(after[field])) {
+      // Do not print binding values: configuration may include private variables.
+      throw new Error(`Uploaded Worker ${field} differ from the approved version; configuration or Durable Object lifecycle changes require a separate reviewed release`);
+    }
+  }
+}
+
+function workerVersion(version) {
+  const result = JSON.parse(run("npx", ["wrangler", "versions", "view", version, "--json"], billing, { quiet: true }));
+  if (result.id !== version) throw new Error("Worker version response differs from the requested version");
+  versionConfiguration(result);
+  return result;
+}
+
 export function rollbackDecision({ approvedVersion, uploadedVersion, uploadedDeployment, currentDeployment, currentPin }) {
   if (!UUID.test(approvedVersion || "") || !UUID.test(uploadedVersion || "")) return "missing approved or uploaded version ID";
   if (currentPin !== approvedVersion) return `remote approved pin changed to ${currentPin}`;
@@ -86,11 +149,21 @@ export function rollbackDecision({ approvedVersion, uploadedVersion, uploadedDep
   return null;
 }
 
-export function recoveryPlan({ approvedVersion, uploadedVersion, pinWriteStarted }) {
+export function recoveryPlan({ approvedVersion, uploadedVersion, pinWriteStarted,
+  activationStarted, uploadedDeployment, activationObservedDeployment, previousDeployment }) {
   if (!UUID.test(approvedVersion || "") || !UUID.test(uploadedVersion || "")) return "none";
   // A KV write can commit remotely even when the CLI reports an error. The
   // subsequent read can still return the old value during propagation.
-  return pinWriteStarted ? "manual" : "rollback";
+  if (pinWriteStarted) return "manual";
+  // An upload does not change traffic. Never roll back another actor merely
+  // because our staged version exists or its metadata check failed.
+  if (!activationStarted) return "none";
+  if (uploadedDeployment?.version === uploadedVersion && UUID.test(uploadedDeployment.id || "")) return "rollback";
+  if (previousDeployment && activationObservedDeployment?.id === previousDeployment.id &&
+      activationObservedDeployment.version === approvedVersion) return "none";
+  // A CLI timeout is not evidence that activation failed. Without an authoritative
+  // observed deployment we cannot decide whose traffic would be rolled back.
+  return "manual";
 }
 
 function restoreLocalPin(approvedVersion, uploadedVersion) {
@@ -124,50 +197,84 @@ function rollbackIfStillOurs(approvedVersion, uploadedVersion, uploadedDeploymen
   console.error(`Automatic rollback restored approved Worker version ${approvedVersion} from ${uploadedVersion}`);
 }
 
-function main() {
-  let approvedVersion;
-  let uploadedVersion;
-  let uploadedDeployment;
-  let pinWriteStarted = false;
+// Inject effects so the release's ordering and failure states are exercised
+// without Cloudflare access. The CLI entry point exposes no bypass flags.
+export function executeRelease(operations) {
+  const state = { pinWriteStarted: false, activationStarted: false };
   try {
-    if (process.argv.length !== 2) throw new Error("This deployment command accepts no bypass flags");
-    approvedVersion = remoteApprovedVersion();
-    const before = currentDeployment();
+    const approvedVersion = state.approvedVersion = operations.readPin();
+    const before = state.previousDeployment = operations.deployment();
     if (before.version !== approvedVersion) throw new Error(`Live Worker ${before.version} differs from remote approved pin ${approvedVersion}`);
-    const checkedSource = sourceHash();
-    run(process.execPath, [gate, "preflight"], root);
-    if (sourceHash() !== checkedSource) throw new Error("Billing source or gate changed during preflight; rerun against stable files");
-    const ready = currentDeployment();
-    if (ready.id !== before.id || ready.version !== approvedVersion || remoteApprovedVersion() !== approvedVersion) {
+    const checkedSource = operations.hash();
+    const approvedConfiguration = operations.version(approvedVersion);
+    if (approvedConfiguration.id !== approvedVersion) throw new Error("Approved configuration response identifies a different Worker version");
+    operations.preflight();
+    if (operations.hash() !== checkedSource) throw new Error("Billing source or gate changed during preflight; rerun against stable files");
+    const ready = operations.deployment();
+    if (ready.id !== before.id || ready.version !== approvedVersion || operations.readPin() !== approvedVersion) {
       throw new Error("Live deployment or approved pin changed during preflight");
     }
-    const output = run("npx", ["wrangler", "deploy", "--strict"], billing);
-    uploadedVersion = /Current Version ID:\s*([0-9a-f-]{36})/i.exec(output)?.[1];
-    if (UUID.test(uploadedVersion || "")) {
-      const observed = currentDeployment();
-      if (observed.version === uploadedVersion) uploadedDeployment = observed;
+    const uploadedVersion = state.uploadedVersion = uploadedVersionId(operations.upload());
+    if (operations.hash() !== checkedSource) throw new Error("Billing source or gate changed during version upload; staged version was not activated");
+    const uploadedConfiguration = operations.version(uploadedVersion);
+    if (uploadedConfiguration.id !== uploadedVersion) throw new Error("Uploaded configuration response identifies a different Worker version");
+    assertVersionConfiguration(approvedConfiguration, uploadedConfiguration);
+    const beforeActivation = operations.deployment();
+    if (beforeActivation.id !== before.id || beforeActivation.version !== approvedVersion ||
+        operations.readPin() !== approvedVersion) {
+      throw new Error("Live deployment or approved pin changed during version upload; staged version was not activated");
     }
-    if (sourceHash() !== checkedSource) throw new Error("Billing source or gate changed during deployment; postdeploy verification cannot certify the tested source");
-    if (!UUID.test(uploadedVersion || "")) throw new Error("Wrangler did not report a deployed Version ID; postdeploy verification cannot be tied to this release");
-    if (!uploadedDeployment) throw new Error("Uploaded version was not observed as the sole active deployment; postdeploy verification cannot certify this release");
-    run(process.execPath, [gate, "verify", "--expected-version", uploadedVersion], root);
-    if (sourceHash() !== checkedSource) throw new Error("Billing source or gate changed during postdeploy verification");
-    if (remoteApprovedVersion() !== approvedVersion) throw new Error("Remote approved pin changed during release");
-    const beforePin = currentDeployment();
-    if (beforePin.id !== uploadedDeployment.id || beforePin.version !== uploadedVersion) {
+    if (operations.hash() !== checkedSource) throw new Error("Billing source or gate changed before version activation; staged version was not activated");
+    state.activationStarted = true;
+    let activationError;
+    try { operations.activate(uploadedVersion); } catch (error) { activationError = error; }
+    // Observe even if the activation CLI failed: its request may have committed
+    // before a timeout or a later non-versioned-settings operation failed.
+    const observed = state.activationObservedDeployment = operations.deployment();
+    if (observed.version === uploadedVersion) state.uploadedDeployment = observed;
+    if (activationError) throw activationError;
+    if (!state.uploadedDeployment) throw new Error("Uploaded version was not observed as the sole active deployment; postdeploy verification cannot certify this release");
+    if (operations.hash() !== checkedSource) throw new Error("Billing source or gate changed during activation; postdeploy verification cannot certify the tested source");
+    operations.verify(uploadedVersion);
+    if (operations.hash() !== checkedSource) throw new Error("Billing source or gate changed during postdeploy verification");
+    if (operations.readPin() !== approvedVersion) throw new Error("Remote approved pin changed during release");
+    const beforePin = operations.deployment();
+    if (beforePin.id !== state.uploadedDeployment.id || beforePin.version !== uploadedVersion) {
       throw new Error("Live Worker deployment changed before approved-version pin write");
     }
     // Cron reads this remote pin. A direct Wrangler deployment leaves the pin on
     // the prior version and will fail the scheduled check.
-    pinWriteStarted = true;
-    run("npx", ["wrangler", "kv", "key", "put", "monitor:approved-version", uploadedVersion,
-      "--binding", "REMOTE_DATA", "--remote", "--config", "wrangler.toml"], billing);
-    console.log(`Billing release verified: ${uploadedVersion}`);
+    state.pinWriteStarted = true;
+    operations.writePin(uploadedVersion);
+    return state;
   } catch (error) {
+    error.releaseState = state;
+    throw error;
+  }
+}
+
+function main() {
+  try {
+    if (process.argv.length !== 2) throw new Error("This deployment command accepts no bypass flags");
+    const state = executeRelease({
+      readPin: remoteApprovedVersion,
+      deployment: currentDeployment,
+      hash: sourceHash,
+      version: workerVersion,
+      preflight: () => run(process.execPath, [gate, "preflight"], root),
+      upload: () => run("npx", ["wrangler", "versions", "upload"], billing),
+      activate: version => run("npx", ["wrangler", "versions", "deploy", `${version}@100%`, "--yes"], billing),
+      verify: version => run(process.execPath, [gate, "verify", "--expected-version", version], root),
+      writePin: version => run("npx", ["wrangler", "kv", "key", "put", "monitor:approved-version", version,
+        "--binding", "REMOTE_DATA", "--remote", "--config", "wrangler.toml"], billing),
+    });
+    console.log(`Billing release verified: ${state.uploadedVersion}`);
+  } catch (error) {
+    const { approvedVersion, uploadedVersion, uploadedDeployment } = error.releaseState || {};
     console.error(`BILLING DEPLOYMENT FAILED: ${error.message}`);
-    const recovery = recoveryPlan({ approvedVersion, uploadedVersion, pinWriteStarted });
+    const recovery = recoveryPlan(error.releaseState || {});
     if (recovery === "manual") {
-      console.error("BILLING MANUAL RECOVERY REQUIRED: remote approved-version write may have committed; inspect live deployment and remote/local pins before rollback");
+      console.error("BILLING MANUAL RECOVERY REQUIRED: activation or remote approved-version write is ambiguous; inspect live deployment and remote/local pins before rollback");
     } else if (recovery === "rollback") {
       try {
         rollbackIfStillOurs(approvedVersion, uploadedVersion, uploadedDeployment);
