@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-26T05:32:47.330Z",
+  "status": "verified_local_not_published",
+  "version": "0.25.0",
+  "assets": [
+    {
+      "id": "office-suite",
+      "path": "bundles/releases/v0.25.0/office-suite.mcpb",
+      "filename": "office-suite.mcpb",
+      "version": "0.25.0",
+      "bytes": 30003480,
+      "sha256": "4918b493051b5a2c067c73013d093a0da08c9a41f8ac8ecd8f538107c167fb1a"
+    },
+    {
+      "id": "supplier-statement-check",
+      "path": "bundles/releases/v0.25.0/supplier-statement-check.mcpb",
+      "filename": "supplier-statement-check.mcpb",
+      "version": "0.25.0",
+      "bytes": 3284791,
+      "sha256": "98784c618a5f7df7c0e3ea4d4528200c10ea43d65eff785fbc1cde55216b306b"
+    }
+  ],
+  "checksums": "bundles/releases/v0.25.0/SHA256SUMS.txt",
+  "source_suite": "data/r38_packaging_final_source_tests.tap",
+  "source_suite_note": "40/40 source/Office tests passed before two metadata contract checks were added; those final2/2 also pass separately. Runtime archive bytes unchanged.",
+  "archive_verification": "data/r38_packaging_archive_verification.json",
+  "scoped_gate": "data/r38_packaging_gate_final.txt",
+  "previous_immutable_office_sha256": "0555833c1465b2a5583179eab963d8f068888077cc6410d3008254dbc469c300",
+  "external_mutations": 0,
+  "final_metadata_tests": "data/r38_packaging_final_contract_tests.tap"
+}

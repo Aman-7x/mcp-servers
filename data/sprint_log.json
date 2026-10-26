@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-16T11:34:32.113Z",
-  "total_commits": 1299,
-  "sessions": 105,
+  "generated_at": "2026-10-16T23:34:13.162Z",
+  "total_commits": 1301,
+  "sessions": 106,
   "loops": [
     {
       "name": "Loop 1: build, billing, registry",
@@ -145,8 +145,8 @@
     },
     {
       "name": "Loop 29: plan v26",
-      "sessions": 49,
-      "commits": 627
+      "sessions": 50,
+      "commits": 629
     }
   ],
   "rows": [
@@ -1773,7 +1773,7 @@
       "at": "2026-10-16T07:34:06Z",
       "note": "R37 complete: four-hour sprint with ten specialists; duplicate invoice/CSV buyer proof and success measurement shipped; three SheetJS0.20.3 archives published at0.22.9; 47 production observations, final checks pass. Final scoped MCP Checkout gross $0; indexing and paid demand remain unproven.",
       "loop": "Loop 29: plan v26",
-      "commits": 27,
+      "commits": 29,
       "subjects": [
         "Add duplicate invoice workflow, verified artifacts and bounded funnel telemetry",
         "Load optional native runtime test dependencies only when enabled",
@@ -1788,6 +1788,14 @@
         "Record R37 public release, live controls and distribution evidence",
         "Merge pull request #73 from theluckystrike/r37-release-evidence"
       ]
+    },
+    {
+      "n": 106,
+      "at": "2026-10-16T23:34:11.641586+00:00",
+      "note": "Commercial revenue review: independently reconciled the incorrect $38 MCP attribution to two other-storefront $4.99 subscriptions. Fresh fully covered28-day MCP Checkout audit:31 untagged/0 paid; completed-history MCP gross$0. Dashboard now leads with acquisition/paid-value limits and a proposed ten-operator trial before expansion. No outreach or production changes.",
+      "loop": "Loop 29: plan v26",
+      "commits": 0,
+      "subjects": []
     }
   ]
 }

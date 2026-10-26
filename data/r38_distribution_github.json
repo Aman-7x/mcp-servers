@@ -1,0 +1,377 @@
+{
+  "at": "2026-10-26T05:11:49.647Z",
+  "method": "GitHub documented REST repository best-match search, original eight frozen R37 queries, per_page 20; public projection only; no search-volume or people claim",
+  "queries": [
+    {
+      "id": "buyer_duplicate_invoice",
+      "q": "mcp duplicate invoice in:name,description",
+      "total_count": 8,
+      "incomplete_results": false,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+          "description": "Model Context Protocol (MCP) server for duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+          "stars": 0
+        },
+        {
+          "position": 2,
+          "full_name": "openclaw-mcp-vps/invoice-duplicate-detector",
+          "description": "OpenClaw auto-generated tool: invoice-duplicate-detector",
+          "stars": 0
+        },
+        {
+          "position": 3,
+          "full_name": "AuxiLabs-Auxiliobits/auxilab-mcp-ap-invoice",
+          "description": "MCP Server \u00b7 AP invoice field extraction, duplicate detection, vendor normalisation, and payment terms calculation",
+          "stars": 0
+        },
+        {
+          "position": 4,
+          "full_name": "cipherrage/invoice-mcp-server",
+          "description": "Asynchronous Model Context Protocol (MCP) financial server containerized for Azure Container Apps. Automates invoice validation, duplicate prevention via Azure Table Storage, and live SunSystems GL account status lookups via Microsoft Dataverse OData integrations.",
+          "stars": 0
+        },
+        {
+          "position": 5,
+          "full_name": "Soyouse/odoo-mcp",
+          "description": "Guarded Odoo MCP for Claude Code \u2014 post-write readback, duplicate-send/-invoice guards, silent-email scan, ID-provenance hook",
+          "stars": 0
+        },
+        {
+          "position": 6,
+          "full_name": "achux11/secureaudit-mcp",
+          "description": "\ud83d\udee1\ufe0f Privacy-first MCP server: lets AI audit financial data locally, finds duplicate invoices and risky access changes, scrubs PII, and sends metadata-only alerts \u00b7 Python \u00b7 FastAPI",
+          "stars": 0
+        },
+        {
+          "position": 7,
+          "full_name": "laibaaamjad/invoiceguard-agent",
+          "description": "An AI agent that audits vendor invoices against purchase orders, catching price mismatches, math errors, and duplicate billing, then drafting (never auto-sending) a dispute email. Built with Groq, Google ADK, and MCP.",
+          "stars": 0
+        },
+        {
+          "position": 8,
+          "full_name": "TejasvaDeshmukh/SecureAudit-AI",
+          "description": "Model Context Protocol (MCP) server for local, privacy-preserving compliance audits using FastAPI. Includes duplicated invoice identifiers, SOC2 RBAC anomaly detectors, and regex-based PII scrubbing filters with webhook triggers.",
+          "stars": 0
+        }
+      ],
+      "focus_positions": {
+        "duplicate-invoice-check": 1,
+        "three-way-match": null
+      }
+    },
+    {
+      "id": "buyer_supplier_invoice",
+      "q": "mcp duplicate supplier invoice in:name,description",
+      "total_count": 1,
+      "incomplete_results": false,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+          "description": "Model Context Protocol (MCP) server for duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+          "stars": 0
+        }
+      ],
+      "focus_positions": {
+        "duplicate-invoice-check": 1,
+        "three-way-match": null
+      }
+    },
+    {
+      "id": "buyer_vendor_bills",
+      "q": "mcp duplicate vendor bills in:name,description",
+      "total_count": 2,
+      "incomplete_results": false,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+          "description": "Model Context Protocol (MCP) server for duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+          "stars": 0
+        },
+        {
+          "position": 2,
+          "full_name": "laibaaamjad/invoiceguard-agent",
+          "description": "An AI agent that audits vendor invoices against purchase orders, catching price mismatches, math errors, and duplicate billing, then drafting (never auto-sending) a dispute email. Built with Groq, Google ADK, and MCP.",
+          "stars": 0
+        }
+      ],
+      "focus_positions": {
+        "duplicate-invoice-check": 1,
+        "three-way-match": null
+      }
+    },
+    {
+      "id": "buyer_invoice_duplicate_check",
+      "q": "mcp invoice duplicate check in:name,description",
+      "total_count": 1,
+      "incomplete_results": false,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+          "description": "Model Context Protocol (MCP) server for duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+          "stars": 0
+        }
+      ],
+      "focus_positions": {
+        "duplicate-invoice-check": 1,
+        "three-way-match": null
+      }
+    },
+    {
+      "id": "exact_capability",
+      "q": "duplicate-invoice-check in:name",
+      "total_count": 7,
+      "incomplete_results": false,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "Carmensitee/invoice-duplicate-checker",
+          "description": null,
+          "stars": 0
+        },
+        {
+          "position": 2,
+          "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+          "description": "Model Context Protocol (MCP) server for duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+          "stars": 0
+        },
+        {
+          "position": 3,
+          "full_name": "kaviduV/Batta-Invoice-duplicate-check",
+          "description": " Bot login a website and download a excel document. Then bot save it in a given location. after that bot check duplicate woes and remove those.",
+          "stars": 0
+        },
+        {
+          "position": 4,
+          "full_name": "fanzalika/check-duplicated-supplier-invoices",
+          "description": "When a supplier invoice is created, this module check using the reference field if was created before.     If yes, show a message to the user to avoid to have duplicated supplier invoices in the Odoo system",
+          "stars": 0
+        },
+        {
+          "position": 5,
+          "full_name": "ZhuJD-China/Invoice-duplicate-checking-applet-",
+          "description": "In order to solve the problem of school finance in checking whether the invoices have been reimbursed have been repeatedly entered and miswritten",
+          "stars": 1
+        },
+        {
+          "position": 6,
+          "full_name": "Flykra-Talloran/Invoice-duplicate-checking-and-amount-extraction",
+          "description": null,
+          "stars": 0
+        },
+        {
+          "position": 7,
+          "full_name": "yzhums/Check-whether-External-Document-No.-Vendor-Invoice-No.-are-unique-or-duplicated",
+          "description": "Dynamics 365 Business Central: How to check whether External Document No./Vendor Invoice No. are unique or duplicated - Customization",
+          "stars": 0
+        }
+      ],
+      "focus_positions": {
+        "duplicate-invoice-check": 2,
+        "three-way-match": null
+      }
+    },
+    {
+      "id": "exact_mirror",
+      "q": "repo:theluckystrike/mcp-duplicate-invoice-check",
+      "total_count": 1,
+      "incomplete_results": false,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+          "description": "Model Context Protocol (MCP) server for duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+          "stars": 0
+        }
+      ],
+      "focus_positions": {
+        "duplicate-invoice-check": 1,
+        "three-way-match": null
+      }
+    },
+    {
+      "id": "existing_matcher_control",
+      "q": "mcp three way match in:name,description",
+      "total_count": 11,
+      "incomplete_results": false,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-three-way-match",
+          "description": "Model Context Protocol (MCP) server for three way matching: supplier invoice matching against purchase orders and accepted receipts by SKU. Supplier invoice, purchase order and receipt checks by exact SKU. Works with Claude Desktop, Claude Code and Cursor.",
+          "stars": 0
+        },
+        {
+          "position": 2,
+          "full_name": "zavora-ai/skill-procurement",
+          "description": "Procurement skill \u2014 suppliers, RFQs, POs, contracts, three-way match, risk scoring, savings, negotiation via mcp-procurement",
+          "stars": 2
+        },
+        {
+          "position": 3,
+          "full_name": "Pawel-BoOssko/invoice-match-mcp",
+          "description": "MCP server that three-way-matches supplier invoices against purchase orders: deterministic rule engine, golden-case evals, tests. LLM as interface, rules as policy.",
+          "stars": 0
+        },
+        {
+          "position": 4,
+          "full_name": "Pchambet/consolidation-erp-mcp",
+          "description": "Odoo + FEC ledger + warehouse API consolidated in DuckDB; SQL three-way-match controls recover all 22 planted discrepancies; LLM agent queries it via MCP",
+          "stars": 0
+        },
+        {
+          "position": 5,
+          "full_name": "sergio4848/p2p-mcp-agent",
+          "description": "MCP server over mock purchase-to-pay finance APIs: three-way match, human-approved payments, idempotency, hash-chained audit log, LangGraph agent and eval harness",
+          "stars": 0
+        },
+        {
+          "position": 6,
+          "full_name": "Gurmeher23/mcp-ledger-server-ts",
+          "description": "TypeScript MCP server exposing an invoice-ledger domain (three-way match, exception routing) as agent tools, with zod validation, Vitest unit/integration tests and a tool-calling eval harness",
+          "stars": 0
+        },
+        {
+          "position": 7,
+          "full_name": "alihdrndm/ledgic",
+          "description": "Open-source accounts-payable automation: AI extraction, three-way match, tool-using agents, RAG copilot and an MCP server. Next.js + FastAPI + Supabase.",
+          "stars": 0
+        },
+        {
+          "position": 8,
+          "full_name": "prab-hub/revexos-q2c-kit",
+          "description": "Quote-to-cash skills for Claude: quotes, PO to invoice, three-way match, billing and proration, payment terms, collections and revenue recognition, plus the free RevExOS MCP connector",
+          "stars": 0
+        },
+        {
+          "position": 9,
+          "full_name": "roopagager/sap-p2p-copilot",
+          "description": "Governed MCP server giving an AI assistant read-only access to SAP S/4HANA procure-to-pay data: three-way match, approval-only actions, audit trail, Parquet landing for Databricks.",
+          "stars": 0
+        },
+        {
+          "position": 10,
+          "full_name": "MosoFin/mosofin-finance-skills",
+          "description": "Read-only accounting skills for Claude, run against your own books through the MosoFin MCP gateway: month-end close, bank reconciliation, journal entries, GL coding, financial statements, AR aging, three-way match. Every output is a proposal for a person to post. Published via the mosofin-plugins marketplace. Requires a MosoFin subscription.",
+          "stars": 0
+        },
+        {
+          "position": 11,
+          "full_name": "akhilkrishnankv/Procure",
+          "description": "Autonomous AI agent for three way invoice matching: extracts supplier PDFs from email, matches with POs and receipts in Odoo ERP, auto-approves high confidence cases, and routes edge cases for human review. Built as a multi agent system using LangGraph, GPT 4o Vision, fuzzy ontology, and MCP abstraction with real time ERP integration.",
+          "stars": 0
+        }
+      ],
+      "focus_positions": {
+        "duplicate-invoice-check": null,
+        "three-way-match": 1
+      }
+    },
+    {
+      "id": "existing_competitor",
+      "q": "invoice triage copilot in:name",
+      "total_count": 1,
+      "incomplete_results": false,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "ajoys24/invoice-triage-copilot",
+          "description": "Multi-agent AI system for vendor invoice triage \u2014 Google/Kaggle 5-Day AI Agents capstone",
+          "stars": 1
+        }
+      ],
+      "focus_positions": {
+        "duplicate-invoice-check": null,
+        "three-way-match": null
+      }
+    }
+  ],
+  "mirrors": [
+    {
+      "server": "duplicate-invoice-check",
+      "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+      "description": "Model Context Protocol (MCP) server for duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+      "homepage": "https://mcp.zovo.one/s/duplicate-invoice-check",
+      "topics": [
+        "accounts-payable",
+        "ai",
+        "claude",
+        "claude-code",
+        "claude-desktop",
+        "cursor",
+        "duplicate-invoices",
+        "invoice-review",
+        "llm",
+        "local-first",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "nodejs",
+        "typescript",
+        "vendor-bills"
+      ],
+      "pushed_at": "2026-10-16T09:25:22Z",
+      "readme": {
+        "bytes": 14498,
+        "sha256": "c013496dcc5750add343933b9dc5aee69fb675a8edc9557d104f33936ebff6b1",
+        "github_blob_sha": "086fdabbfe02fe6e669b243bf0c200606b0886c5",
+        "first_screen": "# Duplicate supplier invoice check MCP server\n\n<!-- mirror-seo:start -->\n\n**MCP server for duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence.** Review duplicate supplier invoice candidates in supplied local history.\n\nWorks with Claude Desktop, Claude Code, Cursor and any Model Context Protocol client. Runs on your own machine: this one has no hosted endpoint, so install it from the bundle or from source.\n\nProduct page: <https://mcp.zovo.one/s/duplicate-invoice-check> \u2014 capabilities, free limits and supported installation paths.\n\n[Try the editable duplicate-invoice review in your browser](https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo) before installing. Synthetic fields are checked locally in your browser without uploads. Candidates require review; they are not payment decisions.\n\n## Install\n\n**Claude Desktop, one click.** Download `duplicate-invoice-check.mcpb` from the [bundle catalog](https://mcp.zovo.one/downloads#duplicate-invoice-check) and double-click it.\n\n**From source.** The mirror is self-contained: every `@theluckystrike/*` dependency is vendored, so a fresh clone builds with no extra setup.\n\n```sh\ngit clone https://github.com/theluckystrike/mcp-duplicate-invoice-check.git\ncd mcp-duplicate-invoice-check\nnpm install && npm run build\n```\n\nThen point your client at the built entry point:\n\n```json\n{\n  \"mcpServers\": {\n    \"duplicate-invoice-check\": {\n      \"command\": \"node\",\n      \"args\": [\"/absolute/path/to/mcp-duplicate-invoice-check/dist/index.js\"]\n    }\n  }\n}\n```\n\n> `@theluckystrike/mcp-duplicate-invoice-check` is **not published on npm yet**, so an `npx -y @theluckystrike/mcp-duplicate-invoice-check` command will fail. The three paths above are the working ones and each is exercised by CI.\n\n![duplicate-invoice-check demo](https://raw.githubusercontent.com/theluckystrike/mcp-servers/main/assets/demo-duplicate-invoice-check.gif)\n\nRead-only mirror of [mcp-servers/servers/duplicate-invoice-check](https://github.com/theluckystrike/mcp-servers/tree/main/servers/duplicate-invoice-check). See [MIRROR.md](MIRROR.md).\n\n<!-- mirror-seo:end -->\n\nReview a supplied batch of supplier invoices for repeated invoice numbers, conservative formatting variations, or identical amounts and invoice dates. This local MCP server returns complete grouped evidence and the exact reason each record needs review. Distinct legitimate invoices can share an amount and date. Candidates are not confirmed duplicates, fraud scores, recoverable money or payment decisions. It does not connect to an ERP, read PDFs, use OCR, or retrieve missing history.\n\nBuilt by [theluckystrike](https://github.com/theluckystrike). MIT. Support: support@zovo.one.\n\n## Install\n\nClaude Desktop: download [duplicate-invoice-check.mcpb v0.22.8](https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb) and open it. SHA-256: `181379eb6dcff3d90b55e080dd9c180f6c96802e991872865a6b0ce422b3aaea`. Other clients can use the source instructions below.\n\nRequires Node.js 18 or newer and an MCP client. No API key or account is needed for free use. The npm package is not published: build the source checkout, then use an absolute local path.\n\n```sh\ngit clone https://github.com/theluckystrike/mcp-servers.git\ncd mcp-servers\nnpm install\nnode scripts/bootstrap-timezone.mjs\nnpm run build --workspace @theluckystrike/mcp-license\nnpm run build --workspace @theluckystrike/mcp-duplicate-invoice-check\n```\n\nClaude Desktop: merge this entry into `mcpServers` in `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS, or `%APPDATA%\\Claude\\claude_desktop_config.json` on Windows. Replace `/absolute/path` with the checkout location.\n\n```json\n{\"mcpServers\":{\"duplicate-invoice-check\":{\"command\":\"node\",\"args\":[\"/absolute/path/mcp-servers/servers/duplicate-invoice-check/dist/index.js\"]}}}\n```\n\nClaude Code:\n\n```sh\nclaude mcp add duplicate-invoice-check -- node /absolute/path/mcp-servers/servers/duplicate-invoice-check/dist/index.js\n```\n\nCursor: put this local entry in `.cursor/mcp.json` in your project or `~/.cursor/mcp.json`:\n\n```json\n{\"mcpServers\":{\"duplicate-invoice-check\":{\"type\":\"stdio\",\"command\":\"node\",\"args\":[\"/absolute/path/mcp-servers/servers/duplicate-invoice-check/dist/index.js\"]}}}\n```\n\nVS Code: use `.vscode/mcp.json` with the top-level key `servers`:\n\n```json\n{\"servers\":{\"duplicate-invoice-check\":{\"type\":\"stdio\",\"command\":\"node\",\"args\":[\"/absolute/path/mcp-servers/servers/duplicate-invoice-check/dist/index.js\"]}}}\n```\n\nWindsurf's legacy Cascade agent: merge the Claude Desktop `mcpServers` JSON into `~/.codeium/windsurf/mcp_config.json`. This file applies to Cascade; its newer Devin Local agent uses a different configuration route. The standalone server exposes eight tools.\n\nCline: open its MCP Servers panel, Configure tab, then Configure MCP Servers. Add this entry to the settings JSON (for the Cline CLI, the file is `~/.cline/mcp.json`):\n\n```json\n{\"mcpServers\":{\"duplicate-invoice-check\":{\"type\":\"stdio\",\"command\":\"node\",\"args\":[\"/absolute/path/mcp-servers/servers/duplicate-invoice-check/dist/index.js\"],\"disabled\":false,\"autoApprove\":[]}}}\n```\n\nThese are the six local stdio client configurations used by this project. There is no hosted endpoint or browser chat connector. If the client cannot find `node`, replace it with the absolute path printed by `which node`. After saving, reconnect the server (fully quit and restart Claude Desktop), call `license_status`, then run the example below. A `tools/list` result alone does not verify candidate checking.\n\n## Tools\n\n| Tool | Input and result |\n| --- | --- |\n| `duplicate_invoice_check` | `records`, optional `save` (false); complete grouped candidates, unique counts, source evidence and a free preview id. |\n| `report_list` | Optional `offset` (0), `limit` (20, max 100); saved UUIDs and count summaries. |\n| `report_get` | Saved `id`; source records, groups and reasons. |\n| `report_page` | Saved or preview `id`, `section`, optional `offset`, `limit` (max 100), `group_id`; complete evidence pages. |\n| `report_delete` | Saved `id`; delete one report and reuse its storage slot. |\n| `report_export_csv` | Saved or preview `id`, optional `offset`, `limit` (max 1000); one row per source record, candidate reasons and group ids. |\n| `license_status` | No arguments; offline tier and checkout link. |\n| `license_activate` | `key`; verify and store an offline Pro license. |\n\n## A repeated reference and a legitimate equal total\n\nCall `duplicate_invoice_check` with synthetic records:\n\n```json\n{\n  \"records\": [\n    {\"record_id\":\"A\",\"entity_id\":\"UK-1\",\"supplier_id\":\"S-9\",\"document_type\":\"invoice\",\"invoice_number\":\"INV-001\",\"invoice_date\":\"2026-10-01\",\"currency\":\"USD\",\"total_minor\":12500},\n    {\"record_id\":\"B\",\"entity_id\":\"UK-1\",\"supplier_id\":\"S-9\",\"document_type\":\"invoice\",\"invoice_number\":\"INV-001\",\"invoice_date\":\"2026-10-02\",\"currency\":\"USD\",\"total_minor\":13000},\n    {\"record_id\":\"C\",\"entity_id\":\"UK-1\",\"supplier_id\":\"S-9\",\"document_type\":\"invoice\",\"invoice_number\":\"inv /001\",\"invoice_date\":\"2026-10-03\",\"currency\":\"USD\",\"total_minor\":12500},\n    {\"record_id\":\"D\",\"entity_id\":\"UK-1\",\"supplier_id\":\"S-9\",\"document_type\":\"invoice\",\"invoice_number\":\"SERVICE-02\",\"invoice_date\":\"2026-10-01\",\"currency\":\"USD\",\"total_minor\":12500}\n  ],\n  \"save\": false\n}\n```\n\nThe result has four unique candidate records and three groups. `exact_reference` includes A/B despite their different dates and totals. `normalized_reference` includes A/B/C and exposes every conflicting field. `same_amount_date` includes A/D: two different legitimate services could have the same date and total, so this group is a review prompt. A appears in three groups but is counted once. No sum of possible losses is calculated. Changing C to `INV-1` excludes it from the normalized `INV001` group because leading zeros remain meaningful.\n\n## Exact input contract\n\nSupply 1\u20131000 records, each with unique `record_id`, exact `entity_id` and `supplier_id`, `document_type` (`invoice` or `credit_note`), `invoice_number`, real `YYYY-MM-DD` `invoice_date`, uppercase three-letter `currency`, and positive safe-integer `total_minor`. IDs and invoice numbers are 1\u2013160 characters without surrounding whitespace or control characters. Optional `entity_label` and `supplier_label` are display-only text, up to 200 characters without controls. Unknown fields are rejected.\n\nAmounts are integer currency minor units, never floating point amounts: USD 12500 means $125.00. Currency codes are checked for uppercase three-letter syntax, not against an external currency registry. Credit notes use positive absolute amounts and compare only with credit notes. No amounts are added, converted or interpreted as a financial loss. Year 0000, impossible calendar dates, duplicate record ids, zero/negative/decimal/unsafe money and over-limit batches are input errors.\n\nEach rule groups only records with exactly equal `(entity_id, supplier_id, document_type, currency)`. Entity and supplier IDs are case-sensitive: similar names, different IDs and different entities never join. Multiple entities can appear in a batch, but each remains a separate scope. Display labels do not affect matching.\n\nThree equality rules run independently:\n\n1. `exact_reference`: the original invoice number matches exactly, even when amounts/dates differ.\n2. `normalized_reference`: ASCII `a-z` becomes `A-Z`; only ASCII space, hyphen, slash and dot are removed. Leading zeros, accents, all Unicode characters, underscores, nonbreaking spaces, Unicode dashes and letter/digit lookalikes remain unchanged. Empty normalized keys do not collide.\n3. `same_amount_date`: positive amount and invoice date both match exactly. This frequently has legitimate explanations.\n\nGroups contain complete membership, exact scope and match key, an explanation and differing source fields. They are independent overlapping reasons, not transitive confirmed-duplicate clusters. `candidate_record_count` counts the union once. `no_candidates_in_supplied_batch` means these limited rules found none in the records supplied; it does not mean safe to pay. Missing history and reference, date or amount changes can evade these rules. Saved reports never become implicit cross-call history: include all records you want compared every time.\n\nSource records and report groups are sorted deterministically; reordering the same input records produces the same diagnostic evidence. The computation groups keys instead of producing every pair: at most 3000 memberships for 1000 records, including overlap. The server performs no telemetry or network requests.\n\n## Free evidence, paging and CSV\n\nEvery check returns a `retrieval.report_id`, including unsaved checks. Preview IDs are `preview:<UUID>`, local to the current server process. The last two previews remain available for 30 minutes. A third check, restart or expiry can evict a preview; resubmit the original free diagnostic. Saved UUIDs persist on disk.\n\n`report_page` sections are `records`, `groups`, `record_summaries`, and `group_members`. Follow `next_offset` until null, with `limit` 1\u2013100. Group pages return summary metadata and `member_count`; read all members using `section: \"group_members\"` and the exact `group_id`. Member pages contain complete original records. Records are stored once in the report; groups refer to their exact record ids. All pages and CSV exports are free, including after hitting the saved-report cap.\n\nThe encoded incoming stdio message must fit the SDK's 10 MiB receive buffer. Responses use an 8 MiB escaped text-envelope budget; a larger report returns an explicit paginated overview with the same free retrieval instructions. Current 1000-row/text limits fit that budget in transport tests, including worst-case quoting. CSV uses one row per record rather than repeating it for each group. It includes original source fields, candidate flag, reason codes and group ids. Formula-like leading text is escaped. Export returns text; it never writes to a caller-supplied filename. CSV pages can contain fewer rows than the requested limit when quoting would exceed the response budget. Follow the actual `next_offset` until null; `returned` always counts the rows in that page. Every CSV page repeats its header; retain one header when joining pages.\n\n## Free and Pro\n\n| Capability | Free | Pro |\n| --- | --- | --- |\n| All checks, source records, grouped reasons | Included, up to 1000 records/call | Same |\n| Preview pages and CSV | Included | Same |\n| Concurrent saved reports | 3 | No report-count cap |\n| Total saved storage | 64 MiB | 64 MiB |\n| Input/output, text and preview safety bounds | Same documented bounds | Same |\n\n`save: true` at the free cap still returns the complete diagnostic and free preview with `saved: false`, `save_error: \"free_saved_report_cap\"`, and an upgrade link. Delete a saved report to reuse a slot. Storage failures also preserve diagnostics. Pro removes only the saved-count cap; it does not increase input, transport, preview or total storage bounds.\n\n[Get Pro: $19 one time](https://mcp.zovo.one/buy/duplicate-invoice-check). [All servers: $39 bundle](https://mcp.zovo.one/buy/bundle). Set `MCP_LICENSE_KEY` or call `license_activate`. Keys verify offline.\n\nAll data stays local. Reports live under `${XDG_DATA_HOME:-~/.local/share}/mcp-servers/duplicate-invoice-check/`. `XDG_DATA_HOME` must be absolute and directory ancestry must contain no symlinks. Private JSON files use atomic writes and cross-process mutation locks; reads revalidate source records and recompute the evidence instead of trusting edited derived results. License activation writes the shared local license config. Manage local accounting-data access and backups yourself.\n\n## Development\n\n```sh\nnpm run build --workspace @theluckystrike/mcp-duplicate-invoice-check\nnpm test --workspace @theluckystrike/mcp-duplicate-invoice-check\n```\n\nBu"
+      },
+      "checks": {
+        "product_url": true,
+        "no_unpublished_npx": false,
+        "browser_demo": true,
+        "paid_price": true,
+        "free_and_pro": true,
+        "npm_unpublished_warning": true,
+        "npx_detection_note": "The false no_unpublished_npx flag is a literal substring detector: the only npx command is in an explicit warning that it fails, not a recommended installation. Verified by reading the complete context."
+      }
+    },
+    {
+      "server": "three-way-match",
+      "full_name": "theluckystrike/mcp-three-way-match",
+      "description": "Model Context Protocol (MCP) server for three way matching: supplier invoice matching against purchase orders and accepted receipts by SKU. Supplier invoice, purchase order and receipt checks by exact SKU. Works with Claude Desktop, Claude Code and Cursor.",
+      "homepage": "https://mcp.zovo.one/s/three-way-match",
+      "topics": [
+        "accounts-payable",
+        "ai",
+        "claude",
+        "claude-code",
+        "claude-desktop",
+        "cursor",
+        "invoice-matching",
+        "llm",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "nodejs",
+        "purchase-order",
+        "supplier-invoice",
+        "three-way-matching",
+        "typescript"
+      ],
+      "pushed_at": "2026-10-16T09:25:32Z",
+      "readme": {
+        "bytes": 15453,
+        "sha256": "fdd61b3d36da67af5efcf2e9180d126efb3b2c286939fb59acb0b79bd0b7e395",
+        "github_blob_sha": "321da1d42d36f814e9b7826cc08a0aa614716bf3",
+        "first_screen": "# Three-way supplier invoice matching MCP server\n\n<!-- mirror-seo:start -->\n\n**MCP server for three way matching: supplier invoice matching against purchase orders and accepted receipts by SKU.** Supplier invoice, purchase order and receipt checks by exact SKU.\n\nWorks with Claude Desktop, Claude Code, Cursor and any Model Context Protocol client. Runs on your own machine: this one has no hosted endpoint, so install it from the bundle or from source.\n\nProduct page: <https://mcp.zovo.one/s/three-way-match> \u2014 capabilities, free limits and supported installation paths.\n\n[Try the editable matching example in your browser](https://mcp.zovo.one/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo) before installing. No account is needed; the example checks run in your browser without uploading field values.\n\n## Install\n\n**Claude Desktop, one click.** Download `three-way-match.mcpb` from the [bundle catalog](https://mcp.zovo.one/downloads#three-way-match) and double-click it.\n\n**From source.** The mirror is self-contained: every `@theluckystrike/*` dependency is vendored, so a fresh clone builds with no extra setup.\n\n```sh\ngit clone https://github.com/theluckystrike/mcp-three-way-match.git\ncd mcp-three-way-match\nnpm install && npm run build\n```\n\nThen point your client at the built entry point:\n\n```json\n{\n  \"mcpServers\": {\n    \"three-way-match\": {\n      \"command\": \"node\",\n      \"args\": [\"/absolute/path/to/mcp-three-way-match/dist/index.js\"]\n    }\n  }\n}\n```\n\n> `@theluckystrike/mcp-three-way-match` is **not published on npm yet**, so an `npx -y @theluckystrike/mcp-three-way-match` command will fail. The three paths above are the working ones and each is exercised by CI.\n\n![three-way-match demo](https://raw.githubusercontent.com/theluckystrike/mcp-servers/main/assets/demo-three-way-match.gif)\n\nRead-only mirror of [mcp-servers/servers/three-way-match](https://github.com/theluckystrike/mcp-servers/tree/main/servers/three-way-match). See [MIRROR.md](MIRROR.md).\n\n<!-- mirror-seo:end -->\n\nCheck a supplier invoice against its purchase order and delivery receipts in Claude or another MCP client. This local server compares each exact SKU, unit price and billed quantity with the PO, cumulative accepted deliveries and quantities you say were already invoiced. It catches offsetting SKU mistakes even when the invoice and PO grand totals agree, and returns the source values behind every exception. Supply structured documents; this server does not extract PDFs, perform OCR, connect to an ERP, post payments or approve an invoice.\n\nBuilt by [theluckystrike](https://github.com/theluckystrike). MIT. Support: support@zovo.one.\n\n## Install\n\nClaude Desktop: download [three-way-match.mcpb v0.22.8](https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb) and open it. SHA-256: `6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040`. Other clients can use the source instructions below.\n\nRequires Node.js 18 or newer. Build from the source checkout; the npm package is not published. No API key or account is required to run the free tools.\n\n```sh\ngit clone https://github.com/theluckystrike/mcp-servers.git\ncd mcp-servers\nnpm install\nnode scripts/bootstrap-timezone.mjs\nnpm run build --workspace @theluckystrike/mcp-license\nnpm run build --workspace @theluckystrike/mcp-three-way-match\n```\n\nUse the absolute path to `servers/three-way-match/dist/index.js` in your checkout. The server speaks stdio; your MCP client starts it. Do not put an HTTP URL in its place.\n\nClaude Desktop: merge this entry into `mcpServers` in `~/Library/Application Support/Claude/claude_desktop_config.json` on macOS (or `%APPDATA%\\Claude\\claude_desktop_config.json` on Windows), replacing `/absolute/path` with your checkout location:\n\n```json\n{\n  \"mcpServers\": {\n    \"three-way-match\": {\n      \"command\": \"node\",\n      \"args\": [\"/absolute/path/mcp-servers/servers/three-way-match/dist/index.js\"]\n    }\n  }\n}\n```\n\nClaude Code:\n\n```sh\nclaude mcp add three-way-match -- node /absolute/path/mcp-servers/servers/three-way-match/dist/index.js\n```\n\nCursor: merge the same JSON into `.cursor/mcp.json` in your project or `~/.cursor/mcp.json`. Restart your client, call `license_status`, then run the example below. A `tools/list` result alone does not verify matching.\n\nFor Claude Desktop, download [three-way-match.mcpb](https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb) and open it to install. SHA-256: `6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040`. This is a local stdio server; no hosted endpoint is available.\n\n## Tools\n\n| Tool | Arguments and result |\n| --- | --- |\n| `three_way_match` | PO, receipts, invoice, required `prior_invoiced`, optional `save`; returns full report and save outcome. |\n| `report_list` | Optional `offset` (0), `limit` (20, maximum 100); returns saved UUIDs and summaries. |\n| `report_get` | `id`; source documents, all issues and per-SKU evidence. |\n| `report_page` | `id`, `section`, optional `offset`/`limit`, `receipt_index`/`sku`; free pages of every issue, SKU evidence and source row. |\n| `report_delete` | `id`; removes that saved report and frees a storage slot. |\n| `report_export_csv` | `id`, optional `offset`/`limit`; CSV text plus currency, status and document-level issue codes; large exports paginate. |\n| `license_status` | No arguments; offline free/Pro status and checkout link. |\n| `license_activate` | `key`; verifies and stores a Pro key offline. |\n\n## Input contract\n\nOne PO and one current supplier invoice per call. There is no fuzzy matching: SKU, supplier and PO references are exact, case-sensitive strings, with no surrounding whitespace or control characters. Document references and SKUs are 1\u2013120 characters. PO, invoice and receipt document references must be distinct. Duplicate SKUs within a document or within `prior_invoiced`, and duplicate receipt references, produce `invalid`; ambiguous rows are excluded from comparison. Repeated SKUs across different receipt documents are expected and accumulate.\n\nQuantities are whole units from 0 to 1,000,000,000; PO and invoice line quantities must be positive. Fractional quantities are rejected. `accepted_quantity` and `rejected_quantity` are disjoint counts, not a gross count and its subset. Rejected units never increase the quantity available to invoice. Receipts must carry valid `YYYY-MM-DD` dates; include only receipts relevant to this check. Dates are evidence, not an automatic invoice-date cutoff.\n\nEvery monetary input is an integer minor-unit amount from 0 to `Number.MAX_SAFE_INTEGER` (9,007,199,254,740,991). For USD, 100 means $1.00; for a zero-decimal currency use its own minor units. Supply the uppercase three-letter currency code on both PO and invoice. No currency conversion or currency-code catalog lookup occurs. Unit prices must match exactly, with no tolerance. Money products and totals use integer arithmetic; unsafe results produce `invalid` with `unsafe_money_arithmetic`, never a rounded amount.\n\n`invoice.total_minor` is the total of the supplied goods lines. There are no implicit tax, freight, discount, rounding or credit adjustments. Represent agreed charges as explicit priced PO/invoice SKUs and appropriate receipt evidence, or prepare an excluding-adjustments goods total before calling. Do not supply an all-in invoice total while omitting its adjustments.\n\n`prior_invoiced` is required, even when empty. Supply the complete cumulative quantities previously billed for each SKU against this PO, excluding this current invoice. `[]` explicitly asserts none. Current plus prior quantities must fit both accepted receipts and the PO. Saving reports does not update this history or detect repeated invoice references across checks; incorrect or omitted history can allow repeat billing to go undetected. Reports are evidence snapshots, not an accounting ledger.\n\nBounds apply equally to free and Pro: 1\u2013500 PO lines, 1\u2013500 invoice lines, up to 500 prior SKUs, and up to 100 receipts of 1\u2013500 lines each. An empty receipts array is valid and produces missing-receipt exceptions for billed PO SKUs. Empty or malformed references, blank/missing SKUs, decimals, unsafe input numbers and invalid dates are rejected as input errors. Unknown SKUs are explicit `unordered_sku` exceptions.\n\n## Equal totals can hide SKU errors\n\nCall `three_way_match` with:\n\n```json\n{\n  \"po\": {\n    \"reference\": \"PO-1\", \"supplier\": \"Supply Co\", \"currency\": \"USD\",\n    \"lines\": [\n      {\"sku\": \"A\", \"quantity\": 10, \"unit_price_minor\": 100},\n      {\"sku\": \"B\", \"quantity\": 10, \"unit_price_minor\": 100}\n    ]\n  },\n  \"receipts\": [{\n    \"reference\": \"GR-1\", \"po_reference\": \"PO-1\", \"supplier\": \"Supply Co\", \"date\": \"2026-10-16\",\n    \"lines\": [\n      {\"sku\": \"A\", \"accepted_quantity\": 5, \"rejected_quantity\": 0},\n      {\"sku\": \"B\", \"accepted_quantity\": 15, \"rejected_quantity\": 0}\n    ]\n  }],\n  \"invoice\": {\n    \"reference\": \"INV-1\", \"po_reference\": \"PO-1\", \"supplier\": \"Supply Co\", \"currency\": \"USD\",\n    \"lines\": [\n      {\"sku\": \"A\", \"quantity\": 10, \"unit_price_minor\": 100},\n      {\"sku\": \"B\", \"quantity\": 10, \"unit_price_minor\": 100}\n    ],\n    \"total_minor\": 2000\n  },\n  \"prior_invoiced\": [],\n  \"save\": false\n}\n```\n\nThe report has `status: \"exceptions\"`, despite equal 2,000-minor-unit PO/invoice totals and equal aggregate quantities. SKU A has `invoiced_above_accepted` (10 billed, 5 accepted); SKU B has `accepted_above_order` (15 accepted, 10 ordered). Changing invoice unit prices to 90 for A and 110 for B also preserves the grand total but produces two `unit_price_mismatch` issues.\n\n## Partial deliveries can match\n\nUsing the same PO, supply a receipt containing only A with `accepted_quantity: 4`, `rejected_quantity: 2`. Invoice only A with `quantity: 4`, `unit_price_minor: 100`, `total_minor: 400`, and keep `prior_invoiced: []`. This returns `matched`. A has six units still undelivered; B need not appear on this partial invoice. A second matching receipt adds its accepted quantity; rejected quantities remain separate evidence. After previously billing two A units, supply `prior_invoiced: [{\"sku\":\"A\",\"quantity\":2}]` and bill at most two more against those four accepted units.\n\n## Reading the report\n\n`matched` means the supplied evidence passes these exact checks; it does not authorize payment. `exceptions` identifies document mismatches, unknown SKUs, missing receipts, excessive accepted/billed quantities, price differences or an inconsistent declared invoice total. `invalid` identifies ambiguity or unsafe computed money; resolve it before interpreting the comparison. Mismatched receipt PO/supplier references are flagged and those receipts do not support billing.\n\nEvery issue has `code`, `severity`, `source`, optional `sku`, and a concrete message. Each sorted SKU row includes PO/invoice one-based source line numbers; ordered, accepted, rejected, prior and current invoice quantities; both unit prices; cumulative billed quantity; available quantity before this invoice; remaining undelivered quantity; receipt references/line numbers and inclusion flags; and issue codes. The report retains the complete supplied documents, so a duplicate row never disappears from the audit evidence. Partial shortages are shown as remaining quantities and do not themselves fail a supported partial invoice.\n\nSmall reports return inline. A report whose escaped MCP response would exceed 8 MiB returns an explicit `paginated: true` overview with status, totals, counts, source document headers and `report_id`. All evidence remains free through `report_page`. Select `section` from `issues`, `lines`, `po_lines`, `invoice_lines`, `prior_invoiced`, `receipts`, `receipt_lines` or `line_receipts`; use `offset` (default 0) and `limit` (default 100, maximum 100), following `next_offset` until null. `lines` pages contain scalar evidence and `receipt_count`; get those receipt entries with `line_receipts` and the exact `sku`. `receipt_lines` requires the zero-based `receipt_index` from the original receipt array. `receipts` pages contain document headers and line counts. Together these sections preserve every source row and every computed issue.\n\nSaved reports use their persistent UUID for pages, and `report_get` returns the same bounded overview for large saved reports. Large unsaved reports, including save-cap and storage failures, use `preview:<UUID>` IDs: the process keeps its last two large previews for 30 minutes. Restart, expiry or a third preview can evict them; resubmit the original diagnostic to recreate the free preview. Preview IDs belong to the current running server process. The underlying SDK also limits incoming stdio messages to 10 MiB; encoded requests must fit that transport limit even when individual row counts fit the schema.\n\nCSV includes one row per SKU, exact minor-unit prices, quantities and line issue codes; document issues remain in the accompanying JSON and full report. CSV is returned as text, not written to an arbitrary caller-supplied path. Formula-like leading characters are escaped for spreadsheet use.\n\nCSV exports that fit the same 8 MiB response budget stay inline. Larger exports return a first chunk of up to 1,000 rows with `paginated`, `offset`, `returned`, `total_rows` and `next_offset`. Pass that `next_offset` as `offset` in another `report_export_csv` call; optional `limit` is 1\u20131,000. Every chunk repeats the header; retain one header when combining chunks.\n\n## Free and Pro\n\n| Capability | Free | Pro |\n| --- | --- | --- |\n| Full diagnostic checks and source evidence | All checks, up to 500 PO/invoice lines | Same |\n| Receipts and prior invoice checks | Same documented bounds | Same |\n| Saved reports | 3 at a time | No report-count cap |\n| List/get/delete and CSV export | Included | Included |\n\nWhen `save: true` hits the free cap, the full report is still returned with `saved: false`, `save_error: \"free_saved_report_cap\"` and the checkout link. A storage "
+      },
+      "checks": {
+        "product_url": true,
+        "no_unpublished_npx": false,
+        "browser_demo": true,
+        "paid_price": true,
+        "free_and_pro": true,
+        "npm_unpublished_warning": true,
+        "npx_detection_note": "The false no_unpublished_npx flag is a literal substring detector: the only npx command is in an explicit warning that it fails, not a recommended installation. Verified by reading the complete context."
+      }
+    }
+  ],
+  "completed_at": "2026-10-26T05:12:08.765Z"
+}

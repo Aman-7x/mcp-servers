@@ -35,7 +35,8 @@ test("download catalog covers every listed server with an explicit release asset
   const html = await response.text();
   assert.match(html, /releases\/download\/v0\.22\.0\/invoice\.mcpb/);
   assert.match(html, /releases\/download\/v0\.22\.8\/three-way-match\.mcpb/);
-  assert.match(html, /releases\/download\/v0\.22\.9\/office-suite\.mcpb/);
+  assert.match(html, /releases\/download\/v0\.25\.0\/office-suite\.mcpb/);
+  assert.match(html, /releases\/download\/v0\.25\.0\/supplier-statement-check\.mcpb/);
   assert.match(html, /releases\/download\/v0\.22\.9\/spreadsheet\.mcpb/);
   assert.match(html, /releases\/download\/v0\.22\.9\/expense-tracker\.mcpb/);
   assert.match(html, /releases\/download\/v0\.22\.8\/duplicate-invoice-check\.mcpb/);

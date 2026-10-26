@@ -61,6 +61,7 @@ export const SERVER_IDS = [
   "statement-of-account",
   "stripe-billing",
   "supplier-list",
+  "supplier-statement-check",
   "tax-calc",
   "three-way-match",
   "time-tracker",
@@ -121,6 +122,7 @@ export const CHILD_IDS = [
   "statement-of-account",
   "stripe-billing",
   "supplier-list",
+  "supplier-statement-check",
   "tax-calc",
   "three-way-match",
   "time-tracker",
@@ -232,6 +234,7 @@ export const TOOLS = {
   "statement-of-account": 6,
   "stripe-billing": 2,
   "supplier-list": 8,
+  "supplier-statement-check": 6,
   "tax-calc": 1,
   "three-way-match": 6,
   "time-tracker": 18,
@@ -244,12 +247,12 @@ export const TOOLS = {
 export const LICENSE_TOOLS = 2;
 
 /** Sum of TOOLS over CHILD_IDS. */
-export const OWN_TOOLS_TOTAL = 457;
+export const OWN_TOOLS_TOTAL = 463;
 
 /** Actual distinct proxy tool names, measured by tools/list from the built bundle.
  * Source: data/office-suite-tool-inventory.json; includes collision prefixes. */
-export const OFFICE_SUITE_TOOLS = 447;
-export const OFFICE_SUITE_CHILD_COUNT = 49;
+export const OFFICE_SUITE_TOOLS = 453;
+export const OFFICE_SUITE_CHILD_COUNT = 50;
 
 /** Servers the site actually lists, i.e. those with a README that becomes a /s/ page. */
 export const LISTED_IDS = [
@@ -304,6 +307,7 @@ export const LISTED_IDS = [
   "statement-of-account",
   "stripe-billing",
   "supplier-list",
+  "supplier-statement-check",
   "tax-calc",
   "three-way-match",
   "time-tracker",
@@ -362,6 +366,7 @@ export const LISTED_CHILD_IDS = [
   "statement-of-account",
   "stripe-billing",
   "supplier-list",
+  "supplier-statement-check",
   "tax-calc",
   "three-way-match",
   "time-tracker",
@@ -384,10 +389,10 @@ export const FREE_IDS = [
 
 /** Counts, computed so prose cannot go stale. LISTED_COUNT is the one a visitor should
  * ever see: SERVER_DIR_COUNT can be ahead of it while a new server is being built. */
-export const LISTED_COUNT = 57;
-export const LISTED_CHILD_COUNT = 56;
-export const SERVER_DIR_COUNT = 57;
-export const CHILD_COUNT = 56;
+export const LISTED_COUNT = 58;
+export const LISTED_CHILD_COUNT = 57;
+export const SERVER_DIR_COUNT = 58;
+export const CHILD_COUNT = 57;
 export const HOSTED_COUNT = 46;
 
 /** Hosted limits, read from remote/src/index.ts. */
@@ -458,6 +463,7 @@ export const FREE = {
   "statement-of-account": "statement_aging is free and unlimited on every tier, for one client or for everyone: who owes me money is the question this server exists for, and a free tier that hides it is a demo. The meter is on the document that goes to a client, five distinct statements a calendar month, counted by client, period and currency, so rebuilding one already in the register is free forever. Plain-text statements and dunning at the friendly and firm levels are free.",
   "stripe-billing": "Both tools; you supply your own Stripe (restricted) key.",
   "supplier-list": "Ten suppliers, with adding, listing, reading, updating, removing, review stamps and CSV export free and unlimited on every tier. Removing a supplier you no longer use frees its slot, so the directory itself is never metered.",
+  "supplier-statement-check": "Full diagnostics for up to 1000 records per side, complete free evidence pages and CSV; store 3 reports at a time.",
   "tax-calc": "The whole tool, unlimited, local.",
   "three-way-match": "Full previews up to 500 PO/invoice lines, including free pages of all large-report evidence; store 3 reports at a time. Listing, retrieval, deletion and CSV export stay free.",
   "time-tracker": "Unlimited timers and entries; reports, lists and CSV cover the last 7 days; 2 projects with rates. Currency per entry (EUR, USD, GBP, PLN).",
@@ -518,6 +524,7 @@ export const PRO = {
   "statement-of-account": "Unlimited statements, the A4 PDF on the same page layout as your invoices with your logo and no footer credit, the level 3 final demand, and statements_report: every client at once, totalled per currency, ranked by what is overdue rather than by what is large, with the oldest overdue invoice in the whole book named.",
   "stripe-billing": "Not gated — this server is entirely free; the $39 bundle key covers the forty-seven paid servers.",
   "supplier-list": "Unlimited suppliers, Markdown export, and the due-review report that keeps a bigger directory honest.",
+  "supplier-statement-check": "Unlimited saved-report count. The same input, response and 64 MiB aggregate storage safety bounds apply on both tiers.",
   "tax-calc": "Not gated — this server is entirely free; the $39 bundle key covers the forty-seven paid servers.",
   "three-way-match": "Unlimited saved reports. The same per-check safety bounds apply on both tiers.",
   "time-tracker": "Full history, invoice_summary, group by tag, unlimited rated projects.",

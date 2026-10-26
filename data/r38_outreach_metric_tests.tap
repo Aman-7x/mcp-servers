@@ -1,0 +1,221 @@
+TAP version 13
+# Subtest: dry-run requires no secret, does not write or lock, and returns no personal data
+ok 1 - dry-run requires no secret, does not write or lock, and returns no personal data
+  ---
+  duration_ms: 2.323417
+  type: 'test'
+  ...
+# Subtest: manual research remains skipped without suppression or consent fields
+ok 2 - manual research remains skipped without suppression or consent fields
+  ---
+  duration_ms: 0.395333
+  type: 'test'
+  ...
+# Subtest: all consent, verification, message and opt-out gates run before first send
+    # Subtest: public email is not consent
+    ok 1 - public email is not consent
+      ---
+      duration_ms: 1.320583
+      type: 'test'
+      ...
+    # Subtest: consent for different purpose
+    ok 2 - consent for different purpose
+      ---
+      duration_ms: 0.2365
+      type: 'test'
+      ...
+    # Subtest: withdrawn consent
+    ok 3 - withdrawn consent
+      ---
+      duration_ms: 0.6605
+      type: 'test'
+      ...
+    # Subtest: missing consent evidence
+    ok 4 - missing consent evidence
+      ---
+      duration_ms: 0.213666
+      type: 'test'
+      ...
+    # Subtest: future consent
+    ok 5 - future consent
+      ---
+      duration_ms: 0.113208
+      type: 'test'
+      ...
+    # Subtest: old mailbox check
+    ok 6 - old mailbox check
+      ---
+      duration_ms: 0.217084
+      type: 'test'
+      ...
+    # Subtest: unverified mailbox
+    ok 7 - unverified mailbox
+      ---
+      duration_ms: 0.49675
+      type: 'test'
+      ...
+    # Subtest: header injection
+    ok 8 - header injection
+      ---
+      duration_ms: 0.673958
+      type: 'test'
+      ...
+    # Subtest: multiple recipients
+    ok 9 - multiple recipients
+      ---
+      duration_ms: 0.384917
+      type: 'test'
+      ...
+    # Subtest: blank body
+    ok 10 - blank body
+      ---
+      duration_ms: 0.125042
+      type: 'test'
+      ...
+    # Subtest: no unsubscribe
+    ok 11 - no unsubscribe
+      ---
+      duration_ms: 0.270791
+      type: 'test'
+      ...
+    # Subtest: invalid campaign
+    ok 12 - invalid campaign
+      ---
+      duration_ms: 0.0965
+      type: 'test'
+      ...
+    1..12
+ok 3 - all consent, verification, message and opt-out gates run before first send
+  ---
+  duration_ms: 6.473334
+  type: 'test'
+  ...
+# Subtest: missing or stale suppression reconciliation blocks sending
+ok 4 - missing or stale suppression reconciliation blocks sending
+  ---
+  duration_ms: 0.136042
+  type: 'test'
+  ...
+# Subtest: suppression and historical complaints override otherwise valid rows in any campaign
+ok 5 - suppression and historical complaints override otherwise valid rows in any campaign
+  ---
+  duration_ms: 0.202041
+  type: 'test'
+  ...
+# Subtest: recipient normalization prevents duplicate sends within batch and across runs
+ok 6 - recipient normalization prevents duplicate sends within batch and across runs
+  ---
+  duration_ms: 0.173667
+  type: 'test'
+  ...
+# Subtest: legacy sent history prevents duplicate while legacy dry-run permits a real attempt
+ok 7 - legacy sent history prevents duplicate while legacy dry-run permits a real attempt
+  ---
+  duration_ms: 0.107292
+  type: 'test'
+  ...
+# Subtest: changed messages for the same recipient/campaign fail before any network action
+ok 8 - changed messages for the same recipient/campaign fail before any network action
+  ---
+  duration_ms: 0.136042
+  type: 'test'
+  ...
+# Subtest: provider failure fails fast; retries use the same key and payload
+ok 9 - provider failure fails fast; retries use the same key and payload
+  ---
+  duration_ms: 0.327833
+  type: 'test'
+  ...
+# Subtest: rate limit and malformed success responses fail fast and report failure
+ok 10 - rate limit and malformed success responses fail fast and report failure
+  ---
+  duration_ms: 0.117916
+  type: 'test'
+  ...
+# Subtest: intent is persisted before send; failed final persistence retains safe retry identity
+ok 11 - intent is persisted before send; failed final persistence retains safe retry identity
+  ---
+  duration_ms: 0.44275
+  type: 'test'
+  ...
+# Subtest: unsafe altered or expired uncertain retries require reconciliation
+ok 12 - unsafe altered or expired uncertain retries require reconciliation
+  ---
+  duration_ms: 0.170916
+  type: 'test'
+  ...
+# Subtest: cap counts provider attempts, with no more than ten requests
+ok 13 - cap counts provider attempts, with no more than ten requests
+  ---
+  duration_ms: 0.3125
+  type: 'test'
+  ...
+# Subtest: concurrent live callers cannot reach the provider under an active lock
+ok 14 - concurrent live callers cannot reach the provider under an active lock
+  ---
+  duration_ms: 0.105542
+  type: 'test'
+  ...
+# Subtest: malformed outbox never becomes an empty history
+ok 15 - malformed outbox never becomes an empty history
+  ---
+  duration_ms: 0.234334
+  type: 'test'
+  ...
+# Subtest: transport passes stable idempotency and aborts even an unresponsive adapter
+ok 16 - transport passes stable idempotency and aborts even an unresponsive adapter
+  ---
+  duration_ms: 5.893833
+  type: 'test'
+  ...
+# Subtest: strict arguments reject ambiguous live flags and missing values
+ok 17 - strict arguments reject ambiguous live flags and missing values
+  ---
+  duration_ms: 0.144792
+  type: 'test'
+  ...
+# Subtest: CLI dry-run of current manual queue needs no key and preserves outbox exactly
+ok 18 - CLI dry-run of current manual queue needs no key and preserves outbox exactly
+  ---
+  duration_ms: 78.490542
+  type: 'test'
+  ...
+# Subtest: actual R38 snapshot keeps all three dead routes out of remaining offer navigation
+ok 19 - actual R38 snapshot keeps all three dead routes out of remaining offer navigation
+  ---
+  duration_ms: 1.51025
+  type: 'test'
+  ...
+# Subtest: a valid-looking source does not prove a valid product route or buyer
+ok 20 - a valid-looking source does not prove a valid product route or buyer
+  ---
+  duration_ms: 0.187792
+  type: 'test'
+  ...
+# Subtest: unattributed and legacy rows never enter the interpreted population
+ok 21 - unattributed and legacy rows never enter the interpreted population
+  ---
+  duration_ms: 0.123666
+  type: 'test'
+  ...
+# Subtest: missing, unavailable, unsupported, malformed and inconsistent snapshots stay unavailable
+ok 22 - missing, unavailable, unsupported, malformed and inconsistent snapshots stay unavailable
+  ---
+  duration_ms: 0.113666
+  type: 'test'
+  ...
+# Subtest: an empty consistent instrument has zero counted observations but unknown buyers
+ok 23 - an empty consistent instrument has zero counted observations but unknown buyers
+  ---
+  duration_ms: 0.112625
+  type: 'test'
+  ...
+1..23
+# tests 35
+# suites 0
+# pass 35
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 149.788416

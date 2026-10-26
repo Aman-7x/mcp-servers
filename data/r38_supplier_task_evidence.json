@@ -1,0 +1,169 @@
+{
+  "at": "2026-10-26T05:28:01.365Z",
+  "method": "MCP SDK Client + StdioClientTransport against actual dist/index.js; fixed structured inputs, synthetic records, isolated local data/config.",
+  "calls": [
+    {
+      "tool": "license_status",
+      "seconds": 0.0023591249999999776,
+      "accepted": true
+    },
+    {
+      "tool": "supplier_statement_check",
+      "seconds": 0.002746625000000023,
+      "accepted": true
+    },
+    {
+      "tool": "supplier_statement_check",
+      "seconds": 0.0008665420000000097,
+      "accepted": true
+    },
+    {
+      "tool": "supplier_statement_check",
+      "seconds": 0.000629792000000009,
+      "accepted": true
+    },
+    {
+      "tool": "supplier_statement_check",
+      "seconds": 0.000771125000000012,
+      "accepted": true
+    },
+    {
+      "tool": "supplier_statement_check",
+      "seconds": 0.0022976670000000184,
+      "accepted": true
+    },
+    {
+      "tool": "supplier_statement_check",
+      "seconds": 0.0017512920000000065,
+      "accepted": true
+    },
+    {
+      "tool": "supplier_statement_check",
+      "seconds": 0.0016844169999999962,
+      "accepted": true
+    },
+    {
+      "tool": "supplier_statement_check",
+      "seconds": 0.001382916999999992,
+      "accepted": true
+    },
+    {
+      "tool": "report_export_csv",
+      "seconds": 0.0009211250000000177,
+      "accepted": true
+    },
+    {
+      "tool": "report_list",
+      "seconds": 0.0011550419999999803,
+      "accepted": true
+    },
+    {
+      "tool": "report_delete",
+      "seconds": 0.0007401250000000062,
+      "accepted": true
+    },
+    {
+      "tool": "report_delete",
+      "seconds": 0.00044079199999998766,
+      "accepted": true
+    },
+    {
+      "tool": "report_delete",
+      "seconds": 0.0004057499999999834,
+      "accepted": true
+    },
+    {
+      "tool": "supplier_statement_check",
+      "seconds": 0.0009347500000000082,
+      "accepted": true
+    },
+    {
+      "tool": "report_delete",
+      "seconds": 0.00036566700000000197,
+      "accepted": true
+    },
+    {
+      "tool": "report_list",
+      "seconds": 0.0007880410000000211,
+      "accepted": true
+    }
+  ],
+  "cases": [
+    {
+      "id": "supplier1",
+      "expected": {
+        "review": 1,
+        "matched": 0,
+        "groups": 1,
+        "status": "discrepancy",
+        "issues": [
+          "amount_mismatch",
+          "date_mismatch"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "supplier2",
+      "expected": {
+        "review": 2,
+        "matched": 0,
+        "groups": 2,
+        "statement_only": 1,
+        "ledger_only": 1
+      },
+      "passed": true
+    },
+    {
+      "id": "supplier3",
+      "expected": {
+        "review": 1,
+        "matched": 0,
+        "groups": 1,
+        "status": "ambiguous_reference",
+        "members": [
+          "S1",
+          "S2",
+          "L1"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "supplier4",
+      "expected": {
+        "review": 3,
+        "matched": 1,
+        "groups": 4
+      },
+      "passed": true
+    },
+    {
+      "id": "supplier5",
+      "expected": {
+        "saved_limit": 3,
+        "refused_save": 4,
+        "free_rows": 2,
+        "saved_after_cleanup": 0
+      },
+      "passed": true
+    }
+  ],
+  "buyer_trials": 0,
+  "payments": 0,
+  "version": {
+    "name": "supplier-statement-check",
+    "version": "0.25.0"
+  },
+  "tools": [
+    "supplier_statement_check",
+    "report_list",
+    "report_get",
+    "report_page",
+    "report_delete",
+    "report_export_csv",
+    "license_status",
+    "license_activate"
+  ],
+  "status": "passed"
+}

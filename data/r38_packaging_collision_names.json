@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-26T05:26:37.515Z",
+  "method": "Exact MCP stdio tools/list from source-built Office, before/after persistent collision history and supplier retrieval hint patch",
+  "before_count": 453,
+  "after_count": 453,
+  "removed_names": [
+    "report_list",
+    "report_get",
+    "report_page",
+    "report_delete",
+    "report_export_csv"
+  ],
+  "added_names": [
+    "supplier-statement-check_report_list",
+    "supplier-statement-check_report_get",
+    "supplier-statement-check_report_page",
+    "supplier-statement-check_report_delete",
+    "supplier-statement-check_report_export_csv"
+  ],
+  "scope": "Intermediate0.23.0 Office prototype; final release is0.25.0. No external artifact was published at0.23.0.",
+  "migration": "Use office://tools_map and the exact exposed names; supplier report helpers are now qualified. Original source data/CSV remain unmodified.",
+  "published_previous": {
+    "source": "data/office-suite-tool-inventory.json before R38 build",
+    "version": "0.22.9",
+    "tool_count": 447,
+    "removed_names": [],
+    "added_names": [
+      "supplier_statement_check",
+      "supplier-statement-check_report_list",
+      "supplier-statement-check_report_get",
+      "supplier-statement-check_report_page",
+      "supplier-statement-check_report_delete",
+      "supplier-statement-check_report_export_csv"
+    ]
+  }
+}

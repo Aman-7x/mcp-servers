@@ -9,6 +9,8 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 import { negotiatedHeaders } from "./accept.js";
+import { readBinding, writeBinding } from "../../billing/src/hosted-bindings.js";
+import { payloadShapeError } from "../../billing/src/license.js";
 import { appendSuccessUpgrade, readFunnelCohort, recordFunnelEvents, requestCohort, saveMintCohort, successfulBusinessResponse } from "../../billing/src/funnel.js";
 import { STORE, type RequestCtx, type Download } from "./shims/ctx.js";
 import { PRICE_BUNDLE_USD, PRICE_SINGLE_USD, SERVER_COUNT } from "./shims/license.js";
@@ -837,8 +839,9 @@ interface Auth {
  * The tenant-binding decision, isolated so it can be tested without a Worker.
  *
  * An anonymous token is a data document, not a tier. When a purchase is made from a
- * hosted connection the billing worker writes `bind:<anonToken>` = the minted MCPL1 key;
- * this endpoint reads that key, verifies it with the same public key it verifies a pasted
+ * hosted connection the billing worker keeps the minted MCPL1 key in an independent
+ * product or bundle slot, with a readable legacy compatibility slot. This endpoint
+ * reads those keys and verifies them with the same public key it verifies a pasted
  * key with, and if it holds, runs the request in Pro mode **against the same anonymous
  * document**. Nothing is copied, nothing is migrated, and a binding that is missing,
  * malformed, expired or signed for another product simply leaves the tenant free.
@@ -876,7 +879,8 @@ async function verifyLicense(key: string, product: string): Promise<{ ok: boolea
       b64urlToBytes(parts[2]), new TextEncoder().encode(parts[1]));
   } catch { sigOk = false; }
   if (!sigOk) return { ok: false, reason: "signature invalid" };
-  if (payload?.v !== 1 || typeof payload.p !== "string" || typeof payload.id !== "string") return { ok: false, reason: "bad payload" };
+  const shape = payloadShapeError(payload);
+  if (shape) return { ok: false, reason: shape };
   if (product !== "*" && payload.p !== "*" && payload.p !== product) return { ok: false, reason: `key is for ${payload.p}, not ${product}` };
   if (payload.exp !== undefined && payload.exp <= Math.floor(Date.now() / 1000)) return { ok: false, reason: "expired" };
   return { ok: true, id: payload.id, p: payload.p };
@@ -987,15 +991,13 @@ async function authenticate(req: Request, env: Env, product: string, urlToken = 
   if (/^anon_[0-9a-f]{32}$/.test(token)) {
     const id = token.slice(5);
     if (!TENANT_ID_RE.test(id)) return json({ error: "invalid_token", guide: GUIDE }, 401);
-    // The token's own record and any purchase bound to it are two independent reads; one
-    // round trip, not two, because tools/list is on this path as well.
-    const [seen, boundKey] = await Promise.all([
+    // Fetch token existence and the independent bundle/product/legacy slots together.
+    const [seen, verified] = await Promise.all([
       env.REMOTE_DATA.get(`tok:${token}`),
-      env.REMOTE_DATA.get(`bind:${token}`),
+      readBinding(env.REMOTE_DATA, token, product, verifyLicense),
     ]);
     if (seen === null) return json({ error: "unknown_token", message: "Mint a new one at GET https://mcp.zovo.one/mcp/token", guide: GUIDE }, 401);
-    // The billing worker writes bind:<token> on payment; this endpoint only ever reads it.
-    const verified = boundKey ? await verifyLicense(boundKey.trim(), product) : null;
+    // Binding lookup rechecks each candidate key's signature, product and expiry.
     const d = decideBinding(verified);
     return { tenant: `anon:${id}`, isPro: d.isPro, kind: "anon", limit: d.limit, anonToken: token, bound: d.bound, via };
   }
@@ -2655,7 +2657,8 @@ export default {
         if (rctx.bindKey && auth.kind === "anon" && auth.anonToken) {
           const v = await verifyLicense(rctx.bindKey.trim(), product);
           if (v.ok) {
-            await env.REMOTE_DATA.put(`bind:${auth.anonToken}`, rctx.bindKey.trim(), { expirationTtl: ANON_TTL });
+            await writeBinding(env.REMOTE_DATA, auth.anonToken, rctx.bindKey.trim(), v.p!,
+              verifyLicense);
           }
         }
         // The tool handlers report the virtual path they wrote; the caller gets the link.

@@ -1,0 +1,11 @@
+{
+  "frozen_at": "2026-10-26T05:13:34.104Z",
+  "queries": [
+    "mcp supplier statement in:name,description",
+    "mcp vendor statement in:name,description",
+    "mcp supplier reconciliation in:name,description",
+    "mcp statement reconciliation in:name,description",
+    "mcp accounts payable in:name,description",
+    "mcp three way match in:name,description"
+  ]
+}

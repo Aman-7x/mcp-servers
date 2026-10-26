@@ -1,3 +1,5 @@
+> **Correction — 2026-10-17:** The historical $38 MCP-sales attribution below is incorrect. A fresh read of the two referenced Stripe records finds two paid **$4.99 subscriptions on `zovo.one`**, with no MCP host, price, product metadata or MCP-named line item. They are not MCP purchases, and do not prove MCP license fulfillment. The audit exhausts 182 completed records and finds zero paid MCP matches by exact host, current known price or product metadata. Customer identities in the historical note are not needed for this correction. [New aggregate evidence](../data/revenue_audit_2026-10-17.json) · [Revenue diagnosis](REVENUE-REVIEW-2026-10-17.md). Historical wording below is preserved for traceability.
+
 # R7 — Monetization Funnel Audit & Fixes
 
 STATUS: in progress

@@ -10,7 +10,8 @@
 // because the local code reaches a real filesystem for something that is not the
 // server's own state.
 // Run: node remote/build-vendor.mjs
-import { readFileSync, readdirSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
+import { appendFileSync, existsSync, lstatSync, readFileSync, readdirSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
+import { spawnSync } from "node:child_process";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -3333,7 +3334,13 @@ const EXTRA_IMPORTS = {
 
 /* -------------------------------------------------------------------- build */
 
-rmSync(OUT, { recursive: true, force: true });
+if (existsSync(OUT)) {
+  const handles = spawnSync('/usr/sbin/lsof', ['-t', '+D', OUT], { encoding: 'utf8' });
+  if (handles.error || handles.status !== 1 || handles.stdout.trim()) throw Error('Vendor regeneration refused: lsof did not establish zero open handles');
+  const bytes = p => { const s = lstatSync(p); return s.isDirectory() ? readdirSync(p).reduce((n, f) => n + bytes(join(p, f)), 0) : s.size; };
+  appendFileSync(join(ROOT, 'data/build-deletions.jsonl'), JSON.stringify({ at: new Date().toISOString(), path: OUT, bytes: bytes(OUT), lsof: 'no open handles', reason: 'Regenerate derived hosted source from local server inputs' }) + '\n');
+  rmSync(OUT, { recursive: true });
+}
 
 for (const [name, files] of Object.entries(SERVERS)) {
   const dir = join(OUT, name);

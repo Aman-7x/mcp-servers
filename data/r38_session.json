@@ -1,0 +1,54 @@
+{
+  "session": "R38",
+  "status": "active",
+  "started_at": "2026-10-26T05:11:30.917Z",
+  "deadline_at": "2026-10-26T09:11:29.917Z",
+  "requested_work": "Four-hour autonomous monetization, reliability, organic distribution and KPI iteration; preserve scope, publish verified work, update dashboard and explain outreach access.",
+  "initial_disk_available_gb": 21,
+  "watch_path": "data/r38_watch.json",
+  "agent_waves": [
+    {
+      "wave": 1,
+      "tasks": [
+        "revenue_kpis",
+        "product_audit",
+        "distribution_audit"
+      ]
+    },
+    {
+      "wave": 2,
+      "tasks": [
+        "supplier_statement_build",
+        "entitlement_review",
+        "outreach_and_metrics"
+      ]
+    },
+    {
+      "wave": 3,
+      "tasks": [
+        "supplier_independent_review",
+        "release_packaging",
+        "browser_and_assets"
+      ]
+    },
+    {
+      "wave": 4,
+      "tasks": [
+        "distribution_publish"
+      ]
+    }
+  ],
+  "report": "intel/R38-session.md",
+  "status_note": "Source and local archive/browser gates complete; source publication and production rollout in progress.",
+  "delivered": [
+    "Refreshed storefront-scoped Stripe, finalized Google Search, hosted funnel and GitHub observations with positive controls. MCP paid Checkout gross remains $0; no person-level conversion or net ROI inferred.",
+    "Recovered billing monitor approval after all60liveGETpurchasepaths passed with zero created Stripe Sessions. Cron resumes; public cooldown is separately observed.",
+    "Built and independently reviewed the new supplied-open-item comparison server. Exact standalone releasegate29/29, real stdio operatorround5/5 and self-contained archive readbacks pass.",
+    "Packaged Supplier Statement Check8tools and Office50children/453tools at0.25.0. Every ZIPmember matches tested self-contained bytes; previous Officearchive unchanged. Publication is pending.",
+    "ActualChrome supplier proof9groupedchecks plus dashboard7checks pass; no diagnostic requests or browser storage writes. Useful free evidence is complete; paid upgrade is saved-report-count only.",
+    "Hosted entitlement fixes pass independent signed-key red/green controls. Full billing+remote suite328pass/0fail/1existing workerdskip; local billing preflight passes. Production rollout is pending.",
+    "Resend verified with sending enabled. Updated secure requested-trial kit and dead-route click interpretation; no email was sent.",
+    "Self-contained supplier mirror rehearsal builds and tests; initial ordinary push and subsequent fast-forward ancestry verified locally. External distribution awaits published source/assets."
+  ],
+  "known_limits": "Wide estate remains red in metadata/version assertions and has seven older missing dist builds; runtime inventory51/58. Source tests and synthetic operator checks do not establish buyers, willingness to pay, time savings or profit. Live paid fulfillment and inbox delivery are untested. Production publication/rollout and final four-hour observation remain pending."
+}

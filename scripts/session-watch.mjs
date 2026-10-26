@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Bounded, read-only production observation for the requested four-hour session.
 // No tools/call, checkout creation, email, paid API, or synthetic browser traffic.
-import { readFileSync, writeFileSync, renameSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, renameSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFile, spawn } from 'node:child_process';
@@ -11,17 +11,30 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const run = promisify(execFile);
 const args = process.argv.slice(2);
-if (args.length !== 4 || args[0] !== '--session' || !/^r[0-9]+(?:-[a-z0-9]+)*$/.test(args[1]) || args[2] !== '--deadline') throw Error('Usage: session-watch.mjs --session <rN> --deadline <ISO UTC>');
+const resume = args.length === 5 && args[4] === '--resume';
+if ((!resume && args.length !== 4) || args[0] !== '--session' || !/^r[0-9]+(?:-[a-z0-9]+)*$/.test(args[1]) || args[2] !== '--deadline') throw Error('Usage: session-watch.mjs --session <rN> --deadline <ISO UTC> [--resume]');
 const session = args[1];
 const file = join(root, `data/${session}_watch.json`);
-try { readFileSync(file); throw Error('Observation output already exists; inspect its original terminal handle before starting anything'); } catch (error) { if (error.code !== 'ENOENT') throw error; }
+let previous;
+if (existsSync(file)) {
+  if (!resume) throw Error('Observation output already exists; inspect its original process before resuming');
+  previous = JSON.parse(readFileSync(file, 'utf8'));
+  if (previous.session !== session || previous.status !== 'running' || previous.deadline_at !== new Date(Date.parse(args[3])).toISOString() || !Array.isArray(previous.snapshots)) throw Error('Resume state does not match the running session and its original deadline');
+  let alive = false;
+  try { process.kill(previous.pid, 0); alive = true; } catch (error) { if (error.code !== 'ESRCH') throw error; }
+  if (alive) throw Error('Original observation process is still alive; do not start a duplicate');
+} else if (resume) throw Error('No existing session to resume');
 const deadline = Date.parse(args[3]);
 if (!Number.isFinite(deadline) || deadline <= Date.now() || deadline > Date.now() + 4 * 3600e3) throw Error('Deadline must be within the next four hours');
 if (!process.env.CLOUDFLARE_API_TOKEN) throw Error('Cloudflare read access unavailable');
 const base = 'https://api.cloudflare.com/client/v4/accounts/dd3f2a29b7707e21a87f26a622c0bb9d';
 const kv = `${base}/storage/kv/namespaces/cf848cc5c07d4e0a9c7c65ad1c70055c/values/`;
 const headers = { Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}` };
-const state = { schema: 1, session, pid: process.pid, status: 'running', started_at: new Date().toISOString(), deadline_at: new Date(deadline).toISOString(), interval_seconds: 300, purpose: 'Verify release/pin/cron recovery and observe storefront-scoped payments without generating demand', snapshots: [] };
+const resumedAt = new Date().toISOString();
+const state = previous ? {
+  ...previous, pid: process.pid, resumed_at: resumedAt,
+  observation_gaps: [...(previous.observation_gaps || []), { last_observed_at: previous.last_observed_at, resumed_at: resumedAt, previous_pid: previous.pid, reason: 'Original process confirmed absent before resuming; prior observations and original deadline preserved' }],
+} : { schema: 1, session, pid: process.pid, status: 'running', started_at: resumedAt, deadline_at: new Date(deadline).toISOString(), interval_seconds: 300, purpose: 'Verify release/pin/cron recovery and observe storefront-scoped payments without generating demand', snapshots: [] };
 function save() {
   const pending = file + '.pending';
   writeFileSync(pending, JSON.stringify(state, null, 2) + '\n'); renameSync(pending, file);

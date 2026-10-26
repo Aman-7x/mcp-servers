@@ -4,6 +4,17 @@ Check a supplier invoice against its purchase order and delivery receipts in Cla
 
 Built by [theluckystrike](https://github.com/theluckystrike). MIT. Support: support@zovo.one.
 
+## Try it before installing
+
+[Run the free three-way matching example in your browser](https://mcp.zovo.one/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo). Edit the synthetic PO, receipt and invoice fields to see per-SKU exceptions. The example runs locally in your browser without an account or uploads. [Product details and installation options](https://mcp.zovo.one/s/three-way-match).
+
+| Your review task | Start here |
+| --- | --- |
+| Compare one supplier invoice with its PO, accepted receipts and prior billed quantities | This server: `three_way_match`. Equal grand totals can still hide SKU errors. |
+| Find repeated invoice references across a supplied invoice-history batch | [Duplicate supplier invoice check](https://github.com/theluckystrike/mcp-duplicate-invoice-check), with a [free browser example](https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo). |
+
+Both servers include their full diagnostics and CSV evidence for free. Pro removes the limit of three saved reports; the $39 bundle covers both. Neither tool approves payment or retrieves missing accounting history.
+
 ## Install
 
 Claude Desktop: download [three-way-match.mcpb v0.22.8](https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb) and open it. SHA-256: `6397928ec44ea9d5c406a66f4eb7aa9a2f34f5731bf8ef9972fadfdac882f040`. Other clients can use the source instructions below.

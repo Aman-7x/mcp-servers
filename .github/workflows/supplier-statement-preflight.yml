@@ -1,0 +1,46 @@
+name: Supplier statement preflight
+on:
+  pull_request:
+    paths:
+      - 'servers/supplier-statement-check/**'
+      - 'packages/mcp-license/**'
+      - 'package-lock.json'
+      - '.github/workflows/supplier-statement-preflight.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'servers/supplier-statement-check/**'
+      - 'packages/mcp-license/**'
+      - 'package-lock.json'
+      - '.github/workflows/supplier-statement-preflight.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  supplier-statement:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --ignore-scripts --workspace @theluckystrike/mcp-supplier-statement-check --include-workspace-root=true --no-audit --no-fund
+      - run: node scripts/bootstrap-timezone.mjs
+      - run: npm run build -w packages/mcp-license -w servers/supplier-statement-check
+      - name: Use an isolated ephemeral signer for paid-tier controls
+        run: |
+          node --input-type=module <<'JS'
+          import { generateKeyPairSync } from 'node:crypto';
+          import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+          const { privateKey, publicKey } = generateKeyPairSync('ed25519');
+          const raw = publicKey.export({ format: 'der', type: 'spki' }).subarray(12).toString('base64');
+          mkdirSync('keys', { recursive: true, mode: 0o700 });
+          writeFileSync('keys/license-private.pem', privateKey.export({ format: 'pem', type: 'pkcs8' }), { mode: 0o600 });
+          const file = 'packages/mcp-license/dist/index.js';
+          const source = readFileSync(file, 'utf8');
+          const expected = /export const PUBLIC_KEY_B64 = "[A-Za-z0-9+/=]+";/;
+          if (!expected.test(source)) throw Error('Ephemeral test-key replacement missed');
+          writeFileSync(file, source.replace(expected, 'export const PUBLIC_KEY_B64 = ' + JSON.stringify(raw) + ';'));
+          JS
+      - run: npm test -w servers/supplier-statement-check

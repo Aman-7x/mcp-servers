@@ -13,7 +13,7 @@ const deploymentVersionPattern = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{
 
 export function probeProducts(state) {
   const products = state.products ?? ['three-way-match', 'bundle'];
-  assert.ok(Array.isArray(products) && products.length === 2 && ['three-way-match', 'duplicate-invoice-check'].includes(products[0]) && products[1] === 'bundle', 'Invalid probe product scope');
+  assert.ok(Array.isArray(products) && products.length === 2 && ['three-way-match', 'duplicate-invoice-check', 'supplier-statement-check'].includes(products[0]) && products[1] === 'bundle', 'Invalid probe product scope');
   return products;
 }
 export function parseProbeArgs(args) {
@@ -28,11 +28,11 @@ export function parseProbeArgs(args) {
     rest.splice(at, 2);
   }
   assert.match(session, /^r[0-9]+$/);
-  assert.ok(single !== 'duplicate-invoice-check' || session !== 'r36', 'A new product requires a separate session evidence path');
+  assert.ok(single === 'three-way-match' || session !== 'r36', 'A new product requires a separate session evidence path');
   const products = probeProducts({ products: [single, 'bundle'] });
   const verify = rest.length === 1 && rest[0] === '--verify-expiry';
   const execute = rest.length === 3 && rest[0] === '--execute-unpaid-probe' && rest[1] === '--expected-version' && deploymentVersionPattern.test(rest[2]);
-  assert.ok(verify || execute, 'Usage: checkout-lifecycle-probe.mjs [--session rN] [--single three-way-match|duplicate-invoice-check] --execute-unpaid-probe --expected-version <UUID> | --verify-expiry');
+  assert.ok(verify || execute, 'Usage: checkout-lifecycle-probe.mjs [--session rN] [--single three-way-match|duplicate-invoice-check|supplier-statement-check] --execute-unpaid-probe --expected-version <UUID> | --verify-expiry');
   return { args: rest, session, products };
 }
 

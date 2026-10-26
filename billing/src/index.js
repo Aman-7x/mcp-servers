@@ -1,9 +1,11 @@
 import { mintLicense, verifyLicenseKey, sha256Hex } from "./license.js";
+import { readBinding } from "./hosted-bindings.js";
 import { requestCohort, readFunnelCohort, recordFunnelEvent, funnelStats } from "./funnel.js";
 import { PAGES, CHANGELOG } from "./pages.js";
 import { BUNDLE_DOWNLOADS } from "./downloads.js";
 import { MATCHER_DEMO_JAVASCRIPT } from './matcher-demo-bundle.js';
 import { DUPLICATE_DEMO_JAVASCRIPT } from './duplicate-demo-bundle.js';
+import { SUPPLIER_DEMO_JAVASCRIPT } from './supplier-demo-bundle.js';
 import { GUIDES, GUIDE_INDEX, GUIDE_PRODUCT_LINKS, GUIDE_RELATED, relatedGuidesBlock } from "./content.js";
 import { COMPARE, COMPARE_INDEX } from "./compare.js";
 import { setupPage, clientHub, setupIndex, setupUrls, serversFor, CLIENTS, CLIENT_ORDER, SETUP_SERVERS } from "./setup.js";
@@ -16,6 +18,7 @@ import { setupPage, clientHub, setupIndex, setupUrls, serversFor, CLIENTS, CLIEN
 import { LISTED_IDS, HOSTED_IDS as HOSTED_ID_LIST, LISTED_COUNT, LISTED_CHILD_COUNT, HOSTED_COUNT, ANON_TOKEN_DAYS, RATE_LIMIT_FREE, RATE_LIMIT_PRO, FREE_IDS, FREE as FREE_TIER, OFFICE_SUITE_TOOLS, OFFICE_SUITE_CHILD_COUNT } from "./figures.js";
 
 export const PRODUCTS = {
+  "supplier-statement-check": { desc: "Compare supplied supplier statement and AP ledger open items by exact scoped reference, retaining every source row.", free: "Free: all diagnostics, evidence pages and CSV for up to 1000 records per side; save 3 reports.", pro: "Pro: remove the saved-report count cap. The same safety bounds apply.", name: "MCP Supplier Statement Check Pro", usd: 19, pkg: "@theluckystrike/mcp-supplier-statement-check", bin: "mcp-supplier-statement-check", payload: "supplier-statement-check" },
   "duplicate-invoice-check": { desc: "Review duplicate supplier invoice candidates in supplied local history with complete source evidence.", free: "Free: complete diagnostics, paging and CSV for up to 1000 supplied records; store 3 reports.", pro: "Pro: remove the saved-report count cap. All safety bounds still apply.", name: "MCP Duplicate Invoice Check Pro", usd: 19, pkg: "@theluckystrike/mcp-duplicate-invoice-check", bin: "mcp-duplicate-invoice-check", payload: "duplicate-invoice-check" },
   "time-tracker": { desc: "Track billable time from chat: timers, entries, reports, CSV, invoice-ready totals.", free: "Free: unlimited timers, last 7 days of reports, 2 rated projects, currency per entry.", pro: "Pro: full history, invoice summaries, group by tag, unlimited projects.", name: "MCP Time Tracker Pro", price: "price_1UBDU5JKCamubEm1wPMZI8Zf", usd: 19, pkg: "@theluckystrike/mcp-time-tracker", bin: "mcp-time-tracker", payload: "time-tracker" },
   "price-tracker": { desc: "Check and watch product prices on ordinary shop pages, with history and target alerts.", free: "Free: unlimited price checks with confidence, 3 watches, 30 observations each, alerts.", pro: "Pro: unlimited watches, full history, refresh all.", name: "MCP Price Tracker Pro", price: "price_1UBDU6JKCamubEm1ufsEKwSS", usd: 19, pkg: "@theluckystrike/mcp-price-tracker", bin: "mcp-price-tracker", payload: "price-tracker" },
@@ -264,7 +267,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 215;
+export const BILLING_TEST_COUNT = 231;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -760,6 +763,7 @@ function home() {
   ].map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join("");
   const meta = `<meta name="description" content="${esc(HOME_DESCRIPTION).slice(0, 155)}"><link rel="canonical" href="https://mcp.zovo.one/">${ld}`;
   const html = page("MCP servers for Claude: invoices, time tracking and freelance tools", `<h1>${LISTED_COUNT} MCP servers for Claude, for freelancers and small businesses</h1>
+<section aria-labelledby="try-invoice-review"><h2 id="try-invoice-review">Try an invoice review before installing</h2><p>Run a free comparison in this browser, with synthetic examples or your own structured records. The engine runs on your device and sends no field values or diagnostic requests.</p><p><a href="/guides/compare-supplier-statement-ap-open-items-in-claude#supplier-demo">Compare supplier statement open items with your AP ledger</a> &middot; <a href="/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo">Review duplicate invoice references</a> &middot; <a href="/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo">Match invoice lines to a PO and receipts</a></p><p class="muted">Complete evidence is free. The optional Pro upgrade removes the saved-report count cap. These checks do not extract PDFs or approve payment.</p></section>
 <p>Each row below is one MCP server. ${HOSTED_COUNT} of the ${LISTED_COUNT} answer at a URL, so you can use them with nothing installed. Get a free token with one request, then paste the URL into whatever asks for a remote MCP server.</p>
 <pre><code>curl -X POST https://mcp.zovo.one/mcp/token</code></pre>
 <p>It returns a token shaped <code>anon_&lt;32 hex&gt;</code>. No account, no email, no OAuth. The token is good for ${ANON_TOKEN_DAYS} days and allows ${RATE_LIMIT_FREE} calls an hour. Servers without a hosted URL run from the <a href="https://mcp.zovo.one/downloads">.mcpb bundle</a> or a clone.</p>
@@ -1661,6 +1665,10 @@ const worker = {
       // not touch /mcp* (served by the remote worker) or any MCP protocol path.
       const body = serversPage();
       return new Response(body, { headers: await contentHeaders(body) });
+    }
+
+    if (path === '/assets/supplier-demo.js' && method === 'GET') {
+      return new Response(SUPPLIER_DEMO_JAVASCRIPT, { headers: await contentHeaders(SUPPLIER_DEMO_JAVASCRIPT, { 'content-type': 'text/javascript; charset=utf-8', 'x-content-type-options': 'nosniff' }) });
     }
 
     if (path === '/assets/matcher-demo.js' && method === 'GET') {
@@ -2669,11 +2677,15 @@ const LLM_USE_WHEN = {
       const tenant = url.searchParams.get("tenant") || "";
       const nostore = { "cache-control": "no-store" };
       if (!validTenant(tenant)) return Response.json({ bound: false, product: null, reason: "bad tenant" }, { status: 400, headers: nostore });
-      const key = await env.REMOTE_DATA.get(`bind:${tenant}`);
-      if (!key) return Response.json({ bound: false, product: null }, { headers: nostore });
-      const r = await verifyLicenseKey(key, null);
+      const product = url.searchParams.get("product") || "*";
+      if (product !== "*" && !SERVER_IDS.includes(product)) return Response.json({ bound: false, product: null, reason: "bad product" }, { status: 400, headers: nostore });
+      const r = await readBinding(env.REMOTE_DATA, tenant, product, async (key, scope) => {
+        const result = await verifyLicenseKey(key, scope === "*" ? null : scope);
+        return { ...result, p: result.payload?.p };
+      });
+      if (!r) return Response.json({ bound: false, product: null }, { headers: nostore });
       if (!r.ok) return Response.json({ bound: false, product: null, reason: r.reason }, { headers: nostore });
-      return Response.json({ bound: true, product: r.payload.p }, { headers: nostore });
+      return Response.json({ bound: true, product: r.p }, { headers: nostore });
     }
 
     // Conversion instrument (docs/CONVERSION_INSTRUMENT.md). Plain JSON, no auth: the

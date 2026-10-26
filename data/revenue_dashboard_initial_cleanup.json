@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-16T23:35:29.458275+00:00",
+  "first_qa_exit": 1,
+  "failure": "Immediate profile lsof guard failed; original exit/status was not persisted. Browser was closed; later lsof check confirms no open handles.",
+  "cause": "Not established; Chrome flush timing is a suspected cause, addressed by bounded retry with the same deletion guard.",
+  "cleanup_records": [
+    {
+      "at": "2026-10-16T23:35:29.426996+00:00",
+      "path": "/Users/mike/mcp-servers-work/revenue-review-browser-Fx8Vf9",
+      "bytes": 8550614,
+      "lsof_clear": true,
+      "reason": "Owned revenue QA profile: immediate post-close guard failed; subsequent lsof clear; retry uses bounded flush wait"
+    }
+  ]
+}

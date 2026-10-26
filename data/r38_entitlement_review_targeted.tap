@@ -1,0 +1,99 @@
+TAP version 13
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: a second paid single retains both entitlements on the same anonymous documents
+ok 1 - a second paid single retains both entitlements on the same anonymous documents
+  ---
+  duration_ms: 16.366792
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: a valid legacy purchase is preserved when a different single replaces its old slot
+ok 2 - a valid legacy purchase is preserved when a different single replaces its old slot
+  ---
+  duration_ms: 1.393167
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"adfbbe53b763","product":"bundle","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: bundle wins after another single purchase and replay of an older paid session
+ok 3 - bundle wins after another single purchase and replay of an older paid session
+  ---
+  duration_ms: 5.10525
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: concurrent purchases write independent scoped entitlements
+ok 4 - concurrent purchases write independent scoped entitlements
+  ---
+  duration_ms: 0.98925
+  type: 'test'
+  ...
+# Subtest: signed expired, tampered and mismatched scoped keys grant no access
+ok 5 - signed expired, tampered and mismatched scoped keys grant no access
+  ---
+  duration_ms: 1.272
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"kind":"fulfillment_retry_scheduled","session_ref":"df0180b1e978","attempts":1,"error":"simulated compatibility write outage"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: a failed legacy compatibility write retries without dropping scoped purchases
+ok 6 - a failed legacy compatibility write retries without dropping scoped purchases
+  ---
+  duration_ms: 1.618
+  type: 'test'
+  ...
+# Subtest: actual license_activate tools/call retains earlier purchases and bundle precedence
+ok 7 - actual license_activate tools/call retains earlier purchases and bundle precedence
+  ---
+  duration_ms: 76.91625
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: /bound checks the requested product and never returns license material
+ok 8 - /bound checks the requested product and never returns license material
+  ---
+  duration_ms: 2.763541
+  type: 'test'
+  ...
+# Subtest: activation keeps lifetime purchases after an active anonymous token outlives 30 days
+ok 9 - activation keeps lifetime purchases after an active anonymous token outlives 30 days
+  ---
+  duration_ms: 5.112792
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: migration recovers a valid legacy purchase over a rejected scoped copy
+ok 10 - migration recovers a valid legacy purchase over a rejected scoped copy
+  ---
+  duration_ms: 4.342333
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: other tenants and unknown anonymous tokens cannot consume a scoped purchase
+ok 11 - other tenants and unknown anonymous tokens cannot consume a scoped purchase
+  ---
+  duration_ms: 0.820209
+  type: 'test'
+  ...
+# Subtest: hosted authentication rejects signed malformed expiry and payload fields
+ok 12 - hosted authentication rejects signed malformed expiry and payload fields
+  ---
+  duration_ms: 2.117458
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1017.66925

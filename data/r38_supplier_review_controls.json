@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-26T05:24:47.954Z",
+  "scope": "Independent verifier non-vacuity control, not a production defect or change",
+  "method": "Read actual emitted output.js, change only source-page slice to omit final row in memory, import immutable data URL, apply count and byte-exact evidence assertion; then same assertion against unchanged actual module",
+  "emitted_output_sha256": "78ff734414807c52a7606dc8acd3d5078c92e59de4cd51aa2ddbe764543722c7",
+  "in_memory_dropped_row_mutant_rejected": true,
+  "actual_module_pass": {
+    "returned": 2,
+    "actual_rows": 2
+  },
+  "production_source_modified": false,
+  "network_calls": 0
+}

@@ -1,0 +1,63 @@
+{
+  "server": "supplier-statement-check",
+  "round": 47,
+  "at": "2026-10-26T05:28:01.365Z",
+  "scenarios": [
+    {
+      "server": "supplier-statement-check",
+      "id": "supplier1",
+      "prompt": "Compare this supplier statement invoice with its AP open item. Preserve both original amounts and dates when the same exact reference disagrees.",
+      "score": 3,
+      "tool_calls": 1,
+      "seconds": 0.003136709000000025,
+      "note": "Actual stdio returned 1 exact-key groups, 0 matching and 1 requiring review, retaining all 2 original source items. Synthetic fixed arguments, not a model translation or buyer trial."
+    },
+    {
+      "server": "supplier-statement-check",
+      "id": "supplier2",
+      "prompt": "Find which exact invoice references appear only on the supplier statement or only in the AP ledger, retaining every source item.",
+      "score": 3,
+      "tool_calls": 1,
+      "seconds": 0.0009883749999999908,
+      "note": "Actual stdio returned 2 exact-key groups, 0 matching and 2 requiring review, retaining all 2 original source items. Synthetic fixed arguments, not a model translation or buyer trial."
+    },
+    {
+      "server": "supplier-statement-check",
+      "id": "supplier3",
+      "prompt": "The supplier statement repeats the same invoice reference twice. Keep all three source items and do not guess which statement row matches the ledger.",
+      "score": 3,
+      "tool_calls": 1,
+      "seconds": 0.0006480409999999779,
+      "note": "Actual stdio returned 1 exact-key groups, 0 matching and 1 requiring review, retaining all 3 original source items. Synthetic fixed arguments, not a model translation or buyer trial."
+    },
+    {
+      "server": "supplier-statement-check",
+      "id": "supplier4",
+      "prompt": "Keep invoices, credit notes, currencies and leading-zero references separate even when their displayed amounts are equal.",
+      "score": 3,
+      "tool_calls": 1,
+      "seconds": 0.0007842499999999859,
+      "note": "Actual stdio returned 4 exact-key groups, 1 matching and 3 requiring review, retaining all 5 original source items. Synthetic fixed arguments, not a model translation or buyer trial."
+    },
+    {
+      "server": "supplier-statement-check",
+      "id": "supplier5",
+      "prompt": "Save three checks, keep full free diagnosis and CSV when the fourth cannot be saved, then delete the snapshots and confirm a slot can be reused.",
+      "score": 3,
+      "tool_calls": 12,
+      "seconds": 0.013010750000000001,
+      "note": "Three saves succeeded; fourth retained full free diagnostics and a complete two-row CSV. Deletion freed a slot, the retry saved successfully, and all four owned snapshots were removed. Synthetic operator workflow, not a paid outcome."
+    }
+  ],
+  "totals": {
+    "scenarios": 5,
+    "passed": 5,
+    "avg_seconds": 0.003713624999999996
+  },
+  "measurement_kind": "fixed_structured_operator",
+  "method": "Expected inputs and outcomes written before this actual stdio run. Not a blind model trial or evidence of customer demand.",
+  "score_definition": "3 only when every frozen outcome assertion passes through actual MCP stdio; no subjective preference or customer-value inference.",
+  "frozen_source": "data/r38_supplier_tasks_frozen.json",
+  "evidence": "data/r38_supplier_task_evidence.json",
+  "bottom_line": "Five fixed synthetic tasks passed. No model translation, client install timing, buyer, time-saving or revenue inference."
+}

@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-26T05:31:25.893Z",
+  "method": "All immutable ZIP bytes compared with tested self-contained packaged tree, then actual MCP stdio calls with isolated XDG directories and no external credentials",
+  "synthetic_operator_checks": true,
+  "real_payment_created": false,
+  "archives": [
+    {
+      "id": "supplier-statement-check",
+      "archive": "/Users/mike/mcp-servers/bundles/supplier-statement-check.mcpb",
+      "sha256": "98784c618a5f7df7c0e3ea4d4528200c10ea43d65eff785fbc1cde55216b306b",
+      "archive_bytes": 3284791,
+      "members_verified": 2179,
+      "uncompressed_bytes_verified": 10302756,
+      "symlinks_verified": 0,
+      "crc": "all members passed",
+      "method": "Every ZIP member matches the self-contained output tree used for actual MCP calls. No large temporary extraction fixture.",
+      "version": "0.25.0",
+      "tool_count": 8,
+      "checks": [
+        "Handshake, complete tools/list and exact manifest names/descriptions agree",
+        "Actual comparison, saved retrieval, free paging and CSV preserve original source values",
+        "Fourth save retains free complete diagnosis/CSV and truthful $19/$39 payment descriptor",
+        "Invalid calendar date and unsafe integer return MCP errors",
+        "Actual offline signed single-product activation lifts only the three-report cap"
+      ]
+    },
+    {
+      "id": "office-suite",
+      "archive": "/Users/mike/mcp-servers/bundles/office-suite.mcpb",
+      "sha256": "4918b493051b5a2c067c73013d093a0da08c9a41f8ac8ecd8f538107c167fb1a",
+      "archive_bytes": 30003480,
+      "members_verified": 5415,
+      "uncompressed_bytes_verified": 79307203,
+      "symlinks_verified": 0,
+      "crc": "all members passed",
+      "method": "Every ZIP member matches the self-contained output tree used for actual MCP calls. No large temporary extraction fixture.",
+      "version": "0.25.0",
+      "tool_count": 453,
+      "checks": [
+        "Handshake, complete tools/list and exact manifest names/descriptions agree",
+        "Actual comparison, saved retrieval, free paging and CSV preserve original source values",
+        "Fourth save retains free complete diagnosis/CSV and truthful $19/$39 payment descriptor",
+        "Invalid calendar date and unsafe integer return MCP errors",
+        "Office resource map retains the existing invoice namespaces and exposes six supplier tools"
+      ]
+    }
+  ],
+  "calls": 24,
+  "prior_office_archive_unchanged": true,
+  "status": "passed",
+  "fixture_removed": true,
+  "finished_at": "2026-10-26T05:31:39.167Z"
+}

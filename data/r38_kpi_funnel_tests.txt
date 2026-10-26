@@ -1,0 +1,206 @@
+TAP version 13
+# Subtest: only an actual GET offer records a view; HEAD and unknown products cannot inflate it
+ok 1 - only an actual GET offer records a view; HEAD and unknown products cannot inflate it
+  ---
+  duration_ms: 33.832083
+  type: 'test'
+  ...
+# Subtest: explicit acquisition and known first-party source declarations reach the actual offer counters
+ok 2 - explicit acquisition and known first-party source declarations reach the actual offer counters
+  ---
+  duration_ms: 20.533416
+  type: 'test'
+  ...
+# Subtest: stored anonymous provenance wins over query labels; missing sidecars stay unmeasured
+ok 3 - stored anonymous provenance wins over query labels; missing sidecars stay unmeasured
+  ---
+  duration_ms: 10.927208
+  type: 'test'
+  ...
+# Subtest: unknown acquisition/source input never becomes a stored or exported label
+ok 4 - unknown acquisition/source input never becomes a stored or exported label
+  ---
+  duration_ms: 4.849625
+  type: 'test'
+  ...
+# Subtest: valid POST records a handoff only after creating a checkout redirect
+ok 5 - valid POST records a handoff only after creating a checkout redirect
+  ---
+  duration_ms: 9.440958
+  type: 'test'
+  ...
+# Subtest: an explicitly resumed checkout records its redirect without creating a new session
+ok 6 - an explicitly resumed checkout records its redirect without creating a new session
+  ---
+  duration_ms: 6.391917
+  type: 'test'
+  ...
+# Subtest: a cached explicit probe redirect records only the probe cohort and makes no Stripe call
+ok 7 - a cached explicit probe redirect records only the probe cohort and makes no Stripe call
+  ---
+  duration_ms: 3.761792
+  type: 'test'
+  ...
+# Subtest: invalid intent and scripted POST redirects do not become checkout handoffs
+ok 8 - invalid intent and scripted POST redirects do not become checkout handoffs
+  ---
+  duration_ms: 5.657084
+  type: 'test'
+  ...
+# Subtest: failed checkout creation cannot increment a handoff
+ok 9 - failed checkout creation cannot increment a handoff
+  ---
+  duration_ms: 2.887209
+  type: 'test'
+  ...
+# Subtest: counter unavailability cannot fail a successful purchase redirect
+ok 10 - counter unavailability cannot fail a successful purchase redirect
+  ---
+  duration_ms: 10.779542
+  type: 'test'
+  ...
+# Subtest: public stats uses exactly seven object requests and exposes null totals when any day is unavailable
+ok 11 - public stats uses exactly seven object requests and exposes null totals when any day is unavailable
+  ---
+  duration_ms: 1.497334
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"probe.funnel-r1.control","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"probe.funnel-r1.control","probe":true,"request_method":"POST"}
+# Subtest: CONTROL: one identifiable human click moves the counter by exactly one, and nothing else does
+ok 12 - CONTROL: one identifiable human click moves the counter by exactly one, and nothing else does
+  ---
+  duration_ms: 55.016542
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+# Subtest: a named crawler never has a live Stripe Checkout Session created for it
+ok 13 - a named crawler never has a live Stripe Checkout Session created for it
+  ---
+  duration_ms: 2.778875
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+# Subtest: a /buy hit with no ?src= is bucketed as unattributed and kept out of the headline totals
+ok 14 - a /buy hit with no ?src= is bucketed as unattributed and kept out of the headline totals
+  ---
+  duration_ms: 2.866542
+  type: 'test'
+  ...
+# Subtest: v1 click counters are reported apart from v2 and never summed into it
+ok 15 - v1 click counters are reported apart from v2 and never summed into it
+  ---
+  duration_ms: 0.473459
+  type: 'test'
+  ...
+# Subtest: isHumanNavigation is not start-anchored and cannot be defeated by forgetting a header
+ok 16 - isHumanNavigation is not start-anchored and cannot be defeated by forgetting a header
+  ---
+  duration_ms: 0.401541
+  type: 'test'
+  ...
+# Subtest: instrument v3: no Referer means not counted, any-origin Referer counts
+ok 17 - instrument v3: no Referer means not counted, any-origin Referer counts
+  ---
+  duration_ms: 0.249208
+  type: 'test'
+  ...
+# Subtest: instrument v4 (S137): no Sec-Fetch-Site means not counted — the curl walker of 2026-09-23
+ok 18 - instrument v4 (S137): no Sec-Fetch-Site means not counted — the curl walker of 2026-09-23
+  ---
+  duration_ms: 0.241083
+  type: 'test'
+  ...
+# Subtest: no page tells anyone to paste a hosted URL that answers every tool call with 401
+ok 19 - no page tells anyone to paste a hosted URL that answers every tool call with 401
+  ---
+  duration_ms: 26.999209
+  type: 'test'
+  ...
+# Subtest: every free-tier count the storefront advertises is the number the server enforces
+ok 20 - every free-tier count the storefront advertises is the number the server enforces
+  ---
+  duration_ms: 51.324125
+  type: 'test'
+  ...
+# Subtest: the sitemap offers the page that mints the token
+ok 21 - the sitemap offers the page that mints the token
+  ---
+  duration_ms: 1.431333
+  type: 'test'
+  ...
+# Subtest: the product page keeps the price comparison above the fold
+ok 22 - the product page keeps the price comparison above the fold
+  ---
+  duration_ms: 2.046
+  type: 'test'
+  ...
+# Subtest: one transaction atomically records response counters and first marker; failures roll everything back
+ok 23 - one transaction atomically records response counters and first marker; failures roll everything back
+  ---
+  duration_ms: 10.590208
+  type: 'test'
+  ...
+# Subtest: concurrent first responses increment every response exactly once and first observation once
+ok 24 - concurrent first responses increment every response exactly once and first observation once
+  ---
+  duration_ms: 16.254542
+  type: 'test'
+  ...
+# Subtest: replaying the same admitted response is idempotent, but a fresh response remains a new call
+ok 25 - replaying the same admitted response is idempotent, but a fresh response remains a new call
+  ---
+  duration_ms: 1.009416
+  type: 'test'
+  ...
+# Subtest: lost reply after commit retries the same response identity without double counting any batch event
+ok 26 - lost reply after commit retries the same response identity without double counting any batch event
+  ---
+  duration_ms: 39.801291
+  type: 'test'
+  ...
+# Subtest: 1000 servers and concurrent responses still export at most70 source/cohort/event cells per day
+ok 27 - 1000 servers and concurrent responses still export at most70 source/cohort/event cells per day
+  ---
+  duration_ms: 834.182708
+  type: 'test'
+  ...
+# Subtest: one unavailable day makes retrieval incomplete with null totals, no deceptively partial ordinary values
+ok 28 - one unavailable day makes retrieval incomplete with null totals, no deceptively partial ordinary values
+  ---
+  duration_ms: 3.261041
+  type: 'test'
+  ...
+# Subtest: oversized, truncated and duplicate-cell responses cannot claim complete retrieval
+ok 29 - oversized, truncated and duplicate-cell responses cannot claim complete retrieval
+  ---
+  duration_ms: 0.688459
+  type: 'test'
+  ...
+# Subtest: negative-cached or expired probe sidecars remain unmeasured unless current request explicitly marks probe
+ok 30 - negative-cached or expired probe sidecars remain unmeasured unless current request explicitly marks probe
+  ---
+  duration_ms: 2.542708
+  type: 'test'
+  ...
+# Subtest: validation rejects raw tokens, arbitrary fields, invalid labels and impossible event combinations
+ok 31 - validation rejects raw tokens, arbitrary fields, invalid labels and impossible event combinations
+  ---
+  duration_ms: 0.346917
+  type: 'test'
+  ...
+# Subtest: daily object refuses cross-day reuse and schedules retention cleanup at31days from day start
+ok 32 - daily object refuses cross-day reuse and schedules retention cleanup at31days from day start
+  ---
+  duration_ms: 2.150875
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1023.300042

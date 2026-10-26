@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-26T05:50:41.077Z",
+  "source": "Native GitHub Actions PR83",
+  "run_id": 40275621701,
+  "failure": "Supplier workflow did not bootstrap the declared timezone/lib build dependency before compiling mcp-license.",
+  "fix": "Run existing scripts/bootstrap-timezone.mjs before license and supplier builds; add the same prerequisite to new guide and llms installation instructions.",
+  "runtime_change": false,
+  "prior_billing_ci_pass": true,
+  "prior_duplicate_ci_pass": true,
+  "prior_matcher_ci_pass": true
+}

@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-26T05:13:14.705Z",
+  "method": "Exact public GET of both documented free demo URLs and expected fragment IDs; README semantic inspection",
+  "pages": [
+    {
+      "url": "https://mcp.zovo.one/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude",
+      "fragment": "matcher-demo",
+      "http_status": 200,
+      "fragment_exists": true,
+      "title": "Check a supplier invoice against a purchase order and delivery note in Claude"
+    },
+    {
+      "url": "https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude",
+      "fragment": "duplicate-demo",
+      "http_status": 200,
+      "fragment_exists": true,
+      "title": "Review duplicate supplier invoice references in Claude"
+    }
+  ],
+  "readmes": [
+    {
+      "path": "servers/duplicate-invoice-check/README.md",
+      "contains_own_product": true,
+      "contains_both_demos": true,
+      "contains_paid_limit": true,
+      "no_irrelevant_capability_claim": true
+    },
+    {
+      "path": "servers/three-way-match/README.md",
+      "contains_own_product": true,
+      "contains_both_demos": true,
+      "contains_paid_limit": true,
+      "no_irrelevant_capability_claim": true
+    }
+  ]
+}

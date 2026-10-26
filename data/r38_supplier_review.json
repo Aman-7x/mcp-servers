@@ -1,0 +1,104 @@
+{
+  "at": "2026-10-26T05:25:34.705Z",
+  "status": "ready_for_parent_release_review",
+  "independent_runtime_defects_found": 0,
+  "runtime_edits_by_reviewer": 0,
+  "independent_tests": {
+    "command": "TMPDIR=/Users/mike/mcp-servers-work /Users/mike/mcp-servers-work/bin/buildslot -- node --test servers/supplier-statement-check/test/review-adversarial.test.mjs billing/test/supplier-demo.test.mjs",
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "receipt": "data/r38_supplier_review_initial.tap"
+  },
+  "builder_integrated_suite": {
+    "command": "npm test --workspace @theluckystrike/mcp-supplier-statement-check",
+    "passed": 30,
+    "failed": 0,
+    "skipped": 0,
+    "includes_reviewer_server_tests": 4,
+    "receipt": "data/r38_supplier_build_tests_final.tap",
+    "qualification": "Suite receipt inspected; builder executed full suite. Reviewer directly executed independent8 tests."
+  },
+  "controls": {
+    "receipt": "data/r38_supplier_review_controls.json",
+    "real_emitted_code_dropped_row_mutant_rejected": true,
+    "unchanged_actual_module_passed": true,
+    "qualification": "Verifier non-vacuity control, not a production defect or red-green repair claim"
+  },
+  "covered": [
+    "Side-swap relational consistency and exact Unicode/prototype-name handling",
+    "Byte-exact recovery of2000 maximum escaped source records through free source pages and CSV; actual JSON-RPC envelope below512KiB",
+    "All2000 source memberships retained for a single ambiguous repeated-reference group",
+    "Two independent OS processes share one three-report free cap and leave readable atomic files",
+    "Generated browser JS computes five outcomes with network/storage APIs trapped",
+    "Editor change and invalid/oversize input clear stale evidence and disable CSV",
+    "Hostile source strings use text sinks; formula-safe CSV retains all9 supplied rows; object URL revoked",
+    "Existing source suite includes strict schema, corrupt persisted source rejection, symlink guards, six-process save cap and actual stdio single/bundle licensing"
+  ],
+  "limits": [
+    "No real accounting dataset or buyer trial was run. Correctness is scoped to supplied structured open items.",
+    "Node VM DOM harness verifies generated JS behavior; it is not actual browser layout or real Chrome QA. Parent owns actual browser verification.",
+    "No downloaded release archive, clean-clone mirror, container or production hosted payment tested by this reviewer. Parent gates remain necessary.",
+    "No production deployment, publication, email, checkout or paid API call.",
+    "Release integration still needs its own scoped gates, metadata and artifact checks. Full estate is not certified."
+  ],
+  "billing_test_declarations_added": 4,
+  "files": [
+    {
+      "path": "servers/supplier-statement-check/src/core.ts",
+      "sha256": "bae72063bf91e17b0a510d7d53a905139eb7c6c265e6805eb7c122180ee02043"
+    },
+    {
+      "path": "servers/supplier-statement-check/src/output.ts",
+      "sha256": "5c4ee9bb4d6f5d1e6f064c46440603fb3879d86af4150dfa62be44588e2d4495"
+    },
+    {
+      "path": "servers/supplier-statement-check/src/store.ts",
+      "sha256": "7f62240290e495e47859aa6d0462ff7cdb937008f865011f2b7876f07c64a3cf"
+    },
+    {
+      "path": "servers/supplier-statement-check/src/index.ts",
+      "sha256": "9b5277698f97510aabfc53b63b46020f1f5e88eed9cc1f4d8226c8715f486913"
+    },
+    {
+      "path": "servers/supplier-statement-check/dist/core.js",
+      "sha256": "7cdef2ebe3dcfdb825e4f8965dba8f9b0a699872ff01e7c10ab9b360c3d57442"
+    },
+    {
+      "path": "servers/supplier-statement-check/dist/output.js",
+      "sha256": "78ff734414807c52a7606dc8acd3d5078c92e59de4cd51aa2ddbe764543722c7"
+    },
+    {
+      "path": "servers/supplier-statement-check/test/review-adversarial.test.mjs",
+      "sha256": "a60b60cc03838e9b0fcf1729521440460ff79939b36eed818c765335a38590df"
+    },
+    {
+      "path": "billing/browser/supplier-demo.mjs",
+      "sha256": "42990bf78e8c38cebedd84790a51ffdfa9aaabe4176207e986955f1787b74d43"
+    },
+    {
+      "path": "billing/src/supplier-demo-markup.js",
+      "sha256": "40f1c5d7eedb1d9604d8d18b71b30542ead2cab9fa44263a8509095abe4ff1c5"
+    },
+    {
+      "path": "billing/src/supplier-demo-bundle.js",
+      "sha256": "4b7a770d20e832453a5fa6a851fe6ced89afe0d08cb89614cdff3f35cc1c3a25"
+    },
+    {
+      "path": "billing/test/supplier-demo.test.mjs",
+      "sha256": "2a3be7e4dc84e3f784d5c9a71b9dafe6728918164cdab93ace8ef35e4d09a77e"
+    },
+    {
+      "path": "data/r38_supplier_review_initial.tap",
+      "sha256": "ec8d58197458730337e5d8771c44d2dd5d226d33226ee858b0533ed8a6d57b1a"
+    },
+    {
+      "path": "data/r38_supplier_build_tests_final.tap",
+      "sha256": "43b47319557d10eec41cb686e98a3efba23529f75c1ddef9a8ba0b65e1e36695"
+    },
+    {
+      "path": "data/r38_supplier_review_controls.json",
+      "sha256": "238637d986cbe6dc778f5bf11bb85f1e4b4e491992e36282852923574714e0f8"
+    }
+  ]
+}

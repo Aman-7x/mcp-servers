@@ -1,12 +1,12 @@
 # MCP Office Suite
 
-Run the freelancer office from one MCP config entry. The v0.22.9 bundle initializes 49 local child servers and exposes 447 tools, measured over MCP on 2026-10-16. It includes time tracking, invoices, spreadsheets, quotes, expenses and the supplier-invoice three-way matcher and duplicate invoice candidate review. The proxy forwards tools, resources and prompts to the child that owns them; each child keeps its own storage and free tier.
+Run the freelancer office from one MCP config entry. The v0.25.0 bundle initializes 50 local child servers and exposes 453 tools, measured over MCP on 2026-10-26. It includes time tracking, invoices, spreadsheets, quotes, expenses and the supplier-invoice three-way matcher duplicate invoice candidate review, and supplier statement open-item checks against AP ledger exports. The proxy forwards tools, resources and prompts to the child that owns them; each child keeps its own storage and free tier.
 
 Built by [theluckystrike](https://github.com/theluckystrike). MIT. Support: support@zovo.one.
 
 ## Install
 
-For Claude Desktop, download [office-suite.mcpb v0.22.9](https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/office-suite.mcpb) and open it. Verify it using the release's [SHA256SUMS.txt](https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/SHA256SUMS.txt).
+For Claude Desktop, download [office-suite.mcpb v0.25.0](https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/office-suite.mcpb) and open it. Verify it using the release's [SHA256SUMS.txt](https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/SHA256SUMS.txt).
 
 The [download catalog](https://mcp.zovo.one/downloads#office-suite) lists explicit archive versions. The latest GitHub release is not a complete collection of all server bundles. This proxy is local stdio only; it has no hosted endpoint. Its npm package and internal dependencies are not published, so use the bundle or build from source.
 
@@ -51,7 +51,15 @@ Restart the client, call `license_status`, and read `office://tools_map` to disc
 
 When child names collide, the proxy exposes names prefixed with the child, such as `invoice_business_set`. Child result payloads, including JSON source records, raw CSV, HTML and prose, retain their original values. Each forwarded result adds collision mappings under `_meta["office-suite/tool-names"]` and points to `office://tools_map`; explicit retrieval tool hints in matcher report envelopes use the exposed names. Read the runtime map rather than guessing a prefix or relying on an older static tool table.
 
-The v0.22.9 manifest's 447 names and descriptions match the actual running bundle, including collision prefixes. [Measured inventory](https://github.com/theluckystrike/mcp-servers/blob/main/data/office-suite-tool-inventory.json) and [artifact evidence](https://github.com/theluckystrike/mcp-servers/blob/main/intel/R37-sheetjs-artifacts.md) are available. This verifies discovery and matcher delivery through the proxy; it is not a feature test of every child tool.
+The v0.25.0 manifest's 453 names and descriptions match the actual running bundle, including collision prefixes. [Measured inventory](https://github.com/theluckystrike/mcp-servers/blob/main/data/office-suite-tool-inventory.json) and [artifact evidence](https://github.com/theluckystrike/mcp-servers/blob/main/intel/R38-packaging.md) are available. This verifies discovery and matcher delivery through the proxy; it is not a feature test of every child tool.
+
+## Supplier statement review and tool names
+
+The new `supplier_statement_check` compares two supplied open-item exports by exact entity, supplier, currency, document type and reference. It retains both source lists and reports missing items, amount/date differences and ambiguous repeated references. It does not reconcile balances, allocate payments, extract PDFs or approve payment. Full diagnostics and CSV are free; the supplier server's Pro upgrade removes only its saved-report count cap.
+
+Its report helpers are named `supplier-statement-check_report_get`, `supplier-statement-check_report_page`, `supplier-statement-check_report_export_csv`, `supplier-statement-check_report_list` and `supplier-statement-check_report_delete`. Explicit retrieval hints use those names. Original references and CSV cells remain unchanged even when they contain a tool name.
+
+The v0.25.0 inventory retains every exposed tool name from the prior published v0.22.9 bundle and adds six supplier tools. Use `office://tools_map` for the authoritative map; no bare `report_get` alias is added.
 
 ## Free and Pro
 

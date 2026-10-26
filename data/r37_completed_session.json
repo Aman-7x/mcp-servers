@@ -1,0 +1,61 @@
+{
+  "title": "R37 — useful workflows, conversion evidence and distribution, 2026-10-16",
+  "updated_at": "2026-10-16T11:34:31.643657+00:00",
+  "status_note": "Four-hour sprint complete. 47 production observations; final checks pass. Invoice/CSV and SheetJS0.20.3 releases are published and verified. Final KPI refresh confirms $0 scoped MCP Checkout gross.",
+  "conclusion": "The 11:29 UTC refresh confirms $0 scoped MCP Checkout gross and zero untagged Sessions in the complete seven-day window; available completed history also has zero paid MCP Sessions. Google finds the new product/guide unknown; matcher changed from discovered/not indexed to unknown. Homepage remains indexed. Sitemap acceptance is pending. A tested proof-to-install-to-upgrade path is shipped; qualified buyer discovery and willingness to pay remain unproven.",
+  "metrics": [
+    {
+      "value": "$0",
+      "label": "Paid checkout amount",
+      "window": "2026-10-09T11:29:00.005Z to 2026-10-16T11:29:00.005Z",
+      "note": "MCP Checkout only; completed-history MCP gross also $0. Four tagged probes excluded. Gross is not net profit.",
+      "source": "data/r37_kpi_final.json"
+    },
+    {
+      "value": 0,
+      "label": "Untagged MCP checkout sessions",
+      "window": "Same complete seven-day Stripe window",
+      "note": "Zero untagged Sessions in the fully covered window; untagged does not prove a person.",
+      "source": "data/r37_kpi_final.json"
+    },
+    {
+      "value": 34,
+      "label": "Google search impressions",
+      "window": "2026-09-15 through 2026-10-13 (29 dates)",
+      "note": "0 clicks; re-queried at11:29 UTC for the same frozen prelaunch window, not postlaunch performance.",
+      "source": "data/r37_kpi_final.json"
+    },
+    {
+      "value": 32,
+      "label": "GitHub reported unique visitors",
+      "window": "2026-10-02 through 2026-10-15",
+      "note": "58 views; reported clients, not confirmed people or installs.",
+      "source": "data/r37_kpi_final.json"
+    },
+    {
+      "value": "23/23",
+      "label": "Browser proof cases passed",
+      "window": "Live production Chrome CSV/JSON checks, 2026-10-16 09:59 UTC",
+      "note": "11 original JSON cases plus12 CSV cases; zero diagnostic requests/storage/page errors; synthetic operator inputs.",
+      "source": "data/r37_csv_browser_live_verification.json"
+    }
+  ],
+  "shipped": [
+    "Published the new eight-tool local supplied-history duplicate invoice review archive. Full diagnostics, paging and CSV stay free; $19 Pro removes the three-saved-report cap. Independent Windows/CSV red-green and isolated archive checks pass.",
+    "Seventeen existing server sources now return explicit MCP errors for refusal-only cap branches; useful partial results remain successful. Hosted source rebuilt and deployed; older individual archives retain their actual versions.",
+    "Office proxy integration measures 447 tools across 49 children. Arbitrary tool-name rewriting no longer mutates source evidence, CSV, HTML or prose; collision maps are separate metadata.",
+    "Atomic daily counters passed real workerd/SQLite controls and nine live hosted checks. Sticky probe classification, daily first-observation deduplication and success-only trailers work. Initial 59 unmarked release-check offers are retained as known operator contamination; all future release GETs are explicitly marked.",
+    "Added six local-client setup routes, source-backed comparison, mirror metadata and five frozen operator buyer tasks. Fourteen actual MCP calls pass; these are synthetic workflow checks, not customer evidence.",
+    "Added strict local CSV input to the browser proof:2 MiB/1,000 records, same comparison core, complete-batch rejection and stale-read protection. Final23 productionbrowsercases pass; actual cachedoldmarkup regression is fixed. No local data upload/storage.",
+    "Patched Spreadsheet, Expense Tracker and Office with official SheetJS 0.20.3; published three immutable0.22.9 archives and six exact registry rows.135 sourcepasses/1 existing skip, 33 guardedarchivecalls, 10 actualhostedcontrols/3 XLSXreadbacks, 8 current HTTP/deploymentchecks. Existing invoice standalones remain0.22.8. Corrected unpublished npm install examples and preserved prior bytes.",
+    "Resubmitted the already registered Google sitemap using existing Full User access: HTTP 204 accepted, 296 exact-host URLs with new product/guide present. Last submission changed to11:23UTC; pending, with no new crawl or indexing claim."
+  ],
+  "next_levers": [
+    "Observe buyer demand in explicitly dated organic and Checkout windows; preserve probe and ordinary-automation distinctions.",
+    "Use an explicitly authorized opted-in buyer/partner batch through the existing verified Resend sender; eligible email recipients currently zero.",
+    "Prioritize actual buyer workflow feedback before increasing the product count; wider fleet still has176 failures/28 gaps (54 umbrella-version assertions)."
+  ],
+  "report": "intel/R37-session.md",
+  "watch_path": "data/r37_watch.json",
+  "known_limits": "Wider estate: 176 failed checks / 28 gaps, including 54 umbrella-version assertions and seven older free builds missing the expected dist entry. The increase from 173 is version-only. Fresh runtime inventory measures 50/57 builds. Scoped spreadsheet/expense gates pass 29/29; Office exposes 447 tools across 49 children. Aliases are one capability. One directory submission is pending; Glama duplicate listing is 404/account-gated. Initial 59 unmarked operator offers remain in history. Paid fulfillment and inbox delivery are untested. Google 11:20: new product/guide unknown, matcher changed to unknown, homepage indexed. Sitemap accepted at 11:23, pending; last download predates launch. Current v0.22.9 spreadsheet/expense/Office and hosted reader use vetted SheetJS 0.20.3; older bytes remain. Five other root-lock advisories remain, while the current archives contain patched versions. Inherited number-format loss and corrected legacy-date interpretation are documented. No blanket security clearance."
+}

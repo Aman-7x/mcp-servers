@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-26T05:20:10.797Z",
+  "source_and_outbox_unchanged": {
+    "data/outreach_targets.json": true,
+    "data/outbox.json": true
+  },
+  "owned_artifacts": [
+    "docs/OUTREACH_RESEND_SETUP.md",
+    "docs/OUTREACH_KIT_20261008/README.md",
+    "docs/OUTREACH_KIT_20261008/templates/buyer-trial-request.md",
+    "docs/OUTREACH_KIT_20261008/templates/directory-outreach.md",
+    "scripts/r38-commercial-kpis.mjs",
+    "test/r38-commercial-kpis.test.mjs",
+    "data/r38_commercial_navigation.json",
+    "data/r38_outreach_metric_tests.tap",
+    "intel/R38-outreach.md"
+  ],
+  "known_environment_values_checked": 4,
+  "secret_matches": [],
+  "emails_attempted": 0,
+  "contacts_created": 0,
+  "paid_api_usd": 0,
+  "billing_runtime_edits": 0,
+  "tests": {
+    "passed": 35,
+    "failed": 0,
+    "source": "data/r38_outreach_metric_tests.tap"
+  },
+  "navigation": "data/r38_commercial_navigation.json",
+  "scope": "Documentation, pure local interpretation and no-send tests only; no new provider API requests beyond official public documentation reads"
+}

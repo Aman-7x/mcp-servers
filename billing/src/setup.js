@@ -148,7 +148,7 @@ export const CLIENT_ORDER = Object.keys(CLIENTS);
 
 /** Servers that get a page for this client. claude-web skips office-suite: it starts
  * 31 child processes and has no single connector URL. */
-const WEB_EXCLUDED = ["duplicate-invoice-check", "three-way-match", "office-suite", "pomodoro", "budget", "loan-calculator", "payroll", "receipts", "stripe-billing", "tax-calc", "hourly-rate"];
+const WEB_EXCLUDED = ["supplier-statement-check", "duplicate-invoice-check", "three-way-match", "office-suite", "pomodoro", "budget", "loan-calculator", "payroll", "receipts", "stripe-billing", "tax-calc", "hourly-rate"];
 export function serversFor(clientId) {
   return clientId === "claude-web" ? SERVER_ORDER.filter((id) => !WEB_EXCLUDED.includes(id)) : SERVER_ORDER;
 }
@@ -165,6 +165,16 @@ export function serversFor(clientId) {
  * entry here without one, because it spawns every sibling as a local child process.
  */
 export const SETUP_SERVERS = {
+  "supplier-statement-check": {
+    title: "MCP Supplier Statement Open-Item Check", slug: "supplier-statement-check", toolCount: "8 tools",
+    pkg: "@theluckystrike/mcp-supplier-statement-check", sPage: "/s/supplier-statement-check", hosted: null,
+    tagline: "Compare supplied supplier statement and AP ledger open items with complete exact-key evidence.",
+    does: "Pass two open-item lists for a declared common as_of date, up to 1000 rows per side. Match exact entity, supplier, currency, document type and reference. Retain original rows for agreement, missing-side items, amount/date differences and repeated-reference ambiguity. No normalization, PDF extraction, ERP access, balances or payment approval.",
+    prompts: [["Compare these supplier statement open items with this AP ledger export; retain every unmatched source row.", "supplier_statement_check"], ["Review repeated references without guessing which rows pair.", "supplier_statement_check"], ["Export the source-side evidence and every group status as CSV.", "report_export_csv"]],
+    free: "All diagnostics, original evidence pages and CSV for 1000 records per side; three simultaneous saved reports.",
+    pro: "$19 once removes the saved-report count cap. The $39 bundle includes it; all input, response and storage safety bounds remain.",
+    measured: "Source and stdio tests use synthetic open items; no buyer outcome or commercial return is inferred.",
+  },
   "duplicate-invoice-check": {
     title: "MCP Duplicate Supplier Invoice Check", slug: "duplicate-invoice-check", toolCount: "8 tools",
     pkg: "@theluckystrike/mcp-duplicate-invoice-check", sPage: "/s/duplicate-invoice-check", hosted: null,
@@ -1196,6 +1206,14 @@ export const SERVER_ORDER = Object.keys(SETUP_SERVERS);
  * it is what is actually different about running that server in that client.
  */
 const ANGLE = {
+  "supplier-statement-check": {
+    "claude-desktop": "Open the local extension or point Node at the built absolute path. Supply exact structured open items; the server does not extract supplier statement PDFs.",
+    "claude-code": "Use the local absolute dist/index.js path. Declare the common as_of date and pass both exports explicitly; saved reports never become implicit history.",
+    cursor: "Preserve exact references and leading zeros from the source. Amount differences retain both original outstanding minor-unit values.",
+    vscode: "Use the servers top-level key in .vscode/mcp.json. Review missing-side items and repeated-reference groups before interpreting agreement.",
+    windsurf: "Pass invoices and credit notes with their explicit document_type. Positive credit-note amounts are not netted against invoice groups.",
+    cline: "Use save false to check without writing a report. Complete evidence pages and CSV stay free; saved-report deletion frees a slot.",
+  },
   "duplicate-invoice-check": {
     "claude-desktop": "Install the local extension or use the built absolute node path. Supply structured fields from the invoices: the server does not extract PDF values or make payment decisions.",
     "claude-code": "Use an absolute dist/index.js path. Include every historical record you want compared in each call; saved reports are snapshots and never implicit cross-call history.",

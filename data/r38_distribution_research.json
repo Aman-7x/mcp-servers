@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-26T05:14:25.892909+00:00",
+  "requested_path": "/Users/mike/Desktop/platform-analysis-2026/index.html",
+  "resolved_path": "/Users/mike/Desktop/research/platform-analysis-2026/index.html",
+  "bytes_read": 168257,
+  "sha256": "ef9a60f6ff3367b1bbce8e64d5d0adeee93553591e328d5d8bf220a7e75afadc",
+  "source_dates": "2026-09-01; revised 2026-09-02",
+  "restore": "No COLDSTORE stub located or restore needed; moved source read in full. No source copy or financial exports added.",
+  "applied_findings": [
+    "Throughput and listing counts do not establish paid demand.",
+    "MCP was a 20% portfolio experiment in dated research, with no platform billing.",
+    "Current checkout and organic acquisition measurements override historical opportunity scores."
+  ],
+  "treg_discovery": {
+    "query": "public GitHub repository search metadata MCP server directory",
+    "closest_routes": [
+      {
+        "id": "crawl4ai.github.repo.profile",
+        "usd_per_call": 0.00165
+      },
+      {
+        "id": "scrapecreators.x.v1-github-repository",
+        "usd_per_call": 0.00188
+      }
+    ],
+    "calls_made": 0,
+    "decision": "No paid endpoints called; native public GitHub/API and primary docs used."
+  }
+}

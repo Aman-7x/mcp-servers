@@ -62,9 +62,10 @@ mkdir -p "$BUNDLES"
 MCPB="npx -y @anthropic-ai/mcpb@2.1.2"
 LIC_SRC="$ROOT/packages/mcp-license"
 
-SERVERS="time-tracker price-tracker spreadsheet invoice expense-tracker currency timezone docx resume recurring clauses pdf calendar kanban image bank-statement quotes barcode zip billing-docs deposits per-diem asset-register statement-of-account cash-book amortization petty-cash work-order catalogue change-order delivery-schedule packing-list checklist bill-of-sale credit-note job-card dunning-letters supplier-list service-agreement maintenance-log mileage-log purchase-requisition goods-receipt onboarding leave backlink-checker hourly-rate three-way-match duplicate-invoice-check"
+SERVERS="time-tracker price-tracker spreadsheet invoice expense-tracker currency timezone docx resume recurring clauses pdf calendar kanban image bank-statement quotes barcode zip billing-docs deposits per-diem asset-register statement-of-account cash-book amortization petty-cash work-order catalogue change-order delivery-schedule packing-list checklist bill-of-sale credit-note job-card dunning-letters supplier-list service-agreement maintenance-log mileage-log purchase-requisition goods-receipt onboarding leave backlink-checker hourly-rate three-way-match duplicate-invoice-check supplier-statement-check"
 
 declare -A DISPLAY_NAME=(
+  [supplier-statement-check]="Supplier Statement Check"
   [duplicate-invoice-check]="Duplicate Invoice Check"
   [three-way-match]="Three-Way Invoice Match"
   [time-tracker]="Time Tracker"
@@ -117,6 +118,7 @@ declare -A DISPLAY_NAME=(
 )
 
 declare -A KEYWORDS=(
+  [supplier-statement-check]='["mcp","supplier-statement","vendor-statement","accounts-payable","open-items","local"]'
   [duplicate-invoice-check]='["mcp","duplicate-invoice","supplier-invoice","accounts-payable","local"]'
   [three-way-match]='["mcp","three-way-matching","supplier-invoice","purchase-order","goods-receipt","accounts-payable"]'
   [time-tracker]='["mcp","model-context-protocol","time-tracking","timesheet","invoicing","freelance"]'

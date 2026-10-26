@@ -1,0 +1,206 @@
+{
+  "schema": 1,
+  "collected_until": "2026-10-26T05:11:52.124Z",
+  "audit": "data/r38_kpi_audit.json",
+  "canonical_index_inspection": "data/r38_kpi_index_inspection.json",
+  "scope": "MCP Stripe Checkout gross, Google Search discovery, GitHub reported clients and recorded hosted responses only; no proven ROI, human counts, local use or full traffic capture.",
+  "headline": {
+    "mcp_paid_completed_checkout_sessions": 0,
+    "mcp_checkout_gross_usd": 0,
+    "mcp_finalized_gsc_impressions": 38,
+    "mcp_finalized_gsc_clicks": 0,
+    "hosted_ordinary_protocol_successes": 19,
+    "hosted_first_anon_token_server_day_observations": 7,
+    "hosted_ordinary_checkout_handoffs": 0,
+    "guard_passing_clicks_7_utc_dates": 3,
+    "unknown_product_route_clicks_7_utc_dates": 3,
+    "other_guard_passing_clicks_7_utc_dates": 0
+  },
+  "comparisons": {
+    "baseline": "data/revenue_audit_2026-10-17.json",
+    "caution": "Shifted overlapping windows and different exposure durations; deltas are descriptive, not causal rates or sprint attribution.",
+    "mcp_paid_completed_sessions": {
+      "previous": 0,
+      "current": 0
+    },
+    "account_completed_paid_positive_control": {
+      "previous": 182,
+      "current": 186
+    },
+    "stripe_28d_untagged_sessions": {
+      "previous": 31,
+      "current": 4,
+      "previous_window": {
+        "start": "2026-09-18T23:30:32.681Z",
+        "end": "2026-10-16T23:30:32.681Z"
+      },
+      "current_window": {
+        "start": "2026-09-28T05:11:17.265Z",
+        "end": "2026-10-26T05:11:17.265Z"
+      }
+    },
+    "gsc": {
+      "previous_window": {
+        "start": "2026-09-16",
+        "end": "2026-10-13"
+      },
+      "current_window": {
+        "start": "2026-09-26",
+        "end": "2026-10-23"
+      },
+      "previous_impressions": 34,
+      "current_impressions": 38,
+      "previous_clicks": 0,
+      "current_clicks": 0
+    },
+    "github": {
+      "previous_window": {
+        "start": "2026-10-02",
+        "end": "2026-10-15"
+      },
+      "current_window": {
+        "start": "2026-10-11",
+        "end": "2026-10-24"
+      },
+      "previous_views": 58,
+      "current_views": 83,
+      "previous_unique_clients": 32,
+      "current_unique_clients": 43,
+      "previous_clones": 3457,
+      "current_clones": 2972,
+      "previous_clone_clients": 279,
+      "current_clone_clients": 360
+    }
+  },
+  "funnel": {
+    "window": {
+      "start": "2026-10-20T00:00:00.000Z",
+      "end": "2026-10-26T05:11:19.101Z",
+      "utc_dates": [
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26"
+      ],
+      "today_partial": true
+    },
+    "ordinary": {
+      "successful_business_call": 19,
+      "first_successful_anon_token_server_day": 7,
+      "upgrade_impression": 19,
+      "offer_view": 1581,
+      "checkout_handoff": 0
+    },
+    "probe": {
+      "successful_business_call": 0,
+      "first_successful_anon_token_server_day": 0,
+      "upgrade_impression": 0,
+      "offer_view": 0,
+      "checkout_handoff": 0
+    },
+    "success_sources": [
+      "unattributed"
+    ],
+    "per_server_breakdown_available": false,
+    "observed_success_days": [
+      {
+        "day": "2026-10-20",
+        "successful_responses": 1
+      },
+      {
+        "day": "2026-10-21",
+        "successful_responses": 1
+      },
+      {
+        "day": "2026-10-22",
+        "successful_responses": 2
+      },
+      {
+        "day": "2026-10-23",
+        "successful_responses": 0
+      },
+      {
+        "day": "2026-10-24",
+        "successful_responses": 12
+      },
+      {
+        "day": "2026-10-25",
+        "successful_responses": 0
+      },
+      {
+        "day": "2026-10-26",
+        "successful_responses": 3
+      }
+    ],
+    "limits": [
+      "Ordinary means unmarked, not human.",
+      "Success means accepted JSON-RPC result shape, not verified business outcome.",
+      "Token/server/day observations are not people or lifetime activation.",
+      "Offer views include automation; source labels are declarations.",
+      "No ratio mixes Stripe, Google, GitHub or funnel windows."
+    ]
+  },
+  "indexing": {
+    "homepage_indexed_control": "Submitted and indexed",
+    "focus_duplicate_product": "URL is unknown to Google",
+    "focus_matcher_product": "URL is unknown to Google",
+    "interpretation": "Unknown versus prior discovered is coverage instability, not independently verified removal from index. The canonical six exact URLs supersede the preliminary collector inspections; two guessed noncatalogue paths in audit.search_console.inspections are excluded from decisions.",
+    "collector_source_note": "The reusable collector now derives exact inspection URLs from the preserved R37 six-URL inventory; this source correction did not rerun API collection or rewrite the preliminary receipt."
+  },
+  "controls": {
+    "stripe_paid_account": true,
+    "stripe_full_completed_history": true,
+    "stripe_all_line_items": true,
+    "stripe_7d_coverage": true,
+    "stripe_28d_coverage": true,
+    "gsc_parent_impressions": 4939,
+    "gsc_parent_clicks": 46,
+    "funnel_bounded_read_complete": true,
+    "funnel_local_control_tests_passed": 32,
+    "kpi_population_tests_passed": 6,
+    "no_new_live_probe_created": true,
+    "prior_evidence_unchanged": true
+  },
+  "priorities": [
+    {
+      "rank": 1,
+      "action": "Acquire qualified workflow trials from a relevant allowed distribution surface; observe supplied-data completion, repeat use and an independent paid outcome.",
+      "basis": "0 finalized Google clicks, 0 valid-product guard-passing clicks, 0 ordinary handoffs; attribution of protocol success is absent.",
+      "measurement": "Separate real permitted participant trials from operator and synthetic validation; track repeat use and paid Checkout."
+    },
+    {
+      "rank": 2,
+      "action": "Expose a useful browser task and link its exact canonical guide/product from real distribution listings.",
+      "basis": "No sales-page or guide row in finalized Google data; focus URLs unknown at indexed-version inspection.",
+      "measurement": "Verify canonical, robots and sitemap, then record exact-URL indexing, clicks and attributed trials; do not treat submission as traffic."
+    },
+    {
+      "rank": 3,
+      "action": "Report invalid-product navigation separately from paid-offer intent.",
+      "basis": "All 3 seven-date guard-passing clicks are buy.unknown-product; 0 other guard-passing clicks.",
+      "measurement": "Keep dead-link diagnostics; never promote their sum into a valid purchase-intent KPI."
+    },
+    {
+      "rank": 4,
+      "action": "Investigate recurring paid value with trial participants before changing free caps or widening catalogue.",
+      "basis": "No paid MCP history; 19 unattributed protocol successes alone do not validate the saved-report upgrade.",
+      "measurement": "Record observed second batches and stated paid-use needs; ROI requires attributable costs and gross receipts."
+    }
+  ],
+  "spent_paid_api_usd": 0,
+  "external_writes": 0,
+  "email_configuration": "data/r38_kpi_email_config.json",
+  "resend": {
+    "domain_verified": true,
+    "sending_enabled": true,
+    "delivery_verified": false,
+    "local_campaign_rows": 18,
+    "local_campaign_eligible": 0,
+    "local_campaign_opted_in_rows": 0,
+    "production_subscriber_census": "NOT_MEASURED",
+    "emails_sent": 0
+  }
+}

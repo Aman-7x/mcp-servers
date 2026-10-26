@@ -1,0 +1,4 @@
+
+> @theluckystrike/mcp-office-suite@0.23.0 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+

@@ -1,0 +1,20 @@
+# R38 actual browser and asset verification
+
+status: DONE
+evidence: node scripts/verify-r38-supplier-browser.mjs: status passed, 9 grouped checks, 0 diagnostic requests, 0 page errors. node scripts/verify-r38-dashboard.mjs: status passed, 7 grouped checks, 0 external requests, 0 page errors.
+artifacts: scripts/verify-r38-supplier-browser.mjs; scripts/verify-r38-dashboard.mjs; data/r38_supplier_browser_verification.json; data/r38_dashboard_browser_verification.json; assets/demo-supplier-statement-check.gif; assets/supplier-statement-check-logo.png; intel/R38-supplier-desktop.png; intel/R38-supplier-mobile-390.png; intel/R38-supplier-mobile-320.png; intel/R38-dashboard-desktop.png; intel/R38-dashboard-mobile.png; intel/R38-dashboard-calculator.png
+cost: local browser checks only; no paid API calls, production requests, checkout Sessions or email.
+failures: first strict external-attempt assertion identified the existing static GoogleFonts stylesheet. It was blocked before network access; the final verifier allows only that exact blocked static URL and rejects all other external attempts. One earlier cleanup observation transiently failed; the owned scope was retained, then lsof established zero handles before deletion and manifest recording. The later UX follow-up changed only preset() to reset editor.scrollTop to0, rebuilt its generated bundle, and added a real editor-scroll regression; comparison rules were unchanged.
+insight: The actual downloadable CSV preserves all 9 source-side rows and original values while escaping a formula-like reference; a plausible report display alone would not establish that export fidelity.
+
+## Scope
+
+Supplier checks ran the actual billing Worker.fetch route on loopback, including its generated source-hashed JavaScript. Chrome 155.0.8059.86 computed five exact-key groups from nine synthetic source records: one matching group and four review groups (one each statement-only, ledger-only, amount/date discrepancy and repeated-reference ambiguity). A real browser download was independently parsed by Python csv and compared field-by-field with all original rows. Every preset, invalid/stale/save:true refusal, hostile DOM and CSV strings, the 2 MiB guard and 320/390px layouts passed. No field-value diagnostic request or local/session storage write was observed. The existing GoogleFonts stylesheet was the only blocked external URL; no external request was allowed. The new preset-position regression starts from an actually scrolled editor and verifies the next selected preset begins at its first line.
+
+The GIF contains five screenshots of actual computed states, not a fabricated terminal or mock result. The logo extends the existing simple icon style with original inline SVG rendered by Chrome. Desktop, full-section mobile and dashboard screenshots were visually inspected. All owned browser contexts and loopback servers closed; lsof proved no open handles before temporary-folder removal, and each deletion is in data/build-deletions.jsonl.
+
+The dashboard was opened through the real local DASHBOARD.html redirect. The 26 October review, active R38 panel, every metric and window, previous sales correction, all nine tabs, calculator edge cases and mobile overflow checks passed. Prior 17 October screenshots and receipts were preserved.
+
+## Limits
+
+These are synthetic operator checks, not people, buyer trials, commercial outcomes or competitor tests. They certify local current source rather than the deployed site, archive, mirror or container. The parent owns those release gates. The verifier now accepts --origin https://mcp.zovo.one for the postdeploy pass, writes a separate live receipt and screenshots, permits only x-mcp-probe:1 GETs to this exact guide, its generated script and favicon, and rejects every other route/method/host. Live mode never rewrites the publishable local GIF/logo. It has not been run before deployment. A new route has no previously shipped cached supplier markup to reproduce; the generated asset input SHA-256 was checked before launch. Re-run the two commands after any relevant UI or comparison-core edit.

@@ -1,0 +1,77 @@
+{
+  "at": "2026-10-26T05:14:02.860Z",
+  "scope": "Read public primary competitor READMEs to distinguish name/description gaps from feature absence; no runtime test",
+  "repos": [
+    {
+      "repo": "JuampiMasyk/ledger-mcp",
+      "url": "https://github.com/JuampiMasyk/ledger-mcp/blob/main/README.md",
+      "bytes": 4644,
+      "sha256": "d708a4628ba49bd47c05d10e37cdb1d53777eec1a3a5b86e116b970334ee21ce",
+      "mentions_supplier_statement": false,
+      "matches": [
+        "An [MCP](https://modelcontextprotocol.io) server that lets LLM agents (Claude, ChatGPT, Cursor, any MCP client) query and reconcile an accounts-payable ledger, plus an eval suite that measures how well the server does the job.",
+        "It ships with a synthetic ledger (8 vendors, 131 invoices, 125 payments) where real-world problems are planted on purpose: underpayments, duplicate payments, payments in the wrong currency, overdue invoices, payments without a reference, and a payment that could belong to two invoices. The eval suite checks the server against that ground truth.",
+        "Reconciling invoices against payments is a classic job for an agent: lots of rows, fuzzy references, and a few exceptions that matter. Letting a model write arbitrary SQL against financial data is risky, so this server gives it:",
+        "| Tool | `reconcile_ledger` | Matches invoices to payments and lists exceptions by type |",
+        "| Tool | `explain_exception` | Raw invoice, payment and vendor rows behind an exception |",
+        "1. **Reference match**: the payment reference contains the invoice number (case-insensitive).",
+        "2. **Fuzzy match**: same vendor and currency, amount within tolerance, paid within N days of issue, and exactly one candidate invoice. If more than one invoice fits, the payment is flagged as `ambiguous_payment` instead of guessed.",
+        "  reconcile.py   matching logic, pure functions"
+      ]
+    },
+    {
+      "repo": "bookchaowalit/finance-reconciliations-api",
+      "url": "https://github.com/bookchaowalit/finance-reconciliations-api/blob/main/README.md",
+      "bytes": 2350,
+      "sha256": "cc70d7014d52cbe47238783b72bf0ad97d86eda98fd4d27c727b6de3891f4fc0",
+      "mentions_supplier_statement": false,
+      "matches": [
+        "# finance-reconciliations-api",
+        "The Reconciliations cell: its own API (Railway, serverless) and its own Neon",
+        "| API | Railway project `finance-reconciliations-api`, service `reconciliations-api` (Serverless) |",
+        "| Data | Neon project `finance-reconciliations-api`, database `reconciliations` |",
+        "| Registry | solo-empire `repository-catalog/registries/online-systems.yaml` (`reconciliations`) |",
+        "(see `cellkit/app.py`). Permissions are `reconciliations.<resource>:read|write|delete`.",
+        "| `/v1/reconciliations` | reconciliation | `account_id`, `status`, `source_type` |",
+        "NEON_API_KEY=... .venv/bin/reconciliations-db provision",
+        "railway scale --service reconciliations-api asia-southeast1-eqsg3a=1 us-east4-eqdc4a=0   # next to Neon and the platform",
+        "Deploys (CD, since 2026-10-18): `reconciliations-api` is connected to this repository's `main`",
+        "`RECONCILIATIONS_DB_MODE=hosted`, `RECONCILIATIONS_DB_URL_API`,",
+        "`RECONCILIATIONS_JWT_PUBLIC_KEY_PEM`, `RECONCILIATIONS_JWT_ISSUER`, `EMPIRE_PLATFORM_URL`."
+      ]
+    },
+    {
+      "repo": "Ivansky1/unlav-data-tools-mcp",
+      "url": "https://github.com/Ivansky1/unlav-data-tools-mcp/blob/main/README.md",
+      "bytes": 3197,
+      "sha256": "566d62770f2a89e3f343554dd391e6a6e477e5b32326d4ce882835acd434676c",
+      "mentions_supplier_statement": false,
+      "matches": [
+        "| CSV Reconcile | `https://7days.unlavsofts.xyz/mcp/csv-reconcile` | `reconcile_csv_tables` |",
+        "| Supplier Quote Compare | `https://7days.unlavsofts.xyz/mcp/quote-compare` | `compare_supplier_quotes` |",
+        "CSV Reconcile compares two CSV exports by one to four shared key columns. It reports changed values, rows found only on one side, and ambiguous duplicate or missing keys. Values are case-sensitive exact strings. It never edits either file. Limits per file: 1 MiB UTF-8, 5,000 data rows, 64 columns, 131,072 characters per cell, 20,000 parsed records including blanks. Detail lists stop at 2,000 discrepancies; counts cover all accepted rows.",
+        "Supplier Quote Compare ranks suppliers for the same complete order. It uses exact integer arithmetic for two-decimal prices and adds the stated shipping once. Missing required SKUs exclude a quote from ranking; equal totals share rank. Limits: 20 suppliers, 200 required SKUs, one currency. It does not infer taxes or FX, verify availability, recommend suppliers, or place orders."
+      ]
+    },
+    {
+      "repo": "Walma-Labs/fortnox-mcp",
+      "url": "https://github.com/Walma-Labs/fortnox-mcp/blob/main/README.md",
+      "bytes": 6981,
+      "sha256": "61b5a07d0efa5744831f170d0dacd53bb7c4b4ec33ce549c3fda0597d3fb77e4",
+      "mentions_supplier_statement": false,
+      "matches": [
+        "Open-source [MCP](https://modelcontextprotocol.io) server for **Fortnox**, the Swedish accounting system. Ask Claude, ChatGPT, Cursor or any MCP client about your books in plain language: unpaid invoices, the result for the quarter, what you owe suppliers, cash in the bank.",
+        "- **Reports Fortnox has no endpoint for**: income statement, balance sheet, receivables and payables ageing, monthly totals per account. Built from one SIE export per financial year, so they match the books exactly.",
+        "- **Drafts, not actions.** With writes enabled, the server can create customers, offers, orders and *unbooked, unsent* invoice drafts. Every write returns a preview first and needs `confirm: true`. Bookkeeping, payments, sending and deleting stay in Fortnox, with a person.",
+        "| Customer invoices | `list_invoices`, `get_invoice`, `list_invoice_payments` |",
+        "| Supplier invoices | `list_supplier_invoices`, `get_supplier_invoice` |",
+        "| Registers | `list_customers`, `get_customer`, `list_suppliers`, `get_supplier`, `list_articles`, `list_orders`, `list_offers`, `list_projects`, `list_cost_centers` |",
+        "| Reports | `income_statement`, `balance_sheet`, `account_totals_by_month`, `receivables_aging`, `payables_aging` |",
+        "| Writes (opt-in, drafts) | `create_customer`, `create_invoice_draft`, `create_offer`, `create_order` |",
+        "3. Enable the scopes you need. The default set is `companyinformation bookkeeping invoice customer supplierinvoice supplier article payment settings`. Each scope also has to be covered by a licence on the Fortnox account that approves it, so ask only for what you use.",
+        "- *Show the income statement for Q3 compared with Q2.*",
+        "- `fortnox_get` only reaches paths in `src/paths.ts`, generated from Fortnox's OpenAPI document by `scripts/gen-paths.py`, minus endpoints that send (email, e-print, e-invoice), return files, or belong to the bank and developer programmes."
+      ]
+    }
+  ]
+}

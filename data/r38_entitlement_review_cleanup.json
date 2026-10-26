@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-26T05:20:55.983035+00:00",
+  "path": "/Users/mike/mcp-servers-work/r38-entitlement-remote-dryrun",
+  "bytes": 22972209,
+  "lsof_clear": true,
+  "reason": "R38 entitlement remote dry-run verified; owned generated output removed"
+}

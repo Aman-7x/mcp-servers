@@ -1,0 +1,17 @@
+release-check: 1 servers at 0.23.0, 29 checks each
+
+server                    version profile-reader dist-version manifests desc names remotes hosted-row endpoint web children mcpb-lists mirrors pages facts tools product first-five setup compare guide gif logo docker smithery glama llms spec contract
+------------------------  ------- -------------- ------------ --------- ---- ----- ------- ---------- -------- --- -------- ---------- ------- ----- ----- ----- ------- ---------- ----- ------- ----- --- ---- ------ -------- ----- ---- ---- --------
+supplier-statement-check  ok      ok             ok           ok        ok   FAIL  ok      ok         ok       ok  ok       ok         ok      ok    ok    ok    ok      FAIL       ok    ok      ok    FAIL FAIL ok     ok       ok    FAIL ok   FAIL    
+
+Scoped release: all 29 checks for supplier-statement-check; 6 estate assertions excluded. This does not certify other servers.
+
+6 failure(s):
+  supplier-statement-check  names: only server.mcpb.json; needs server.variant.json or server.<token>.json
+  supplier-statement-check  first-five: no product page
+  supplier-statement-check  gif: assets/demo-supplier-statement-check.gif missing
+  supplier-statement-check  logo: assets/supplier-statement-check-logo.png missing
+  supplier-statement-check  llms: missing
+  supplier-statement-check  contract: test/contract.test.mjs missing
+
+legend: version=version == release, profile-reader=PROFILE_READERS wiring, dist-version=dist/version.js equals src/version.ts, manifests=server.json + mcpb, desc=descriptions < 100, names=second registry name, remotes=remotes.json merged, hosted-row=distribution.json hosted, endpoint=remote /mcp/<x>, web=claude-web setup page, children=office-suite CHILDREN, mcpb-lists=build-mcpb 3 lists, mirrors=sync-mirrors, pages=build-pages ids, facts=facts.json, tools=tools.json, product=Stripe PRODUCTS, first-five=measured evidence on the page, setup=SETUP_SERVERS + 6 ANGLE, compare=COMPARE page, guide=a guide mentions it, gif=demo GIF, logo=logo, docker=Dockerfile, smithery=smithery.yaml, glama=glama.json, llms=llms-install.md, spec=SPEC.md, contract=contract test

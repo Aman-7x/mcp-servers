@@ -103,8 +103,11 @@ test('session options isolate new product evidence and refuse malformed scopes',
   const args = ['--session', 'r37', '--single', 'duplicate-invoice-check', '--verify-expiry'];
   assert.equal(parseProbeArgs(args).session, 'r37');
   assert.deepEqual(parseProbeArgs(args).products, ['duplicate-invoice-check', 'bundle']);
+  const supplier = ['--session', 'r38', '--single', 'supplier-statement-check', '--execute-unpaid-probe', '--expected-version', uuid];
+  assert.deepEqual(parseProbeArgs(supplier).products, ['supplier-statement-check', 'bundle']);
   for (const bad of [
     ['--single', 'duplicate-invoice-check', '--verify-expiry'],
+    ['--single', 'supplier-statement-check', '--verify-expiry'],
     ['--session', '../r36', '--verify-expiry'],
     ['--single', 'invoice', '--verify-expiry'],
     ['--session', 'r37', '--session', 'r38', '--verify-expiry'],
@@ -113,15 +116,17 @@ test('session options isolate new product evidence and refuse malformed scopes',
 });
 
 test('new product expiry keeps exact ownership, evidence and legacy product exclusion', () => {
+  for (const product of ['duplicate-invoice-check', 'supplier-statement-check']) {
   const { run, report, sessions } = evidence();
-  run.products = ['duplicate-invoice-check', 'bundle'];
-  run.submitted[0].product = 'duplicate-invoice-check';
-  sessions[0].metadata.product = 'duplicate-invoice-check';
-  report.rows[0].product = 'duplicate-invoice-check';
+  run.products = [product, 'bundle'];
+  run.submitted[0].product = product;
+  sessions[0].metadata.product = product;
+  report.rows[0].product = product;
   assert.equal(verifyExpiryEvidence(run, report, sessions).report.status, 'passed');
   assert.equal(ownsProbeSession(sessions[0], { ...run, products: undefined }), false);
   assert.equal(ownsProbeSession({ ...sessions[0], metadata: { ...sessions[0].metadata, product: 'three-way-match' } }, run), false);
   assert.throws(() => verifyExpiryEvidence({ ...run, products: ['invoice', 'bundle'] }, report, sessions), /Invalid probe product scope/);
+  }
 });
 
 test('a malformed deployment UUID is rejected before the execute path can perform IO', () => {

@@ -1,3 +1,6 @@
+import { writeBinding } from "./hosted-bindings.js";
+import { verifyLicenseKey } from "./license.js";
+
 export async function acceptFulfillmentJob(storage, incoming) {
   if (!/^cs_[A-Za-z0-9_]+$/.test(incoming.sessionId || "") ||
       !/^MCPL1\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(incoming.key || "") ||
@@ -29,7 +32,11 @@ export async function processFulfillment(storage, env, job) {
       await storage.put("job", job);
     }
     if (!job.bound) {
-      await env.REMOTE_DATA.put(`bind:${job.tenant}`, job.key);
+      await writeBinding(env.REMOTE_DATA, job.tenant, job.key,
+        job.product === "bundle" ? "*" : job.product, async (key, scope) => {
+          const result = await verifyLicenseKey(key, scope === "*" ? null : scope);
+          return { ...result, p: result.payload?.p };
+        });
       job.bound = true;
       await storage.put("job", job);
     }

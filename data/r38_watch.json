@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "session": "r38",
+  "pid": 92317,
+  "status": "running",
+  "started_at": "2026-10-26T05:11:30.946Z",
+  "deadline_at": "2026-10-26T09:11:29.917Z",
+  "interval_seconds": 300,
+  "purpose": "Verify release/pin/cron recovery and observe storefront-scoped payments without generating demand",
+  "snapshots": [
+    {
+      "at": "2026-10-26T05:11:36.055Z",
+      "errors": [],
+      "deployed_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+      "approved_version": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "cron": {
+        "ok": false,
+        "version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+        "checked_at": "2026-10-26T05:10:41.326Z",
+        "operations_checked_at": null,
+        "last_failure_at": "2026-10-26T05:10:41.428Z",
+        "operations_version": null,
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 503,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-19T05:11:36.055Z",
+          "end": "2026-10-26T05:11:36.055Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": false
+    },
+    {
+      "at": "2026-10-26T05:16:41.031Z",
+      "errors": [],
+      "deployed_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+      "approved_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+      "cron": {
+        "ok": true,
+        "version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+        "checked_at": "2026-10-26T05:15:50.053Z",
+        "operations_checked_at": "2026-10-26T05:15:42.874Z",
+        "last_failure_at": "2026-10-26T05:10:41.428Z",
+        "operations_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 503,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-19T05:16:41.031Z",
+          "end": "2026-10-26T05:16:41.031Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true,
+      "health_note": "Cron passed; public health is in its existing forty-minute recovery cooldown"
+    },
+    {
+      "at": "2026-10-26T05:21:46.095Z",
+      "errors": [],
+      "deployed_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+      "approved_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+      "cron": {
+        "ok": true,
+        "version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+        "checked_at": "2026-10-26T05:21:10.172Z",
+        "operations_checked_at": "2026-10-26T05:15:42.874Z",
+        "last_failure_at": "2026-10-26T05:10:41.428Z",
+        "operations_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 503,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-19T05:21:46.095Z",
+          "end": "2026-10-26T05:21:46.095Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true,
+      "health_note": "Cron passed; public health is in its existing forty-minute recovery cooldown"
+    },
+    {
+      "at": "2026-10-26T05:31:26.662Z",
+      "errors": [],
+      "deployed_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+      "approved_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+      "cron": {
+        "ok": true,
+        "version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+        "checked_at": "2026-10-26T05:30:41.392Z",
+        "operations_checked_at": "2026-10-26T05:15:42.874Z",
+        "last_failure_at": "2026-10-26T05:10:41.428Z",
+        "operations_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 503,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-19T05:31:26.662Z",
+          "end": "2026-10-26T05:31:26.662Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true,
+      "health_note": "Cron passed; public health is in its existing forty-minute recovery cooldown"
+    },
+    {
+      "at": "2026-10-26T05:36:32.471Z",
+      "errors": [],
+      "deployed_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+      "approved_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+      "cron": {
+        "ok": true,
+        "version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+        "checked_at": "2026-10-26T05:35:41.631Z",
+        "operations_checked_at": "2026-10-26T05:15:42.874Z",
+        "last_failure_at": "2026-10-26T05:10:41.428Z",
+        "operations_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+        "webhook_failures": null,
+        "missing_fulfillments": null
+      },
+      "public_health_status": 503,
+      "stripe": {
+        "covered_7d": true,
+        "window": {
+          "start": "2026-10-19T05:36:31.506Z",
+          "end": "2026-10-26T05:36:31.506Z"
+        },
+        "sessions_7d": 0,
+        "paid_7d": 0,
+        "gross_paid_minor_by_currency": {},
+        "note": "Untagged sessions are not verified people. Gross checkout amount, not lifetime or net revenue."
+      },
+      "pin_matches": true,
+      "health_note": "Cron passed; public health is in its existing forty-minute recovery cooldown"
+    }
+  ],
+  "last_observed_at": "2026-10-26T05:36:32.471Z",
+  "resumed_at": "2026-10-26T05:31:23.062Z",
+  "observation_gaps": [
+    {
+      "last_observed_at": "2026-10-26T05:21:46.095Z",
+      "resumed_at": "2026-10-26T05:31:23.062Z",
+      "previous_pid": 57534,
+      "reason": "Original process confirmed absent before resuming; prior observations and original deadline preserved"
+    }
+  ]
+}
