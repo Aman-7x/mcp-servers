@@ -1,0 +1,92 @@
+{
+  "at": "2026-10-26T06:17:16.372Z",
+  "method": "Read-only Cloudflare deployments, version, settings and schedules API; no value bindings or secrets exported",
+  "deployment": {
+    "id": "adb46d30-7a38-48c9-8b32-49e80c4770c1",
+    "version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00"
+  },
+  "runtime": {
+    "compatibility_date": "2025-09-01",
+    "compatibility_flags": [
+      "nodejs_compat"
+    ],
+    "limits": {
+      "cpu_ms": 400
+    },
+    "migration_tag": "fulfillment_state_v1",
+    "usage_model": "standard"
+  },
+  "bindings": [
+    {
+      "name": "CF_VERSION_METADATA",
+      "type": "version_metadata"
+    },
+    {
+      "name": "FULFILLMENT",
+      "type": "durable_object_namespace"
+    },
+    {
+      "name": "FUNNEL",
+      "type": "durable_object_namespace"
+    },
+    {
+      "name": "LICENSE_PRIVATE_KEY_PEM",
+      "type": "secret_text"
+    },
+    {
+      "name": "LICENSES",
+      "type": "kv_namespace"
+    },
+    {
+      "name": "MONITOR_STATUS_TOKEN",
+      "type": "secret_text"
+    },
+    {
+      "name": "REMOTE_DATA",
+      "type": "kv_namespace"
+    },
+    {
+      "name": "RESEND_API_KEY",
+      "type": "secret_text"
+    },
+    {
+      "name": "STRIPE_SECRET_KEY",
+      "type": "secret_text"
+    },
+    {
+      "name": "STRIPE_WEBHOOK_SECRET",
+      "type": "secret_text"
+    },
+    {
+      "name": "UNSUB_SECRET",
+      "type": "secret_text"
+    }
+  ],
+  "version_configuration_sha256": "b3c7d1dda0ccdfbf60cba7651fdff8973e91e57d2c238277c376d1c264a6d4a3",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "redact_query_string": false,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1,
+      "persist": true,
+      "invocation_logs": true
+    },
+    "traces": {
+      "enabled": true,
+      "persist": true,
+      "head_sampling_rate": 1
+    }
+  },
+  "logpush": false,
+  "tail_consumers_count": 0,
+  "cron": [
+    "*/5 * * * *"
+  ],
+  "installed_wrangler": {
+    "version": "4.80.0",
+    "cli_sha256": "0234d26aaea5e5f9238dd66d8063ada13f37b0855e7c0a6ca8ff7c92c01c9299"
+  },
+  "external_writes": 0
+}
