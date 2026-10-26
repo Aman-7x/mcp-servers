@@ -1,0 +1,58 @@
+{
+  "secret_patterns_checked": [
+    "stripe_secret",
+    "private_key",
+    "bearer_value"
+  ],
+  "findings": [],
+  "prior_hashes_still_match": {
+    "data/r37_kpi_baseline.json": true,
+    "data/r37_kpi_final.json": true,
+    "data/r37_watch.json": true,
+    "data/r37_google_index_after_final.json": true,
+    "data/revenue_audit_2026-10-17.json": true,
+    "data/r37_google_index_after_revenue_review.json": true
+  },
+  "artifacts": [
+    {
+      "path": "data/r38_kpi_audit.json",
+      "bytes": 120066,
+      "sha256": "534c82043c74c002b2758915a76e07eb49e69e62f741c87b21694f922ad1eed7"
+    },
+    {
+      "path": "data/r38_kpi_summary.json",
+      "bytes": 7439,
+      "sha256": "edde0eeeefd9668123c59a7545e9b841fe0e39e0248429c2d197c94a333d9828"
+    },
+    {
+      "path": "data/r38_kpi_index_inspection.json",
+      "bytes": 2072,
+      "sha256": "fa5e975d6df031b26aa954b90cbf91d863b2cb40ad515844cca780dfba5db749"
+    },
+    {
+      "path": "data/r38_kpi_population_tests.txt",
+      "bytes": 1489,
+      "sha256": "98c00f0a83404018604ddbf3d187d65c84ccf0cb3a95e96e766ec01d91e6c026"
+    },
+    {
+      "path": "data/r38_kpi_funnel_tests.txt",
+      "bytes": 8445,
+      "sha256": "dc7f292c0929d77151f84a0d06400eae47c5782e4c6c4c88b8282cb2f9fc66fa"
+    },
+    {
+      "path": "intel/R38-kpi.md",
+      "bytes": 9745,
+      "sha256": "05bb9738cbf13141497d46aa4dad2cbfd41a2f764200a965b3a661fada22b73e"
+    },
+    {
+      "path": "scripts/r38-kpi-audit.mjs",
+      "bytes": 14791,
+      "sha256": "19ce274e83e7ebc8a2a2e8f966baaaabe5e302e562ff0606f4d80814dd928719"
+    },
+    {
+      "path": "data/r38_kpi_email_config.json",
+      "bytes": 1628,
+      "sha256": "2e75be43ef6ffb5cd0ee302dc3400b79cdd19111743e6e96318c66e6d31bc375"
+    }
+  ]
+}

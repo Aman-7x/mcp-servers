@@ -1,0 +1,94 @@
+{
+  "at": "2026-10-26T05:36:26.752Z",
+  "method": "Native read-only gh api repository projection; absence is HTTP404, not an auth assumption",
+  "repositories": [
+    {
+      "name": "mcp-supplier-statement-check",
+      "status": "unavailable",
+      "http_404": true
+    },
+    {
+      "name": "mcp-office-suite",
+      "status": "present",
+      "full_name": "theluckystrike/mcp-office-suite",
+      "visibility": "public",
+      "default_branch": "main",
+      "homepage": "https://mcp.zovo.one/s/office-suite",
+      "description": "Model Context Protocol (MCP) server for small business accounting and paperwork: invoices, PDFs, spreadsheets, Word documents, time tracking and expenses. One local config entry for invoicing, documents, time tracking and supplier checks. Works with Claude Desktop, Claude Code and Cursor.",
+      "topics": [
+        "ai",
+        "back-office",
+        "bundle",
+        "claude",
+        "claude-code",
+        "claude-desktop",
+        "cursor",
+        "llm",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "nodejs",
+        "office",
+        "productivity",
+        "typescript"
+      ],
+      "pushed_at": "2026-10-16T10:53:37Z"
+    },
+    {
+      "name": "mcp-duplicate-invoice-check",
+      "status": "present",
+      "full_name": "theluckystrike/mcp-duplicate-invoice-check",
+      "visibility": "public",
+      "default_branch": "main",
+      "homepage": "https://mcp.zovo.one/s/duplicate-invoice-check",
+      "description": "Model Context Protocol (MCP) server for duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence. Review duplicate supplier invoice candidates in supplied local history. Works with Claude Desktop, Claude Code and Cursor.",
+      "topics": [
+        "accounts-payable",
+        "ai",
+        "claude",
+        "claude-code",
+        "claude-desktop",
+        "cursor",
+        "duplicate-invoices",
+        "invoice-review",
+        "llm",
+        "local-first",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "nodejs",
+        "typescript",
+        "vendor-bills"
+      ],
+      "pushed_at": "2026-10-16T09:25:22Z"
+    },
+    {
+      "name": "mcp-three-way-match",
+      "status": "present",
+      "full_name": "theluckystrike/mcp-three-way-match",
+      "visibility": "public",
+      "default_branch": "main",
+      "homepage": "https://mcp.zovo.one/s/three-way-match",
+      "description": "Model Context Protocol (MCP) server for three way matching: supplier invoice matching against purchase orders and accepted receipts by SKU. Supplier invoice, purchase order and receipt checks by exact SKU. Works with Claude Desktop, Claude Code and Cursor.",
+      "topics": [
+        "accounts-payable",
+        "ai",
+        "claude",
+        "claude-code",
+        "claude-desktop",
+        "cursor",
+        "invoice-matching",
+        "llm",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "nodejs",
+        "purchase-order",
+        "supplier-invoice",
+        "three-way-matching",
+        "typescript"
+      ],
+      "pushed_at": "2026-10-16T09:25:32Z"
+    }
+  ]
+}

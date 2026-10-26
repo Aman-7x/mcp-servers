@@ -1,8 +1,8 @@
 {
   "manifest_version": "0.2",
   "name": "mcp-office-suite",
-  "display_name": "Office Suite (49 local servers)",
-  "version": "0.22.9",
+  "display_name": "Office Suite (50 local servers)",
+  "version": "0.25.0",
   "description": "One install for the whole freelancer office suite: time tracking, price watching, spreadsheets and PDF invoicing, proxied behind a single MCP server.",
   "author": {
     "name": "theluckystrike",
@@ -1807,6 +1807,30 @@
     {
       "name": "duplicate-invoice-check_report_export_csv",
       "description": "Export free CSV pages from a saved report or unsaved preview. One row per record with reasons and group ids. Formula-like cells are escaped; no financial-loss total is calculated."
+    },
+    {
+      "name": "supplier_statement_check",
+      "description": "Compare two supplied open-item lists of up to 1000 records each by exact entity, supplier, currency, document type and reference. Flag missing-side items, amount/date discrepancies and ambiguous repeated references. All evidence is free; no balance or payment approval."
+    },
+    {
+      "name": "supplier-statement-check_report_list",
+      "description": "List saved report ids, timestamps and review-group counts. Free on both tiers; up to 100 reports per page."
+    },
+    {
+      "name": "supplier-statement-check_report_get",
+      "description": "Read a saved comparison with complete source evidence. Large reports return free paging instructions."
+    },
+    {
+      "name": "supplier-statement-check_report_page",
+      "description": "Read free pages of either source list, group summaries or one group’s source members. Unsaved previews last 30 minutes for the last two checks in this process."
+    },
+    {
+      "name": "supplier-statement-check_report_delete",
+      "description": "Delete one local comparison report and free a saved-report slot. Does not alter accounting records."
+    },
+    {
+      "name": "supplier-statement-check_report_export_csv",
+      "description": "Export free CSV pages from a saved report or unsaved preview. One row per supplied source item, with side, group and issues. Formula-like cells are escaped; no amount-loss or balance total is calculated."
     },
     {
       "name": "calculate_rate",

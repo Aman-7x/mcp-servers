@@ -1,0 +1,158 @@
+
+> @theluckystrike/mcp-supplier-statement-check@0.23.0 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: worked comparison retains both mismatch reasons and each source row once
+ok 1 - worked comparison retains both mismatch reasons and each source row once
+  ---
+  duration_ms: 4.040916
+  type: 'test'
+  ...
+# Subtest: one-to-one exact agreement reports only agreement in supplied open items
+ok 2 - one-to-one exact agreement reports only agreement in supplied open items
+  ---
+  duration_ms: 0.24375
+  type: 'test'
+  ...
+# Subtest: empty side remains meaningful; two empty lists are rejected
+ok 3 - empty side remains meaningful; two empty lists are rejected
+  ---
+  duration_ms: 0.570708
+  type: 'test'
+  ...
+# Subtest: exact entity, supplier, currency and invoice/credit keys never cross-match
+ok 4 - exact entity, supplier, currency and invoice/credit keys never cross-match
+  ---
+  duration_ms: 0.363416
+  type: 'test'
+  ...
+# Subtest: leading zeros, case, punctuation and Unicode references remain exact
+ok 5 - leading zeros, case, punctuation and Unicode references remain exact
+  ---
+  duration_ms: 0.744334
+  type: 'test'
+  ...
+# Subtest: repeated references are ambiguous before amount/date matching or side absence
+ok 6 - repeated references are ambiguous before amount/date matching or side absence
+  ---
+  duration_ms: 0.210291
+  type: 'test'
+  ...
+# Subtest: shuffled sides preserve byte-identical deterministic evidence
+ok 7 - shuffled sides preserve byte-identical deterministic evidence
+  ---
+  duration_ms: 0.325333
+  type: 'test'
+  ...
+# Subtest: independent brute-force oracle verifies 80 seeded inputs and full source coverage
+ok 8 - independent brute-force oracle verifies 80 seeded inputs and full source coverage
+  ---
+  duration_ms: 26.688375
+  type: 'test'
+  ...
+# Subtest: input shape is strict, IDs side-local and references untrimmed
+ok 9 - input shape is strict, IDs side-local and references untrimmed
+  ---
+  duration_ms: 1.57075
+  type: 'test'
+  ...
+# Subtest: real dates, bounded lists and positive safe integer minor amounts are enforced
+ok 10 - real dates, bounded lists and positive safe integer minor amounts are enforced
+  ---
+  duration_ms: 15.25075
+  type: 'test'
+  ...
+# Subtest: declared as_of never silently filters future-dated source rows
+ok 11 - declared as_of never silently filters future-dated source rows
+  ---
+  duration_ms: 0.215458
+  type: 'test'
+  ...
+# Subtest: CSV escapes formulas, invisible prefixes, commas and quotes while JSON preserves originals
+ok 12 - CSV escapes formulas, invisible prefixes, commas and quotes while JSON preserves originals
+  ---
+  duration_ms: 3.46025
+  type: 'test'
+  ...
+# Subtest: maximum permitted input remains linear with 2000 source memberships
+ok 13 - maximum permitted input remains linear with 2000 source memberships
+  ---
+  duration_ms: 17.614083
+  type: 'test'
+  ...
+# Subtest: all preview evidence remains available by source and group pages
+ok 14 - all preview evidence remains available by source and group pages
+  ---
+  duration_ms: 3.749666
+  type: 'test'
+  ...
+# Subtest: third preview evicts only oldest; expiry and restart are explicit errors
+ok 15 - third preview evicts only oldest; expiry and restart are explicit errors
+  ---
+  duration_ms: 0.799625
+  type: 'test'
+  ...
+# Subtest: maximum long-field report is paginated and every requested source and CSV row survives
+ok 16 - maximum long-field report is paginated and every requested source and CSV row survives
+  ---
+  duration_ms: 294.072708
+  type: 'test'
+  ...
+# Subtest: actual stdio initialization, discovery, diagnosis, paging, save cap and CSV
+ok 17 - actual stdio initialization, discovery, diagnosis, paging, save cap and CSV
+  ---
+  duration_ms: 397.939542
+  type: 'test'
+  ...
+# Subtest: actual signed single and bundle keys lift only the saved-report count
+ok 18 - actual signed single and bundle keys lift only the saved-report count
+  ---
+  duration_ms: 737.650209
+  type: 'test'
+  ...
+# Subtest: atomic saved reports obey free cap, Pro extends count and delete frees a slot
+ok 19 - atomic saved reports obey free cap, Pro extends count and delete frees a slot
+  ---
+  duration_ms: 449.135
+  type: 'test'
+  ...
+# Subtest: concurrent free saves cannot exceed three slots
+ok 20 - concurrent free saves cannot exceed three slots
+  ---
+  duration_ms: 238.506541
+  type: 'test'
+  ...
+# Subtest: stored output is recomputed from validated inputs rather than trusted
+ok 21 - stored output is recomputed from validated inputs rather than trusted
+  ---
+  duration_ms: 189.001333
+  type: 'test'
+  ...
+# Subtest: corrupt metadata and JSON fail closed without losing other saved reports
+ok 22 - corrupt metadata and JSON fail closed without losing other saved reports
+  ---
+  duration_ms: 190.586083
+  type: 'test'
+  ...
+# Subtest: symlinked files and configured storage ancestors are rejected
+ok 23 - symlinked files and configured storage ancestors are rejected
+  ---
+  duration_ms: 197.226167
+  type: 'test'
+  ...
+# Subtest: relative storage roots fail and aggregate budget has exact checked boundaries
+ok 24 - relative storage roots fail and aggregate budget has exact checked boundaries
+  ---
+  duration_ms: 191.348875
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1724.700875

@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-26T05:40:05.679Z",
+  "method": "Exact public versioned Registry GET, with existing duplicate latest as positive read control",
+  "read_only": true,
+  "targets": [
+    {
+      "path": "servers/supplier-statement-check/server.json",
+      "name": "io.github.theluckystrike/supplier-statement-check",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fsupplier-statement-check/versions/0.25.0",
+      "http_status": 404,
+      "returned_name": null,
+      "returned_version": null
+    },
+    {
+      "path": "servers/supplier-statement-check/server.vendor-statement.json",
+      "name": "io.github.theluckystrike/vendor-statement-open-items",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fvendor-statement-open-items/versions/0.25.0",
+      "http_status": 404,
+      "returned_name": null,
+      "returned_version": null
+    },
+    {
+      "path": "servers/office-suite/server.json",
+      "name": "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Foffice-suite-time-invoice-expense-excel-price/versions/0.25.0",
+      "http_status": 404,
+      "returned_name": null,
+      "returned_version": null
+    },
+    {
+      "path": "servers/office-suite/server.office-suite.json",
+      "name": "io.github.theluckystrike/office-suite",
+      "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Foffice-suite/versions/0.25.0",
+      "http_status": 404,
+      "returned_name": null,
+      "returned_version": null
+    }
+  ],
+  "positive_control": {
+    "http_status": 200,
+    "name": "io.github.theluckystrike/duplicate-invoice-check",
+    "version": "0.22.8"
+  },
+  "nonzero_read_control": true
+}

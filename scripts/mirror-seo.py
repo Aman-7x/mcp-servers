@@ -88,6 +88,7 @@ def repo_name(name):
 # The capability, in the words a buyer types. Each is a statement about what the server
 # does, taken from its manifest and README -- not a positioning claim.
 CAPABILITY = {
+    "supplier-statement-check": "supplier statement and vendor statement checks against AP ledger open items, with exact reference evidence",
     "duplicate-invoice-check": "duplicate supplier invoice and vendor bills review: supplied-batch exact and normalized references with free CSV evidence",
     "three-way-match": "three way matching: supplier invoice matching against purchase orders and accepted receipts by SKU",
     "amortization": "loan and lease amortization schedules",
@@ -153,6 +154,7 @@ SHARED_TOPICS = [
 # Per-server topics. GitHub allows 20 topics per repository; shared list is 11, so at
 # most 9 here. Topics must be lowercase, digits and hyphens only.
 SPECIFIC_TOPICS = {
+    "supplier-statement-check": ["supplier-statement", "vendor-statement", "accounts-payable", "open-items", "invoice-reconciliation", "local-first"],
     "duplicate-invoice-check": ["duplicate-invoices", "invoice-review", "vendor-bills", "accounts-payable", "local-first"],
     "three-way-match": ["three-way-matching", "invoice-matching", "supplier-invoice", "purchase-order", "accounts-payable"],
     "time-tracker": ["time-tracking", "timesheet", "billable-hours", "freelance"],
@@ -364,6 +366,9 @@ def header(name, demo, monorepo, raw):
     L.append("Product page: <https://mcp.zovo.one/s/%s> - capabilities, free limits "
              "and supported installation paths." % name)
     L.append("")
+    if name == "supplier-statement-check":
+        L.append("[Try the supplier statement open-item comparison in your browser](https://mcp.zovo.one/guides/compare-supplier-statement-ap-open-items-in-claude#supplier-demo) before installing. Field values stay in the browser. It compares supplied open-item exports, not balances or payments, and makes no approval decision.")
+        L.append("")
     if name == "duplicate-invoice-check":
         L.append("[Try the editable duplicate-invoice review in your browser](https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo) before installing. Synthetic fields are checked locally in your browser without uploads. Candidates require review; they are not payment decisions.")
         L.append("")

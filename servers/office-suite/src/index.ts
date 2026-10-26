@@ -79,6 +79,7 @@ const CHILDREN: ChildDef[] = [
   { id: "backlink-checker", pkg: "@theluckystrike/mcp-backlink-checker", optional: true },
   { id: "three-way-match", pkg: "@theluckystrike/mcp-three-way-match", optional: true },
   { id: "duplicate-invoice-check", pkg: "@theluckystrike/mcp-duplicate-invoice-check", optional: true },
+  { id: "supplier-statement-check", pkg: "@theluckystrike/mcp-supplier-statement-check", optional: true },
   { id: "hourly-rate", pkg: "@theluckystrike/mcp-hourly-rate", optional: true },
 ];
 
@@ -114,6 +115,7 @@ interface Child {
 
 const children: Child[] = [];
 const toolIndex = new Map<string, ProxyTool>(); // bundle tool name -> proxy tool
+const collidedToolNames = new Set<string>(); // Keep later children scoped after the first pair collides.
 const resourceOwner = new Map<string, Child>(); // resource uri -> owning child
 const promptOwner = new Map<string, Child>(); // prompt name -> owning child
 
@@ -213,11 +215,12 @@ async function loadChildCapabilities(child: Child): Promise<void> {
   const { tools } = await child.client.listTools();
   for (const t of tools) {
     if (LICENSE_TOOLS.has(t.name)) continue; // handled by the aggregate versions below
-    let exposedName = t.name;
+    let exposedName = collidedToolNames.has(t.name) ? `${child.def.id}_${t.name}` : t.name;
     if (toolIndex.has(exposedName)) {
       // Same tool name from two children: prefix both to disambiguate.
       const existing = toolIndex.get(exposedName)!;
       if (existing.childId !== child.def.id) {
+        collidedToolNames.add(t.name);
         const prefixedExisting = `${existing.childId}_${existing.childName}`;
         toolIndex.delete(exposedName);
         existing.name = prefixedExisting;
@@ -258,8 +261,8 @@ function rewriteContent(content: unknown, renames: Map<string, string>, childId:
     }
     // JSON is source evidence, not prose. Never rewrite customer references, IDs,
     // labels, CSV cells, match keys or report-page rows just because they name a tool.
-    // These two report schemas expose explicit navigation hints at this exact path.
-    if ((childId === "three-way-match" || childId === "duplicate-invoice-check") &&
+    // These report schemas expose explicit navigation hints at this exact path.
+    if ((childId === "three-way-match" || childId === "duplicate-invoice-check" || childId === "supplier-statement-check") &&
         structured && typeof structured === "object" && !Array.isArray(structured)) {
       const hints = structured.report?.retrieval;
       let changed = false;

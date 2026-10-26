@@ -13,6 +13,10 @@ The complete rolling seven-day MCP Stripe window still has zero untagged Checkou
 R37 hosted funnel counters measure returned protocol responses and declared checkout stages, pooled across servers; no local telemetry. Probe controls pass, but the first release gate left 59 ordinary offer counts from operator checks. Those remain in history; all future gate GETs are now explicitly marked. Ordinary still means unmarked, not human. See `data/r37_funnel_live_verification.json`.
 
 
+## Revenue review, 2026-10-17
+
+The owner-facing dashboard now leads with `data/revenue_review.json` and `intel/REVENUE-REVIEW-2026-10-17.md`. Fresh native API evidence is `data/revenue_audit_2026-10-17.json`: complete28-day window has31 untagged MCP Checkout Sessions/0 paid; all182 available completed records contain0 MCP paid matches by exact host, current known prices or product metadata. The old R7 $38 attribution is corrected: those two records are$4.99 subscriptions on zovo.one, not MCP purchases. GSC's finalized28-date window still has34 impressions/0 clicks; fresh inspection finds the two focus products discovered but not indexed. The paid-value hypothesis and proposed buyer-trial thresholds are explicitly unvalidated. No outreach or production changes were made by this review.
+
 ## Blind recommendation measurement
 
 Use the 18 frozen buyer-intent questions from `data/blind_questions.json` with a fresh unprimed agent, following `docs/BLIND_RECOMMENDATION_PROCEDURE.md`. R8 (2026-10-16) named an estate server in 9/18 answers, six first-listed; conditional/companion recommendations count. Raw host URLs appeared in 15/18. This is a single documentary search trial, not runtime testing, buyer conversion, or a causal estimate of this sprint's changes. R7's `named_by_blind_assistant:12` meant any credible server, not 12 estate recommendations; do not compare that field directly. Full evidence: `docs/BLIND_RECOMMENDATION_R8.md`.

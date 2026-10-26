@@ -2,7 +2,7 @@
 // Renders servers/*/README.md into billing/src/pages.js so mcp.zovo.one serves a product page per server.
 import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { marked } from "marked";
-const ids = ["duplicate-invoice-check", "three-way-match", "time-tracker", "price-tracker", "spreadsheet", "invoice", "expense-tracker", "currency", "timezone", "docx", "resume", "recurring", "clauses", "pdf", "calendar", "kanban", "image", "bank-statement", "quotes", "barcode", "zip", "billing-docs", "deposits", "per-diem", "asset-register", "statement-of-account", "cash-book", "amortization", "petty-cash", "work-order", "catalogue", "change-order", "delivery-schedule", "packing-list", "checklist", "bill-of-sale", "credit-note", "job-card", "dunning-letters", "supplier-list", "service-agreement", "maintenance-log", "mileage-log", "purchase-requisition", "goods-receipt", "onboarding", "leave", "backlink-checker", "hourly-rate", "office-suite", "pomodoro", "budget", "loan-calculator", "payroll", "receipts", "stripe-billing", "tax-calc"];
+const ids = ["supplier-statement-check", "duplicate-invoice-check", "three-way-match", "time-tracker", "price-tracker", "spreadsheet", "invoice", "expense-tracker", "currency", "timezone", "docx", "resume", "recurring", "clauses", "pdf", "calendar", "kanban", "image", "bank-statement", "quotes", "barcode", "zip", "billing-docs", "deposits", "per-diem", "asset-register", "statement-of-account", "cash-book", "amortization", "petty-cash", "work-order", "catalogue", "change-order", "delivery-schedule", "packing-list", "checklist", "bill-of-sale", "credit-note", "job-card", "dunning-letters", "supplier-list", "service-agreement", "maintenance-log", "mileage-log", "purchase-requisition", "goods-receipt", "onboarding", "leave", "backlink-checker", "hourly-rate", "office-suite", "pomodoro", "budget", "loan-calculator", "payroll", "receipts", "stripe-billing", "tax-calc"];
 // Free standalone servers (R32): every page in `ids` that is not a paid single product and
 // not the office-suite aggregator. Like office-suite they have no price of their own — the
 // bundle key covers the paid servers — so /buy/<id> resolves through PRODUCT_ALIASES.
@@ -71,7 +71,7 @@ function loadScenarios(dir = "data") {
       // Older rounds name the server only through `surface` ("hosted/price-tracker").
       const server = s.server || (typeof s.surface === "string" ? s.surface.split("/").pop() : null);
       if (!server) continue;
-      rows.push({ file, round, date, server, id: s.id, prompt: s.prompt, score: s.score, note: typeof s.note === "string" ? s.note : "" });
+      rows.push({ file, round, date, server, id: s.id, prompt: s.prompt, score: s.score, measurement_kind: doc.measurement_kind || null, note: typeof s.note === "string" ? s.note : "" });
     }
   }
   return rows;
@@ -131,12 +131,15 @@ function firstFiveMinutes(id, scenarios, free) {
   const sel = selectPrompts(rows);
   if (!sel || !sel.picked.length) return { html: "", entries: [], round: null, date: null };
   const source = `measured in round ${sel.round}, ${sel.date}`;
+  const methodNote = sel.picked.some(r => r.measurement_kind === 'fixed_structured_operator')
+    ? '<p class="muted">Synthetic operator checks with frozen structured arguments through actual MCP stdio. These prompts describe the tasks; model translation, installation time and buyer outcomes were not tested.</p>'
+    : '';
   const lead = sel.perfect
     ? (sel.picked.length === 1
       ? `One prompt that scored 3 of 3, ${source}. Paste it in as it is written.`
       : `${sel.picked.length === 2 ? "Two" : "Three"} prompts that scored 3 of 3, ${source}. Paste one in as it is written.`)
     : `The best-scoring prompt for this server, ${source}. It scored ${sel.picked[0].score} of 3. Paste it in as it is written.`;
-  const blocks = sel.picked.map((r) => {
+  const blocks = methodNote + sel.picked.map((r) => {
     const did = evidenceSentence(r.note);
     const score = sel.perfect ? "" : ` Score ${r.score} of 3.`;
     return `<pre class="prompt">${escHtml(r.prompt)}</pre>\n<p class="muted">Paste this into Claude with the server connected.</p>\n<p class="muted">What it did, ${source}: ${escHtml(did)}${score}</p>`;

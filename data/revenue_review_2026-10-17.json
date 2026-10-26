@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "title": "Why MCP revenue is still zero",
+  "review_date_local": "2026-10-17",
+  "updated_at": "2026-10-16T23:30:37.444Z",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "audit": "data/revenue_audit_2026-10-17.json",
+  "report": "intel/REVENUE-REVIEW-2026-10-17.md",
+  "conclusion": "Engineering progress has outrun commercial validation. The strongest explanation for zero revenue is insufficient qualified discovery and an unproven reason to pay for the upgrade.",
+  "accountability": "Earlier sprints prioritized adding servers, releases and automated checks before establishing repeat buyer use and a paid upgrade. That was the wrong sequence for a revenue goal. More output was repeatedly treated as progress toward sales without evidence that buyers were arriving.",
+  "metrics": [
+    {
+      "value": "$0",
+      "label": "MCP paid Checkout gross",
+      "window": "All available completed Checkout history, read 2026-10-16T23:30:37.443Z",
+      "note": "182 paid shared-account records prove the read works. Zero MCP matches by host, current known price or product metadata. Gross is not net profit.",
+      "source": "data/revenue_audit_2026-10-17.json"
+    },
+    {
+      "value": 31,
+      "label": "Untagged MCP Checkouts; none paid",
+      "window": "2026-09-18T23:30:32.681Z to 2026-10-16T23:30:32.681Z",
+      "note": "Complete 28-day window: 38 MCP Sessions, 7 tagged probes excluded. These are Sessions, not 31 established buyers.",
+      "source": "data/revenue_audit_2026-10-17.json"
+    },
+    {
+      "value": "34 / 0",
+      "label": "Google impressions / clicks",
+      "window": "2026-09-16 through 2026-10-13, 28 reporting dates",
+      "note": "Exact storefront host. All impressions came from home/connect/time-tracker endpoint rows; none from a product sales page. This window predates the latest launches.",
+      "source": "data/revenue_audit_2026-10-17.json"
+    },
+    {
+      "value": 0,
+      "label": "Guard-passing upgrade clicks",
+      "window": "Seven UTC dates ending 2026-10-16T23:30:35.495Z",
+      "note": "Instrument 3 excludes legacy/unattributed totals. Browser-like headers do not verify people.",
+      "source": "data/revenue_audit_2026-10-17.json"
+    }
+  ],
+  "findings": [
+    {
+      "title": "Discovery is too small to support a revenue expectation",
+      "status": "Measured evidence; causal interpretation",
+      "evidence": "Google supplied zero measured clicks in the finalized 28-date window. GitHub reports 58 views and 32 unique clients for October 2–15; those are not qualified customers. Registry rows, search positions and downloads do not establish buyer acquisition. Fresh inspection finds the two focus products discovered but not indexed; the guide remains unknown.",
+      "implication": "Publishing another server adds supply without a demonstrated way to bring buyers to it.",
+      "source": "data/revenue_audit_2026-10-17.json"
+    },
+    {
+      "title": "Usage and repeat value are still unproven",
+      "status": "Measurement limit",
+      "evidence": "The new hosted instrument records zero ordinary successful business calls and zero ordinary checkout handoffs, alongside 13 probe successes. Its first record is October 16 at 08:32 UTC: roughly 15 hours of evidence, not weeks. It excludes local usage and unresolved older tokens; deferred events can drop.",
+      "implication": "We cannot claim that nobody used any tool, or that an installed audience exists and wants an upgrade. Qualified buyer trials and repeat use remain unknown.",
+      "source": "data/revenue_audit_2026-10-17.json"
+    },
+    {
+      "title": "The paid benefit may be too weak for occasional users",
+      "status": "Hypothesis to test with buyers",
+      "evidence": "Duplicate invoice review gives full diagnostics, paging and CSV export away free. The $19 upgrade removes the three-saved-report cap. A user can complete a one-off review without paying.",
+      "implication": "Test whether real users need ongoing saved reports. A purchase button and a low price do not establish willingness to pay. Do not arbitrarily damage the useful free tier.",
+      "source": "servers/duplicate-invoice-check/README.md"
+    },
+    {
+      "title": "Distribution work has not produced a proven buyer channel",
+      "status": "Dated evidence, not a full channel census",
+      "evidence": "One Finance directory submission remains pending in the October 16 receipt. The new Glama page was 404/account-gated. The October 16 outreach audit found 18 manual targets, zero eligible email recipients and zero sends.",
+      "implication": "These are publication attempts and configuration work; no qualified pipeline has been established. Resend access alone does not supply an audience.",
+      "source": "intel/R37-distribution.md"
+    },
+    {
+      "title": "Engineering counters obscured the commercial problem",
+      "status": "Confirmed reporting correction",
+      "evidence": "Server count, tests, archive downloads, token IDs and synthetic recommendations were easier to increase than paid use. The old $38 sales claim also mixed this project with another storefront.",
+      "implication": "Lead the dashboard with buyer acquisition, observed successful jobs, repeat use, checkout outcomes and scoped revenue. Keep shipping counters as supporting evidence.",
+      "source": "intel/REVENUE-REVIEW-2026-10-17.md"
+    }
+  ],
+  "correction": {
+    "title": "The previous $38 MCP sales claim was incorrect",
+    "text": "The two referenced Stripe records are real paid $4.99 subscriptions on zovo.one, not $19 MCP purchases. Neither has an MCP price, product metadata or MCP line-item name. They do not validate MCP demand or MCP license fulfillment. The old note is retained with a prominent correction.",
+    "source": "intel/R7_MONETIZATION.md"
+  },
+  "decision": "Pause new server expansion as the default revenue strategy. Focus the next seven-day commercial test on the invoice-review workflow for bookkeepers/AP operators who already use a compatible assistant.",
+  "next_test": [
+    {
+      "action": "Recruit 10 qualified workflow trials",
+      "measure": "Count an actual relevant operator with a supplied, permitted or redacted batch and an observed completed review. Exclude agents, crawlers, fixture data and directory accepts.",
+      "gate": "10 observed trials; diagnose installation and input friction for each failed attempt."
+    },
+    {
+      "action": "Test repeat use and the existing paid reason",
+      "measure": "Ask why a user would return, whether more saved reports matters, and what prevents purchase. Record the answer; do not infer it from a click.",
+      "gate": "3 participants return with a second batch and at least 1 independent buyer pays the current offer. These are proposed decision thresholds, not forecasts."
+    },
+    {
+      "action": "Continue only on commercial evidence",
+      "measure": "If 10 qualified users cannot be recruited, change the acquisition approach. If they try but do not return, change the workflow. If they return but do not pay, change the paid offer.",
+      "gate": "No broad product expansion until buyer acquisition, repeat value and a paid outcome are observed. A week with too few trials is inconclusive, not product rejection."
+    }
+  ],
+  "limits": [
+    "No Checkout, payment, email, account or production-code changes were made by this review.",
+    "All available completed Checkout history is not every payment channel or a lifetime net-profit audit. Telegram/other payment rails and total agent/hosting costs are unreconciled.",
+    "Google search analytics endsOctober 13; new October 16 products have not had a meaningful postlaunch observation period.",
+    "A tested payment-entry path does not prove live paid fulfillment or inbox delivery.",
+    "The broader release estate was 176 failed checks/28 gaps at its last October 16 checkpoint, including 54 version assertions; this review did not rerun it."
+  ],
+  "indexation": {
+    "source": "data/r37_google_index_after_revenue_review.json",
+    "measured_at": "2026-10-16T23:31:25.115Z",
+    "summary": "Fresh Google inspection finds duplicate review and matcher discovered but not indexed; the new guide is still unknown. Homepage remains indexed. Discovery improved from unknown for two products, but neither has an indexed-page result.",
+    "urls": [
+      {
+        "role": "new_product",
+        "url": "https://mcp.zovo.one/s/duplicate-invoice-check",
+        "state": "Discovered - currently not indexed"
+      },
+      {
+        "role": "new_guide",
+        "url": "https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude",
+        "state": "URL is unknown to Google"
+      },
+      {
+        "role": "matcher_product",
+        "url": "https://mcp.zovo.one/s/three-way-match",
+        "state": "Discovered - currently not indexed"
+      },
+      {
+        "role": "download_catalogue",
+        "url": "https://mcp.zovo.one/downloads",
+        "state": "Discovered - currently not indexed"
+      },
+      {
+        "role": "older_home_control",
+        "url": "https://mcp.zovo.one/",
+        "state": "Submitted and indexed"
+      },
+      {
+        "role": "older_invoice_control",
+        "url": "https://mcp.zovo.one/s/invoice",
+        "state": "URL is unknown to Google"
+      }
+    ]
+  }
+}

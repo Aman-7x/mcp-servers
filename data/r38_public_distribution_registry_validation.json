@@ -1,0 +1,43 @@
+{
+  "at": "2026-10-26T05:39:27.147Z",
+  "method": "mcp-publisher validate <exact descriptor>; validation only, no publish/login",
+  "rows": [
+    {
+      "path": "servers/supplier-statement-check/server.json",
+      "name": "io.github.theluckystrike/supplier-statement-check",
+      "version": "0.25.0",
+      "sha256": "354c2c3d1380be8e1946614cba556d4d7505cfd642c3c60127d9cdb7686d12d2",
+      "exit_code": 0,
+      "valid": true,
+      "publication_attempted": false
+    },
+    {
+      "path": "servers/supplier-statement-check/server.vendor-statement.json",
+      "name": "io.github.theluckystrike/vendor-statement-open-items",
+      "version": "0.25.0",
+      "sha256": "6debb10d99bd2aebb9f557e8d90a7d9211e2a9377727c139732ba9ae4185ed0b",
+      "exit_code": 0,
+      "valid": true,
+      "publication_attempted": false
+    },
+    {
+      "path": "servers/office-suite/server.json",
+      "name": "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price",
+      "version": "0.25.0",
+      "sha256": "9b4a9d5281bf970df8b1ab0ce0bc45fae2308643919cbba1dd58768a5354df93",
+      "exit_code": 0,
+      "valid": true,
+      "publication_attempted": false
+    },
+    {
+      "path": "servers/office-suite/server.office-suite.json",
+      "name": "io.github.theluckystrike/office-suite",
+      "version": "0.25.0",
+      "sha256": "985374f05ac435f291aeb056dac9a36f28171e488d0a2f60025c93b817a89012",
+      "exit_code": 0,
+      "valid": true,
+      "publication_attempted": false
+    }
+  ],
+  "status": "passed"
+}

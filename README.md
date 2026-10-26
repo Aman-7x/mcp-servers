@@ -3,7 +3,7 @@
 <!-- gen:badge -->
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![MCP Registry](https://img.shields.io/badge/MCP%20registry-listed-brightgreen)
-![Release](https://img.shields.io/badge/release-v0.22.9-informational)
+![Release](https://img.shields.io/badge/release-v0.25.0-informational)
 <!-- /gen:badge -->
 
 Practical Model Context Protocol servers for people who work inside Claude, Cursor and other MCP clients.
@@ -11,10 +11,12 @@ Every server runs locally over stdio, keeps all data on your machine, and has a 
 Pro unlocks the limits for a one-time payment: $19 per server or $39 for the bundle, lifetime.
 
 <!-- gen:counts -->
-56 servers plus the office-suite aggregator, 46 of them also reachable as a hosted endpoint with no install.
+57 servers plus the office-suite aggregator, 46 of them also reachable as a hosted endpoint with no install.
 <!-- /gen:counts -->
 
-No install? Use any server instantly as a hosted endpoint: `https://mcp.zovo.one/mcp/<server>` — or browse the catalog at [mcp.zovo.one](https://mcp.zovo.one).
+Try a free task in this browser: [compare supplier statement open items](https://mcp.zovo.one/guides/compare-supplier-statement-ap-open-items-in-claude#supplier-demo), [review duplicate invoice references](https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo), or [match an invoice to a PO and receipts](https://mcp.zovo.one/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo). These examples compute locally and send no field values or diagnostic requests.
+
+For the hosted servers, open [the connection page](https://mcp.zovo.one/mcp/connect), mint a free token and copy the complete URL. A bare endpoint can initialize and list tools but does not authorize tool calls. Local-only products use their extension or source build; [the catalogue](https://mcp.zovo.one) identifies each supported path.
 
 <!-- gen:install -->
 ![invoice](assets/demo-invoice.gif)
@@ -83,6 +85,7 @@ The npm packages are not published. Use a bundle or the source build below rathe
 | [mcp-statement-of-account](servers/statement-of-account/README.md) | ![statement-of-account](assets/demo-statement-of-account.gif) | The one document that answers what a client actually owes you, aged as at any date, with the chaser drafted. | [`statement-of-account.mcpb`](https://mcp.zovo.one/downloads#statement-of-account) |
 | [mcp-stripe-billing](servers/stripe-billing/README.md) |  | Check your Stripe balance and build payment links from chat. | [`stripe-billing.mcpb`](https://mcp.zovo.one/downloads#stripe-billing) |
 | [mcp-supplier-list](servers/supplier-list/README.md) |  | A supplier directory that does not rot: contacts, terms, lead times, and when each record was last reviewed. | [`supplier-list.mcpb`](https://mcp.zovo.one/downloads#supplier-list) |
+| [mcp-supplier-statement-check](servers/supplier-statement-check/README.md) | ![supplier-statement-check](assets/demo-supplier-statement-check.gif) | Compare supplied supplier statement and AP ledger open items, with complete exact-key evidence. | [`supplier-statement-check.mcpb`](https://mcp.zovo.one/downloads#supplier-statement-check) |
 | [mcp-tax-calc](servers/tax-calc/README.md) |  | 2026 US federal brackets, computed in the conversation. | [`tax-calc.mcpb`](https://mcp.zovo.one/downloads#tax-calc) |
 | [mcp-three-way-match](servers/three-way-match/README.md) | ![three-way-match](assets/demo-three-way-match.gif) | Supplier invoice, purchase order and receipt checks by exact SKU. | [`three-way-match.mcpb`](https://mcp.zovo.one/downloads#three-way-match) |
 | [mcp-time-tracker](servers/time-tracker/README.md) | ![time-tracker](assets/demo-time-tracker.gif) | Track billable time without leaving the chat. | [`time-tracker.mcpb`](https://mcp.zovo.one/downloads#time-tracker) |
@@ -106,7 +109,7 @@ The ready URL has the form `https://mcp.zovo.one/mcp/<server>/t/<token>`. If you
 
 Hosted file tools accept inline data/uploads and return temporary download URLs instead of reading your local disk. Read the server-specific setup guide for supported formats. A local install is the path for files on your machine.
 
-Office Suite, Three-Way Match and Duplicate Invoice Check are local stdio servers. Do not substitute a hosted URL for their executable. See each server page and the [client setup guides](https://mcp.zovo.one/setup).
+Office Suite, Three-Way Match, Duplicate Invoice Check and Supplier Statement Check are local stdio servers. Do not substitute a hosted URL for their executable. See each server page and the [client setup guides](https://mcp.zovo.one/setup).
 <!-- /gen:hosted -->
 
 ## Registry names

@@ -1,51 +1,18 @@
-# Historical directory submission copy
+# Invited directory contribution — submission copy
 
-Use these drafts only in an invited submission form or a contribution PR that
-accepts entries. They do not establish email consent. For any requested email,
-record the recipient's actual request first; Resend prohibits cold outreach.
+Use only in a directory's advertised contribution form or invited PR. For an email reply, first record the curator's actual request for these details. This file is not a cold-email sequence. The earlier estate-count claims and automatic follow-up drafts are superseded.
 
-# Directory outreach templates — mike@zovo.one
+Name: {{one_server_name}}
+Repository: {{exact_individual_public_repository}}
+Working free demonstration: {{exact_tested_browser_guide_url}}
+Product and installation: {{exact_product_url}}
+Transport: {{verified_local_stdio_or_hosted_transport}}
+License: {{source_license}}
+Purpose: {{one_sentence_supported_workflow}}
+Free value: {{complete_supported_free_workflow}}
+Paid option: {{current_exact_upgrade_value_and_price}}
+Limitations: {{supported_input_boundary_and_any_hosted_auth_prerequisite}}
 
-Plain text. Personalize {{directory}} and {{server}} (pick ONE concrete server per directory, matched to that directory's strongest category — e.g. invoice/expense servers for business directories). Send 10/day max in week 1. Keep the unsubscribe line in every email.
+Pick one concrete server matched to the directory category. Verify each URL and the advertised installation/tool-call path before submission. Do not claim a listing, customer, installation or endorsement until authoritative evidence supports it.
 
----
-
-## 1. Initial (day 0)
-
-Subject: {{server}} for {{directory}} — 54 hosted MCP servers, $19 lifetime
-
-Hi {{directory}} team,
-
-I run mcp.zovo.one — 54 Model Context Protocol servers (invoicing, expenses, taxes, contracts, timesheets and other small-business paperwork), 30 of them hosted at https://mcp.zovo.one/mcp/<server> with zero local install. Every repo is permissively licensed, tested, and already listed in the official MCP registry. A {{server}}-style listing would fit your {{category}} section directly, and I can supply live endpoints, logos and one-line descriptions in whatever format you need. Would you like me to submit via your form, or is there a preferred contact route?
-
-Thanks,
-Mike — mike@zovo.one | https://mcp.zovo.one
-Unsubscribe: reply "unsubscribe" and you will not hear from me again.
-
----
-
-## 2. Follow-up (day 4)
-
-Subject: Re: {{server}} for {{directory}}
-
-Hi again,
-
-Just floating this back to the top of your inbox — I offered our hosted MCP server estate (54 servers, 30 remote-ready at mcp.zovo.one) for a listing on {{directory}} last week. No rush, but if the form route is slow I'm happy to send the exact repo URLs and descriptions for a manual review. If {{directory}} isn't taking new listings right now, a one-line "not now" tells me to stop following up.
-
-Thanks,
-Mike — mike@zovo.one | https://mcp.zovo.one
-Unsubscribe: reply "unsubscribe" and you will not hear from me again.
-
----
-
-## 3. Close (day 10)
-
-Subject: Last nudge — {{server}} / mcp.zovo.one on {{directory}}
-
-Hi,
-
-Last note from me on this. If {{directory}} wants the mcp.zovo.one estate listed, reply and I'll send everything within the hour (URLs, descriptions, logos, hosted endpoints). Otherwise I'll assume it's not a fit and close the thread — no further emails.
-
-Thanks for the time,
-Mike — mike@zovo.one | https://mcp.zovo.one
-Unsubscribe: reply "unsubscribe" and you will not hear from me again.
+For the two current invoice-review examples, use their own README for transport, inputs and payment details. Both offer full free diagnostic evidence; Pro removes the saved-report-count cap. A supplier-reference review and a PO/receipt/line comparison are different capabilities.

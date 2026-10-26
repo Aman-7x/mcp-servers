@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T11:29:03.576Z",
+  "generated_at": "2026-10-26T05:40:40.015Z",
   "kpis": [
     {
       "cat": "Discovery",
@@ -11,7 +11,7 @@
       "why": "The official registry is the index Claude, Cursor and VS Code pickers read.",
       "status": "progress",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/kpi.json (retained historical row; see instrument)"
     },
     {
@@ -24,7 +24,7 @@
       "why": "Search is name-only; a server nobody can find by the words they type does not exist.",
       "status": "progress",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/organic.json"
     },
     {
@@ -37,7 +37,7 @@
       "why": "Each free registry or catalog is a compounding source of installs.",
       "status": "progress",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/distribution.json"
     },
     {
@@ -50,25 +50,25 @@
       "why": "Not a score to maximise. It was 312, of which 216 were client-by-product setup permutations measuring 73.6-77.5% similar to each other; Googlebot read the sitemap 7 times and then crawled 2 pages. Cut to 96 on 2026-09-07 and the permutations marked noindex,follow. See docs/SEO_INDEXATION_R1.md.",
       "status": "measured",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/kpi.json (retained historical row; see instrument)"
     },
     {
       "cat": "Discovery",
       "name": "Google impressions, storefront",
-      "value": 34,
+      "value": 38,
       "target": 1,
-      "unit": "impressions, 29 frozen dates",
-      "how": "GSC finalized page rows, exact MCP URL.hostname check, parent-host nonzero positive control; frozen prelaunch window.",
+      "unit": "impressions",
+      "how": "Exact host, finalized 28-date page rows and parent-host positive control.",
       "why": "Finalized exact-host search impressions for Sep 15–Oct 13; 34 impressions and zero clicks precede the matcher launch.",
       "status": "measured",
       "stale": false,
-      "measured_at": "2026-10-16T11:29:00.920Z",
+      "measured_at": "2026-10-26T05:11:52.122Z",
       "window": {
-        "start": "2026-09-15",
-        "end": "2026-10-13"
+        "start": "2026-09-26",
+        "end": "2026-10-23"
       },
-      "source_artifact": "data/r37_kpi_final.json"
+      "source_artifact": "data/r38_kpi_audit.json"
     },
     {
       "cat": "Discovery",
@@ -80,7 +80,7 @@
       "why": "Historical request ratio, not user conversion or commercial demand.",
       "status": "measured",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/baselines/loop33_baseline.json"
     },
     {
@@ -93,7 +93,7 @@
       "why": "Googlebot fetched robots.txt 4x and sitemap.xml 7x in the same window and then crawled 2 pages. It is declining, not blocked.",
       "status": "progress",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/traffic.json"
     },
     {
@@ -106,7 +106,7 @@
       "why": "Assistant crawlers have this catalogue even though Google does not. This is the discovery channel that is actually working.",
       "status": "progress",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/traffic.json"
     },
     {
@@ -124,25 +124,25 @@
         "end": "2026-10-16T00:23:54Z",
         "days": 7
       },
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/r36_kpi_audit.json"
     },
     {
       "cat": "Discovery",
       "name": "GitHub unique visitors",
-      "value": 32,
+      "value": 43,
       "target": 200,
-      "unit": "GitHub uniques, rolling source dates",
-      "how": "GitHub traffic/views API; platform-reported clients, not proven people or successful jobs.",
+      "unit": "reported clients",
+      "how": "Platform-reported clients in the API window; not confirmed people or installs.",
       "why": "Repository reach is observable; visitor identities and successful usage are unproven.",
       "status": "measured",
       "stale": false,
-      "measured_at": "2026-10-16T11:29:00.784Z",
+      "measured_at": "2026-10-26T05:11:18.894Z",
       "window": {
-        "start": "2026-10-02",
-        "end": "2026-10-15"
+        "start": "2026-10-11",
+        "end": "2026-10-24"
       },
-      "source_artifact": "data/r37_kpi_final.json"
+      "source_artifact": "data/r38_kpi_audit.json"
     },
     {
       "cat": "Install",
@@ -154,7 +154,7 @@
       "why": "Kept for continuity only. It was previously reported as an install metric against a target of 1,000 and read as met, which was wrong.",
       "status": "measured",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/kpi.json (retained historical row; see instrument)"
     },
     {
@@ -167,7 +167,7 @@
       "why": "npx is the default install path in every client guide; blocked on npm login.",
       "status": "zero",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/kpi.json (retained historical row; see instrument)"
     },
     {
@@ -180,7 +180,7 @@
       "why": "Historical hosted availability coverage; local-only MCPs can also be distributed and installed.",
       "status": "progress",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/distribution.json"
     },
     {
@@ -194,7 +194,7 @@
       "stale": true,
       "measured_at": "2026-10-16T00:25:16.202Z",
       "window": null,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/r36_kpi_audit.json"
     },
     {
@@ -208,7 +208,7 @@
       "stale": true,
       "measured_at": "2026-10-16T00:25:16.202Z",
       "window": null,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/r36_kpi_audit.json"
     },
     {
@@ -222,7 +222,7 @@
       "status": "zero",
       "measured_at": "2026-10-16T00:25:16.202Z",
       "window": null,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/r36_kpi_audit.json"
     },
     {
@@ -235,7 +235,7 @@
       "why": "Round 6 showed correct servers losing to built-in tools; descriptions are the lever.",
       "status": "met",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/user_value_r39.json"
     },
     {
@@ -248,7 +248,7 @@
       "why": "Scenario scoring through a real MCP client is the only measure of value that includes the model.",
       "status": "progress",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/kpi.json (retained historical row; see instrument)"
     },
     {
@@ -261,7 +261,7 @@
       "why": "Every lost point since round 3 was a handoff between servers.",
       "status": "progress",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/kpi.json (retained historical row; see instrument)"
     },
     {
@@ -274,7 +274,7 @@
       "why": "Shows which servers are done and which still lose points on natural prompts.",
       "status": "progress",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/kpi.json (retained historical row; see instrument)"
     },
     {
@@ -287,7 +287,7 @@
       "why": "Stdio, hosted and billing exercised end to end on every change.",
       "status": "met",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/kpi.json (retained historical row; see instrument)"
     },
     {
@@ -300,7 +300,7 @@
       "why": "Regression floor; contract suites enforce stdout hygiene, quarantine, caps, licensing.",
       "status": "measured",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/tests.json"
     },
     {
@@ -314,7 +314,7 @@
       "why": "Above about a second, clients start their first prompt before the server answers (round 4 D-R5).",
       "status": "met",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/kpi.json (retained historical row; see instrument)"
     },
     {
@@ -327,7 +327,7 @@
       "why": "A plausible wrong answer costs more than an error.",
       "status": "met",
       "stale": true,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/kpi.json (retained historical row; see instrument)"
     },
     {
@@ -335,32 +335,32 @@
       "name": "Untagged MCP checkout sessions (7d)",
       "value": 0,
       "target": 50,
-      "unit": "sessions, 7d",
-      "how": "Stripe live fully covered seven-day window; exact MCP success_url hostname; tagged probes excluded; untagged is not verified human.",
+      "unit": "Sessions",
+      "how": "Fully covered seven-day window; exact MCP host, probe=1 excluded, untagged not human.",
       "status": "zero",
       "stale": false,
-      "measured_at": "2026-10-16T11:29:02.034Z",
+      "measured_at": "2026-10-26T05:11:21.184Z",
       "window": {
-        "start": "2026-10-09T11:29:00.005Z",
-        "end": "2026-10-16T11:29:00.005Z"
+        "start": "2026-10-19T05:11:17.269Z",
+        "end": "2026-10-26T05:11:17.269Z"
       },
-      "source_artifact": "data/r37_kpi_final.json"
+      "source_artifact": "data/r38_kpi_audit.json"
     },
     {
       "cat": "Monetization",
       "name": "Paid MCP checkout sessions (7d)",
       "value": 0,
       "target": 5,
-      "unit": "paid sessions, 7d",
-      "how": "Same fully covered Stripe window; payment_status=paid, exact MCP success_url hostname, metadata.probe!=1.",
+      "unit": "paid Sessions",
+      "how": "Same fully covered window and paid-only criterion.",
       "status": "zero",
       "stale": false,
-      "measured_at": "2026-10-16T11:29:02.034Z",
+      "measured_at": "2026-10-26T05:11:21.184Z",
       "window": {
-        "start": "2026-10-09T11:29:00.005Z",
-        "end": "2026-10-16T11:29:00.005Z"
+        "start": "2026-10-19T05:11:17.269Z",
+        "end": "2026-10-26T05:11:17.269Z"
       },
-      "source_artifact": "data/r37_kpi_final.json"
+      "source_artifact": "data/r38_kpi_audit.json"
     },
     {
       "cat": "Monetization",
@@ -373,42 +373,40 @@
       "stale": true,
       "measured_at": "2026-10-16T00:25:16.202Z",
       "window": null,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/r36_kpi_audit.json"
     },
     {
       "cat": "Monetization",
       "name": "Guard-passing upgrade clicks (7d)",
-      "value": 0,
+      "value": 3,
       "target": 20,
-      "unit": "clicks, 7d",
-      "how": "stats/clicks instrument 3; legacy excluded; headers do not prove human identity",
-      "status": "zero",
-      "stale": true,
-      "measured_at": "2026-10-16T00:28:33.431Z",
+      "unit": "unmarked navigations",
+      "how": "Legacy metric includes dead routes. All three current observations are buy.unknown-product; no valid purchase-intent inference.",
+      "status": "measured",
+      "stale": false,
+      "measured_at": "2026-10-26T05:11:20.054Z",
       "window": {
-        "start": "2026-10-09T00:28:33.431Z",
-        "end": "2026-10-16T00:28:33.431Z"
+        "scope": "Available completed Checkout history"
       },
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
-      "source_artifact": "data/r36_kpi_audit.json"
+      "source_artifact": "data/r38_kpi_audit.json"
     },
     {
       "cat": "Monetization",
       "name": "Click to checkout-session ratio",
       "value": null,
       "target": 40,
-      "unit": "%",
-      "how": "Undefined: no verified aligned-window buyer/click denominator. No cross-window or person-level conversion claim.",
+      "unit": "unmeasured",
+      "how": "Unmeasured: unrelated populations/windows and no verified qualified-visit denominator.",
       "why": "A ratio requires matched populations and time windows; request counters cannot identify buyers.",
       "status": "unmeasured",
       "stale": false,
-      "measured_at": "2026-10-16T11:29:03.571Z",
+      "measured_at": "2026-10-26T05:11:21.184Z",
       "window": {
-        "start": "2026-10-09T11:29:00.005Z",
-        "end": "2026-10-16T11:29:00.005Z"
+        "start": "2026-10-19T05:11:17.269Z",
+        "end": "2026-10-26T05:11:17.269Z"
       },
-      "source_artifact": "data/r37_kpi_final.json"
+      "source_artifact": "data/r38_kpi_audit.json"
     },
     {
       "cat": "Monetization",
@@ -428,7 +426,7 @@
       "stale": true,
       "measured_at": "2026-10-16T00:25:16.202Z",
       "window": null,
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/r36_kpi_audit.json"
     },
     {
@@ -469,7 +467,7 @@
       },
       "why": "Documented recommendation visibility; companion and conditional mentions count, separate from runtime capability and revenue.",
       "status": "measured",
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/blind_recommendation_r8.json"
     },
     {
@@ -510,7 +508,7 @@
       },
       "why": "Raw retrieval presence, not recommendation citations or a citation percentage.",
       "status": "measured",
-      "stale_reason": "Retained observation; not remeasured by R37. See original per-row timestamp/window.",
+      "stale_reason": "Historical observation retained; not remeasured by the current R38 native audit.",
       "source_artifact": "data/blind_recommendation_r8.json"
     },
     {
@@ -518,15 +516,15 @@
       "name": "Recorded MCP paid Checkout gross (available completed history)",
       "target": null,
       "value": 0,
-      "unit": "paid Checkout gross; available completed history",
-      "how": "Stripe completed-Session pagination exhausted; shared-account paid count is positive read control. Not all payment channels, net revenue or profit.",
-      "measured_at": "2026-10-16T11:29:03.571Z",
+      "unit": "USD gross",
+      "how": "All available completed Checkout records exhausted; exact MCP host/known-price/metadata tests and paid-account read control. Gross, not net profit.",
+      "measured_at": "2026-10-26T05:11:26.020Z",
       "window": {
-        "scope": "All available completed Checkout Sessions at this snapshot"
+        "scope": "Available completed Checkout history"
       },
       "stale": false,
       "status": "zero",
-      "source_artifact": "data/r37_kpi_final.json",
+      "source_artifact": "data/r38_kpi_audit.json",
       "why": "Commercial outcome measured separately from shared-account sales and synthetic unpaid QA.",
       "currency_totals_minor": {}
     },
@@ -535,16 +533,47 @@
       "cat": "Discovery",
       "target": null,
       "value": 0,
-      "unit": "clicks, 29 frozen dates",
-      "how": "Same finalized GSC exact-host rows and frozen window; no postlaunch outcome claim.",
-      "measured_at": "2026-10-16T11:29:00.920Z",
+      "unit": "clicks",
+      "how": "Exact host, finalized 28-date page rows and parent-host positive control.",
+      "measured_at": "2026-10-26T05:11:52.122Z",
       "window": {
-        "start": "2026-09-15",
-        "end": "2026-10-13"
+        "start": "2026-09-26",
+        "end": "2026-10-23"
       },
       "stale": false,
       "status": "zero",
-      "source_artifact": "data/r37_kpi_final.json"
+      "source_artifact": "data/r38_kpi_audit.json"
+    },
+    {
+      "cat": "Monetization",
+      "name": "Untagged MCP checkout sessions (28d)",
+      "target": null,
+      "value": 4,
+      "unit": "Sessions",
+      "window": {
+        "start": "2026-09-28T05:11:17.265Z",
+        "end": "2026-10-26T05:11:17.265Z"
+      },
+      "how": "Fully covered 28-day window; tagged probes excluded.",
+      "measured_at": "2026-10-26T05:11:24.690Z",
+      "stale": false,
+      "status": "measured",
+      "source_artifact": "data/r38_kpi_audit.json"
+    },
+    {
+      "name": "Known unknown-product route clicks (7d)",
+      "cat": "Monetization",
+      "target": null,
+      "value": 3,
+      "unit": "dead-route navigations",
+      "how": "Known dead-route minimum only; invalid products with a supplied valid src may be unresolved in historical data.",
+      "measured_at": "2026-10-26T05:11:20.054Z",
+      "window": {
+        "scope": "Available completed Checkout history"
+      },
+      "stale": false,
+      "status": "measured",
+      "source_artifact": "data/r38_kpi_audit.json"
     }
   ],
   "raw": {
@@ -905,7 +934,7 @@
       }
     }
   },
-  "audit_source": "data/r37_kpi_final.json",
+  "audit_source": "data/r38_kpi_audit.json",
   "windows": {
     "traffic": {
       "start": "2026-10-09T00:23:54Z",
@@ -913,20 +942,24 @@
       "days": 7
     },
     "stripe": {
-      "start": "2026-10-09T11:29:00.005Z",
-      "end": "2026-10-16T11:29:00.005Z"
+      "start": "2026-10-19T05:11:17.269Z",
+      "end": "2026-10-26T05:11:17.269Z"
     },
     "search": {
-      "start": "2026-09-15",
-      "end": "2026-10-13"
+      "start": "2026-09-26",
+      "end": "2026-10-23"
     },
     "github": {
-      "start": "2026-10-02",
-      "end": "2026-10-15"
+      "start": "2026-10-11",
+      "end": "2026-10-24"
+    },
+    "stripe_28d": {
+      "start": "2026-09-18T23:30:32.681Z",
+      "end": "2026-10-16T23:30:32.681Z"
     }
   },
   "audit_sources": {
-    "current": "data/r37_kpi_final.json",
+    "current": "data/revenue_audit_2026-10-17.json",
     "retained": "data/r36_kpi_audit.json",
     "blind_retained": "data/blind_recommendation_r8.json",
     "initial_r37": "data/r37_kpi_baseline.json"

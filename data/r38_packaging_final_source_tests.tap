@@ -1,0 +1,250 @@
+TAP version 13
+# Subtest: CHILDREN covers every stdio server in the estate
+ok 1 - CHILDREN covers every stdio server in the estate
+  ---
+  duration_ms: 12.125208
+  type: 'test'
+  ...
+# Subtest: every CHILDREN entry names the package that server actually publishes
+ok 2 - every CHILDREN entry names the package that server actually publishes
+  ---
+  duration_ms: 3.398458
+  type: 'test'
+  ...
+# Subtest: control: the completeness assertion fails when an entry is removed
+ok 3 - control: the completeness assertion fails when an entry is removed
+  ---
+  duration_ms: 2.711791
+  type: 'test'
+  ...
+# Subtest: office proxy diagnoses duplicate candidates and preserves both report namespaces
+ok 4 - office proxy diagnoses duplicate candidates and preserves both report namespaces
+  ---
+  duration_ms: 10925.314208
+  type: 'test'
+  ...
+# Subtest: D-P25: a child that floods stderr does not stall a tools/call
+ok 5 - D-P25: a child that floods stderr does not stall a tools/call
+  ---
+  duration_ms: 636.859417
+  type: 'test'
+  ...
+# Subtest: D-P24: license_activate fails unless every child accepts the key
+ok 6 - D-P24: license_activate fails unless every child accepts the key
+  ---
+  duration_ms: 1301.935459
+  type: 'test'
+  ...
+# Subtest: D-R29/R37: child payload stays intact and collision names are separately mapped
+ok 7 - D-R29/R37: child payload stays intact and collision names are separately mapped
+  ---
+  duration_ms: 622.817334
+  type: 'test'
+  ...
+# Subtest: D-R29: tools_map resource lists exposed name -> child.tool
+ok 8 - D-R29: tools_map resource lists exposed name -> child.tool
+  ---
+  duration_ms: 691.32625
+  type: 'test'
+  ...
+# Subtest: bundle proxies tools/list, forwards calls, and aggregates license_status
+ok 9 - bundle proxies tools/list, forwards calls, and aggregates license_status
+  ---
+  duration_ms: 9591.871917
+  type: 'test'
+  ...
+# Subtest: office proxy preserves supplier open-item evidence and exposes correct report navigation
+ok 10 - office proxy preserves supplier open-item evidence and exposes correct report navigation
+  ---
+  duration_ms: 11980.66475
+  type: 'test'
+  ...
+# Subtest: worked comparison retains both mismatch reasons and each source row once
+ok 11 - worked comparison retains both mismatch reasons and each source row once
+  ---
+  duration_ms: 3.444
+  type: 'test'
+  ...
+# Subtest: one-to-one exact agreement reports only agreement in supplied open items
+ok 12 - one-to-one exact agreement reports only agreement in supplied open items
+  ---
+  duration_ms: 0.23375
+  type: 'test'
+  ...
+# Subtest: empty side remains meaningful; two empty lists are rejected
+ok 13 - empty side remains meaningful; two empty lists are rejected
+  ---
+  duration_ms: 0.454125
+  type: 'test'
+  ...
+# Subtest: exact entity, supplier, currency and invoice/credit keys never cross-match
+ok 14 - exact entity, supplier, currency and invoice/credit keys never cross-match
+  ---
+  duration_ms: 0.33275
+  type: 'test'
+  ...
+# Subtest: leading zeros, case, punctuation and Unicode references remain exact
+ok 15 - leading zeros, case, punctuation and Unicode references remain exact
+  ---
+  duration_ms: 0.69375
+  type: 'test'
+  ...
+# Subtest: repeated references are ambiguous before amount/date matching or side absence
+ok 16 - repeated references are ambiguous before amount/date matching or side absence
+  ---
+  duration_ms: 0.236958
+  type: 'test'
+  ...
+# Subtest: shuffled sides preserve byte-identical deterministic evidence
+ok 17 - shuffled sides preserve byte-identical deterministic evidence
+  ---
+  duration_ms: 0.329375
+  type: 'test'
+  ...
+# Subtest: independent brute-force oracle verifies 80 seeded inputs and full source coverage
+ok 18 - independent brute-force oracle verifies 80 seeded inputs and full source coverage
+  ---
+  duration_ms: 23.776542
+  type: 'test'
+  ...
+# Subtest: input shape is strict, IDs side-local and references untrimmed
+ok 19 - input shape is strict, IDs side-local and references untrimmed
+  ---
+  duration_ms: 1.365792
+  type: 'test'
+  ...
+# Subtest: real dates, bounded lists and positive safe integer minor amounts are enforced
+ok 20 - real dates, bounded lists and positive safe integer minor amounts are enforced
+  ---
+  duration_ms: 11.7875
+  type: 'test'
+  ...
+# Subtest: declared as_of never silently filters future-dated source rows
+ok 21 - declared as_of never silently filters future-dated source rows
+  ---
+  duration_ms: 1.791459
+  type: 'test'
+  ...
+# Subtest: CSV escapes formulas, invisible prefixes, commas and quotes while JSON preserves originals
+ok 22 - CSV escapes formulas, invisible prefixes, commas and quotes while JSON preserves originals
+  ---
+  duration_ms: 2.238167
+  type: 'test'
+  ...
+# Subtest: maximum permitted input remains linear with 2000 source memberships
+ok 23 - maximum permitted input remains linear with 2000 source memberships
+  ---
+  duration_ms: 14.199916
+  type: 'test'
+  ...
+# Subtest: all preview evidence remains available by source and group pages
+ok 24 - all preview evidence remains available by source and group pages
+  ---
+  duration_ms: 3.454917
+  type: 'test'
+  ...
+# Subtest: third preview evicts only oldest; expiry and restart are explicit errors
+ok 25 - third preview evicts only oldest; expiry and restart are explicit errors
+  ---
+  duration_ms: 0.771292
+  type: 'test'
+  ...
+# Subtest: maximum long-field report is paginated and every requested source and CSV row survives
+ok 26 - maximum long-field report is paginated and every requested source and CSV row survives
+  ---
+  duration_ms: 254.28625
+  type: 'test'
+  ...
+# Subtest: review: swapping supplied sides is an involution without changing disagreement evidence
+ok 27 - review: swapping supplied sides is an involution without changing disagreement evidence
+  ---
+  duration_ms: 3.325875
+  type: 'test'
+  ...
+# Subtest: review: escaped maximum evidence pages preserve every original field under actual MCP envelope budget
+ok 28 - review: escaped maximum evidence pages preserve every original field under actual MCP envelope budget
+  ---
+  duration_ms: 794.274666
+  type: 'test'
+  ...
+# Subtest: review: a 2000-member ambiguous group has complete free member evidence without guessed pairing
+ok 29 - review: a 2000-member ambiguous group has complete free member evidence without guessed pairing
+  ---
+  duration_ms: 35.748417
+  type: 'test'
+  ...
+# Subtest: review: two independent OS processes share the three-report free cap and leave valid atomic files
+ok 30 - review: two independent OS processes share the three-report free cap and leave valid atomic files
+  ---
+  duration_ms: 276.174833
+  type: 'test'
+  ...
+# Subtest: actual stdio initialization, discovery, diagnosis, paging, save cap and CSV
+ok 31 - actual stdio initialization, discovery, diagnosis, paging, save cap and CSV
+  ---
+  duration_ms: 336.777333
+  type: 'test'
+  ...
+# Subtest: actual signed single and bundle keys lift only the saved-report count
+ok 32 - actual signed single and bundle keys lift only the saved-report count
+  ---
+  duration_ms: 717.349125
+  type: 'test'
+  ...
+# Subtest: actual stdio preserves full free diagnostics when saving fails
+ok 33 - actual stdio preserves full free diagnostics when saving fails
+  ---
+  duration_ms: 324.763375
+  type: 'test'
+  ...
+# Subtest: atomic saved reports obey free cap, Pro extends count and delete frees a slot
+ok 34 - atomic saved reports obey free cap, Pro extends count and delete frees a slot
+  ---
+  duration_ms: 235.904375
+  type: 'test'
+  ...
+# Subtest: concurrent free saves cannot exceed three slots
+ok 35 - concurrent free saves cannot exceed three slots
+  ---
+  duration_ms: 226.0135
+  type: 'test'
+  ...
+# Subtest: separate Node processes enforce the same three-report cap
+ok 36 - separate Node processes enforce the same three-report cap
+  ---
+  duration_ms: 324.505542
+  type: 'test'
+  ...
+# Subtest: stored output is recomputed from validated inputs rather than trusted
+ok 37 - stored output is recomputed from validated inputs rather than trusted
+  ---
+  duration_ms: 203.03575
+  type: 'test'
+  ...
+# Subtest: corrupt metadata and JSON fail closed without losing other saved reports
+ok 38 - corrupt metadata and JSON fail closed without losing other saved reports
+  ---
+  duration_ms: 192.623667
+  type: 'test'
+  ...
+# Subtest: symlinked files and configured storage ancestors are rejected
+ok 39 - symlinked files and configured storage ancestors are rejected
+  ---
+  duration_ms: 197.080333
+  type: 'test'
+  ...
+# Subtest: relative storage roots fail and aggregate budget has exact checked boundaries
+ok 40 - relative storage roots fail and aggregate budget has exact checked boundaries
+  ---
+  duration_ms: 233.630417
+  type: 'test'
+  ...
+1..40
+# tests 40
+# suites 0
+# pass 40
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 42876.202459

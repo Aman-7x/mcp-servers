@@ -1,0 +1,245 @@
+{
+  "at": "2026-10-26T05:28:01.361Z",
+  "method": "Expected inputs and outcomes written before this actual stdio run. Not a blind model trial or evidence of customer demand.",
+  "tasks": [
+    {
+      "id": "supplier1",
+      "prompt": "Compare this supplier statement invoice with its AP open item. Preserve both original amounts and dates when the same exact reference disagrees.",
+      "args": {
+        "as_of": "2026-10-26",
+        "statement_records": [
+          {
+            "record_id": "S1",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          }
+        ],
+        "ledger_records": [
+          {
+            "record_id": "L1",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-02",
+            "outstanding_minor": 12000
+          }
+        ],
+        "save": false
+      },
+      "expected": {
+        "review": 1,
+        "matched": 0,
+        "groups": 1,
+        "status": "discrepancy",
+        "issues": [
+          "amount_mismatch",
+          "date_mismatch"
+        ]
+      }
+    },
+    {
+      "id": "supplier2",
+      "prompt": "Find which exact invoice references appear only on the supplier statement or only in the AP ledger, retaining every source item.",
+      "args": {
+        "as_of": "2026-10-26",
+        "statement_records": [
+          {
+            "record_id": "S1",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          }
+        ],
+        "ledger_records": [
+          {
+            "record_id": "L2",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-002",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          }
+        ],
+        "save": false
+      },
+      "expected": {
+        "review": 2,
+        "matched": 0,
+        "groups": 2,
+        "statement_only": 1,
+        "ledger_only": 1
+      }
+    },
+    {
+      "id": "supplier3",
+      "prompt": "The supplier statement repeats the same invoice reference twice. Keep all three source items and do not guess which statement row matches the ledger.",
+      "args": {
+        "as_of": "2026-10-26",
+        "statement_records": [
+          {
+            "record_id": "S1",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          },
+          {
+            "record_id": "S2",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          }
+        ],
+        "ledger_records": [
+          {
+            "record_id": "L1",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          }
+        ],
+        "save": false
+      },
+      "expected": {
+        "review": 1,
+        "matched": 0,
+        "groups": 1,
+        "status": "ambiguous_reference",
+        "members": [
+          "S1",
+          "S2",
+          "L1"
+        ]
+      }
+    },
+    {
+      "id": "supplier4",
+      "prompt": "Keep invoices, credit notes, currencies and leading-zero references separate even when their displayed amounts are equal.",
+      "args": {
+        "as_of": "2026-10-26",
+        "statement_records": [
+          {
+            "record_id": "S1",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          },
+          {
+            "record_id": "S2",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "credit_note",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          },
+          {
+            "record_id": "S3",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "EUR",
+            "document_type": "invoice",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          },
+          {
+            "record_id": "S4",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-1",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          }
+        ],
+        "ledger_records": [
+          {
+            "record_id": "L1",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          }
+        ],
+        "save": false
+      },
+      "expected": {
+        "review": 3,
+        "matched": 1,
+        "groups": 4
+      }
+    },
+    {
+      "id": "supplier5",
+      "prompt": "Save three checks, keep full free diagnosis and CSV when the fourth cannot be saved, then delete the snapshots and confirm a slot can be reused.",
+      "args": {
+        "as_of": "2026-10-26",
+        "statement_records": [
+          {
+            "record_id": "S1",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          }
+        ],
+        "ledger_records": [
+          {
+            "record_id": "L1",
+            "entity_id": "ENTITY-1",
+            "supplier_id": "SUPPLIER-1",
+            "currency": "USD",
+            "document_type": "invoice",
+            "document_reference": "INV-001",
+            "document_date": "2026-10-01",
+            "outstanding_minor": 10000
+          }
+        ],
+        "save": true
+      },
+      "expected": {
+        "saved_limit": 3,
+        "refused_save": 4,
+        "free_rows": 2,
+        "saved_after_cleanup": 0
+      }
+    }
+  ]
+}

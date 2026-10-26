@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-26T05:33:24.928Z",
+  "version": "00f4f00b-aac0-4e15-bc1d-fb318bf113c8",
+  "created_at": "2026-10-17T02:08:02.828902Z",
+  "runtime": {
+    "compatibility_date": "2025-09-01",
+    "compatibility_flags": [
+      "nodejs_compat"
+    ],
+    "usage_model": "standard",
+    "limits": {
+      "cpu_ms": 1500
+    }
+  },
+  "method": "Cloudflare read-only deployment and version runtime allowlist; no secret values"
+}

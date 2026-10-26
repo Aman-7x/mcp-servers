@@ -4,6 +4,17 @@ Review a supplied batch of supplier invoices for repeated invoice numbers, conse
 
 Built by [theluckystrike](https://github.com/theluckystrike). MIT. Support: support@zovo.one.
 
+## Try it before installing
+
+[Run the free duplicate-invoice example in your browser](https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo). Edit the synthetic invoice records to see candidate groups and their reasons. The example runs locally in your browser without an account or uploads. [Product details and installation options](https://mcp.zovo.one/s/duplicate-invoice-check).
+
+| Your review task | Start here |
+| --- | --- |
+| Find repeated invoice references across a supplied invoice-history batch | This server: `duplicate_invoice_check`. Candidates require review and are not confirmed duplicate payments. |
+| Compare one supplier invoice with its PO, accepted receipts and prior billed quantities | [Three-way supplier invoice matching](https://github.com/theluckystrike/mcp-three-way-match), with a [free browser example](https://mcp.zovo.one/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo). |
+
+Both servers include their full diagnostics and CSV evidence for free. Pro removes the limit of three saved reports; the $39 bundle covers both. Neither tool approves payment or retrieves missing accounting history.
+
 ## Install
 
 Claude Desktop: download [duplicate-invoice-check.mcpb v0.22.8](https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb) and open it. SHA-256: `181379eb6dcff3d90b55e080dd9c180f6c96802e991872865a6b0ce422b3aaea`. Other clients can use the source instructions below.

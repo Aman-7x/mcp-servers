@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "started_at": "2026-10-26T05:15:09.534Z",
+  "local_environment_key_present": true,
+  "scope": "Read-only Resend domain configuration and local campaign dry-run. No email, key management, contacts API or production changes.",
+  "resend": {
+    "status": "OK",
+    "http_status": 200,
+    "method": "GET https://api.resend.com/domains; persist project configuration only",
+    "project_domain": {
+      "name": "zovo.one",
+      "status": "verified",
+      "region": "ap-northeast-1",
+      "capabilities": {
+        "sending": "enabled",
+        "receiving": "disabled"
+      }
+    },
+    "nonzero_account_control": true,
+    "domain_count": 3
+  },
+  "campaign": {
+    "source": "data/outreach_targets.json",
+    "rows": 18,
+    "manual_rows": 18,
+    "email_rows": 0,
+    "explicit_opt_in_rows": 0,
+    "suppression_snapshot_present": false,
+    "dry_run": {
+      "candidates": 0,
+      "manual": 18,
+      "skipped": 18,
+      "eligible": 0,
+      "attempts": 0,
+      "accepted": 0,
+      "failures": 0,
+      "mode": "dry-run",
+      "capped": false
+    },
+    "limitation": "Local research campaign inventory only; not a census of production setup-email subscribers. Anonymous hosted tokens are not eligible email contacts."
+  },
+  "previous_source_and_outbox_sha256": {
+    "data/outreach_targets.json": "a47f0bd4ce42c83665360f13ac99bb602d0479306bc1b6e0948f427e3fa6a3a4",
+    "data/outbox.json": "9e5ee064e7153af2aad3801bd18e9d2631ece985093b699ade8acfcc27234f78"
+  },
+  "source_and_outbox_unchanged": true,
+  "delivery_verified": false,
+  "emails_sent": 0,
+  "finished_at": "2026-10-26T05:15:11.349Z"
+}

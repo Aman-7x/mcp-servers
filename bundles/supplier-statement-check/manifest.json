@@ -1,0 +1,84 @@
+{
+  "manifest_version": "0.2",
+  "name": "mcp-supplier-statement-check",
+  "display_name": "Supplier Statement Check",
+  "version": "0.25.0",
+  "description": "Compare supplied supplier statement and AP ledger open items by exact reference with complete discrepancy evidence.",
+  "author": {
+    "name": "theluckystrike",
+    "url": "https://github.com/theluckystrike"
+  },
+  "privacy_policies": [
+    "https://mcp.zovo.one/privacy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/mcp-servers"
+  },
+  "homepage": "https://mcp.zovo.one",
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "MCP_LICENSE_KEY": "${user_config.license_key}"
+      }
+    }
+  },
+  "user_config": {
+    "license_key": {
+      "type": "string",
+      "title": "License key",
+      "description": "Optional Pro license key (format MCPL1.xxx.yyy). Leave blank to use the free tier.",
+      "sensitive": true,
+      "required": false
+    }
+  },
+  "tools": [
+    {
+      "name": "supplier_statement_check",
+      "description": "Compare two supplied open-item lists of up to 1000 records each by exact entity, supplier, currency, document type and reference. Flag missing-side items, amount/date discrepancies and ambiguous repeated references. All evidence is free; no balance or payment approval."
+    },
+    {
+      "name": "report_list",
+      "description": "List saved report ids, timestamps and review-group counts. Free on both tiers; up to 100 reports per page."
+    },
+    {
+      "name": "report_get",
+      "description": "Read a saved comparison with complete source evidence. Large reports return free paging instructions."
+    },
+    {
+      "name": "report_page",
+      "description": "Read free pages of either source list, group summaries or one group’s source members. Unsaved previews last 30 minutes for the last two checks in this process."
+    },
+    {
+      "name": "report_delete",
+      "description": "Delete one local comparison report and free a saved-report slot. Does not alter accounting records."
+    },
+    {
+      "name": "report_export_csv",
+      "description": "Export free CSV pages from a saved report or unsaved preview. One row per supplied source item, with side, group and issues. Formula-like cells are escaped; no amount-loss or balance total is calculated."
+    },
+    {
+      "name": "license_status",
+      "description": "Report this server's licence state: product, tier free or pro, licence id, expiry, the key source and the upgrade URL. No arguments, no network. Explains a free-tier refusal; license_activate installs a key."
+    },
+    {
+      "name": "license_activate",
+      "description": "Activate a Pro key (MCPL1.xxx.yyy) from checkout: verified offline against a built-in public key, saved to your config file. A wrong, malformed or expired key is refused, unsaved. license_status reads it back."
+    }
+  ],
+  "keywords": [
+    "mcp",
+    "supplier-statement",
+    "vendor-statement",
+    "accounts-payable",
+    "open-items",
+    "local"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-26T05:38:22.788Z",
+  "source_script": "scripts/sync-mirrors.sh",
+  "source_script_sha256": "184ca813e61001e9203f7504fc59451f1b2debf767455d82d65dc365a3cf7e79",
+  "mirror": {
+    "path": "/Users/mike/mcp-servers-work/mirror-supplier-statement-check.0xARFR",
+    "self_contained": true,
+    "npm_install_exit": 0,
+    "build_exit": 0,
+    "test_count": 32,
+    "passed": 31,
+    "failed": 0,
+    "skipped": 1,
+    "skip_reason": "Production signing key is never copied to mirrors; signed-key tests run in the monorepo/archive gates.",
+    "test_receipt": "data/r38_public_distribution_mirror_tests.tap"
+  },
+  "history_rehearsal": {
+    "local_remote_only": true,
+    "independent_prior_commit": "2c36af9e498b8de878af2008449e10cc7ba696cf",
+    "retained_as_ancestor": true,
+    "commit_count": 3,
+    "final_tip": "e9731bbce78f902051055567da92cd295409a885",
+    "first_new_repo_normal_push": true,
+    "second_existing_repo_preserves_history": true,
+    "force_selected_only_by_explicit_SQUASH_1": true,
+    "logs": [
+      "data/r38_public_distribution_rehearsal_first.txt",
+      "data/r38_public_distribution_rehearsal_second.txt"
+    ]
+  },
+  "external_publication_performed": false
+}

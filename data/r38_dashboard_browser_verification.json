@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-26T05:28:43.881Z",
+  "status": "passed",
+  "scope": "Offline Chrome, current26Oct actual DASHBOARD.html redirect and generated HTML; no production actions",
+  "checks": [
+    "Exact legacy entry redirects to26Oct review and visible activeR38; every metric/window matches receipt-backed data; prior sales correction retained",
+    "Single-price example is correct; missing costs stay unknown",
+    "Bundle whole-sale target and entered-cost surplus are correct",
+    "Zero-rate, zero-target, negative and missing inputs produce bounded honest results",
+    "All nine existing dashboard tabs still work",
+    "390px and320px layouts have no horizontal page overflow",
+    "No page errors, external requests or browser storage writes"
+  ],
+  "page_errors": [],
+  "external_requests": 0,
+  "profile_removed": true
+}

@@ -5,6 +5,7 @@
 const FOOT = "";
 import { MATCHER_DEMO_HTML } from './matcher-demo-markup.js';
 import { DUPLICATE_DEMO_HTML } from './duplicate-demo-markup.js';
+import { SUPPLIER_GUIDE } from './supplier-guide.js';
 const BASE = "https://mcp.zovo.one";
 const RELEASES = "https://mcp.zovo.one/downloads";
 
@@ -99,6 +100,7 @@ has the whole picture.</p>
 }
 
 export const GUIDES = {
+  ...SUPPLIER_GUIDE,
   "check-duplicate-supplier-invoice-references-in-claude": {
     title: "Review duplicate supplier invoice references in Claude",
     description: "Review exact references, formatting variants and equal amount/date records within supplied invoice history. An editable local example shows the evidence and its limits.",
@@ -10069,6 +10071,7 @@ ${LISTED_CHILD_COUNT}-server set.</p>`,
 };
 
 export const GUIDE_PRODUCT_LINKS = {
+  "compare-supplier-statement-ap-open-items-in-claude": ["supplier-statement-check"],
   "check-duplicate-supplier-invoice-references-in-claude": ["duplicate-invoice-check"],
   "bill-of-sale-from-chat": ["bill-of-sale", "invoice"],
   "change-orders-and-contract-value-from-chat": ["change-order", "service-agreement"],
@@ -10109,6 +10112,7 @@ export const GUIDE_PRODUCT_LINKS = {
  * cover. Every guide slug here must exist in GUIDES (validated at build).
  */
 export const PRODUCT_GUIDE_LINKS = {
+  "supplier-statement-check": ["compare-supplier-statement-ap-open-items-in-claude"],
   "duplicate-invoice-check": ["check-duplicate-supplier-invoice-references-in-claude"],
   "time-tracker": ["track-time-in-claude-code", "freelancer-invoice-and-billable-hours-in-chat", "kanban-board-in-claude-with-time-tracking", "project-profitability-hours-versus-budget"],
   "price-tracker": ["price-drop-alerts-with-claude", "price-drop-alerts-and-pdf-cleanup-from-chat", "price-lists-and-rate-cards-from-chat", "supplier-directory-from-chat"],

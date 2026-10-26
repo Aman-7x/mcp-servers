@@ -570,3 +570,78 @@
 {"at": "2026-10-16T11:04:07.571004+00:00", "path": "/Users/mike/mcp-servers-work/r37-observation-pr.md", "bytes": 923, "reason": "Completed R37 SheetJS publication/mirror or prior observation draft", "lsof": "no open handles"}
 {"at": "2026-10-16T11:31:48.890492+00:00", "path": "/Users/mike/mcp-servers-work/r37-rollout-evidence-pr.md", "bytes": 991, "reason": "R37 merged PR78 temporary body", "lsof": "no open handles"}
 {"at":"2026-10-16T11:34:34.494Z","session":"r37","path":"/Users/mike/mcp-servers-work/r37-dashboard-browser-vCCI1R","bytes":8534469,"lsof_clear":true,"reason":"Completed owned dashboard browser QA"}
+{"at": "2026-10-16T23:35:29.426996+00:00", "path": "/Users/mike/mcp-servers-work/revenue-review-browser-Fx8Vf9", "bytes": 8550614, "lsof_clear": true, "reason": "Owned revenue QA profile: immediate post-close guard failed; subsequent lsof clear; retry uses bounded flush wait"}
+{"at":"2026-10-16T23:35:33.079Z","path":"/Users/mike/mcp-servers-work/revenue-review-browser-PmBifv","bytes":8682029,"lsof_clear":true,"reason":"Completed owned revenue dashboard QA; browser closed"}
+{"at": "2026-10-26T05:20:55.983035+00:00", "path": "/Users/mike/mcp-servers-work/r38-entitlement-remote-dryrun", "bytes": 22972209, "lsof_clear": true, "reason": "R38 entitlement remote dry-run verified; owned generated output removed"}
+{"at":"2026-10-26T05:24:48.623Z","path":"/Users/mike/mcp-servers-work/tool-inventory-q3AL30","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:25:59.194Z","path":"/Users/mike/mcp-servers-work/tool-inventory-yJrSnu","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:28:01.781Z","path":"/Users/mike/mcp-servers-work/r38-supplier-operator-sBUPd0","bytes":0,"lsof":"no open handles","reason":"Completed isolated R38 synthetic MCP operator workflow"}
+{"at":"2026-10-26T05:28:26.087Z","path":"/Users/mike/mcp-servers-work/r38-supplier-browser-0dsg3f","bytes":9088396,"lsof":"no open handles","reason":"R38 first owned browser QA failed cleanup retry, no data reused"}
+{"at":"2026-10-26T05:28:28.294Z","path":"/Users/mike/mcp-servers-work/r38-supplier-browser-wIihr0","bytes":9087181,"lsof":"no open handles","reason":"R38 real supplier browser QA, synthetic CSV downloads and GIF source frames"}
+{"at":"2026-10-26T05:28:43.863Z","path":"/Users/mike/mcp-servers-work/r38-dashboard-browser-Ftdmrx","bytes":8549536,"lsof_clear":true,"reason":"Completed ownedR38 dashboard QA; browser closed"}
+{"at":"2026-10-26T05:28:50.411Z","path":"/Users/mike/mcp-servers/bundles/office-suite","bytes":110877366,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T05:29:05.884Z","path":"/Users/mike/mcp-servers-work/r38-supplier-browser-I5Cxz7","bytes":9090183,"lsof":"no open handles","reason":"R38 real supplier browser QA, synthetic CSV downloads and GIF source frames"}
+{"at":"2026-10-26T05:29:44.789Z","path":"/Users/mike/mcp-servers-work/r38-supplier-browser-YfoKBC","bytes":9090193,"lsof":"no open handles","reason":"R38 real supplier browser QA, synthetic CSV downloads and GIF source frames"}
+{"at":"2026-10-26T05:29:55.407Z","path":"/Users/mike/mcp-servers-work/tool-inventory-N1a6q6","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:30:01.289Z","path":"/Users/mike/mcp-servers/bundles/office-suite.mcpb","bytes":29703676,"lsof":"no open handles","reason":"replace derived bundle output"}
+{"at":"2026-10-26T05:30:58.996Z","path":"/Users/mike/mcp-servers-work/tool-inventory-EOkthF","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:31:39.164Z","path":"/Users/mike/mcp-servers-work/r38-archive-readback-wQtY7X","bytes":17511,"lsof":"no open handles","reason":"Completed exact-archive MCP operator readbacks; no full archive extraction fixture created"}
+{"at":"2026-10-26T05:32:26.239Z","path":"/Users/mike/mcp-servers-work/r38-supplier-browser-5lEgOk","bytes":9089930,"lsof":"no open handles","reason":"R38 real supplier browser QA, synthetic CSV downloads and GIF source frames"}
+{"at":"2026-10-26T05:34:49.057Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858031,"lsof":"no open handles","reason":"Regenerate derived hosted source from local server inputs"}
+{"at": "2026-10-26T05:35:11.128705+00:00", "path": "/Users/mike/mcp-servers-work/mirror-supplier-statement-check.0xARFR/gemini-extension.json.tmp", "bytes": 0, "reason": "unsupported optional mirror configuration", "lsof": "no open handles"}
+{"at": "2026-10-26T05:36:26.448649+00:00", "path": "/Users/mike/mcp-servers-work/mirror-supplier-statement-check.GUold0/gemini-extension.json.tmp", "bytes": 0, "reason": "unsupported optional mirror configuration", "lsof": "no open handles"}
+{"at": "2026-10-26T05:36:49.823322+00:00", "path": "/Users/mike/mcp-servers-work/mirror-supplier-statement-check.02F4Ox/gemini-extension.json.tmp", "bytes": 0, "reason": "unsupported optional mirror configuration", "lsof": "no open handles"}
+{"at":"2026-10-26T05:37:17.816Z","path":"/Users/mike/mcp-servers-work/tool-inventory-n2UYlW","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:18.235Z","path":"/Users/mike/mcp-servers-work/tool-inventory-IyCbAd","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:19.108Z","path":"/Users/mike/mcp-servers-work/tool-inventory-7APaA8","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:19.582Z","path":"/Users/mike/mcp-servers-work/tool-inventory-MPQ6wd","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:20.131Z","path":"/Users/mike/mcp-servers-work/tool-inventory-WcRxk0","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:20.557Z","path":"/Users/mike/mcp-servers-work/tool-inventory-0aLFx0","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:20.825Z","session":"r37","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-route-ci-N5hsJM","bytes":2750343,"lsof_clear":true,"reason":"Completed isolated ephemeral-signer billing route fixture"}
+{"at":"2026-10-26T05:37:21.074Z","path":"/Users/mike/mcp-servers-work/tool-inventory-CgTqpW","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:21.505Z","path":"/Users/mike/mcp-servers-work/tool-inventory-knrFFM","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:21.983Z","path":"/Users/mike/mcp-servers-work/tool-inventory-fMOUTa","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:22.415Z","path":"/Users/mike/mcp-servers-work/tool-inventory-lbo1Uz","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:22.833Z","path":"/Users/mike/mcp-servers-work/tool-inventory-a04DA2","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:23.255Z","path":"/Users/mike/mcp-servers-work/tool-inventory-miuSNM","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:23.646Z","path":"/Users/mike/mcp-servers-work/tool-inventory-kGowrz","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:24.024Z","path":"/Users/mike/mcp-servers-work/tool-inventory-lvhZ5n","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:24.423Z","path":"/Users/mike/mcp-servers-work/tool-inventory-lsST9h","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:24.922Z","path":"/Users/mike/mcp-servers-work/tool-inventory-2qFwYP","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:25.416Z","path":"/Users/mike/mcp-servers-work/tool-inventory-lXo5Ox","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:25.796Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Hvm4cm","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:26.158Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Ij7jgT","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:26.507Z","path":"/Users/mike/mcp-servers-work/tool-inventory-k9TPQw","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:26.898Z","path":"/Users/mike/mcp-servers-work/tool-inventory-bKwEED","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:27.300Z","path":"/Users/mike/mcp-servers-work/tool-inventory-i5krVJ","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:27.669Z","path":"/Users/mike/mcp-servers-work/tool-inventory-NQtDjk","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:28.068Z","path":"/Users/mike/mcp-servers-work/tool-inventory-zNX4j1","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:28.501Z","path":"/Users/mike/mcp-servers-work/tool-inventory-16ctR3","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:28.856Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Lx80Et","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:29.210Z","path":"/Users/mike/mcp-servers-work/tool-inventory-y79YLv","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:29.665Z","path":"/Users/mike/mcp-servers-work/tool-inventory-ZRJ4Fc","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:30.033Z","path":"/Users/mike/mcp-servers-work/tool-inventory-4vRgpy","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:30.438Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Kkpnk7","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:44.486Z","path":"/Users/mike/mcp-servers-work/tool-inventory-ngP0NV","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:44.937Z","path":"/Users/mike/mcp-servers-work/tool-inventory-9KZeb0","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:45.396Z","path":"/Users/mike/mcp-servers-work/tool-inventory-MjV8HT","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:45.909Z","path":"/Users/mike/mcp-servers-work/tool-inventory-YRBlRe","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:46.306Z","path":"/Users/mike/mcp-servers-work/tool-inventory-8qrprA","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:46.801Z","path":"/Users/mike/mcp-servers-work/tool-inventory-nepHFK","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:47.220Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Q3YRm4","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:47.681Z","path":"/Users/mike/mcp-servers-work/tool-inventory-0ifZZO","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:48.121Z","path":"/Users/mike/mcp-servers-work/tool-inventory-LPQUx5","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:48.591Z","path":"/Users/mike/mcp-servers-work/tool-inventory-GkOPjg","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:49.035Z","path":"/Users/mike/mcp-servers-work/tool-inventory-r8KT24","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:49.428Z","path":"/Users/mike/mcp-servers-work/tool-inventory-bKrLk1","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:49.919Z","path":"/Users/mike/mcp-servers-work/tool-inventory-ArZ4XD","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:50.418Z","path":"/Users/mike/mcp-servers-work/tool-inventory-MSv4Il","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:50.802Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Qo5cM9","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:51.204Z","path":"/Users/mike/mcp-servers-work/tool-inventory-tYK36b","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:51.601Z","path":"/Users/mike/mcp-servers-work/tool-inventory-Loo0lf","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:51.984Z","path":"/Users/mike/mcp-servers-work/tool-inventory-lN12LL","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:52.437Z","path":"/Users/mike/mcp-servers-work/tool-inventory-GNXrO6","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:52.892Z","path":"/Users/mike/mcp-servers-work/tool-inventory-hKdjXk","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at":"2026-10-26T05:37:53.259Z","path":"/Users/mike/mcp-servers-work/tool-inventory-roxA2d","bytes":0,"reason":"completed isolated runtime inventory","lsof":"no open handles"}
+{"at": "2026-10-26T05:39:08.369423+00:00", "path": "/Users/mike/mcp-servers-work/mirror-office-suite.9GK2Ph/gemini-extension.json.tmp", "bytes": 0, "reason": "unsupported optional mirror configuration", "lsof": "no open handles"}
+{"at":"2026-10-26T05:39:46.010Z","session":"r37","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-route-ci-I04IL8","bytes":2750456,"lsof_clear":true,"reason":"Completed isolated ephemeral-signer billing route fixture"}

@@ -41,6 +41,20 @@ is what the config becomes the day that changes:</p>
 <pre><code>claude mcp add ${slug} -- npx -y @theluckystrike/mcp-${slug}</code></pre>`;
 
 export const COMPARE = {
+  "supplier-statement-check": {
+    title: "Supplier statement open-item comparison: local MCP and integrated alternatives",
+    description: "Compare exact supplied-data open-item evidence with AutoEntry's integrated workflow and generic CSV MCP reconciliation. Primary-source review, not competitor runtime testing.",
+    html: `<h1>Supplier statement open-item comparison options</h1>
+<p><a href="/s/supplier-statement-check">Our local MCP server</a> compares two supplied lists by exact entity, supplier, currency, document type and reference. It retains original items, amount/date differences and repeated-reference ambiguity. It does not connect to an accounting platform or reconcile opening and closing balances.</p>
+<h2>AutoEntry: use the integrated supplier statement workflow</h2>
+<p><a href="https://help.autoentry.com/en/articles/2459511-reconcile-a-supplier-statement">AutoEntry's supplier statement documentation, inspected October 26, 2026</a>, describes reconciling statements with uploaded purchases and resolving discrepancies. Choose an integrated workflow when extraction and your purchase records already live there. Our tool requires explicit structured open items and offers no extraction, account access or writeback. We did not run or benchmark AutoEntry.</p>
+<h2>Generic CSV MCP reconciliation</h2>
+<p>The <a href="https://github.com/Ivansky1/unlav-data-tools-mcp">unlav-data-tools-mcp source README, inspected October 26, 2026</a>, documents generic CSV reconciliation. A general exact-key tool can be a substitute when you define the keys and accounting interpretation yourself. Our narrow schema makes entity, supplier, currency and invoice/credit-note boundaries explicit and reports repeated references without inferred allocation. This is a documentary comparison, not a competitor runtime test.</p>
+<h2>Local open-item evidence and optional saved history</h2>
+<p>Complete diagnostics, original source evidence pages and CSV are free for up to 1000 records per side. Three simultaneous saved reports are free; $19 once removes only the saved-report count cap, and the $39 bundle includes it. Input, output and storage safety bounds remain. Matching supplied rows is not proof of complete books, a correct balance or permission to pay.</p>
+<p><a href="/guides/compare-supplier-statement-ap-open-items-in-claude#supplier-demo">Try the actual engine in this browser</a> · <a href="/downloads#supplier-statement-check">Local extension download</a> · <a href="/setup/claude-code/supplier-statement-check">Claude Code setup</a></p>`,
+    faq: [{ q: "Were the alternatives independently runtime tested?", a: "No. This comparison uses their primary documentation and source READMEs. It is not a performance, price or feature-parity benchmark." }],
+  },
   "duplicate-invoice-check": {
     title: "Duplicate supplier invoice checks: local MCP, Oracle and Invoice Triage Copilot",
     description: "Compare supplied-batch equality evidence with Oracle duplicate checks and Invoice Triage Copilot's documented workflow. Source inspection, not competitor runtime testing.",

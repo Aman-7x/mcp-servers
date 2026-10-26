@@ -1,0 +1,46 @@
+{
+  "observed_at": "2026-10-26T05:14:20.723Z",
+  "kind": "marked operator GET only; no Checkout Session or token created",
+  "rows": [
+    {
+      "path": "/s/duplicate-invoice-check",
+      "status": 200,
+      "bytes": 48489,
+      "checkout_stage": null,
+      "has_install_instructions": true,
+      "contains_19_price": true,
+      "contains_checkout_form": false,
+      "contains_node_limit": true
+    },
+    {
+      "path": "/s/three-way-match",
+      "status": 200,
+      "bytes": 49489,
+      "checkout_stage": null,
+      "has_install_instructions": true,
+      "contains_19_price": true,
+      "contains_checkout_form": false,
+      "contains_node_limit": true
+    },
+    {
+      "path": "/buy/duplicate-invoice-check?probe=r38.product",
+      "status": 200,
+      "bytes": 11591,
+      "checkout_stage": "checkout-intent-required",
+      "has_install_instructions": true,
+      "contains_19_price": true,
+      "contains_checkout_form": true,
+      "contains_node_limit": true
+    },
+    {
+      "path": "/buy/three-way-match?probe=r38.product",
+      "status": 200,
+      "bytes": 11578,
+      "checkout_stage": "checkout-intent-required",
+      "has_install_instructions": true,
+      "contains_19_price": true,
+      "contains_checkout_form": true,
+      "contains_node_limit": true
+    }
+  ]
+}

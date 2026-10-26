@@ -1,0 +1,128 @@
+{
+  "at": "2026-10-26T05:32:23.741Z",
+  "status": "passed",
+  "mode": "local",
+  "source": "Actual billing Worker.fetch on loopback; Chrome; generated engine/UI hash verified before launch",
+  "core_ui_sha256": "b79724ee04f8df6b93a4246ae7d213f6dc4dda0704954e76a9ae5d083ae80ad1",
+  "synthetic_inputs": true,
+  "disk_available_gb": 20,
+  "checks": [
+    {
+      "name": "Actual worked comparison",
+      "detail": "9 original records,5groups,1matched,4review; every original field retained, amount and date issues both present"
+    },
+    {
+      "name": "Preset editor position",
+      "detail": "A scrolled editor returns to the start of each newly selected preset"
+    },
+    {
+      "name": "Actual complete CSV download",
+      "detail": "Downloaded9rows, one per source-side item; original source values match independent Pythoncsv parsing"
+    },
+    {
+      "name": "All preset boundaries",
+      "detail": "Agreement1matched; leading-zero and credit/type cases2unmatched; repeated-reference case1ambiguous, no guessed pairing"
+    },
+    {
+      "name": "Stale evidence and save refusal",
+      "detail": "Any edit immediately clears report/groups and disables CSV; invalid JSON and save:true retain no prior evidence"
+    },
+    {
+      "name": "DOM and CSV hostile strings",
+      "detail": "HTML-like references render as text; no img/onerror execution; formula escaped and comma/quote reference byte-preserved in actual CSV"
+    },
+    {
+      "name": "Bounded browser input",
+      "detail": "Over2MiB rejected before JSON parsing; no report or export retained"
+    },
+    {
+      "name": "Responsive guide layout",
+      "detail": "390px and320px guide/body stay within viewport"
+    },
+    {
+      "name": "Privacy and execution controls",
+      "detail": "Zero pageerrors, diagnostic fetch/XHR/beacon requests or storagewrites; only marked GETs to the selected guide/assets were permitted. Existing static GoogleFonts stylesheet was blocked once; no request to another host was allowed."
+    }
+  ],
+  "frames": [
+    {
+      "label": "Editable synthetic exports",
+      "summary": "5 statement records; 4 AP ledger records. 1 matching groups; 4 groups to review: 1 statement only, 1 ledger only, 1 amount/date differences, 1 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Actual differences and repeated-reference evidence",
+      "summary": "5 statement records; 4 AP ledger records. 1 matching groups; 4 groups to review: 1 statement only, 1 ledger only, 1 amount/date differences, 1 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Leading zeros remain significant",
+      "summary": "1 statement records; 1 AP ledger records. 0 matching groups; 2 groups to review: 1 statement only, 1 ledger only, 0 amount/date differences, 0 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Credit notes remain separate from invoices",
+      "summary": "1 statement records; 1 AP ledger records. 0 matching groups; 2 groups to review: 1 statement only, 1 ledger only, 0 amount/date differences, 0 repeated references.",
+      "status": "Differences or repeated references need review."
+    },
+    {
+      "label": "Repeated reference remains ambiguous",
+      "summary": "2 statement records; 1 AP ledger records. 0 matching groups; 1 groups to review: 0 statement only, 0 ledger only, 0 amount/date differences, 1 repeated references.",
+      "status": "Differences or repeated references need review."
+    }
+  ],
+  "page_errors": [],
+  "blocked_external_requests": [
+    "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Space+Mono&display=swap"
+  ],
+  "blocked_route_requests": [],
+  "diagnostic_requests": [],
+  "initial_local_requests": [
+    {
+      "type": "document",
+      "path": "/guides/compare-supplier-statement-ap-open-items-in-claude"
+    },
+    {
+      "type": "stylesheet",
+      "path": "/css2"
+    },
+    {
+      "type": "script",
+      "path": "/assets/supplier-demo.js"
+    }
+  ],
+  "production_requests": 0,
+  "checkout_sessions_created": 0,
+  "emails_sent": 0,
+  "origin": "http://127.0.0.1:61211",
+  "browser": "155.0.8059.86",
+  "artifacts": [
+    {
+      "path": "assets/demo-supplier-statement-check.gif",
+      "bytes": 358960,
+      "sha256": "5096f306c1393dbcbea2d0e748f8759b6ceb06221ee9df0304d18413e75419ba"
+    },
+    {
+      "path": "assets/supplier-statement-check-logo.png",
+      "bytes": 4897,
+      "sha256": "c81bb2de58435e8155f09a98fda0365da3fd12e4727bcdf75bbb58bfc7b2b2d3"
+    },
+    {
+      "path": "intel/R38-supplier-desktop.png",
+      "bytes": 113329,
+      "sha256": "e15659049e70c582057a8670e49943fbb4f5ef9c60049e2fcdad51eb8adc174e"
+    },
+    {
+      "path": "intel/R38-supplier-mobile-390.png",
+      "bytes": 245040,
+      "sha256": "35f2f312f8bde44d85d799adb0fcfeb20b8de385471e06361e92cc353f343a12"
+    },
+    {
+      "path": "intel/R38-supplier-mobile-320.png",
+      "bytes": 252584,
+      "sha256": "38208659a8f6bf9a8fdb7223e33c34f69be0ca84cc96ac7c63e0ab81ac722476"
+    }
+  ],
+  "owned_scope_removed": true,
+  "finished_at": "2026-10-26T05:32:26.252Z"
+}

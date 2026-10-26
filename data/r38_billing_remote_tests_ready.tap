@@ -1,0 +1,2188 @@
+TAP version 13
+# Subtest: validTenant accepts only anon_ + 32 lowercase hex
+ok 1 - validTenant accepts only anon_ + 32 lowercase hex
+  ---
+  duration_ms: 0.5225
+  type: 'test'
+  ...
+# Subtest: bindDecision only binds a valid tenant on an already-fulfilled session
+ok 2 - bindDecision only binds a valid tenant on an already-fulfilled session
+  ---
+  duration_ms: 0.346917
+  type: 'test'
+  ...
+# Subtest: bindDecision refuses when fulfilment itself was not ok, regardless of tenant
+ok 3 - bindDecision refuses when fulfilment itself was not ok, regardless of tenant
+  ---
+  duration_ms: 0.051917
+  type: 'test'
+  ...
+# Subtest: bindDecision refuses a missing or malformed tenant
+ok 4 - bindDecision refuses a missing or malformed tenant
+  ---
+  duration_ms: 0.05625
+  type: 'test'
+  ...
+# Subtest: bindDecision never binds a spoofed tenant carried outside metadata
+ok 5 - bindDecision never binds a spoofed tenant carried outside metadata
+  ---
+  duration_ms: 0.051542
+  type: 'test'
+  ...
+# Subtest: success page shows the hosted-bound note only when a tenant was actually bound
+ok 6 - success page shows the hosted-bound note only when a tenant was actually bound
+  ---
+  duration_ms: 0.307375
+  type: 'test'
+  ...
+# Subtest: pending hosted binding never claims activation is complete
+ok 7 - pending hosted binding never claims activation is complete
+  ---
+  duration_ms: 0.130125
+  type: 'test'
+  ...
+# Subtest: success page always shows the key regardless of binding
+ok 8 - success page always shows the key regardless of binding
+  ---
+  duration_ms: 0.055792
+  type: 'test'
+  ...
+# Subtest: /bundle is routed
+ok 9 - /bundle is routed
+  ---
+  duration_ms: 0.458
+  type: 'test'
+  ...
+# Subtest: bundle page title, price math and one CTA
+ok 10 - bundle page title, price math and one CTA
+  ---
+  duration_ms: 0.472375
+  type: 'test'
+  ...
+# Subtest: bundle page lists every server, each linking to its /s/<id> page
+ok 11 - bundle page lists every server, each linking to its /s/<id> page
+  ---
+  duration_ms: 0.3585
+  type: 'test'
+  ...
+# Subtest: bundle page meta description is under 160 chars
+ok 12 - bundle page meta description is under 160 chars
+  ---
+  duration_ms: 0.141958
+  type: 'test'
+  ...
+# Subtest: bundle page carries a Product/Offer JSON-LD block
+ok 13 - bundle page carries a Product/Offer JSON-LD block
+  ---
+  duration_ms: 0.217792
+  type: 'test'
+  ...
+# Subtest: sitemap.xml and llms.txt derivation both cover /bundle
+ok 14 - sitemap.xml and llms.txt derivation both cover /bundle
+  ---
+  duration_ms: 20.08575
+  type: 'test'
+  ...
+# Subtest: every generated server page's CTA block cross-sells the bundle, tagged per server
+ok 15 - every generated server page's CTA block cross-sells the bundle, tagged per server
+  ---
+  duration_ms: 0.296875
+  type: 'test'
+  ...
+# Subtest: the home hero links to /bundle
+ok 16 - the home hero links to /bundle
+  ---
+  duration_ms: 0.0495
+  type: 'test'
+  ...
+# Subtest: every release version under docs/ appears on the changelog page
+ok 17 - every release version under docs/ appears on the changelog page
+  ---
+  duration_ms: 48.947167
+  type: 'test'
+  ...
+# Subtest: the most recently dated release renders first in CHANGELOG and on the page
+ok 18 - the most recently dated release renders first in CHANGELOG and on the page
+  ---
+  duration_ms: 1.326459
+  type: 'test'
+  ...
+# Subtest: no sentence on the changelog page is invented: evidence and insight text trace to the release file
+ok 19 - no sentence on the changelog page is invented: evidence and insight text trace to the release file
+  ---
+  duration_ms: 1.755416
+  type: 'test'
+  ...
+# Subtest: meta description is under 160 chars
+ok 20 - meta description is under 160 chars
+  ---
+  duration_ms: 1.795916
+  type: 'test'
+  ...
+# Subtest: footer, sitemap and llms.txt all link to /changelog
+ok 21 - footer, sitemap and llms.txt all link to /changelog
+  ---
+  duration_ms: 7.970584
+  type: 'test'
+  ...
+# Subtest: no product is waiting on a human, and the 503 that said so is gone
+ok 22 - no product is waiting on a human, and the 503 that said so is gone
+  ---
+  duration_ms: 0.709
+  type: 'test'
+  ...
+# Subtest: every product produces one complete, correctly-priced line item
+ok 23 - every product produces one complete, correctly-priced line item
+  ---
+  duration_ms: 0.413959
+  type: 'test'
+  ...
+# Subtest: the three formerly human-gated products are now priced inline, at $19, under their own names
+ok 24 - the three formerly human-gated products are now priced inline, at $19, under their own names
+  ---
+  duration_ms: 0.064375
+  type: 'test'
+  ...
+# Subtest: firstSentences never cuts a word and never returns more than asked
+ok 25 - firstSentences never cuts a word and never returns more than asked
+  ---
+  duration_ms: 0.131625
+  type: 'test'
+  ...
+# Subtest: a payment for an inline-priced product is fulfillable, and the amount is still checked
+ok 26 - a payment for an inline-priced product is fulfillable, and the amount is still checked
+  ---
+  duration_ms: 0.42575
+  type: 'test'
+  ...
+# Subtest: office-suite sells the bundle, because only the bundle key can activate it
+ok 27 - office-suite sells the bundle, because only the bundle key can activate it
+  ---
+  duration_ms: 0.109875
+  type: 'test'
+  ...
+# Subtest: opening a Buy link is side-effect free and renders the explicit checkout step
+ok 28 - opening a Buy link is side-effect free and renders the explicit checkout step
+  ---
+  duration_ms: 40.226959
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+# Subtest: a bounded form order token is carried into Stripe metadata and its idempotency key
+ok 29 - a bounded form order token is carried into Stripe metadata and its idempotency key
+  ---
+  duration_ms: 31.483542
+  type: 'test'
+  ...
+# Subtest: a forged or incomplete POST creates no Stripe Checkout Session
+ok 30 - a forged or incomplete POST creates no Stripe Checkout Session
+  ---
+  duration_ms: 23.784042
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"bundle","source":"store.office-suite","probe":false,"request_method":"POST"}
+# Subtest: /buy/office-suite reaches a Stripe checkout for the bundle, priced at $39
+ok 31 - /buy/office-suite reaches a Stripe checkout for the bundle, priced at $39
+  ---
+  duration_ms: 20.069583
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"catalogue","source":"store.home.table.catalogue","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"change-order","source":"store.home.table.change-order","probe":false,"request_method":"POST"}
+# Subtest: each formerly 503 product now reaches Stripe with its own inline price
+ok 32 - each formerly 503 product now reaches Stripe with its own inline price
+  ---
+  duration_ms: 22.520625
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"synthetic-server-r1","source":"store.home.table.synthetic","probe":false,"request_method":"POST"}
+# Subtest: a server added tomorrow gets a checkout on deploy, with no Stripe dashboard step
+ok 33 - a server added tomorrow gets a checkout on deploy, with no Stripe dashboard step
+  ---
+  duration_ms: 4.034167
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.home.table.invoice","probe":false,"request_method":"POST"}
+# Subtest: a browser that sends no User-Agent still reaches checkout
+ok 34 - a browser that sends no User-Agent still reaches checkout
+  ---
+  duration_ms: 1.86825
+  type: 'test'
+  ...
+# Subtest: a crawler with no User-Agent still creates no Stripe session
+ok 35 - a crawler with no User-Agent still creates no Stripe session
+  ---
+  duration_ms: 0.642375
+  type: 'test'
+  ...
+# Subtest: a crawler on an alias sees an intent page but creates no Stripe Session
+ok 36 - a crawler on an alias sees an intent page but creates no Stripe Session
+  ---
+  duration_ms: 2.612958
+  type: 'test'
+  ...
+# Subtest: an unknown product is a dead end no longer: it names the bundle and charges nothing
+ok 37 - an unknown product is a dead end no longer: it names the bundle and charges nothing
+  ---
+  duration_ms: 0.408208
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+# Subtest: a real click is recorded before the redirect, and a probe is not
+ok 38 - a real click is recorded before the redirect, and a probe is not
+  ---
+  duration_ms: 50.218959
+  type: 'test'
+  ...
+# Subtest: the IndexNow key file serves its key and nothing else
+ok 39 - the IndexNow key file serves its key and nothing else
+  ---
+  duration_ms: 1.413459
+  type: 'test'
+  ...
+# Subtest: robots.txt keeps every crawler allowed
+ok 40 - robots.txt keeps every crawler allowed
+  ---
+  duration_ms: 0.283625
+  type: 'test'
+  ...
+# Subtest: GSC + Bing verification routes serve a code when one is supplied, and 404 when unset
+ok 41 - GSC + Bing verification routes serve a code when one is supplied, and 404 when unset
+  ---
+  duration_ms: 0.258791
+  type: 'test'
+  ...
+# Subtest: llms.txt lists every product with a URL and a description
+ok 42 - llms.txt lists every product with a URL and a description
+  ---
+  duration_ms: 4.096916
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"store.home.table.work-order","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"work-order","source":"probe.loop29","probe":true,"request_method":"POST"}
+# Subtest: a probe reads back what Stripe stored, and a buyer sees none of it
+ok 43 - a probe reads back what Stripe stored, and a buyer sees none of it
+  ---
+  duration_ms: 3.327375
+  type: 'test'
+  ...
+# Subtest: install links use the asset catalog rather than assuming latest contains every bundle
+ok 44 - install links use the asset catalog rather than assuming latest contains every bundle
+  ---
+  duration_ms: 0.467
+  type: 'test'
+  ...
+# Subtest: VALIDATION and BILLING_TEST_COUNT match the files they claim to report
+ok 45 - VALIDATION and BILLING_TEST_COUNT match the files they claim to report
+  ---
+  duration_ms: 142.112333
+  type: 'test'
+  ...
+# Subtest: the home page and /bundle no longer state the npx line without the disclosure
+ok 46 - the home page and /bundle no longer state the npx line without the disclosure
+  ---
+  duration_ms: 2.785375
+  type: 'test'
+  ...
+# Subtest: the success page leads with an install path that works, not with a command that 404s
+ok 47 - the success page leads with an install path that works, not with a command that 404s
+  ---
+  duration_ms: 0.1675
+  type: 'test'
+  ...
+# Subtest: a click on a dead /buy/ link is counted, so the leak is measurable
+ok 48 - a click on a dead /buy/ link is counted, so the leak is measurable
+  ---
+  duration_ms: 0.372083
+  type: 'test'
+  ...
+# Subtest: the catalogue is the single servers plus the bundle, and the saving is their sum less $39
+ok 49 - the catalogue is the single servers plus the bundle, and the saving is their sum less $39
+  ---
+  duration_ms: 0.513
+  type: 'test'
+  ...
+# Subtest: the bundle description names the count, the one key and the saving
+ok 50 - the bundle description names the count, the one key and the saving
+  ---
+  duration_ms: 1.204916
+  type: 'test'
+  ...
+# Subtest: every single-server description names the product and prices the bundle
+ok 51 - every single-server description names the product and prices the bundle
+  ---
+  duration_ms: 0.166875
+  type: 'test'
+  ...
+# Subtest: an unknown product cannot silently produce empty checkout copy
+ok 52 - an unknown product cannot silently produce empty checkout copy
+  ---
+  duration_ms: 0.230333
+  type: 'test'
+  ...
+# Subtest: custom_text.submit cross-sells the bundle on a single-server session, tagged
+ok 53 - custom_text.submit cross-sells the bundle on a single-server session, tagged
+  ---
+  duration_ms: 0.098667
+  type: 'test'
+  ...
+# Subtest: the cross-sell tags are shapes the /buy route's validSrc will accept
+ok 54 - the cross-sell tags are shapes the /buy route's validSrc will accept
+  ---
+  duration_ms: 0.489125
+  type: 'test'
+  ...
+# Subtest: custom_text.after_submit says how the key arrives and that hosted tenants are bound
+ok 55 - custom_text.after_submit says how the key arrives and that hosted tenants are bound
+  ---
+  duration_ms: 0.112208
+  type: 'test'
+  ...
+# Subtest: Stripe caps a custom_text message at 1200 characters
+ok 56 - Stripe caps a custom_text message at 1200 characters
+  ---
+  duration_ms: 0.125708
+  type: 'test'
+  ...
+# Subtest: the session builder sends both custom_text messages
+ok 57 - the session builder sends both custom_text messages
+  ---
+  duration_ms: 0.252542
+  type: 'test'
+  ...
+# Subtest: promotion codes are off and a Customer is always created for the email
+ok 58 - promotion codes are off and a Customer is always created for the email
+  ---
+  duration_ms: 0.373542
+  type: 'test'
+  ...
+# Subtest: optional_items is never sent: an added item would break the one-line-item rule
+ok 59 - optional_items is never sent: an added item would break the one-line-item rule
+  ---
+  duration_ms: 0.281791
+  type: 'test'
+  ...
+# Subtest: success and cancellation stay on our own host
+ok 60 - success and cancellation stay on our own host
+  ---
+  duration_ms: 0.124709
+  type: 'test'
+  ...
+# Subtest: metadata includes the portfolio attribution contract, probe tag and hosted tenant
+ok 61 - metadata includes the portfolio attribution contract, probe tag and hosted tenant
+  ---
+  duration_ms: 0.251375
+  type: 'test'
+  ...
+# Subtest: validSrc accepts <product>.<slug> and rejects anything that could break a KV key
+ok 62 - validSrc accepts <product>.<slug> and rejects anything that could break a KV key
+  ---
+  duration_ms: 0.57175
+  type: 'test'
+  ...
+# Subtest: recordClick increments both the daily bucket and the running total
+ok 63 - recordClick increments both the daily bucket and the running total
+  ---
+  duration_ms: 3.655958
+  type: 'test'
+  ...
+# Subtest: clickStats aggregates per-src totals and the trailing 7-day window, ignoring older daily buckets
+ok 64 - clickStats aggregates per-src totals and the trailing 7-day window, ignoring older daily buckets
+  ---
+  duration_ms: 6.681167
+  type: 'test'
+  ...
+# Subtest: clickStats returns an empty aggregate when no clicks were ever recorded
+ok 65 - clickStats returns an empty aggregate when no clicks were ever recorded
+  ---
+  duration_ms: 0.392583
+  type: 'test'
+  ...
+# Subtest: buyer guide serves the same engine compiled for the browser with fresh source provenance
+ok 66 - buyer guide serves the same engine compiled for the browser with fresh source provenance
+  ---
+  duration_ms: 32.020625
+  type: 'test'
+  ...
+# Subtest: download catalog covers every listed server with an explicit release asset
+not ok 67 - download catalog covers every listed server with an explicit release asset
+  ---
+  duration_ms: 3.282834
+  type: 'test'
+  location: '/Users/mike/mcp-servers/billing/test/conversion-r36.test.mjs:31:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /releases\/download\/v0\.22\.9\/office-suite\.mcpb/. Input:
+    
+    '<!doctype html><html lang="en"><head><meta charset="utf-8">\n' +
+      '<meta name="viewport" content="width=device-width,initial-scale=1">\n' +
+      '<title>Claude Desktop MCP bundle downloads</title>\n' +
+      '<!-- Twitter Card fallback so every rendered page carries a card; handlers that emit OG also\n' +
+      'emit a richer twitter:title + twitter:description via the og() helper, which simply repeats\n' +
+      'these two harmless values. card is summary: the site has no og:image asset. Added in T13. -->\n' +
+      '<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Claude Desktop MCP bundle downloads">\n' +
+      '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
+      '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Space+Mono&display=swap">\n' +
+      '<style>\n' +
+      ':root{color-scheme:dark;--bg:#0a0a0a;--fg:#e8e8e8;--mut:#888;--bd:#222;--ac:#06b6d4;--ok:#22c55e;--warn:#eab308;--pur:#a855f7;--red:#ef4444}\n' +
+      'body{background:var(--bg);color:var(--fg);font:16px/1.6 "IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:860px;margin:0 auto;padding:32px 20px}\n' +
+      'h1,h2,h3,th{font-family:"Space Mono",ui-monospace,Menlo,monospace}\n' +
+      'h1{font-size:32px;margin:0 0 12px;letter-spacing:-.5px}h2{font-size:19px;margin:32px 0 8px;color:var(--fg)}\n' +
+      'a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}\n' +
+      '.muted{color:var(--mut)}\n' +
+      'table{border-collapse:collapse;width:100%;margin:20px 0;font-size:14px}\n' +
+      'td,th{text-align:left;padding:10px 8px;border-bottom:1px solid var(--bd);vertical-align:middle}\n' +
+      'th{color:var(--mut);text-transform:uppercase;font-size:11px;letter-spacing:.8px;border-bottom:2px solid var(--bd)}\n' +
+      'tbody tr:nth-child(even){background:#111}\n' +
+      'td p{margin:.4em 0}\n' +
+      'a.buy{display:inline-block;padding:7px 14px;border:1px solid var(--ac);border-radius:0;color:var(--ac);text-decoration:none;font-weight:600;white-space:nowrap;font-size:13px}\n' +
+      'a.buy:hover{background:var(--ac);color:var(--bg);text-decoration:none}\n' +
+      'button.buy{display:inline-block;padding:9px 16px;border:1px solid var(--ac);border-radius:0;background:transparent;color:var(--ac);font:inherit;font-size:13px;font-weight:600;cursor:pointer}\n' +
+      'button.buy:hover{background:var(--ac);color:var(--bg)}\n' +
+      'pre{background:#111;border:1px solid var(--bd);padding:12px;border-radius:0;overflow-x:auto;font-size:13px}\n' +
+      'code{font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em}\n' +
+      '.key{font-size:13px;word-break:break-all;user-select:all;color:var(--warn)}\n' +
+      'footer{margin-top:48px;font-size:13px;color:var(--mut);border-top:1px solid var(--bd);padding-top:16px}\n' +
+      'nav.pg{font-size:12px;margin:0 0 24px;color:var(--mut)}\n' +
+      'nav.pg a{margin-right:2px}\n' +
+      'p.feat{font-size:14px;background:#111;border:1px solid var(--bd);padding:10px 12px;border-radius:0;margin:0 0 20px}\n' +
+      '.copy-btn{display:inline-block;margin:-8px 0 4px;padding:3px 10px;font-size:12px;line-height:1.6;border:1px solid var(--bd);border-radius:0;background:transparent;color:var(--fg);cursor:pointer;font-family:inherit}\n' +
+      '.copy-btn:hover{border-color:var(--ac);color:var(--ac)}\n' +
+      'a.grid{display:inline-block;width:31%;min-width:200px;margin:0 1% 6px 0;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top}\n' +
+      '.lede{font-size:15px;color:var(--fg);margin:.4em 0 0}\n' +
+      '.det{font-size:13px;color:var(--mut);margin:.3em 0 0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}\n' +
+      '@media(max-width:640px){a.grid{width:100%}}\n' +
+      '</style></head><body><nav class="pg" aria-label="Popular guides"><a href="/guides/contract-clauses-library-assembly">Assemble a contract from your own clause library, in chat</a> &middot; <a href="/guides/zip-archives-safely-from-chat">Zip and unzip archives safely from Claude or Cursor</a> &middot; <a href="/guides/read-excel-in-cursor">Ask questions about an Excel or CSV file from Cursor or Claude</a> &middot; <a href="/guides/connect-mcp-servers-without-installing">Connect MCP servers to Claude.ai, Claude Desktop, Cursor and VS Code without installing anything</a> &middot; <a href="/guides/invoice-pdf-from-chat">Create an invoice PDF from a chat message with an MCP server</a> &middot; <a href="/guides/quotes-and-estimates-to-invoice-in-claude">Send a quote from chat, then turn the yes into an invoice</a> &middot; <a href="/guides/image-resize-compress-watermark-from-chat">Resize, compress and watermark images from a chat message</a> &middot; <a href="/guides/expense-tracking-in-claude">Log expenses and mileage in Claude, split VAT, rebill to an invoice</a> &middot; <a href="/guides/recurring-invoices-on-a-schedule">Bill a retainer on a schedule without a billing SaaS</a> &middot; <a href="/guides/resume-and-cover-letter-from-chat">Write a resume and a cover letter from chat, without inventing anything</a></nav><h1>Claude Desktop bundle downloads</h1><p>Choose your server, download its .mcpb file and open it in Claude Desktop. Each link points to a specific published release asset. Servers retain their last published bundle until a new one is released; a newer source version does not change an older archive.</p><p>The <a href="#office-suite">office suite</a> combines the local servers in one install. A free tier is included; activate an optional Pro key inside your client.</p><table><thead><tr><th>Server</th><th>Download</th></tr></thead><tbody><tr id="amortization"><td><a href="/s/amortization">amortization</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/amortization.mcpb">amortization.mcpb</a></td></tr><tr id="asset-register"><td><a href="/s/asset-register">asset-register</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/asset-register.mcpb">asset-register.mcpb</a></td></tr><tr id="backlink-checker"><td><a href="/s/backlink-checker">backlink-checker</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/backlink-checker.mcpb">backlink-checker.mcpb</a></td></tr><tr id="bank-statement"><td><a href="/s/bank-statement">bank-statement</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bank-statement.mcpb">bank-statement.mcpb</a></td></tr><tr id="barcode"><td><a href="/s/barcode">barcode</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/barcode.mcpb">barcode.mcpb</a></td></tr><tr id="bill-of-sale"><td><a href="/s/bill-of-sale">bill-of-sale</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bill-of-sale.mcpb">bill-of-sale.mcpb</a></td></tr><tr id="billing-docs"><td><a href="/s/billing-docs">billing-docs</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/billing-docs.mcpb">billing-docs.mcpb</a></td></tr><tr id="budget"><td><a href="/s/budget">budget</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/budget.mcpb">budget.mcpb</a></td></tr><tr id="calendar"><td><a href="/s/calendar">calendar</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/calendar.mcpb">calendar.mcpb</a></td></tr><tr id="cash-book"><td><a href="/s/cash-book">cash-book</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/cash-book.mcpb">cash-book.mcpb</a></td></tr><tr id="catalogue"><td><a href="/s/catalogue">catalogue</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/catalogue.mcpb">catalogue.mcpb</a></td></tr><tr id="change-order"><td><a href="/s/change-order">change-order</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/change-order.mcpb">change-order.mcpb</a></td></tr><tr id="checklist"><td><a href="/s/checklist">checklist</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/checklist.mcpb">checklist.mcpb</a></td></tr><tr id="clauses"><td><a href="/s/clauses">clauses</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/clauses.mcpb">clauses.mcpb</a></td></tr><tr id="credit-note"><td><a href="/s/credit-note">credit-note</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/credit-note.mcpb">credit-note.mcpb</a></td></tr><tr id="currency"><td><a href="/s/currency">currency</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/currency.mcpb">currency.mcpb</a></td></tr><tr id="delivery-schedule"><td><a href="/s/delivery-schedule">delivery-schedule</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/delivery-schedule.mcpb">delivery-schedule.mcpb</a></td></tr><tr id="deposits"><td><a href="/s/deposits">deposits</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/deposits.mcpb">deposits.mcpb</a></td></tr><tr id="docx"><td><a href="/s/docx">docx</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/docx.mcpb">docx.mcpb</a></td></tr><tr id="dunning-letters"><td><a href="/s/dunning-letters">dunning-letters</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/dunning-letters.mcpb">dunning-letters.mcpb</a></td></tr><tr id="duplicate-invoice-check"><td><a href="/s/duplicate-invoice-check">duplicate-invoice-check</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb">duplicate-invoice-check.mcpb</a></td></tr><tr id="expense-tracker"><td><a href="/s/expense-tracker">expense-tracker</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/expense-tracker.mcpb">expense-tracker.mcpb</a></td></tr><tr id="goods-receipt"><td><a href="/s/goods-receipt">goods-receipt</a></td><td><a href="https://'... 10388 more characters
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    <!doctype html><html lang="en"><head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Claude Desktop MCP bundle downloads</title>
+    <!-- Twitter Card fallback so every rendered page carries a card; handlers that emit OG also
+    emit a richer twitter:title + twitter:description via the og() helper, which simply repeats
+    these two harmless values. card is summary: the site has no og:image asset. Added in T13. -->
+    <meta name="twitter:card" content="summary"><meta name="twitter:title" content="Claude Desktop MCP bundle downloads">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&family=Space+Mono&display=swap">
+    <style>
+    :root{color-scheme:dark;--bg:#0a0a0a;--fg:#e8e8e8;--mut:#888;--bd:#222;--ac:#06b6d4;--ok:#22c55e;--warn:#eab308;--pur:#a855f7;--red:#ef4444}
+    body{background:var(--bg);color:var(--fg);font:16px/1.6 "IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;max-width:860px;margin:0 auto;padding:32px 20px}
+    h1,h2,h3,th{font-family:"Space Mono",ui-monospace,Menlo,monospace}
+    h1{font-size:32px;margin:0 0 12px;letter-spacing:-.5px}h2{font-size:19px;margin:32px 0 8px;color:var(--fg)}
+    a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
+    .muted{color:var(--mut)}
+    table{border-collapse:collapse;width:100%;margin:20px 0;font-size:14px}
+    td,th{text-align:left;padding:10px 8px;border-bottom:1px solid var(--bd);vertical-align:middle}
+    th{color:var(--mut);text-transform:uppercase;font-size:11px;letter-spacing:.8px;border-bottom:2px solid var(--bd)}
+    tbody tr:nth-child(even){background:#111}
+    td p{margin:.4em 0}
+    a.buy{display:inline-block;padding:7px 14px;border:1px solid var(--ac);border-radius:0;color:var(--ac);text-decoration:none;font-weight:600;white-space:nowrap;font-size:13px}
+    a.buy:hover{background:var(--ac);color:var(--bg);text-decoration:none}
+    button.buy{display:inline-block;padding:9px 16px;border:1px solid var(--ac);border-radius:0;background:transparent;color:var(--ac);font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+    button.buy:hover{background:var(--ac);color:var(--bg)}
+    pre{background:#111;border:1px solid var(--bd);padding:12px;border-radius:0;overflow-x:auto;font-size:13px}
+    code{font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em}
+    .key{font-size:13px;word-break:break-all;user-select:all;color:var(--warn)}
+    footer{margin-top:48px;font-size:13px;color:var(--mut);border-top:1px solid var(--bd);padding-top:16px}
+    nav.pg{font-size:12px;margin:0 0 24px;color:var(--mut)}
+    nav.pg a{margin-right:2px}
+    p.feat{font-size:14px;background:#111;border:1px solid var(--bd);padding:10px 12px;border-radius:0;margin:0 0 20px}
+    .copy-btn{display:inline-block;margin:-8px 0 4px;padding:3px 10px;font-size:12px;line-height:1.6;border:1px solid var(--bd);border-radius:0;background:transparent;color:var(--fg);cursor:pointer;font-family:inherit}
+    .copy-btn:hover{border-color:var(--ac);color:var(--ac)}
+    a.grid{display:inline-block;width:31%;min-width:200px;margin:0 1% 6px 0;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top}
+    .lede{font-size:15px;color:var(--fg);margin:.4em 0 0}
+    .det{font-size:13px;color:var(--mut);margin:.3em 0 0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    @media(max-width:640px){a.grid{width:100%}}
+    </style></head><body><nav class="pg" aria-label="Popular guides"><a href="/guides/contract-clauses-library-assembly">Assemble a contract from your own clause library, in chat</a> &middot; <a href="/guides/zip-archives-safely-from-chat">Zip and unzip archives safely from Claude or Cursor</a> &middot; <a href="/guides/read-excel-in-cursor">Ask questions about an Excel or CSV file from Cursor or Claude</a> &middot; <a href="/guides/connect-mcp-servers-without-installing">Connect MCP servers to Claude.ai, Claude Desktop, Cursor and VS Code without installing anything</a> &middot; <a href="/guides/invoice-pdf-from-chat">Create an invoice PDF from a chat message with an MCP server</a> &middot; <a href="/guides/quotes-and-estimates-to-invoice-in-claude">Send a quote from chat, then turn the yes into an invoice</a> &middot; <a href="/guides/image-resize-compress-watermark-from-chat">Resize, compress and watermark images from a chat message</a> &middot; <a href="/guides/expense-tracking-in-claude">Log expenses and mileage in Claude, split VAT, rebill to an invoice</a> &middot; <a href="/guides/recurring-invoices-on-a-schedule">Bill a retainer on a schedule without a billing SaaS</a> &middot; <a href="/guides/resume-and-cover-letter-from-chat">Write a resume and a cover letter from chat, without inventing anything</a></nav><h1>Claude Desktop bundle downloads</h1><p>Choose your server, download its .mcpb file and open it in Claude Desktop. Each link points to a specific published release asset. Servers retain their last published bundle until a new one is released; a newer source version does not change an older archive.</p><p>The <a href="#office-suite">office suite</a> combines the local servers in one install. A free tier is included; activate an optional Pro key inside your client.</p><table><thead><tr><th>Server</th><th>Download</th></tr></thead><tbody><tr id="amortization"><td><a href="/s/amortization">amortization</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/amortization.mcpb">amortization.mcpb</a></td></tr><tr id="asset-register"><td><a href="/s/asset-register">asset-register</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/asset-register.mcpb">asset-register.mcpb</a></td></tr><tr id="backlink-checker"><td><a href="/s/backlink-checker">backlink-checker</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/backlink-checker.mcpb">backlink-checker.mcpb</a></td></tr><tr id="bank-statement"><td><a href="/s/bank-statement">bank-statement</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bank-statement.mcpb">bank-statement.mcpb</a></td></tr><tr id="barcode"><td><a href="/s/barcode">barcode</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/barcode.mcpb">barcode.mcpb</a></td></tr><tr id="bill-of-sale"><td><a href="/s/bill-of-sale">bill-of-sale</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bill-of-sale.mcpb">bill-of-sale.mcpb</a></td></tr><tr id="billing-docs"><td><a href="/s/billing-docs">billing-docs</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/billing-docs.mcpb">billing-docs.mcpb</a></td></tr><tr id="budget"><td><a href="/s/budget">budget</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/budget.mcpb">budget.mcpb</a></td></tr><tr id="calendar"><td><a href="/s/calendar">calendar</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/calendar.mcpb">calendar.mcpb</a></td></tr><tr id="cash-book"><td><a href="/s/cash-book">cash-book</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/cash-book.mcpb">cash-book.mcpb</a></td></tr><tr id="catalogue"><td><a href="/s/catalogue">catalogue</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/catalogue.mcpb">catalogue.mcpb</a></td></tr><tr id="change-order"><td><a href="/s/change-order">change-order</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/change-order.mcpb">change-order.mcpb</a></td></tr><tr id="checklist"><td><a href="/s/checklist">checklist</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/checklist.mcpb">checklist.mcpb</a></td></tr><tr id="clauses"><td><a href="/s/clauses">clauses</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/clauses.mcpb">clauses.mcpb</a></td></tr><tr id="credit-note"><td><a href="/s/credit-note">credit-note</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/credit-note.mcpb">credit-note.mcpb</a></td></tr><tr id="currency"><td><a href="/s/currency">currency</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/currency.mcpb">currency.mcpb</a></td></tr><tr id="delivery-schedule"><td><a href="/s/delivery-schedule">delivery-schedule</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/delivery-schedule.mcpb">delivery-schedule.mcpb</a></td></tr><tr id="deposits"><td><a href="/s/deposits">deposits</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/deposits.mcpb">deposits.mcpb</a></td></tr><tr id="docx"><td><a href="/s/docx">docx</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/docx.mcpb">docx.mcpb</a></td></tr><tr id="dunning-letters"><td><a href="/s/dunning-letters">dunning-letters</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/dunning-letters.mcpb">dunning-letters.mcpb</a></td></tr><tr id="duplicate-invoice-check"><td><a href="/s/duplicate-invoice-check">duplicate-invoice-check</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb">duplicate-invoice-check.mcpb</a></td></tr><tr id="expense-tracker"><td><a href="/s/expense-tracker">expense-tracker</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/expense-tracker.mcpb">expense-tracker.mcpb</a></td></tr><tr id="goods-receipt"><td><a href="/s/goods-receipt">goods-receipt</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/goods-receipt.mcpb">goods-receipt.mcpb</a></td></tr><tr id="hourly-rate"><td><a href="/s/hourly-rate">hourly-rate</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.5/hourly-rate.mcpb">hourly-rate.mcpb</a></td></tr><tr id="image"><td><a href="/s/image">image</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/image.mcpb">image.mcpb</a></td></tr><tr id="invoice"><td><a href="/s/invoice">invoice</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/invoice.mcpb">invoice.mcpb</a></td></tr><tr id="job-card"><td><a href="/s/job-card">job-card</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/job-card.mcpb">job-card.mcpb</a></td></tr><tr id="kanban"><td><a href="/s/kanban">kanban</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/kanban.mcpb">kanban.mcpb</a></td></tr><tr id="leave"><td><a href="/s/leave">leave</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/leave.mcpb">leave.mcpb</a></td></tr><tr id="loan-calculator"><td><a href="/s/loan-calculator">loan-calculator</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/loan-calculator.mcpb">loan-calculator.mcpb</a></td></tr><tr id="maintenance-log"><td><a href="/s/maintenance-log">maintenance-log</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/maintenance-log.mcpb">maintenance-log.mcpb</a></td></tr><tr id="mileage-log"><td><a href="/s/mileage-log">mileage-log</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/mileage-log.mcpb">mileage-log.mcpb</a></td></tr><tr id="office-suite"><td><a href="/s/office-suite">office-suite</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/office-suite.mcpb">office-suite.mcpb</a></td></tr><tr id="onboarding"><td><a href="/s/onboarding">onboarding</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb">onboarding.mcpb</a></td></tr><tr id="packing-list"><td><a href="/s/packing-list">packing-list</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/packing-list.mcpb">packing-list.mcpb</a></td></tr><tr id="payroll"><td><a href="/s/payroll">payroll</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/payroll.mcpb">payroll.mcpb</a></td></tr><tr id="pdf"><td><a href="/s/pdf">pdf</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pdf.mcpb">pdf.mcpb</a></td></tr><tr id="per-diem"><td><a href="/s/per-diem">per-diem</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/per-diem.mcpb">per-diem.mcpb</a></td></tr><tr id="petty-cash"><td><a href="/s/petty-cash">petty-cash</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/petty-cash.mcpb">petty-cash.mcpb</a></td></tr><tr id="pomodoro"><td><a href="/s/pomodoro">pomodoro</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pomodoro.mcpb">pomodoro.mcpb</a></td></tr><tr id="price-tracker"><td><a href="/s/price-tracker">price-tracker</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/price-tracker.mcpb">price-tracker.mcpb</a></td></tr><tr id="purchase-requisition"><td><a href="/s/purchase-requisition">purchase-requisition</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/purchase-requisition.mcpb">purchase-requisition.mcpb</a></td></tr><tr id="quotes"><td><a href="/s/quotes">quotes</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/quotes.mcpb">quotes.mcpb</a></td></tr><tr id="receipts"><td><a href="/s/receipts">receipts</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/receipts.mcpb">receipts.mcpb</a></td></tr><tr id="recurring"><td><a href="/s/recurring">recurring</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/recurring.mcpb">recurring.mcpb</a></td></tr><tr id="resume"><td><a href="/s/resume">resume</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/resume.mcpb">resume.mcpb</a></td></tr><tr id="service-agreement"><td><a href="/s/service-agreement">service-agreement</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/service-agreement.mcpb">service-agreement.mcpb</a></td></tr><tr id="spreadsheet"><td><a href="/s/spreadsheet">spreadsheet</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/spreadsheet.mcpb">spreadsheet.mcpb</a></td></tr><tr id="statement-of-account"><td><a href="/s/statement-of-account">statement-of-account</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/statement-of-account.mcpb">statement-of-account.mcpb</a></td></tr><tr id="stripe-billing"><td><a href="/s/stripe-billing">stripe-billing</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/stripe-billing.mcpb">stripe-billing.mcpb</a></td></tr><tr id="supplier-list"><td><a href="/s/supplier-list">supplier-list</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/supplier-list.mcpb">supplier-list.mcpb</a></td></tr><tr id="tax-calc"><td><a href="/s/tax-calc">tax-calc</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/tax-calc.mcpb">tax-calc.mcpb</a></td></tr><tr id="three-way-match"><td><a href="/s/three-way-match">three-way-match</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb">three-way-match.mcpb</a></td></tr><tr id="time-tracker"><td><a href="/s/time-tracker">time-tracker</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/time-tracker.mcpb">time-tracker.mcpb</a></td></tr><tr id="timezone"><td><a href="/s/timezone">timezone</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/timezone.mcpb">timezone.mcpb</a></td></tr><tr id="work-order"><td><a href="/s/work-order">work-order</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/work-order.mcpb">work-order.mcpb</a></td></tr><tr id="zip"><td><a href="/s/zip">zip</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/zip.mcpb">zip.mcpb</a></td></tr><tr id="supplier-statement-check"><td><a href="/s/supplier-statement-check">supplier-statement-check</a></td><td><a href="https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/supplier-statement-check.mcpb">supplier-statement-check.mcpb</a></td></tr></tbody></table><p><a href="/setup">Client setup instructions</a> · <a href="/">All products and prices</a></p>
+    <footer>Home: <a href="/">All servers</a> &middot; <a href="/guides">Guides</a> &middot; <a href="/setup">Setup</a> &middot; <a href="/compare">Compare</a> &middot; <a href="/changelog">Changelog</a> &middot; <a href="https://tg.zovo.one">Tiny Telegram Tools</a> &middot; Support: support@zovo.one &middot; Built by <a href="https://github.com/theluckystrike/mcp-servers">theluckystrike</a>
+    <form id="subform" method="post" action="/api/subscribe" style="margin-top:14px;display:flex;gap:8px;max-width:420px">
+      <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"
+        style="flex:1;padding:8px 10px;background:#111;border:1px solid var(--bd);color:var(--fg);font:inherit;font-size:13px;border-radius:0">
+      <button type="submit" style="padding:8px 14px;border:1px solid var(--ac);background:transparent;color:var(--ac);font:inherit;font-size:13px;font-weight:600;cursor:pointer;border-radius:0">Get setup tips</button>
+    </form>
+    <p class="muted" style="font-size:12px;margin:6px 0 0">Setup tips by email: a welcome message, an invoice setup tip after about two days, and a bundle offer after about a week. Unsubscribe any time.</p>
+    <script>document.getElementById("subform").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const f = e.target, btn = f.querySelector("button");
+      try {
+        const r = await fetch("/api/subscribe", { method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ email: f.email.value, src: "footer" }) });
+        const j = await r.json().catch(() => ({}));
+        btn.textContent = j.ok === false ? j.reason || "Try again" : "Signup recorded";
+        if (j.ok !== false) f.email.value = "";
+      } catch { btn.textContent = "Try again"; }
+    });</script>
+    </footer>
+    <script>(function(){
+    function init(){
+      var blocks = document.querySelectorAll("pre.prompt");
+      for (var i = 0; i < blocks.length; i++) {
+        var pre = blocks[i];
+        if (pre.dataset.copyReady) continue;
+        pre.dataset.copyReady = "1";
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "copy-btn";
+        btn.textContent = "Copy";
+        btn.addEventListener("click", (function(pre, btn){
+          return function(){
+            var text = pre.textContent;
+            var done = function(){
+              btn.textContent = "Copied";
+              setTimeout(function(){ btn.textContent = "Copy"; }, 2000);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(done, done);
+            } else {
+              var ta = document.createElement("textarea");
+              ta.value = text;
+              ta.style.position = "fixed";
+              ta.style.opacity = "0";
+              document.body.appendChild(ta);
+              ta.select();
+              try { document.execCommand("copy"); } catch (e) {}
+              document.body.removeChild(ta);
+              done();
+            }
+          };
+        })(pre, btn));
+        pre.insertAdjacentElement("afterend", btn);
+      }
+    }
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+    else init();
+    })();</script>
+    </body></html>
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///Users/mike/mcp-servers/billing/test/conversion-r36.test.mjs:38:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: catalogue leads to working setup and labels free-only calculators as free
+ok 68 - catalogue leads to working setup and labels free-only calculators as free
+  ---
+  duration_ms: 4.218791
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":true,"request_method":"POST"}
+# Subtest: short operator probes expire consistently across retries and cannot leave stale cache entries
+ok 69 - short operator probes expire consistently across retries and cannot leave stale cache entries
+  ---
+  duration_ms: 43.327291
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"bundle","source":"store.buy.invoice","probe":false,"request_method":"POST"}
+# Subtest: single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+ok 70 - single-to-bundle checkout keeps the hosted connection bound without creating a session on GET
+  ---
+  duration_ms: 3.634208
+  type: 'test'
+  ...
+# Subtest: Stripe's bundle cross-sell carries only a validated hosted token
+ok 71 - Stripe's bundle cross-sell carries only a validated hosted token
+  ---
+  duration_ms: 0.164042
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"24b9b0a51015","product":"invoice","source":"checkout.cancel","probe":false,"request_method":"POST"}
+# Subtest: cancelling an expired checkout keeps hosted activation when starting a replacement
+ok 72 - cancelling an expired checkout keeps hosted activation when starting a replacement
+  ---
+  duration_ms: 8.384791
+  type: 'test'
+  ...
+# Subtest: purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+ok 73 - purchase pages consistently describe confirmation-page key delivery and the actual purchase scope
+  ---
+  duration_ms: 5.536917
+  type: 'test'
+  ...
+# Subtest: pricing presents current prices without an unconfigured price deadline or inferred human demand
+ok 74 - pricing presents current prices without an unconfigured price deadline or inferred human demand
+  ---
+  duration_ms: 1.745542
+  type: 'test'
+  ...
+# Subtest: the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+ok 75 - the bank guide's legacy PDF URL discloses CSV-only input and Pro export in page and search metadata
+  ---
+  duration_ms: 1.042917
+  type: 'test'
+  ...
+# Subtest: duplicate-reference buyer proof serves the actual comparison core with fresh provenance
+ok 76 - duplicate-reference buyer proof serves the actual comparison core with fresh provenance
+  ---
+  duration_ms: 69.791875
+  type: 'test'
+  ...
+# Subtest: the copy-button script is defined exactly once in the page shell
+ok 77 - the copy-button script is defined exactly once in the page shell
+  ---
+  duration_ms: 0.418292
+  type: 'test'
+  ...
+# Subtest: the page shell sets no Content-Security-Policy header (inline script needs none)
+ok 78 - the page shell sets no Content-Security-Policy header (inline script needs none)
+  ---
+  duration_ms: 0.253209
+  type: 'test'
+  ...
+# Subtest: every First five minutes prompt renders as pre.prompt
+ok 79 - every First five minutes prompt renders as pre.prompt
+  ---
+  duration_ms: 0.547708
+  type: 'test'
+  ...
+# Subtest: month-end-close guide: every quoted prompt is a pre.prompt with its paste line
+ok 80 - month-end-close guide: every quoted prompt is a pre.prompt with its paste line
+  ---
+  duration_ms: 0.161292
+  type: 'test'
+  ...
+# Subtest: no code sample (install command, JSON config, tool-call syntax) is tagged pre.prompt
+ok 81 - no code sample (install command, JSON config, tool-call syntax) is tagged pre.prompt
+  ---
+  duration_ms: 2.105625
+  type: 'test'
+  ...
+# Subtest: the bundle page carries no unclassed prompt pre
+ok 82 - the bundle page carries no unclassed prompt pre
+  ---
+  duration_ms: 0.801958
+  type: 'test'
+  ...
+# Subtest: the CSV sample produces the same complete four-record comparison evidence
+ok 83 - the CSV sample produces the same complete four-record comparison evidence
+  ---
+  duration_ms: 8.962167
+  type: 'test'
+  ...
+# Subtest: CSV quoted commas and escaped quotes preserve Unicode and leading-zero source identifiers
+ok 84 - CSV quoted commas and escaped quotes preserve Unicode and leading-zero source identifiers
+  ---
+  duration_ms: 0.339167
+  type: 'test'
+  ...
+# Subtest: CSV header order, UTF-8 BOM and LF CRLF or CR record endings preserve exact fields
+ok 85 - CSV header order, UTF-8 BOM and LF CRLF or CR record endings preserve exact fields
+  ---
+  duration_ms: 0.381083
+  type: 'test'
+  ...
+# Subtest: CSV requires exact complete unique known headers without automatic mapping
+ok 86 - CSV requires exact complete unique known headers without automatic mapping
+  ---
+  duration_ms: 0.44775
+  type: 'test'
+  ...
+# Subtest: CSV malformed quotes are rejected without a partially accepted batch
+ok 87 - CSV malformed quotes are rejected without a partially accepted batch
+  ---
+  duration_ms: 0.175708
+  type: 'test'
+  ...
+# Subtest: CSV preserves embedded newlines during parsing and the product rejects control-bearing fields
+ok 88 - CSV preserves embedded newlines during parsing and the product rejects control-bearing fields
+  ---
+  duration_ms: 0.526958
+  type: 'test'
+  ...
+# Subtest: CSV rejects ragged and blank internal rows rather than skipping or truncating them
+ok 89 - CSV rejects ragged and blank internal rows rather than skipping or truncating them
+  ---
+  duration_ms: 0.733458
+  type: 'test'
+  ...
+# Subtest: CSV totals accept only canonical positive safe decimal integers
+ok 90 - CSV totals accept only canonical positive safe decimal integers
+  ---
+  duration_ms: 0.99175
+  type: 'test'
+  ...
+# Subtest: CSV validates the complete batch with the actual product schema and never trims values
+ok 91 - CSV validates the complete batch with the actual product schema and never trims values
+  ---
+  duration_ms: 1.143042
+  type: 'test'
+  ...
+# Subtest: CSV accepts exactly 1000 records and rejects 1001 without truncation
+ok 92 - CSV accepts exactly 1000 records and rejects 1001 without truncation
+  ---
+  duration_ms: 66.553792
+  type: 'test'
+  ...
+# Subtest: CSV enforces UTF-8 byte size plus header field and column memory bounds
+ok 93 - CSV enforces UTF-8 byte size plus header field and column memory bounds
+  ---
+  duration_ms: 1.156667
+  type: 'test'
+  ...
+# Subtest: content pages carry a live strong ETag header
+ok 94 - content pages carry a live strong ETag header
+  ---
+  duration_ms: 161.094875
+  type: 'test'
+  ...
+# Subtest: etag is content-derived: it changes when the body changes
+ok 95 - etag is content-derived: it changes when the body changes
+  ---
+  duration_ms: 3.850708
+  type: 'test'
+  ...
+# Subtest: billing/src/figures.js is what the manifests currently say
+ok 96 - billing/src/figures.js is what the manifests currently say
+  ---
+  duration_ms: 94.089625
+  type: 'test'
+  ...
+# Subtest: the catalogue counts agree with each other
+ok 97 - the catalogue counts agree with each other
+  ---
+  duration_ms: 0.237916
+  type: 'test'
+  ...
+# Subtest: no count of servers on the home page is typed, spelled out, or wrong
+ok 98 - no count of servers on the home page is typed, spelled out, or wrong
+  ---
+  duration_ms: 51.395667
+  type: 'test'
+  ...
+# Subtest: the home page names servers and gives a URL rather than deferring
+ok 99 - the home page names servers and gives a URL rather than deferring
+  ---
+  duration_ms: 3.496083
+  type: 'test'
+  ...
+# Subtest: every round 4 page exists
+ok 100 - every round 4 page exists
+  ---
+  duration_ms: 0.161291
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/which-mcp-servers-work-by-pasting-a-url comes from a file in this repository
+ok 101 - every figure on /guides/which-mcp-servers-work-by-pasting-a-url comes from a file in this repository
+  ---
+  duration_ms: 1.016209
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/paid-mcp-servers-and-how-you-pay-for-one comes from a file in this repository
+ok 102 - every figure on /guides/paid-mcp-servers-and-how-you-pay-for-one comes from a file in this repository
+  ---
+  duration_ms: 0.350875
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/fill-a-quote-or-estimate-template-from-chat comes from a file in this repository
+ok 103 - every figure on /guides/fill-a-quote-or-estimate-template-from-chat comes from a file in this repository
+  ---
+  duration_ms: 0.142541
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/petty-cash-book-and-cash-ledger-mcp-servers comes from a file in this repository
+ok 104 - every figure on /guides/petty-cash-book-and-cash-ledger-mcp-servers comes from a file in this repository
+  ---
+  duration_ms: 0.36075
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/currency-conversion-mcp-servers-compared comes from a file in this repository
+ok 105 - every figure on /guides/currency-conversion-mcp-servers-compared comes from a file in this repository
+  ---
+  duration_ms: 0.421625
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/zip-and-unzip-mcp-servers-compared comes from a file in this repository
+ok 106 - every figure on /guides/zip-and-unzip-mcp-servers-compared comes from a file in this repository
+  ---
+  duration_ms: 0.219917
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/delivery-schedule-and-work-order-documents-from-mcp comes from a file in this repository
+ok 107 - every figure on /guides/delivery-schedule-and-work-order-documents-from-mcp comes from a file in this repository
+  ---
+  duration_ms: 0.217625
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/will-an-mcp-server-email-the-invoice-to-my-client comes from a file in this repository
+ok 108 - every figure on /guides/will-an-mcp-server-email-the-invoice-to-my-client comes from a file in this repository
+  ---
+  duration_ms: 0.149542
+  type: 'test'
+  ...
+# Subtest: every figure on /guides/can-an-mcp-server-read-a-photo-of-a-receipt comes from a file in this repository
+ok 109 - every figure on /guides/can-an-mcp-server-read-a-photo-of-a-receipt comes from a file in this repository
+  ---
+  duration_ms: 0.147417
+  type: 'test'
+  ...
+# Subtest: every round 4 page states what it cannot do
+ok 110 - every round 4 page states what it cannot do
+  ---
+  duration_ms: 0.156042
+  type: 'test'
+  ...
+# Subtest: every round 4 page carries a paste-in URL or says why it cannot
+ok 111 - every round 4 page carries a paste-in URL or says why it cannot
+  ---
+  duration_ms: 0.123833
+  type: 'test'
+  ...
+# Subtest: no guide spells out a count of servers
+ok 112 - no guide spells out a count of servers
+  ---
+  duration_ms: 2.922167
+  type: 'test'
+  ...
+# Subtest: no rendered page spells out a count of servers
+ok 113 - no rendered page spells out a count of servers
+  ---
+  duration_ms: 18.760125
+  type: 'test'
+  ...
+# Subtest: a page carries a First five minutes section exactly when a round has exercised it
+ok 114 - a page carries a First five minutes section exactly when a round has exercised it
+  ---
+  duration_ms: 2.107375
+  type: 'test'
+  ...
+# Subtest: every measured page quotes one to three prompts
+ok 115 - every measured page quotes one to three prompts
+  ---
+  duration_ms: 0.229916
+  type: 'test'
+  ...
+# Subtest: every quoted prompt string exists verbatim in some data/user_value_r*.json
+ok 116 - every quoted prompt string exists verbatim in some data/user_value_r*.json
+  ---
+  duration_ms: 2.582792
+  type: 'test'
+  ...
+# Subtest: the metadata prompts and the rendered prompts are the same list
+ok 117 - the metadata prompts and the rendered prompts are the same list
+  ---
+  duration_ms: 1.207209
+  type: 'test'
+  ...
+# Subtest: each quoted prompt carries the score the round file recorded, in the round the page names
+ok 118 - each quoted prompt carries the score the round file recorded, in the round the page names
+  ---
+  duration_ms: 1.251709
+  type: 'test'
+  ...
+# Subtest: the sentence under each prompt is a substring of that scenario's evidence
+ok 119 - the sentence under each prompt is a substring of that scenario's evidence
+  ---
+  duration_ms: 1.412
+  type: 'test'
+  ...
+# Subtest: the round each page names is one that scored at least as well as any other round for that server
+ok 120 - the round each page names is one that scored at least as well as any other round for that server
+  ---
+  duration_ms: 0.965042
+  type: 'test'
+  ...
+# Subtest: a page quoting anything below 3 states the score, a page quoting only 3s does not
+ok 121 - a page quoting anything below 3 states the score, a page quoting only 3s does not
+  ---
+  duration_ms: 0.677417
+  type: 'test'
+  ...
+# Subtest: each section names its round and date, and quotes the free tier from data/facts.json
+ok 122 - each section names its round and date, and quotes the free tier from data/facts.json
+  ---
+  duration_ms: 1.203125
+  type: 'test'
+  ...
+# Subtest: the section is plain text a reader can copy, with no unescaped markup from the round data
+ok 123 - the section is plain text a reader can copy, with no unescaped markup from the round data
+  ---
+  duration_ms: 1.221791
+  type: 'test'
+  ...
+# {"event":"checkout_payment_verified","source":"webhook","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","stripe_mode":"unknown","amount_total":1900,"currency":"usd","probe":false}
+# {"event":"checkout_fulfillment","source":"webhook","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","payment_status":"paid","stripe_mode":"unknown","fulfillment_status":"retrying","license_saved":true,"hosted_binding":"retrying"}
+# {"event":"checkout_payment_verified","source":"success_page","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","stripe_mode":"unknown","amount_total":1900,"currency":"usd","probe":false}
+# {"event":"checkout_fulfillment","source":"success_page","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","payment_status":"paid","stripe_mode":"unknown","fulfillment_status":"retrying","license_saved":true,"hosted_binding":"retrying"}
+# {"event":"checkout_payment_verified","source":"success_page","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","stripe_mode":"unknown","amount_total":1900,"currency":"usd","probe":false}
+# {"event":"checkout_fulfillment","source":"success_page","version_id":"unknown","session_ref":"2453e7619ff1","product":"invoice","acquisition_source":"unknown","payment_status":"paid","stripe_mode":"unknown","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: a hosted bind failure cannot yield a successful webhook or falsely activated page
+ok 124 - a hosted bind failure cannot yield a successful webhook or falsely activated page
+  ---
+  duration_ms: 144.8025
+  type: 'test'
+  ...
+# Subtest: one paid Session keeps the same key when Stripe later supplies customer email
+ok 125 - one paid Session keeps the same key when Stripe later supplies customer email
+  ---
+  duration_ms: 5.727167
+  type: 'test'
+  ...
+# Subtest: Session-derived key identity is stable across workers and unique by Session
+ok 126 - Session-derived key identity is stable across workers and unique by Session
+  ---
+  duration_ms: 18.220416
+  type: 'test'
+  ...
+# {"kind":"fulfillment_retry_scheduled","session_ref":"cd4750efce1a","attempts":1,"error":"bind unavailable"}
+# Subtest: failed hosted bind remains durable and is retried without repeating key persistence
+ok 127 - failed hosted bind remains durable and is retried without repeating key persistence
+  ---
+  duration_ms: 5.731708
+  type: 'test'
+  ...
+# Subtest: a replay cannot replace the durable key or tenant for a Session
+ok 128 - a replay cannot replace the durable key or tenant for a Session
+  ---
+  duration_ms: 0.568916
+  type: 'test'
+  ...
+# {"kind":"fulfillment_retry_scheduled","session_ref":"cd4750efce1a","attempts":1,"error":"license cache unavailable"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"cd4750efce1a","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: license cache failure is retried before a hosted bind is attempted
+ok 129 - license cache failure is retried before a hosted bind is attempted
+  ---
+  duration_ms: 23.759
+  type: 'test'
+  ...
+# Subtest: \#3 a correctly paid session for the right price is fulfilled
+ok 130 - \#3 a correctly paid session for the right price is fulfilled
+  ---
+  duration_ms: 0.56125
+  type: 'test'
+  ...
+# Subtest: \#3 the cheaper price of another product cannot mint a different entitlement
+ok 131 - \#3 the cheaper price of another product cannot mint a different entitlement
+  ---
+  duration_ms: 0.361791
+  type: 'test'
+  ...
+# Subtest: \#3 a foreign price id in this Stripe account is rejected
+ok 132 - \#3 a foreign price id in this Stripe account is rejected
+  ---
+  duration_ms: 0.18675
+  type: 'test'
+  ...
+# Subtest: \#3 amount_total must equal the expected unit_amount
+ok 133 - \#3 amount_total must equal the expected unit_amount
+  ---
+  duration_ms: 0.138375
+  type: 'test'
+  ...
+# Subtest: \#3 mode, status, currency, quantity and item count are all bound
+ok 134 - \#3 mode, status, currency, quantity and item count are all bound
+  ---
+  duration_ms: 0.64125
+  type: 'test'
+  ...
+# Subtest: \#3 metadata product must match the product being minted
+ok 135 - \#3 metadata product must match the product being minted
+  ---
+  duration_ms: 0.159292
+  type: 'test'
+  ...
+# Subtest: \#3 an unpaid or unhandled payment_status is not fulfilled
+ok 136 - \#3 an unpaid or unhandled payment_status is not fulfilled
+  ---
+  duration_ms: 0.31475
+  type: 'test'
+  ...
+# Subtest: \#8 a 100% promotion code is fulfilled only when the discount covers the full price
+ok 137 - \#8 a 100% promotion code is fulfilled only when the discount covers the full price
+  ---
+  duration_ms: 0.197042
+  type: 'test'
+  ...
+# Subtest: \#8 the bundle price binds to 3900
+ok 138 - \#8 the bundle price binds to 3900
+  ---
+  duration_ms: 0.273458
+  type: 'test'
+  ...
+# Subtest: \#9 every v1 value is kept and any match is accepted
+ok 139 - \#9 every v1 value is kept and any match is accepted
+  ---
+  duration_ms: 26.550958
+  type: 'test'
+  ...
+# Subtest: \#10 a nonnumeric timestamp is rejected instead of passing the replay window
+ok 140 - \#10 a nonnumeric timestamp is rejected instead of passing the replay window
+  ---
+  duration_ms: 0.9145
+  type: 'test'
+  ...
+# Subtest: \#10 a stale timestamp is outside the 300 s window
+ok 141 - \#10 a stale timestamp is outside the 300 s window
+  ---
+  duration_ms: 0.209792
+  type: 'test'
+  ...
+# Subtest: only an actual GET offer records a view; HEAD and unknown products cannot inflate it
+ok 142 - only an actual GET offer records a view; HEAD and unknown products cannot inflate it
+  ---
+  duration_ms: 122.280292
+  type: 'test'
+  ...
+# Subtest: explicit acquisition and known first-party source declarations reach the actual offer counters
+ok 143 - explicit acquisition and known first-party source declarations reach the actual offer counters
+  ---
+  duration_ms: 7.364625
+  type: 'test'
+  ...
+# Subtest: stored anonymous provenance wins over query labels; missing sidecars stay unmeasured
+ok 144 - stored anonymous provenance wins over query labels; missing sidecars stay unmeasured
+  ---
+  duration_ms: 5.64975
+  type: 'test'
+  ...
+# Subtest: unknown acquisition/source input never becomes a stored or exported label
+ok 145 - unknown acquisition/source input never becomes a stored or exported label
+  ---
+  duration_ms: 2.495458
+  type: 'test'
+  ...
+# Subtest: valid POST records a handoff only after creating a checkout redirect
+ok 146 - valid POST records a handoff only after creating a checkout redirect
+  ---
+  duration_ms: 20.542
+  type: 'test'
+  ...
+# Subtest: an explicitly resumed checkout records its redirect without creating a new session
+ok 147 - an explicitly resumed checkout records its redirect without creating a new session
+  ---
+  duration_ms: 5.975459
+  type: 'test'
+  ...
+# Subtest: a cached explicit probe redirect records only the probe cohort and makes no Stripe call
+ok 148 - a cached explicit probe redirect records only the probe cohort and makes no Stripe call
+  ---
+  duration_ms: 5.545042
+  type: 'test'
+  ...
+# Subtest: invalid intent and scripted POST redirects do not become checkout handoffs
+ok 149 - invalid intent and scripted POST redirects do not become checkout handoffs
+  ---
+  duration_ms: 2.339292
+  type: 'test'
+  ...
+# Subtest: failed checkout creation cannot increment a handoff
+ok 150 - failed checkout creation cannot increment a handoff
+  ---
+  duration_ms: 0.957
+  type: 'test'
+  ...
+# Subtest: counter unavailability cannot fail a successful purchase redirect
+ok 151 - counter unavailability cannot fail a successful purchase redirect
+  ---
+  duration_ms: 8.263625
+  type: 'test'
+  ...
+# Subtest: public stats uses exactly seven object requests and exposes null totals when any day is unavailable
+ok 152 - public stats uses exactly seven object requests and exposes null totals when any day is unavailable
+  ---
+  duration_ms: 2.309917
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"probe.funnel-r1.control","probe":false,"request_method":"POST"}
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"probe.funnel-r1.control","probe":true,"request_method":"POST"}
+# Subtest: CONTROL: one identifiable human click moves the counter by exactly one, and nothing else does
+ok 153 - CONTROL: one identifiable human click moves the counter by exactly one, and nothing else does
+  ---
+  duration_ms: 61.387709
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"store.s.invoice","probe":false,"request_method":"POST"}
+# Subtest: a named crawler never has a live Stripe Checkout Session created for it
+ok 154 - a named crawler never has a live Stripe Checkout Session created for it
+  ---
+  duration_ms: 44.022208
+  type: 'test'
+  ...
+# {"event":"checkout_session_created","version_id":"unknown","session_ref":"49be9cc02eb0","product":"invoice","source":"unattributed.invoice","probe":false,"request_method":"POST"}
+# Subtest: a /buy hit with no ?src= is bucketed as unattributed and kept out of the headline totals
+ok 155 - a /buy hit with no ?src= is bucketed as unattributed and kept out of the headline totals
+  ---
+  duration_ms: 1.835875
+  type: 'test'
+  ...
+# Subtest: v1 click counters are reported apart from v2 and never summed into it
+ok 156 - v1 click counters are reported apart from v2 and never summed into it
+  ---
+  duration_ms: 0.478625
+  type: 'test'
+  ...
+# Subtest: isHumanNavigation is not start-anchored and cannot be defeated by forgetting a header
+ok 157 - isHumanNavigation is not start-anchored and cannot be defeated by forgetting a header
+  ---
+  duration_ms: 0.703542
+  type: 'test'
+  ...
+# Subtest: instrument v3: no Referer means not counted, any-origin Referer counts
+ok 158 - instrument v3: no Referer means not counted, any-origin Referer counts
+  ---
+  duration_ms: 0.125208
+  type: 'test'
+  ...
+# Subtest: instrument v4 (S137): no Sec-Fetch-Site means not counted — the curl walker of 2026-09-23
+ok 159 - instrument v4 (S137): no Sec-Fetch-Site means not counted — the curl walker of 2026-09-23
+  ---
+  duration_ms: 0.08925
+  type: 'test'
+  ...
+# Subtest: no page tells anyone to paste a hosted URL that answers every tool call with 401
+ok 160 - no page tells anyone to paste a hosted URL that answers every tool call with 401
+  ---
+  duration_ms: 9.850833
+  type: 'test'
+  ...
+# Subtest: every free-tier count the storefront advertises is the number the server enforces
+ok 161 - every free-tier count the storefront advertises is the number the server enforces
+  ---
+  duration_ms: 24.176
+  type: 'test'
+  ...
+# Subtest: the sitemap offers the page that mints the token
+ok 162 - the sitemap offers the page that mints the token
+  ---
+  duration_ms: 1.046375
+  type: 'test'
+  ...
+# Subtest: the product page keeps the price comparison above the fold
+ok 163 - the product page keeps the price comparison above the fold
+  ---
+  duration_ms: 2.8845
+  type: 'test'
+  ...
+# Subtest: actual workerd SQLite DO: atomic batch, response retry, first deduplication, native rollback and bounded reads
+ok 164 - actual workerd SQLite DO: atomic batch, response retry, first deduplication, native rollback and bounded reads # SKIP
+  ---
+  duration_ms: 0.370958
+  type: 'test'
+  ...
+# Subtest: one transaction atomically records response counters and first marker; failures roll everything back
+ok 165 - one transaction atomically records response counters and first marker; failures roll everything back
+  ---
+  duration_ms: 5.184708
+  type: 'test'
+  ...
+# Subtest: concurrent first responses increment every response exactly once and first observation once
+ok 166 - concurrent first responses increment every response exactly once and first observation once
+  ---
+  duration_ms: 10.878583
+  type: 'test'
+  ...
+# Subtest: replaying the same admitted response is idempotent, but a fresh response remains a new call
+ok 167 - replaying the same admitted response is idempotent, but a fresh response remains a new call
+  ---
+  duration_ms: 0.980917
+  type: 'test'
+  ...
+# Subtest: lost reply after commit retries the same response identity without double counting any batch event
+ok 168 - lost reply after commit retries the same response identity without double counting any batch event
+  ---
+  duration_ms: 16.581875
+  type: 'test'
+  ...
+# Subtest: 1000 servers and concurrent responses still export at most70 source/cohort/event cells per day
+ok 169 - 1000 servers and concurrent responses still export at most70 source/cohort/event cells per day
+  ---
+  duration_ms: 973.747917
+  type: 'test'
+  ...
+# Subtest: one unavailable day makes retrieval incomplete with null totals, no deceptively partial ordinary values
+ok 170 - one unavailable day makes retrieval incomplete with null totals, no deceptively partial ordinary values
+  ---
+  duration_ms: 0.702708
+  type: 'test'
+  ...
+# Subtest: oversized, truncated and duplicate-cell responses cannot claim complete retrieval
+ok 171 - oversized, truncated and duplicate-cell responses cannot claim complete retrieval
+  ---
+  duration_ms: 0.432625
+  type: 'test'
+  ...
+# Subtest: negative-cached or expired probe sidecars remain unmeasured unless current request explicitly marks probe
+ok 172 - negative-cached or expired probe sidecars remain unmeasured unless current request explicitly marks probe
+  ---
+  duration_ms: 2.18975
+  type: 'test'
+  ...
+# Subtest: validation rejects raw tokens, arbitrary fields, invalid labels and impossible event combinations
+ok 173 - validation rejects raw tokens, arbitrary fields, invalid labels and impossible event combinations
+  ---
+  duration_ms: 0.316958
+  type: 'test'
+  ...
+# Subtest: daily object refuses cross-day reuse and schedules retention cleanup at31days from day start
+ok 174 - daily object refuses cross-day reuse and schedules retention cleanup at31days from day start
+  ---
+  duration_ms: 0.570417
+  type: 'test'
+  ...
+# Subtest: the month-end-close guide exists
+ok 175 - the month-end-close guide exists
+  ---
+  duration_ms: 0.392416
+  type: 'test'
+  ...
+# Subtest: every figure in the guide appears in data/user_value_r27.json
+ok 176 - every figure in the guide appears in data/user_value_r27.json
+  ---
+  duration_ms: 1.404875
+  type: 'test'
+  ...
+# Subtest: the old guide slug is gone from GUIDES and the new one replaces it
+ok 177 - the old guide slug is gone from GUIDES and the new one replaces it
+  ---
+  duration_ms: 0.395375
+  type: 'test'
+  ...
+# Subtest: GET /guides/<old slug> 301s to /guides/<new slug>
+ok 178 - GET /guides/<old slug> 301s to /guides/<new slug>
+  ---
+  duration_ms: 40.362416
+  type: 'test'
+  ...
+# Subtest: GET /guides/<new slug> serves the guide directly
+ok 179 - GET /guides/<new slug> serves the guide directly
+  ---
+  duration_ms: 10.332917
+  type: 'test'
+  ...
+# Subtest: the redirect map is source-level wired for the old slug
+ok 180 - the redirect map is source-level wired for the old slug
+  ---
+  duration_ms: 0.442208
+  type: 'test'
+  ...
+# Subtest: /sitemap.xml lists only the new slug, never the old one
+ok 181 - /sitemap.xml lists only the new slug, never the old one
+  ---
+  duration_ms: 1.859083
+  type: 'test'
+  ...
+# Subtest: /llms.txt lists only the new slug, never the old one
+ok 182 - /llms.txt lists only the new slug, never the old one
+  ---
+  duration_ms: 2.527458
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: a second paid single retains both entitlements on the same anonymous documents
+ok 183 - a second paid single retains both entitlements on the same anonymous documents
+  ---
+  duration_ms: 18.91025
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: a valid legacy purchase is preserved when a different single replaces its old slot
+ok 184 - a valid legacy purchase is preserved when a different single replaces its old slot
+  ---
+  duration_ms: 2.958084
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"adfbbe53b763","product":"bundle","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: bundle wins after another single purchase and replay of an older paid session
+ok 185 - bundle wins after another single purchase and replay of an older paid session
+  ---
+  duration_ms: 13.723708
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: concurrent purchases write independent scoped entitlements
+ok 186 - concurrent purchases write independent scoped entitlements
+  ---
+  duration_ms: 2.745167
+  type: 'test'
+  ...
+# Subtest: signed expired, tampered and mismatched scoped keys grant no access
+ok 187 - signed expired, tampered and mismatched scoped keys grant no access
+  ---
+  duration_ms: 2.650833
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"kind":"fulfillment_retry_scheduled","session_ref":"df0180b1e978","attempts":1,"error":"simulated compatibility write outage"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: a failed legacy compatibility write retries without dropping scoped purchases
+ok 188 - a failed legacy compatibility write retries without dropping scoped purchases
+  ---
+  duration_ms: 2.294166
+  type: 'test'
+  ...
+# Subtest: actual license_activate tools/call retains earlier purchases and bundle precedence
+ok 189 - actual license_activate tools/call retains earlier purchases and bundle precedence
+  ---
+  duration_ms: 64.355958
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: /bound checks the requested product and never returns license material
+ok 190 - /bound checks the requested product and never returns license material
+  ---
+  duration_ms: 3.01525
+  type: 'test'
+  ...
+# Subtest: activation keeps lifetime purchases after an active anonymous token outlives 30 days
+ok 191 - activation keeps lifetime purchases after an active anonymous token outlives 30 days
+  ---
+  duration_ms: 3.282083
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"df0180b1e978","product":"docx","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: migration recovers a valid legacy purchase over a rejected scoped copy
+ok 192 - migration recovers a valid legacy purchase over a rejected scoped copy
+  ---
+  duration_ms: 4.133459
+  type: 'test'
+  ...
+# {"event":"checkout_fulfillment","source":"durable_object","session_ref":"d91fc56fccf1","product":"invoice","fulfillment_status":"complete","license_saved":true,"hosted_binding":"saved"}
+# Subtest: other tenants and unknown anonymous tokens cannot consume a scoped purchase
+ok 193 - other tenants and unknown anonymous tokens cannot consume a scoped purchase
+  ---
+  duration_ms: 1.046625
+  type: 'test'
+  ...
+# Subtest: hosted authentication rejects signed malformed expiry and payload fields
+ok 194 - hosted authentication rejects signed malformed expiry and payload fields
+  ---
+  duration_ms: 2.48775
+  type: 'test'
+  ...
+# Subtest: HOSTED_SERVERS is exactly the set of servers whose manifest declares a remote
+ok 195 - HOSTED_SERVERS is exactly the set of servers whose manifest declares a remote
+  ---
+  duration_ms: 8.153917
+  type: 'test'
+  ...
+# Subtest: office-suite is never hosted: it spawns local child processes
+ok 196 - office-suite is never hosted: it spawns local child processes
+  ---
+  duration_ms: 0.136209
+  type: 'test'
+  ...
+# Subtest: a well-formed key for the product verifies
+ok 197 - a well-formed key for the product verifies
+  ---
+  duration_ms: 7.122917
+  type: 'test'
+  ...
+# Subtest: a bundle (*) key verifies for any single product
+ok 198 - a bundle (*) key verifies for any single product
+  ---
+  duration_ms: 1.723791
+  type: 'test'
+  ...
+# Subtest: a key for another product is refused with the product named
+ok 199 - a key for another product is refused with the product named
+  ---
+  duration_ms: 1.078542
+  type: 'test'
+  ...
+# Subtest: a signature tampered by one bit is refused
+ok 200 - a signature tampered by one bit is refused
+  ---
+  duration_ms: 1.129625
+  type: 'test'
+  ...
+# Subtest: a payload swapped after signing is refused (the '*' escalation case)
+ok 201 - a payload swapped after signing is refused (the '*' escalation case)
+  ---
+  duration_ms: 0.867083
+  type: 'test'
+  ...
+# Subtest: an expired key is refused; a lifetime key is not
+ok 202 - an expired key is refused; a lifetime key is not
+  ---
+  duration_ms: 1.872834
+  type: 'test'
+  ...
+# Subtest: malformed inputs all fail closed
+ok 203 - malformed inputs all fail closed
+  ---
+  duration_ms: 0.166833
+  type: 'test'
+  ...
+# Subtest: payloadShapeError rejects wrong shapes (review \#19 hardening)
+ok 204 - payloadShapeError rejects wrong shapes (review \#19 hardening)
+  ---
+  duration_ms: 0.145583
+  type: 'test'
+  ...
+# Subtest: extract prefers Authorization header, then path segment, then query
+ok 205 - extract prefers Authorization header, then path segment, then query
+  ---
+  duration_ms: 175.879083
+  type: 'test'
+  ...
+# Subtest: gate denies a tokenless request and names /mcp/connect
+ok 206 - gate denies a tokenless request and names /mcp/connect
+  ---
+  duration_ms: 4.037417
+  type: 'test'
+  ...
+# Subtest: gate allows tools/call with a valid bearer key and reports the license id
+ok 207 - gate allows tools/call with a valid bearer key and reports the license id
+  ---
+  duration_ms: 9.766875
+  type: 'test'
+  ...
+# Subtest: a minted key cross-verifies against the fleet's real public key and a real sign-license.mjs key
+ok 208 - a minted key cross-verifies against the fleet's real public key and a real sign-license.mjs key
+  ---
+  duration_ms: 52.429666
+  type: 'test'
+  ...
+# Subtest: public key constant matches the shipped package
+ok 209 - public key constant matches the shipped package
+  ---
+  duration_ms: 0.57425
+  type: 'test'
+  ...
+# Subtest: pemToDer strips armor and decodes PKCS8
+ok 210 - pemToDer strips armor and decodes PKCS8
+  ---
+  duration_ms: 0.265416
+  type: 'test'
+  ...
+# Subtest: per-product key verifies with the shipped verifier
+ok 211 - per-product key verifies with the shipped verifier
+  ---
+  duration_ms: 13.74375
+  type: 'test'
+  ...
+# Subtest: bundle key ('*') unlocks every product
+ok 212 - bundle key ('*') unlocks every product
+  ---
+  duration_ms: 2.249
+  type: 'test'
+  ...
+# Subtest: tampered payload is rejected by both verifiers
+ok 213 - tampered payload is rejected by both verifiers
+  ---
+  duration_ms: 1.466375
+  type: 'test'
+  ...
+# Subtest: same inputs mint the same key (deterministic per session)
+ok 214 - same inputs mint the same key (deterministic per session)
+  ---
+  duration_ms: 1.062917
+  type: 'test'
+  ...
+# Subtest: every /buy href rendered by the billing worker carries a src=store.<page> tag
+ok 215 - every /buy href rendered by the billing worker carries a src=store.<page> tag
+  ---
+  duration_ms: 22.139625
+  type: 'test'
+  ...
+# Subtest: the pages generated from the READMEs are tagged with the product page that shows them
+ok 216 - the pages generated from the READMEs are tagged with the product page that shows them
+  ---
+  duration_ms: 5.559625
+  type: 'test'
+  ...
+# Subtest: the tags the storefront emits are shapes the /buy route will accept
+ok 217 - the tags the storefront emits are shapes the /buy route will accept
+  ---
+  duration_ms: 171.299
+  type: 'test'
+  ...
+# {"event":"subscribe","source":"test","outcome":"sent"}
+# {"event":"subscribe","source":"footer","outcome":"stored_no_email"}
+# Subtest: POST /api/subscribe stores the sub record and sends the welcome email
+ok 218 - POST /api/subscribe stores the sub record and sends the welcome email
+  ---
+  duration_ms: 25.526708
+  type: 'test'
+  ...
+# Subtest: duplicate subscribe is idempotent and does not re-send the welcome email
+ok 219 - duplicate subscribe is idempotent and does not re-send the welcome email
+  ---
+  duration_ms: 0.509333
+  type: 'test'
+  ...
+# Subtest: invalid email is rejected without storing or sending
+ok 220 - invalid email is rejected without storing or sending
+  ---
+  duration_ms: 1.136625
+  type: 'test'
+  ...
+# Subtest: missing RESEND_API_KEY still stores the subscriber (email is best-effort)
+ok 221 - missing RESEND_API_KEY still stores the subscriber (email is best-effort)
+  ---
+  duration_ms: 1.01575
+  type: 'test'
+  ...
+# {"event":"drip_sweep","e2":1,"e3":1,"errors":0}
+# Subtest: the shared page footer carries the subscribe form pointing at /api/subscribe
+ok 222 - the shared page footer carries the subscribe form pointing at /api/subscribe
+  ---
+  duration_ms: 6.7485
+  type: 'test'
+  ...
+# Subtest: runDripSweep sends E2 once past 48h and E3 once past 168h, stamping each step
+ok 223 - runDripSweep sends E2 once past 48h and E3 once past 168h, stamping each step
+  ---
+  duration_ms: 1.569917
+  type: 'test'
+  ...
+# Subtest: runDripSweep without an API key is a no-op skip
+ok 224 - runDripSweep without an API key is a no-op skip
+  ---
+  duration_ms: 0.365709
+  type: 'test'
+  ...
+# Subtest: supplier demo shipped engine computes all five synthetic outcomes without privacy API use
+ok 225 - supplier demo shipped engine computes all five synthetic outcomes without privacy API use
+  ---
+  duration_ms: 17.9685
+  type: 'test'
+  ...
+# Subtest: supplier demo immediately clears stale evidence and disables exports after any edit or rejected run
+ok 226 - supplier demo immediately clears stale evidence and disables exports after any edit or rejected run
+  ---
+  duration_ms: 4.066167
+  type: 'test'
+  ...
+# Subtest: supplier demo treats hostile source strings as text and exports formula-safe complete CSV
+ok 227 - supplier demo treats hostile source strings as text and exports formula-safe complete CSV
+  ---
+  duration_ms: 40.053917
+  type: 'test'
+  ...
+# Subtest: supplier demo rejects oversized JSON before retaining any earlier report
+ok 228 - supplier demo rejects oversized JSON before retaining any earlier report
+  ---
+  duration_ms: 2.430125
+  type: 'test'
+  ...
+# Subtest: home page renders Organization JSON-LD
+ok 229 - home page renders Organization JSON-LD
+  ---
+  duration_ms: 34.893833
+  type: 'test'
+  ...
+# Subtest: home page renders WebSite JSON-LD with a publisher
+ok 230 - home page renders WebSite JSON-LD with a publisher
+  ---
+  duration_ms: 2.597125
+  type: 'test'
+  ...
+# Subtest: web site has no /search route, so no SearchAction is emitted
+ok 231 - web site has no /search route, so no SearchAction is emitted
+  ---
+  duration_ms: 120.225292
+  type: 'test'
+  ...
+# Subtest: every rendered HTML page carries a twitter:card summary tag
+ok 232 - every rendered HTML page carries a twitter:card summary tag
+  ---
+  duration_ms: 11.301
+  type: 'test'
+  ...
+# Subtest: a page with OG still keeps its OG tags (additive only)
+ok 233 - a page with OG still keeps its OG tags (additive only)
+  ---
+  duration_ms: 1.766125
+  type: 'test'
+  ...
+# Subtest: no new twitter/og markup uses a banned em-dash
+ok 234 - no new twitter/og markup uses a banned em-dash
+  ---
+  duration_ms: 28.620333
+  type: 'test'
+  ...
+# Subtest: guide pages render the featured-servers strip with unique server links
+ok 235 - guide pages render the featured-servers strip with unique server links
+  ---
+  duration_ms: 145.791291
+  type: 'test'
+  ...
+# Subtest: featured strip omits the guide's own product page when it would duplicate the cross block
+ok 236 - featured strip omits the guide's own product page when it would duplicate the cross block
+  ---
+  duration_ms: 2.238083
+  type: 'test'
+  ...
+# Subtest: non-guide pages do not carry the featured strip
+ok 237 - non-guide pages do not carry the featured strip
+  ---
+  duration_ms: 7.420292
+  type: 'test'
+  ...
+# Subtest: priority guide nav is the first element inside body
+ok 238 - priority guide nav is the first element inside body
+  ---
+  duration_ms: 30.277916
+  type: 'test'
+  ...
+# Subtest: priority guide nav on home has 10 unique real guide links
+ok 239 - priority guide nav on home has 10 unique real guide links
+  ---
+  duration_ms: 6.006916
+  type: 'test'
+  ...
+# Subtest: guide pages carry the priority nav too
+ok 240 - guide pages carry the priority nav too
+  ---
+  duration_ms: 0.994292
+  type: 'test'
+  ...
+# Subtest: the SDK still rejects on a literal substring test (the reason this module exists)
+ok 241 - the SDK still rejects on a literal substring test (the reason this module exists)
+  ---
+  duration_ms: 0.48925
+  type: 'test'
+  ...
+# Subtest: the measured before/after matrix
+ok 242 - the measured before/after matrix
+  ---
+  duration_ms: 13.59375
+  type: 'test'
+  ...
+# Subtest: a header that already spells both types out is returned untouched
+ok 243 - a header that already spells both types out is returned untouched
+  ---
+  duration_ms: 0.128833
+  type: 'test'
+  ...
+# Subtest: a rewrite copies the headers rather than mutating the caller's
+ok 244 - a rewrite copies the headers rather than mutating the caller's
+  ---
+  duration_ms: 0.144042
+  type: 'test'
+  ...
+# Subtest: only the Accept header is ever rewritten
+ok 245 - only the Accept header is ever rewritten
+  ---
+  duration_ms: 0.204708
+  type: 'test'
+  ...
+# Subtest: acceptsType ranks by specificity, not by q alone
+ok 246 - acceptsType ranks by specificity, not by q alone
+  ---
+  duration_ms: 0.055458
+  type: 'test'
+  ...
+# Subtest: the worker calls negotiatedHeaders on the request it hands the transport
+ok 247 - the worker calls negotiatedHeaders on the request it hands the transport
+  ---
+  duration_ms: 0.416459
+  type: 'test'
+  ...
+# Subtest: end-to-end: the rewrite turns the measured 406 into a 200 on the real SDK transport
+ok 248 - end-to-end: the rewrite turns the measured 406 into a 200 on the real SDK transport
+  ---
+  duration_ms: 221.273792
+  type: 'test'
+  ...
+# Subtest: no binding in KV leaves the tenant free
+ok 249 - no binding in KV leaves the tenant free
+  ---
+  duration_ms: 0.867084
+  type: 'test'
+  ...
+# Subtest: a bound key that verifies makes the tenant Pro
+ok 250 - a bound key that verifies makes the tenant Pro
+  ---
+  duration_ms: 0.069667
+  type: 'test'
+  ...
+# Subtest: a bound key with a bad signature is ignored, not an error
+ok 251 - a bound key with a bad signature is ignored, not an error
+  ---
+  duration_ms: 0.091875
+  type: 'test'
+  ...
+# Subtest: an expired bound key falls back to free
+ok 252 - an expired bound key falls back to free
+  ---
+  duration_ms: 5.454084
+  type: 'test'
+  ...
+# Subtest: a bound key signed for another product falls back to free
+ok 253 - a bound key signed for another product falls back to free
+  ---
+  duration_ms: 0.418166
+  type: 'test'
+  ...
+# Subtest: the limits are parameters, not constants baked into the decision
+ok 254 - the limits are parameters, not constants baked into the decision
+  ---
+  duration_ms: 0.321375
+  type: 'test'
+  ...
+# Subtest: a person opening the page in a browser still gets a token with no extra click
+ok 255 - a person opening the page in a browser still gets a token with no extra click
+  ---
+  duration_ms: 55.666666
+  type: 'test'
+  ...
+# Subtest: no crawler mints, wherever the bot token sits in its User-Agent
+ok 256 - no crawler mints, wherever the bot token sits in its User-Agent
+  ---
+  duration_ms: 0.58225
+  type: 'test'
+  ...
+# Subtest: a fetch, an empty UA and a prefetch do not mint
+ok 257 - a fetch, an empty UA and a prefetch do not mint
+  ---
+  duration_ms: 0.24975
+  type: 'test'
+  ...
+# Subtest: the route mints only on a real navigation or an explicit ?mint=1, and never on HEAD
+ok 258 - the route mints only on a real navigation or an explicit ?mint=1, and never on HEAD
+  ---
+  duration_ms: 0.319875
+  type: 'test'
+  ...
+# Subtest: the page served without a token is still a complete page, with one link that mints
+ok 259 - the page served without a token is still a complete page, with one link that mints
+  ---
+  duration_ms: 0.355459
+  type: 'test'
+  ...
+# Subtest: 10.0.0.1 is refused, and nothing is fetched
+ok 260 - 10.0.0.1 is refused, and nothing is fetched
+  ---
+  duration_ms: 0.958584
+  type: 'test'
+  ...
+# Subtest: 169.254.169.254 (cloud metadata) is refused
+ok 261 - 169.254.169.254 (cloud metadata) is refused
+  ---
+  duration_ms: 0.112042
+  type: 'test'
+  ...
+# Subtest: [::1] is refused, IPv6 parsed to bytes not matched by regex
+ok 262 - [::1] is refused, IPv6 parsed to bytes not matched by regex
+  ---
+  duration_ms: 0.209959
+  type: 'test'
+  ...
+# Subtest: the worker's own zone is refused with the D-R73 reason
+ok 263 - the worker's own zone is refused with the D-R73 reason
+  ---
+  duration_ms: 0.198291
+  type: 'test'
+  ...
+# Subtest: a redirect into a private range is refused on the hop, not only on the first URL
+ok 264 - a redirect into a private range is refused on the hop, not only on the first URL
+  ---
+  duration_ms: 16.471417
+  type: 'test'
+  ...
+# Subtest: a redirect chain longer than 3 hops is refused
+ok 265 - a redirect chain longer than 3 hops is refused
+  ---
+  duration_ms: 0.996791
+  type: 'test'
+  ...
+# Subtest: non-http(s) schemes are refused
+ok 266 - non-http(s) schemes are refused
+  ---
+  duration_ms: 0.376167
+  type: 'test'
+  ...
+# Subtest: localhost and the internal name patterns are refused
+ok 267 - localhost and the internal name patterns are refused
+  ---
+  duration_ms: 0.333583
+  type: 'test'
+  ...
+# Subtest: the inet_aton literal forms of 127.0.0.1 are all refused
+ok 268 - the inet_aton literal forms of 127.0.0.1 are all refused
+  ---
+  duration_ms: 10.65525
+  type: 'test'
+  ...
+# Subtest: non-vacuity: a public URL is allowed by the same guard
+ok 269 - non-vacuity: a public URL is allowed by the same guard
+  ---
+  duration_ms: 1.289291
+  type: 'test'
+  ...
+# Subtest: a declared content-length over the cap is refused before the body is read
+ok 270 - a declared content-length over the cap is refused before the body is read
+  ---
+  duration_ms: 4.244459
+  type: 'test'
+  ...
+# Subtest: a lying content-length is caught on the stream, and nothing is truncated into storage
+ok 271 - a lying content-length is caught on the stream, and nothing is truncated into storage
+  ---
+  duration_ms: 1.13825
+  type: 'test'
+  ...
+# Subtest: a body with no content-length at all is still capped on the stream
+ok 272 - a body with no content-length at all is still capped on the stream
+  ---
+  duration_ms: 0.365583
+  type: 'test'
+  ...
+# Subtest: wrong magic bytes are refused after the fetch and before anything is staged
+ok 273 - wrong magic bytes are refused after the fetch and before anything is staged
+  ---
+  duration_ms: 0.311625
+  type: 'test'
+  ...
+# Subtest: an empty body is refused
+ok 274 - an empty body is refused
+  ---
+  duration_ms: 0.177708
+  type: 'test'
+  ...
+# Subtest: a non-200 is reported as a fetch failure, not as a bad file
+ok 275 - a non-200 is reported as a fetch failure, not as a bad file
+  ---
+  duration_ms: 0.137167
+  type: 'test'
+  ...
+# Subtest: a public PDF is fetched whole, and the host and byte count come back
+ok 276 - a public PDF is fetched whole, and the host and byte count come back
+  ---
+  duration_ms: 0.314166
+  type: 'test'
+  ...
+# Subtest: up to 3 redirects between public hosts are followed and the final host is reported
+ok 277 - up to 3 redirects between public hosts are followed and the final host is reported
+  ---
+  duration_ms: 0.228167
+  type: 'test'
+  ...
+# Subtest: a hung server is abandoned on the timeout
+ok 278 - a hung server is abandoned on the timeout
+  ---
+  duration_ms: 61.878959
+  type: 'test'
+  ...
+# Subtest: exactlyOne demands exactly one source
+ok 279 - exactlyOne demands exactly one source
+  ---
+  duration_ms: 0.630875
+  type: 'test'
+  ...
+# Subtest: every url argument carries the same recommendation sentence
+ok 280 - every url argument carries the same recommendation sentence
+  ---
+  duration_ms: 0.088709
+  type: 'test'
+  ...
+# Subtest: the virtual filesystem root exists
+ok 281 - the virtual filesystem root exists
+  ---
+  duration_ms: 0.507917
+  type: 'test'
+  ...
+# Subtest: a bounded ancestor walk can create the virtual out directory
+ok 282 - a bounded ancestor walk can create the virtual out directory
+  ---
+  duration_ms: 0.127541
+  type: 'test'
+  ...
+# Subtest: a path with no reachable ancestor is still refused
+ok 283 - a path with no reachable ancestor is still refused
+  ---
+  duration_ms: 0.057084
+  type: 'test'
+  ...
+# Subtest: lstat describes only entries in the current virtual filesystem
+ok 284 - lstat describes only entries in the current virtual filesystem
+  ---
+  duration_ms: 0.399917
+  type: 'test'
+  ...
+# Subtest: positive business response and trailer preserve structured content under any property order
+ok 285 - positive business response and trailer preserve structured content under any property order
+  ---
+  duration_ms: 2.134875
+  type: 'test'
+  ...
+# Subtest: negative controls never classify discovery, license administration, errors or malformed data as success
+ok 286 - negative controls never classify discovery, license administration, errors or malformed data as success
+  ---
+  duration_ms: 0.792125
+  type: 'test'
+  ...
+# Subtest: source declarations are a bounded allowlist, and unknown raw input never becomes a label
+ok 287 - source declarations are a bounded allowlist, and unknown raw input never becomes a label
+  ---
+  duration_ms: 23.015583
+  type: 'test'
+  ...
+# Subtest: mint sidecar stores a hash and fixed labels, retains probe classification without later headers
+ok 288 - mint sidecar stores a hash and fixed labels, retains probe classification without later headers
+  ---
+  duration_ms: 12.189375
+  type: 'test'
+  ...
+# Subtest: old-token acquisition cannot be rewritten by query; explicit probe excludes just that request
+ok 289 - old-token acquisition cannot be rewritten by query; explicit probe excludes just that request
+  ---
+  duration_ms: 2.419292
+  type: 'test'
+  ...
+# Subtest: OAuth mints use fixed OAuth source and corrupt or unavailable sidecars cannot leak into ordinary counts
+ok 290 - OAuth mints use fixed OAuth source and corrupt or unavailable sidecars cannot leak into ordinary counts
+  ---
+  duration_ms: 3.574042
+  type: 'test'
+  ...
+# Subtest: first success deduplicates per token/server/UTC date, with probes isolated from ordinary
+ok 291 - first success deduplicates per token/server/UTC date, with probes isolated from ordinary
+  ---
+  duration_ms: 14.189
+  type: 'test'
+  ...
+# Subtest: same-day window reads bounded atomic summaries, excludes old days and never exports markers or raw inputs
+ok 292 - same-day window reads bounded atomic summaries, excludes old days and never exports markers or raw inputs
+  ---
+  duration_ms: 2.936917
+  type: 'test'
+  ...
+# Subtest: invalid event and time inputs cannot create unbounded telemetry keys
+ok 293 - invalid event and time inputs cannot create unbounded telemetry keys
+  ---
+  duration_ms: 0.373166
+  type: 'test'
+  ...
+# Subtest: empty measurement is explicitly not a historic zero or deployment proof
+ok 294 - empty measurement is explicitly not a historic zero or deployment proof
+  ---
+  duration_ms: 0.4885
+  type: 'test'
+  ...
+# Subtest: real SDK HTTP envelopes: only successful business calls receive an upgrade and observation
+ok 295 - real SDK HTTP envelopes: only successful business calls receive an upgrade and observation
+  ---
+  duration_ms: 152.173542
+  type: 'test'
+  ...
+# Subtest: bill-of-sale: initialize + the 10 stdio tools + create/render/publish with the shared profile
+ok 296 - bill-of-sale: initialize + the 10 stdio tools + create/render/publish with the shared profile
+  ---
+  duration_ms: 27.233958
+  type: 'test'
+  ...
+# Subtest: credit-note: the 10 stdio tools + draft to finalized, and nothing is ever published
+ok 297 - credit-note: the 10 stdio tools + draft to finalized, and nothing is ever published
+  ---
+  duration_ms: 16.404458
+  type: 'test'
+  ...
+# Subtest: job-card: the 11 stdio tools + create/log/status/print, and nothing is ever published
+ok 298 - job-card: the 11 stdio tools + create/log/status/print, and nothing is ever published
+  ---
+  duration_ms: 12.563917
+  type: 'test'
+  ...
+# Subtest: dunning-letters: the 11 stdio tools + register/render/send/pay, and nothing is ever published
+ok 299 - dunning-letters: the 11 stdio tools + register/render/send/pay, and nothing is ever published
+  ---
+  duration_ms: 33.289958
+  type: 'test'
+  ...
+# Subtest: the vendored bill-of-sale never persists the JSON store into a published download
+ok 300 - the vendored bill-of-sale never persists the JSON store into a published download
+  ---
+  duration_ms: 0.491334
+  type: 'test'
+  ...
+# Subtest: supplier-list: the 10 stdio tools + add/list/export inline, register persists, nothing published
+ok 301 - supplier-list: the 10 stdio tools + add/list/export inline, register persists, nothing published
+  ---
+  duration_ms: 47.441875
+  type: 'test'
+  ...
+# Subtest: service-agreement: the 9 stdio tools + create/render inline, the one-step machine, nothing published
+ok 302 - service-agreement: the 9 stdio tools + create/render inline, the one-step machine, nothing published
+  ---
+  duration_ms: 16.252416
+  type: 'test'
+  ...
+# Subtest: maintenance-log: the 8 stdio tools + add/log/history/export inline, nothing published
+ok 303 - maintenance-log: the 8 stdio tools + add/log/history/export inline, nothing published
+  ---
+  duration_ms: 17.840917
+  type: 'test'
+  ...
+# Subtest: mileage-log: the 9 stdio tools + rate/trip/summary pricing, nothing published
+ok 304 - mileage-log: the 9 stdio tools + rate/trip/summary pricing, nothing published
+  ---
+  duration_ms: 7.173667
+  type: 'test'
+  ...
+# Subtest: the four loop-35 endpoints carry no publish rule: no tool writes a file on any of them
+ok 305 - the four loop-35 endpoints carry no publish rule: no tool writes a file on any of them
+  ---
+  duration_ms: 0.546792
+  type: 'test'
+  ...
+# Subtest: RFC 9728 protected-resource metadata advertises this host as its own AS
+ok 306 - RFC 9728 protected-resource metadata advertises this host as its own AS
+  ---
+  duration_ms: 0.711584
+  type: 'test'
+  ...
+# Subtest: RFC 8414 authorization-server metadata has the endpoints an MCP client needs
+ok 307 - RFC 8414 authorization-server metadata has the endpoints an MCP client needs
+  ---
+  duration_ms: 1.32925
+  type: 'test'
+  ...
+# Subtest: dynamic client registration derives a stable id from the metadata
+ok 308 - dynamic client registration derives a stable id from the metadata
+  ---
+  duration_ms: 8.315291
+  type: 'test'
+  ...
+# Subtest: S256 challenge matches RFC 7636 appendix B test vector
+ok 309 - S256 challenge matches RFC 7636 appendix B test vector
+  ---
+  duration_ms: 0.721917
+  type: 'test'
+  ...
+# Subtest: route contract: all five endpoints are wired into the fetch router
+ok 310 - route contract: all five endpoints are wired into the fetch router
+  ---
+  duration_ms: 0.602959
+  type: 'test'
+  ...
+# Subtest: route contract: the 401 advertises RFC 9728 resource metadata
+ok 311 - route contract: the 401 advertises RFC 9728 resource metadata
+  ---
+  duration_ms: 0.129542
+  type: 'test'
+  ...
+# Subtest: route contract: authorization codes are single-use and short-lived
+ok 312 - route contract: authorization codes are single-use and short-lived
+  ---
+  duration_ms: 0.1385
+  type: 'test'
+  ...
+# Subtest: route contract: consent mints an anon token, so authenticate() works unchanged
+ok 313 - route contract: consent mints an anon token, so authenticate() works unchanged
+  ---
+  duration_ms: 0.186917
+  type: 'test'
+  ...
+# Subtest: the hosted gate registers pricing://<product> and upgrade_to_pro, and renames no tool
+ok 314 - the hosted gate registers pricing://<product> and upgrade_to_pro, and renames no tool
+  ---
+  duration_ms: 1.172625
+  type: 'test'
+  ...
+# Subtest: a host that only implements registerTool is skipped, not thrown at
+ok 315 - a host that only implements registerTool is skipped, not thrown at
+  ---
+  duration_ms: 0.137625
+  type: 'test'
+  ...
+# Subtest: reading the pricing resource returns the descriptor, token-bound to this connection
+ok 316 - reading the pricing resource returns the descriptor, token-bound to this connection
+  ---
+  duration_ms: 0.491417
+  type: 'test'
+  ...
+# Subtest: a licence-key caller has no token to carry and is told so
+ok 317 - a licence-key caller has no token to carry and is told so
+  ---
+  duration_ms: 0.12525
+  type: 'test'
+  ...
+# Subtest: license_status carries the descriptor without losing a field it already had
+ok 318 - license_status carries the descriptor without losing a field it already had
+  ---
+  duration_ms: 0.19575
+  type: 'test'
+  ...
+# Subtest: the upgrade prompt points at the resource and forbids inventing a price
+ok 319 - the upgrade prompt points at the resource and forbids inventing a price
+  ---
+  duration_ms: 0.166834
+  type: 'test'
+  ...
+# Subtest: the worker attaches the descriptor to a free 429 and withholds it from a Pro 429
+ok 320 - the worker attaches the descriptor to a free 429 and withholds it from a Pro 429
+  ---
+  duration_ms: 0.442666
+  type: 'test'
+  ...
+# Subtest: the two copies of payment.ts have not drifted
+ok 321 - the two copies of payment.ts have not drifted
+  ---
+  duration_ms: 0.433083
+  type: 'test'
+  ...
+# Subtest: the message names where to GET a token, not only where to put one
+ok 322 - the message names where to GET a token, not only where to put one
+  ---
+  duration_ms: 3.918625
+  type: 'test'
+  ...
+# Subtest: the message explains the symptom the reader is actually looking at
+ok 323 - the message explains the symptom the reader is actually looking at
+  ---
+  duration_ms: 0.103125
+  type: 'test'
+  ...
+# Subtest: the body still carries every machine-readable field a client may key off
+ok 324 - the body still carries every machine-readable field a client may key off
+  ---
+  duration_ms: 0.408583
+  type: 'test'
+  ...
+# Subtest: every URL in the message is a per-product URL for the product that refused the call
+ok 325 - every URL in the message is a per-product URL for the product that refused the call
+  ---
+  duration_ms: 1.231875
+  type: 'test'
+  ...
+# Subtest: the 401 route uses the builder rather than a second copy of the body
+ok 326 - the 401 route uses the builder rather than a second copy of the body
+  ---
+  duration_ms: 0.176291
+  type: 'test'
+  ...
+# Subtest: the vendor tree exists and is not empty (non-vacuity)
+ok 327 - the vendor tree exists and is not empty (non-vacuity)
+  ---
+  duration_ms: 5.707167
+  type: 'test'
+  ...
+# Subtest: no hosted response interpolates a data directory into text a caller reads
+ok 328 - no hosted response interpolates a data directory into text a caller reads
+  ---
+  duration_ms: 23.177458
+  type: 'test'
+  ...
+# Subtest: the scanner would catch the two lines round 14 found (non-vacuity, both directions)
+ok 329 - the scanner would catch the two lines round 14 found (non-vacuity, both directions)
+  ---
+  duration_ms: 0.080291
+  type: 'test'
+  ...
+1..329
+# tests 329
+# suites 0
+# pass 327
+# fail 1
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 1634.80825

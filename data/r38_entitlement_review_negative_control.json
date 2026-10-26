@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-26T05:19:50.449Z",
+  "method": "In-memory esbuild of actual remote handlers; ephemeral Ed25519 signer; pre-review helper/TTL/payload checks versus current source; mocked KV with virtual expiry; no production requests",
+  "pre_review": {
+    "lifetime_invoice_pro_after_31_days": false,
+    "valid_legacy_recovered_over_expired_scope": false,
+    "signed_invalid_expiry_grants_pro": true
+  },
+  "current": {
+    "lifetime_invoice_pro_after_31_days": true,
+    "valid_legacy_recovered_over_expired_scope": true,
+    "signed_invalid_expiry_grants_pro": false
+  },
+  "controls_passed": true,
+  "current_remote_source_sha256": "a9e25141a58731a507c79e7719338ee614b885195f505a26049f97e94cfe7e2d",
+  "secrets_printed": false
+}

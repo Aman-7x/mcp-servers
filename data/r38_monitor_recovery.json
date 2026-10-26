@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-26T05:14:51.298Z",
+  "action": "Recover monitor approval after verifying existing production version; no code deployment or rollback",
+  "prior_pin": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+  "verified_version": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+  "gate": "data/r38_monitor_recovery_verify.txt",
+  "gate_result": "60 GET /buy paths intent-only; zero new live Stripe Sessions; stable deployed version",
+  "pin_write_http": 200,
+  "pin_write_accepted": true,
+  "active_version_after": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+  "scope": "Pin alignment only; scheduled recovery and 40-minute public-health cooldown must be observed separately"
+}

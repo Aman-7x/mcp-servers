@@ -18,7 +18,7 @@ function harness(failBind = false) {
   };
   const env = {
     LICENSES: { put: async (...args) => { writes.push(["license", ...args]); } },
-    REMOTE_DATA: { put: async (...args) => {
+    REMOTE_DATA: { get: async () => null, put: async (...args) => {
       if (failBind) throw new Error("bind unavailable");
       writes.push(["bind", ...args]);
     } },
@@ -50,7 +50,7 @@ test("failed hosted bind remains durable and is retried without repeating key pe
   h.restore();
   const recovered = await processFulfillment(h.storage, h.env, await h.storage.get("job"));
   assert.equal(recovered.complete, true);
-  assert.deepEqual(h.writes.map((x) => x[0]), ["license", "bind"]);
+  assert.deepEqual(h.writes.map((x) => x[0]), ["license", "bind", "bind"]);
   assert.equal(h.saved.get("job").bound, true);
   assert.equal(h.alarms.at(-1), null);
   const completions = events.filter((event) => event.event === "checkout_fulfillment");
@@ -88,5 +88,5 @@ test("license cache failure is retried before a hosted bind is attempted", async
   failLicense = false;
   const second = await processFulfillment(h.storage, h.env, await h.storage.get("job"));
   assert.equal(second.complete, true);
-  assert.deepEqual(h.writes.map((x) => x[0]), ["license", "bind"]);
+  assert.deepEqual(h.writes.map((x) => x[0]), ["license", "bind", "bind"]);
 });

@@ -128,8 +128,10 @@ export const BUNDLE_DOWNLOADS = {
     "bytes": 3258511
   },
   "office-suite": {
-    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/office-suite.mcpb",
-    "bytes": 29703676
+    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/office-suite.mcpb",
+    "bytes": 30003480,
+    "sha256": "4918b493051b5a2c067c73013d093a0da08c9a41f8ac8ecd8f538107c167fb1a",
+    "version": "0.25.0"
   },
   "onboarding": {
     "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb",
@@ -226,5 +228,11 @@ export const BUNDLE_DOWNLOADS = {
   "zip": {
     "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/zip.mcpb",
     "bytes": 3433523
+  },
+  "supplier-statement-check": {
+    "url": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/supplier-statement-check.mcpb",
+    "bytes": 3284791,
+    "sha256": "98784c618a5f7df7c0e3ea4d4528200c10ea43d65eff785fbc1cde55216b306b",
+    "version": "0.25.0"
   }
 };

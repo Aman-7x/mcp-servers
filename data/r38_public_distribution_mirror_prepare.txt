@@ -1,0 +1,11 @@
+mirror-seo check: 51/51 published servers described
+  pending (a server directory with no mirror yet, not published by sync-mirrors.sh): budget, loan-calculator, payroll, pomodoro, receipts, stripe-billing, tax-calc
+=== mcp-supplier-statement-check  (/Users/mike/mcp-servers-work/mirror-supplier-statement-check.0xARFR)
+  WARNING: servers/supplier-statement-check has uncommitted changes; the mirror will carry them:
+    ?? servers/supplier-statement-check/
+  NOTE: vendored mcp-license has uncommitted changes in packages/mcp-license:
+     M packages/mcp-license/src/index.ts
+    and its dist is NEWER than that source, so the mirror carries the edit
+DRY_RUN: mirror built at /Users/mike/mcp-servers-work/mirror-supplier-statement-check.0xARFR (not pushed)
+
+=== sync-mirrors summary: all mirrors synced

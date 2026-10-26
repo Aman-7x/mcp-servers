@@ -2,7 +2,7 @@
 """Exact in-memory credential and private-PEM checks; never prints secret values."""
 import argparse, datetime, json, os, pathlib, re, subprocess, zipfile
 parser=argparse.ArgumentParser();parser.add_argument('--output',required=True);args=parser.parse_args()
-if not re.fullmatch(r'data/r37_[a-z0-9_]+\.json',args.output):raise SystemExit('Output must be an R37 data JSON file')
+if not re.fullmatch(r'data/r[0-9]+_[a-z0-9_]+\.json',args.output):raise SystemExit('Output must be a numbered session data JSON file')
 root=pathlib.Path.cwd();values=set();coverage={}
 def add(value):
     if isinstance(value,str):value=value.encode()
@@ -34,7 +34,7 @@ for raw in set(files):
         count+=1
         if matches(path.read_bytes()):hits.append(str(path))
 archives=[]
-for name in ('duplicate-invoice-check','three-way-match','spreadsheet','expense-tracker','office-suite'):
+for name in ('duplicate-invoice-check','three-way-match','spreadsheet','expense-tracker','office-suite','supplier-statement-check'):
     path=root/'bundles'/(name+'.mcpb');members=0
     with zipfile.ZipFile(path) as archive:
         for entry in archive.infolist():

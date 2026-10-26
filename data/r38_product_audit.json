@@ -1,0 +1,54 @@
+{
+  "observed_at": "2026-10-26T05:15:12.063Z",
+  "status": "ready_for_coordinator_review_not_deployed",
+  "finding": {
+    "severity": "P1",
+    "trigger": "Anonymous hosted token buys or activates a second single product",
+    "previous_behavior": "single bind:<tenant> KV slot replaced the first entitlement; matching endpoint returned free",
+    "fix": "independent product and wildcard bundle slots, verified legacy migration and compatibility slot, signature/scope/expiry verification on every read"
+  },
+  "negative_control": {
+    "command": "git show HEAD:remote/src/index.ts bundled with esbuild in memory; actual authenticate called before/after signed invoice binding replaced by signed docx binding",
+    "prior_invoice_pro": true,
+    "after_second_purchase_invoice_pro": false
+  },
+  "verification": {
+    "command": "node --test billing/test/*.test.mjs remote/test/*.test.mjs",
+    "exit_code": 0,
+    "tests": 321,
+    "passed": 320,
+    "failed": 0,
+    "skipped": 1,
+    "skip_reason": "Existing workerd SQLite DO test requires runtime module environment; new entitlement suite has zero skips",
+    "new_regression_tests": 8,
+    "actual_remote_authentication": true,
+    "actual_mcp_license_activate_call": true,
+    "public_ux": "data/r38_product_public_ux.json"
+  },
+  "source_sha256": {
+    "billing/src/hosted-bindings.js": "943c53aa38a5aae704fd9b28ab4f994fe811d095daa130fd1de8ab0bccad1647",
+    "billing/src/fulfillment-engine.js": "d8eaff78ddbc8e243ffeec51b379fd76c25be5bf7d86abcfb54994e70403c28c",
+    "billing/src/index.js": "365ef6e9bfc0d2bf1338fd5f03b858736b8ee17fc3439a115036866d9aa15587",
+    "remote/src/index.ts": "03d64382a5216d75ec8d9483653e6b7810e7941bab58a9ce0b0bf4f532fc9c6e",
+    "billing/test/hosted-entitlements.test.mjs": "5a268b6bcff12fb62a67c9b85969c8883e33be9e4d447005b3c990f46e8a226c",
+    "billing/test/fulfillment-state.test.mjs": "adc8f7a88e6d25e9f33e59689aad84075f6fc18e3469fb7cccfdf87a66fd6175"
+  },
+  "rollout": {
+    "recommended_order": [
+      "remote Worker",
+      "billing Worker"
+    ],
+    "reason": "new readers understand scoped bindings before new fulfillment writers use them",
+    "deployment_performed": false,
+    "real_payment_or_checkout_created": false,
+    "paid_api_calls": 0
+  },
+  "limits": [
+    "Not a complete estate release audit",
+    "No native workerd invocation for the new suite; actual Worker source bundled and executed under Node with mocked KV",
+    "Cloudflare KV eventual consistency can delay observation of writes, as before",
+    "Scoped auth reads up to three binding slots rather than one",
+    "Offline lifetime keys have no existing automated refund/revocation system; none is claimed",
+    "Existing already-overwritten historical entitlements need an explicit recovery or reactivation using their valid key; this prevents new overwrites but cannot reconstruct missing history"
+  ]
+}

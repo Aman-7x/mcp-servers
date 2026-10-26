@@ -1,0 +1,153 @@
+{
+  "at": "2026-10-26T05:12:29.146Z",
+  "method": "Read-only Cloudflare script content/v2 and versions metadata; secret binding values omitted",
+  "versions": [
+    {
+      "id": "d32701dd-eb34-4f71-8a64-cb2baf71ba00",
+      "http": 200,
+      "created": "2026-10-17T02:07:43.294985Z",
+      "source": "api",
+      "number": 236,
+      "etag": "3fdb13aa574ef0e3906fd3011c1a5bbafc696c0d1ab15c6007523375b026e3e0",
+      "handlers": [
+        "fetch",
+        "scheduled"
+      ],
+      "bindings": [
+        {
+          "type": "version_metadata",
+          "name": "CF_VERSION_METADATA"
+        },
+        {
+          "type": "durable_object_namespace",
+          "name": "FULFILLMENT"
+        },
+        {
+          "type": "durable_object_namespace",
+          "name": "FUNNEL"
+        },
+        {
+          "type": "secret_text",
+          "name": "LICENSE_PRIVATE_KEY_PEM"
+        },
+        {
+          "type": "kv_namespace",
+          "name": "LICENSES"
+        },
+        {
+          "type": "secret_text",
+          "name": "MONITOR_STATUS_TOKEN"
+        },
+        {
+          "type": "kv_namespace",
+          "name": "REMOTE_DATA"
+        },
+        {
+          "type": "secret_text",
+          "name": "RESEND_API_KEY"
+        },
+        {
+          "type": "secret_text",
+          "name": "STRIPE_SECRET_KEY"
+        },
+        {
+          "type": "secret_text",
+          "name": "STRIPE_WEBHOOK_SECRET"
+        },
+        {
+          "type": "secret_text",
+          "name": "UNSUB_SECRET"
+        }
+      ],
+      "runtime": {
+        "migration_tag": "fulfillment_state_v1",
+        "compatibility_date": "2025-09-01",
+        "compatibility_flags": [
+          "nodejs_compat"
+        ],
+        "usage_model": "standard",
+        "limits": {
+          "cpu_ms": 400
+        }
+      }
+    },
+    {
+      "id": "c1c84ab6-4a25-43a4-a6b3-3562234ae185",
+      "http": 200,
+      "created": "2026-10-16T10:50:56.047921Z",
+      "source": "wrangler",
+      "number": 235,
+      "etag": "c4a7dc5f695681a81842467083fb0410d2a460796c69a335b3770d4904883295",
+      "handlers": [
+        "fetch",
+        "scheduled"
+      ],
+      "bindings": [
+        {
+          "type": "version_metadata",
+          "name": "CF_VERSION_METADATA"
+        },
+        {
+          "type": "durable_object_namespace",
+          "name": "FULFILLMENT"
+        },
+        {
+          "type": "durable_object_namespace",
+          "name": "FUNNEL"
+        },
+        {
+          "type": "secret_text",
+          "name": "LICENSE_PRIVATE_KEY_PEM"
+        },
+        {
+          "type": "kv_namespace",
+          "name": "LICENSES"
+        },
+        {
+          "type": "secret_text",
+          "name": "MONITOR_STATUS_TOKEN"
+        },
+        {
+          "type": "kv_namespace",
+          "name": "REMOTE_DATA"
+        },
+        {
+          "type": "secret_text",
+          "name": "RESEND_API_KEY"
+        },
+        {
+          "type": "secret_text",
+          "name": "STRIPE_SECRET_KEY"
+        },
+        {
+          "type": "secret_text",
+          "name": "STRIPE_WEBHOOK_SECRET"
+        },
+        {
+          "type": "secret_text",
+          "name": "UNSUB_SECRET"
+        }
+      ],
+      "runtime": {
+        "migration_tag": "fulfillment_state_v1",
+        "compatibility_date": "2025-09-01",
+        "compatibility_flags": [
+          "nodejs_compat"
+        ],
+        "usage_model": "standard"
+      }
+    }
+  ],
+  "content": [
+    {
+      "name": "worker.js",
+      "filename": "worker.js",
+      "bytes": 2537218,
+      "sha256": "a07294e3699566ce77a204ce0140784ade3244d9a9c9277674856c972a4049da",
+      "contains_monitor": true,
+      "module_count": 45
+    }
+  ],
+  "content_http": 200,
+  "content_type": "multipart/form-data; boundary=fe72d30405afc7aa298ddb70624ef100ee40f4baff396fb054fc05617094"
+}

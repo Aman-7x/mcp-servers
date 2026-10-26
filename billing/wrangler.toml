@@ -6,6 +6,10 @@ account_id = "dd3f2a29b7707e21a87f26a622c0bb9d"
 workers_dev = true
 routes = [{ pattern = "mcp.zovo.one", custom_domain = true }]
 
+# Preserve the production CPU bound verified in the R38 deployment snapshot.
+[limits]
+cpu_ms = 400
+
 [[kv_namespaces]]
 binding = "LICENSES"
 id = "75f8bf4872a0433285d11575cece8641"

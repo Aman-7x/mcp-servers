@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "at": "2026-10-26T05:25:33.099830+00:00",
+  "scope": "New source server and its tests; no public release, hosted availability, buyer acquisition, payment or ROI claim.",
+  "server": "supplier-statement-check",
+  "version": "0.23.0",
+  "protocol_tools_measured": 8,
+  "protocol_tool_names": [
+    "supplier_statement_check",
+    "report_list",
+    "report_get",
+    "report_page",
+    "report_delete",
+    "report_export_csv",
+    "license_status",
+    "license_activate"
+  ],
+  "build": {
+    "command": "npm_config_cache=/Users/mike/.npm-cache-local npm run build --prefix servers/supplier-statement-check",
+    "receipt": "data/r38_supplier_build.log",
+    "exit_code": 0
+  },
+  "test": {
+    "command": "/Users/mike/mcp-servers-work/bin/buildslot -- env npm_config_cache=/Users/mike/.npm-cache-local TMPDIR=/Users/mike/mcp-servers-work npm test --prefix servers/supplier-statement-check",
+    "receipt": "data/r38_supplier_build_tests_final.tap",
+    "tests": 30,
+    "pass": 30,
+    "fail": 0,
+    "skipped": 0,
+    "duration_ms": 2056.248125
+  },
+  "test_scope": [
+    "Independent brute-force grouping oracle across80seeded inputs",
+    "Every-row retention and deterministic input reordering",
+    "Exact scope, credit-note, Unicode, leading-zero and reference isolation",
+    "Real calendar dates, safe integer money, strict schemas, bounded inputs",
+    "Maximum2000source rows; complete adapted pages and CSV with bounded escaped MCP result envelopes",
+    "Preview eviction and30-minute expiry",
+    "Safe storage roots, symlinks, corrupted metadata/JSON and recomputed evidence",
+    "Same-process10parallel saves and six separate OS processes enforce free cap3",
+    "Real MCP initialize/tools/list/tools/call, freecap and savefailure preserve diagnostics",
+    "Real locally signed single and bundle keys; no skips",
+    "Independent reviewer four adversarial source tests included in30pass total"
+  ],
+  "licensing": {
+    "free": "All diagnostics, complete pages/CSV,2in-memory previews for30minutes,3saved reports",
+    "pro_price_usd": 19,
+    "bundle_price_usd": 39,
+    "pro_change": "Removes only saved-report count cap",
+    "storage_bound_both_tiers_bytes": 67108864,
+    "file_integrity_bound_bytes": 8388608,
+    "response_budget_bytes": 524288
+  },
+  "limitations": [
+    "No supplier opening/closing balance reconciliation, payment allocation, OCR/PDF extraction, ERP/writeback or payment approval.",
+    "Common as_of date is a caller declaration; source rows are not date-filtered and export completeness is not verified.",
+    "Currency code syntax only; no currency registry or conversion.",
+    "Paid saved-history convenience is an unvalidated hypothesis.",
+    "Dockerfile prepared; no local Docker build performed in this source scope.",
+    "Clean-clone mirror, exact packaged archive and public release gates are owned by parent/release agent."
+  ],
+  "temporary_cleanup": {
+    "manifest": "servers/supplier-statement-check/cleanup-manifest.jsonl",
+    "deletions_logged": 32,
+    "every_logged_deletion_lsof_clear": true,
+    "largest_logged_folder_bytes": 18040
+  },
+  "files": [
+    {
+      "path": "servers/supplier-statement-check/Dockerfile",
+      "bytes": 1490,
+      "sha256": "b7f6d221847c1ea1869cf845f5c23f533a58882ffcad775b3950dc27f354849b"
+    },
+    {
+      "path": "servers/supplier-statement-check/LICENSE",
+      "bytes": 1071,
+      "sha256": "e98e0516b5f76d3bad5df756dad6100b23b2a7f82c85dddcec2a2a5aa1677c6a"
+    },
+    {
+      "path": "servers/supplier-statement-check/README.md",
+      "bytes": 13480,
+      "sha256": "92a501069380ec1f7030d356c98240e411ec3965be5944333632088315bb12f1"
+    },
+    {
+      "path": "servers/supplier-statement-check/SPEC.md",
+      "bytes": 2070,
+      "sha256": "6cfee6474e119cc15df79bbf1eef7d550ae38dd6a71ad9efb97abb3883002bb3"
+    },
+    {
+      "path": "servers/supplier-statement-check/glama.json",
+      "bytes": 93,
+      "sha256": "d955c729a89bdfbcb2efe10808817bea2995f2796c6e8053e670bfffde66aa52"
+    },
+    {
+      "path": "servers/supplier-statement-check/package.json",
+      "bytes": 1203,
+      "sha256": "2f70d8926016a0966563c3f7df7cbb178b421e07d6fb2f96ba59f422f9b039b0"
+    },
+    {
+      "path": "servers/supplier-statement-check/server.json",
+      "bytes": 1002,
+      "sha256": "75da631fa8c7e320ffed4e82e1962c91b469641bc5d7efde3147f022f8c07864"
+    },
+    {
+      "path": "servers/supplier-statement-check/server.mcpb.json",
+      "bytes": 1002,
+      "sha256": "75da631fa8c7e320ffed4e82e1962c91b469641bc5d7efde3147f022f8c07864"
+    },
+    {
+      "path": "servers/supplier-statement-check/smithery.yaml",
+      "bytes": 339,
+      "sha256": "1af73a2cec0666229263e5326fe294c53cab60febbfa1fb1efa92608987f43b8"
+    },
+    {
+      "path": "servers/supplier-statement-check/src/core.ts",
+      "bytes": 9412,
+      "sha256": "bae72063bf91e17b0a510d7d53a905139eb7c6c265e6805eb7c122180ee02043"
+    },
+    {
+      "path": "servers/supplier-statement-check/src/index.ts",
+      "bytes": 5328,
+      "sha256": "9b5277698f97510aabfc53b63b46020f1f5e88eed9cc1f4d8226c8715f486913"
+    },
+    {
+      "path": "servers/supplier-statement-check/src/output.ts",
+      "bytes": 4334,
+      "sha256": "5c4ee9bb4d6f5d1e6f064c46440603fb3879d86af4150dfa62be44588e2d4495"
+    },
+    {
+      "path": "servers/supplier-statement-check/src/store.ts",
+      "bytes": 6266,
+      "sha256": "7f62240290e495e47859aa6d0462ff7cdb937008f865011f2b7876f07c64a3cf"
+    },
+    {
+      "path": "servers/supplier-statement-check/src/version.ts",
+      "bytes": 33,
+      "sha256": "88e069e03798fd1b543f0f8a1a5ec58521ac1b9281473018893b4164aa731f20"
+    },
+    {
+      "path": "servers/supplier-statement-check/test/_tmp-scope.mjs",
+      "bytes": 2318,
+      "sha256": "3284e156d91360660d3f02f44a50e90c641e40496a6f6154864ca7c146da25cd"
+    },
+    {
+      "path": "servers/supplier-statement-check/test/core.test.mjs",
+      "bytes": 8837,
+      "sha256": "5dc8ef995de4345a994ce59fbc03b97dad40e98766d811d474900a8ae94eaf41"
+    },
+    {
+      "path": "servers/supplier-statement-check/test/helpers.mjs",
+      "bytes": 1123,
+      "sha256": "f44fdcaffcac66c93c89d78ec8f8cc4fb2daabc9f359f5ed77f079697f7841f3"
+    },
+    {
+      "path": "servers/supplier-statement-check/test/output.test.mjs",
+      "bytes": 3319,
+      "sha256": "c19e5715f79d5c97b2cb853206fb3ecdf13f28f7cd413b470e1b24e713aa3942"
+    },
+    {
+      "path": "servers/supplier-statement-check/test/review-adversarial.test.mjs",
+      "bytes": 7340,
+      "sha256": "a60b60cc03838e9b0fcf1729521440460ff79939b36eed818c765335a38590df"
+    },
+    {
+      "path": "servers/supplier-statement-check/test/smoke.test.mjs",
+      "bytes": 4667,
+      "sha256": "8935f3a7eb558e919f9850b9cd427fb3d01393672e99611afde649a4bba3743d"
+    },
+    {
+      "path": "servers/supplier-statement-check/test/store.test.mjs",
+      "bytes": 4805,
+      "sha256": "9ec87b956d5a3b15a9f7b9ce0fdbccd3f0e871283472f9d86b3f598a0ec8d242"
+    },
+    {
+      "path": "servers/supplier-statement-check/tsconfig.json",
+      "bytes": 235,
+      "sha256": "f995bc8acde6ead647a398604133087d735a573ee7c27cb4efa2b532aedef066"
+    }
+  ],
+  "timing": {
+    "measurement": "SPEC.md filesystem birth time to final source receipt, not billing or total session cost",
+    "source_started_at": "2026-10-26T05:18:15.615038+00:00",
+    "elapsed_wall_minutes": 7.486
+  }
+}

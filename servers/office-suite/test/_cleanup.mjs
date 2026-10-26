@@ -46,7 +46,9 @@ export async function closeFixture(child, input) {
       if (!existsSync(path)) return;
       // The helper checks again immediately before deletion. A child may acquire
       // a handle between scans, so retry the guarded removal instead of racing it.
-    } else if (open.error || open.status !== 0) {
+    // A disappearing child handle can give lsof status 1 with partial rows.
+    // Retry that unsettled snapshot; deletion still requires status 1 and no rows.
+    } else if (open.error || ![0, 1].includes(open.status)) {
       throw Error("Retaining fixture: lsof could not prove all handles closed");
     }
     if (Date.now() >= deadline) throw Error("Retaining fixture: handles did not close before the deadline");

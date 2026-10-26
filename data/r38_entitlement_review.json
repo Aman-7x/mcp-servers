@@ -1,0 +1,85 @@
+{
+  "at": "2026-10-26T05:20:56.037Z",
+  "status": "reviewed_targeted_pass_catalogue_suite_waits_for_integration",
+  "scope": "Independent predeployment review of additive hosted license binding; no production requests or mutations",
+  "findings": [
+    {
+      "id": "ttl_lifetime",
+      "severity": "P1",
+      "trigger": "license_activate for a second product after a permanent earlier purchase",
+      "before": "Migration and new bindings inherited anonymous30-day storageTTL; an active refreshed token lost paid access after expiry",
+      "after": "Bindings persist independently of token/document retention; signed expiry checked on every read"
+    },
+    {
+      "id": "stale_scoped",
+      "severity": "P1",
+      "trigger": "A valid legacy purchase has an expired, corrupt or wrong-product scoped copy before another product activation",
+      "before": "Truthy invalid scoped slot blocked migration then legacy was replaced",
+      "after": "Verify existing scoped slot for the migrated product; replace rejected copy with valid legacy key, retain valid scoped copies"
+    },
+    {
+      "id": "shape_parity",
+      "severity": "P2",
+      "trigger": "Trusted signer issues a malformed expiry or other required payload field",
+      "before": "Hosted verifier accepted signed exp=\"never\" and incomplete numeric shape that billing rejects",
+      "after": "Hosted verification shares billing payloadShapeError; malformed signed fields rejected"
+    }
+  ],
+  "targeted": {
+    "command": "TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local /Users/mike/mcp-servers-work/bin/buildslot -- node --test billing/test/hosted-entitlements.test.mjs",
+    "tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "output": "data/r38_entitlement_review_targeted.tap"
+  },
+  "full_suite": {
+    "command": "TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local /Users/mike/mcp-servers-work/bin/buildslot -- node --test billing/test/*.test.mjs remote/test/*.test.mjs",
+    "tests": 325,
+    "passed": 322,
+    "failed": 2,
+    "skipped": 1,
+    "failures": [
+      "Bundle count48 existing paid singles vs49 eligible server directories while new supplier-statement-check integration is in progress",
+      "Generated billing/src/figures.js out of date while new server directory is being added"
+    ],
+    "skip": "Existing workerd SQLite DO runtime gate, not new entitlement tests",
+    "output": "data/r38_entitlement_review_full.tap",
+    "required_next": "Rerun complete suite after catalogue source/figures stabilize"
+  },
+  "remote_dry_run": {
+    "command": "cd remote && TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local /Users/mike/mcp-servers-work/bin/buildslot -- npx wrangler deploy --dry-run --strict --outdir /Users/mike/mcp-servers-work/r38-entitlement-remote-dryrun",
+    "exit_code": 0,
+    "wrangler": "4.80.0",
+    "upload_kib": 8118.45,
+    "gzip_kib": 1845.59,
+    "output": "data/r38_entitlement_review_remote_dryrun.txt"
+  },
+  "negative_control": "data/r38_entitlement_review_negative_control.json",
+  "source_sha256": {
+    "billing/src/hosted-bindings.js": "be660e1f26b6f2ee95c8ffe70877a03cefef721841ee3aef14f2276ab29d5b25",
+    "billing/src/fulfillment-engine.js": "4d665196e8e587f87023d1adf7b0d909f50dfcee1754e1a9a242407020959b1c",
+    "billing/src/index.js": "8b1648011f2885ca2bf2be1afa302287767c1965b3e845fa24c227dee6253da7",
+    "remote/src/index.ts": "a9e25141a58731a507c79e7719338ee614b885195f505a26049f97e94cfe7e2d",
+    "billing/test/hosted-entitlements.test.mjs": "530d3bd0e719c71fef1288f8c5e861b28272bd580b2e5eae2dd4aee70c3f217e"
+  },
+  "billing_test_count": 227,
+  "rollout": {
+    "order": [
+      "Remote worker with new readers and activation writers",
+      "Billing worker through scripts/deploy-billing-gated.mjs after complete gates pass"
+    ],
+    "compatibility": "Both writers retain a legacy slot. New readers prefer bundle then product then legacy. Roll back billing before remote if required; older readers expose only last legacy purchase even while independent scoped purchases remain stored."
+  },
+  "limitations": [
+    "Tests execute actual bundled Worker handlers under Node with mockedKV, not native workerd or live paid fulfillment",
+    "CloudflareKV eventual consistency and transient failures remain; existing already-lost purchases cannot be reconstructed without valid keys",
+    "Lifetime entitlement binding storage has no KV TTL; token/data retention remains separate and signed license expiry is authoritative",
+    "No existing refund/revocation system is introduced",
+    "Default /bound or whoami wildcard lookup preserves bundle/legacy status semantics; product-specific status query reads the requested scoped purchase, not an inventory of all purchases",
+    "Full source hashes are point-in-time; parent catalogue integration will change billing/src/index.js and must be gated again"
+  ],
+  "deployment_performed": false,
+  "paid_api_calls": 0,
+  "emails_sent": 0
+}

@@ -48,7 +48,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OWNER="theluckystrike"
 MONOREPO="https://github.com/${OWNER}/mcp-servers"
 RAW="https://raw.githubusercontent.com/${OWNER}/mcp-servers/main"
-ALL_SERVERS="time-tracker price-tracker spreadsheet invoice expense-tracker currency timezone docx resume recurring clauses pdf calendar kanban image bank-statement quotes barcode zip billing-docs deposits per-diem asset-register statement-of-account cash-book amortization petty-cash work-order catalogue change-order delivery-schedule checklist packing-list bill-of-sale credit-note job-card dunning-letters supplier-list service-agreement maintenance-log mileage-log purchase-requisition goods-receipt leave backlink-checker hourly-rate office-suite onboarding three-way-match duplicate-invoice-check"
+ALL_SERVERS="time-tracker price-tracker spreadsheet invoice expense-tracker currency timezone docx resume recurring clauses pdf calendar kanban image bank-statement quotes barcode zip billing-docs deposits per-diem asset-register statement-of-account cash-book amortization petty-cash work-order catalogue change-order delivery-schedule checklist packing-list bill-of-sale credit-note job-card dunning-letters supplier-list service-agreement maintenance-log mileage-log purchase-requisition goods-receipt leave backlink-checker hourly-rate office-suite onboarding three-way-match duplicate-invoice-check supplier-statement-check"
 DRY_RUN="${DRY_RUN:-0}"
 SQUASH="${SQUASH:-0}"
 NO_RELEASE="${NO_RELEASE:-0}"
@@ -943,7 +943,7 @@ PYRESULT
     # A history-mode push is a plain fast-forward: if anything else moved main in the
     # meantime it fails loudly instead of overwriting it. Only the squash path forces.
     PUSH_OPTS=(-q origin main)
-    [ -z "$REMOTE_HEAD" ] && PUSH_OPTS=(-q --force origin main)
+    [ "$SQUASH" = "1" ] && PUSH_OPTS=(-q --force origin main)
     if ! with_retry "git push $REPO" git -C "$MIRROR" push "${PUSH_OPTS[@]}"; then
       echo "FAILED $REPO: git push failed after retries" >&2
       FAILED_MIRRORS+=("$REPO: git push failed after retries")
