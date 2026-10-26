@@ -17,3 +17,10 @@
 - glama-watch repaired (PR #61, aae3551b): GitHub /mcp/servers surface retired (monorepo), probe retargeted to connector surface; control = statement-of-account connector. Full sweep green: 56 connectors cumulative, 16 graded, ALL A-tier (lowest 3.765 resume-builder-ats-checker, worst tool resume_to_html).
 - Glama badge.svg endpoint 302s to docs → not a listing signal; connector listing page renders 20 rotating rows → cumulative collection needed.
 - mcp.so: no evidence of fleet presence.
+
+
+## R38 — 2026-10-26 (four-hour monetization and distribution session)
+- Ten agents worked in waves. Published Supplier Statement Check v0.25.0, its free two-CSV browser task, and a complete Office package (50 children, 453 tools). Four mirrors/four Registry records, public archive bytes and the supplier Glama listing verified.
+- Deployed retained product/bundle entitlements and corrected both operations monitors. Original four-hour watch finished with 48 point samples, one recorded gap and passing final checks; two unpaid operator handoffs expired with $0 charged.
+- Closing native audit still records $0 MCP gross/zero paid matches, 38 Google impressions/zero clicks. Listings, clones and synthetic tests are not commercial ROI. Resend already works; requested relevant trial contacts and a concrete permitted batch are the missing outreach inputs.
+- Dashboard and immutable closing receipts: `index.html`, `intel/R38-session.md`, `data/r38_kpi_final_summary.json`. Wider estate remains red and seven older builds are missing.

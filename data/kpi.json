@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T05:40:40.015Z",
+  "generated_at": "2026-10-26T09:19:16.922Z",
   "kpis": [
     {
       "cat": "Discovery",
@@ -63,12 +63,12 @@
       "why": "Finalized exact-host search impressions for Sep 15–Oct 13; 34 impressions and zero clicks precede the matcher launch.",
       "status": "measured",
       "stale": false,
-      "measured_at": "2026-10-26T05:11:52.122Z",
+      "measured_at": "2026-10-26T09:12:56.128Z",
       "window": {
         "start": "2026-09-26",
         "end": "2026-10-23"
       },
-      "source_artifact": "data/r38_kpi_audit.json"
+      "source_artifact": "data/r38_kpi_final_audit.json"
     },
     {
       "cat": "Discovery",
@@ -137,12 +137,12 @@
       "why": "Repository reach is observable; visitor identities and successful usage are unproven.",
       "status": "measured",
       "stale": false,
-      "measured_at": "2026-10-26T05:11:18.894Z",
+      "measured_at": "2026-10-26T09:11:54.375Z",
       "window": {
         "start": "2026-10-11",
         "end": "2026-10-24"
       },
-      "source_artifact": "data/r38_kpi_audit.json"
+      "source_artifact": "data/r38_kpi_final_audit.json"
     },
     {
       "cat": "Install",
@@ -339,12 +339,12 @@
       "how": "Fully covered seven-day window; exact MCP host, probe=1 excluded, untagged not human.",
       "status": "zero",
       "stale": false,
-      "measured_at": "2026-10-26T05:11:21.184Z",
+      "measured_at": "2026-10-26T09:11:55.983Z",
       "window": {
-        "start": "2026-10-19T05:11:17.269Z",
-        "end": "2026-10-26T05:11:17.269Z"
+        "start": "2026-10-19T09:11:52.304Z",
+        "end": "2026-10-26T09:11:52.304Z"
       },
-      "source_artifact": "data/r38_kpi_audit.json"
+      "source_artifact": "data/r38_kpi_final_audit.json"
     },
     {
       "cat": "Monetization",
@@ -355,12 +355,12 @@
       "how": "Same fully covered window and paid-only criterion.",
       "status": "zero",
       "stale": false,
-      "measured_at": "2026-10-26T05:11:21.184Z",
+      "measured_at": "2026-10-26T09:11:55.983Z",
       "window": {
-        "start": "2026-10-19T05:11:17.269Z",
-        "end": "2026-10-26T05:11:17.269Z"
+        "start": "2026-10-19T09:11:52.304Z",
+        "end": "2026-10-26T09:11:52.304Z"
       },
-      "source_artifact": "data/r38_kpi_audit.json"
+      "source_artifact": "data/r38_kpi_final_audit.json"
     },
     {
       "cat": "Monetization",
@@ -379,17 +379,17 @@
     {
       "cat": "Monetization",
       "name": "Guard-passing upgrade clicks (7d)",
-      "value": 3,
+      "value": 4,
       "target": 20,
       "unit": "unmarked navigations",
-      "how": "Legacy metric includes dead routes. All three current observations are buy.unknown-product; no valid purchase-intent inference.",
+      "how": "Legacy metric includes 4 known dead-route observations; 0 other navigations do not establish valid intent.",
       "status": "measured",
       "stale": false,
-      "measured_at": "2026-10-26T05:11:20.054Z",
+      "measured_at": "2026-10-26T09:11:57.042Z",
       "window": {
         "scope": "Available completed Checkout history"
       },
-      "source_artifact": "data/r38_kpi_audit.json"
+      "source_artifact": "data/r38_kpi_final_audit.json"
     },
     {
       "cat": "Monetization",
@@ -401,12 +401,12 @@
       "why": "A ratio requires matched populations and time windows; request counters cannot identify buyers.",
       "status": "unmeasured",
       "stale": false,
-      "measured_at": "2026-10-26T05:11:21.184Z",
+      "measured_at": "2026-10-26T09:11:55.983Z",
       "window": {
-        "start": "2026-10-19T05:11:17.269Z",
-        "end": "2026-10-26T05:11:17.269Z"
+        "start": "2026-10-19T09:11:52.304Z",
+        "end": "2026-10-26T09:11:52.304Z"
       },
-      "source_artifact": "data/r38_kpi_audit.json"
+      "source_artifact": "data/r38_kpi_final_audit.json"
     },
     {
       "cat": "Monetization",
@@ -518,13 +518,13 @@
       "value": 0,
       "unit": "USD gross",
       "how": "All available completed Checkout records exhausted; exact MCP host/known-price/metadata tests and paid-account read control. Gross, not net profit.",
-      "measured_at": "2026-10-26T05:11:26.020Z",
+      "measured_at": "2026-10-26T09:12:00.431Z",
       "window": {
         "scope": "Available completed Checkout history"
       },
       "stale": false,
       "status": "zero",
-      "source_artifact": "data/r38_kpi_audit.json",
+      "source_artifact": "data/r38_kpi_final_audit.json",
       "why": "Commercial outcome measured separately from shared-account sales and synthetic unpaid QA.",
       "currency_totals_minor": {}
     },
@@ -535,14 +535,14 @@
       "value": 0,
       "unit": "clicks",
       "how": "Exact host, finalized 28-date page rows and parent-host positive control.",
-      "measured_at": "2026-10-26T05:11:52.122Z",
+      "measured_at": "2026-10-26T09:12:56.128Z",
       "window": {
         "start": "2026-09-26",
         "end": "2026-10-23"
       },
       "stale": false,
       "status": "zero",
-      "source_artifact": "data/r38_kpi_audit.json"
+      "source_artifact": "data/r38_kpi_final_audit.json"
     },
     {
       "cat": "Monetization",
@@ -551,29 +551,29 @@
       "value": 4,
       "unit": "Sessions",
       "window": {
-        "start": "2026-09-28T05:11:17.265Z",
-        "end": "2026-10-26T05:11:17.265Z"
+        "start": "2026-09-28T09:11:52.301Z",
+        "end": "2026-10-26T09:11:52.301Z"
       },
       "how": "Fully covered 28-day window; tagged probes excluded.",
-      "measured_at": "2026-10-26T05:11:24.690Z",
+      "measured_at": "2026-10-26T09:11:59.136Z",
       "stale": false,
       "status": "measured",
-      "source_artifact": "data/r38_kpi_audit.json"
+      "source_artifact": "data/r38_kpi_final_audit.json"
     },
     {
       "name": "Known unknown-product route clicks (7d)",
       "cat": "Monetization",
       "target": null,
-      "value": 3,
+      "value": 4,
       "unit": "dead-route navigations",
       "how": "Known dead-route minimum only; invalid products with a supplied valid src may be unresolved in historical data.",
-      "measured_at": "2026-10-26T05:11:20.054Z",
+      "measured_at": "2026-10-26T09:11:57.042Z",
       "window": {
         "scope": "Available completed Checkout history"
       },
       "stale": false,
       "status": "measured",
-      "source_artifact": "data/r38_kpi_audit.json"
+      "source_artifact": "data/r38_kpi_final_audit.json"
     }
   ],
   "raw": {
@@ -934,7 +934,7 @@
       }
     }
   },
-  "audit_source": "data/r38_kpi_audit.json",
+  "audit_source": "data/r38_kpi_final_audit.json",
   "windows": {
     "traffic": {
       "start": "2026-10-09T00:23:54Z",
@@ -942,8 +942,8 @@
       "days": 7
     },
     "stripe": {
-      "start": "2026-10-19T05:11:17.269Z",
-      "end": "2026-10-26T05:11:17.269Z"
+      "start": "2026-10-19T09:11:52.304Z",
+      "end": "2026-10-26T09:11:52.304Z"
     },
     "search": {
       "start": "2026-09-26",

@@ -1,0 +1,1 @@
+PASS: 30d eligible MCP completions checked=0, settling=0; enabled MCP webhook destinations=1; overdue MCP webhook events=0; observed Stripe webhook HTTP 4xx/5xx since 2026-10-25T09:11:52.000Z=0. Cloudflare adaptive analytics are sampled and identify Stripe by user agent; Stripe's API lacks endpoint response codes.

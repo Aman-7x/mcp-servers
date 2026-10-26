@@ -6,6 +6,7 @@ import { join, relative } from "node:path";
 import { buildSnapshot, inventoryForServer } from "./collect-ledger-tool-inventory.mjs";
 import { offerForServer, canonicalProducts } from "./dashboard-offers.mjs";
 import { renderRevenueReview } from "./revenue-review-panel.mjs";
+import { renderSessionHealth } from "./render-session-health.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const rd = (p) => existsSync(join(ROOT, p)) ? readFileSync(join(ROOT, p), "utf8") : "";
@@ -177,7 +178,7 @@ details summary{cursor:pointer;color:var(--acc);font-size:12.5px}
 <div class="tab on" id="tab-truth">
 ${renderRevenueReview(revenueReview)}
 ${currentPanel}
-${watch ? `<div class="card"><b>Session observation: ${esc(watch.status)}</b><p class="dim">Sampled since ${esc(watch.started_at)}. Last observation ${esc(watch.last_observed_at || 'pending')}; session deadline ${esc(watch.deadline_at)}. ${watch.snapshots.length} production observations. This panel is an observation record; a live process must be confirmed with its terminal handle.</p><p>Latest: approved version ${watch.snapshots.at(-1)?.pin_matches === true ? 'matches production' : 'not verified'}, scheduled monitor ${watch.snapshots.at(-1)?.cron?.ok === true ? 'passed' : 'not verified'}, public health HTTP ${esc(watch.snapshots.at(-1)?.public_health_status ?? 'unknown')}. ${esc(watch.snapshots.at(-1)?.health_note || '')}</p><a href="${esc(currentSession?.watch_path || "data/r36_watch.json")}">Observation evidence</a></div>` : ''}
+${watch ? `<div class="card"><b>Session observation: ${esc(watch.status)}</b><p class="dim">Sampled since ${esc(watch.started_at)}. Last observation ${esc(watch.last_observed_at || 'pending')}; session deadline ${esc(watch.deadline_at)}. ${watch.snapshots.length} production observations. This panel is an observation record; a live process or terminal check is required to establish an active watch.</p><p>Latest: approved version ${watch.snapshots.at(-1)?.pin_matches === true ? 'matches production' : 'not verified'}, scheduled monitor ${watch.snapshots.at(-1)?.cron?.ok === true ? 'passed' : 'not verified'}, public health HTTP ${esc(watch.snapshots.at(-1)?.public_health_status ?? 'unknown')}. ${esc(watch.snapshots.at(-1)?.health_note || '')}</p>${renderSessionHealth(watch)}<a href="${esc(currentSession?.watch_path || "data/r36_watch.json")}">Observation evidence</a></div>` : ''}
 <details><summary>Historical research and experiments, September 2026 (superseded where newer evidence exists)</summary>
 <div class="card"><b>Historical panel.</b> The observations below retain their original dates and were not refreshed by regenerating this page. Read the current session panel above for recent measurements.</div>
 ${l34 ? `<div class="card"><b>Loop 34, ${esc(l34.date)}.</b> ${esc(l34.headline)}

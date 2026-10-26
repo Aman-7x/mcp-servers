@@ -47,3 +47,9 @@ node --test billing/test/funnel-state.test.mjs billing/test/funnel-r1.test.mjs b
 ```
 
 Population controls pass 6/6; funnel controls pass 32/32, including false-success rejection, cohort handling, transaction rollback and retry/deduplication behavior in the local harness. These tests do not replace live paid fulfillment or full traffic capture. [Population test output](../data/r38_kpi_population_tests.txt), [funnel test output](../data/r38_kpi_funnel_tests.txt). The six prior evidence files retain their original SHA-256 hashes. Credentials and raw customer/Session objects remain in memory. No dashboard or shared reporting file was edited by this audit.
+
+## Closing snapshot, 09:12 UTC
+
+The immutable initial figures above are retained. [Closing native audit](../data/r38_kpi_final_audit.json) and [derived comparison](../data/r38_kpi_final_summary.json) still show zero MCP paid completions/$0 gross, four untagged 28-day Sessions, zero untagged seven-day Sessions, 38 finalized Search impressions/zero clicks and unchanged GitHub traffic windows. Six tagged 28-day probes are excluded. Unmarked hosted offer views are now 1,612; successful responses remain 19, first token/server/day observations seven and handoffs zero. Four known dead-route navigations are counted in seven UTC dates, with zero others. These changes do not establish buyers or causal launch effects.
+
+[Closing exact URL inspection](../data/r38_kpi_final_index_inspection.json): the homepage is indexed and was crawled at 08:35 UTC; the other seven inspected URLs, including the new supplier product and guide, are unknown to Google. No submission is represented as indexing.

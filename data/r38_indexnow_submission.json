@@ -1,0 +1,78 @@
+{
+  "started_at": "2026-10-26T08:10:48.274Z",
+  "status": "received",
+  "endpoint": "https://api.indexnow.org/indexnow",
+  "urls": [
+    "https://mcp.zovo.one/",
+    "https://mcp.zovo.one/servers",
+    "https://mcp.zovo.one/s/supplier-statement-check",
+    "https://mcp.zovo.one/guides/compare-supplier-statement-ap-open-items-in-claude",
+    "https://mcp.zovo.one/compare/supplier-statement-check",
+    "https://mcp.zovo.one/downloads",
+    "https://mcp.zovo.one/changelog",
+    "https://mcp.zovo.one/guides",
+    "https://mcp.zovo.one/compare",
+    "https://mcp.zovo.one/s/duplicate-invoice-check",
+    "https://mcp.zovo.one/s/three-way-match"
+  ],
+  "key_location": "https://mcp.zovo.one/e5c1a8f3d2b94c6f8a7d0e3b5c9f1a4d.txt",
+  "submissions": 1,
+  "scope": "One notification of changed owned pages, after marked GET and ownership-key checks. No contact, email, account, Checkout or business tool.",
+  "documentation": "https://www.indexnow.org/documentation",
+  "ownership_key_verified": true,
+  "public_checks": [
+    {
+      "url": "https://mcp.zovo.one/",
+      "http_status": 200
+    },
+    {
+      "url": "https://mcp.zovo.one/servers",
+      "http_status": 200
+    },
+    {
+      "url": "https://mcp.zovo.one/s/supplier-statement-check",
+      "http_status": 200
+    },
+    {
+      "url": "https://mcp.zovo.one/guides/compare-supplier-statement-ap-open-items-in-claude",
+      "http_status": 200
+    },
+    {
+      "url": "https://mcp.zovo.one/compare/supplier-statement-check",
+      "http_status": 200
+    },
+    {
+      "url": "https://mcp.zovo.one/downloads",
+      "http_status": 200
+    },
+    {
+      "url": "https://mcp.zovo.one/changelog",
+      "http_status": 200
+    },
+    {
+      "url": "https://mcp.zovo.one/guides",
+      "http_status": 200
+    },
+    {
+      "url": "https://mcp.zovo.one/compare",
+      "http_status": 200
+    },
+    {
+      "url": "https://mcp.zovo.one/s/duplicate-invoice-check",
+      "http_status": 200
+    },
+    {
+      "url": "https://mcp.zovo.one/s/three-way-match",
+      "http_status": 200
+    }
+  ],
+  "http_status": 200,
+  "response_bytes": 0,
+  "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "interpretation": "URLs received by the submission endpoint.",
+  "finished_at": "2026-10-26T08:10:55.964Z",
+  "limits": [
+    "Receipt does not prove page crawling, indexing, ranking, traffic or buyers.",
+    "This notification is separate from the existing Google sitemap submission; no repeated or all-estate submission was made."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-26T09:20:38.825317+00:00",
+  "status": "passed",
+  "removed": [
+    {
+      "at": "2026-10-26T09:20:38.825317+00:00",
+      "path": "/Users/mike/mcp-servers-work/node-compile-cache",
+      "bytes": 13296864,
+      "lsof_clear": true,
+      "reason": "Owned R38 V8 compile cache; all Node work and browsers finished"
+    }
+  ],
+  "preserved": "Preexisting Oct16 scratch files, agent sessions, public packages, source, runtime builds and private recoverable ZIP backups",
+  "other_session_cleanup": [
+    "data/r38_admin_work_cleanup.json",
+    "data/r38_completed_work_cleanup.json",
+    "data/r38_checkout_probe_cleanup.json"
+  ],
+  "all_owned_dashboard_browser_profiles_closed_and_removed": true,
+  "pr_body_cleanup": "Removed with lsof clear; manifest in data/build-deletions.jsonl. Exact description supplied to GitHub API from memory."
+}

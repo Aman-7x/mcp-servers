@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-26T08:25:03.526505+00:00",
+  "status": "passed",
+  "deleted": [
+    {
+      "at": "2026-10-26T08:25:02.893901+00:00",
+      "path": "/Users/mike/mcp-servers-work/bin",
+      "bytes": 796,
+      "lsof": "no open handles",
+      "reason": "Completed R38 temporary buildslot shim; all subsequent builds use installed /Users/mike/bin/buildslot"
+    },
+    {
+      "at": "2026-10-26T08:25:03.088700+00:00",
+      "path": "/Users/mike/mcp-servers-work/buildslots",
+      "bytes": 0,
+      "lsof": "no open handles",
+      "reason": "Completed R38 temporary shim lock directory; no active lock holder"
+    },
+    {
+      "at": "2026-10-26T08:25:03.303961+00:00",
+      "path": "/Users/mike/mcp-servers-work/mirror-supplier-statement-check.GUold0",
+      "bytes": 410797,
+      "lsof": "no open handles",
+      "reason": "Completed owned R38 standalone supplier mirror rehearsal; clean Git tree and published source/CI receipts retained"
+    },
+    {
+      "at": "2026-10-26T08:25:03.525511+00:00",
+      "path": "/Users/mike/mcp-servers-work/r38-compress-build-cache-second.py",
+      "bytes": 3632,
+      "lsof": "no open handles",
+      "reason": "Completed R38 lossless generated-cache compression helper; recovery ZIPs and manifests retained"
+    }
+  ],
+  "scope": "Only completed R38 work artifacts. Preexisting October16 work, node compile cache in active-use scope, source, recovery ZIPs and all agent sessions retained."
+}

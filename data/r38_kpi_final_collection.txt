@@ -1,0 +1,1 @@
+{"output":"data/r38_kpi_final_audit.json","status":"OK","channels":{"stripe_28d":"OK","stripe_7d":"OK","stripe_completed":"OK","github":"OK","search_console":"OK","funnel":"OK","upgrade_clicks":"OK"},"previous_evidence_unchanged":true}

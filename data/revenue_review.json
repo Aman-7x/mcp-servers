@@ -2,77 +2,77 @@
   "schema": 1,
   "title": "Why MCP revenue is still zero",
   "review_date_local": "2026-10-26",
-  "updated_at": "2026-10-26T05:11:52.124Z",
+  "updated_at": "2026-10-26T09:12:56.135Z",
   "timezone": "Asia/Ho_Chi_Minh",
-  "audit": "data/r38_kpi_audit.json",
+  "audit": "data/r38_kpi_final_audit.json",
   "report": "intel/R38-kpi.md",
-  "conclusion": "The payment and distribution assets exist, but qualified buyer discovery and the reason to buy Pro remain unvalidated. Google delivered zero measured clicks; hosted usage now records 19 unmarked successful responses and zero checkout handoffs.",
+  "conclusion": "The payment and distribution assets exist, but qualified buyer discovery and the reason to buy Pro remain unvalidated. Google delivered 0 measured clicks; hosted usage records 19 unmarked successful responses and 0 checkout handoffs.",
   "accountability": "Server counts, tests, directory listings, clones and synthetic probes are supply or reliability evidence. They are not sales, customers or demonstrated return on investment. The current server experiment is a bounded test of a documented workflow, not proof of demand.",
   "metrics": [
     {
       "value": "$0",
       "label": "MCP paid Checkout gross",
-      "window": "Available completed history read 2026-10-26T05:11:26.020Z",
+      "window": "Available completed history read 2026-10-26T09:12:00.431Z",
       "note": "186 paid shared-account read controls; no MCP paid matches by host, price or product metadata. Gross is not profit.",
-      "source": "data/r38_kpi_audit.json"
+      "source": "data/r38_kpi_final_audit.json"
     },
     {
       "value": 4,
       "label": "Untagged MCP Checkouts; none paid",
-      "window": "2026-09-28T05:11:17.265Z to 2026-10-26T05:11:17.265Z",
-      "note": "4 tagged probes excluded. Full 28-day window covered; Sessions do not establish buyers.",
-      "source": "data/r38_kpi_audit.json"
+      "window": "2026-09-28T09:11:52.301Z to 2026-10-26T09:11:52.301Z",
+      "note": "6 tagged probes excluded. Full 28-day window covered; Sessions do not establish buyers.",
+      "source": "data/r38_kpi_final_audit.json"
     },
     {
       "value": "38 / 0",
       "label": "Google impressions / clicks",
       "window": "2026-09-26 to 2026-10-23",
       "note": "28 finalized reporting dates, exact storefront host; no product or guide page row returned.",
-      "source": "data/r38_kpi_audit.json"
+      "source": "data/r38_kpi_final_audit.json"
     },
     {
       "value": 19,
       "label": "Unmarked successful hosted responses",
-      "window": "2026-10-20T00:00:00.000Z to 2026-10-26T05:11:19.101Z",
+      "window": "2026-10-20T00:00:00.000Z to 2026-10-26T09:11:56.007Z",
       "note": "7 first token/server/day observations. All unattributed; neither count is people or completed buyer jobs.",
-      "source": "data/r38_kpi_summary.json"
+      "source": "data/r38_kpi_final_summary.json"
     },
     {
-      "value": "3 / 0",
+      "value": "4 / 0",
       "label": "Known dead-route clicks / other clicks",
-      "window": "Seven UTC dates ending 2026-10-26T05:11:20.054Z",
-      "note": "All three guard-passing clicks use buy.unknown-product. These are invalid product navigations; no valid purchase-intent claim.",
-      "source": "data/r38_kpi_summary.json"
+      "window": "Seven UTC dates ending 2026-10-26T09:11:57.042Z",
+      "note": "4 observations are known dead routes; 0 others remain unverified. Source labels do not establish valid product intent.",
+      "source": "data/r38_kpi_final_summary.json"
     }
   ],
   "findings": [
     {
       "title": "Qualified discovery remains the limiting evidence",
-      "status": "38 Google impressions, zero clicks; no task-guide or product row",
+      "status": "38 Google impressions, 0 clicks; task URL rows retain their dated source",
       "evidence": "Finalized 2026-09-26 through 2026-10-23; homepage and protocol routes receive the impressions. GitHub reports 83 views and 43 clients in its separate window.",
       "implication": "Send existing relevant distribution traffic directly to an exact free task. Measure trials and repeat use before broad catalogue expansion.",
       "source": "intel/R38-kpi.md"
     },
     {
       "title": "Some hosted protocol use is now visible",
-      "status": "19 unmarked successes; seven first token/server/day observations",
-      "evidence": "The counters pool all servers and every success is unattributed. There are 1,581 unmarked offer views and zero unmarked handoffs in the same seven-date instrument window.",
+      "status": "19 unmarked successes; 7 first token/server/day observations",
+      "evidence": "The counters pool all servers. Source declarations are not verified attribution. There are 1612 unmarked offer views and 0 unmarked handoffs in the same seven-date instrument window.",
       "implication": "Keep the useful free workflows and source attribution. Do not treat automation-inclusive counters as a person-level conversion funnel.",
-      "source": "data/r38_kpi_summary.json"
+      "source": "data/r38_kpi_final_summary.json"
     },
     {
       "title": "Revenue is still unproven",
       "status": "Zero paid MCP Checkout Sessions across available completed history",
       "evidence": "Two exhausted pages contain 186 completed paid account records as positive controls; exact host, known price and metadata independently find no MCP paid match.",
       "implication": "A tested payment path is necessary. Buyer willingness to pay and actual net ROI still require independent receipts and attributable costs.",
-      "source": "data/r38_kpi_audit.json"
+      "source": "data/r38_kpi_final_audit.json"
     },
     {
-      "title": "Three reported upgrade clicks are dead routes",
-      "status": "Three buy.unknown-product observations; no other guard-passing clicks",
-      "evidence": "The unknown-product branch returns HTTP 404 and preserves a valid supplied source label when present. Aggregate click totals alone cannot certify valid-product interest.",
-      "implication": "Preserve dead-link diagnostics separately and keep unresolved clicks unresolved. Do not present these three observations as buyers considering Pro.",
-      "source": "data/r38_kpi_summary.json"
+      "title": "Separate dead-route clicks from unresolved navigation",
+      "status": "4 known dead-route observations; 0 other guard-passing clicks",
+      "evidence": "The unknown-product branch returns HTTP 404 and preserves a valid supplied source label when present. Other source buckets alone cannot certify valid-product interest.",
+      "implication": "Preserve dead-link diagnostics separately and keep unresolved clicks unresolved. Do not present these observations as buyers considering Pro.",
+      "source": "data/r38_kpi_final_summary.json"
     }
   ],
   "correction": {
@@ -105,9 +105,9 @@
     "Deployment, artifact tests and production observation are separately dated evidence."
   ],
   "indexation": {
-    "source": "data/r38_kpi_index_inspection.json",
-    "measured_at": "2026-10-26T05:11:52.124Z",
-    "summary": "Exact indexed-version inspections find both focus products, the duplicate guide and downloads unknown to Google. Homepage remains indexed. Earlier discovered-to-unknown responses do not independently prove deindexing.",
+    "source": "data/r38_kpi_final_index_inspection.json",
+    "measured_at": "2026-10-26T09:12:56.135Z",
+    "summary": "Exact URL indexed-version observations retain their dated receipt. Sitemap submission does not establish indexing; coverage changes alone do not prove removal.",
     "urls": []
   },
   "date_label": "26 October 2026 ICT"
