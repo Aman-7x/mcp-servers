@@ -23,12 +23,13 @@ const transport = new StdioClientTransport({ command: process.execPath, args: [j
 let stderr = ''; transport.stderr.on('data', value => { stderr += value.toString(); });
 const receipt = { at: new Date().toISOString(), mirror, method: 'Actual standalone mirror stdio; compare complete runtime names/descriptions against exact byte-verified Office archive manifest', tools: null, calls: 0, buyers: 0, payments: 0, checks: [] };
 try {
-  await client.connect(transport); assert.equal(client.getServerVersion().version, '0.25.0');
+  await client.connect(transport); assert.equal(client.getServerVersion().version, expected.version);
   const tools = []; let cursor;
   do { const page = await client.listTools(cursor ? { cursor } : {}); tools.push(...page.tools); cursor = page.nextCursor; } while (cursor);
   assert.deepEqual(tools.map(t => ({ name: t.name, description: t.description || '' })), expected.tools);
-  assert.equal(tools.length, 453); receipt.tools = tools.length;
-  receipt.checks.push('All 453 actual mirror tool names and descriptions match the tested archive; no partial capability tree');
+  assert(expected.tools.length > 0); assert.equal(tools.length, expected.tools.length); receipt.tools = tools.length;
+  receipt.version = expected.version;
+  receipt.checks.push(`All ${tools.length} actual mirror tool names and descriptions match the tested archive; no partial capability tree`);
   const call = async (name, arguments_) => { const r = await client.callTool({ name, arguments: arguments_ }); receipt.calls++; assert(!r.isError, r.content?.[0]?.text); return JSON.parse(r.content[0].text); };
   const common = { entity_id: 'ENTITY', supplier_id: 'SUPPLIER', currency: 'USD', document_type: 'invoice', document_reference: 'report_get', document_date: '2026-10-01', outstanding_minor: 10000 };
   const input = { as_of: '2026-10-26', statement_records: [{ ...common, record_id: 'S1' }], ledger_records: [{ ...common, record_id: 'L1', outstanding_minor: 11000 }], save: false };

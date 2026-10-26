@@ -1,0 +1,65 @@
+name: Office mirror preflight
+
+on:
+  pull_request:
+    paths:
+      - 'servers/**'
+      - 'packages/**'
+      - 'scripts/sync-mirrors.sh'
+      - 'scripts/mirror-seo.py'
+      - 'scripts/mirror-test-tmp-scope.mjs'
+      - 'scripts/bootstrap-timezone.mjs'
+      - 'scripts/r38-ci-office-mirror.mjs'
+      - 'scripts/r38-verify-office-mirror.mjs'
+      - 'test/r38-office-mirror-closure.test.mjs'
+      - 'data/facts.json'
+      - 'data/mirror_repo_overrides.json'
+      - 'bundles/office-suite/manifest.json'
+      - 'package*.json'
+      - '.github/workflows/office-mirror-preflight.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'servers/**'
+      - 'packages/**'
+      - 'scripts/sync-mirrors.sh'
+      - 'scripts/mirror-seo.py'
+      - 'scripts/mirror-test-tmp-scope.mjs'
+      - 'scripts/bootstrap-timezone.mjs'
+      - 'scripts/r38-ci-office-mirror.mjs'
+      - 'scripts/r38-verify-office-mirror.mjs'
+      - 'test/r38-office-mirror-closure.test.mjs'
+      - 'data/facts.json'
+      - 'data/mirror_repo_overrides.json'
+      - 'bundles/office-suite/manifest.json'
+      - 'package*.json'
+      - '.github/workflows/office-mirror-preflight.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  clean-mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install root dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Verify lsof is available
+        run: command -v lsof
+      - name: Build and verify the independent Office mirror
+        run: node scripts/r38-ci-office-mirror.mjs
+      - name: Upload complete command and runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: office-mirror-preflight-${{ github.run_id }}
+          path: data/r38_ci_office_mirror/
+          if-no-files-found: warn
