@@ -74,6 +74,9 @@ jobs:
             scripts/test/billing-scheduled-monitor.test.mjs \
             scripts/test/billing-mint-ephemeral.test.mjs \
             scripts/test/billing-route-ci.test.mjs
+          node --test test/checkout-probe-ownership.test.mjs \
+            test/r38-commercial-kpis.test.mjs \
+            test/r38-office-mirror-closure.test.mjs
           billing_tests=()
           for file in billing/test/*.test.mjs; do
             case "$file" in

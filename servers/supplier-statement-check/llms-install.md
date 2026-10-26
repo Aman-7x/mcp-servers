@@ -10,6 +10,7 @@ Install the `supplier-statement-check.mcpb` from https://mcp.zovo.one/downloads#
 git clone https://github.com/theluckystrike/mcp-servers.git
 cd mcp-servers
 npm install
+node scripts/bootstrap-timezone.mjs
 npm run build -w packages/mcp-license -w servers/supplier-statement-check
 claude mcp add --scope user supplier-statement-check -- node /absolute/path/to/mcp-servers/servers/supplier-statement-check/dist/index.js
 ```

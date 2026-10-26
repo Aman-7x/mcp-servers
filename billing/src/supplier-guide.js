@@ -19,6 +19,7 @@ ${SUPPLIER_DEMO_HTML}
 <pre><code>git clone https://github.com/theluckystrike/mcp-servers.git
 cd mcp-servers
 npm install
+node scripts/bootstrap-timezone.mjs
 npm run build -w packages/mcp-license -w servers/supplier-statement-check
 claude mcp add --scope user supplier-statement-check -- node /absolute/path/to/mcp-servers/servers/supplier-statement-check/dist/index.js</code></pre>
 <p>Replace the absolute path with yours. <a href="/setup/claude-desktop/supplier-statement-check">Claude Desktop</a>, <a href="/setup/cursor/supplier-statement-check">Cursor</a> and <a href="/setup/vscode/supplier-statement-check">VS Code</a> have client-specific configuration. This server is local stdio only; its npm package is not published.</p>

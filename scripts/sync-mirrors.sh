@@ -25,8 +25,8 @@
 # every @theluckystrike/* dependency reachable from a server's package.json -- recursively,
 # so a vendored package's own @theluckystrike deps are vendored too -- into vendor/<pkg>/,
 # and rewrites the dependency to a "file:" path pointing at it (siblings under vendor/
-# point at each other with "file:../<pkg>"). For office-suite this also vendors its ten
-# proxied servers the same way. A fresh clone therefore passes
+# point at each other with "file:../<pkg>"). For office-suite this also vendors every
+# source-declared child the same way. A fresh clone therefore passes
 # npm install && npm run build && npm test with no access to this monorepo.
 #
 # Usage:
@@ -308,21 +308,47 @@ jobs:
       - run: npm test
 EOF
 
+  # The proxy's authoritative child list can be larger than package.json: optional
+  # monorepo siblings resolve by path there, but a standalone mirror has no siblings.
+  # Register every declared child in the mirror-only dependency map before vendoring.
+  # No child names or versions are maintained a second time in this script.
+  if [ "$NAME" = "office-suite" ]; then
+    python3 - "$ROOT" "$MIRROR/package.json" <<'PYOFFICE'
+import json, pathlib, re, sys
+root = pathlib.Path(sys.argv[1])
+target = pathlib.Path(sys.argv[2])
+source = (root / 'servers/office-suite/src/index.ts').read_text()
+block = re.search(r'const CHILDREN: ChildDef\[\] = \[([\s\S]*?)\n\];', source)
+if not block:
+    raise SystemExit('Office CHILDREN declaration missing; refusing partial mirror')
+children = re.findall(r'\{\s*id:\s*"([a-z0-9-]+)"\s*,\s*pkg:\s*"(@theluckystrike/mcp-[a-z0-9-]+)"', block.group(1))
+if not children or len({name for name, _ in children}) != len(children):
+    raise SystemExit('Office child list empty or duplicated; refusing partial mirror')
+package = json.loads(target.read_text())
+deps = package.setdefault('dependencies', {})
+for name, expected_package in children:
+    child = json.loads((root / 'servers' / name / 'package.json').read_text())
+    if child['name'] != expected_package or not (root / 'servers' / name / 'dist/index.js').is_file():
+        raise SystemExit('Office child package/build mismatch: ' + name)
+    deps[expected_package] = '^' + child['version']
+target.write_text(json.dumps(package, indent=2) + '\n')
+print('  Office mirror: registered %d source-declared child packages' % len(children))
+PYOFFICE
+  fi
+
   # 2. vendored, unpublished dependencies: every @theluckystrike/* package reachable from
   #    this server's own package.json, vendored recursively (so e.g. resume's mcp-docx
   #    dep pulls in mcp-docx's own mcp-license dep too).
   vendor_closure "$ROOT/packages/mcp-license" "$MIRROR" "mcp-license"
-  #    office-suite is not a special case: its proxied children are exactly the
-  #    @theluckystrike deps in its own package.json, and step 3 below rewrites every one
-  #    of them to file:vendor/<pkg>, so a hand-maintained child list here silently
-  #    produces a mirror whose npm install cannot resolve the children it left out.
+  #    The mirror-only package map above also includes optional Office children.
+  #    Step 3 rewrites every unpublished dependency to its vendored file: path.
   for DEP in $(python3 -c '
 import json, sys
 p = json.load(open(sys.argv[1]))
 for k in (p.get("dependencies") or {}):
     if k.startswith("@theluckystrike/"):
         print(k)
-' "$SRC/package.json"); do
+' "$MIRROR/package.json"); do
     DEPBASE="${DEP#@theluckystrike/}"
     vendor_closure "$(pkg_src_dir "$DEPBASE")" "$MIRROR" "$DEPBASE"
   done

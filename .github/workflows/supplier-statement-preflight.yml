@@ -26,6 +26,7 @@ jobs:
         with:
           node-version: '22'
       - run: npm ci --ignore-scripts --workspace @theluckystrike/mcp-supplier-statement-check --include-workspace-root=true --no-audit --no-fund
+      - run: node scripts/bootstrap-timezone.mjs
       - run: npm run build -w packages/mcp-license -w servers/supplier-statement-check
       - name: Use an isolated ephemeral signer for paid-tier controls
         run: |
