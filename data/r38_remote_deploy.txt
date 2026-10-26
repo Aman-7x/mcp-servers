@@ -1,0 +1,14 @@
+buildslot[36101] 13:05:22: WAITING: only 19 GB free on /System/Volumes/Data (need 20 GB). No heavy build until disk is freed (delete target/, node_modules/, build caches, finished clones). Re-checking every 60s, giving up at 13:15.
+buildslot[36101] 13:06:22: slot 1 acquired: npx wrangler deploy --strict
+
+ ⛅️ wrangler 4.80.0
+───────────────────
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mYou are about to publish a Workers Service that was last updated via the script API.[0m
+
+  Edits that have been made via the script API will be overridden by your local code and config.
+
+
+[31m✘ [41;31m[[41;97mERROR[41;31m][0m [1mAborting the deployment operation because of conflicts. To override and deploy anyway remove the `--strict` flag[0m
+
+
+🪵  Logs were written to "/Users/mike/.wrangler/logs/wrangler-2026-10-26_06-06-23_542.log"

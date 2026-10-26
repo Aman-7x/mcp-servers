@@ -1,0 +1,147 @@
+{
+  "at": "2026-10-26T06:40:14.043Z",
+  "status": "passed",
+  "rows": [
+    {
+      "path": "/s/supplier-statement-check",
+      "status": 200,
+      "canonical": "https://mcp.zovo.one/s/supplier-statement-check",
+      "has_supplier": true,
+      "has_025": true,
+      "has_19": true,
+      "hosted_claim": false,
+      "bytes": 50507
+    },
+    {
+      "path": "/guides/compare-supplier-statement-ap-open-items-in-claude",
+      "status": 200,
+      "canonical": "https://mcp.zovo.one/guides/compare-supplier-statement-ap-open-items-in-claude",
+      "has_supplier": true,
+      "has_025": false,
+      "has_19": true,
+      "hosted_claim": false,
+      "bytes": 21304
+    },
+    {
+      "path": "/downloads",
+      "status": 200,
+      "canonical": null,
+      "has_supplier": true,
+      "has_025": true,
+      "has_19": false,
+      "hosted_claim": false,
+      "bytes": 21327
+    },
+    {
+      "path": "/compare/supplier-statement-check",
+      "status": 200,
+      "canonical": "https://mcp.zovo.one/compare/supplier-statement-check",
+      "has_supplier": true,
+      "has_025": false,
+      "has_19": true,
+      "hosted_claim": false,
+      "bytes": 14213
+    },
+    {
+      "path": "/setup/claude-desktop/supplier-statement-check",
+      "status": 200,
+      "canonical": "https://mcp.zovo.one/setup/claude-desktop/supplier-statement-check",
+      "has_supplier": true,
+      "has_025": false,
+      "has_19": true,
+      "hosted_claim": false,
+      "bytes": 18854
+    },
+    {
+      "path": "/setup/claude-code/supplier-statement-check",
+      "status": 200,
+      "canonical": "https://mcp.zovo.one/setup/claude-code/supplier-statement-check",
+      "has_supplier": true,
+      "has_025": false,
+      "has_19": true,
+      "hosted_claim": false,
+      "bytes": 18103
+    },
+    {
+      "path": "/setup/cursor/supplier-statement-check",
+      "status": 200,
+      "canonical": "https://mcp.zovo.one/setup/cursor/supplier-statement-check",
+      "has_supplier": true,
+      "has_025": false,
+      "has_19": true,
+      "hosted_claim": false,
+      "bytes": 17810
+    },
+    {
+      "path": "/setup/vscode/supplier-statement-check",
+      "status": 200,
+      "canonical": "https://mcp.zovo.one/setup/vscode/supplier-statement-check",
+      "has_supplier": true,
+      "has_025": false,
+      "has_19": true,
+      "hosted_claim": false,
+      "bytes": 18062
+    },
+    {
+      "path": "/setup/windsurf/supplier-statement-check",
+      "status": 200,
+      "canonical": "https://mcp.zovo.one/setup/windsurf/supplier-statement-check",
+      "has_supplier": true,
+      "has_025": false,
+      "has_19": true,
+      "hosted_claim": false,
+      "bytes": 17858
+    },
+    {
+      "path": "/setup/cline/supplier-statement-check",
+      "status": 200,
+      "canonical": "https://mcp.zovo.one/setup/cline/supplier-statement-check",
+      "has_supplier": true,
+      "has_025": false,
+      "has_19": true,
+      "hosted_claim": false,
+      "bytes": 17748
+    },
+    {
+      "path": "/buy/supplier-statement-check",
+      "status": 200,
+      "canonical": null,
+      "has_supplier": true,
+      "has_025": false,
+      "has_19": true,
+      "hosted_claim": false,
+      "bytes": 11595
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "canonical": null,
+      "has_supplier": true,
+      "has_025": false,
+      "has_19": false,
+      "hosted_claim": false,
+      "bytes": 29819
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "canonical": null,
+      "has_supplier": false,
+      "has_025": false,
+      "has_19": false,
+      "hosted_claim": false,
+      "bytes": 154
+    },
+    {
+      "path": "/llms.txt",
+      "status": 200,
+      "canonical": null,
+      "has_supplier": true,
+      "has_025": false,
+      "has_19": true,
+      "hosted_claim": false,
+      "bytes": 127407
+    }
+  ],
+  "requests": "Marked GETs only; no Checkout sessions or MCP business tools."
+}

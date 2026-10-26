@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-26T06:38:27.416Z",
+  "status": "passed",
+  "before": {
+    "id": "c2ba596b-07e6-4aca-98e7-e6434862a6d9",
+    "version": "00f4f00b-aac0-4e15-bc1d-fb318bf113c8"
+  },
+  "after": {
+    "id": "636501dc-bdd6-4e4b-aa67-483973061765",
+    "version": "323083e6-f55a-4195-8ba8-71a6c568eed6"
+  },
+  "wrangler_exit": 0,
+  "configuration_equal": true,
+  "scope": "Explicit traffic activation only, no trigger deployment. Authoritative API readback after CLI, including ambiguous CLI failures."
+}

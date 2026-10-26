@@ -1,0 +1,59 @@
+buildslot[85159] 13:48:27: slot 1 acquired: node --test test/r38-entitlement-probe-safety.test.mjs
+TAP version 13
+# Subtest: normal probe validates tiers, uses only marked license calls and cleans its own state
+ok 1 - normal probe validates tiers, uses only marked license calls and cleans its own state
+  ---
+  duration_ms: 16.47675
+  type: 'test'
+  ...
+# Subtest: cleanup-only preserves the prior verification receipt and writes separate completed evidence
+ok 2 - cleanup-only preserves the prior verification receipt and writes separate completed evidence
+  ---
+  duration_ms: 1.939084
+  type: 'test'
+  ...
+# Subtest: refused reruns cannot overwrite prior proof or an existing private journal
+ok 3 - refused reruns cannot overwrite prior proof or an existing private journal
+  ---
+  duration_ms: 0.875667
+  type: 'test'
+  ...
+# Subtest: a wrong JSON-RPC response ID cannot certify tier or activation success
+ok 4 - a wrong JSON-RPC response ID cannot certify tier or activation success
+  ---
+  duration_ms: 2.482375
+  type: 'test'
+  ...
+# Subtest: an out-of-prefix KV listing prevents every deletion and retains the recovery journal
+ok 5 - an out-of-prefix KV listing prevents every deletion and retains the recovery journal
+  ---
+  duration_ms: 1.800125
+  type: 'test'
+  ...
+# Subtest: failed owned-key deletion cannot destroy the remaining recovery journal
+ok 6 - failed owned-key deletion cannot destroy the remaining recovery journal
+  ---
+  duration_ms: 2.227125
+  type: 'test'
+  ...
+# Subtest: mint-started without an observed token is ambiguous and retains its private journal
+ok 7 - mint-started without an observed token is ambiguous and retains its private journal
+  ---
+  duration_ms: 0.552
+  type: 'test'
+  ...
+# Subtest: a conflicting probe marker refuses cleanup before listing or deleting keys
+ok 8 - a conflicting probe marker refuses cleanup before listing or deleting keys
+  ---
+  duration_ms: 0.495792
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 65.835875

@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-26T06:59:03.935Z",
+  "status": "passed",
+  "exit_code": 0,
+  "owned_bytes": 22972204,
+  "owned_scope_removed": true,
+  "traffic_changes": 0,
+  "scope": "Strict Wrangler compile/config validation, preserving root route declarations and production CPU1500. No live deploy or trigger changes."
+}

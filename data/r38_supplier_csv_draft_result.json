@@ -1,0 +1,49 @@
+{
+  "at": "2026-10-26T06:18:28.022Z",
+  "status": "DRAFT_READY_TESTS_NOT_RUN",
+  "tracked_runtime_changed": false,
+  "production_calls": 0,
+  "emails": 0,
+  "parser_test_cases": 13,
+  "bundled_controller_test_cases": 8,
+  "executed_test_cases": 0,
+  "validation_attempt": {
+    "command": "BUILDSLOT_MIN_FREE_GB=20 BUILDSLOT_MAX_WAIT=20 BUILDSLOT_DISK_POLL=5 /Users/mike/bin/buildslot node --test .scratch-distribution/r38-supplier-csv/supplier-csv.test.mjs",
+    "exit_code": 75,
+    "reason": "Global buildslot refused execution below20GB; wait was bounded20seconds",
+    "receipt": ".scratch-distribution/r38-supplier-csv/parser-tests.tap"
+  },
+  "integration_gate": "Parent GO after firstrelease; draftfiles only until then",
+  "files": [
+    {
+      "path": ".scratch-distribution/r38-supplier-csv/PLAN.md",
+      "bytes": 4488,
+      "sha256": "53c28906ae2c74a71fe5460645d91ae8a8497a5d96a1b1cfaaa3a859e3a7c48a"
+    },
+    {
+      "path": ".scratch-distribution/r38-supplier-csv/supplier-csv-markup.mjs",
+      "bytes": 3060,
+      "sha256": "14aff0bfc8731dcf950df3cba6ab10b07e81c37f15b850e58bb782ac95364b73"
+    },
+    {
+      "path": ".scratch-distribution/r38-supplier-csv/supplier-csv.mjs",
+      "bytes": 7401,
+      "sha256": "24acf32e4b3d965e4418f9dce860c5f25a0734b39a44cdd16b07a44984754c45"
+    },
+    {
+      "path": ".scratch-distribution/r38-supplier-csv/supplier-csv.test.mjs",
+      "bytes": 9810,
+      "sha256": "d0ed21aaa6aa6c49716382451ab1c5df2bc1040400c5e8e73d63f2da3f3ad978"
+    },
+    {
+      "path": ".scratch-distribution/r38-supplier-csv/supplier-demo.mjs",
+      "bytes": 9842,
+      "sha256": "4542206db1523be4f093295af166916e3f311e204f4bb2e74099b0fea7e1e040"
+    },
+    {
+      "path": ".scratch-distribution/r38-supplier-csv/supplier-demo.test.mjs",
+      "bytes": 9983,
+      "sha256": "7de7684a84d1d2f0154dd1ef81c30acaf8314e6207d4c309b73869cac6ad5dd7"
+    }
+  ]
+}

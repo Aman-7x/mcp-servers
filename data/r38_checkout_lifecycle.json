@@ -1,0 +1,51 @@
+{
+  "run_id": "729d3287-825f-4aab-be2f-4cc5ef795159",
+  "started_unix": 1792996887,
+  "source_reference": "e8599cbc38a011c7",
+  "tenant_reference": "82842770ff6acc7f",
+  "handoff_complete": true,
+  "profile_cleanup_complete": true,
+  "started_at": "2026-10-26T06:41:27.136Z",
+  "expected_version": "718485e7-1d17-43f8-aaa4-3c638177be35",
+  "method": "Real browser intent form; explicit probe header; synthetic tenant reference; Stripe page blocked; bounded expiry",
+  "rows": [
+    {
+      "product": "supplier-statement-check",
+      "session_reference": "e6f2e1b96c1012ac",
+      "order_reference": "6be764174e802bd0",
+      "amount_total_minor": 1900,
+      "currency": "usd",
+      "item_name": "MCP Supplier Statement Check Pro",
+      "probe_tag": "1",
+      "order_replay_reused": true,
+      "unpaid_fulfillment_status": 402,
+      "customer_created": false,
+      "payment_intent_created": false,
+      "expires_at": "2026-10-26T07:12:38.000Z"
+    },
+    {
+      "product": "bundle",
+      "session_reference": "c0f5d84abd0ea746",
+      "order_reference": "77e21fc9b8b5d4be",
+      "amount_total_minor": 3900,
+      "currency": "usd",
+      "item_name": "MCP Servers Bundle (all servers, lifetime)",
+      "probe_tag": "1",
+      "order_replay_reused": true,
+      "unpaid_fulfillment_status": 402,
+      "customer_created": false,
+      "payment_intent_created": false,
+      "expires_at": "2026-10-26T07:12:45.000Z"
+    }
+  ],
+  "created": 2,
+  "expired": 0,
+  "charged_minor": 0,
+  "payment_details_submitted": false,
+  "status": "awaiting_expiry",
+  "expiry_mode": "automatic_31_minutes",
+  "account_read_control": "Worker retrieved a CLI-visible unpaid session and refused fulfillment with 402",
+  "expiry_due_at": "2026-10-26T07:12:45.000Z",
+  "last_updated_at": "2026-10-26T06:41:52.876Z",
+  "submission_finished_at": "2026-10-26T06:41:52.876Z"
+}

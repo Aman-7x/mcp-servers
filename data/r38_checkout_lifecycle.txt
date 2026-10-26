@@ -1,0 +1,2 @@
+buildslot[76227] 13:41:27: slot 1 acquired: node scripts/checkout-lifecycle-probe.mjs --session r38 --single supplier-statement-check --execute-unpaid-probe --expected-version 718485e7-1d17-43f8-aaa4-3c638177be35
+PASS: marked unpaid $19/$39 handoffs, replay and refusal verified; automatic expiry awaits read-only verification at 2026-10-26T07:12:45.000Z

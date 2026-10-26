@@ -1,0 +1,103 @@
+{
+  "at": "2026-10-26T06:55:18.430Z",
+  "status": "READY_FOR_GATED_BILLING_RELEASE",
+  "scope": "Browser-only two-CSV input using unchanged supplier checkSchema/check; free diagnostics/evidence/CSV and paid saved-history cap unchanged",
+  "comparison_core_changed": false,
+  "server_archives_changed": false,
+  "generated_core_ui_sha256": "ef56af4758cea30cfe87dbe85759627faae55eee0f237f6ee991c66c30356933",
+  "verification": {
+    "targeted_tests": {
+      "command": "BUILDSLOT_MIN_FREE_GB=20 BUILDSLOT_MAX_WAIT=30 BUILDSLOT_DISK_POLL=5 /Users/mike/bin/buildslot node --test billing/test/supplier-demo.test.mjs billing/test/supplier-csv.test.mjs billing/test/supplier-csv-controller.test.mjs",
+      "passed": 25,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "data/r38_supplier_csv_tests_final.tap"
+    },
+    "actual_chrome": {
+      "passed": 22,
+      "original_checks": 9,
+      "new_csv_groups": 13,
+      "diagnostic_requests": 0,
+      "page_errors": 0,
+      "storage_writes": 0,
+      "receipt": "data/r38_supplier_csv_browser_verification.json",
+      "owned_scope_removed": true
+    },
+    "declared_billing_tests": 252,
+    "fresh_ci": "Workflow now builds supplier schema and checks generated supplier bytes; remote CI execution remains for coordinator"
+  },
+  "first_release_preservation": "data/r38_supplier_first_release_preservation.json",
+  "source_files": [
+    {
+      "path": "billing/browser/supplier-csv.mjs",
+      "bytes": 7401,
+      "sha256": "24acf32e4b3d965e4418f9dce860c5f25a0734b39a44cdd16b07a44984754c45"
+    },
+    {
+      "path": "billing/browser/supplier-demo.mjs",
+      "bytes": 9842,
+      "sha256": "4542206db1523be4f093295af166916e3f311e204f4bb2e74099b0fea7e1e040"
+    },
+    {
+      "path": "billing/src/supplier-csv-markup.mjs",
+      "bytes": 3069,
+      "sha256": "8ca776b844c16bc90901cf9e88fa146be27675c02d02959d2e8fe9152c601ca0"
+    },
+    {
+      "path": "billing/src/supplier-demo-markup.js",
+      "bytes": 4458,
+      "sha256": "b3a55f95ecfb3dd16b06d6b66a29a896ea54a3c7f3386bb2c22b865d7205f97c"
+    },
+    {
+      "path": "billing/src/supplier-demo-bundle.js",
+      "bytes": 80364,
+      "sha256": "ff773b4f5e4c19ee1579a2842133542259c2e35b98ea9c1474b011122ee7235c"
+    },
+    {
+      "path": "billing/src/supplier-guide.js",
+      "bytes": 5339,
+      "sha256": "ef8b9bfe7640ca5b8602a0a71244aa66dc8b94267e341874b7b68b5e69293563"
+    },
+    {
+      "path": "billing/test/supplier-csv.test.mjs",
+      "bytes": 9819,
+      "sha256": "fadc26275510811f43870b00a14716a74df686a2de9231b5ab80438605fd8421"
+    },
+    {
+      "path": "billing/test/supplier-csv-controller.test.mjs",
+      "bytes": 10001,
+      "sha256": "878f080635d32c3174b3d73e536d70bb8850b9149d532e2b47cc93932a256729"
+    },
+    {
+      "path": "scripts/build-supplier-demo.mjs",
+      "bytes": 1641,
+      "sha256": "d04f0837dba4ac2dc20ccf21e1332a3ff3a4af348d7fc18b887e75e3b7c3e83f"
+    },
+    {
+      "path": "scripts/verify-r38-supplier-browser.mjs",
+      "bytes": 19077,
+      "sha256": "8d845007c2dba3a36e34263265101ee8cae06f590ff7ef23ae5ea3dd276963be"
+    },
+    {
+      "path": "scripts/r38-supplier-csv-browser-cases.mjs",
+      "bytes": 17543,
+      "sha256": "78eff152bc75052e80151a085d33ea0d9ef777121c8329b2997ffdf93e52fc49"
+    },
+    {
+      "path": ".github/workflows/billing-preflight.yml",
+      "bytes": 4232,
+      "sha256": "f8e8d5e1646bfe236b4cd62967f0707279d43cea0f610b3c89c4a3f342ae5990"
+    }
+  ],
+  "paid_api_calls": 0,
+  "emails_sent": 0,
+  "checkout_sessions_created": 0,
+  "production_requests": 0,
+  "wall_minutes_since_first_tracked_regression_receipt": 12.12,
+  "limits": [
+    "No production CSV deployment claimed; root owns gated preflight/release and marked live22-case readback.",
+    "No person, qualified buyer, conversion-rate or ROI inference.",
+    "Browser tests block preexisting static font and Cloudflare infrastructure scripts rather than execute them.",
+    "The declared as-of date does not establish either export freshness/completeness; no mapping, normalization, FX/date coercion or balance/payment decision."
+  ]
+}

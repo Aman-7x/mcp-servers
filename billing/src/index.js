@@ -267,7 +267,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 231;
+export const BILLING_TEST_COUNT = 252;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -1677,7 +1677,7 @@ const worker = {
 
     if (path === "/downloads" && method === "GET") {
       const rows = Object.entries(BUNDLE_DOWNLOADS).map(([id, asset]) => `<tr id="${esc(id)}"><td><a href="/s/${esc(id)}">${esc(id)}</a></td><td><a href="${esc(asset.url)}">${esc(id)}.mcpb</a></td></tr>`).join("");
-      const body = page("Claude Desktop MCP bundle downloads", `<h1>Claude Desktop bundle downloads</h1><p>Choose your server, download its .mcpb file and open it in Claude Desktop. Each link points to a specific published release asset. Servers retain their last published bundle until a new one is released; a newer source version does not change an older archive.</p><p>The <a href="#office-suite">office suite</a> combines the local servers in one install. A free tier is included; activate an optional Pro key inside your client.</p><table><thead><tr><th>Server</th><th>Download</th></tr></thead><tbody>${rows}</tbody></table><p><a href="/setup">Client setup instructions</a> · <a href="/">All products and prices</a></p>`);
+      const body = page("Claude Desktop MCP bundle downloads", `<h1>Claude Desktop bundle downloads</h1><p>Choose your server, download its .mcpb file and open it in Claude Desktop. Each link points to a specific published release asset. Servers retain their last published bundle until a new one is released; a newer source version does not change an older archive.</p><p>The <a href="#office-suite">office suite</a> combines the local servers in one install. A free tier is included; activate an optional Pro key inside your client.</p><table><thead><tr><th>Server</th><th>Download</th></tr></thead><tbody>${rows}</tbody></table><p><a href="/setup">Client setup instructions</a> · <a href="/">All products and prices</a></p>`).replace("</title>", '</title><meta name="description" content="Download versioned local MCP server bundles for Claude Desktop, including Supplier Statement Check and Office Suite. Useful free tiers and optional Pro keys."><link rel="canonical" href="https://mcp.zovo.one/downloads">');
       return new Response(body, { headers: await contentHeaders(body) });
     }
 

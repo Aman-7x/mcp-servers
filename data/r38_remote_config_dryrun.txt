@@ -1,0 +1,11 @@
+
+ ⛅️ wrangler 4.80.0
+───────────────────
+Total Upload: 8118.45 KiB / gzip: 1845.58 KiB
+Your Worker has access to the following bindings:
+Binding                                                   Resource            
+env.FUNNEL (FunnelState, defined in mcp-funnel)           Durable Object      
+env.REMOTE_DATA (cf848cc5c07d4e0a9c7c65ad1c70055c)        KV Namespace        
+
+--dry-run: exiting now.
+buildslot[4488] 13:58:54: slot 1 acquired: npx wrangler deploy --dry-run --strict --outdir /Users/mike/mcp-servers-work/r38-remote-config-TLvtOc

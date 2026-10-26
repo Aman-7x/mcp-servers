@@ -4,11 +4,12 @@ import { SINGLE_USD, BUNDLE_USD } from './figures.js';
 export const SUPPLIER_GUIDE = {
   'compare-supplier-statement-ap-open-items-in-claude': {
     title: 'Compare supplier statement open items with an AP ledger in Claude',
-    description: 'Compare two supplied open-item lists locally: missing invoices, amount/date differences and repeated references. Try the exact engine in your browser with free CSV evidence.',
+    description: 'Compare two local CSV open-item exports: missing invoices, amount/date differences and repeated references. The same exact-key engine provides free source evidence and CSV.',
     html: `<h1>Compare supplier statement open items with an AP ledger</h1>
 <p>You have a supplier open-invoice statement and an accounts-payable open-item export for the same statement date. Identify which exact invoice or credit-note references are missing, disagree or repeat. <a href="/s/supplier-statement-check">MCP Supplier Statement Check</a> retains both sides of that evidence.</p>
 ${SUPPLIER_DEMO_HTML}
 <h2>Prepare comparable open items</h2>
+<p>For the browser route, select two UTF-8 CSV exports and declare their common as-of date. Use the exact required headers shown above. No automatic column mapping, discarded rows, date or currency conversion is performed. Both complete files must pass before a result appears; choosing another file or changing the input clears old evidence.</p>
 <p>Supply a common <code>as_of</code> date, <code>statement_records</code> and <code>ledger_records</code>. Each row needs a side-local unique record ID, exact entity and supplier IDs, uppercase currency code, invoice or credit-note type, document reference, real ISO document date and a positive integer <code>outstanding_minor</code> amount. The declared statement date does not verify export freshness or completeness.</p>
 <p>Credit notes use positive absolute outstanding amounts and match only credit notes. Currencies and entities never mix. Reference case, punctuation, Unicode and leading zeros remain significant; no equivalence is silently inferred.</p>
 <h2>Read the evidence</h2>

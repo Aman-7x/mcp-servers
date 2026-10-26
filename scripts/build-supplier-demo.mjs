@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 const root = new URL('../', import.meta.url);
-const inputs = ['servers/supplier-statement-check/src/core.ts', 'billing/browser/supplier-demo.mjs'];
+const inputs = ['servers/supplier-statement-check/src/core.ts', 'billing/browser/supplier-demo.mjs', 'billing/browser/supplier-csv.mjs'];
 const hash = createHash('sha256');
 for (const file of inputs) { hash.update(file); hash.update(readFileSync(new URL(file, root))); }
 const inputHash = hash.digest('hex');

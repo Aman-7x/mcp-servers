@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-26T06:41:32.713Z",
+  "status": "passed",
+  "billing_version": "718485e7-1d17-43f8-aaa4-3c638177be35",
+  "deployment_id": "824a1094-9e20-4d7c-98d6-5eeff9cf683a",
+  "traffic_percent": 100,
+  "local_and_remote_pin_match": true,
+  "buy_get_paths": 61,
+  "stripe_sessions_created_by_gate": 0,
+  "deploy_log_sha256": "c85db605b47554d6c1fbf622a21f24670bb5a032d1b6503bbb83cc032da5cc58",
+  "scope": "Supported upload/configuration/activation/live-GET guard completed, followed by authoritative deployment and local/remote pin readback. No real payment."
+}

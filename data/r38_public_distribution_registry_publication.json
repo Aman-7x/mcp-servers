@@ -1,0 +1,154 @@
+{
+  "started_at": "2026-10-26T06:51:18.732Z",
+  "status": "passed",
+  "method": "Native publisher; anonymous exact version/latest readbacks with official optional isRequired=false default applied",
+  "first_attempt": "data/r38_public_distribution_registry_first_attempt.json",
+  "schema_default": {
+    "url": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+    "path": "definitions.Input.properties.isRequired",
+    "default": false,
+    "http_status": 200
+  },
+  "rows": [
+    {
+      "file": "servers/supplier-statement-check/server.json",
+      "name": "io.github.theluckystrike/supplier-statement-check",
+      "version": "0.25.0",
+      "manifest_sha256": "354c2c3d1380be8e1946614cba556d4d7505cfd642c3c60127d9cdb7686d12d2",
+      "state": "published_verified_after_default_normalization",
+      "publication_attempted": false,
+      "prior_publication_accepted": true,
+      "version_readback": {
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fsupplier-statement-check/versions/0.25.0",
+        "http_status": 200,
+        "name": "io.github.theluckystrike/supplier-statement-check",
+        "version": "0.25.0",
+        "packages": [
+          {
+            "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/supplier-statement-check.mcpb",
+            "version": "0.25.0",
+            "fileSha256": "98784c618a5f7df7c0e3ea4d4528200c10ea43d65eff785fbc1cde55216b306b",
+            "transport": {
+              "type": "stdio"
+            }
+          }
+        ]
+      },
+      "latest_readback": {
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fsupplier-statement-check/versions/latest",
+        "http_status": 200,
+        "version": "0.25.0"
+      },
+      "verified_at": "2026-10-26T06:51:21.538Z"
+    },
+    {
+      "file": "servers/supplier-statement-check/server.vendor-statement.json",
+      "name": "io.github.theluckystrike/vendor-statement-open-items",
+      "version": "0.25.0",
+      "manifest_sha256": "6debb10d99bd2aebb9f557e8d90a7d9211e2a9377727c139732ba9ae4185ed0b",
+      "state": "published_verified",
+      "publication_attempted": true,
+      "prior_publication_accepted": false,
+      "publisher_exit_code": 0,
+      "version_readback": {
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fvendor-statement-open-items/versions/0.25.0",
+        "http_status": 200,
+        "name": "io.github.theluckystrike/vendor-statement-open-items",
+        "version": "0.25.0",
+        "packages": [
+          {
+            "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/supplier-statement-check.mcpb",
+            "version": "0.25.0",
+            "fileSha256": "98784c618a5f7df7c0e3ea4d4528200c10ea43d65eff785fbc1cde55216b306b",
+            "transport": {
+              "type": "stdio"
+            }
+          }
+        ]
+      },
+      "latest_readback": {
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Fvendor-statement-open-items/versions/latest",
+        "http_status": 200,
+        "version": "0.25.0"
+      },
+      "verified_at": "2026-10-26T06:51:25.950Z"
+    },
+    {
+      "file": "servers/office-suite/server.json",
+      "name": "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price",
+      "version": "0.25.0",
+      "manifest_sha256": "9b4a9d5281bf970df8b1ab0ce0bc45fae2308643919cbba1dd58768a5354df93",
+      "state": "published_verified",
+      "publication_attempted": true,
+      "prior_publication_accepted": false,
+      "publisher_exit_code": 0,
+      "version_readback": {
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Foffice-suite-time-invoice-expense-excel-price/versions/0.25.0",
+        "http_status": 200,
+        "name": "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price",
+        "version": "0.25.0",
+        "packages": [
+          {
+            "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/office-suite.mcpb",
+            "version": "0.25.0",
+            "fileSha256": "4918b493051b5a2c067c73013d093a0da08c9a41f8ac8ecd8f538107c167fb1a",
+            "transport": {
+              "type": "stdio"
+            }
+          }
+        ]
+      },
+      "latest_readback": {
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Foffice-suite-time-invoice-expense-excel-price/versions/latest",
+        "http_status": 200,
+        "version": "0.25.0"
+      },
+      "verified_at": "2026-10-26T06:51:29.590Z"
+    },
+    {
+      "file": "servers/office-suite/server.office-suite.json",
+      "name": "io.github.theluckystrike/office-suite",
+      "version": "0.25.0",
+      "manifest_sha256": "985374f05ac435f291aeb056dac9a36f28171e488d0a2f60025c93b817a89012",
+      "state": "published_verified",
+      "publication_attempted": true,
+      "prior_publication_accepted": false,
+      "publisher_exit_code": 0,
+      "version_readback": {
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Foffice-suite/versions/0.25.0",
+        "http_status": 200,
+        "name": "io.github.theluckystrike/office-suite",
+        "version": "0.25.0",
+        "packages": [
+          {
+            "identifier": "https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/office-suite.mcpb",
+            "version": "0.25.0",
+            "fileSha256": "4918b493051b5a2c067c73013d093a0da08c9a41f8ac8ecd8f538107c167fb1a",
+            "transport": {
+              "type": "stdio"
+            }
+          }
+        ]
+      },
+      "latest_readback": {
+        "url": "https://registry.modelcontextprotocol.io/v0.1/servers/io.github.theluckystrike%2Foffice-suite/versions/latest",
+        "http_status": 200,
+        "version": "0.25.0"
+      },
+      "verified_at": "2026-10-26T06:51:32.415Z"
+    }
+  ],
+  "emails_sent": 0,
+  "paid_api_usd": 0,
+  "positive_read_control": {
+    "name": "io.github.theluckystrike/duplicate-invoice-check",
+    "version": "0.22.8",
+    "http_status": 200
+  },
+  "native_auth_refreshed": true,
+  "unique_registry_rows": 4,
+  "new_capabilities": 1,
+  "updated_proxy_capabilities": 1,
+  "aliases_are_not_extra_servers": true,
+  "finished_at": "2026-10-26T06:51:32.415Z"
+}

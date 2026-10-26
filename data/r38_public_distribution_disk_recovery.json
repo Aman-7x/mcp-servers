@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-26T05:47:59.871Z",
+  "required_plan": {
+    "command": "coldstore --json plan --rules ~/.config/coldstore/rules-7d.conf",
+    "exit": 0,
+    "eligible_count": 0,
+    "eligible_bytes": 0
+  },
+  "push_performed": false,
+  "removed_owned_rehearsals": [
+    {
+      "path": "/Users/mike/mcp-servers-work/mirror-supplier-statement-check.0xARFR",
+      "bytes": 41397277
+    },
+    {
+      "path": "/Users/mike/mcp-servers-work/mirror-supplier-statement-check.02F4Ox",
+      "bytes": 412664
+    },
+    {
+      "path": "/Users/mike/mcp-servers-work/r38-distribution-rehearsal-HMvj7b",
+      "bytes": 550649
+    }
+  ],
+  "limits": "No user data, unrelated workspace, session files, snapshots or thresholds modified."
+}

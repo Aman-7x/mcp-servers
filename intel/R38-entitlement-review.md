@@ -46,3 +46,22 @@ Both writers retain the legacy slot. New readers check bundle, requested product
 These controls execute actual Worker source under Node with mocked KV, not live paid fulfillment or a native workerd deployment. Cloudflare KV eventual consistency can delay observations and does not supply transactional migration. Already-overwritten historical purchases cannot be reconstructed from an absent key; holders can reactivate their valid key. Entitlement storage now intentionally follows license validity rather than anonymous token TTL; token/data expiry still applies. No refund/revocation mechanism was added to the existing offline lifetime-license model. Default wildcard `/bound` and `whoami` keep their existing bundle/legacy status semantics; use `product=<id>` for a specific scoped purchase, not as an inventory of every purchase.
 
 [Review receipt and point-in-time source hashes](../data/r38_entitlement_review.json). Parent catalogue edits will change the billing entry point and require the normal final gates again.
+
+## Production verification, 26 October 2026, 06:45 UTC
+
+The preceding source checks retain their original checkpoint and results. The coordinator subsequently deployed remote version `323083e6-f55a-4195-8ba8-71a6c568eed6` and billing version `718485e7-1d17-43f8-aaa4-3c638177be35`, then ran the reviewed native probe from 06:45:09 through 06:45:44 UTC. [Actual edge receipt](../data/r38_hosted_entitlements_live_verification.json), [command output](../data/r38_hosted_entitlements_live_verification.txt).
+
+All ten checks pass across thirteen explicitly marked license-only MCP calls. The edge recognizes a valid legacy invoice purchase, starts Docx free, activates the second single while retaining Invoice Pro, and keeps bundle access to PDF and Docx after replaying the older single. Native KV key metadata confirms that the migrated Invoice scope and activated Docx scope have no anonymous-token expiry. Actual edge authentication returns 401 for wrong-product, expired and malformed signed-expiry bearer keys. Billing's product-specific `/bound` agrees across Invoice, Docx and PDF and returns no license material. The probe checks both expected deployment versions before and after its sequence.
+
+The probe used one marked synthetic tenant and short-lived signed operator keys. It created no Checkout Session, payment, email or business-tool call. Nine owned KV keys were deleted and all owned targets and prefixes were confirmed absent before the private journal was removed. Its `lsof` check and byte/path deletion manifest confirm local journal cleanup. Shared mint counters and unrelated tenants were retained. This verifies production entitlement behavior, not paid webhook fulfillment, customer demand, inbox delivery or actual elapsed 31-day retention; the latter remains covered by the separate virtual-time regression. KV caches can temporarily outlive an authoritative deletion.
+
+The probe itself now has repeatable offline safety tests in [r38-entitlement-probe-safety.test.mjs](../test/r38-entitlement-probe-safety.test.mjs). They execute the actual CLI source inside a VM with fully mocked filesystem, fetch, signing operation and credentials. The only real file read is the CLI source. No test creates a real file, private key, network request or production KV operation.
+
+```sh
+BUILDSLOT_MIN_FREE_GB=20 BUILDSLOT_MAX_WAIT=120 \
+TMPDIR=/Users/mike/mcp-servers-work npm_config_cache=/Users/mike/.npm-cache-local \
+  /Users/mike/bin/buildslot node --test test/r38-entitlement-probe-safety.test.mjs
+# tests 8; pass 8; fail 0; skipped 0
+```
+
+[Durable safety-test output](../data/r38_entitlement_probe_safety_tests.tap). Coverage preserves the original six scenarios: normal verification and cleanup, cleanup-only preserving prior proof, refused reruns, mismatched RPC IDs, foreign-prefix key listings, and failed owned-key deletion. Two additional cases require an ambiguous mint with no observed token to retain its journal, and require a conflicting ownership marker to prevent key listing or deletion. All tests preserve another tenant's token/document and a shared mint counter. Public receipt/log assertions reject raw probe tokens, license material and fake credentials. Existing proof is never overwritten, and cleanup success is never inferred merely from token absence. The test run started with 21 GB available; no temporary harness files remain because all fixtures are in memory.

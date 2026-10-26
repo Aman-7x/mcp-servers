@@ -14,7 +14,10 @@ const path = p => join(root, p);
 const load = p => JSON.parse(readFileSync(path(p), 'utf8'));
 const iso = () => new Date().toISOString();
 const hash = p => createHash('sha256').update(readFileSync(path(p))).digest('hex');
-const output = 'data/r38_kpi_audit.json';
+const args = process.argv.slice(2);
+assert(args.length === 1 && ['--collect', '--collect-final'].includes(args[0]), 'Use --collect or --collect-final for a bounded read-only snapshot');
+const output = args[0] === '--collect-final' ? 'data/r38_kpi_final_audit.json' : 'data/r38_kpi_audit.json';
+if (args[0] === '--collect-final') assert(Date.now() >= Date.parse(load('data/r38_session.json').deadline_at), 'Preserve the original four-hour observation before collecting the final snapshot');
 
 
 function save(p, data) {
@@ -119,6 +122,7 @@ async function searchConsole() {
   const [mcp, control] = await Promise.all([one('mcp.zovo.one'), one('zovo.one')]);
   assert.ok(control.impressions > 0);
   const inspection_urls = load('data/r37_google_index_after_revenue_review.json').urls.map(row => row.url);
+  if (args[0] === '--collect-final') inspection_urls.push('https://mcp.zovo.one/s/supplier-statement-check', 'https://mcp.zovo.one/guides/compare-supplier-statement-ap-open-items-in-claude');
   const inspections=[];
   for(const url of inspection_urls){
     try{
@@ -132,9 +136,9 @@ async function searchConsole() {
 }
 
 
-const args=process.argv.slice(2);assert(args.length===1&&args[0]==='--collect','Use --collect for a bounded read-only snapshot');
 try{readFileSync(path(output));throw Error('Output already exists; preserve the original snapshot')}catch(e){if(e.code!=='ENOENT')throw e;}
 const previous=['data/r37_kpi_baseline.json','data/r37_kpi_final.json','data/r37_watch.json','data/r37_google_index_after_final.json','data/revenue_audit_2026-10-17.json','data/r37_google_index_after_revenue_review.json'];
+if (args[0] === '--collect-final') previous.push('data/r38_kpi_audit.json', 'data/r38_kpi_summary.json');
 const before=Object.fromEntries(previous.map(p=>[p,hash(p)]));
 const audit={schema:1,started_at:iso(),scope:'Read-only revenue diagnosis: Stripe Checkout, Search Console, GitHub, hosted aggregate counters and URL Inspection. No Checkout creation, payment, tool calls, emails or external writes.'};
 async function aggregate(route){const r=await fetch('https://mcp.zovo.one'+route,{headers:{'x-mcp-probe':'1','user-agent':'mcp-revenue-audit/1'},signal:AbortSignal.timeout(45000)});const j=await r.json();assert(r.ok);if(route==='/stats/funnel')assert(j.complete===true&&j.instrument===2);if(route==='/stats/clicks')assert(j.instrument===3);return {status:'OK',fetched_at:iso(),method:'GET '+route+'; read-only, marked operator request',...j};}

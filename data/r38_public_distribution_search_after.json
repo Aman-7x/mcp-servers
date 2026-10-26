@@ -1,0 +1,355 @@
+{
+  "at": "2026-10-26T06:56:00.312Z",
+  "frozen_queries": "data/r38_distribution_candidate_queries.json",
+  "method": "Native GitHub best-match repository metadata search; exact frozen text reused; no user/search-volume or causal inference",
+  "rows": [
+    {
+      "q": "mcp supplier statement in:name,description",
+      "total_count": 2,
+      "incomplete_results": false,
+      "returned": 2,
+      "complete_page": true,
+      "supplier_position": 1,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-supplier-statement-check",
+          "description": "Model Context Protocol (MCP) server for supplier statement and vendor statement open-item reconciliation checks against a supplied AP ledger, with exact reference evidence. Compare supplied supplier statement and AP ledger open items, with complete exact-key evidence. Works with Claude Desktop, Claude Code and Cursor.",
+          "url": "https://github.com/theluckystrike/mcp-supplier-statement-check",
+          "stars": 0
+        },
+        {
+          "position": 2,
+          "full_name": "Walma-Labs/fortnox-mcp",
+          "description": "Open-source MCP server for Fortnox: invoices, supplier invoices, vouchers, income statement, balance sheet and AR/AP ageing from SIE. Read-only by default, draft-only writes.",
+          "url": "https://github.com/Walma-Labs/fortnox-mcp",
+          "stars": 1
+        }
+      ]
+    },
+    {
+      "q": "mcp vendor statement in:name,description",
+      "total_count": 1,
+      "incomplete_results": false,
+      "returned": 1,
+      "complete_page": true,
+      "supplier_position": 1,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-supplier-statement-check",
+          "description": "Model Context Protocol (MCP) server for supplier statement and vendor statement open-item reconciliation checks against a supplied AP ledger, with exact reference evidence. Compare supplied supplier statement and AP ledger open items, with complete exact-key evidence. Works with Claude Desktop, Claude Code and Cursor.",
+          "url": "https://github.com/theluckystrike/mcp-supplier-statement-check",
+          "stars": 0
+        }
+      ]
+    },
+    {
+      "q": "mcp supplier reconciliation in:name,description",
+      "total_count": 4,
+      "incomplete_results": false,
+      "returned": 4,
+      "complete_page": true,
+      "supplier_position": 3,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "mcp-dir/omie-mcp",
+          "description": "Financial & accounting management on Omie (Brazil's leading cloud ERP), payables/receivables, financial movements, reconciliation, bank accounts, customers/suppliers and NF-e invoices, via the official JSON API (app.omie.com.br). Read-only. Pairs wit",
+          "url": "https://github.com/mcp-dir/omie-mcp",
+          "stars": 8
+        },
+        {
+          "position": 2,
+          "full_name": "Ivansky1/unlav-data-tools-mcp",
+          "description": "Hosted CSV reconciliation and supplier quote comparison MCP services; fixed-price x402 on Base",
+          "url": "https://github.com/Ivansky1/unlav-data-tools-mcp",
+          "stars": 0
+        },
+        {
+          "position": 3,
+          "full_name": "theluckystrike/mcp-supplier-statement-check",
+          "description": "Model Context Protocol (MCP) server for supplier statement and vendor statement open-item reconciliation checks against a supplied AP ledger, with exact reference evidence. Compare supplied supplier statement and AP ledger open items, with complete exact-key evidence. Works with Claude Desktop, Claude Code and Cursor.",
+          "url": "https://github.com/theluckystrike/mcp-supplier-statement-check",
+          "stars": 0
+        },
+        {
+          "position": 4,
+          "full_name": "mcp-dir/f360-mcp",
+          "description": "Financial and accounting reconciliation on F360 Finanças (management for retail chains and franchises), card reconciliation, accounting/managerial reports, transfers between accounts, charts of accounts, customers/suppliers and invoices, via the offi",
+          "url": "https://github.com/mcp-dir/f360-mcp",
+          "stars": 0
+        }
+      ]
+    },
+    {
+      "q": "mcp statement reconciliation in:name,description",
+      "total_count": 6,
+      "incomplete_results": false,
+      "returned": 6,
+      "complete_page": true,
+      "supplier_position": 4,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "CodeFormers-it/ksefnik",
+          "description": "KSeF SDK for TypeScript/Node.js — invoice reconciliation with bank statements (MT940, mBank, ING, PKO, Santander), production KSeF 2.0 HTTP client, MCP server for Claude and Cursor. Open-source, MIT.",
+          "url": "https://github.com/CodeFormers-it/ksefnik",
+          "stars": 11
+        },
+        {
+          "position": 2,
+          "full_name": "bookchaowalit/finance-reconciliations-api",
+          "description": "Reconciliations service: account checks against statements and exports (API, database, MCP).",
+          "url": "https://github.com/bookchaowalit/finance-reconciliations-api",
+          "stars": 0
+        },
+        {
+          "position": 3,
+          "full_name": "alimpolat/bank-statement-sheet-mcp",
+          "description": "MCP server for Bank Statement Sheet — PDF bank statements to transactions with a pass/fail reconciliation verdict. Read-only mirror; releases publish to npm from here.",
+          "url": "https://github.com/alimpolat/bank-statement-sheet-mcp",
+          "stars": 0
+        },
+        {
+          "position": 4,
+          "full_name": "theluckystrike/mcp-supplier-statement-check",
+          "description": "Model Context Protocol (MCP) server for supplier statement and vendor statement open-item reconciliation checks against a supplied AP ledger, with exact reference evidence. Compare supplied supplier statement and AP ledger open items, with complete exact-key evidence. Works with Claude Desktop, Claude Code and Cursor.",
+          "url": "https://github.com/theluckystrike/mcp-supplier-statement-check",
+          "stars": 0
+        },
+        {
+          "position": 5,
+          "full_name": "SSYkolos/deterministic-finance-cad-mcp",
+          "description": "MCP server: exact bank-statement reconciliation, SEPA/NACHA payment files and DXF laser-cut quotes for AI assistants",
+          "url": "https://github.com/SSYkolos/deterministic-finance-cad-mcp",
+          "stars": 0
+        },
+        {
+          "position": 6,
+          "full_name": "MosoFin/mosofin-finance-skills",
+          "description": "Read-only accounting skills for Claude, run against your own books through the MosoFin MCP gateway: month-end close, bank reconciliation, journal entries, GL coding, financial statements, AR aging, three-way match. Every output is a proposal for a person to post. Published via the mosofin-plugins marketplace. Requires a MosoFin subscription.",
+          "url": "https://github.com/MosoFin/mosofin-finance-skills",
+          "stars": 0
+        }
+      ]
+    },
+    {
+      "q": "mcp accounts payable in:name,description",
+      "total_count": 17,
+      "incomplete_results": false,
+      "returned": 17,
+      "complete_page": true,
+      "supplier_position": null,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "mcp-dir/omie-mcp",
+          "description": "Financial & accounting management on Omie (Brazil's leading cloud ERP), payables/receivables, financial movements, reconciliation, bank accounts, customers/suppliers and NF-e invoices, via the official JSON API (app.omie.com.br). Read-only. Pairs wit",
+          "url": "https://github.com/mcp-dir/omie-mcp",
+          "stars": 8
+        },
+        {
+          "position": 2,
+          "full_name": "JuampiMasyk/ledger-mcp",
+          "description": "MCP server that lets LLM agents query and reconcile an accounts-payable ledger, with golden-set evals.",
+          "url": "https://github.com/JuampiMasyk/ledger-mcp",
+          "stars": 0
+        },
+        {
+          "position": 3,
+          "full_name": "rdbeagle/mcp-po-validator",
+          "description": "In accounts payable, invoice discrepancies are common and require manual review. This MCP-based AI agent automates that validation process",
+          "url": "https://github.com/rdbeagle/mcp-po-validator",
+          "stars": 0
+        },
+        {
+          "position": 4,
+          "full_name": "daedalusdevelopmentgroup/ddg-agent-payable-services",
+          "description": "Pay-per-call x402 gateway for AI agents — MCP server + OpenAI-compatible API for agent tools, market data, RPC, and MCP security audits. Pay in USDC on Base, no account.",
+          "url": "https://github.com/daedalusdevelopmentgroup/ddg-agent-payable-services",
+          "stars": 0
+        },
+        {
+          "position": 5,
+          "full_name": "fnandop/agent-framework-pocs",
+          "description": "Multi-Agent Accounts Payable Email Processing with Azure Agent Framework, MCP, and Azure Document Intelligence",
+          "url": "https://github.com/fnandop/agent-framework-pocs",
+          "stars": 0
+        },
+        {
+          "position": 6,
+          "full_name": "stefanel96/ap-inbox-agent",
+          "description": "AI agent for an accounts payable inbox: classify emails and attachments, find payment chasers, chat via Hermes (MCP)",
+          "url": "https://github.com/stefanel96/ap-inbox-agent",
+          "stars": 0
+        },
+        {
+          "position": 7,
+          "full_name": "Jbase16/ledgerghost",
+          "description": "A deterministic, evidence-first accounts-payable document intelligence lab with SQL reconciliation, anomaly ranking, REST, MCP, and independent verification.",
+          "url": "https://github.com/Jbase16/ledgerghost",
+          "stars": 0
+        },
+        {
+          "position": 8,
+          "full_name": "mcp-dir/olist-mcp",
+          "description": "Olist Tiny e-commerce ERP (formerly Tiny ERP) with the full official REST API v3, products, stock, orders, fiscal invoices (NF-e/NFC-e), accounts payable and receivable, contacts, shipping, purchase and service orders, CRM and price lists. Read and w",
+          "url": "https://github.com/mcp-dir/olist-mcp",
+          "stars": 0
+        },
+        {
+          "position": 9,
+          "full_name": "alihdrndm/ledgic",
+          "description": "Open-source accounts-payable automation: AI extraction, three-way match, tool-using agents, RAG copilot and an MCP server. Next.js + FastAPI + Supabase.",
+          "url": "https://github.com/alihdrndm/ledgic",
+          "stars": 0
+        },
+        {
+          "position": 10,
+          "full_name": "PvHeerden/local-llm-fo-vendor-agent",
+          "description": "An autonomous, locally-hosted LLM agent using Ollama and MCP to retrieve, analyze, and format Microsoft Dynamics 365 F&O Accounts Payable data.",
+          "url": "https://github.com/PvHeerden/local-llm-fo-vendor-agent",
+          "stars": 0
+        },
+        {
+          "position": 11,
+          "full_name": "jse-avl/ledgerpilot-ai",
+          "description": "AI-optional accounts payable agent: deterministic financial core, stateless MCP server, bilingual Next.js UI, and offline evals that run with no API key.",
+          "url": "https://github.com/jse-avl/ledgerpilot-ai",
+          "stars": 0
+        },
+        {
+          "position": 12,
+          "full_name": "Kali123411/k402-mcp",
+          "description": "MCP server for k402 agent-payable APIs on Kaspa — text tools, chain data, GPU inference, covenants-as-a-service, and RISC Zero zk attestation, paid per call in KAS/BTC/LTC/DOGE/BCH/DASH/ETH/USDC — no account or API key",
+          "url": "https://github.com/Kali123411/k402-mcp",
+          "stars": 1
+        },
+        {
+          "position": 13,
+          "full_name": "JoshilFernandes/invoiceguard-ai",
+          "description": "Agentic accounts-payable automation for German e-invoicing (EN 16931 / XRechnung): LangGraph agent with human-in-the-loop approval, fraud detection, 3-way matching, MCP server and CI-gated evals.",
+          "url": "https://github.com/JoshilFernandes/invoiceguard-ai",
+          "stars": 0
+        },
+        {
+          "position": 14,
+          "full_name": "krushna-1008/Invoice-IQ",
+          "description": "Designed and developed a production-grade backend system that automates the accounts payable workflow. The platform ingests invoice PDFs, extracts structured financial data using AI, validates invoices against business rules, manages approval workflows, exposes enterprise APIs, and integrates with external accounting systems through an MCP server.",
+          "url": "https://github.com/krushna-1008/Invoice-IQ",
+          "stars": 0
+        },
+        {
+          "position": 15,
+          "full_name": "ShubhamBaghel309/ai-employee-runtime",
+          "description": "A multi-tenant runtime for AI employees: SOP-driven workers that use MCP connectors and the browser, one permission gate, async approvals, a task queue and scheduler, a hash-chained audit log and learning from human feedback. Demo: Accounts Payable and HR.",
+          "url": "https://github.com/ShubhamBaghel309/ai-employee-runtime",
+          "stars": 0
+        },
+        {
+          "position": 16,
+          "full_name": "kamerozkan/xrechnung-xml-batch-validator-api-sample",
+          "description": "Validate XRechnung 3.0.x XML and ZUGFeRD 2.5 or Factur-X 1.09 XML/PDF with pinned rules and structured findings. Batch e-invoice validation and E-Rechnung Prüfung for accounts payable automation, Steuerberater workflows, ERP and einvoice pipelines via API, n8n, Make, or MCP agents.",
+          "url": "https://github.com/kamerozkan/xrechnung-xml-batch-validator-api-sample",
+          "stars": 0
+        },
+        {
+          "position": 17,
+          "full_name": "Rotwang9000/seneschal-data-api",
+          "description": "Agent-payable Monero & Zcash payment watching (view-key webhooks, historical scans, native XMR/ZEC top-ups) plus DeFi liquidation + Ethereum builder data. REST + MCP, paid per call via x402 USDC on Base — no account, no API key. Live at api.seneschal.space.",
+          "url": "https://github.com/Rotwang9000/seneschal-data-api",
+          "stars": 1
+        }
+      ]
+    },
+    {
+      "q": "mcp three way match in:name,description",
+      "total_count": 11,
+      "incomplete_results": false,
+      "returned": 11,
+      "complete_page": true,
+      "supplier_position": null,
+      "results": [
+        {
+          "position": 1,
+          "full_name": "theluckystrike/mcp-three-way-match",
+          "description": "Model Context Protocol (MCP) server for three way matching: supplier invoice matching against purchase orders and accepted receipts by SKU. Supplier invoice, purchase order and receipt checks by exact SKU. Works with Claude Desktop, Claude Code and Cursor.",
+          "url": "https://github.com/theluckystrike/mcp-three-way-match",
+          "stars": 0
+        },
+        {
+          "position": 2,
+          "full_name": "zavora-ai/skill-procurement",
+          "description": "Procurement skill — suppliers, RFQs, POs, contracts, three-way match, risk scoring, savings, negotiation via mcp-procurement",
+          "url": "https://github.com/zavora-ai/skill-procurement",
+          "stars": 2
+        },
+        {
+          "position": 3,
+          "full_name": "Pawel-BoOssko/invoice-match-mcp",
+          "description": "MCP server that three-way-matches supplier invoices against purchase orders: deterministic rule engine, golden-case evals, tests. LLM as interface, rules as policy.",
+          "url": "https://github.com/Pawel-BoOssko/invoice-match-mcp",
+          "stars": 0
+        },
+        {
+          "position": 4,
+          "full_name": "Pchambet/consolidation-erp-mcp",
+          "description": "Odoo + FEC ledger + warehouse API consolidated in DuckDB; SQL three-way-match controls recover all 22 planted discrepancies; LLM agent queries it via MCP",
+          "url": "https://github.com/Pchambet/consolidation-erp-mcp",
+          "stars": 0
+        },
+        {
+          "position": 5,
+          "full_name": "sergio4848/p2p-mcp-agent",
+          "description": "MCP server over mock purchase-to-pay finance APIs: three-way match, human-approved payments, idempotency, hash-chained audit log, LangGraph agent and eval harness",
+          "url": "https://github.com/sergio4848/p2p-mcp-agent",
+          "stars": 0
+        },
+        {
+          "position": 6,
+          "full_name": "Gurmeher23/mcp-ledger-server-ts",
+          "description": "TypeScript MCP server exposing an invoice-ledger domain (three-way match, exception routing) as agent tools, with zod validation, Vitest unit/integration tests and a tool-calling eval harness",
+          "url": "https://github.com/Gurmeher23/mcp-ledger-server-ts",
+          "stars": 0
+        },
+        {
+          "position": 7,
+          "full_name": "alihdrndm/ledgic",
+          "description": "Open-source accounts-payable automation: AI extraction, three-way match, tool-using agents, RAG copilot and an MCP server. Next.js + FastAPI + Supabase.",
+          "url": "https://github.com/alihdrndm/ledgic",
+          "stars": 0
+        },
+        {
+          "position": 8,
+          "full_name": "prab-hub/revexos-q2c-kit",
+          "description": "Quote-to-cash skills for Claude: quotes, PO to invoice, three-way match, billing and proration, payment terms, collections and revenue recognition, plus the free RevExOS MCP connector",
+          "url": "https://github.com/prab-hub/revexos-q2c-kit",
+          "stars": 0
+        },
+        {
+          "position": 9,
+          "full_name": "roopagager/sap-p2p-copilot",
+          "description": "Governed MCP server giving an AI assistant read-only access to SAP S/4HANA procure-to-pay data: three-way match, approval-only actions, audit trail, Parquet landing for Databricks.",
+          "url": "https://github.com/roopagager/sap-p2p-copilot",
+          "stars": 0
+        },
+        {
+          "position": 10,
+          "full_name": "MosoFin/mosofin-finance-skills",
+          "description": "Read-only accounting skills for Claude, run against your own books through the MosoFin MCP gateway: month-end close, bank reconciliation, journal entries, GL coding, financial statements, AR aging, three-way match. Every output is a proposal for a person to post. Published via the mosofin-plugins marketplace. Requires a MosoFin subscription.",
+          "url": "https://github.com/MosoFin/mosofin-finance-skills",
+          "stars": 0
+        },
+        {
+          "position": 11,
+          "full_name": "akhilkrishnankv/Procure",
+          "description": "Autonomous AI agent for three way invoice matching: extracts supplier PDFs from email, matches with POs and receipts in Odoo ERP, auto-approves high confidence cases, and routes edge cases for human review. Built as a multi agent system using LangGraph, GPT 4o Vision, fuzzy ontology, and MCP abstraction with real time ERP integration.",
+          "url": "https://github.com/akhilkrishnankv/Procure",
+          "stars": 0
+        }
+      ]
+    }
+  ],
+  "paid_api_usd": 0
+}

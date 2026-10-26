@@ -32,7 +32,7 @@ jobs:
             exit 0
           fi
           git diff --name-only "$BASE_SHA" "$GITHUB_SHA" > "$RUNNER_TEMP/billing-changed-files"
-          if grep -Eq '^(billing/|scripts/billing-|scripts/deploy-billing-gated\.mjs$|scripts/test/(billing-|deploy-billing-gated\.)|\.github/workflows/billing-(preflight|monitor-watchdog|monitor-periodic)\.yml$)' "$RUNNER_TEMP/billing-changed-files"; then
+          if grep -Eq '^(billing/|servers/(duplicate-invoice-check|supplier-statement-check)/|scripts/build-(duplicate|supplier)-demo\.mjs$|scripts/r38-verify-hosted-entitlements\.mjs$|test/r38-entitlement-probe-safety\.test\.mjs$|scripts/billing-|scripts/deploy-billing-gated\.mjs$|scripts/test/(billing-|deploy-billing-gated\.)|\.github/workflows/billing-(preflight|monitor-watchdog|monitor-periodic)\.yml$)' "$RUNNER_TEMP/billing-changed-files"; then
             echo 'check=true' >> "$GITHUB_OUTPUT"
           else
             echo 'check=false' >> "$GITHUB_OUTPUT"
@@ -46,14 +46,15 @@ jobs:
 
       # CSV browser-adapter tests validate against the actual compiled product schema.
       # Fresh CI checkouts have no ignored dist outputs or workspace dependencies.
-      - name: Install Worker dependencies and build duplicate-invoice browser schema
+      - name: Install Worker dependencies and build browser comparison schemas
         if: steps.scope.outputs.check == 'true'
         run: |
           # Hosted entitlement tests bundle the actual remote handlers, whose
           # imports include the wider Worker dependency closure.
           npm ci --ignore-scripts --no-audit --no-fund
           node scripts/bootstrap-timezone.mjs
-          npm run build -w packages/mcp-license -w servers/duplicate-invoice-check
+          npm run build -w packages/mcp-license -w servers/duplicate-invoice-check -w servers/supplier-statement-check
+          node scripts/build-supplier-demo.mjs --check
 
       # Match the Wrangler version used by the current production release
       # path. No Cloudflare credential is needed for a dry run.
@@ -75,6 +76,7 @@ jobs:
             scripts/test/billing-mint-ephemeral.test.mjs \
             scripts/test/billing-route-ci.test.mjs
           node --test test/checkout-probe-ownership.test.mjs \
+            test/r38-entitlement-probe-safety.test.mjs \
             test/r38-commercial-kpis.test.mjs \
             test/r38-office-mirror-closure.test.mjs
           billing_tests=()

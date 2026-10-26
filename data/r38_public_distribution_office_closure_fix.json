@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-26T05:51:03.555Z",
+  "status": "fixed_and_verified_in_independent_ci",
+  "negative_control": {
+    "test_log": "data/r38_public_distribution_office_tests_initial.tap",
+    "test_count": 10,
+    "passed": 5,
+    "failed": 1,
+    "skipped": 4,
+    "observed_proxy_tools": 133,
+    "expected_archive_tools": 453,
+    "reason": "Mirror dependency closure followed the partial root package.json and skipped 36 source-declared optional children."
+  },
+  "fix": {
+    "authority": "servers/office-suite/src/index.ts CHILDREN",
+    "mirror_dependency_map": "/Users/mike/mcp-servers-work/mirror-office-suite.W3RgRr/package.json",
+    "registered_children": 50,
+    "all_dependencies_are_vendored_file_paths": true,
+    "source_script_sha256": "6f82c019077e8d8ce0c28b2df1a8a78fb3eb521810071514776009ec147e41df",
+    "global_source_packages_or_archives_modified": false
+  },
+  "controls": {
+    "test": "test/r38-office-mirror-closure.test.mjs",
+    "passed": 3,
+    "failed": 0,
+    "log": "data/r38_public_distribution_closure_tests.tap"
+  },
+  "fixed_mirror_build_exit": 0,
+  "final_suite": "data/r38_public_distribution_office_tests_fixed.tap",
+  "runtime_verifier": "scripts/r38-verify-office-mirror.mjs",
+  "publication_performed": false,
+  "ci_verification": "data/r38_public_distribution_ci_verification.json",
+  "actual_mirror_tools": 453,
+  "actual_mirror_version": "0.25.0"
+}

@@ -1,0 +1,12 @@
+mirror-seo check: 51/51 published servers described
+  pending (a server directory with no mirror yet, not published by sync-mirrors.sh): budget, loan-calculator, payroll, pomodoro, receipts, stripe-billing, tax-calc
+=== mcp-supplier-statement-check  (/Users/mike/mcp-servers-work/mirror-supplier-statement-check.RkPXpL)
+https://github.com/theluckystrike/mcp-supplier-statement-check
+  released v0.25.0
+pushed https://github.com/theluckystrike/mcp-supplier-statement-check
+=== mcp-office-suite  (/Users/mike/mcp-servers-work/mirror-office-suite.lsijKJ)
+  Office mirror: registered 50 source-declared child packages
+  released v0.25.0
+pushed https://github.com/theluckystrike/mcp-office-suite
+
+=== sync-mirrors summary: all mirrors synced

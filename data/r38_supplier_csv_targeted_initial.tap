@@ -1,0 +1,137 @@
+buildslot[77926] 13:43:11: slot 1 acquired: node --test billing/test/supplier-csv.test.mjs billing/test/supplier-csv-controller.test.mjs
+TAP version 13
+# Subtest: two actual CSV byte buffers replace the editor only after the complete pair passes
+ok 1 - two actual CSV byte buffers replace the editor only after the complete pair passes
+  ---
+  duration_ms: 7.789875
+  type: 'test'
+  ...
+# Subtest: one file or missing date clears every stale result without reading a partial pair
+ok 2 - one file or missing date clears every stale result without reading a partial pair
+  ---
+  duration_ms: 1.423417
+  type: 'test'
+  ...
+# Subtest: a later two-file selection wins even when both older reads finish afterward
+ok 3 - a later two-file selection wins even when both older reads finish afterward
+  ---
+  duration_ms: 1.9695
+  type: 'test'
+  ...
+# Subtest: editing JSON or selecting a preset invalidates pending file reads and keeps current evidence honest
+ok 4 - editing JSON or selecting a preset invalidates pending file reads and keeps current evidence honest
+  ---
+  duration_ms: 3.202292
+  type: 'test'
+  ...
+# Subtest: date input cancels pending evidence immediately and a committed date rechecks the complete pair
+ok 5 - date input cancels pending evidence immediately and a committed date rechecks the complete pair
+  ---
+  duration_ms: 2.418
+  type: 'test'
+  ...
+# Subtest: invalid second file or malformed UTF-8 clears the complete pair and exposes no partial source
+ok 6 - invalid second file or malformed UTF-8 clears the complete pair and exposes no partial source
+  ---
+  duration_ms: 2.767334
+  type: 'test'
+  ...
+# Subtest: combined file metadata limits fail before either byte reader runs
+ok 7 - combined file metadata limits fail before either byte reader runs
+  ---
+  duration_ms: 1.974792
+  type: 'test'
+  ...
+# Subtest: synthetic template imports and downloads remain local and JSON-only cached markup still works
+ok 8 - synthetic template imports and downloads remain local and JSON-only cached markup still works
+  ---
+  duration_ms: 3.44025
+  type: 'test'
+  ...
+# Subtest: two templates yield the same nine original rows and all five group outcomes
+ok 9 - two templates yield the same nine original rows and all five group outcomes
+  ---
+  duration_ms: 3.745667
+  type: 'test'
+  ...
+# Subtest: quoted commas and quotes preserve exact Unicode identifiers and leading zeros on both sides
+ok 10 - quoted commas and quotes preserve exact Unicode identifiers and leading zeros on both sides
+  ---
+  duration_ms: 0.590334
+  type: 'test'
+  ...
+# Subtest: header order and exactly one UTF-8 BOM preserve LF, CRLF and CR records without coercion
+ok 11 - header order and exactly one UTF-8 BOM preserve LF, CRLF and CR records without coercion
+  ---
+  duration_ms: 1.194833
+  type: 'test'
+  ...
+# Subtest: fatal UTF-8 refuses corrupt sequences, UTF-16 files and unpaired string surrogates
+ok 12 - fatal UTF-8 refuses corrupt sequences, UTF-16 files and unpaired string surrogates
+  ---
+  duration_ms: 0.358917
+  type: 'test'
+  ...
+# Subtest: each header must be exact, known, complete and unique
+ok 13 - each header must be exact, known, complete and unique
+  ---
+  duration_ms: 0.466667
+  type: 'test'
+  ...
+# Subtest: malformed quotes and ragged or blank rows reject the entire pair
+ok 14 - malformed quotes and ragged or blank rows reject the entire pair
+  ---
+  duration_ms: 0.446125
+  type: 'test'
+  ...
+# Subtest: amount transport accepts canonical positive safe digits only; IDs keep leading zeros
+ok 15 - amount transport accepts canonical positive safe digits only; IDs keep leading zeros
+  ---
+  duration_ms: 0.68425
+  type: 'test'
+  ...
+# Subtest: the complete pair reaches the authoritative schema once, including invalid last rows
+ok 16 - the complete pair reaches the authoritative schema once, including invalid last rows
+  ---
+  duration_ms: 2.22775
+  type: 'test'
+  ...
+# Subtest: quoted control-bearing values survive parsing then fail actual product rules
+ok 17 - quoted control-bearing values survive parsing then fail actual product rules
+  ---
+  duration_ms: 0.762042
+  type: 'test'
+  ...
+# Subtest: a header-only side is valid when the other contains records; two empty sides are rejected
+ok 18 - a header-only side is valid when the other contains records; two empty sides are rejected
+  ---
+  duration_ms: 0.535292
+  type: 'test'
+  ...
+# Subtest: each side accepts exactly1000 and refuses1001 records without truncation
+ok 19 - each side accepts exactly1000 and refuses1001 records without truncation
+  ---
+  duration_ms: 24.212083
+  type: 'test'
+  ...
+# Subtest: combined raw limits count both byte streams before decoding or partial acceptance
+ok 20 - combined raw limits count both byte streams before decoding or partial acceptance
+  ---
+  duration_ms: 34.413208
+  type: 'test'
+  ...
+# Subtest: pretty editor overflow falls back to compact JSON but overlarge compact input is rejected
+ok 21 - pretty editor overflow falls back to compact JSON but overlarge compact input is rejected
+  ---
+  duration_ms: 181.109
+  type: 'test'
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 298.127166

@@ -1,0 +1,6 @@
+buildslot[19510] 12:46:33: WAITING: only 19 GB free on /System/Volumes/Data (need 20 GB). No heavy build until disk is freed (delete target/, node_modules/, build caches, finished clones). Re-checking every 60s, giving up at 12:51.
+buildslot[19510] 12:47:33: slot 1 acquired: npm run build
+
+> @theluckystrike/mcp-office-suite@0.25.0 build
+> tsc -p tsconfig.json && node -e "import('node:fs').then(f=>f.chmodSync('dist/index.js',0o755))"
+

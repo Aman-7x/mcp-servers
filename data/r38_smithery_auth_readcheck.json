@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-26T06:58:22.079930+00:00",
+  "cli_version": "4.11.1",
+  "command": "smithery --json auth whoami",
+  "exit_code": 1,
+  "stdout_json": false,
+  "not_authenticated_message": false,
+  "prompt_or_signin_url": true,
+  "safe_error_lines": [
+    "Run 'smithery auth login' to authenticate"
+  ],
+  "credential_present": false
+}

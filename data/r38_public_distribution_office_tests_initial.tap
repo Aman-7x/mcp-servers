@@ -1,0 +1,138 @@
+
+> @theluckystrike/mcp-office-suite@0.25.0 test
+> node --test test/*.test.mjs
+
+TAP version 13
+# Subtest: CHILDREN covers every stdio server in the estate
+ok 1 - CHILDREN covers every stdio server in the estate # SKIP
+  ---
+  duration_ms: 1.083958
+  type: 'test'
+  ...
+# Subtest: every CHILDREN entry names the package that server actually publishes
+ok 2 - every CHILDREN entry names the package that server actually publishes # SKIP
+  ---
+  duration_ms: 0.156208
+  type: 'test'
+  ...
+# Subtest: control: the completeness assertion fails when an entry is removed
+ok 3 - control: the completeness assertion fails when an entry is removed # SKIP
+  ---
+  duration_ms: 0.140708
+  type: 'test'
+  ...
+# Subtest: office proxy diagnoses duplicate candidates and preserves both report namespaces
+ok 4 - office proxy diagnoses duplicate candidates and preserves both report namespaces # SKIP
+  ---
+  duration_ms: 0.39075
+  type: 'test'
+  ...
+# Subtest: D-P25: a child that floods stderr does not stall a tools/call
+ok 5 - D-P25: a child that floods stderr does not stall a tools/call
+  ---
+  duration_ms: 1461.897875
+  type: 'test'
+  ...
+# Subtest: D-P24: license_activate fails unless every child accepts the key
+ok 6 - D-P24: license_activate fails unless every child accepts the key
+  ---
+  duration_ms: 3124.024417
+  type: 'test'
+  ...
+# Subtest: D-R29/R37: child payload stays intact and collision names are separately mapped
+ok 7 - D-R29/R37: child payload stays intact and collision names are separately mapped
+  ---
+  duration_ms: 1793.357583
+  type: 'test'
+  ...
+# Subtest: D-R29: tools_map resource lists exposed name -> child.tool
+ok 8 - D-R29: tools_map resource lists exposed name -> child.tool
+  ---
+  duration_ms: 1584.564625
+  type: 'test'
+  ...
+# Subtest: bundle proxies tools/list, forwards calls, and aggregates license_status
+ok 9 - bundle proxies tools/list, forwards calls, and aggregates license_status
+  ---
+  duration_ms: 6777.746083
+  type: 'test'
+  ...
+# Subtest: office proxy preserves supplier open-item evidence and exposes correct report navigation
+not ok 10 - office proxy preserves supplier open-item evidence and exposes correct report navigation
+  ---
+  duration_ms: 9052.158
+  type: 'test'
+  location: '/Users/mike/mcp-servers-work/mirror-office-suite.9GK2Ph/test/supplier-statement.test.mjs:14:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    [time-tracker] mcp-time-tracker ready (free), data in /Users/mike/mcp-servers-work/mcp-test-run-10947-N0oyZs/office-supplier-statements-AnVRG2/data/mcp-servers/time-tracker
+    [price-tracker] price-tracker ready (free), data in /Users/mike/mcp-servers-work/mcp-test-run-10947-N0oyZs/office-supplier-statements-AnVRG2/data/mcp-servers/price-tracker/watches.json
+    [spreadsheet] mcp-spreadsheet 0.22.9 ready (free)
+    [invoice] mcp-invoice ready (free), data in /Users/mike/mcp-servers-work/mcp-test-run-10947-N0oyZs/office-supplier-statements-AnVRG2/data/mcp-servers/invoice
+    office-suite: optional child expense-tracker not found, skipping
+    [currency] mcp-currency ready (free), cache in /Users/mike/mcp-servers-work/mcp-test-run-10947-N0oyZs/office-supplier-statements-AnVRG2/data/mcp-servers/currency, source https://www.ecb.europa.eu/stats/eurofxref
+    [docx] mcp-docx ready (free), data in /Users/mike/mcp-servers-work/mcp-test-run-10947-N0oyZs/office-supplier-statements-AnVRG2/data/mcp-servers/docx
+    [timezone] mcp-timezone ready (free), 490 places, data in /Users/mike/mcp-servers-work/mcp-test-run-10947-N0oyZs/office-supplier-statements-AnVRG2/data/mcp-servers/timezone
+    [resume] mcp-resume 0.22.6 ready (free tier)
+    [recurring] mcp-recurring ready (free), schedules in /Users/mike/mcp-servers-work/mcp-test-run-10947-N0oyZs/office-supplier-statements-AnVRG2/data/mcp-servers/recurring, invoices in /Users/mike/mcp-servers-work/mcp-test-run-10947-N0oyZs/office-supplier-statements-AnVRG2/data/mcp-servers/invoice
+    [clauses] mcp-clauses 0.22.6 ready (free)
+    [pdf] mcp-pdf ready (free), data in /Users/mike/mcp-servers-work/mcp-test-run-10947-N0oyZs/office-supplier-statements-AnVRG2/data/mcp-servers/pdf, max input 100.0 MB
+    [calendar] mcp-calendar 0.22.6 ready (free), 0 calendar(s), zone Asia/Saigon, data in /Users/mike/mcp-servers-work/mcp-test-run-10947-N0oyZs/office-supplier-statements-AnVRG2/data/mcp-servers/calendar
+    office-suite: optional child kanban not found, skipping
+    office-suite: optional child image not found, skipping
+    office-suite: optional child bank-statement not found, skipping
+    office-suite: optional child quotes not found, skipping
+    office-suite: optional child barcode not found, skipping
+    office-suite: optional child zip not found, skipping
+    office-suite: optional child billing-docs not found, skipping
+    office-suite: optional child deposits not found, skipping
+    office-suite: optional child per-diem not found, skipping
+    office-suite: optional child asset-register not found, skipping
+    office-suite: optional child statement-of-account not found, skipping
+    office-suite: optional child cash-book not found, skipping
+    office-suite: optional child amortization not found, skipping
+    office-suite: optional child petty-cash not found, skipping
+    office-suite: optional child work-order not found, skipping
+    office-suite: optional child catalogue not found, skipping
+    office-suite: optional child change-order not found, skipping
+    office-suite: optional child delivery-schedule not found, skipping
+    office-suite: optional child packing-list not found, skipping
+    office-suite: optional child checklist not found, skipping
+    office-suite: optional child purchase-requisition not found, skipping
+    office-suite: optional child bill-of-sale not found, skipping
+    office-suite: optional child credit-note not found, skipping
+    office-suite: optional child job-card not found, skipping
+    office-suite: optional child dunning-letters not found, skipping
+    office-suite: optional child supplier-list not found, skipping
+    office-suite: optional child service-agreement not found, skipping
+    office-suite: optional child maintenance-log not found, skipping
+    office-suite: optional child mileage-log not found, skipping
+    office-suite: optional child goods-receipt not found, skipping
+    office-suite: optional child leave not found, skipping
+    office-suite: optional child onboarding not found, skipping
+    office-suite: optional child backlink-checker not found, skipping
+    office-suite: optional child three-way-match not found, skipping
+    office-suite: optional child hourly-rate not found, skipping
+    mcp-office-suite ready, proxying [time-tracker, price-tracker, spreadsheet, invoice, currency, docx, timezone, resume, recurring, clauses, pdf, calendar, duplicate-invoice-check, supplier-statement-check], 133 tools
+    office-suite: renamed 12 colliding tools: invoice.business_set -> invoice_business_set, docx.business_set -> docx_business_set, duplicate-invoice-check.report_list -> duplicate-invoice-check_report_list, supplier-statement-check.report_list -> supplier-statement-check_report_list, duplicate-invoice-check.report_get -> duplicate-invoice-check_report_get, supplier-statement-check.report_get -> supplier-statement-check_report_get, duplicate-invoice-check.report_page -> duplicate-invoice-check_report_page, supplier-statement-check.report_page -> supplier-statement-check_report_page, duplicate-invoice-check.report_delete -> duplicate-invoice-check_report_delete, supplier-statement-check.report_delete -> supplier-statement-check_report_delete, duplicate-invoice-check.report_export_csv -> duplicate-invoice-check_report_export_csv, supplier-statement-check.report_export_csv -> supplier-statement-check_report_export_csv (see the office://tools_map resource; child responses are rewritten to use the exposed names)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///Users/mike/mcp-servers-work/mirror-office-suite.9GK2Ph/test/supplier-statement.test.mjs:56:5)
+    process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 5
+# fail 1
+# cancelled 0
+# skipped 4
+# todo 0
+# duration_ms 9942.860333

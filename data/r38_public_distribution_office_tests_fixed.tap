@@ -1,0 +1,2 @@
+buildslot[21475] 12:48:56: WAITING: only 19 GB free on /System/Volumes/Data (need 20 GB). No heavy build until disk is freed (delete target/, node_modules/, build caches, finished clones). Re-checking every 60s, giving up at 12:53.
+buildslot[21475] 12:53:57: GAVE UP after 300s (disk 19 GB free, need 20; holders: none). Not running: npm test

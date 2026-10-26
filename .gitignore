@@ -9,3 +9,4 @@ bundles/*.mcpb
 bundles/*/server/
 .scratch-distribution/
 bundles/releases/*/*.mcpb
+bundles/cache-backups/

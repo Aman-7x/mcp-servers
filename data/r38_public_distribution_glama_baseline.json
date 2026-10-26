@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-26T05:56:30.408Z",
+  "method": "Public exact Glama route GET; require expected source repo link, with existing listing control",
+  "external_writes": 0,
+  "paid_api_usd": 0,
+  "rows": [
+    {
+      "id": "supplier-statement-check",
+      "role": "new",
+      "url": "https://glama.ai/mcp/servers/theluckystrike/mcp-supplier-statement-check",
+      "status": "unavailable"
+    },
+    {
+      "id": "duplicate-invoice-check",
+      "role": "existing_control",
+      "url": "https://glama.ai/mcp/servers/theluckystrike/mcp-duplicate-invoice-check",
+      "status": "unavailable"
+    },
+    {
+      "id": "office-suite",
+      "role": "existing_proxy",
+      "url": "https://glama.ai/mcp/servers/theluckystrike/mcp-office-suite",
+      "status": "unavailable"
+    }
+  ]
+}

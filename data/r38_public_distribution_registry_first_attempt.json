@@ -1,0 +1,27 @@
+{
+  "started_at": "2026-10-26T06:47:39.909Z",
+  "status": "failed",
+  "method": "Native mcp-publisher publish exact validated descriptors; anonymous exact version and latest Registry readbacks",
+  "rows": [
+    {
+      "file": "servers/supplier-statement-check/server.json",
+      "name": "io.github.theluckystrike/supplier-statement-check",
+      "version": "0.25.0",
+      "manifest_sha256": "354c2c3d1380be8e1946614cba556d4d7505cfd642c3c60127d9cdb7686d12d2",
+      "state": "publishing",
+      "publication_attempted": true,
+      "publisher_exit_code": 0,
+      "publisher_reported_success": true
+    }
+  ],
+  "emails_sent": 0,
+  "paid_api_usd": 0,
+  "positive_read_control": {
+    "name": "io.github.theluckystrike/duplicate-invoice-check",
+    "version": "0.22.8",
+    "http_status": 200
+  },
+  "native_auth_refreshed": true,
+  "error": "Registry field differs: packages\n+ actual - expected\n\n  [\n    {\n      environmentVariables: [\n        {\n          description: 'Optional offline Pro license key; removes only the three-saved-report cap.',\n-         isRequired: false,\n          isSecret: true,\n          name: 'MCP_LICENSE_KEY'\n        }\n      ],\n      fileSha256: '98784c618a5f7df7c0e3ea4d4528200c10ea43d65eff785fbc1cde55216b306b',\n",
+  "finished_at": "2026-10-26T06:47:46.665Z"
+}
