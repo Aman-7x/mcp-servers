@@ -3,6 +3,9 @@
   "version": "0.22.6",
   "description": "MCP server: loan-calculator",
   "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
   "main": "src/index.js",
   "bin": {
     "mcp-loan-calculator": "src/index.js"
