@@ -8,7 +8,7 @@ import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "
 import { homedir } from "node:os";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
-import { PRODUCTS, PRODUCT_ALIASES } from "../billing/src/index.js";
+import { PRODUCTS, PRODUCT_ALIASES, SERVICES } from "../billing/src/index.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const BILLING = join(ROOT, "billing");
@@ -95,7 +95,7 @@ export function assertIntentResponse(status, headers, body, path) {
 }
 
 export async function probeBuyPages(fetcher = fetch) {
-  const paths = [...Object.keys(PRODUCTS), ...Object.keys(PRODUCT_ALIASES)].map((id) => `/buy/${encodeURIComponent(id)}`);
+  const paths = [...Object.keys(PRODUCTS), ...Object.keys(SERVICES), ...Object.keys(PRODUCT_ALIASES)].map((id) => `/buy/${encodeURIComponent(id)}`);
   // The former cancel/resume GET path is included: it must never call Stripe.
   paths.push("/buy/bundle?session_id=cs_live_release_gate_sentinel");
   paths.push("/buy/bundle?src=release.gate.probe");

@@ -104,6 +104,69 @@ export const PRODUCT_ALIASES = {
 };
 
 /**
+ * McpStamp services sold through the same Stripe Checkout. Kept out of PRODUCTS on purpose:
+ * SERVER_COUNT, BUNDLE_SAVING_USD, the storefront tables and the license minting all walk
+ * PRODUCTS, and a service is not a server and has no license. Priced inline with
+ * `price_data` (no Stripe Price id), so adding one is a code change only.
+ *
+ * Fulfillment for a service is: record the paid order once (LICENSES `service:<session>`),
+ * email the owner at support@zovo.one and the buyer a confirmation. No key is minted and no
+ * hosted tenant is bound.
+ */
+export const SERVICES = {
+  "svc-audit": {
+    name: "McpStamp Readiness Audit",
+    usd: 490,
+    desc: "Fixed-price audit of one remote MCP server against Claude Directory, ChatGPT Apps, Gemini Connected Apps and the MCP Registry, with a written fix report in 3 business days.",
+    priceLine: "$490.00 USD &middot; one payment &middot; fixed price",
+    includes: [
+      "Your server checked against the listing requirements of Claude Directory, ChatGPT Apps, Gemini Connected Apps and the MCP Registry.",
+      "Transport, authentication, tool definitions and listing metadata reviewed.",
+      "A written report: each blocker, why it blocks a listing, and the exact fix, in priority order.",
+      "Delivered by email within 3 business days of receiving your server URL or repo.",
+    ],
+    next: "We confirm by email and start when we have your server URL or repo. The written report arrives within 3 business days after that.",
+  },
+  "svc-launch-deposit": {
+    name: "McpStamp Store Launch — deposit",
+    usd: 1500,
+    total: 4900,
+    desc: "Deposit for preparing one MCP server for Claude, ChatGPT, Gemini and the MCP Registry and filing the submissions. $4,900 total: this $1,500 deposit starts the work, the $3,400 balance is invoiced on delivery.",
+    priceLine: "$1,500.00 USD deposit now &middot; $4,900 total &middot; $3,400 balance invoiced on delivery",
+    includes: [
+      "Readiness fixes so your server meets the requirements of Claude Directory, ChatGPT Apps, Gemini Connected Apps and the MCP Registry.",
+      "Store submissions prepared and filed for each of the four. Approval is decided by each store.",
+      "The $3,400 balance is invoiced on delivery, not before.",
+    ],
+    next: "We confirm by email, agree a start date and ask for access to your server or repo. The $3,400 balance is invoiced on delivery.",
+  },
+  "svc-custom-deposit": {
+    name: "Custom MCP server — deposit",
+    usd: 900,
+    from: 2900,
+    desc: "Deposit for a custom MCP server built on your API or data. From $2,900 total; a fixed quote is agreed before work starts and this $900 deposit counts toward it.",
+    priceLine: "$900.00 USD deposit now &middot; from $2,900 total &middot; fixed quote agreed before work starts",
+    includes: [
+      "A remote MCP server for your API or data, with OAuth sign-in if your users need it.",
+      "A fixed quote agreed in writing before any build work starts. The deposit counts toward it.",
+      "If we do not agree a quote, the deposit is refunded in full.",
+    ],
+    next: "We confirm by email and ask what the server must do. You get a fixed quote before any build work starts; the deposit counts toward it.",
+  },
+};
+
+/** Pure: is this id a McpStamp service (no license, no hosted binding)? */
+export function isService(id) {
+  return typeof id === "string" && Object.hasOwn(SERVICES, id);
+}
+
+/** Pure: the catalogue row for a product or a service id, or undefined. */
+export function catalogEntry(id) {
+  if (typeof id !== "string") return undefined;
+  return Object.hasOwn(PRODUCTS, id) ? PRODUCTS[id] : Object.hasOwn(SERVICES, id) ? SERVICES[id] : undefined;
+}
+
+/**
  * Servers reachable at https://mcp.zovo.one/mcp/<id> with no install. Derived from the
  * servers that declare a remotes[] block in their registry manifest, checked by a test so
  * this list cannot drift from what is actually hosted. office-suite is absent on purpose:
@@ -267,7 +330,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 260;
+export const BILLING_TEST_COUNT = 268;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -345,7 +408,7 @@ const FEATURED_SERVERS = [
  * accepted only when the recorded discount equals the full expected amount.
  */
 export function fulfillmentAllowed(session, product) {
-  const p = PRODUCTS[product];
+  const p = catalogEntry(product);
   if (!p) return { ok: false, reason: `unknown product: ${product}` };
   if (!session || typeof session !== "object") return { ok: false, reason: "no session" };
   if (session.mode !== "payment") return { ok: false, reason: `mode is ${session.mode}, not payment` };
@@ -535,6 +598,13 @@ function llmsHeaders() {
   if (lm) { h["last-modified"] = lm; h.etag = '"' + d8(lm) + '-llms"'; }
   return h;
 }
+/** McpStamp cross-sell: the landing band (`band`) and the line in every page footer (`footer`). */
+export function crosssellHtml(where) {
+  const check = esc(mcpstampLink(MCPSTAMP_CHECK_URL, where));
+  const hire = esc(mcpstampLink(MCPSTAMP_SERVICES_URL, where));
+  return `New: <a href="${check}">McpStamp Check</a> &mdash; is your MCP server ready for Claude, ChatGPT and Gemini? <a href="${check}">Free check</a> &middot; <a href="${hire}">Hire the builder of these ${LISTED_COUNT} servers</a>`;
+}
+
 function page(title, body) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -576,6 +646,7 @@ a.grid{display:inline-block;width:31%;min-width:200px;margin:0 1% 6px 0;font-siz
 @media(max-width:640px){a.grid{width:100%}}
 </style></head><body><nav class="pg" aria-label="Popular guides">${PRIORITY_GUIDES.filter((s) => GUIDES[s]).slice(0, 10).map((s) => `<a href="/guides/${s}">${esc(GUIDES[s].title)}</a>`).join(" &middot; ")}</nav>${body}
 <footer>Home: <a href="/">All servers</a> &middot; <a href="/guides">Guides</a> &middot; <a href="/setup">Setup</a> &middot; <a href="/compare">Compare</a> &middot; <a href="/changelog">Changelog</a> &middot; <a href="https://tg.zovo.one">Tiny Telegram Tools</a> &middot; Support: support@zovo.one &middot; Built by <a href="${REPO}">theluckystrike</a>
+<p class="xsell" style="margin:8px 0 0">${crosssellHtml("footer")}</p>
 <form id="subform" method="post" action="/api/subscribe" style="margin-top:14px;display:flex;gap:8px;max-width:420px">
   <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address"
     style="flex:1;padding:8px 10px;background:#111;border:1px solid var(--bd);color:var(--fg);font:inherit;font-size:13px;border-radius:0">
@@ -763,6 +834,7 @@ function home() {
   ].map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join("");
   const meta = `<meta name="description" content="${esc(HOME_DESCRIPTION).slice(0, 155)}"><link rel="canonical" href="https://mcp.zovo.one/">${ld}`;
   const html = page("MCP servers for Claude: invoices, time tracking and freelance tools", `<h1>${LISTED_COUNT} MCP servers for Claude, for freelancers and small businesses</h1>
+<p class="feat" id="mcpstamp">${crosssellHtml("band")}</p>
 <section aria-labelledby="try-invoice-review"><h2 id="try-invoice-review">Try an invoice review before installing</h2><p>Run a free comparison in this browser, with synthetic examples or your own structured records. The engine runs on your device and sends no field values or diagnostic requests.</p><p><a href="/guides/compare-supplier-statement-ap-open-items-in-claude#supplier-demo">Compare supplier statement open items with your AP ledger</a> &middot; <a href="/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo">Review duplicate invoice references</a> &middot; <a href="/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo">Match invoice lines to a PO and receipts</a></p><p class="muted">Complete evidence is free. The optional Pro upgrade removes the saved-report count cap. These checks do not extract PDFs or approve payment.</p></section>
 <p>Each row below is one MCP server. ${HOSTED_COUNT} of the ${LISTED_COUNT} answer at a URL, so you can use them with nothing installed. Get a free token with one request, then paste the URL into whatever asks for a remote MCP server.</p>
 <pre><code>curl -X POST https://mcp.zovo.one/mcp/token</code></pre>
@@ -992,9 +1064,41 @@ export function shortProbeExpiry(orderToken, now = Date.now()) {
   return Math.floor(Number(orderToken.split('.')[0]) / 1000) + 31 * 60;
 }
 
+/**
+ * Checkout Session parameters that differ for a McpStamp service. Pure, so a test can pin
+ * them. The buyer email is collected by Checkout in payment mode and kept on the Customer
+ * (`customer_creation: always`); the one optional text field asks for the server to work on.
+ */
+export function serviceCustomText(productId) {
+  const p = SERVICES[productId];
+  if (!p) throw new Error(`unknown service: ${productId}`);
+  return {
+    submit: `${p.name}: ${p.desc}`.slice(0, 1200),
+    after_submit: "After payment we reply from support@zovo.one within 1 business day. Reply to that email with your MCP server URL or repo if you did not enter it above.",
+  };
+}
+
+export function serviceCheckoutParams(productId) {
+  if (!SERVICES[productId]) throw new Error(`unknown service: ${productId}`);
+  return {
+    "custom_fields[0][key]": "mcpserver",
+    "custom_fields[0][label][type]": "custom",
+    "custom_fields[0][label][custom]": "MCP server URL or repo (optional)",
+    "custom_fields[0][type]": "text",
+    "custom_fields[0][optional]": "true",
+    "metadata[campaign]": "mcpstamp_services",
+    "metadata[kind]": "service",
+    "payment_intent_data[metadata][campaign]": "mcpstamp_services",
+    "payment_intent_data[statement_descriptor_suffix]": "MCPSTAMP",
+  };
+}
+
 async function createCheckout(env, host, productId, probeTag = "", tenant = "", askedId = productId, source = "direct", orderToken = newOrderToken(), shortProbe = false) {
-  const p = PRODUCTS[productId];
-  const ct = checkoutCustomText(productId, askedId, tenant);
+  const service = isService(productId);
+  // A service never binds a hosted tenant, so it never carries one into Stripe either.
+  if (service) tenant = "";
+  const p = catalogEntry(productId);
+  const ct = service ? serviceCustomText(productId) : checkoutCustomText(productId, askedId, tenant);
   const s = await stripe(env, "checkout/sessions", {
     mode: "payment",
     ...(probeTag && shortProbe ? { expires_at: shortProbeExpiry(orderToken) } : {}),
@@ -1035,6 +1139,7 @@ async function createCheckout(env, host, productId, probeTag = "", tenant = "", 
     // name and the amount - instead of asserting the request it just sent. A 303 to
     // checkout.stripe.com is not evidence that the right product is on the page.
     "expand[]": "line_items",
+    ...(service ? serviceCheckoutParams(productId) : {}),
   }, "POST", `mcp-checkout-v1-${productId}-${orderToken}`);
   console.log(JSON.stringify({ event: "checkout_session_created", version_id: env.CF_VERSION_METADATA?.id || "unknown", session_ref: await sessionLogRef(s.id), product: productId, source, probe: Boolean(probeTag), request_method: "POST" }));
   return s;
@@ -1218,6 +1323,174 @@ export function purchasePromiseHtml(paidUsd = PRODUCTS.bundle.usd, productId = "
 <li><strong>Open source.</strong> Read the server code at <a href="${REPO}">github.com/theluckystrike/mcp-servers</a>.</li>
 </ul>`;
 }
+/** The McpStamp links used by the cross-sell band, the footer and the service pages. */
+export const MCPSTAMP_CHECK_URL = "https://www.mcpstamp.com/check/";
+export const MCPSTAMP_SERVICES_URL = "https://www.mcpstamp.com/services/";
+export function mcpstampLink(base, content) {
+  return `${base}?utm_source=mcp.zovo.one&utm_medium=crosssell&utm_content=${encodeURIComponent(content)}`;
+}
+
+/** The no-side-effect step before Stripe for a McpStamp service. Same form contract as the
+ * license intent page (POST, hidden intent=checkout, order token), service wording. */
+export function serviceIntentPage(url, productId) {
+  url = acquisitionUrl(url);
+  const p = SERVICES[productId];
+  const action = `${url.pathname}${url.search}`;
+  return page(`Buy ${p.name}`, `<h1>${esc(p.name)}</h1>
+<p><strong>${p.priceLine}</strong></p>
+<p>${esc(p.desc)}</p>
+<h2>What you get</h2>
+<ul>
+${p.includes.map((line) => `<li>${esc(line)}</li>`).join("\n")}
+</ul>
+<h2>After you pay</h2>
+<ul>
+<li>We reply from support@zovo.one within 1 business day.</li>
+<li>${esc(p.next)}</li>
+<li>Stripe asks for your email and, optionally, your MCP server URL or repo. You can also send it by replying to our email.</li>
+</ul>
+<form method="post" action="${esc(action)}"><input type="hidden" name="intent" value="checkout"><input type="hidden" name="order_token" value="${newOrderToken()}">
+<button class="buy" type="submit">Continue to Stripe &mdash; $${p.usd.toLocaleString("en-US")}</button></form>
+<p class="muted">No payment session has been created yet. Stripe collects the card on the next page. This is a service, not a software licence: no key is issued.</p>
+<p class="muted">Not sure yet? Run the free <a href="${mcpstampLink(MCPSTAMP_CHECK_URL, `buy.${productId}`)}">McpStamp Check</a> on your server first, or ask a question at support@zovo.one. Done by the developer of the ${LISTED_COUNT} MCP servers on mcp.zovo.one.</p>
+<p><a href="${mcpstampLink(MCPSTAMP_SERVICES_URL, `buy.${productId}`)}">Back to services</a></p>`);
+}
+
+/** The text a buyer typed into the optional Checkout field, or "". */
+export function serviceServerField(session) {
+  const f = Array.isArray(session?.custom_fields) ? session.custom_fields.find((c) => c?.key === "mcpserver") : null;
+  const v = f?.text?.value;
+  return typeof v === "string" ? v.trim().slice(0, 300) : "";
+}
+
+/** /success for a paid service. No key, no install steps: what was paid and what happens next. */
+export function servicePaidPage(productId, session) {
+  const p = SERVICES[productId];
+  const paid = Number.isSafeInteger(session?.amount_total) ? session.amount_total / 100 : p.usd;
+  const email = session?.customer_details?.email || "";
+  const server = serviceServerField(session);
+  return page(`Payment received - ${p.name}`, `<h1>Payment received</h1>
+<p>${esc(p.name)} - $${paid.toLocaleString("en-US")} paid. Thank you.</p>
+<h2>What happens next</h2>
+<ol>
+<li>We reply from <strong>support@zovo.one</strong> within 1 business day${email ? `, to ${esc(email)}` : ""}.</li>
+<li>${server
+    ? `You gave us <code>${esc(server)}</code>. If that is not the right server, or it is a private repo, reply to our email with the correct URL or access.`
+    : `Send your MCP server URL or repo to support@zovo.one (a public URL, or read access to a private repo), or reply to our email with it.`}</li>
+<li>${esc(p.next)}</li>
+</ol>
+<p class="muted">This is a service order, so no license key is issued. Keep this page or your Stripe receipt as proof of payment. Questions: support@zovo.one.</p>
+<p><a href="${mcpstampLink(MCPSTAMP_CHECK_URL, `success.${productId}`)}">Run the free McpStamp Check</a> &middot; <a href="/">mcp.zovo.one</a></p>`);
+}
+
+/** Resend send that never throws; returns an outcome string for the log. */
+async function sendMail(env, payload, label) {
+  if (!env.RESEND_API_KEY) { console.error(`${label} skipped: RESEND_API_KEY not set`); return "no_api_key"; }
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { "authorization": `Bearer ${env.RESEND_API_KEY}`, "content-type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      console.error(`${label} send failed: ${res.status} ${(await res.text()).slice(0, 200)}`);
+      return "send_failed";
+    }
+    return "sent";
+  } catch (e) {
+    console.error(`${label} error: ${safeLogError(e)}`);
+    return "send_failed";
+  }
+}
+
+export const OWNER_ALERT_TO = "support@zovo.one";
+
+/** Pure: the owner alert for a paid service order. */
+export function serviceOwnerAlert(productId, session) {
+  const p = SERVICES[productId];
+  const email = session?.customer_details?.email || "";
+  const amount = Number.isSafeInteger(session?.amount_total) ? session.amount_total / 100 : p.usd;
+  const pi = typeof session?.payment_intent === "string" ? session.payment_intent : session?.payment_intent?.id || "";
+  const text = [
+    `Paid service order on mcp.zovo.one: ${p.name}`,
+    "",
+    `Amount: $${amount} ${String(session?.currency || "usd").toUpperCase()}${session?.livemode === false ? " (TEST MODE)" : ""}`,
+    `Buyer email: ${email || "(none recorded)"}`,
+    `Buyer name: ${session?.customer_details?.name || "(none)"}`,
+    `MCP server URL or repo: ${serviceServerField(session) || "(not given)"}`,
+    `Product id: ${productId}`,
+    `Checkout Session: ${session?.id || ""}`,
+    pi ? `Stripe payment: https://dashboard.stripe.com/payments/${pi}` : "",
+    `Source: ${session?.metadata?.source || "unknown"}`,
+    "",
+    "Promise on the site: reply within 1 business day from support@zovo.one.",
+    `Next step for this service: ${p.next}`,
+  ].filter((line) => line !== "").join("\n");
+  return {
+    from: "Mike <mike@zovo.one>", to: [OWNER_ALERT_TO],
+    subject: `PAID $${amount}: ${p.name}${email ? ` - ${email}` : ""}`.slice(0, 200),
+    text, ...(email.includes("@") ? { reply_to: email } : {}),
+  };
+}
+
+/** Pure: the buyer confirmation for a paid service order. */
+export function serviceBuyerEmail(productId, session) {
+  const p = SERVICES[productId];
+  const email = session?.customer_details?.email || "";
+  const server = serviceServerField(session);
+  return {
+    from: "Mike <mike@zovo.one>", to: [email], reply_to: "support@zovo.one",
+    subject: `Payment received: ${p.name}`,
+    text: [
+      "Thanks, your payment was received.",
+      "",
+      `Service: ${p.name}`,
+      "",
+      "What happens next:",
+      "1. I reply personally within 1 business day.",
+      server
+        ? `2. You gave this server: ${server}. If that is wrong, or it is a private repo, reply with the right URL or access.`
+        : "2. Reply to this email with your MCP server URL or repo (a public URL, or read access to a private repo).",
+      `3. ${p.next}`,
+      "",
+      "Questions: reply to this email or write to support@zovo.one.",
+    ].join("\n"),
+  };
+}
+
+/**
+ * Fulfil a paid service order: record it once, alert the owner once, confirm to the buyer
+ * once. Idempotent via LICENSES flags, so /success and the webhook can both call it. Never
+ * mints a key and never writes a hosted binding.
+ */
+async function fulfillService(env, session, productId, source) {
+  const ref = await sessionLogRef(session.id);
+  const recordKey = `service:${session.id}`;
+  let recorded = Boolean(await env.LICENSES.get(recordKey));
+  if (!recorded) {
+    await env.LICENSES.put(recordKey, JSON.stringify({ product: productId,
+      amount_total: session.amount_total, created: session.created, recorded_at: new Date().toISOString(), source }),
+    { metadata: { product: productId, kind: "service" } });
+    recorded = true;
+  }
+  let owner = "already_sent";
+  if (!(await env.LICENSES.get(`service:owner-alert:${session.id}`))) {
+    owner = await sendMail(env, serviceOwnerAlert(productId, session), "service owner alert");
+    if (owner === "sent") await env.LICENSES.put(`service:owner-alert:${session.id}`, new Date().toISOString());
+  }
+  let buyer = "already_sent";
+  const email = session.customer_details?.email;
+  if (!email || typeof email !== "string" || !email.includes("@")) buyer = "no_buyer_email";
+  else if (!(await env.LICENSES.get(`email:sent:${session.id}`))) {
+    buyer = await sendMail(env, serviceBuyerEmail(productId, session), "service buyer email");
+    if (buyer === "sent") await env.LICENSES.put(`email:sent:${session.id}`, new Date().toISOString());
+  }
+  console.log(JSON.stringify({ event: "service_order_paid", source, session_ref: ref, product: productId,
+    amount_total: session.amount_total, stripe_mode: session.livemode === true ? "live" : session.livemode === false ? "test" : "unknown",
+    recorded, owner_alert: owner, buyer_email: buyer, version_id: env.CF_VERSION_METADATA?.id || "unknown" }));
+  return { recorded, owner, buyer };
+}
+
 /** Probe Checkout Sessions are reused for 23h; Stripe expires a Session after 24h. */
 const PROBE_SESSION_TTL = 23 * 60 * 60;
 export function probeCacheTtl(session, now = Math.floor(Date.now() / 1000)) {
@@ -1643,7 +1916,8 @@ const worker = {
         ok: signer === "ok",
         service: "mcp-billing",
         signer,
-        products: Object.keys(PRODUCTS),
+        products: [...Object.keys(PRODUCTS), ...Object.keys(SERVICES)],
+        services: Object.keys(SERVICES),
         stripe_mode: (env.STRIPE_SECRET_KEY || "").includes("_live_") || (env.STRIPE_SECRET_KEY || "").startsWith("rk_live") ? "live" : "test",
         time: new Date().toISOString(),
       });
@@ -2365,7 +2639,8 @@ const LLM_USE_WHEN = {
       const counted = isHumanNavigation(request.headers);
       const asked = decodeURIComponent(path.slice("/buy/".length));
       // office-suite, and any future alias, sells a product it is not itself; see PRODUCT_ALIASES.
-      const id = resolveProductId(asked);
+      const service = isService(asked);
+      const id = service ? asked : resolveProductId(asked);
       if (!id) {
         // Count the loss. This branch used to return before recordClick, so a click on a
         // dead /buy/ link was structurally invisible: the conversion instrument could only
@@ -2392,13 +2667,14 @@ const LLM_USE_WHEN = {
       // scripts still land on the product page; browser-shaped requests see a confirmation
       // form. Only its same-origin POST may call Stripe.
       if (method === "POST" && scripted && !explicitProbe) {
-        return new Response(null, { status: 303, headers: { Location: `https://${host}/s/${encodeURIComponent(PAGES[asked] ? asked : id)}`, "cache-control": "no-store", "x-mcp-buy": "scripted-ua-no-session" } });
+        return new Response(null, { status: 303, headers: { Location: service ? mcpstampLink(MCPSTAMP_SERVICES_URL, `scripted.${id}`) : `https://${host}/s/${encodeURIComponent(PAGES[asked] ? asked : id)}`, "cache-control": "no-store", "x-mcp-buy": "scripted-ua-no-session" } });
       }
       if (method === "GET") {
         // Always show the intent page. A cancellation session is checked only after
         // the buyer explicitly submits the form, so GET cannot call Stripe.
-        observeBillingFunnel(ctx, env, request, tenant, id, 'offer_view');
-        return new Response(checkoutIntentPage(url, id, asked, tenant), {
+        // The funnel counts the $19/$39 license offer; a service view is not one of its steps.
+        if (!service) observeBillingFunnel(ctx, env, request, tenant, id, 'offer_view');
+        return new Response(service ? serviceIntentPage(url, id) : checkoutIntentPage(url, id, asked, tenant), {
           status: 200,
           headers: {
             "content-type": "text/html; charset=utf-8",
@@ -2432,7 +2708,7 @@ const LLM_USE_WHEN = {
         try {
           const s = await retrieveSession(env, resumeId);
           if (s && s.metadata?.product === id && s.payment_status === "unpaid" && s.status === "open" && s.url) {
-            observeBillingFunnel(ctx, env, request, tenant, id, 'checkout_handoff');
+            if (!service) observeBillingFunnel(ctx, env, request, tenant, id, 'checkout_handoff');
             return new Response(null, { status: 303, headers: { Location: s.url, "cache-control": "no-store", "x-mcp-buy": "checkout-resumed" } });
           }
         } catch { /* stale/foreign session id: start a new checkout below */ }
@@ -2453,7 +2729,7 @@ const LLM_USE_WHEN = {
           const cached = await env.REMOTE_DATA.get(probeKey);
           if (cached) {
             const c = JSON.parse(cached);
-            observeBillingFunnel(ctx, env, request, tenant, id, 'checkout_handoff');
+            if (!service) observeBillingFunnel(ctx, env, request, tenant, id, 'checkout_handoff');
             return new Response(null, { status: 303, headers: { Location: c.url, "cache-control": "no-store", "x-mcp-buy": "probe-session-reused", ...c.headers } });
           }
         }
@@ -2461,7 +2737,7 @@ const LLM_USE_WHEN = {
         const headers = { Location: session.url, "cache-control": "no-store", ...(probeTag ? probeHeaders(session) : {}) };
         const probeTtl = probeCacheTtl(session);
         if (probeKey && probeTtl > 0) ctx.waitUntil(env.REMOTE_DATA.put(probeKey, JSON.stringify({ url: session.url, headers: probeHeaders(session) }), { expirationTtl: probeTtl }));
-        observeBillingFunnel(ctx, env, request, tenant, id, 'checkout_handoff');
+        if (!service) observeBillingFunnel(ctx, env, request, tenant, id, 'checkout_handoff');
         return new Response(null, { status: 303, headers });
       } catch (e) {
         return new Response(page("Checkout error", `<h1>Checkout could not start</h1><p>${esc(e.message)}</p><p><a href="/">Back</a></p>`), { status: 502, headers: { "content-type": "text/html; charset=utf-8" } });
@@ -2488,6 +2764,15 @@ const LLM_USE_WHEN = {
 <p>Still stuck? Email support@zovo.one with your Stripe receipt.</p><p><a href="/">Back to products</a></p>`), { status: 402, headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
       }
       await logVerifiedPayment(env, session, productId, "success_page");
+      if (isService(productId)) {
+        // A service: record the order and alert the owner, never mint a key or bind a tenant.
+        try { await fulfillService(env, session, productId, "success_page"); }
+        catch (e) { console.error(`service order record failed for ${await sessionLogRef(sid)}: ${safeLogError(e)}`); }
+        return new Response(servicePaidPage(productId, session), {
+          status: 200,
+          headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store", "x-mcp-fulfillment": "service" },
+        });
+      }
       try {
         const key = await keyForSession(env, session, productId);
         const state = await fulfillSession(env, session, productId, key);
@@ -2522,6 +2807,10 @@ const LLM_USE_WHEN = {
       const decision = fulfillmentAllowed(session, productId);
       if (!decision.ok) return Response.json({ ok: false, reason: decision.reason }, { status: 402, headers: nostore });
       await logVerifiedPayment(env, session, productId, "recovery");
+      if (isService(productId)) {
+        return Response.json({ ok: true, product: productId, service: true, key: null,
+          support: "support@zovo.one" }, { headers: nostore });
+      }
       try {
         const key = await keyForSession(env, session, productId);
         const state = await fulfillSession(env, session, productId, key);
@@ -2561,6 +2850,10 @@ const LLM_USE_WHEN = {
             return Response.json({ received: true, fulfilled: false, reason: decision.reason });
           }
           await logVerifiedPayment(env, session, productId, "webhook");
+          if (isService(productId)) {
+            await fulfillService(env, session, productId, "webhook");
+            return Response.json({ received: true, fulfilled: true, service: true });
+          }
           const key = await keyForSession(env, session, productId);
           const state = await fulfillSession(env, session, productId, key);
           await logFulfillmentOutcome(env, session, productId, state, "webhook");
