@@ -9,7 +9,10 @@ const ctx = { waitUntil() {} };
 const browser = { accept: "text/html,application/xhtml+xml", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document",
   "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 Chrome/130 Safari/537.36" };
 
-const EXPECTED = { "svc-audit": 490, "svc-launch-deposit": 1500, "svc-custom-deposit": 1500 };
+const EXPECTED = { "svc-audit": 490, "svc-launch": 4900, "svc-launch-one": 1900, "svc-launch-deposit": 1500,
+  "svc-custom-simple": 2900, "svc-custom-deposit": 1500, "svc-care-quarter": 1470 };
+// Paid upfront in full: everything except the legacy launch deposit (kept for old links) and the custom spec fee.
+const UPFRONT = ["svc-audit", "svc-launch", "svc-launch-one", "svc-custom-simple", "svc-care-quarter"];
 
 function kv() {
   const store = new Map();
@@ -30,7 +33,7 @@ function paidSession(product, extra = {}) {
   };
 }
 
-test("the three services exist at their prices and stay out of the license catalogue", () => {
+test("the seven services exist at their prices and stay out of the license catalogue", () => {
   for (const [id, usd] of Object.entries(EXPECTED)) {
     assert.equal(SERVICES[id].usd, usd);
     assert.ok(isService(id));
@@ -68,7 +71,12 @@ test("GET /buy/svc-* serves a service intent page and never calls Stripe", async
       assert.match(html, /<form\b[^>]*method="post"/);
       assert.match(html, /name="intent" value="checkout"/);
       assert.match(html, new RegExp(`\\$${usd.toLocaleString("en-US")}`));
-      assert.match(html, /support@zovo\.one within 1 business day/);
+      assert.match(html, /notified as soon as you pay/);
+      assert.match(html, /Work starts the next business day\. I email you from support@zovo\.one/);
+      assert.match(html, /Everything happens by email, no calls/);
+      const body = html.slice(html.indexOf("<h1>"), html.indexOf("</form>"));
+      assert.doesNotMatch(body, /&mdash;|\u2014/, "service copy has no em dash");
+      assert.match(body, new RegExp(`Continue to Stripe, pay \\$${usd.toLocaleString("en-US")}`));
       assert.doesNotMatch(html, /lifetime licen[cs]e|Pro key|license_activate/i);
     }
   } finally {
@@ -99,7 +107,7 @@ test("POST /buy/svc-audit sends custom field, service metadata and no tenant to 
     assert.equal(sent.get("metadata[kind]"), "service");
     assert.equal(sent.get("metadata[site]"), "mcp.zovo.one");
     assert.equal(sent.get("custom_fields[0][key]"), "mcpserver");
-    assert.match(sent.get("custom_text[after_submit][message]"), /support@zovo\.one within 1 business day/);
+    assert.match(sent.get("custom_text[after_submit][message]"), /start work the next business day\. Everything happens by email from support@zovo\.one/);
     assert.equal(sent.get("customer_creation"), "always");
     assert.equal(sent.get("metadata[tenant]"), null);
     assert.equal(sent.get("client_reference_id"), null);
@@ -152,7 +160,9 @@ test("a paid service: webhook records the order, alerts the owner once, mints no
     assert.equal(success.status, 200);
     assert.equal(success.headers.get("x-mcp-fulfillment"), "service");
     assert.match(html, /Payment received/);
-    assert.match(html, /support@zovo\.one<\/strong> within 1 business day/);
+    assert.match(html, /Payment received\. I've been notified\./);
+    assert.match(html, /Work starts the next business day\. I email you from <strong>support@zovo\.one<\/strong>/);
+    assert.match(html, /Everything happens by email, no calls/);
     assert.match(html, /https:\/\/example\.com\/mcp/);
     assert.doesNotMatch(html, /Your license key|license_activate|MCPL1/);
     assert.equal(mails.length, 2);
@@ -186,4 +196,32 @@ test("landing band and every page footer cross-sell McpStamp with UTM tags", asy
   assert.match(crosssellHtml("x"), /Hire the builder of these \d+ servers/);
   const guide = await (await worker.fetch(new Request("https://mcp.zovo.one/guides"), {}, ctx)).text();
   assert.match(guide, /<footer>[\s\S]*mcpstamp\.com\/services\/\?utm_source=mcp\.zovo\.one&amp;utm_medium=crosssell&amp;utm_content=footer/);
+});
+
+test("upfront services say paid upfront, never invoice a balance, and the new products charge their full price", () => {
+  for (const id of UPFRONT) {
+    const p = SERVICES[id];
+    assert.match(p.priceLine, /paid upfront/, id);
+    assert.doesNotMatch(`${p.desc} ${p.priceLine} ${p.includes.join(" ")} ${p.next}`, /invoiced|balance|deposit|30-minute call/i, id);
+    assert.ok(!/\u2014|&mdash;/.test(p.name + p.desc), `${id} has no em dash`);
+    const session = paidSession(id);
+    assert.deepEqual(fulfillmentAllowed(session, id), { ok: true, reason: "paid" });
+    assert.equal(fulfillmentAllowed({ ...session, amount_total: 49000 }, id).ok, id === "svc-audit");
+  }
+  assert.match(SERVICES["svc-audit"].includes.join(" "), /follow-up questions by email for 14 days/);
+  assert.match(SERVICES["svc-care-quarter"].priceLine, /\$490 a month/);
+  assert.match(SERVICES["svc-care-quarter"].includes.join(" "), /Nothing is charged automatically/);
+  assert.match(SERVICES["svc-custom-deposit"].includes.join(" "), /refunded in full/);
+  assert.match(SERVICES["svc-custom-deposit"].includes.join(" "), /paid upfront before the build starts/);
+});
+
+test("a paid 4-store launch alerts support@zovo.one with the process and confirms to the buyer", () => {
+  const s = paidSession("svc-launch");
+  const owner = serviceOwnerAlert("svc-launch", s);
+  assert.deepEqual(owner.to, ["support@zovo.one"]);
+  assert.match(owner.subject, /^PAID \$4900: McpStamp Store Launch, 4 stores - buyer@example\.com$/);
+  assert.match(owner.text, /work starts the next business day/);
+  const buyer = serviceBuyerEmail("svc-launch", s);
+  assert.equal(buyer.reply_to, "support@zovo.one");
+  assert.match(buyer.text, /notified of your payment[\s\S]*Work starts the next business day[\s\S]*no calls/);
 });
