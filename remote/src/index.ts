@@ -980,6 +980,23 @@ export function unauthorizedBody(product: string) {
   };
 }
 
+/**
+ * The `WWW-Authenticate` value of a 401 from an MCP endpoint (RFC 6750 §3, RFC 9728 §5.1,
+ * MCP 2025-11-25 authorization). `resource_metadata` is always there, so a client can find
+ * the authorization server. A request with no token gets no error code (RFC 6750 §3.1: "If
+ * the request lacks any authentication information ... the resource server SHOULD NOT
+ * include an error code"); a token that is present but unknown, expired, malformed or
+ * revoked gets `error="invalid_token"`, which tells an OAuth client to refresh or re-authorize.
+ * error_description keeps only the RFC 6750 §3 character set (no double quote, no backslash).
+ */
+export function bearerChallenge(resourceMeta: string, error = "", description = ""): string {
+  const safe = (x: string) => x.replace(/[^\x20-\x21\x23-\x5B\x5D-\x7E]/g, "");
+  let v = 'Bearer realm="mcp.zovo.one"';
+  if (error) v += `, error="${safe(error)}"`;
+  if (error && description) v += `, error_description="${safe(description)}"`;
+  return `${v}, resource_metadata="${resourceMeta}"`;
+}
+
 async function authenticate(req: Request, env: Env, product: string, urlToken = "", urlTokenForm: Auth["via"] = "URL path segment (/mcp/<server>/t/<token>)", resourceMeta = OAUTH_RESOURCE_META): Promise<Auth | Response> {
   const header = req.headers.get("authorization") ?? "";
   const fromHeader = header.toLowerCase().startsWith("bearer ") ? header.slice(7).trim() : "";
@@ -991,34 +1008,37 @@ async function authenticate(req: Request, env: Env, product: string, urlToken = 
     // here can discover the authorization server (the same host) and start the PKCE dance.
     // An MCP endpoint passes its path-specific document (resourceMetadataUrl), whose
     // `resource` is the exact URL requested; anything else keeps the root document.
-    return json(unauthorizedBody(product), 401, { "www-authenticate": `Bearer realm="mcp.zovo.one", error="invalid_token", resource_metadata="${resourceMeta}"` });
+    return json(unauthorizedBody(product), 401, { "www-authenticate": bearerChallenge(resourceMeta) });
   }
+  // A token is present but cannot be used: the same 401, with error="invalid_token".
+  const invalid = (body: Record<string, unknown>, why: string) =>
+    json(body, 401, { "www-authenticate": bearerChallenge(resourceMeta, "invalid_token", why) });
   if (token.startsWith("MCPL1.")) {
     const r = await verifyLicense(token, product);
-    if (!r.ok) return json({ error: "invalid_license", reason: r.reason, guide: GUIDE }, 401);
+    if (!r.ok) return invalid({ error: "invalid_license", reason: r.reason, guide: GUIDE }, "The licence key is not valid for this server");
     if (!TENANT_ID_RE.test(r.id ?? "")) {
-      return json({
+      return invalid({
         error: "invalid_license",
         reason: "the id in this key is not a usable storage key on the hosted endpoint (allowed: 1-64 characters of letters, digits, underscore or dash)",
         guide: GUIDE,
-      }, 401);
+      }, "The licence key id is not usable on the hosted endpoint");
     }
     return { tenant: `lic:${r.id}`, isPro: true, kind: "license", limit: RATE_LIMIT_PRO, via };
   }
   if (/^anon_[0-9a-f]{32}$/.test(token)) {
     const id = token.slice(5);
-    if (!TENANT_ID_RE.test(id)) return json({ error: "invalid_token", guide: GUIDE }, 401);
+    if (!TENANT_ID_RE.test(id)) return invalid({ error: "invalid_token", guide: GUIDE }, "Malformed token");
     // Fetch token existence and the independent bundle/product/legacy slots together.
     const [seen, verified] = await Promise.all([
       env.REMOTE_DATA.get(`tok:${token}`),
       readBinding(env.REMOTE_DATA, token, product, verifyLicense),
     ]);
-    if (seen === null) return json({ error: "unknown_token", message: "Mint a new one at GET https://mcp.zovo.one/mcp/token", guide: GUIDE }, 401);
+    if (seen === null) return invalid({ error: "unknown_token", message: "Mint a new one at GET https://mcp.zovo.one/mcp/token", guide: GUIDE }, "Unknown or expired token");
     // Binding lookup rechecks each candidate key's signature, product and expiry.
     const d = decideBinding(verified);
     return { tenant: `anon:${id}`, isPro: d.isPro, kind: "anon", limit: d.limit, anonToken: token, bound: d.bound, via, tokStamp: Number(seen) || 0 };
   }
-  return json({ error: "invalid_token", message: "Token is neither an MCPL1 licence key nor an anonymous token.", guide: GUIDE }, 401);
+  return invalid({ error: "invalid_token", message: "Token is neither an MCPL1 licence key nor an anonymous token.", guide: GUIDE }, "Token is neither a licence key nor an anonymous token");
 }
 
 /*
@@ -1297,9 +1317,46 @@ export function oauthAuthorizeErrorPage(message: string): string {
 <h1>Cannot authorize</h1><p>${esc(message)}</p></body></html>`;
 }
 
-/** Wrap an OAuth HTML fragment in a full Response (text/html, no-store). */
-function htmlPage(html: string): Response {
-  return new Response(html, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
+/**
+ * RFC 6749 §4.1.2.1 error answer for a request whose client_id and redirect_uri are both
+ * valid: the browser goes back to the client with error, error_description and state.
+ */
+export function oauthErrorRedirect(redirectUri: string, error: string, description: string, state: string): string {
+  const back = new URL(redirectUri);
+  back.searchParams.set("error", error);
+  if (description) back.searchParams.set("error_description", description);
+  if (state) back.searchParams.set("state", state);
+  return back.toString();
+}
+
+/**
+ * The authorization request checks that run after client_id and redirect_uri are known to
+ * be good (RFC 6749 §4.1.1, RFC 7636 §4.3). null = the request is fine. A missing
+ * response_type or code_challenge_method is tolerated, as before (code and S256 are the only
+ * values this server knows); a wrong one is an error.
+ */
+export function authorizeParamsError(params: URLSearchParams): { error: string; description: string } | null {
+  const responseType = params.get("response_type");
+  if (responseType !== null && responseType !== "code") {
+    return { error: "unsupported_response_type", description: "Only response_type=code is supported." };
+  }
+  const method = params.get("code_challenge_method");
+  if (method !== null && method !== "S256") {
+    return { error: "invalid_request", description: "code_challenge_method must be S256." };
+  }
+  if (!/^[A-Za-z0-9_-]{43,128}$/.test(params.get("code_challenge") ?? "")) {
+    return { error: "invalid_request", description: "code_challenge must be an S256 value (base64url, 43-128 characters)." };
+  }
+  return null;
+}
+
+/**
+ * Wrap an OAuth HTML fragment in a full Response (text/html, no-store). An error page
+ * shown instead of a redirect (unknown client, unregistered redirect_uri: RFC 6749
+ * §4.1.2.1 forbids the redirect) is a 400.
+ */
+function htmlPage(html: string, status = 200): Response {
+  return new Response(html, { status, headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
 }
 
 /* --------------------------------------------------------------- storage */
@@ -2700,13 +2757,16 @@ export default {
     if (path === "/oauth/authorize" && req.method === "GET") {
       const clientId = url.searchParams.get("client_id") ?? "";
       const redirectUri = url.searchParams.get("redirect_uri") ?? "";
-      const challenge = url.searchParams.get("code_challenge") ?? "";
       const client = clientId ? await env.REMOTE_DATA.get(`oauth_client:${clientId}`) : null;
-      if (!client) return htmlPage(oauthAuthorizeErrorPage("Unknown client. Register first via POST /oauth/register."));
+      // RFC 6749 §4.1.2.1: with an unknown client or an unregistered redirect_uri the user
+      // is told here (HTTP 400) and is never redirected; every later error goes back to the
+      // client's redirect_uri with error= and state.
+      if (!client) return htmlPage(oauthAuthorizeErrorPage("Unknown client. Register first via POST /oauth/register."), 400);
       const registered = (JSON.parse(client) as { metadata: { redirect_uris?: string[] } }).metadata.redirect_uris ?? [];
       // Exact-match redirect URI per RFC 6749 §3.1.2.3 - no prefix or wildcard matching.
-      if (!registered.includes(redirectUri)) return htmlPage(oauthAuthorizeErrorPage("redirect_uri is not registered for this client."));
-      if (!/^[A-Za-z0-9_-]{43,128}$/.test(challenge)) return htmlPage(oauthAuthorizeErrorPage("code_challenge must be an S256 (base64url, 43-128 char) value."));
+      if (!registered.includes(redirectUri)) return htmlPage(oauthAuthorizeErrorPage("redirect_uri is not registered for this client."), 400);
+      const bad = authorizeParamsError(url.searchParams);
+      if (bad) return Response.redirect(oauthErrorRedirect(redirectUri, bad.error, bad.description, url.searchParams.get("state") ?? ""), 302);
       let clientName = "";
       try { clientName = String((JSON.parse(client) as { metadata: { client_name?: unknown } }).metadata.client_name ?? ""); } catch { clientName = ""; }
       const html = oauthConsentPage(base, url.searchParams, clientName);
@@ -2722,10 +2782,12 @@ export default {
       const challenge = url.searchParams.get("code_challenge") ?? "";
       const state = url.searchParams.get("state") ?? "";
       const client = clientId ? await env.REMOTE_DATA.get(`oauth_client:${clientId}`) : null;
-      if (!client) return htmlPage(oauthAuthorizeErrorPage("Unknown client."));
+      if (!client) return htmlPage(oauthAuthorizeErrorPage("Unknown client."), 400);
       const registered = (JSON.parse(client) as { metadata: { redirect_uris?: string[] } }).metadata.redirect_uris ?? [];
-      if (!registered.includes(redirectUri)) return htmlPage(oauthAuthorizeErrorPage("redirect_uri is not registered for this client."));
-      if (!/^[A-Za-z0-9_-]{43,128}$/.test(challenge)) return htmlPage(oauthAuthorizeErrorPage("Bad code_challenge."));
+      if (!registered.includes(redirectUri)) return htmlPage(oauthAuthorizeErrorPage("redirect_uri is not registered for this client."), 400);
+      // The consent form carries client_id, redirect_uri, code_challenge and state only.
+      const bad = authorizeParamsError(url.searchParams);
+      if (bad) return Response.redirect(oauthErrorRedirect(redirectUri, bad.error, bad.description, state), 302);
       if (url.searchParams.get("decision") === "deny") {
         // RFC 6749 §4.1.2.1: the user said no. Nothing is minted; the client gets access_denied.
         const denied = new URL(redirectUri);
