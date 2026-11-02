@@ -257,6 +257,16 @@ test("route contract: /.well-known/google-connected-apps serves gca:verification
   assert.ok(!/redirect/i.test(block));
 });
 
+test("route contract: /.well-known/openai-apps-challenge serves openai:challenge as plain text, 404 when unset", () => {
+  const i = src.indexOf('path === "/.well-known/openai-apps-challenge"');
+  assert.ok(i > 0);
+  const block = src.slice(i, src.indexOf("\n    }\n", i));
+  assert.ok(block.includes('env.REMOTE_DATA.get("openai:challenge")'));
+  assert.ok(block.includes('if (body === null) return json({ error: "not_found" }, 404);'));
+  assert.ok(block.includes('"content-type": "text/plain; charset=utf-8"'));
+  assert.ok(!/redirect/i.test(block));
+});
+
 /* ----------------------------------------------------------- 5. GET streams */
 
 test("route contract: a GET answer is never read to its end, and an SSE-only tokenless GET is 405", () => {

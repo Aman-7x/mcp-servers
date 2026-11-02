@@ -2702,6 +2702,16 @@ export default {
         headers: { "content-type": "application/json", "cache-control": "public, max-age=300" },
       });
     }
+    // OpenAI (ChatGPT app directory) domain verification. The token comes from the OpenAI
+    // platform portal and is stored as-is in KV key openai:challenge, so it can change without a deploy.
+    if (path === "/.well-known/openai-apps-challenge") {
+      if (req.method !== "GET" && req.method !== "HEAD") return json({ error: "method_not_allowed" }, 405, { allow: "GET, HEAD" });
+      const body = await env.REMOTE_DATA.get("openai:challenge");
+      if (body === null) return json({ error: "not_found" }, 404);
+      return new Response(req.method === "HEAD" ? null : body.trim(), {
+        headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "public, max-age=300" },
+      });
+    }
     if (path === "/.well-known/oauth-protected-resource") {
       return json(oauthProtectedResourceDoc());
     }
