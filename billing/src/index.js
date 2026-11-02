@@ -118,7 +118,7 @@ export const SERVICES = {
     name: "McpStamp Readiness Audit",
     usd: 490,
     desc: "Fixed-price audit of one remote MCP server against Claude Directory, ChatGPT Apps, Gemini Connected Apps and the MCP Registry, with a written fix report in 3 business days.",
-    priceLine: "$490.00 USD founding price (list $750) &middot; one payment &middot; fixed price",
+    priceLine: "$490.00 USD &middot; one payment &middot; fixed price",
     includes: [
       "Your server checked against the listing requirements of Claude Directory, ChatGPT Apps, Gemini Connected Apps and the MCP Registry.",
       "Transport, authentication, tool definitions and listing metadata reviewed.",
@@ -1353,7 +1353,7 @@ ${p.includes.map((line) => `<li>${esc(line)}</li>`).join("\n")}
 <form method="post" action="${esc(action)}"><input type="hidden" name="intent" value="checkout"><input type="hidden" name="order_token" value="${newOrderToken()}">
 <button class="buy" type="submit">Continue to Stripe &mdash; $${p.usd.toLocaleString("en-US")}</button></form>
 <p class="muted">No payment session has been created yet. Stripe collects the card on the next page. This is a service, not a software licence: no key is issued.</p>
-<p class="muted">Not sure yet? Run the free <a href="${mcpstampLink(MCPSTAMP_CHECK_URL, `buy.${productId}`)}">McpStamp Check</a> on your server first, or ask a question at support@zovo.one. Done by the developer of the ${LISTED_COUNT} MCP servers on mcp.zovo.one.</p>
+<p class="muted">Not sure yet? Run the free <a href="${mcpstampLink(MCPSTAMP_CHECK_URL, `buy.${productId}`)}">McpStamp Check</a> on your server first, or ask a question at support@zovo.one. Done by the developer of the ${LISTED_COUNT} open-source MCP servers listed on mcp.zovo.one.</p>
 <p><a href="${mcpstampLink(MCPSTAMP_SERVICES_URL, `buy.${productId}`)}">Back to services</a></p>`);
 }
 
