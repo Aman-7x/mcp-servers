@@ -16,6 +16,7 @@ import { STORE, type RequestCtx, type Download } from "./shims/ctx.js";
 import { PRICE_BUNDLE_USD, PRICE_SINGLE_USD, SERVER_COUNT } from "./shims/license.js";
 import { paymentDescriptor } from "./payment.js";
 import { issueRefreshToken, redeemRefreshToken } from "./oauth-refresh.js";
+import { authenticateConfidentialClient, clientAuthErrorResponse, clientCredentials, isConfidentialRecord, registerConfidentialClient, registrationAuthMethod } from "./oauth-client.js";
 import SERVER_INSTRUCTIONS from "./server-instructions.json";
 import { TMP_RE, recount } from "./shims/fs.js";
 import { createServer as createTimeTracker } from "./vendor/time-tracker/index.js";
@@ -1233,9 +1234,9 @@ export function oauthAuthorizationServerDoc() {
     response_types_supported: ["code"],
     grant_types_supported: ["authorization_code", "refresh_token"],
     code_challenge_methods_supported: ["S256"],
-    // No token_endpoint_auth_methods_supported: a public client (RFC 6749 §2.3.1) presents
-    // no secret, so the default plain client_secret_basic would be wrong to advertise.
-    token_endpoint_auth_methods_supported: ["none"],
+    // Public clients ("none", PKCE only) and confidential clients that registered with a
+    // secret (src/oauth-client.ts). Microsoft 365 Copilot DCR requires a client secret.
+    token_endpoint_auth_methods_supported: ["none", "client_secret_basic", "client_secret_post"],
     scopes_supported: ["mcp:connect"],
     response_modes_supported: ["query"],
   };
@@ -2732,7 +2733,9 @@ export default {
 
     // RFC 7591 dynamic client registration. A public client sends metadata, gets back an
     // id and nothing secret. The id is a hash of the metadata, so re-registering the same
-    // client yields the same id and the KV write can be skipped.
+    // client yields the same id and the KV write can be skipped. A client that asks for
+    // client_secret_basic/_post (or a Microsoft token-store client that names no method)
+    // is confidential: random id, secret returned once, only its SHA-256 stored.
     if (path === "/oauth/register" && req.method === "POST") {
       let metadata: Record<string, unknown>;
       try {
@@ -2743,6 +2746,11 @@ export default {
       const redirectUris = Array.isArray(metadata.redirect_uris) ? metadata.redirect_uris.map(String) : [];
       if (redirectUris.length === 0 || redirectUris.some((u) => !/^https?:\/\//.test(u))) {
         return json({ error: "invalid_redirect_uri", message: "redirect_uris must be http(s) URLs." }, 400);
+      }
+      const authMethod = registrationAuthMethod(metadata, redirectUris);
+      if (authMethod !== "none") {
+        const body = await registerConfidentialClient(env.REMOTE_DATA, metadata, redirectUris, authMethod);
+        return json(body, 201, { "cache-control": "no-store", pragma: "no-cache" });
       }
       const clientId = await oauthClientId(metadata);
       // Same metadata, same id: rewrite only when missing or older than 30 days, so the
@@ -2808,9 +2816,14 @@ export default {
       const minted = await mintAnonToken(req, env, ctx);
       if (typeof minted !== "string") return minted; // rate-limited Response
       const code = crypto.randomUUID().replace(/-/g, "");
+      // A confidential client's code carries conf: true, so the token endpoint demands its
+      // secret; a public client's code record is unchanged.
+      const codeRow = isConfidentialRecord(client)
+        ? { token: minted, client_id: clientId, redirect_uri: redirectUri, challenge, conf: true }
+        : { token: minted, client_id: clientId, redirect_uri: redirectUri, challenge };
       await env.REMOTE_DATA.put(
         `oauth_code:${code}`,
-        JSON.stringify({ token: minted, client_id: clientId, redirect_uri: redirectUri, challenge }),
+        JSON.stringify(codeRow),
         { expirationTtl: OAUTH_CODE_TTL },
       );
       const back = new URL(redirectUri);
@@ -2820,25 +2833,37 @@ export default {
     }
 
     // RFC 6749 §3.2 token endpoint. Public client: no secret, PKCE S256 proof instead.
+    // Confidential client: the same PKCE proof plus client authentication (RFC 6749
+    // §2.3.1, Basic header or body), for both grants. See src/oauth-client.ts.
     if (path === "/oauth/token" && req.method === "POST") {
       const form = await req.formData().catch(() => null);
       if (!form) return json({ error: "invalid_request" }, 400);
+      const creds = clientCredentials(req.headers.get("authorization"), form);
       // RFC 6749 §6: a refresh hands back the same access token (it is the data space) and
       // a rotated refresh token. See src/oauth-refresh.ts.
       const grantType = String(form.get("grant_type") ?? "authorization_code");
       if (grantType === "refresh_token") {
-        const r = await redeemRefreshToken(env.REMOTE_DATA, String(form.get("refresh_token") ?? ""), String(form.get("client_id") ?? ""), TOK_TTL);
-        if (!r.ok) return json({ error: r.error, message: r.message }, 400);
+        const r = await redeemRefreshToken(env.REMOTE_DATA, String(form.get("refresh_token") ?? ""), creds.id, TOK_TTL,
+          (bound) => authenticateConfidentialClient(env.REMOTE_DATA, bound, creds));
+        if (!r.ok) {
+          if (r.error === "invalid_client" || r.status) return clientAuthErrorResponse({ error: r.error as "invalid_client" | "invalid_request", message: r.message, status: r.status ?? 401 });
+          return json({ error: r.error, message: r.message }, 400);
+        }
         return json({ access_token: r.token, token_type: "Bearer", expires_in: OAUTH_ACCESS_TTL, refresh_token: r.refresh_token });
       }
       if (grantType !== "authorization_code") return json({ error: "unsupported_grant_type" }, 400);
       const code = String(form.get("code") ?? "");
       const verifier = String(form.get("code_verifier") ?? "");
-      const clientId = String(form.get("client_id") ?? "");
+      const clientId = creds.id;
       const stored = code ? await env.REMOTE_DATA.get(`oauth_code:${code}`) : null;
       if (!stored) return json({ error: "invalid_grant", message: "Code is unknown, used or expired." }, 400);
-      const grant = JSON.parse(stored) as { token: string; client_id: string; redirect_uri: string; challenge: string };
+      const grant = JSON.parse(stored) as { token: string; client_id: string; redirect_uri: string; challenge: string; conf?: boolean };
       if (clientId && clientId !== grant.client_id) return json({ error: "invalid_grant", message: "client_id mismatch." }, 400);
+      if (grant.conf === true) {
+        // Client authentication before PKCE; a failure does not spend the code.
+        const bad = await authenticateConfidentialClient(env.REMOTE_DATA, grant.client_id, creds);
+        if (bad) return clientAuthErrorResponse(bad);
+      }
       if (!(await verifyPkce(verifier, grant.challenge))) return json({ error: "invalid_grant", message: "PKCE verification failed." }, 400);
       // One-time use: delete before responding so a replay gets invalid_grant.
       await env.REMOTE_DATA.delete(`oauth_code:${code}`);
@@ -2846,7 +2871,7 @@ export default {
         access_token: grant.token,
         token_type: "Bearer",
         expires_in: OAUTH_ACCESS_TTL,
-        refresh_token: await issueRefreshToken(env.REMOTE_DATA, grant.token, grant.client_id),
+        refresh_token: await issueRefreshToken(env.REMOTE_DATA, grant.token, grant.client_id, grant.conf === true),
       });
     }
 

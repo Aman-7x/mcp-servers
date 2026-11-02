@@ -240,7 +240,7 @@ test("route contract: both grants at the token endpoint, both advertised", () =>
   assert.ok(block.includes('grantType === "refresh_token"'));
   assert.ok(block.includes("redeemRefreshToken(env.REMOTE_DATA"));
   assert.ok(block.includes('if (grantType !== "authorization_code") return json({ error: "unsupported_grant_type" }, 400);'));
-  assert.ok(block.includes("refresh_token: await issueRefreshToken(env.REMOTE_DATA, grant.token, grant.client_id)"));
+  assert.ok(block.includes("refresh_token: await issueRefreshToken(env.REMOTE_DATA, grant.token, grant.client_id, grant.conf === true)"));
   assert.ok(src.includes('grant_types_supported: ["authorization_code", "refresh_token"]'));
   assert.ok(src.includes('grant_types: ["authorization_code", "refresh_token"]'), "DCR response");
 });
