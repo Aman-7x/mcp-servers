@@ -655,7 +655,7 @@ function llmsHeaders() {
 export function crosssellHtml(where) {
   const check = esc(mcpstampLink(MCPSTAMP_CHECK_URL, where));
   const hire = esc(mcpstampLink(MCPSTAMP_SERVICES_URL, where));
-  return `New: <a href="${check}">McpStamp Check</a> &mdash; is your MCP server ready for Claude, ChatGPT and Gemini? <a href="${check}">Free check</a> &middot; <a href="${hire}">Hire the builder of these ${LISTED_COUNT} servers</a>`;
+  return `New from us, <a href="${check}">McpStamp Check</a>. Is your MCP server ready for Claude, ChatGPT and Gemini? <a href="${check}">Free check</a> &middot; <a href="${hire}">Hire the builder of these ${LISTED_COUNT} servers</a>`;
 }
 
 function page(title, body) {
