@@ -15,6 +15,8 @@ import { appendSuccessUpgrade, readFunnelCohort, recordFunnelEvents, requestCoho
 import { STORE, type RequestCtx, type Download } from "./shims/ctx.js";
 import { PRICE_BUNDLE_USD, PRICE_SINGLE_USD, SERVER_COUNT } from "./shims/license.js";
 import { paymentDescriptor } from "./payment.js";
+import { issueRefreshToken, redeemRefreshToken } from "./oauth-refresh.js";
+import SERVER_INSTRUCTIONS from "./server-instructions.json";
 import { TMP_RE, recount } from "./shims/fs.js";
 import { createServer as createTimeTracker } from "./vendor/time-tracker/index.js";
 import { createServer as createPriceTracker } from "./vendor/price-tracker/index.js";
@@ -68,6 +70,17 @@ export interface Env { REMOTE_DATA: KVNamespace; FUNNEL: DurableObjectNamespace;
 const PUBLIC_KEY_B64 = "VZXpvTpJn2XzaEn9ijFXk1vjPjtZvzAHZazC0Z+0pHU=";
 const GUIDE = "https://mcp.zovo.one/guides/mcp-server-free-vs-pro";
 const ANON_TTL = 60 * 60 * 24 * 30;   // 30 days, refreshed on every write
+/**
+ * The tok: TTL refresh used to be a KV write on every tool call. It is now written at most
+ * once a day per token, with one extra day of TTL, so a token still lives at least 30 days
+ * after its last use. Tokens written before TOK_SLACK_SINCE carry the old TTL without the
+ * extra day, so they are refreshed on their next use regardless of age.
+ */
+const TOK_REFRESH_MS = 86_400_000;
+const TOK_TTL = ANON_TTL + TOK_REFRESH_MS / 1000;
+const TOK_SLACK_SINCE = Date.parse("2026-10-27T12:00:00Z");
+/** meta:<tenant> last_seen is stamped at most this often; the sweep cutoff is 35 days. */
+const TOUCH_EVERY_MS = 6 * 3_600_000;
 const DOWNLOAD_TTL = 60 * 60;         // 1 hour
 const RATE_LIMIT_FREE = 600;          // calls per hour per token
 const RATE_LIMIT_PRO = 6000;
@@ -115,7 +128,7 @@ const OAUTH_CODE_TTL = 10 * 60;                 // authorization code, 10 minute
  * the deploy, so the only thing the version has to guarantee is that two builds never
  * share a cache entry inside one isolate.
  */
-const BUILD_VERSION = "2026-09-13.1";
+const BUILD_VERSION = "2026-11-01.1";
 
 /** Where the one-click .mcpb bundles live. The install path that works today. */
 const RELEASES = "https://github.com/theluckystrike/mcp-servers/releases/latest";
@@ -833,6 +846,8 @@ interface Auth {
   via?: "Authorization: Bearer" | "URL path segment (/mcp/<server>/t/<token>)" | "URL query parameter (?token=)";
   /** True when an anonymous tenant is Pro because of a bound purchase, not a pasted key. */
   bound?: boolean;
+  /** The tok:<token> value read during authentication: ms of its last TTL refresh. */
+  tokStamp?: number;
 }
 
 /**
@@ -999,21 +1014,61 @@ async function authenticate(req: Request, env: Env, product: string, urlToken = 
     if (seen === null) return json({ error: "unknown_token", message: "Mint a new one at GET https://mcp.zovo.one/mcp/token", guide: GUIDE }, 401);
     // Binding lookup rechecks each candidate key's signature, product and expiry.
     const d = decideBinding(verified);
-    return { tenant: `anon:${id}`, isPro: d.isPro, kind: "anon", limit: d.limit, anonToken: token, bound: d.bound, via };
+    return { tenant: `anon:${id}`, isPro: d.isPro, kind: "anon", limit: d.limit, anonToken: token, bound: d.bound, via, tokStamp: Number(seen) || 0 };
   }
   return json({ error: "invalid_token", message: "Token is neither an MCPL1 licence key nor an anonymous token.", guide: GUIDE }, 401);
 }
 
+/*
+ * KV write budget (2026-10-27). Directory liveness probes (mcpbeat, SentinelOracle,
+ * AgentRankProbe, rokmcp and others) send tokenless initialize / tools/list POSTs around
+ * 100k times a day, and every one of them used to write rl:discovery:<ip>:<hour>. That was
+ * about 0.8 KV writes per request and almost all of the namespace's 3M+ writes a month.
+ *
+ * Discovery is now counted in isolate memory only: it touches no tenant data, tools/list
+ * is served from module scope, and the per-hour ceiling is the same number, enforced per
+ * isolate. Authenticated counters stay in KV so the free and Pro ceilings still hold
+ * across isolates, but this isolate batches its increments: the first call it sees for a
+ * key writes at once (exactly as before), later calls are folded in and written every
+ * RL_FLUSH_EVERY calls or RL_FLUSH_MS, whichever comes first. The KV counter was already
+ * approximate (reads are edge-cached, concurrent requests both write n+1), and the most
+ * this adds is RL_FLUSH_EVERY - 1 unwritten calls per isolate.
+ */
+const RL_FLUSH_EVERY = 20;
+const RL_FLUSH_MS = 5 * 60_000;
+const LOCAL_MAP_MAX = 2000;
+const discoveryCounts = new Map<string, number>();
+const rlLocal = new Map<string, { flushed: number; pending: number; at: number }>();
+
+/** Drop entries from earlier hour buckets once a map grows; keys end in `:<bucket>`. */
+function pruneBuckets<V>(m: Map<string, V>, bucket: number): void {
+  if (m.size < LOCAL_MAP_MAX) return;
+  const suffix = `:${bucket}`;
+  for (const k of m.keys()) if (!k.endsWith(suffix)) m.delete(k);
+  if (m.size >= LOCAL_MAP_MAX) m.clear();
+}
+
 /**
  * The read decides; the counter write is deferred with waitUntil so it is not on the
- * caller's clock. The counter was already approximate - two concurrent requests read the
- * same value and both write n+1 - so deferring the write loses nothing that was ever
- * guaranteed, and takes a KV write out of every single call.
+ * caller's clock, and batched per isolate (see the KV write budget note above).
  */
 async function rateLimit(env: Env, auth: Auth, ctx: ExecutionContext, product?: string): Promise<Response | null> {
-  const bucket = Math.floor(Date.now() / 3_600_000);
+  const now = Date.now();
+  const bucket = Math.floor(now / 3_600_000);
   const key = `rl:${auth.tenant}:${bucket}`;
-  const n = Number((await env.REMOTE_DATA.get(key)) ?? "0") + 1;
+  const isDiscoveryTenant = auth.tenant.startsWith("discovery:");
+  let n: number;
+  let entry: { flushed: number; pending: number; at: number } | undefined;
+  let kvN = 0;
+  if (isDiscoveryTenant) {
+    pruneBuckets(discoveryCounts, bucket);
+    n = (discoveryCounts.get(key) ?? 0) + 1;
+  } else {
+    pruneBuckets(rlLocal, bucket);
+    kvN = Number((await env.REMOTE_DATA.get(key)) ?? "0") || 0;
+    entry = rlLocal.get(key);
+    n = Math.max(kvN, entry?.flushed ?? 0) + (entry?.pending ?? 0) + 1;
+  }
   if (n > auth.limit) {
     // D-R53: every other cap on this worker names what it costs to lift and links to
     // checkout with the tenant attached. This one used to name only the number, and the
@@ -1058,7 +1113,24 @@ async function rateLimit(env: Env, auth: Auth, ctx: ExecutionContext, product?: 
       guide: GUIDE,
     }, 429, { "retry-after": String(retryAfter) });
   }
-  ctx.waitUntil(env.REMOTE_DATA.put(key, String(n), { expirationTtl: 7200 }));
+  if (isDiscoveryTenant) {
+    discoveryCounts.set(key, n);
+    return null;
+  }
+  if (!entry) {
+    // First call this isolate has seen for the key: write now, as every call used to.
+    rlLocal.set(key, { flushed: n, pending: 0, at: now });
+    ctx.waitUntil(env.REMOTE_DATA.put(key, String(n), { expirationTtl: 7200 }));
+    return null;
+  }
+  entry.flushed = Math.max(kvN, entry.flushed);
+  entry.pending += 1;
+  if (entry.pending >= RL_FLUSH_EVERY || now - entry.at >= RL_FLUSH_MS) {
+    entry.flushed += entry.pending;
+    entry.pending = 0;
+    entry.at = now;
+    ctx.waitUntil(env.REMOTE_DATA.put(key, String(entry.flushed), { expirationTtl: 7200 }));
+  }
   return null;
 }
 
@@ -1106,7 +1178,7 @@ export function oauthAuthorizationServerDoc() {
     token_endpoint: OAUTH_TOKEN,
     registration_endpoint: OAUTH_REGISTER,
     response_types_supported: ["code"],
-    grant_types_supported: ["authorization_code"],
+    grant_types_supported: ["authorization_code", "refresh_token"],
     code_challenge_methods_supported: ["S256"],
     // No token_endpoint_auth_methods_supported: a public client (RFC 6749 §2.3.1) presents
     // no secret, so the default plain client_secret_basic would be wrong to advertise.
@@ -1143,22 +1215,46 @@ export async function verifyPkce(verifier: string, challenge: string): Promise<b
   return secretEquals(await s256Challenge(verifier), challenge);
 }
 
-/** Minimal consent page: plain HTML, no branding framework, one form per RFC 6749 §3.1. */
-export function oauthConsentPage(base: string, params: URLSearchParams): string {
+/**
+ * Consent page for /oauth/authorize. Branded McpStamp page: names the client that asked
+ * (client_name from its DCR metadata, escaped), says exactly what Allow creates, and links
+ * the Terms and Privacy pages. Allow and Deny post back to /oauth/authorize/consent; Deny
+ * returns error=access_denied to the client (RFC 6749 §4.1.2.1). No external assets.
+ */
+export function oauthConsentPage(base: string, params: URLSearchParams, clientName = ""): string {
   const esc = (x: unknown) => String(x ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  return `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Authorize MCP access</title></head><body>
-<h1>Authorize this tool to use your data space</h1>
-<p>Signing in creates a free anonymous access token and hands it to the tool that asked.
-There is no account and nothing to fill in. The token works for 30 days and is refreshed on every use.</p>
+  const who = clientName.trim().slice(0, 60) || "An AI app";
+  const hidden = ["client_id", "redirect_uri", "code_challenge", "state"]
+    .map((k) => `<input type="hidden" name="${k}" value="${esc(params.get(k))}">`).join("\n");
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connect McpStamp</title>
+<style>
+:root{--bg:#eef0ea;--card:#fff;--fg:#1b1f1a;--muted:#5b6358;--line:#d6dacf;--accent:#1f5c3a;--accent-fg:#fff;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#141713;--card:#1d211c;--fg:#e9ece5;--muted:#a3ab9f;--line:#333a31;--accent:#6fc493;--accent-fg:#0d1a12;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:24px 16px}
+main{background:var(--card);border:1px solid var(--line);border-radius:14px;max-width:440px;width:100%;padding:28px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;letter-spacing:.2px}
+.mark{width:32px;height:32px;border-radius:8px;background:var(--accent);color:var(--accent-fg);display:grid;place-items:center;font-weight:800}
+h1{font-size:21px;line-height:1.3;margin:20px 0 8px;text-wrap:balance}p{margin:0 0 12px;color:var(--muted)}
+ul{margin:4px 0 18px;padding-left:20px}li{margin:4px 0}
+.row{display:flex;gap:10px;margin-top:20px}button{flex:1;font:inherit;font-weight:600;padding:11px 14px;border-radius:10px;cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--fg)}
+button.allow{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.legal{font-size:13px;margin-top:18px}.legal a{color:var(--fg)}
+</style></head><body><main>
+<div class="brand"><span class="mark" aria-hidden="true">M</span>McpStamp</div>
+<h1>${esc(who)} wants to use McpStamp tools for you</h1>
+<p>McpStamp makes business documents in chat: invoices, quotes, receipts, PDFs and more.</p>
+<ul>
+<li>Allow creates a private McpStamp workspace for this connection. No account, no password, no payment details.</li>
+<li>The app can read and change only what you create in this workspace, such as clients and invoices.</li>
+<li>On the free plan, data that is not changed for 30 days is deleted. You can disconnect the app at any time.</li>
+</ul>
 <form method="get" action="${esc(base)}/oauth/authorize/consent">
-<input type="hidden" name="client_id" value="${esc(params.get("client_id"))}">
-<input type="hidden" name="redirect_uri" value="${esc(params.get("redirect_uri"))}">
-<input type="hidden" name="code_challenge" value="${esc(params.get("code_challenge"))}">
-<input type="hidden" name="state" value="${esc(params.get("state"))}">
-<button type="submit">Allow</button>
+${hidden}
+<div class="row"><button type="submit" name="decision" value="deny">Cancel</button><button class="allow" type="submit" name="decision" value="allow" autofocus>Allow</button></div>
 </form>
-</body></html>`;
+<p class="legal">By allowing, you agree to the <a href="https://www.mcpstamp.com/terms/" target="_blank" rel="noopener">Terms</a> and <a href="https://www.mcpstamp.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a>. Operated by autom8 LLC.</p>
+</main></body></html>`;
 }
 
 /** A terse error page for a bad /oauth/authorize request (nothing to sign in for). */
@@ -1231,9 +1327,28 @@ async function flush(env: Env, tenant: string, server: string, after: string, be
   await env.REMOTE_DATA.put(dataKey(tenant, server), after);
 }
 
-/** Last-seen stamp for the orphan sweep. Data documents carry no TTL; tokens do. */
+/**
+ * Last-seen stamp for the orphan sweep. Data documents carry no TTL; tokens do.
+ * The sweep deletes after 35 days without a stamp, so a stamp more than once every
+ * TOUCH_EVERY_MS buys nothing: this isolate remembers its own recent stamps, and
+ * otherwise reads the stored one and writes only when it is older than that.
+ */
+const touchedAt = new Map<string, number>();
 async function touch(env: Env, tenant: string): Promise<void> {
-  await env.REMOTE_DATA.put(`meta:${tenant}`, JSON.stringify({ last_seen: Date.now() }));
+  const now = Date.now();
+  if (now - (touchedAt.get(tenant) ?? 0) < TOUCH_EVERY_MS) return;
+  if (touchedAt.size >= LOCAL_MAP_MAX) touchedAt.clear();
+  let last = 0;
+  try { last = Number(JSON.parse((await env.REMOTE_DATA.get(`meta:${tenant}`)) ?? "{}").last_seen ?? 0) || 0; } catch { last = 0; }
+  if (now - last < TOUCH_EVERY_MS) { touchedAt.set(tenant, last); return; }
+  await env.REMOTE_DATA.put(`meta:${tenant}`, JSON.stringify({ last_seen: now }));
+  touchedAt.set(tenant, now);
+}
+
+/** Refresh tok:<token> only when the stamp read at authentication is old (see TOK_TTL). */
+function tokNeedsRefresh(stamp: number | undefined, now = Date.now()): boolean {
+  const s = stamp ?? 0;
+  return s < TOK_SLACK_SINCE || now - s >= TOK_REFRESH_MS;
 }
 
 /* -------------------------------------------------- shared ECB rate cache */
@@ -1969,6 +2084,97 @@ async function sweep(env: Env): Promise<{ scanned: number; expired: number; dele
   return { scanned, expired, deleted };
 }
 
+/* ------------------------------------------------- initialize instructions */
+
+/**
+ * Per-server `instructions` for the initialize result (MCP 2025-06-18 and later), read from
+ * src/server-instructions.json as {"<server>": "<text>"}. The vendored servers are built
+ * without them and stay unmodified, so the text is added to the initialize response body
+ * here. A server with no entry, or an empty one, answers exactly as before.
+ */
+export function serverInstructions(product: string): string | undefined {
+  const text = (SERVER_INSTRUCTIONS as Record<string, unknown>)[product];
+  return typeof text === "string" && text.trim() ? text : undefined;
+}
+
+/** Add `instructions` to a JSON-RPC initialize result; anything else is returned as is. */
+export function withInstructions(body: string, text: string | undefined): string {
+  if (!text) return body;
+  try {
+    const o = JSON.parse(body) as { result?: Record<string, unknown> };
+    if (!o?.result || typeof o.result !== "object") return body;
+    o.result.instructions = text;
+    return JSON.stringify(o);
+  } catch {
+    return body;
+  }
+}
+
+/* ------------------------------------------------- clean mode (/v1) */
+
+/**
+ * /mcp/<server>/v1 serves the same server in clean mode, for directories whose policy
+ * forbids promotional text in tool results (Google Connected Apps). The licence gate drops
+ * its tools, resource, prompt and links there (shims/license.ts) and the success trailer is
+ * not appended. What is left is the "install the server locally ... open it in Claude
+ * Desktop" pointer some hosted refusals carry; these rules remove it and keep the refusal
+ * and its hosted alternative. Applied to every string of a clean-mode JSON-RPC answer.
+ */
+const LOCAL_INSTALL_RULES: [RegExp, string | ((m: string, alt: string) => string)][] = [
+  // "... locally - download x.mcpb from <url> and open it in Claude Desktop - or <alternative>."
+  [/ ?[^.]*? - download [\w-]+\.mcpb from \S+\s+and open it in Claude Desktop - or ([^.]*)\./g,
+    (_m, alt) => ` ${alt.charAt(0).toUpperCase()}${alt.slice(1)}.`],
+  // "<alternative>, or install the x server locally, where ...: download ... open it in Claude Desktop."
+  [/,? or install the [\w -]+? locally\b[\s\S]*?open it in Claude Desktop(?:, where there is no cap)?/g, ""],
+  // "To work on files this size, install the x server locally: download ... open it in Claude Desktop, where there is no cap."
+  [/ ?(?:To [^.,]*, )?[Ii]nstall the [\w -]+? locally\b[\s\S]*?open it in Claude Desktop(?:, where there is no cap)?\./g, ""],
+];
+
+export function cleanText(text: string): string {
+  if (!text.includes("Claude Desktop")) return text;
+  let out = text;
+  for (const [re, by] of LOCAL_INSTALL_RULES) out = out.replace(re, by as string);
+  return out;
+}
+
+/**
+ * Clean-mode annotations: Google's rule is that a state-changing tool is marked
+ * destructiveHint: true, so every tool that is not read-only is. Read-only tools are kept.
+ */
+export function cleanToolList(tools: unknown[]): unknown[] {
+  return tools.map((t) => {
+    const a = (t as { annotations?: Record<string, unknown> }).annotations;
+    return a && a.readOnlyHint === false ? { ...(t as object), annotations: { ...a, destructiveHint: true } } : t;
+  });
+}
+
+/** A JSON-RPC error answer with HTTP 200, the way the SDK transport sends one. */
+function rpcError(id: unknown, code: number, message: string, data?: Record<string, unknown>, extra: Record<string, string> = {}): Response {
+  return new Response(JSON.stringify({ jsonrpc: "2.0", id: id ?? null, error: { code, message, ...(data ? { data } : {}) } }),
+    { status: 200, headers: { "content-type": "application/json", "cache-control": "no-store", ...extra } });
+}
+
+/** params.name of a tools/call body, or "" when there is none. */
+function rpcToolName(body: string): string {
+  try {
+    const n = (JSON.parse(body) as { params?: { name?: unknown } })?.params?.name;
+    return typeof n === "string" ? n : "";
+  } catch {
+    return "";
+  }
+}
+
+/** cleanText over every string in a JSON document; a body that is not JSON is returned as is. */
+export function cleanJson(body: string): string {
+  if (!body.includes("Claude Desktop")) return body;
+  const walk = (v: unknown): unknown =>
+    typeof v === "string" ? cleanText(v)
+      : Array.isArray(v) ? v.map(walk)
+        : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, walk(x)]))
+          : v;
+  try { return JSON.stringify(walk(JSON.parse(body))); } catch { return body; }
+}
+
 /* ------------------------------------------------- tools/list, cached */
 
 /**
@@ -1983,8 +2189,8 @@ async function sweep(env: Env): Promise<{ scanned: number; expired: number; dele
  */
 const toolsCache = new Map<string, string>();
 
-async function toolsJson(product: string, cfg: ServerCfg, isPro: boolean, base: string): Promise<string> {
-  const key = `${BUILD_VERSION}:${product}:${isPro ? "pro" : "free"}`;
+async function toolsJson(product: string, cfg: ServerCfg, isPro: boolean, base: string, clean = false): Promise<string> {
+  const key = `${BUILD_VERSION}:${product}:${isPro ? "pro" : "free"}${clean ? ":clean" : ""}`;
   const hit = toolsCache.get(key);
   if (hit !== undefined) return hit;
   // An empty virtual filesystem: listing tools reads no tenant state, and a handler that
@@ -1993,7 +2199,7 @@ async function toolsJson(product: string, cfg: ServerCfg, isPro: boolean, base: 
     tenant: "cache:tools", server: product, isPro,
     files: new Map(), dirs: new Set(), downloads: [], baseUrl: base,
     publish: cfg.publish, published: new Map(), maxBytes: cfg.maxBytes ?? DEFAULT_MAX_BYTES,
-    bytes: 0, nfiles: 0, fds: new Map(), nextFd: 100,
+    bytes: 0, nfiles: 0, fds: new Map(), nextFd: 100, clean,
   };
   const text = await STORE.run(rctx, async () => {
     const server = cfg.factory();
@@ -2015,7 +2221,7 @@ async function toolsJson(product: string, cfg: ServerCfg, isPro: boolean, base: 
   });
   const tools = (JSON.parse(text) as { result?: { tools?: unknown } })?.result?.tools;
   if (!Array.isArray(tools)) throw new Error(`tools/list for ${product} did not return a tool array`);
-  const out = JSON.stringify(tools);
+  const out = clean ? cleanJson(JSON.stringify(cleanToolList(tools))) : JSON.stringify(tools);
   toolsCache.set(key, out);
   return out;
 }
@@ -2207,7 +2413,7 @@ async function mintAnonToken(req: Request, env: Env, execution: ExecutionContext
   const b = new Uint8Array(16);
   crypto.getRandomValues(b);
   const token = "anon_" + Array.from(b, (x) => x.toString(16).padStart(2, "0")).join("");
-  await env.REMOTE_DATA.put(`tok:${token}`, String(Date.now()), { expirationTtl: ANON_TTL });
+  await env.REMOTE_DATA.put(`tok:${token}`, String(Date.now()), { expirationTtl: TOK_TTL });
   // Measurement is best effort and never controls token validity or mint success.
   execution.waitUntil(saveMintCohort(env.REMOTE_DATA, token, req).catch(() => {
     console.error(JSON.stringify({ event: "hosted_funnel_mint_record_failed" }));
@@ -2278,6 +2484,15 @@ export default {
       urlTokenForm = "URL path segment (/mcp/<server>/t/<token>)";
       path = tokenInPath[1];
       try { urlToken = decodeURIComponent(tokenInPath[2]); } catch { urlToken = tokenInPath[2]; }
+    }
+
+    // /mcp/<server>/v1 is the same server in clean mode (see cleanJson). Only a real server
+    // name takes the suffix, so every other /mcp/... path is untouched.
+    let clean = false;
+    const v1 = path.match(/^\/mcp\/([a-z-]+)\/v1$/);
+    if (v1 && SERVERS[VARIANT_ALIASES[v1[1]] ?? v1[1]]) {
+      clean = true;
+      path = `/mcp/${v1[1]}`;
     }
 
     if (path === "/mcp") return json(indexDoc(base));
@@ -2373,6 +2588,16 @@ export default {
     /* ---------------------------------------------------------- oauth 2.1 (MCP 2025-06-18) */
     // Discovery documents first: an MCP client that received the RFC 9728 WWW-Authenticate
     // header fetches these before it can even show the user a consent screen.
+    // Google Connected Apps domain verification. The file's content comes from the Google
+    // console and is stored as-is in KV, so it can change without a deploy.
+    if (path === "/.well-known/google-connected-apps") {
+      if (req.method !== "GET" && req.method !== "HEAD") return json({ error: "method_not_allowed" }, 405, { allow: "GET, HEAD" });
+      const body = await env.REMOTE_DATA.get("gca:verification");
+      if (body === null) return json({ error: "not_found" }, 404);
+      return new Response(req.method === "HEAD" ? null : body, {
+        headers: { "content-type": "application/json", "cache-control": "public, max-age=300" },
+      });
+    }
     if (path === "/.well-known/oauth-protected-resource") {
       return json(oauthProtectedResourceDoc());
     }
@@ -2395,13 +2620,19 @@ export default {
         return json({ error: "invalid_redirect_uri", message: "redirect_uris must be http(s) URLs." }, 400);
       }
       const clientId = await oauthClientId(metadata);
-      await env.REMOTE_DATA.put(`oauth_client:${clientId}`, JSON.stringify({ metadata, at: Date.now() }), { expirationTtl: 60 * 60 * 24 * 365 });
+      // Same metadata, same id: rewrite only when missing or older than 30 days, so the
+      // 365-day TTL is still pushed out for a client that keeps registering.
+      let storedAt = 0;
+      try { storedAt = Number((JSON.parse((await env.REMOTE_DATA.get(`oauth_client:${clientId}`)) ?? "{}") as { at?: number }).at ?? 0) || 0; } catch { storedAt = 0; }
+      if (Date.now() - storedAt >= 30 * 86_400_000) {
+        await env.REMOTE_DATA.put(`oauth_client:${clientId}`, JSON.stringify({ metadata, at: Date.now() }), { expirationTtl: 60 * 60 * 24 * 365 });
+      }
       return json({
         client_id: clientId,
         client_id_issued_at: Math.floor(Date.now() / 1000),
         redirect_uris: redirectUris,
         token_endpoint_auth_method: "none",
-        grant_types: ["authorization_code"],
+        grant_types: ["authorization_code", "refresh_token"],
         response_types: ["code"],
       });
     }
@@ -2418,7 +2649,9 @@ export default {
       // Exact-match redirect URI per RFC 6749 §3.1.2.3 - no prefix or wildcard matching.
       if (!registered.includes(redirectUri)) return htmlPage(oauthAuthorizeErrorPage("redirect_uri is not registered for this client."));
       if (!/^[A-Za-z0-9_-]{43,128}$/.test(challenge)) return htmlPage(oauthAuthorizeErrorPage("code_challenge must be an S256 (base64url, 43-128 char) value."));
-      const html = oauthConsentPage(base, url.searchParams);
+      let clientName = "";
+      try { clientName = String((JSON.parse(client) as { metadata: { client_name?: unknown } }).metadata.client_name ?? ""); } catch { clientName = ""; }
+      const html = oauthConsentPage(base, url.searchParams, clientName);
       return new Response(html, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
     }
 
@@ -2435,6 +2668,13 @@ export default {
       const registered = (JSON.parse(client) as { metadata: { redirect_uris?: string[] } }).metadata.redirect_uris ?? [];
       if (!registered.includes(redirectUri)) return htmlPage(oauthAuthorizeErrorPage("redirect_uri is not registered for this client."));
       if (!/^[A-Za-z0-9_-]{43,128}$/.test(challenge)) return htmlPage(oauthAuthorizeErrorPage("Bad code_challenge."));
+      if (url.searchParams.get("decision") === "deny") {
+        // RFC 6749 §4.1.2.1: the user said no. Nothing is minted; the client gets access_denied.
+        const denied = new URL(redirectUri);
+        denied.searchParams.set("error", "access_denied");
+        if (state) denied.searchParams.set("state", state);
+        return Response.redirect(denied.toString(), 302);
+      }
       const minted = await mintAnonToken(req, env, ctx);
       if (typeof minted !== "string") return minted; // rate-limited Response
       const code = crypto.randomUUID().replace(/-/g, "");
@@ -2453,6 +2693,15 @@ export default {
     if (path === "/oauth/token" && req.method === "POST") {
       const form = await req.formData().catch(() => null);
       if (!form) return json({ error: "invalid_request" }, 400);
+      // RFC 6749 §6: a refresh hands back the same access token (it is the data space) and
+      // a rotated refresh token. See src/oauth-refresh.ts.
+      const grantType = String(form.get("grant_type") ?? "authorization_code");
+      if (grantType === "refresh_token") {
+        const r = await redeemRefreshToken(env.REMOTE_DATA, String(form.get("refresh_token") ?? ""), String(form.get("client_id") ?? ""), TOK_TTL);
+        if (!r.ok) return json({ error: r.error, message: r.message }, 400);
+        return json({ access_token: r.token, token_type: "Bearer", expires_in: OAUTH_ACCESS_TTL, refresh_token: r.refresh_token });
+      }
+      if (grantType !== "authorization_code") return json({ error: "unsupported_grant_type" }, 400);
       const code = String(form.get("code") ?? "");
       const verifier = String(form.get("code_verifier") ?? "");
       const clientId = String(form.get("client_id") ?? "");
@@ -2467,6 +2716,7 @@ export default {
         access_token: grant.token,
         token_type: "Bearer",
         expires_in: OAUTH_ACCESS_TTL,
+        refresh_token: await issueRefreshToken(env.REMOTE_DATA, grant.token, grant.client_id),
       });
     }
 
@@ -2491,6 +2741,11 @@ export default {
       return json({ error: "not_found", index: `${base}/mcp` }, 404);
     }
 
+    // Clean mode has no GET event stream and no endpoint page: 405 at once, token or not.
+    if (clean && (req.method === "GET" || req.method === "HEAD")) {
+      return json({ error: "method_not_allowed", message: "POST JSON-RPC requests to this endpoint." }, 405, { allow: "POST" });
+    }
+
     // A GET or HEAD with no credential in the header AND none in the URL is not a failed
     // authentication, it is a health check or a person opening the link: answer it. See
     // publicEndpointDoc() for the measured reason this exists. Everything that carries a
@@ -2503,6 +2758,12 @@ export default {
       // is the whole fix: `accept: text/html` means a person, anything else is a client
       // or a directory health check and keeps exactly the document it had before.
       const accept = req.headers.get("accept") ?? "";
+      // A client opening the optional GET event stream (Accept: text/event-stream and
+      // nothing else a document could satisfy). Streamable HTTP allows only an event
+      // stream or 405 here, and a stateless server has nothing to push.
+      if (accept.includes("text/event-stream") && !accept.includes("application/json") && !accept.includes("text/html")) {
+        return json({ error: "method_not_allowed", message: "This endpoint has no GET event stream. POST JSON-RPC requests to it." }, 405, { allow: "POST" });
+      }
       if (accept.includes("text/html")) {
         return new Response(endpointPage(base, product), {
           status: 200,
@@ -2574,12 +2835,27 @@ export default {
       auth = authed;
     }
     const limited = await rateLimit(env, auth, ctx, product);
-    if (limited) return limited;
+    if (limited) {
+      if (!clean) return limited;
+      // Clean mode: the same limit as a JSON-RPC error in an ordinary response, without the
+      // checkout links of the 429 body.
+      const retryAfter = limited.headers.get("retry-after") ?? "";
+      return rpcError(rpc.id, -32300, "USER_RATE_LIMITED: rate limit reached, try again later",
+        { limit: auth.limit, window: "1 hour", retry_after_seconds: Number(retryAfter) || undefined }, { "retry-after": retryAfter });
+    }
+
+    // Clean mode answers an unknown or hidden tool (license_status, license_activate) with a
+    // JSON-RPC error, as the MCP spec puts it, rather than the SDK's isError result.
+    if (clean && req.method === "POST" && rpc.method === "tools/call") {
+      const name = rpcToolName(bodyText);
+      const known = (JSON.parse(await toolsJson(product, cfg, auth.isPro, base, true)) as { name: string }[]).some((t) => t.name === name);
+      if (!known) return rpcError(rpc.id, -32602, `Unknown tool: ${name}`);
+    }
 
     // tools/list is answered from module scope: no KV read, no McpServer, no transport.
     // A paginated request (params.cursor) is not cached and takes the full path.
     if (req.method === "POST" && rpc.method === "tools/list" && rpc.hasId && !rpc.hasCursor) {
-      const tools = await toolsJson(product, cfg, auth.isPro, base);
+      const tools = await toolsJson(product, cfg, auth.isPro, base, clean);
       return new Response(
         `{"jsonrpc":"2.0","id":${JSON.stringify(rpc.id)},"result":{"tools":${tools}}}`,
         { headers: { "content-type": "application/json", "cache-control": "no-store" } });
@@ -2587,7 +2863,10 @@ export default {
 
     // Lazy hydration. initialize, ping and the empty list methods cannot read or write a
     // tenant document, so they pay for none of the three KV reads and none of the writes.
-    const dataless = req.method === "POST" && rpc.method !== null && DATALESS_METHODS.has(rpc.method);
+    // A GET, HEAD or DELETE cannot carry a JSON-RPC call, so no tool can run on it: it is
+    // dataless too. Clients with a token in the URL re-open the GET stream every few
+    // seconds, and each one used to hydrate three documents and write two stamps.
+    const dataless = req.method !== "POST" || (rpc.method !== null && DATALESS_METHODS.has(rpc.method));
 
     const files = dataless ? new Map<string, string>() : await hydrate(env, auth.tenant, product);
     // /mcp/recurring works inside the invoice store: its document is hydrated on top of
@@ -2626,6 +2905,7 @@ export default {
       bytes: counted.bytes, nfiles: counted.nfiles,
       shared,
       fds: new Map(), nextFd: 100,
+      clean,
     };
     const before = JSON.stringify(persistable(files, cfg, rctx.published, ownPaths));
     // Only the read-write shares need a before-image: a read-only share is never flushed.
@@ -2668,12 +2948,15 @@ export default {
         // Success means a successful BUSINESS tools/call response, not discovery,
         // licence administration, an error, or proof of a completed customer task.
         const isToolCall = req.method === "POST" && rpc.method === "tools/call";
+        const instructions = req.method === "POST" && rpc.method === "initialize" ? serverInstructions(product) : undefined;
         let successfulBusinessCall = false;
         let upgradeAppended = false;
-        if (rctx.published.size > 0 || strip.length > 0 || isToolCall) {
+        // Never on a GET: its answer is an open event stream, and reading it to the end here
+        // waited forever on the endpoints with a strip list (pdf, image, zip, ...).
+        if (req.method !== "GET" && (rctx.published.size > 0 || strip.length > 0 || isToolCall || instructions || clean)) {
           let out = await res.text();
           successfulBusinessCall = isToolCall && successfulBusinessResponse(bodyText, out, res.status);
-          if (successfulBusinessCall && !auth.isPro) {
+          if (successfulBusinessCall && !auth.isPro && !clean) {
             const tenantQ2 = auth.anonToken ? `?tenant=${auth.anonToken}` : "";
             const trailer = `Free tier: 600 calls/hour, 30-day retention. Pro ($${PRICE_SINGLE_USD}/server or $${PRICE_BUNDLE_USD} for all ${SERVER_COUNT}, one-time): https://mcp.zovo.one/buy/bundle${tenantQ2 ? tenantQ2 + "&" : "?"}src=${product}.success`;
             const upgraded = appendSuccessUpgrade(bodyText, out, trailer, res.status);
@@ -2684,6 +2967,15 @@ export default {
             out = out.split(p2).join(`${u} (valid 1 hour)`);
           }
           for (const prefix of strip) out = out.split(prefix).join("");
+          // After the strip, so a path named in the instructions text reaches the client intact.
+          out = withInstructions(out, instructions);
+          if (clean && rpc.method === "tools/list") {
+            try {
+              const o = JSON.parse(out) as { result?: { tools?: unknown } };
+              if (o.result && Array.isArray(o.result.tools)) { o.result.tools = cleanToolList(o.result.tools); out = JSON.stringify(o); }
+            } catch { /* not JSON: left as is */ }
+          }
+          if (clean) out = cleanJson(out);
           const h = new Headers(res.headers);
           h.delete("content-length");
           res = new Response(out, { status: res.status, headers: h });
@@ -2702,8 +2994,8 @@ export default {
           // Sweep stamp and token TTL refresh are bookkeeping, not the answer: deferred,
           // so a tool call does not wait on two KV writes nobody reads in this request.
           ctx.waitUntil(touch(env, auth.tenant));
-          if (auth.kind === "anon") {
-            ctx.waitUntil(env.REMOTE_DATA.put(`tok:anon_${auth.tenant.slice(5)}`, String(Date.now()), { expirationTtl: ANON_TTL }));
+          if (auth.kind === "anon" && tokNeedsRefresh(auth.tokStamp)) {
+            ctx.waitUntil(env.REMOTE_DATA.put(`tok:anon_${auth.tenant.slice(5)}`, String(Date.now()), { expirationTtl: TOK_TTL }));
           }
         }
         if (successfulBusinessCall) {
