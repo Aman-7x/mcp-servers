@@ -980,16 +980,18 @@ export function unauthorizedBody(product: string) {
   };
 }
 
-async function authenticate(req: Request, env: Env, product: string, urlToken = "", urlTokenForm: Auth["via"] = "URL path segment (/mcp/<server>/t/<token>)"): Promise<Auth | Response> {
+async function authenticate(req: Request, env: Env, product: string, urlToken = "", urlTokenForm: Auth["via"] = "URL path segment (/mcp/<server>/t/<token>)", resourceMeta = OAUTH_RESOURCE_META): Promise<Auth | Response> {
   const header = req.headers.get("authorization") ?? "";
   const fromHeader = header.toLowerCase().startsWith("bearer ") ? header.slice(7).trim() : "";
   const token = fromHeader || urlToken.trim();
   const via: Auth["via"] = fromHeader ? "Authorization: Bearer" : urlTokenForm;
   if (!token) {
-    // RFC 9728 §4: a protected resource advertises its OAuth metadata via
+    // RFC 9728 §5.1: a protected resource advertises its OAuth metadata via
     // `WWW-Authenticate: Bearer resource_metadata=...`, so an MCP client that gets a 401
     // here can discover the authorization server (the same host) and start the PKCE dance.
-    return json(unauthorizedBody(product), 401, { "www-authenticate": `Bearer realm="mcp.zovo.one", error="invalid_token", resource_metadata="${OAUTH_RESOURCE_META}"` });
+    // An MCP endpoint passes its path-specific document (resourceMetadataUrl), whose
+    // `resource` is the exact URL requested; anything else keeps the root document.
+    return json(unauthorizedBody(product), 401, { "www-authenticate": `Bearer realm="mcp.zovo.one", error="invalid_token", resource_metadata="${resourceMeta}"` });
   }
   if (token.startsWith("MCPL1.")) {
     const r = await verifyLicense(token, product);
@@ -1168,6 +1170,37 @@ export function oauthProtectedResourceDoc() {
     scopes_supported: ["mcp:connect"],
     resource_documentation: GUIDE,
   };
+}
+
+/**
+ * The MCP endpoint paths that are protected resources of their own: /mcp/<server> and
+ * /mcp/<server>/v1. A /mcp/<server>/t/<token> URL is deliberately not one: the token in
+ * the path IS the credential, such a URL never answers the tokenless 401 that starts the
+ * OAuth flow, and a metadata document for it would have to repeat the secret.
+ */
+const RESOURCE_PATH_RE = /^\/mcp\/[a-z-]+(?:\/v1)?$/;
+
+/**
+ * RFC 9728 §3.1 path insertion: the metadata of resource `${base}${resourcePath}` lives at
+ * `${base}/.well-known/oauth-protected-resource${resourcePath}`. This is the URL the 401's
+ * `resource_metadata` names, so a client fetches the document for the exact URL it used.
+ */
+export function resourceMetadataUrl(base: string, resourcePath: string): string {
+  return `${base}/.well-known/oauth-protected-resource${resourcePath}`;
+}
+
+/**
+ * The path-specific RFC 9728 document. RFC 9728 §3.3 says the `resource` a client reads
+ * MUST be identical to the URL it inserted the well-known suffix into (or, when it came
+ * from a 401's resource_metadata, to the URL it made the request to), and Claude's
+ * connector docs require `resource` to equal the server URL "including any path
+ * component". Everything else is the root document: same issuer, same scopes. The root
+ * /.well-known/oauth-protected-resource keeps `resource: https://mcp.zovo.one` unchanged.
+ * Access tokens are opaque anon tokens with no audience claim, so a token issued under
+ * either resource value works on every endpoint, exactly as before.
+ */
+export function oauthProtectedResourceDocFor(resource: string) {
+  return { ...oauthProtectedResourceDoc(), resource };
 }
 
 /** RFC 8414 authorization-server metadata, for dynamic discovery by Anthropic/Claude. */
@@ -2252,6 +2285,20 @@ const DISCOVERY_LIMIT = 120;
 
 const DATALESS_METHODS = new Set(["tools/list", "initialize", "notifications/initialized", "ping", "prompts/list", "resources/list", "resources/templates/list"]);
 
+/**
+ * Every client-to-server request method of the MCP 2025-11-25 schema. A tokenless request
+ * for anything outside this set is answered -32601 before authentication; a method in the
+ * set that a server does not implement still needs a token and then gets the SDK's -32601.
+ */
+const MCP_REQUEST_METHODS = new Set([
+  "initialize", "ping",
+  "tools/list", "tools/call",
+  "resources/list", "resources/templates/list", "resources/read", "resources/subscribe", "resources/unsubscribe",
+  "prompts/list", "prompts/get",
+  "completion/complete", "logging/setLevel",
+  "tasks/get", "tasks/result", "tasks/list", "tasks/cancel",
+]);
+
 /* ------------------------------------------------------------ connect page */
 
 const CONNECT_CSS = `:root{color-scheme:light dark}
@@ -2601,6 +2648,17 @@ export default {
     if (path === "/.well-known/oauth-protected-resource") {
       return json(oauthProtectedResourceDoc());
     }
+    // RFC 9728 §3.1 path-inserted form, one document per MCP endpoint, `resource` = that
+    // exact endpoint URL. Only a real server path (optionally /v1) has one; a /t/<token>
+    // path or any other suffix is a 404 and the token is never echoed back.
+    if (path.startsWith("/.well-known/oauth-protected-resource/")) {
+      const resourcePath = path.slice("/.well-known/oauth-protected-resource".length);
+      const name = resourcePath.match(RESOURCE_PATH_RE) ? resourcePath.split("/")[2] : "";
+      if (!name || !SERVERS[VARIANT_ALIASES[name] ?? name]) {
+        return json({ error: "not_found", message: "No protected resource metadata for this path. MCP endpoints are /mcp/<server> and /mcp/<server>/v1.", index: `${base}/mcp` }, 404);
+      }
+      return json(oauthProtectedResourceDocFor(`${base}${resourcePath}`));
+    }
     if (path === "/.well-known/oauth-authorization-server") {
       return json(oauthAuthorizationServerDoc());
     }
@@ -2826,11 +2884,22 @@ export default {
     const isDiscovery = req.method === "POST" && !hasCredential
       && rpc.method !== null && DATALESS_METHODS.has(rpc.method);
 
+    // AN UNKNOWN METHOD WITHOUT A TOKEN is answered as JSON-RPC 2.0 says: error -32601 with
+    // HTTP 200, the same answer the SDK gives an authenticated caller. A method that is not
+    // in the MCP schema cannot read or write anything, so there is nothing for a token to
+    // authorize, and the MCP authorization spec reserves 401 for "authorization required or
+    // token invalid". Only tokenless requests (an id, not a notification) take this path; a
+    // credential that is present is still checked first and a bad one still gets 401.
+    if (req.method === "POST" && !hasCredential && rpc.hasId && rpc.method !== null && !MCP_REQUEST_METHODS.has(rpc.method)) {
+      return rpcError(rpc.id, -32601, "Method not found");
+    }
+
     let auth: Auth;
     if (isDiscovery) {
       auth = { tenant: `discovery:${req.headers.get("cf-connecting-ip") ?? "unknown"}`, isPro: false, kind: "anon", limit: DISCOVERY_LIMIT };
     } else {
-      const authed = await authenticate(req, env, product, urlToken, urlTokenForm);
+      const authed = await authenticate(req, env, product, urlToken, urlTokenForm,
+        resourceMetadataUrl(base, clean ? `${path}/v1` : path));
       if (authed instanceof Response) return authed;
       auth = authed;
     }

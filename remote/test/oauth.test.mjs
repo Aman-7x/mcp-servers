@@ -93,8 +93,8 @@ test("route contract: all five endpoints are wired into the fetch router", () =>
 
 test("route contract: the 401 advertises RFC 9728 resource metadata", () => {
   assert.ok(
-    src.includes('resource_metadata="${OAUTH_RESOURCE_META}"'),
-    "the no-token 401 must carry resource_metadata so clients can discover the AS",
+    src.includes('resource_metadata="${resourceMeta}"') && src.includes("resourceMeta = OAUTH_RESOURCE_META"),
+    "the no-token 401 must carry resource_metadata (root document by default) so clients can discover the AS",
   );
 });
 
