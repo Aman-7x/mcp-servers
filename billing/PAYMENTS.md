@@ -60,8 +60,16 @@ Adding a product is therefore a code change, not a dashboard change:
 
 McpStamp services (added 2026-11-02, run s1102m) are sold through the same Checkout but
 live in a separate `SERVICES` table in billing/src/index.js, not in PRODUCTS, so server
-counts, bundle arithmetic and license minting never see them: `svc-audit` $490,
-`svc-launch-deposit` $1,500 (of $4,900) and `svc-custom-deposit` $900 (from $2,900).
+counts, bundle arithmetic and license minting never see them. Every service is paid
+upfront in full before work starts (no balance invoiced after delivery): `svc-audit` $490,
+`svc-launch` $4,900 (4 stores), `svc-launch-one` $1,900 (1 store), `svc-custom-simple`
+$2,900 (read-only, no auth, up to 10 tools), `svc-custom-deposit` $1,500 (spec and fixed
+quote for a custom build from $4,500, counted toward it, refunded in full if the buyer
+declines the quote) and `svc-care-quarter` $1,470 (3 months at $490, renewed by paying
+again, no automatic charge). `svc-launch-deposit` $1,500 (old deposit-plus-balance model)
+stays in the table so old links still work, but no page links to it any more.
+Paying triggers the owner alert to support@zovo.one; work starts the next business day
+and everything runs by email, no calls (run s1102m sales lane, 2026-11-02).
 GET `/buy/svc-*` serves a service intent page (same POST form contract). The Session adds
 one optional text field (`custom_fields` key `mcpserver`, "MCP server URL or repo") and
 `metadata[kind]=service`. On a paid Session the webhook and `/success` call

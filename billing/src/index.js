@@ -117,42 +117,94 @@ export const SERVICES = {
   "svc-audit": {
     name: "McpStamp Readiness Audit",
     usd: 490,
-    desc: "Fixed-price audit of one remote MCP server against Claude Directory, ChatGPT Apps, Gemini Connected Apps and the MCP Registry, with a written fix report in 3 business days.",
-    priceLine: "$490.00 USD &middot; one payment &middot; fixed price",
+    desc: "Fixed-price audit of one remote MCP server against Claude Directory, ChatGPT Apps, Gemini Connected Apps and the MCP Registry, with a written fix report in 3 business days. Paid upfront.",
+    priceLine: "$490.00 USD &middot; paid upfront &middot; fixed price",
     includes: [
       "Your server checked against the listing requirements of Claude Directory, ChatGPT Apps, Gemini Connected Apps and the MCP Registry.",
-      "Transport, authentication, tool definitions and listing metadata reviewed.",
-      "A written report: each blocker, why it blocks a listing, and the exact fix, in priority order.",
-      "Delivered by email within 3 business days of receiving your server URL or repo.",
+      "Transport, authentication, tool definitions and listing metadata reviewed by hand.",
+      "A written report with each blocker, why it blocks a listing and the exact fix, in priority order.",
+      "Written answers to your follow-up questions by email for 14 days after the report.",
       "The full $490 is credited if you buy Store Launch or a custom server within 30 days.",
     ],
-    next: "We confirm by email and start when we have your server URL or repo. The written report arrives within 3 business days after that.",
+    next: "Reply with your server URL or repo. The written report arrives within 3 business days of having it.",
+  },
+  "svc-launch": {
+    name: "McpStamp Store Launch, 4 stores",
+    usd: 4900,
+    desc: "Fixed-price launch of one MCP server in Claude Directory, ChatGPT Apps, Gemini Connected Apps and the MCP Registry. Readiness fixes in your repo, listings written and submitted, up to 2 review rounds. Paid upfront.",
+    priceLine: "$4,900.00 USD &middot; paid upfront &middot; fixed price &middot; 4 stores",
+    includes: [
+      "Readiness fixes in your repo until the server passes McpStamp Check and each store's published review list.",
+      "Listings written and submitted to Claude, ChatGPT, Gemini (when your account has access) and the MCP Registry.",
+      "Up to 2 review rounds. I fix what reviewers ask and resubmit.",
+      "Approval is decided by each store, so it can't be promised.",
+    ],
+    next: "Reply with your server URL, repo access and who can submit from your store accounts. Delivery takes about 10 business days from having access.",
+  },
+  "svc-launch-one": {
+    name: "McpStamp Store Launch, 1 store",
+    usd: 1900,
+    desc: "Fixed-price launch of one MCP server in one store of your choice: Claude Directory, ChatGPT Apps or Gemini Connected Apps. Readiness fixes in your repo, listing written and submitted, up to 2 review rounds. Paid upfront.",
+    priceLine: "$1,900.00 USD &middot; paid upfront &middot; fixed price &middot; 1 store",
+    includes: [
+      "Readiness fixes in your repo for the store you pick.",
+      "The listing written and submitted, plus up to 2 review rounds.",
+      "Approval is decided by the store, so it can't be promised.",
+      "Delivery by email, with the fixes as commits in your repo.",
+    ],
+    next: "Reply with the store you want (Claude, ChatGPT or Gemini), your server URL and repo access.",
   },
   "svc-launch-deposit": {
-    name: "McpStamp Store Launch — deposit",
+    name: "McpStamp Store Launch deposit",
     usd: 1500,
     total: 4900,
-    desc: "Deposit for preparing one MCP server for Claude, ChatGPT, Gemini and the MCP Registry and filing the submissions. $4,900 total: this $1,500 deposit starts the work, the $3,400 balance is invoiced on delivery.",
+    desc: "Deposit for preparing one MCP server for Claude, ChatGPT, Gemini and the MCP Registry and filing the submissions. $4,900 total. This $1,500 deposit starts the work and the $3,400 balance is invoiced on delivery.",
     priceLine: "$1,500.00 USD deposit now &middot; $4,900 total &middot; $3,400 balance invoiced on delivery",
     includes: [
       "Readiness fixes so your server meets the requirements of Claude Directory, ChatGPT Apps, Gemini Connected Apps and the MCP Registry.",
       "Store submissions prepared and filed for each of the four. Approval is decided by each store.",
       "The $3,400 balance is invoiced on delivery, not before.",
     ],
-    next: "We confirm by email, agree a start date and ask for access to your server or repo. The $3,400 balance is invoiced on delivery.",
+    next: "Reply with your server URL and repo access. The $3,400 balance is invoiced on delivery.",
+  },
+  "svc-custom-simple": {
+    name: "Simple MCP server",
+    usd: 2900,
+    desc: "A read-only MCP server on your API or data, with no sign-in and up to 10 tools. Source code in your repo, a SPEC.md and a test for each tool. Fixed price, paid upfront.",
+    priceLine: "$2,900.00 USD &middot; paid upfront &middot; fixed price",
+    includes: [
+      "A read-only remote or stdio MCP server for your API or data, up to 10 tools, no sign-in.",
+      "Source code in your repository, a SPEC.md listing every tool and a test for each one.",
+      "If the job needs sign-in, writes or more than 10 tools, I say so before I start. You then get a full refund or a fixed quote for a custom build.",
+    ],
+    next: "Reply with the API docs or data the server should read and what each tool must answer.",
   },
   "svc-custom-deposit": {
-    name: "Custom MCP server — deposit",
+    name: "Custom MCP server, spec and fixed quote",
     usd: 1500,
     from: 4500,
-    desc: "Deposit for a custom MCP server built on your API or data. From $4,500 total ($2,900 for a read-only server with no sign-in and up to 10 tools); a fixed quote is agreed before work starts and this $1,500 deposit counts toward it.",
-    priceLine: "$1,500.00 USD deposit now &middot; from $4,500 total &middot; fixed quote agreed before work starts",
+    desc: "A written spec and a fixed quote for a custom MCP server on your API or data, within 2 business days. Builds start from $4,500. The $1,500 counts toward the build, and you get it back in full if you decline the quote.",
+    priceLine: "$1,500.00 USD now &middot; builds from $4,500 &middot; fixed quote in 2 business days",
     includes: [
-      "A remote MCP server for your API or data, with OAuth sign-in if your users need it.",
-      "A fixed quote agreed in writing before any build work starts. The deposit counts toward it.",
-      "If we do not agree a quote, the deposit is refunded in full.",
+      "A written spec of every tool and a fixed quote within 2 business days of having your requirements.",
+      "The $1,500 counts toward the build. The rest is paid upfront before the build starts.",
+      "Decline the quote and the $1,500 is refunded in full.",
+      "OAuth sign-in and one account per user when your users need it.",
     ],
-    next: "We confirm by email and ask what the server must do. You get a fixed quote before any build work starts; the deposit counts toward it.",
+    next: "Reply with what the server must do and the API, database or docs it works on. The spec and fixed quote follow within 2 business days.",
+  },
+  "svc-care-quarter": {
+    name: "McpStamp Care plan, 3 months",
+    usd: 1470,
+    desc: "Three months of care for one listed MCP server: a daily McpStamp Check with alerts, 2 fix hours a month and store re-submits. $490 a month, paid upfront for 3 months. No automatic renewal.",
+    priceLine: "$1,470.00 USD &middot; 3 months paid upfront ($490 a month) &middot; no automatic renewal",
+    includes: [
+      "McpStamp Check on your endpoint every day, with an email when the score drops.",
+      "2 fix hours a month for whatever the check or a store flags.",
+      "Re-submits when a store asks, and changes when the MCP spec or a store rule changes.",
+      "To renew, pay again with the link in the reminder email. Nothing is charged automatically.",
+    ],
+    next: "Reply with your server URL and repo access. Daily checks start the next business day.",
   },
 };
 
@@ -331,7 +383,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 268;
+export const BILLING_TEST_COUNT = 270;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -1075,7 +1127,7 @@ export function serviceCustomText(productId) {
   if (!p) throw new Error(`unknown service: ${productId}`);
   return {
     submit: `${p.name}: ${p.desc}`.slice(0, 1200),
-    after_submit: "After payment we reply from support@zovo.one within 1 business day. Reply to that email with your MCP server URL or repo if you did not enter it above.",
+    after_submit: "I'm notified as soon as you pay and start work the next business day. Everything happens by email from support@zovo.one. Reply to my email with your MCP server URL, repo or access if you did not enter it above.",
   };
 }
 
@@ -1344,16 +1396,18 @@ export function serviceIntentPage(url, productId) {
 <ul>
 ${p.includes.map((line) => `<li>${esc(line)}</li>`).join("\n")}
 </ul>
-<h2>After you pay</h2>
-<ul>
-<li>We reply from support@zovo.one within 1 business day.</li>
+<h2>How it works</h2>
+<ol>
+<li>You pay upfront, by card on Stripe. Stripe asks for your email and, optionally, your MCP server URL or repo.</li>
+<li>I'm notified as soon as you pay.</li>
+<li>Work starts the next business day. I email you from support@zovo.one.</li>
 <li>${esc(p.next)}</li>
-<li>Stripe asks for your email and, optionally, your MCP server URL or repo. You can also send it by replying to our email.</li>
-</ul>
+<li>Everything happens by email, no calls. Delivery comes by email too.</li>
+</ol>
 <form method="post" action="${esc(action)}"><input type="hidden" name="intent" value="checkout"><input type="hidden" name="order_token" value="${newOrderToken()}">
-<button class="buy" type="submit">Continue to Stripe &mdash; $${p.usd.toLocaleString("en-US")}</button></form>
-<p class="muted">No payment session has been created yet. Stripe collects the card on the next page. This is a service, not a software licence: no key is issued.</p>
-<p class="muted">Not sure yet? Run the free <a href="${mcpstampLink(MCPSTAMP_CHECK_URL, `buy.${productId}`)}">McpStamp Check</a> on your server first, or ask a question at support@zovo.one. Done by the developer of the ${LISTED_COUNT} open-source MCP servers listed on mcp.zovo.one.</p>
+<button class="buy" type="submit">Continue to Stripe, pay $${p.usd.toLocaleString("en-US")}</button></form>
+<p class="muted">No payment session has been created yet. Stripe collects the card on the next page. This is a service, not a software licence, so no key is issued. Seller is autom8 LLC (Yerevan, Armenia). Refunds follow section 9 of the <a href="https://www.mcpstamp.com/terms/#services-refunds">terms</a>.</p>
+<p class="muted">Not sure yet? Run the free <a href="${mcpstampLink(MCPSTAMP_CHECK_URL, `buy.${productId}`)}">McpStamp Check</a> on your server first, or email a question to support@zovo.one. Done by the developer of the ${LISTED_COUNT} open-source MCP servers listed on mcp.zovo.one.</p>
 <p><a href="${mcpstampLink(MCPSTAMP_SERVICES_URL, `buy.${productId}`)}">Back to services</a></p>`);
 }
 
@@ -1374,11 +1428,13 @@ export function servicePaidPage(productId, session) {
 <p>${esc(p.name)} - $${paid.toLocaleString("en-US")} paid. Thank you.</p>
 <h2>What happens next</h2>
 <ol>
-<li>We reply from <strong>support@zovo.one</strong> within 1 business day${email ? `, to ${esc(email)}` : ""}.</li>
+<li>Payment received. I've been notified.</li>
+<li>Work starts the next business day. I email you from <strong>support@zovo.one</strong>${email ? ` at ${esc(email)}` : ""}.</li>
 <li>${server
-    ? `You gave us <code>${esc(server)}</code>. If that is not the right server, or it is a private repo, reply to our email with the correct URL or access.`
-    : `Send your MCP server URL or repo to support@zovo.one (a public URL, or read access to a private repo), or reply to our email with it.`}</li>
+    ? `You gave <code>${esc(server)}</code>. If that is not the right server, or it is a private repo, reply to my email with the correct URL or access.`
+    : `Send your MCP server URL or repo (a public URL, or read access to a private repo) by replying to my email, or write to support@zovo.one.`}</li>
 <li>${esc(p.next)}</li>
+<li>Everything happens by email, no calls. Delivery comes by email to the address you paid with.</li>
 </ol>
 <p class="muted">This is a service order, so no license key is issued. Keep this page or your Stripe receipt as proof of payment. Questions: support@zovo.one.</p>
 <p><a href="${mcpstampLink(MCPSTAMP_CHECK_URL, `success.${productId}`)}">Run the free McpStamp Check</a> &middot; <a href="/">mcp.zovo.one</a></p>`);
@@ -1424,7 +1480,7 @@ export function serviceOwnerAlert(productId, session) {
     pi ? `Stripe payment: https://dashboard.stripe.com/payments/${pi}` : "",
     `Source: ${session?.metadata?.source || "unknown"}`,
     "",
-    "Promise on the site: reply within 1 business day from support@zovo.one.",
+    "Promise on the site: payment upfront, owner notified, work starts the next business day, everything by email from support@zovo.one.",
     `Next step for this service: ${p.next}`,
   ].filter((line) => line !== "").join("\n");
   return {
@@ -1447,14 +1503,15 @@ export function serviceBuyerEmail(productId, session) {
       "",
       `Service: ${p.name}`,
       "",
-      "What happens next:",
-      "1. I reply personally within 1 business day.",
+      "What happens next",
+      "1. I've been notified of your payment.",
+      "2. Work starts the next business day.",
       server
-        ? `2. You gave this server: ${server}. If that is wrong, or it is a private repo, reply with the right URL or access.`
-        : "2. Reply to this email with your MCP server URL or repo (a public URL, or read access to a private repo).",
-      `3. ${p.next}`,
+        ? `3. You gave this server: ${server}. If that is wrong, or it is a private repo, reply with the right URL or access.`
+        : "3. Reply to this email with your MCP server URL or repo (a public URL, or read access to a private repo).",
+      `4. ${p.next}`,
       "",
-      "Questions: reply to this email or write to support@zovo.one.",
+      "Everything happens by email, no calls. Reply to this email or write to support@zovo.one with any question.",
     ].join("\n"),
   };
 }
