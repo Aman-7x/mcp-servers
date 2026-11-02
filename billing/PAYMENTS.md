@@ -67,7 +67,12 @@ $2,900 (read-only, no auth, up to 10 tools), `svc-custom-deposit` $1,500 (spec a
 quote for a custom build from $4,500, counted toward it, refunded in full if the buyer
 declines the quote) and `svc-care-quarter` $1,470 (3 months at $490, renewed by paying
 again, no automatic charge). `svc-launch-deposit` $1,500 (old deposit-plus-balance model)
-stays in the table so old links still work, but no page links to it any more.
+stays in the table only so a session paid before the change still fulfils and recovers;
+GET and POST `/buy/svc-launch-deposit` 301 to `/buy/svc-launch` with the query string kept
+(`SERVICE_REDIRECTS`). Service emails (buyer confirmation and owner alert) are sent from
+`Mike <support@zovo.one>`; the buyer email replies to support@zovo.one, the owner alert to
+the buyer. Service intent and success pages use the lean `servicePage` layout (no guide
+nav, no newsletter form, no cross-sell).
 Paying triggers the owner alert to support@zovo.one; work starts the next business day
 and everything runs by email, no calls (run s1102m sales lane, 2026-11-02).
 GET `/buy/svc-*` serves a service intent page (same POST form contract). The Session adds
