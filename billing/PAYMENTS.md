@@ -58,6 +58,18 @@ Adding a product is therefore a code change, not a dashboard change:
    A Stripe redirect is expected only after a valid form POST. Deliberate live
    probes must send `x-mcp-probe: 1` and a fresh bounded `order_token`.
 
+McpStamp services (added 2026-11-02, run s1102m) are sold through the same Checkout but
+live in a separate `SERVICES` table in billing/src/index.js, not in PRODUCTS, so server
+counts, bundle arithmetic and license minting never see them: `svc-audit` $490,
+`svc-launch-deposit` $1,500 (of $4,900) and `svc-custom-deposit` $900 (from $2,900).
+GET `/buy/svc-*` serves a service intent page (same POST form contract). The Session adds
+one optional text field (`custom_fields` key `mcpserver`, "MCP server URL or repo") and
+`metadata[kind]=service`. On a paid Session the webhook and `/success` call
+`fulfillService`: one LICENSES record `service:<session>`, one Resend email to the owner
+at support@zovo.one (reply-to = buyer) and one confirmation to the buyer, each guarded by
+a KV flag. No key is minted and no hosted tenant is bound. The scheduled and operations
+monitors check `service:<session>` for those Sessions instead of `session:<session>`.
+
 The remaining operational checks are a controlled paid MCP purchase and license
 verification, paid-Session-to-key and hosted-bind reconciliation, and webhook
 delivery monitoring. The 2026-09-27 audit also found a duplicate webhook endpoint
