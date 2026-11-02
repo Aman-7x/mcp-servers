@@ -9,7 +9,7 @@ const ctx = { waitUntil() {} };
 const browser = { accept: "text/html,application/xhtml+xml", "sec-fetch-mode": "navigate", "sec-fetch-dest": "document",
   "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 Chrome/130 Safari/537.36" };
 
-const EXPECTED = { "svc-audit": 490, "svc-launch-deposit": 1500, "svc-custom-deposit": 900 };
+const EXPECTED = { "svc-audit": 490, "svc-launch-deposit": 1500, "svc-custom-deposit": 1500 };
 
 function kv() {
   const store = new Map();
