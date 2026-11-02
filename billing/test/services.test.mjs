@@ -2,7 +2,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { createHmac } from "node:crypto";
 import worker, { PRODUCTS, SERVICES, SERVER_COUNT, isService, catalogEntry, fulfillmentAllowed,
-  serviceCheckoutParams, serviceCustomText, serviceOwnerAlert, serviceBuyerEmail, crosssellHtml } from "../src/index.js";
+  serviceCheckoutParams, serviceCustomText, serviceOwnerAlert, serviceBuyerEmail, crosssellHtml,
+  servicePaidPage, SERVICE_REDIRECTS } from "../src/index.js";
 import { paidSessionEntitlementIssue, entitlementRecordKey } from "../src/scheduled-monitor.js";
 
 const ctx = { waitUntil() {} };
@@ -64,6 +65,7 @@ test("GET /buy/svc-* serves a service intent page and never calls Stripe", async
   globalThis.fetch = async () => { throw new Error("GET must not call any API"); };
   try {
     for (const [id, usd] of Object.entries(EXPECTED)) {
+      if (Object.hasOwn(SERVICE_REDIRECTS, id)) continue;
       const r = await worker.fetch(new Request(`https://mcp.zovo.one/buy/${id}?src=test`, { headers: browser }), {}, ctx);
       const html = await r.text();
       assert.equal(r.status, 200);
@@ -161,7 +163,8 @@ test("a paid service: webhook records the order, alerts the owner once, mints no
     assert.equal(success.headers.get("x-mcp-fulfillment"), "service");
     assert.match(html, /Payment received/);
     assert.match(html, /Payment received\. I've been notified\./);
-    assert.match(html, /Work starts the next business day\. I email you from <strong>support@zovo\.one<\/strong>/);
+    assert.match(html, /Work starts the next business day\. I email you from support@zovo\.one at buyer@example\.com/);
+    assert.doesNotMatch(html, /<strong>|id="subform"|\/api\/subscribe|Popular guides|tg\.zovo\.one/);
     assert.match(html, /Everything happens by email, no calls/);
     assert.match(html, /https:\/\/example\.com\/mcp/);
     assert.doesNotMatch(html, /Your license key|license_activate|MCPL1/);
@@ -224,4 +227,70 @@ test("a paid 4-store launch alerts support@zovo.one with the process and confirm
   const buyer = serviceBuyerEmail("svc-launch", s);
   assert.equal(buyer.reply_to, "support@zovo.one");
   assert.match(buyer.text, /notified of your payment[\s\S]*Work starts the next business day[\s\S]*no calls/);
+});
+
+test("every service email is sent from support@zovo.one, the address the pages promise", () => {
+  for (const id of Object.keys(SERVICES)) {
+    const s = paidSession(id);
+    const buyer = serviceBuyerEmail(id, s);
+    assert.equal(buyer.from, "Mike <support@zovo.one>", id);
+    assert.equal(buyer.reply_to, "support@zovo.one", id);
+    const owner = serviceOwnerAlert(id, s);
+    assert.equal(owner.from, "Mike <support@zovo.one>", id);
+    assert.equal(owner.reply_to, "buyer@example.com", "the owner replies straight to the buyer");
+    const anon = serviceOwnerAlert(id, paidSession(id, { customer_details: {} }));
+    assert.equal(anon.reply_to, "support@zovo.one", "no buyer email falls back to the support inbox");
+    assert.doesNotMatch(JSON.stringify([buyer, owner]), /mike@zovo\.one/);
+  }
+});
+
+test("the retired launch deposit 301s to the 4-store launch with its query string, GET and POST", async () => {
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => { throw new Error("a redirect must not call any API"); };
+  try {
+    const qs = "?src=old.link&utm_source=x&tenant=anon_" + "a".repeat(32);
+    for (const init of [{ headers: browser }, { method: "POST", body: "intent=checkout",
+      headers: { ...browser, origin: "https://mcp.zovo.one", "content-type": "application/x-www-form-urlencoded" } },
+      { headers: { "user-agent": "curl/8" } }]) {
+      const r = await worker.fetch(new Request(`https://mcp.zovo.one/buy/svc-launch-deposit${qs}`, init), {}, ctx);
+      assert.equal(r.status, 301);
+      assert.equal(r.headers.get("location"), `https://mcp.zovo.one/buy/svc-launch${qs}`);
+    }
+    const bare = await worker.fetch(new Request("https://mcp.zovo.one/buy/svc-launch-deposit", { headers: browser }), {}, ctx);
+    assert.equal(bare.headers.get("location"), "https://mcp.zovo.one/buy/svc-launch");
+    assert.ok(isService("svc-launch-deposit"), "old paid deposit sessions still fulfil");
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test("service intent and success pages are lean, with no newsletter form, guide list or free-server links", async () => {
+  for (const id of Object.keys(SERVICES)) {
+    if (Object.hasOwn(SERVICE_REDIRECTS, id)) continue;
+    const r = await worker.fetch(new Request(`https://mcp.zovo.one/buy/${id}?src=test`, { headers: browser }), {}, ctx);
+    const pages = [await r.text(), servicePaidPage(id, paidSession(id))];
+    for (const html of pages) {
+      assert.doesNotMatch(html, /id="subform"|\/api\/subscribe|Get setup tips/, `${id} has no signup form`);
+      assert.doesNotMatch(html, /aria-label="Popular guides"|href="\/guides\//, `${id} has no guide list`);
+      assert.doesNotMatch(html, /tg\.zovo\.one|Tiny Telegram Tools|class="xsell"|Hire the builder/, `${id} has no free-server clutter`);
+      assert.match(html, /mcpstamp\.com\/terms\//);
+      assert.match(html, /mcpstamp\.com\/privacy\//);
+      assert.match(html, /support@zovo\.one/);
+      const body = html.slice(html.indexOf("<body>"));
+      assert.doesNotMatch(body, /<strong>|<b>|\u2014|&mdash;|--/, `${id} follows the humanize rules`);
+      assert.doesNotMatch(body.match(/<h[12][^>]*>[^<]*<\/h[12]>/g).join(""), /:/, `${id} headings have no colon`);
+    }
+    assert.match(pages[0], /<form\b[^>]*method="post"/);
+  }
+  const home = await (await worker.fetch(new Request("https://mcp.zovo.one/"), {}, ctx)).text();
+  assert.match(home, /id="subform"/, "free-server pages keep the signup form");
+});
+
+test("service copy fixes from QA3", () => {
+  const audit = SERVICES["svc-audit"].includes.join(" ");
+  assert.match(audit, /refunded to your card if you buy Store Launch or a custom server within 30 days/);
+  assert.doesNotMatch(audit, /credited/);
+  const one = SERVICES["svc-launch-one"];
+  assert.match(one.desc, /Gemini only if your account has access, otherwise a full refund/);
+  assert.match(one.includes.join(" "), /Gemini only if your account has access[\s\S]*full refund/);
 });

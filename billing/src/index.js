@@ -124,7 +124,7 @@ export const SERVICES = {
       "Transport, authentication, tool definitions and listing metadata reviewed by hand.",
       "A written report with each blocker, why it blocks a listing and the exact fix, in priority order.",
       "Written answers to your follow-up questions by email for 14 days after the report.",
-      "The full $490 is credited if you buy Store Launch or a custom server within 30 days.",
+      "The full $490 is refunded to your card if you buy Store Launch or a custom server within 30 days.",
     ],
     next: "Reply with your server URL or repo. The written report arrives within 3 business days of having it.",
   },
@@ -144,10 +144,11 @@ export const SERVICES = {
   "svc-launch-one": {
     name: "McpStamp Store Launch, 1 store",
     usd: 1900,
-    desc: "Fixed-price launch of one MCP server in one store of your choice: Claude Directory, ChatGPT Apps or Gemini Connected Apps. Readiness fixes in your repo, listing written and submitted, up to 2 review rounds. Paid upfront.",
+    desc: "Fixed-price launch of one MCP server in one store of your choice, Claude Directory, ChatGPT Apps or Gemini Connected Apps. Gemini only if your account has access, otherwise a full refund. Readiness fixes in your repo, listing written and submitted, up to 2 review rounds. Paid upfront.",
     priceLine: "$1,900.00 USD &middot; paid upfront &middot; fixed price &middot; 1 store",
     includes: [
       "Readiness fixes in your repo for the store you pick.",
+      "Gemini only if your account has access to Gemini Connected Apps. Otherwise you get a full refund.",
       "The listing written and submitted, plus up to 2 review rounds.",
       "Approval is decided by the store, so it can't be promised.",
       "Delivery by email, with the fixes as commits in your repo.",
@@ -207,6 +208,10 @@ export const SERVICES = {
     next: "Reply with your server URL and repo access. Daily checks start the next business day.",
   },
 };
+
+/** Retired service checkouts and the /buy/ id each one now 301s to. The SERVICES row stays for
+ * fulfilment of sessions paid before the redirect. */
+export const SERVICE_REDIRECTS = { "svc-launch-deposit": "svc-launch" };
 
 /** Pure: is this id a McpStamp service (no license, no hosted binding)? */
 export function isService(id) {
@@ -383,7 +388,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 270;
+export const BILLING_TEST_COUNT = 274;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -658,7 +663,7 @@ export function crosssellHtml(where) {
   return `New from us, <a href="${check}">McpStamp Check</a>. Is your MCP server ready for Claude, ChatGPT and Gemini? <a href="${check}">Free check</a> &middot; <a href="${hire}">Hire the builder of these ${LISTED_COUNT} servers</a>`;
 }
 
-function page(title, body) {
+function pageHead(title) {
   return `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title>
@@ -688,7 +693,7 @@ pre{background:#111;border:1px solid var(--bd);padding:12px;border-radius:0;over
 code{font-family:"Space Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em}
 .key{font-size:13px;word-break:break-all;user-select:all;color:var(--warn)}
 footer{margin-top:48px;font-size:13px;color:var(--mut);border-top:1px solid var(--bd);padding-top:16px}
-nav.pg{font-size:12px;margin:0 0 24px;color:var(--mut)}
+nav.pg,header.pg{font-size:12px;margin:0 0 24px;color:var(--mut)}
 nav.pg a{margin-right:2px}
 p.feat{font-size:14px;background:#111;border:1px solid var(--bd);padding:10px 12px;border-radius:0;margin:0 0 20px}
 .copy-btn{display:inline-block;margin:-8px 0 4px;padding:3px 10px;font-size:12px;line-height:1.6;border:1px solid var(--bd);border-radius:0;background:transparent;color:var(--fg);cursor:pointer;font-family:inherit}
@@ -697,7 +702,11 @@ a.grid{display:inline-block;width:31%;min-width:200px;margin:0 1% 6px 0;font-siz
 .lede{font-size:15px;color:var(--fg);margin:.4em 0 0}
 .det{font-size:13px;color:var(--mut);margin:.3em 0 0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 @media(max-width:640px){a.grid{width:100%}}
-</style></head><body><nav class="pg" aria-label="Popular guides">${PRIORITY_GUIDES.filter((s) => GUIDES[s]).slice(0, 10).map((s) => `<a href="/guides/${s}">${esc(GUIDES[s].title)}</a>`).join(" &middot; ")}</nav>${body}
+</style></head>`;
+}
+
+function page(title, body) {
+  return `${pageHead(title)}<body><nav class="pg" aria-label="Popular guides">${PRIORITY_GUIDES.filter((s) => GUIDES[s]).slice(0, 10).map((s) => `<a href="/guides/${s}">${esc(GUIDES[s].title)}</a>`).join(" &middot; ")}</nav>${body}
 <footer>Home: <a href="/">All servers</a> &middot; <a href="/guides">Guides</a> &middot; <a href="/setup">Setup</a> &middot; <a href="/compare">Compare</a> &middot; <a href="/changelog">Changelog</a> &middot; <a href="https://tg.zovo.one">Tiny Telegram Tools</a> &middot; Support: support@zovo.one &middot; Built by <a href="${REPO}">theluckystrike</a>
 <p class="xsell" style="margin:8px 0 0">${crosssellHtml("footer")}</p>
 <form id="subform" method="post" action="/api/subscribe" style="margin-top:14px;display:flex;gap:8px;max-width:420px">
@@ -720,6 +729,17 @@ a.grid{display:inline-block;width:31%;min-width:200px;margin:0 1% 6px 0;font-siz
 });</script>
 </footer>
 ${COPY_BUTTON_SCRIPT}
+</body></html>`;
+}
+
+/**
+ * Lean page for the McpStamp service intent and success pages. A buyer about to pay $490 to
+ * $4,900 sees the offer, the process and the pay form, not the free-server chrome: no guide
+ * list, no newsletter form, no Tiny Telegram Tools link and no cross-sell band.
+ */
+export function servicePage(title, body) {
+  return `${pageHead(title)}<body><header class="pg"><a href="${esc(mcpstampLink(MCPSTAMP_SERVICES_URL, "service.header"))}">McpStamp services</a></header>${body}
+<footer><a href="https://www.mcpstamp.com/terms/#services-refunds">Terms</a> &middot; <a href="https://www.mcpstamp.com/privacy/">Privacy</a> &middot; Questions by email to support@zovo.one &middot; Seller autom8 LLC (Yerevan, Armenia)</footer>
 </body></html>`;
 }
 
@@ -1389,8 +1409,8 @@ export function serviceIntentPage(url, productId) {
   url = acquisitionUrl(url);
   const p = SERVICES[productId];
   const action = `${url.pathname}${url.search}`;
-  return page(`Buy ${p.name}`, `<h1>${esc(p.name)}</h1>
-<p><strong>${p.priceLine}</strong></p>
+  return servicePage(`Buy ${p.name}`, `<h1>${esc(p.name)}</h1>
+<p class="lede">${p.priceLine}</p>
 <p>${esc(p.desc)}</p>
 <h2>What you get</h2>
 <ul>
@@ -1406,9 +1426,8 @@ ${p.includes.map((line) => `<li>${esc(line)}</li>`).join("\n")}
 </ol>
 <form method="post" action="${esc(action)}"><input type="hidden" name="intent" value="checkout"><input type="hidden" name="order_token" value="${newOrderToken()}">
 <button class="buy" type="submit">Continue to Stripe, pay $${p.usd.toLocaleString("en-US")}</button></form>
-<p class="muted">No payment session has been created yet. Stripe collects the card on the next page. This is a service, not a software licence, so no key is issued. Seller is autom8 LLC (Yerevan, Armenia). Refunds follow section 9 of the <a href="https://www.mcpstamp.com/terms/#services-refunds">terms</a>.</p>
-<p class="muted">Not sure yet? Run the free <a href="${mcpstampLink(MCPSTAMP_CHECK_URL, `buy.${productId}`)}">McpStamp Check</a> on your server first, or email a question to support@zovo.one. Done by the developer of the ${LISTED_COUNT} open-source MCP servers listed on mcp.zovo.one.</p>
-<p><a href="${mcpstampLink(MCPSTAMP_SERVICES_URL, `buy.${productId}`)}">Back to services</a></p>`);
+<p class="muted">No payment session has been created yet. Stripe collects the card on the next page. A service is not a software licence, so no key is issued. Seller is autom8 LLC (Yerevan, Armenia). Refunds follow section 9 of the <a href="https://www.mcpstamp.com/terms/#services-refunds">terms</a>.</p>
+<p class="muted">Questions before you pay go to support@zovo.one. Done by the developer of the ${LISTED_COUNT} open-source MCP servers listed on mcp.zovo.one.</p>`);
 }
 
 /** The text a buyer typed into the optional Checkout field, or "". */
@@ -1424,20 +1443,19 @@ export function servicePaidPage(productId, session) {
   const paid = Number.isSafeInteger(session?.amount_total) ? session.amount_total / 100 : p.usd;
   const email = session?.customer_details?.email || "";
   const server = serviceServerField(session);
-  return page(`Payment received - ${p.name}`, `<h1>Payment received</h1>
+  return servicePage(`Payment received - ${p.name}`, `<h1>Payment received</h1>
 <p>${esc(p.name)} - $${paid.toLocaleString("en-US")} paid. Thank you.</p>
 <h2>What happens next</h2>
 <ol>
 <li>Payment received. I've been notified.</li>
-<li>Work starts the next business day. I email you from <strong>support@zovo.one</strong>${email ? ` at ${esc(email)}` : ""}.</li>
+<li>Work starts the next business day. I email you from support@zovo.one${email ? ` at ${esc(email)}` : ""}.</li>
 <li>${server
     ? `You gave <code>${esc(server)}</code>. If that is not the right server, or it is a private repo, reply to my email with the correct URL or access.`
     : `Send your MCP server URL or repo (a public URL, or read access to a private repo) by replying to my email, or write to support@zovo.one.`}</li>
 <li>${esc(p.next)}</li>
 <li>Everything happens by email, no calls. Delivery comes by email to the address you paid with.</li>
 </ol>
-<p class="muted">This is a service order, so no license key is issued. Keep this page or your Stripe receipt as proof of payment. Questions: support@zovo.one.</p>
-<p><a href="${mcpstampLink(MCPSTAMP_CHECK_URL, `success.${productId}`)}">Run the free McpStamp Check</a> &middot; <a href="/">mcp.zovo.one</a></p>`);
+<p class="muted">No license key is issued for a service order. Keep this page or your Stripe receipt as proof of payment. Questions go to support@zovo.one.</p>`);
 }
 
 /** Resend send that never throws; returns an outcome string for the log. */
@@ -1461,6 +1479,10 @@ async function sendMail(env, payload, label) {
 }
 
 export const OWNER_ALERT_TO = "support@zovo.one";
+/** Every service page promises "I email you from support@zovo.one", so every service email is
+ * sent from that address (zovo.one is the verified Resend domain, as for mike@ and hello@). */
+export const SERVICE_MAIL_FROM = "Mike <support@zovo.one>";
+export const SERVICE_REPLY_TO = "support@zovo.one";
 
 /** Pure: the owner alert for a paid service order. */
 export function serviceOwnerAlert(productId, session) {
@@ -1484,9 +1506,10 @@ export function serviceOwnerAlert(productId, session) {
     `Next step for this service: ${p.next}`,
   ].filter((line) => line !== "").join("\n");
   return {
-    from: "Mike <mike@zovo.one>", to: [OWNER_ALERT_TO],
+    from: SERVICE_MAIL_FROM, to: [OWNER_ALERT_TO],
     subject: `PAID $${amount}: ${p.name}${email ? ` - ${email}` : ""}`.slice(0, 200),
-    text, ...(email.includes("@") ? { reply_to: email } : {}),
+    // Reply goes straight to the buyer when Checkout recorded one; otherwise to the support inbox.
+    text, reply_to: email.includes("@") ? email : SERVICE_REPLY_TO,
   };
 }
 
@@ -1496,7 +1519,7 @@ export function serviceBuyerEmail(productId, session) {
   const email = session?.customer_details?.email || "";
   const server = serviceServerField(session);
   return {
-    from: "Mike <mike@zovo.one>", to: [email], reply_to: "support@zovo.one",
+    from: SERVICE_MAIL_FROM, to: [email], reply_to: SERVICE_REPLY_TO,
     subject: `Payment received: ${p.name}`,
     text: [
       "Thanks, your payment was received.",
@@ -2696,6 +2719,13 @@ const LLM_USE_WHEN = {
       // when it carries the browser-navigation fingerprint. See isHumanNavigation.
       const counted = isHumanNavigation(request.headers);
       const asked = decodeURIComponent(path.slice("/buy/".length));
+      // The old deposit offer promised a balance invoiced on delivery; every service is now paid
+      // upfront in full. Old links land on the 4-store launch with their query string intact.
+      // SERVICES keeps the row so an already-paid deposit session still fulfils and recovers.
+      if (Object.hasOwn(SERVICE_REDIRECTS, asked)) {
+        return new Response(null, { status: 301, headers: { Location: `https://${host}/buy/${SERVICE_REDIRECTS[asked]}${url.search}`,
+          "cache-control": "no-store", "x-mcp-buy": "service-redirect" } });
+      }
       // office-suite, and any future alias, sells a product it is not itself; see PRODUCT_ALIASES.
       const service = isService(asked);
       const id = service ? asked : resolveProductId(asked);
