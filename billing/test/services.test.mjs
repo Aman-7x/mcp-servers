@@ -191,7 +191,7 @@ test("owner alert and buyer email are plain and complete without a server field"
 test("landing band and every page footer cross-sell McpStamp with UTM tags", async () => {
   const r = await worker.fetch(new Request("https://mcp.zovo.one/"), {}, ctx);
   const html = await r.text();
-  assert.match(html, /<p class="feat" id="mcpstamp">New: <a href="https:\/\/www\.mcpstamp\.com\/check\/\?utm_source=mcp\.zovo\.one&amp;utm_medium=crosssell/);
+  assert.match(html, /<p class="feat" id="mcpstamp">New from us, <a href="https:\/\/www\.mcpstamp\.com\/check\/\?utm_source=mcp\.zovo\.one&amp;utm_medium=crosssell/);
   assert.ok(html.indexOf('id="mcpstamp"') < html.indexOf("<h2"), "band sits above the first section");
   assert.match(crosssellHtml("x"), /Hire the builder of these \d+ servers/);
   const guide = await (await worker.fetch(new Request("https://mcp.zovo.one/guides"), {}, ctx)).text();
