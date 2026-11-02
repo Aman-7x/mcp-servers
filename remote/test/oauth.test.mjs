@@ -58,7 +58,8 @@ test("RFC 8414 authorization-server metadata has the endpoints an MCP client nee
   assert.deepEqual(doc.grant_types_supported, ["authorization_code", "refresh_token"]);
   // PKCE S256 is mandatory in OAuth 2.1; plain must never be advertised.
   assert.deepEqual(doc.code_challenge_methods_supported, ["S256"]);
-  assert.deepEqual(doc.token_endpoint_auth_methods_supported, ["none"]);
+  // Public clients (PKCE only) and confidential clients (secret + PKCE), see oauth-confidential.test.mjs.
+  assert.deepEqual(doc.token_endpoint_auth_methods_supported, ["none", "client_secret_basic", "client_secret_post"]);
 });
 
 test("dynamic client registration derives a stable id from the metadata", async () => {
