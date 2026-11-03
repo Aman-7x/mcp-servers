@@ -294,6 +294,29 @@ export function resolveProductId(id) {
   return target && PRODUCTS[target] ? target : "";
 }
 
+/**
+ * Pure: the buyable slug a mangled /buy/ path was meant to be, or null.
+ *
+ * S1103 (Workers Logs, 2026-10-27..11-03): every guard-passing `buy.unknown-product`
+ * click was a real id with text glued on. An assistant answering in Japanese or Chinese
+ * writes "https://mcp.zovo.one/buy/work-order（買い切り" with no space, and the chat
+ * autolinker swallows the full-width punctuation; English answers glue on "." "),"
+ * or markdown "**"; an old hub table emitted "/buy/zip&src=csg.mcp.table.zip". Each
+ * such link landed on a 404. The leading run of [a-z0-9-] is the id the author meant;
+ * a remainder starting with "&" or "?" is the query string it lost.
+ */
+export function salvageBuyPath(asked) {
+  const s = String(asked || "");
+  const m = /^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*/.exec(s);
+  if (!m) return null;
+  const slug = m[0].toLowerCase();
+  if (slug === s) return null;
+  if (!resolveProductId(slug) && !isService(slug) && !Object.hasOwn(SERVICE_REDIRECTS, slug)) return null;
+  const rest = s.slice(m[0].length);
+  const params = /^[&?]/.test(rest) ? new URLSearchParams(rest.slice(1)) : new URLSearchParams();
+  return { slug, params };
+}
+
 /** The number of single-server products, computed rather than typed, so adding a server cannot leave the prose stale. */
 export const SERVER_COUNT = SINGLE_PRODUCT_IDS.length;
 
@@ -388,7 +411,7 @@ export const VALIDATION = { at: "2026-09-24", pass: 1254, total: 1254, servers: 
  * same way: test/checkout-r1.test.mjs counts the `test(` declarations on disk and fails
  * if this disagrees. The page said 25 when there were 99.
  */
-export const BILLING_TEST_COUNT = 274;
+export const BILLING_TEST_COUNT = 278;
 /**
  * The npm publish is pending: `npx -y @theluckystrike/mcp-<server>` returns E404 today,
  * and publishing needs an operator browser login (docs/HUMAN_GATED_PACK.md section 1).
@@ -2718,7 +2741,22 @@ const LLM_USE_WHEN = {
       // real buyer away costs more than a wasted Stripe object; but it is only COUNTED
       // when it carries the browser-navigation fingerprint. See isHumanNavigation.
       const counted = isHumanNavigation(request.headers);
-      const asked = decodeURIComponent(path.slice("/buy/".length));
+      // A stray "%" (a link truncated mid-character) made decodeURIComponent throw: HTTP 500.
+      let asked;
+      try { asked = decodeURIComponent(path.slice("/buy/".length)); } catch { asked = path.slice("/buy/".length); }
+      // A known id with punctuation or a lost query glued on (see salvageBuyPath) goes to
+      // its real offer page instead of the 404. GET only: it is a navigation, and the
+      // offer page has no side effect. Not counted here; the checkout POST is.
+      if (method === "GET" && !isService(asked) && !resolveProductId(asked)) {
+        const fixed = salvageBuyPath(asked);
+        if (fixed) {
+          const q = new URLSearchParams(url.search);
+          for (const [k, v] of fixed.params) if (!q.has(k)) q.set(k, v);
+          if (!validSrc(q.get("src") || "")) q.set("src", "buy.salvaged");
+          return new Response(null, { status: 302, headers: { Location: `https://${host}/buy/${fixed.slug}?${q}`,
+            "cache-control": "no-store", "x-mcp-buy": "salvaged-link" } });
+        }
+      }
       // The old deposit offer promised a balance invoiced on delivery; every service is now paid
       // upfront in full. Old links land on the 4-store launch with their query string intact.
       // SERVICES keeps the row so an already-paid deposit session still fulfils and recovers.
