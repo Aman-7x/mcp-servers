@@ -50,3 +50,13 @@ Backlinks (one plain link each, base build or file checked equal to live first):
 
 Comments recheck: Cline #3430, #3487-3489 have 0 comments; punkpeye #18434 only the Glama bot; awesome-remote #3709 labeled endpoint-ok, has-connector; toolsdk #1246 none. Nothing to answer.
 Note: statewage weekly-refresh.yml failed its last 3 scheduled runs (not touched). Temp clones deleted, manifest dist/w2/deleted-manifest.txt.
+
+## s1103 wave 3
+
+raw-to-cooked-weight-mcp and vegetable-yield-percentage-mcp: both live (tools/list), in the registry, public.
+
+- Directories (duplicate check first, 0 hits): mcprepository 2/2 queued; mcp.directory 2/2 ok, pending; mcpmarket 2/2 free queue (1222617, 1222618); mcpservers.org 2/2 pending (15359, 15360). Proof dist/w3/*.jsonl.
+- Glama connector pages: 404 for both today, recheck 11-06.
+- toolsdk #1246: third commit, 2 files, validator 26 files 0 errors, title 26. bhavyshekhaliya #103: 2 rows in Home and Lifestyle, now +26, mergeable.
+- Backlink recipetool.net/tools/raw-to-cooked-weight-calculator: live equal to repo before; commit 68b0f60 [skip ci]; Pages deploy 681002a7-68bd-413e-afeb-15d806bae832 (previous 9f5ab57f-d703-4a72-90f3-2c6f598c9fcf, rollback via dashboard https://dash.cloudflare.com/dd3f2a29b7707e21a87f26a622c0bb9d/pages/view/recipetool/9f5ab57f-d703-4a72-90f3-2c6f598c9fcf); live page and homepage cmp equal to repo, link x1.
+- Backlink ingredientcalculator.com: SKIPPED. Repo ingredientcalculator/ingredientcalculator last pushed 2026-08-14, production 036720ea is from commit 87e8d5d with 3 production deploys in the last day from unknown sources. No verified deploy path.

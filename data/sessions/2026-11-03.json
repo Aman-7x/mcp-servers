@@ -1,12 +1,12 @@
 {
  "id": "2026-11-03",
- "title": "Session 2026-11-03, buyer clicks found broken, 5 more satellites, 12 question pages",
- "verdict": "MCP revenue is still $0 and Stripe could not be read (live key needs stripe login). Worker logs show assistants answering in Japanese and Chinese writing our buy links into their answers, and 24 of 25 of those clicks died on a 404 because auto-linking glued punctuation onto the URL. That is the only buyer-intent stream ever measured, so the fix is PR #116, waiting to ship with the s1102m billing release. mcpstamp.com is indexed (the 0-indexed figure was the sitemap report's broken field), impressions rose 6 to 73 a day, and the one page-one page is a can-Claude question, so 12 more of those went live, each answered with a real call to a live server. Five new data satellites (CPI inflation, IRS mileage and per diem, silver price, river levels, SAT percentiles) took the free set to 25.",
+ "title": "Session 2026-11-03, buyer clicks found broken, 7 satellites, 32 question pages, AI-cited hub extended",
+ "verdict": "MCP revenue is still $0 and Stripe could not be read (live key needs stripe login). Worker logs show assistants answering in Japanese and Chinese writing our buy links into their answers, and 24 of 25 of those clicks died on a 404 because auto-linking glued punctuation onto the URL. That is the only buyer-intent stream ever measured, so the fix is PR #116, waiting to ship with the s1102m billing release. mcpstamp.com is indexed (the 0-indexed figure was the sitemap report's broken field), impressions rose 6 to 73 a day, and the one page-one page is a can-Claude question, so 12 more of those went live, each answered with a real call to a live server. Five new data satellites (CPI inflation, IRS mileage and per diem, silver price, river levels, SAT percentiles) took the free set to 25. Wave 2: a fresh blind test (R9, 10 of 18 named an estate server) showed assistants cite claudecodeguides.com/mcp/ pages and never found a satellite, so all 27 satellites now have pages there (PR #10, CI green, 27 of 27 live). Two more satellites feed the highest-traffic sites (recipetool, ingredientcalculator). A live RAP calculator bug (wrong cheapest plan, overstated PSLF rule) was fixed and republished. The buy-link fix is proven against the exact live billing source but needs stripe login to pass the deploy gate.",
  "kpis": [
   {
    "label": "Free data satellites live",
-   "value": "25",
-   "note": "20 plus 5 today, every tool answered a live tools/call with no token, all in the official registry. data/s1103/*-mcp.json."
+   "value": "27",
+   "note": "20 plus 7 today, every tool answered a live tools/call with no token, all in the official registry. data/s1103/*-mcp.json."
   },
   {
    "label": "MCP paid orders, all time",
@@ -35,13 +35,18 @@
   },
   {
    "label": "mcpstamp can-claude pages",
-   "value": "16",
-   "note": "12 new today, deployment 4093cc9c, sitemap 177 URLs, IndexNow accepted."
+   "value": "32",
+   "note": "28 new today across 4 deploys, last 5161b1dd. /free-servers/ shows 27. Sitemap 195 URLs."
   },
   {
    "label": "Distribution submissions today",
    "value": "3 PRs, 3 issues, 20 directory posts",
    "note": "punkpeye/awesome-mcp-servers #18434, awesome-remote #3709, toolsdk #1246 (24 servers), Cline #3487-3489, 4 directories x 5 new. data/s1103/dist.md."
+  },
+  {
+   "label": "Blind assistant test R9",
+   "value": "10 of 18",
+   "note": "R8 was 9 of 18; different search backend, within noise. 12 estate citations, all claudecodeguides.com/mcp/. Satellite supplement 0 of 10. data/s1103/blind9.md."
   }
  ],
  "shipped": [
@@ -89,16 +94,41 @@
    "title": "4 money sites link to their new server",
    "url": "https://statewage.com/pay-raise-calculator/",
    "detail": "statewage, taxbreakcalc, lakelevelnow, examscorecalc, verified live. goldgramprice skipped, no safe deploy path."
+  },
+  {
+   "title": "27 satellite pages on claudecodeguides.com/mcp/",
+   "url": "https://github.com/theluckystrike/claude-skills-guide/pull/10",
+   "detail": "The surface assistants cite. CI run 41608278866 green, 27 of 27 live and in the sitemap, IndexNow sent."
+  },
+  {
+   "title": "raw-to-cooked-weight-mcp and vegetable-yield-percentage-mcp",
+   "url": "https://github.com/theluckystrike/raw-to-cooked-weight-mcp",
+   "detail": "USDA cooking yields and SR28 trim waste, feeding recipetool.net and ingredientcalculator.com. Recipetool backlink live."
+  },
+  {
+   "title": "RAP calculator fix, v1.0.1",
+   "url": "https://github.com/theluckystrike/student-loan-repayment-assistance-plan-calculator-mcp",
+   "detail": "Lowest total now computed across all plans; PSLF line cites 20 U.S.C. 1087e(m)(1)(A). Worker 4f55cab7, registry 1.0.1, mcpstamp page updated."
+  },
+  {
+   "title": "16 more can-Claude pages",
+   "url": "https://www.mcpstamp.com/can-claude/",
+   "detail": "Every free satellite plus timezone and currency now has an honest answer page with a real call."
+  },
+  {
+   "title": "Owner outreach packet, 4 drafts",
+   "url": "https://github.com/theluckystrike/mcp-servers/blob/main/data/s1103/outreach.md",
+   "detail": "Only 4 targets publish a live submission route (Glama newsletter, MCP.Directory, Skila AI, Console). Send from your own address."
   }
  ],
  "next": [
   {
    "title": "Owner, stripe login (5 min)",
    "colour": "green",
-   "detail": "Unblocks the waiting billing release and PR #116, and makes revenue readable again."
+   "detail": "Unblocks the billing gate. A worktree with the ported fix (live source proven byte-identical, 7a88a66f) is ready in data/s1103/salvage-deploy/wt; then npm run deploy."
   },
   {
-   "title": "Owner, npm login and publish 5 new servers (5 min)",
+   "title": "Owner, npm login and publish 7 new servers (5 min)",
    "colour": "green",
    "detail": "npm whoami returns 401. Best is a granular automation token for the @theluckystrike scope so agents can publish."
   },

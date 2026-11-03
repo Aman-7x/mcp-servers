@@ -219,5 +219,59 @@
   ],
   "recheck_comments": "Cline #3430, #3487-3489: 0 comments. punkpeye #18434: only the Glama badge bot. awesome-remote #3709: labels endpoint-ok, has-connector, no comments. toolsdk #1246: no comments. Nothing to answer.",
   "cleanup": "dist/w2/deleted-manifest.txt"
+ },
+ "s1103_wave_3": {
+  "date_utc": "2026-11-03",
+  "satellites": [
+   "raw-to-cooked-weight-mcp",
+   "vegetable-yield-percentage-mcp"
+  ],
+  "preflight": "2/2 tools/list OK (5 and 4 tools), 2/2 in registry, public repos",
+  "directories": [
+   {
+    "directory": "mcprepository.com",
+    "dup_check": "404 before",
+    "result": "2/2 queued, duplicate false",
+    "proof": "dist/w3/mcprepository.jsonl"
+   },
+   {
+    "directory": "mcp.directory",
+    "dup_check": "404 before",
+    "result": "2/2 ok true, pending",
+    "proof": "dist/w3/md.jsonl"
+   },
+   {
+    "directory": "mcpmarket.com",
+    "result": "2/2 free queue, submission ids 1222617, 1222618",
+    "proof": "dist/w3/mm.jsonl"
+   },
+   {
+    "directory": "mcpservers.org",
+    "dup_check": "search 0 hits",
+    "result": "2/2 pending, ids 15359, 15360",
+    "proof": "dist/w3/ms.jsonl"
+   }
+  ],
+  "glama": "connector pages glama.ai/mcp/connectors/io.github.theluckystrike/<name>: 404 for both on 2026-11-03 (not yet picked up from the registry); recheck 2026-11-06",
+  "toolsdk": "#1246 third commit, 2 files in other-tools-and-integrations, validator 26 files 0 errors, title now 26",
+  "bhavyshekhaliya": "#103 2 rows in Home and Lifestyle (alphabetical), +26, MERGEABLE",
+  "backlinks": [
+   {
+    "site": "recipetool.net/tools/raw-to-cooked-weight-calculator",
+    "target": "raw-to-cooked-weight-mcp",
+    "path": "private repo theluckystrike/recipetool, static recipe-dist + _worker.js, wrangler pages deploy recipe-dist --project-name=recipetool --branch=main (s1102 documented; production 9f5ab57f source 3d35f96 = origin/main, no commits or deploys for ~29 h)",
+    "base_check": "live page cmp equal to repo file before",
+    "commit": "68b0f60 [skip ci], one push",
+    "deploy": "681002a7-68bd-413e-afeb-15d806bae832 (previous 9f5ab57f-d703-4a72-90f3-2c6f598c9fcf)",
+    "rollback": "Cloudflare dashboard https://dash.cloudflare.com/dd3f2a29b7707e21a87f26a622c0bb9d/pages/view/recipetool/9f5ab57f-d703-4a72-90f3-2c6f598c9fcf (Rollback to this deployment) or git revert 68b0f60 and redeploy",
+    "verify": "live page cmp equal to repo, link x1; homepage cmp equal to repo; /, /tools/recipe-scaler 200"
+   },
+   {
+    "site": "ingredientcalculator.com/vegetable-yield-percentage-calculator",
+    "target": "vegetable-yield-percentage-mcp",
+    "status": "skipped",
+    "why": "no verified source: GitHub repo ingredientcalculator/ingredientcalculator last pushed 2026-08-14, while Pages production 036720ea came from commit 87e8d5d (3 production deploys in the last day from unknown local sources); s1102 also held this site as class B"
+   }
+  ]
  }
 }
