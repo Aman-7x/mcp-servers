@@ -1,0 +1,121 @@
+{
+ "id": "2026-11-03",
+ "title": "Session 2026-11-03, buyer clicks found broken, 5 more satellites, 12 question pages",
+ "verdict": "MCP revenue is still $0 and Stripe could not be read (live key needs stripe login). Worker logs show assistants answering in Japanese and Chinese writing our buy links into their answers, and 24 of 25 of those clicks died on a 404 because auto-linking glued punctuation onto the URL. That is the only buyer-intent stream ever measured, so the fix is PR #116, waiting to ship with the s1102m billing release. mcpstamp.com is indexed (the 0-indexed figure was the sitemap report's broken field), impressions rose 6 to 73 a day, and the one page-one page is a can-Claude question, so 12 more of those went live, each answered with a real call to a live server. Five new data satellites (CPI inflation, IRS mileage and per diem, silver price, river levels, SAT percentiles) took the free set to 25.",
+ "kpis": [
+  {
+   "label": "Free data satellites live",
+   "value": "25",
+   "note": "20 plus 5 today, every tool answered a live tools/call with no token, all in the official registry. data/s1103/*-mcp.json."
+  },
+  {
+   "label": "MCP paid orders, all time",
+   "value": "0",
+   "note": "Stripe live key needs stripe login, so not re-read today. Last read 10-30."
+  },
+  {
+   "label": "Dead buy clicks traced to assistant answers, 7d",
+   "value": "24 of 25",
+   "note": "Real product links with glued CJK or markdown punctuation. PR #116 redirects them to the product. data/s1103/leak.md."
+  },
+  {
+   "label": "mcpstamp.com Google impressions per day",
+   "value": "6, 49, 72, 73",
+   "note": "10-30 to 11-02, 0 clicks. 10 of 10 inspected pages indexed. data/s1103/stamp.md, kpi.md."
+  },
+  {
+   "label": "npm downloads 10-30 to 11-01",
+   "value": "17,205",
+   "note": "Mirror-shaped, 40% on the placeholder version. Above the floor on 11-01: timezone 54, license 55, invoice 24, quotes 21 (median 7)."
+  },
+  {
+   "label": "GA4 sessions with utm_source=mcp, 28d",
+   "value": "7",
+   "note": "Unchanged, all 10-30 on ingredientcalculator.com, inside the launch-scan hour."
+  },
+  {
+   "label": "mcpstamp can-claude pages",
+   "value": "16",
+   "note": "12 new today, deployment 4093cc9c, sitemap 177 URLs, IndexNow accepted."
+  },
+  {
+   "label": "Distribution submissions today",
+   "value": "3 PRs, 3 issues, 20 directory posts",
+   "note": "punkpeye/awesome-mcp-servers #18434, awesome-remote #3709, toolsdk #1246 (24 servers), Cline #3487-3489, 4 directories x 5 new. data/s1103/dist.md."
+  }
+ ],
+ "shipped": [
+  {
+   "title": "cpi-inflation-calculator-mcp live, feeds statewage.com",
+   "url": "https://github.com/theluckystrike/cpi-inflation-calculator-mcp",
+   "detail": "5 tools, BLS CPI 1913 to Sep 2026, Social Security COLA check matches SSA 2023-2027. Live BLS refresh capped until a free key is added."
+  },
+  {
+   "title": "irs-mileage-rate-per-diem-mcp live, feeds taxbreakcalc.com",
+   "url": "https://github.com/theluckystrike/irs-mileage-rate-per-diem-mcp",
+   "detail": "5 tools. Splits 2026 trips across the July 1 rate change (72.5 to 76 cents, verified on irs.gov), GSA per diem by ZIP FY2026 and FY2027."
+  },
+  {
+   "title": "silver-price-per-gram-mcp live, feeds goldgramprice.com",
+   "url": "https://github.com/theluckystrike/silver-price-per-gram-mcp",
+   "detail": "4 tools, live spot and FX, junk silver melt value."
+  },
+  {
+   "title": "river-level-mcp live, feeds lakelevelnow.com",
+   "url": "https://github.com/theluckystrike/river-level-mcp",
+   "detail": "4 tools, live USGS gauges and NWS flood stages and forecasts."
+  },
+  {
+   "title": "sat-score-percentiles-mcp live, feeds examscorecalc.com",
+   "url": "https://github.com/theluckystrike/sat-score-percentiles-mcp",
+   "detail": "4 tools, College Board percentiles and class of 2026 state reports."
+  },
+  {
+   "title": "12 can-Claude question pages on mcpstamp.com",
+   "url": "https://www.mcpstamp.com/can-claude/",
+   "detail": "Honest answer first, then a real call to a live server. Plus title, canonical and robots fixes across 80 pages."
+  },
+  {
+   "title": "PR #116, recover buy links broken by glued punctuation",
+   "url": "https://github.com/theluckystrike/mcp-servers/pull/116",
+   "detail": "24 of 25 dead buy clicks would have reached a working product page. Not deployed, ships with the s1102m billing release."
+  },
+  {
+   "title": "Awesome list and marketplace submissions",
+   "url": "https://github.com/punkpeye/awesome-mcp-servers/pull/18434",
+   "detail": "Largest MCP list (97k stars), plus awesome-remote, toolsdk (24 servers), bhavyshekhaliya (24 rows), 3 Cline marketplace issues."
+  },
+  {
+   "title": "4 money sites link to their new server",
+   "url": "https://statewage.com/pay-raise-calculator/",
+   "detail": "statewage, taxbreakcalc, lakelevelnow, examscorecalc, verified live. goldgramprice skipped, no safe deploy path."
+  }
+ ],
+ "next": [
+  {
+   "title": "Owner, stripe login (5 min)",
+   "colour": "green",
+   "detail": "Unblocks the waiting billing release and PR #116, and makes revenue readable again."
+  },
+  {
+   "title": "Owner, npm login and publish 5 new servers (5 min)",
+   "colour": "green",
+   "detail": "npm whoami returns 401. Best is a granular automation token for the @theluckystrike scope so agents can publish."
+  },
+  {
+   "title": "Owner, Apify account and token (35 min)",
+   "colour": "green",
+   "detail": "The only marketplace that bills end users with measured MCP usage. 5 Actors ready, run apify/publish-all.sh."
+  },
+  {
+   "title": "Owner, free BLS API key (2 min)",
+   "colour": "amber",
+   "detail": "https://data.bls.gov/registrationEngine/ then wrangler secret put BLS_API_KEY --name cpi-inflation-calculator-mcp."
+  },
+  {
+   "title": "Recheck 11-06 to 11-10",
+   "colour": "amber",
+   "detail": "npm data for 11-02 on, mcpstamp clicks on the new question pages, PR and directory merges."
+  }
+ ]
+}
