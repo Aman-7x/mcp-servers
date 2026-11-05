@@ -1,0 +1,62 @@
+{
+ "usps-holiday-shipping-deadlines-mcp": {
+  "pkg_desc": "MCP server for USPS holiday shipping deadlines: the recommended send-by dates for Christmas delivery by mail class, for the lower 48, Alaska and Hawaii, international and APO/FPO/DPO, with days left, read live from usps.com.",
+  "title": "USPS Holiday Shipping Deadlines MCP",
+  "server_desc": "USPS holiday shipping deadlines: Christmas send-by dates, days left, military and international.",
+  "keywords": [
+   "usps",
+   "holiday-shipping-deadlines",
+   "usps-holiday-shipping-deadlines",
+   "christmas-shipping",
+   "shipping-deadlines",
+   "last-day-to-ship",
+   "apo-fpo",
+   "priority-mail",
+   "ground-advantage"
+  ],
+  "upstream": "usps.com",
+  "meta": "MCP server for USPS holiday shipping deadlines: recommended send-by dates for Christmas delivery by mail class and destination, with days left, read live from usps.com.",
+  "intro": "USPS holiday shipping deadlines for AI assistants: the recommended send-by dates for December 25 delivery, read live from usps.com, with days left from today.",
+  "short": "usps-holiday-deadlines"
+ },
+ "heating-oil-propane-prices-mcp": {
+  "pkg_desc": "MCP server for residential heating oil and propane prices: this week's EIA average price per gallon for the US and each surveyed state, weekly changes, a year ago, history and heating cost math, read live from eia.gov.",
+  "title": "Heating Oil and Propane Prices MCP",
+  "server_desc": "Heating oil and propane prices per gallon by state, from the EIA weekly survey, with history.",
+  "keywords": [
+   "heating-oil",
+   "heating-oil-prices",
+   "propane",
+   "propane-prices",
+   "eia",
+   "home-heating",
+   "energy-prices",
+   "winter-heating",
+   "fuel-prices"
+  ],
+  "upstream": "eia.gov",
+  "meta": "MCP server for heating oil and propane prices: this week's EIA residential price per gallon for the US and each surveyed state, history and heating cost math.",
+  "intro": "Residential heating oil and propane prices for AI assistants, read live from the U.S. Energy Information Administration weekly survey.",
+  "short": "heating-fuel-prices"
+ },
+ "postage-stamp-price-mcp": {
+  "pkg_desc": "MCP server for how much a stamp costs: the current USPS Forever stamp price, postcard, extra ounce, large envelope, international letter and flat rate box prices, and postage for a letter by weight, read live from USPS Notice 123.",
+  "title": "Postage Stamp Price MCP",
+  "server_desc": "How much is a stamp: USPS Forever stamp, postcard, international and letter postage by weight.",
+  "keywords": [
+   "usps",
+   "stamp-price",
+   "postage",
+   "postage-rates",
+   "forever-stamp",
+   "how-much-is-a-stamp",
+   "first-class-mail",
+   "flat-rate-box",
+   "global-forever"
+  ],
+  "upstream": "pe.usps.com",
+  "meta": "MCP server for how much a stamp costs: the current USPS Forever stamp, postcard, international letter and flat rate box prices and letter postage by weight, read live from USPS Notice 123.",
+  "intro": "Current USPS postage prices for AI assistants, read live from USPS Notice 123 (the official retail price list).",
+  "short": "stamp-price"
+ }
+}
