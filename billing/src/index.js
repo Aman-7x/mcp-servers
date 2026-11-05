@@ -2866,7 +2866,18 @@ const LLM_USE_WHEN = {
         if (!service) observeBillingFunnel(ctx, env, request, tenant, id, 'checkout_handoff');
         return new Response(null, { status: 303, headers });
       } catch (e) {
-        return new Response(page("Checkout error", `<h1>Checkout could not start</h1><p>${esc(e.message)}</p><p><a href="/">Back</a></p>`), { status: 502, headers: { "content-type": "text/html; charset=utf-8" } });
+        // s1106: the Stripe error text never reaches the buyer (it named the expired key).
+        // The buyer can leave an address through the existing /api/subscribe capture,
+        // tagged checkout-down:<id>, so a failed checkout is a lead and not a dead end.
+        console.error(`checkout_failed ${id}: ${String(e && e.message || e).slice(0, 200)}`);
+        const capSrc = `checkout-down:${id}`.slice(0, 60);
+        return new Response(page("Checkout is paused", `<h1>Checkout is paused for a moment</h1>
+<p>The payment page could not open just now. Nothing was charged.</p>
+<p>Leave your email and I will send you the ${esc(id)} purchase link as soon as checkout is back. One email, no list unless you ask for it.</p>
+<form id="cd" style="margin:20px 0"><input id="cde" type="email" required placeholder="you@example.com" autocomplete="email" style="padding:9px;width:260px;max-width:100%;background:#111;color:var(--fg);border:1px solid var(--bd)"> <button type="submit" class="buy" style="background:none;cursor:pointer">Notify me</button></form>
+<p id="cdm" class="muted" role="status"></p>
+<p class="muted">The free tier keeps working while you wait. <a href="/">Back to all servers</a></p>
+<script>document.getElementById("cd").addEventListener("submit",async function(ev){ev.preventDefault();var m=document.getElementById("cdm");try{var r=await fetch("/api/subscribe",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({email:document.getElementById("cde").value,source:${JSON.stringify(capSrc)}})});var j=await r.json();m.textContent=j.ok?"Got it. You will hear from me when checkout is back.":"That address did not look right. Please check it.";}catch(_){m.textContent="Could not save that. Email support@zovo.one instead.";}});</script>`), { status: 502, headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store", "x-mcp-buy": "checkout-unavailable" } });
       }
     }
 
