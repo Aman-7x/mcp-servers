@@ -1,7 +1,7 @@
 {
  "id": "2026-11-06",
- "title": "S1106 checkout fallback while Stripe is logged out",
- "verdict": "Checkout still down, revenue $0. The Stripe CLI is logged out, which blocks both the key rotation and the billing deploy gate. Failed checkouts now capture an email instead of printing the Stripe error (merged, ships with the next gated deploy).",
+ "title": "S1106 wave 3: 12 buyer pages, 3 seasonal free servers (36), checkout fallback",
+ "verdict": "Checkout still down, revenue $0, blocked on owner stripe login (also blocks the gated billing deploy). Organic work continued: 12 gated answer pages for paid servers and 3 new free servers are live on mcpstamp.com. Failed checkout capture and Leave copy fix are merged and ship with the next gated billing deploy.",
  "kpis": [
   {
    "label": "Checkout working",
@@ -12,6 +12,16 @@
    "label": "mcpstamp.com Google impressions per day",
    "value": "150 on 11-04",
    "note": "6 on 10-30, 49, 72, 100, 122, 150 on 11-04. GSC searchAnalytics dataState all, data/s1106/gsc_1106.json"
+  },
+  {
+   "label": "Answer pages live",
+   "value": "about 103",
+   "note": "12 W3 pages (gate 90/100, 0 BLOCK, 3 FIX applied) plus 3 satellite pages. can-claude-live.json 82 entries. IndexNow 200 twice."
+  },
+  {
+   "label": "Free satellites live",
+   "value": "36",
+   "note": "+usps-holiday-shipping-deadlines-mcp, heating-oil-propane-prices-mcp, postage-stamp-price-mcp. Worker + public repo + registry active, 12/12 live tool calls ok. data/s1106/reports/satellites-ship.md"
   },
   {
    "label": "Pages with impressions 11-01..11-06",
@@ -31,13 +41,32 @@
  "files": [
   "billing/src/index.js",
   "data/s1106/gsc_1106.json",
-  "data/s1105/restore_checkout.sh"
+  "data/s1105/restore_checkout.sh",
+  "data/s1106/reports/gate-w3.md",
+  "data/s1106/reports/satellites-ship.md",
+  "data/s1106/content/W3-live.json",
+  "data/s1106/content/sat3-live.json"
  ],
  "shipped": [
   {
    "url": "https://github.com/theluckystrike/mcp-servers/pull/123",
    "title": "Failed checkout becomes an email capture",
    "detail": "Status stays 502. No Stripe error text reaches the buyer. Address goes to /api/subscribe with source checkout-down:<id>. Billing preflight passed. Not deployed yet, the release gate needs the Stripe CLI."
+  },
+  {
+   "url": "https://www.mcpstamp.com/can-claude/create-invoices/",
+   "title": "12 buyer-intent answer pages",
+   "detail": "Invoices, overdue invoices, credit notes, purchase orders, payment reminders, receivables, bank statements, depreciation, onboarding, work orders, leave, mileage. Each with a real hosted tools/call. Prod a71e92c9, previous 02c8e8da."
+  },
+  {
+   "url": "https://www.mcpstamp.com/free-servers/",
+   "title": "3 seasonal free servers",
+   "detail": "USPS holiday shipping deadlines, heating oil and propane prices (EIA), postage stamp price (USPS Notice 123). Prod fa5d6e25, previous a71e92c9."
+  },
+  {
+   "url": "https://github.com/theluckystrike/mcp-servers/pull/125",
+   "title": "Leave product copy matches the server",
+   "detail": "Buy page promised features the server lacks. Ships with the gated billing deploy."
   }
  ],
  "next": [

@@ -1,0 +1,328 @@
+{
+ "url": "https://postage-stamp-price-mcp.lipmichal.workers.dev/mcp",
+ "at": "2026-11-05T18:07:31.000975+00:00",
+ "commands": [
+  "POST initialize to https://postage-stamp-price-mcp.lipmichal.workers.dev/mcp",
+  "POST tools/list",
+  "POST tools/call get_stamp_price {}",
+  "POST tools/call calculate_letter_postage {\"weight_oz\": 1.2, \"nonmachinable\": true, \"quantity\": 40}",
+  "POST tools/call calculate_letter_postage {\"destination\": \"Germany\"}",
+  "POST tools/call get_flat_rate_prices {}"
+ ],
+ "initialize": {
+  "http_status": 200,
+  "mcp_session_id": null,
+  "body": {
+   "result": {
+    "protocolVersion": "2025-03-26",
+    "capabilities": {
+     "tools": {
+      "listChanged": true
+     }
+    },
+    "serverInfo": {
+     "name": "postage-stamp-price-mcp",
+     "version": "1.0.0",
+     "websiteUrl": "https://www.mcpstamp.com"
+    },
+    "instructions": "Current USPS retail postage prices read at call time from USPS Notice 123, the official price list on pe.usps.com. A model's remembered stamp price is often out of date because USPS changes prices once or twice a year. Use get_stamp_price for \"how much is a stamp\" and give the effective date."
+   },
+   "jsonrpc": "2.0",
+   "id": 1
+  }
+ },
+ "tools_list": {
+  "result": {
+   "tools": [
+    {
+     "name": "get_stamp_price",
+     "title": "Get stamp price",
+     "description": "The current USPS Forever stamp price (First-Class Mail 1 oz stamped letter), the 2, 3 and 3.5 oz prices, metered letter prices, postcard, 1 oz large envelope, the nonmachinable surcharge and the 1 oz international letter (Global Forever) price, read at call time from USPS Notice 123 with its effective date.",
+     "inputSchema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "properties": {}
+     },
+     "annotations": {
+      "title": "How much is a stamp",
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true
+     },
+     "execution": {
+      "taskSupport": "forbidden"
+     }
+    },
+    {
+     "name": "calculate_letter_postage",
+     "title": "Calculate letter postage",
+     "description": "Retail postage for one letter, postcard or large envelope (flat) by weight, to the US, Canada, Mexico or any other country, with the nonmachinable surcharge for square or rigid cards, the total for a quantity, and the number of Forever stamps per piece. Letters up to 3.5 oz, US large envelopes up to 13 oz.",
+     "inputSchema": {
+      "type": "object",
+      "properties": {
+       "weight_oz": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "maximum": 16,
+        "description": "Weight in ounces. Default 1."
+       },
+       "type": {
+        "type": "string",
+        "enum": [
+         "letter",
+         "postcard",
+         "large_envelope"
+        ],
+        "description": "Default \"letter\"."
+       },
+       "destination": {
+        "type": "string",
+        "maxLength": 60,
+        "description": "\"US\" (default), \"Canada\", \"Mexico\" or another country name."
+       },
+       "nonmachinable": {
+        "type": "boolean",
+        "description": "True for square, rigid, lumpy or vertical letters and cards (adds the surcharge)."
+       },
+       "quantity": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 10000,
+        "description": "Number of identical pieces, for example 40 holiday cards. Default 1."
+       }
+      },
+      "additionalProperties": false,
+      "$schema": "http://json-schema.org/draft-07/schema#"
+     },
+     "annotations": {
+      "title": "Letter postage",
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true
+     },
+     "execution": {
+      "taskSupport": "forbidden"
+     }
+    },
+    {
+     "name": "get_flat_rate_prices",
+     "title": "Get flat rate box prices",
+     "description": "Current USPS retail prices for Priority Mail Flat Rate envelopes and Small, Medium, Large and APO/FPO/DPO Flat Rate Boxes, and Priority Mail Express Flat Rate envelopes, from Notice 123.",
+     "inputSchema": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "properties": {}
+     },
+     "annotations": {
+      "title": "Flat rate prices",
+      "readOnlyHint": true,
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": true
+     },
+     "execution": {
+      "taskSupport": "forbidden"
+     }
+    }
+   ]
+  },
+  "jsonrpc": "2.0",
+  "id": 2
+ },
+ "tools_calls": {
+  "get_stamp_price": {
+   "arguments": {},
+   "response": {
+    "result": {
+     "content": [
+      {
+       "type": "text",
+       "text": "A Forever stamp (First-Class Mail, 1 oz letter) costs $0.82 under the USPS price list effective October 4, 2026. Each extra ounce adds $0.29 (2 oz $1.11, 3 oz $1.40, 3.5 oz $1.69). A postcard stamp is $0.65, a 1 oz large envelope $1.69, and an international 1 oz letter or Global Forever stamp $1.75. Square or rigid letters add a $0.49 nonmachinable surcharge.\n\n{\n  \"summary\": \"A Forever stamp (First-Class Mail, 1 oz letter) costs $0.82 under the USPS price list effective October 4, 2026. Each extra ounce adds $0.29 (2 oz $1.11, 3 oz $1.40, 3.5 oz $1.69). A postcard stamp is $0.65, a 1 oz large envelope $1.69, and an international 1 oz letter or Global Forever stamp $1.75. Square or rigid letters add a $0.49 nonmachinable surcharge.\",\n  \"effective_date\": \"2026-10-04\",\n  \"forever_stamp_price\": 0.82,\n  \"additional_ounce\": 0.29,\n  \"stamped_letter_by_weight_oz\": {\n    \"1\": 0.82,\n    \"2\": 1.11,\n    \"3\": 1.4,\n    \"3.5\": 1.69\n  },\n  \"metered_letter_by_weight_oz\": {\n    \"1\": 0.78,\n    \"2\": 1.07,\n    \"3\": 1.36,\n    \"3.5\": 1.65\n  },\n  \"postcard\": 0.65,\n  \"large_envelope_1_oz\": 1.69,\n  \"nonmachinable_surcharge\": 0.49,\n  \"international_letter_1_oz\": 1.75,\n  \"international_postcard\": 1.75,\n  \"note\": \"A Forever stamp is always worth the current 1 oz First-Class Mail letter price, even if it was bought at a lower price. USPS usually changes prices in January and July.\",\n  \"as_of\": \"2026-11-05T18:07:35.855Z\",\n  \"source\": \"https://pe.usps.com/text/dmm300/Notice123.htm\",\n  \"more\": \"https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=postage-stamp-price-mcp\"\n}"
+      }
+     ],
+     "structuredContent": {
+      "summary": "A Forever stamp (First-Class Mail, 1 oz letter) costs $0.82 under the USPS price list effective October 4, 2026. Each extra ounce adds $0.29 (2 oz $1.11, 3 oz $1.40, 3.5 oz $1.69). A postcard stamp is $0.65, a 1 oz large envelope $1.69, and an international 1 oz letter or Global Forever stamp $1.75. Square or rigid letters add a $0.49 nonmachinable surcharge.",
+      "effective_date": "2026-10-04",
+      "forever_stamp_price": 0.82,
+      "additional_ounce": 0.29,
+      "stamped_letter_by_weight_oz": {
+       "1": 0.82,
+       "2": 1.11,
+       "3": 1.4,
+       "3.5": 1.69
+      },
+      "metered_letter_by_weight_oz": {
+       "1": 0.78,
+       "2": 1.07,
+       "3": 1.36,
+       "3.5": 1.65
+      },
+      "postcard": 0.65,
+      "large_envelope_1_oz": 1.69,
+      "nonmachinable_surcharge": 0.49,
+      "international_letter_1_oz": 1.75,
+      "international_postcard": 1.75,
+      "note": "A Forever stamp is always worth the current 1 oz First-Class Mail letter price, even if it was bought at a lower price. USPS usually changes prices in January and July.",
+      "as_of": "2026-11-05T18:07:35.855Z",
+      "source": "https://pe.usps.com/text/dmm300/Notice123.htm",
+      "more": "https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=postage-stamp-price-mcp"
+     }
+    },
+    "jsonrpc": "2.0",
+    "id": 10
+   }
+  },
+  "calculate_letter_postage": {
+   "arguments": {
+    "weight_oz": 1.2,
+    "nonmachinable": true,
+    "quantity": 40
+   },
+   "response": {
+    "result": {
+     "content": [
+      {
+       "type": "text",
+       "text": "A 1.2 oz First-Class Mail stamped letter in the US costs $1.60 ($1.11 plus the $0.49 nonmachinable surcharge), so 40 of them cost $64.00. With Forever stamps only ($0.82 each) that is 2 stamps per piece, overpaying $0.04. Prices effective October 4, 2026.\n\n{\n  \"summary\": \"A 1.2 oz First-Class Mail stamped letter in the US costs $1.60 ($1.11 plus the $0.49 nonmachinable surcharge), so 40 of them cost $64.00. With Forever stamps only ($0.82 each) that is 2 stamps per piece, overpaying $0.04. Prices effective October 4, 2026.\",\n  \"type\": \"letter\",\n  \"destination\": \"us\",\n  \"weight_oz\": 1.2,\n  \"weight_bracket_oz\": \"2\",\n  \"price_each\": 1.6,\n  \"base_price\": 1.11,\n  \"nonmachinable_surcharge\": 0.49,\n  \"quantity\": 40,\n  \"total\": 64,\n  \"forever_stamp_price\": 0.82,\n  \"forever_stamps_needed_each\": 2,\n  \"note\": \"Letters over 3.5 oz or more than 1/4 inch thick go at large envelope prices. Square, rigid or lumpy letters pay the nonmachinable surcharge.\",\n  \"effective_date\": \"2026-10-04\",\n  \"as_of\": \"2026-11-05T18:07:37.943Z\",\n  \"source\": \"https://pe.usps.com/text/dmm300/Notice123.htm\",\n  \"more\": \"https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=postage-stamp-price-mcp\"\n}"
+      }
+     ],
+     "structuredContent": {
+      "summary": "A 1.2 oz First-Class Mail stamped letter in the US costs $1.60 ($1.11 plus the $0.49 nonmachinable surcharge), so 40 of them cost $64.00. With Forever stamps only ($0.82 each) that is 2 stamps per piece, overpaying $0.04. Prices effective October 4, 2026.",
+      "type": "letter",
+      "destination": "us",
+      "weight_oz": 1.2,
+      "weight_bracket_oz": "2",
+      "price_each": 1.6,
+      "base_price": 1.11,
+      "nonmachinable_surcharge": 0.49,
+      "quantity": 40,
+      "total": 64,
+      "forever_stamp_price": 0.82,
+      "forever_stamps_needed_each": 2,
+      "note": "Letters over 3.5 oz or more than 1/4 inch thick go at large envelope prices. Square, rigid or lumpy letters pay the nonmachinable surcharge.",
+      "effective_date": "2026-10-04",
+      "as_of": "2026-11-05T18:07:37.943Z",
+      "source": "https://pe.usps.com/text/dmm300/Notice123.htm",
+      "more": "https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=postage-stamp-price-mcp"
+     }
+    },
+    "jsonrpc": "2.0",
+    "id": 11
+   }
+  },
+  "calculate_letter_postage#2": {
+   "arguments": {
+    "destination": "Germany"
+   },
+   "response": {
+    "result": {
+     "content": [
+      {
+       "type": "text",
+       "text": "A 1 oz First-Class Mail International letter to Germany costs $1.75. With Forever stamps only ($0.82 each) that is 3 stamps per piece, overpaying $0.71. One Global Forever stamp ($1.75) covers it exactly. Prices effective October 4, 2026.\n\n{\n  \"summary\": \"A 1 oz First-Class Mail International letter to Germany costs $1.75. With Forever stamps only ($0.82 each) that is 3 stamps per piece, overpaying $0.71. One Global Forever stamp ($1.75) covers it exactly. Prices effective October 4, 2026.\",\n  \"type\": \"letter\",\n  \"destination\": \"other\",\n  \"weight_oz\": 1,\n  \"weight_bracket_oz\": \"1\",\n  \"price_each\": 1.75,\n  \"base_price\": 1.75,\n  \"nonmachinable_surcharge\": 0,\n  \"quantity\": 1,\n  \"total\": 1.75,\n  \"forever_stamp_price\": 0.82,\n  \"forever_stamps_needed_each\": 3,\n  \"note\": \"International letter prices are the same for every country outside Canada and Mexico at these weights (USPS price groups 3 to 9).\",\n  \"effective_date\": \"2026-10-04\",\n  \"as_of\": \"2026-11-05T18:07:39.170Z\",\n  \"source\": \"https://pe.usps.com/text/dmm300/Notice123.htm\",\n  \"more\": \"https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=postage-stamp-price-mcp\"\n}"
+      }
+     ],
+     "structuredContent": {
+      "summary": "A 1 oz First-Class Mail International letter to Germany costs $1.75. With Forever stamps only ($0.82 each) that is 3 stamps per piece, overpaying $0.71. One Global Forever stamp ($1.75) covers it exactly. Prices effective October 4, 2026.",
+      "type": "letter",
+      "destination": "other",
+      "weight_oz": 1,
+      "weight_bracket_oz": "1",
+      "price_each": 1.75,
+      "base_price": 1.75,
+      "nonmachinable_surcharge": 0,
+      "quantity": 1,
+      "total": 1.75,
+      "forever_stamp_price": 0.82,
+      "forever_stamps_needed_each": 3,
+      "note": "International letter prices are the same for every country outside Canada and Mexico at these weights (USPS price groups 3 to 9).",
+      "effective_date": "2026-10-04",
+      "as_of": "2026-11-05T18:07:39.170Z",
+      "source": "https://pe.usps.com/text/dmm300/Notice123.htm",
+      "more": "https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=postage-stamp-price-mcp"
+     }
+    },
+    "jsonrpc": "2.0",
+    "id": 12
+   }
+  },
+  "get_flat_rate_prices": {
+   "arguments": {},
+   "response": {
+    "result": {
+     "content": [
+      {
+       "type": "text",
+       "text": "USPS retail flat rate prices effective October 4, 2026: Priority Mail Flat Rate Envelope $13.90, Small Flat Rate Box $14.65, Medium Flat Rate Box $25.80, Large Flat Rate Box $36.10 ($34.65 to APO/FPO/DPO), Priority Mail Express Flat Rate Envelope $38.25.\n\n{\n  \"summary\": \"USPS retail flat rate prices effective October 4, 2026: Priority Mail Flat Rate Envelope $13.90, Small Flat Rate Box $14.65, Medium Flat Rate Box $25.80, Large Flat Rate Box $36.10 ($34.65 to APO/FPO/DPO), Priority Mail Express Flat Rate Envelope $38.25.\",\n  \"effective_date\": \"2026-10-04\",\n  \"flat_rate\": [\n    {\n      \"product\": \"priority_mail_flat_rate_envelope\",\n      \"name\": \"Priority Mail Flat Rate Envelope\",\n      \"retail_price\": 13.9\n    },\n    {\n      \"product\": \"priority_mail_legal_flat_rate_envelope\",\n      \"name\": \"Priority Mail Legal Flat Rate Envelope\",\n      \"retail_price\": 14.25\n    },\n    {\n      \"product\": \"priority_mail_padded_flat_rate_envelope\",\n      \"name\": \"Priority Mail Padded Flat Rate Envelope\",\n      \"retail_price\": 15\n    },\n    {\n      \"product\": \"priority_mail_small_flat_rate_box\",\n      \"name\": \"Priority Mail Small Flat Rate Box\",\n      \"retail_price\": 14.65\n    },\n    {\n      \"product\": \"priority_mail_medium_flat_rate_box\",\n      \"name\": \"Priority Mail Medium Flat Rate Box\",\n      \"retail_price\": 25.8\n    },\n    {\n      \"product\": \"priority_mail_large_flat_rate_box\",\n      \"name\": \"Priority Mail Large Flat Rate Box\",\n      \"retail_price\": 36.1\n    },\n    {\n      \"product\": \"priority_mail_apo_fpo_dpo_large_flat_rate_box\",\n      \"name\": \"Priority Mail APO/FPO/DPO Large Flat Rate Box\",\n      \"retail_price\": 34.65\n    },\n    {\n      \"product\": \"priority_mail_express_flat_rate_envelope\",\n      \"name\": \"Priority Mail Express Flat Rate Envelope\",\n      \"retail_price\": 38.25\n    },\n    {\n      \"product\": \"priority_mail_express_legal_flat_rate_envelope\",\n      \"name\": \"Priority Mail Express Legal Flat Rate Envelope\",\n      \"retail_price\": 38.55\n    },\n    {\n      \"product\": \"priority_mail_express_padded_flat_rate_envelope\",\n      \"name\": \"Priority Mail Express Padded Flat Rate Envelope\",\n      \"retail_price\": 39.25\n    }\n  ],\n  \"note\": \"Retail prices at a Post Office. Click-N-Ship and commercial prices are often lower. Flat rate items ship anywhere in the US up to 70 lbs.\",\n  \"as_of\": \"2026-11-05T18:07:40.447Z\",\n  \"source\": \"https://pe.usps.com/text/dmm300/Notice123.htm\",\n  \"more\": \"https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=postage-stamp-price-mcp\"\n}"
+      }
+     ],
+     "structuredContent": {
+      "summary": "USPS retail flat rate prices effective October 4, 2026: Priority Mail Flat Rate Envelope $13.90, Small Flat Rate Box $14.65, Medium Flat Rate Box $25.80, Large Flat Rate Box $36.10 ($34.65 to APO/FPO/DPO), Priority Mail Express Flat Rate Envelope $38.25.",
+      "effective_date": "2026-10-04",
+      "flat_rate": [
+       {
+        "product": "priority_mail_flat_rate_envelope",
+        "name": "Priority Mail Flat Rate Envelope",
+        "retail_price": 13.9
+       },
+       {
+        "product": "priority_mail_legal_flat_rate_envelope",
+        "name": "Priority Mail Legal Flat Rate Envelope",
+        "retail_price": 14.25
+       },
+       {
+        "product": "priority_mail_padded_flat_rate_envelope",
+        "name": "Priority Mail Padded Flat Rate Envelope",
+        "retail_price": 15
+       },
+       {
+        "product": "priority_mail_small_flat_rate_box",
+        "name": "Priority Mail Small Flat Rate Box",
+        "retail_price": 14.65
+       },
+       {
+        "product": "priority_mail_medium_flat_rate_box",
+        "name": "Priority Mail Medium Flat Rate Box",
+        "retail_price": 25.8
+       },
+       {
+        "product": "priority_mail_large_flat_rate_box",
+        "name": "Priority Mail Large Flat Rate Box",
+        "retail_price": 36.1
+       },
+       {
+        "product": "priority_mail_apo_fpo_dpo_large_flat_rate_box",
+        "name": "Priority Mail APO/FPO/DPO Large Flat Rate Box",
+        "retail_price": 34.65
+       },
+       {
+        "product": "priority_mail_express_flat_rate_envelope",
+        "name": "Priority Mail Express Flat Rate Envelope",
+        "retail_price": 38.25
+       },
+       {
+        "product": "priority_mail_express_legal_flat_rate_envelope",
+        "name": "Priority Mail Express Legal Flat Rate Envelope",
+        "retail_price": 38.55
+       },
+       {
+        "product": "priority_mail_express_padded_flat_rate_envelope",
+        "name": "Priority Mail Express Padded Flat Rate Envelope",
+        "retail_price": 39.25
+       }
+      ],
+      "note": "Retail prices at a Post Office. Click-N-Ship and commercial prices are often lower. Flat rate items ship anywhere in the US up to 70 lbs.",
+      "as_of": "2026-11-05T18:07:40.447Z",
+      "source": "https://pe.usps.com/text/dmm300/Notice123.htm",
+      "more": "https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=postage-stamp-price-mcp"
+     }
+    },
+    "jsonrpc": "2.0",
+    "id": 13
+   }
+  }
+ },
+ "calls_ok": "4/4"
+}
