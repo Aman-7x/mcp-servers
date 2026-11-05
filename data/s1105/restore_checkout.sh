@@ -15,3 +15,5 @@ sleep 10
 # one tagged probe, same form as data/s1105/reports/paid-path.json
 /usr/bin/grep -n "probe" /Users/mike/mcp-servers/data/s1105/reports/paid-path.json | head -3
 echo "now run the exact probe command recorded in paid-path.json for invoice; expect 303 to checkout.stripe.com"
+echo "then ship the merged billing changes (PR 116, PR 123) through the gate from a clean origin/main worktree:"
+echo "  git -C ~/mcp-servers worktree add ~/mcp-servers-work/billing-deploy origin/main && cd ~/mcp-servers-work/billing-deploy/billing && npm run deploy"

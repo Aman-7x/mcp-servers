@@ -1,0 +1,55 @@
+{
+ "id": "2026-11-06",
+ "title": "S1106 checkout fallback while Stripe is logged out",
+ "verdict": "Checkout still down, revenue $0. The Stripe CLI is logged out, which blocks both the key rotation and the billing deploy gate. Failed checkouts now capture an email instead of printing the Stripe error (merged, ships with the next gated deploy).",
+ "kpis": [
+  {
+   "label": "Checkout working",
+   "value": "NO since 11-04",
+   "note": "stripe get /v1/checkout/sessions --live: 'live mode API key needs to be re-configured'. Keychain has no StripeCLI live key. 4h watch ended with no key."
+  },
+  {
+   "label": "mcpstamp.com Google impressions per day",
+   "value": "150 on 11-04",
+   "note": "6 on 10-30, 49, 72, 100, 122, 150 on 11-04. GSC searchAnalytics dataState all, data/s1106/gsc_1106.json"
+  },
+  {
+   "label": "Pages with impressions 11-01..11-06",
+   "value": "79",
+   "note": "Top: /can-claude/read-zip-files/ 164 impressions, 1 click, position 7.9"
+  },
+  {
+   "label": "Revenue",
+   "value": "$0",
+   "note": "No checkout can complete while the key is expired."
+  }
+ ],
+ "owner": [
+  "Run stripe login (2 min). Then data/s1105/restore_checkout.sh, then npm run deploy in billing/ from a clean origin/main worktree, then one tagged probe POST.",
+  "Better, create a restricted live key with no expiry in the Stripe dashboard so this does not recur every 90 days."
+ ],
+ "files": [
+  "billing/src/index.js",
+  "data/s1106/gsc_1106.json",
+  "data/s1105/restore_checkout.sh"
+ ],
+ "shipped": [
+  {
+   "url": "https://github.com/theluckystrike/mcp-servers/pull/123",
+   "title": "Failed checkout becomes an email capture",
+   "detail": "Status stays 502. No Stripe error text reaches the buyer. Address goes to /api/subscribe with source checkout-down:<id>. Billing preflight passed. Not deployed yet, the release gate needs the Stripe CLI."
+  }
+ ],
+ "next": [
+  {
+   "title": "Owner runs stripe login, checkout is down",
+   "detail": "Then restore_checkout.sh, gated billing deploy (ships PR 116 and PR 123), tagged probe expecting 303 to checkout.stripe.com.",
+   "colour": "red"
+  },
+  {
+   "title": "Re-measure GSC per new answer page",
+   "detail": "11-12 and 11-19, data/s1106/gsc_1106.json is the baseline.",
+   "colour": "amber"
+  }
+ ]
+}
