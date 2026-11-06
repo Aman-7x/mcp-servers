@@ -1,12 +1,12 @@
 {
  "id": "2026-11-06",
  "title": "S1106 wave 3: 12 buyer pages, 3 seasonal free servers (36), checkout fallback",
- "verdict": "Checkout still down, revenue $0, blocked on owner stripe login (also blocks the gated billing deploy). Organic work continued: 12 gated answer pages for paid servers and 3 new free servers are live on mcpstamp.com. Failed checkout capture and Leave copy fix are merged and ship with the next gated billing deploy.",
+ "verdict": "CHECKOUT RESTORED 2026-11-06. New non-expiring restricted key (Checkout Sessions write) on mcp-billing; tagged probes 303 to live Stripe Checkout for $19, $39, $490 and Leave; gated deploy 696bdd4b shipped PRs 116, 123, 125. Revenue still $0 so far; organic pages and 36 free servers live.",
  "kpis": [
   {
    "label": "Checkout working",
-   "value": "NO since 11-04",
-   "note": "stripe get /v1/checkout/sessions --live: 'live mode API key needs to be re-configured'. Keychain has no StripeCLI live key. 4h watch ended with no key."
+   "value": "YES since 2026-11-06",
+   "note": "Restricted key 'mcp-billing checkout' (Checkout Sessions write, no expiry). Tagged probes: invoice 1900, bundle 3900, svc-audit 49000, leave 1900, all 303 to checkout.stripe.com cs_live_, Stripe page 200. Gate: 68 GET /buy intent pages, 0 new sessions."
   },
   {
    "label": "mcpstamp.com Google impressions per day",
@@ -35,8 +35,9 @@
   }
  ],
  "owner": [
-  "Run stripe login (2 min). Then data/s1105/restore_checkout.sh, then npm run deploy in billing/ from a clean origin/main worktree, then one tagged probe POST.",
-  "Better, create a restricted live key with no expiry in the Stripe dashboard so this does not recur every 90 days."
+  "One real $19 test purchase plus refund, to verify fulfilment and the license email.",
+  "npm login (5 min) for the 3 servers waiting on npm.",
+  "mcpservers.org and mcp.so submissions; send the outreach batch."
  ],
  "files": [
   "billing/src/index.js",
@@ -48,6 +49,11 @@
   "data/s1106/content/sat3-live.json"
  ],
  "shipped": [
+  {
+   "url": "https://mcp.zovo.one/",
+   "title": "Checkout restored, gated billing deploy",
+   "detail": "Secret rotated (version 0a9b2434), then deploy 696bdd4b via npm run deploy (290/290 tests). Previous live 2bcaa00c. Rollback: npx wrangler rollback 0a9b2434-a20e-444c-9d51-7d923c20ea2d in billing/ and reset the monitor:approved-version KV pin."
+  },
   {
    "url": "https://github.com/theluckystrike/mcp-servers/pull/123",
    "title": "Failed checkout becomes an email capture",
@@ -71,9 +77,14 @@
  ],
  "next": [
   {
-   "title": "Owner runs stripe login, checkout is down",
-   "detail": "Then restore_checkout.sh, gated billing deploy (ships PR 116 and PR 123), tagged probe expecting 303 to checkout.stripe.com.",
-   "colour": "red"
+   "title": "Owner makes one real $19 purchase and refunds it",
+   "detail": "Confirms webhook fulfilment, license email via Resend and hosted Pro binding end to end. Probes stop at the Stripe page.",
+   "colour": "amber"
+  },
+  {
+   "title": "Add a direct Get Pro link on paid answer pages",
+   "detail": "The 12 W3 pages mention $19 Pro but link only to the server page; one click fewer to checkout.",
+   "colour": "amber"
   },
   {
    "title": "Re-measure GSC per new answer page",
