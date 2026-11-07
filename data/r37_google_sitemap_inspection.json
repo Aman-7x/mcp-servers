@@ -1,15 +1,19 @@
 {
-  "at": "2026-10-16T09:37:30.013Z",
+  "at": "2026-11-06T11:31:20.316Z",
   "method": "GET Search Console sitemaps list; exact MCP host filter; aggregate other-property read control only",
+  "resource_documentation": "https://developers.google.com/webmaster-tools/v1/sitemaps",
+  "deprecated_fields_ignored": [
+    "contents[].indexed"
+  ],
   "property": "sc-domain:zovo.one",
   "oauth_scope": "https://www.googleapis.com/auth/webmasters.readonly",
   "submissions": 0,
-  "total_records_read": 10,
+  "total_records_read": 13,
   "mcp_sitemaps": [
     {
       "path": "https://mcp.zovo.one/sitemap.xml",
-      "lastSubmitted": "2026-10-12T01:29:13.136Z",
-      "lastDownloaded": "2026-10-16T06:58:29.397Z",
+      "lastSubmitted": "2026-10-26T06:46:13.778Z",
+      "lastDownloaded": "2026-11-05T13:53:45.314Z",
       "isPending": false,
       "isSitemapsIndex": false,
       "type": "sitemap",
@@ -18,17 +22,13 @@
       "contents": [
         {
           "type": "web",
-          "submitted": "293",
+          "submitted": "299",
           "indexed": "0"
         }
       ]
     }
   ],
   "status": "measured",
-  "completed_at": "2026-10-16T09:37:31.357Z",
-  "limits": "Sitemap records do not establish URL indexing, ranking, clicks or customers. No submission, reindex request or OAuth permission escalation.",
-  "deprecated_fields_ignored": [
-    "contents[].indexed"
-  ],
-  "resource_documentation": "https://developers.google.com/webmaster-tools/v1/sitemaps"
+  "completed_at": "2026-11-06T11:31:24.357Z",
+  "limits": "Sitemap records do not establish URL indexing, ranking, clicks or customers. No submission, reindex request or OAuth permission escalation."
 }

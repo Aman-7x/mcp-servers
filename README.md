@@ -13,7 +13,7 @@ Every server runs locally over stdio, keeps all data on your machine, and has a 
 Pro unlocks the limits for a one-time payment: $19 per server or $39 for the bundle, lifetime.
 
 <!-- gen:counts -->
-57 servers plus the office-suite aggregator, 46 of them also reachable as a hosted endpoint with no install.
+57 servers plus the office-suite aggregator, 57 of them also reachable as a hosted endpoint with no install.
 <!-- /gen:counts -->
 
 Try a free task in this browser: [compare supplier statement open items](https://mcp.zovo.one/guides/compare-supplier-statement-ap-open-items-in-claude#supplier-demo), [review duplicate invoice references](https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude#duplicate-demo), or [match an invoice to a PO and receipts](https://mcp.zovo.one/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude#matcher-demo). These examples compute locally and send no field values or diagnostic requests.
@@ -58,7 +58,7 @@ The table links the demonstrations that are available; some are labeled evidence
 **Choose the install path supported by your server.**
 
 1. **Claude Desktop bundle.** Choose the server in the [download catalog](https://mcp.zovo.one/downloads), download its versioned `.mcpb` and open it.
-2. **Hosted, for 46 servers.** Open [mcp.zovo.one/mcp/connect](https://mcp.zovo.one/mcp/connect), mint a free token and copy the ready URL for your server. That URL includes the token; a bare endpoint does not authorize tool calls. Servers without an endpoint use the bundle or source build.
+2. **Hosted, for 57 servers.** Open [mcp.zovo.one/mcp/connect](https://mcp.zovo.one/mcp/connect), mint a free token and copy the ready URL for your server. That URL includes the token; a bare endpoint does not authorize tool calls. Servers without an endpoint use the bundle or source build.
 
 The npm packages are not published. Use a bundle or the source build below rather than an npm package command.
 <!-- /gen:install -->
@@ -134,7 +134,7 @@ Buy Pro: https://mcp.zovo.one  (keys verify offline with Ed25519; no phone-home)
 ## Hosted endpoints (no install)
 
 <!-- gen:hosted -->
-46 servers have hosted endpoints. Open [the connect page](https://mcp.zovo.one/mcp/connect), get a free token and copy the complete URL for the server you need.
+57 servers have hosted endpoints. Open [the connect page](https://mcp.zovo.one/mcp/connect), get a free token and copy the complete URL for the server you need.
 
 The ready URL has the form `https://mcp.zovo.one/mcp/<server>/t/<token>`. If your client supports headers, the bare endpoint also works with `Authorization: Bearer <token>`. The bare URL alone can initialize and list tools but refuses tool calls.
 

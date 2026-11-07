@@ -97124,6 +97124,3090 @@
         "invoice": "not published"
       },
       "billing_health": true
+    },
+    {
+      "at": "2026-11-06T09:31:44.000Z",
+      "github": {
+        "stars": 2,
+        "forks": 3,
+        "watchers": 0,
+        "views_14d": 135,
+        "uniques_14d": 48,
+        "clones_14d": 2383,
+        "clone_uniques_14d": 321
+      },
+      "release_downloads": [
+        {
+          "tag": "v0.25.0",
+          "name": "office-suite.mcpb",
+          "downloads": 42
+        },
+        {
+          "tag": "v0.25.0",
+          "name": "SHA256SUMS.txt",
+          "downloads": 4
+        },
+        {
+          "tag": "v0.25.0",
+          "name": "supplier-statement-check.mcpb",
+          "downloads": 30
+        },
+        {
+          "tag": "v0.22.9",
+          "name": "expense-tracker.mcpb",
+          "downloads": 47
+        },
+        {
+          "tag": "v0.22.9",
+          "name": "office-suite.mcpb",
+          "downloads": 29
+        },
+        {
+          "tag": "v0.22.9",
+          "name": "SHA256SUMS.txt",
+          "downloads": 4
+        },
+        {
+          "tag": "v0.22.9",
+          "name": "spreadsheet.mcpb",
+          "downloads": 45
+        },
+        {
+          "tag": "v0.22.8",
+          "name": "duplicate-invoice-check.mcpb",
+          "downloads": 47
+        },
+        {
+          "tag": "v0.22.8",
+          "name": "office-suite.mcpb",
+          "downloads": 8
+        },
+        {
+          "tag": "v0.22.8",
+          "name": "SHA256SUMS.txt",
+          "downloads": 1
+        },
+        {
+          "tag": "v0.22.8",
+          "name": "three-way-match.mcpb",
+          "downloads": 48
+        },
+        {
+          "tag": "v0.22.7",
+          "name": "duplicate-invoice-check.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.22.7",
+          "name": "office-suite.mcpb",
+          "downloads": 4
+        },
+        {
+          "tag": "v0.22.7",
+          "name": "SHA256SUMS.txt",
+          "downloads": 1
+        },
+        {
+          "tag": "v0.22.7",
+          "name": "three-way-match.mcpb",
+          "downloads": 3
+        },
+        {
+          "tag": "v0.22.6",
+          "name": "office-suite.mcpb",
+          "downloads": 2
+        },
+        {
+          "tag": "v0.22.6",
+          "name": "SHA256SUMS-r36.txt",
+          "downloads": 0
+        },
+        {
+          "tag": "v0.22.6",
+          "name": "three-way-match.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.22.5",
+          "name": "hourly-rate.mcpb",
+          "downloads": 70
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "amortization.mcpb",
+          "downloads": 366
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "asset-register.mcpb",
+          "downloads": 356
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "backlink-checker.mcpb",
+          "downloads": 226
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 340
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "barcode.mcpb",
+          "downloads": 410
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "bill-of-sale.mcpb",
+          "downloads": 250
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 397
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "budget.mcpb",
+          "downloads": 109
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "calendar.mcpb",
+          "downloads": 429
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "cash-book.mcpb",
+          "downloads": 357
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "catalogue.mcpb",
+          "downloads": 355
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "change-order.mcpb",
+          "downloads": 349
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "checklist.mcpb",
+          "downloads": 338
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "clauses.mcpb",
+          "downloads": 492
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "credit-note.mcpb",
+          "downloads": 329
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "currency.mcpb",
+          "downloads": 332
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "delivery-schedule.mcpb",
+          "downloads": 414
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "deposits.mcpb",
+          "downloads": 338
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "docx.mcpb",
+          "downloads": 531
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "dunning-letters.mcpb",
+          "downloads": 250
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 311
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "goods-receipt.mcpb",
+          "downloads": 236
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "image.mcpb",
+          "downloads": 381
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "invoice.mcpb",
+          "downloads": 283
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "job-card.mcpb",
+          "downloads": 273
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "kanban.mcpb",
+          "downloads": 365
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "leave.mcpb",
+          "downloads": 226
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "loan-calculator.mcpb",
+          "downloads": 103
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "maintenance-log.mcpb",
+          "downloads": 246
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "mileage-log.mcpb",
+          "downloads": 245
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "office-suite.mcpb",
+          "downloads": 228
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "onboarding.mcpb",
+          "downloads": 238
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "packing-list.mcpb",
+          "downloads": 426
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "payroll.mcpb",
+          "downloads": 106
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "pdf.mcpb",
+          "downloads": 368
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "per-diem.mcpb",
+          "downloads": 362
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "petty-cash.mcpb",
+          "downloads": 339
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "pomodoro.mcpb",
+          "downloads": 109
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 263
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "purchase-requisition.mcpb",
+          "downloads": 290
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "quotes.mcpb",
+          "downloads": 403
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "receipts.mcpb",
+          "downloads": 109
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "recurring.mcpb",
+          "downloads": 365
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "resume.mcpb",
+          "downloads": 413
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "service-agreement.mcpb",
+          "downloads": 255
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 306
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "statement-of-account.mcpb",
+          "downloads": 334
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "stripe-billing.mcpb",
+          "downloads": 105
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "supplier-list.mcpb",
+          "downloads": 244
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "tax-calc.mcpb",
+          "downloads": 109
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 286
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "timezone.mcpb",
+          "downloads": 411
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "work-order.mcpb",
+          "downloads": 300
+        },
+        {
+          "tag": "v0.22.0",
+          "name": "zip.mcpb",
+          "downloads": 349
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "amortization.mcpb",
+          "downloads": 77
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "asset-register.mcpb",
+          "downloads": 69
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 194
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "barcode.mcpb",
+          "downloads": 147
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "bill-of-sale.mcpb",
+          "downloads": 54
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 51
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "calendar.mcpb",
+          "downloads": 145
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "cash-book.mcpb",
+          "downloads": 77
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "catalogue.mcpb",
+          "downloads": 74
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "change-order.mcpb",
+          "downloads": 78
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "checklist.mcpb",
+          "downloads": 34
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "clauses.mcpb",
+          "downloads": 167
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "credit-note.mcpb",
+          "downloads": 21
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "currency.mcpb",
+          "downloads": 158
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "delivery-schedule.mcpb",
+          "downloads": 140
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "deposits.mcpb",
+          "downloads": 81
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "docx.mcpb",
+          "downloads": 87
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "dunning-letters.mcpb",
+          "downloads": 54
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 148
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "image.mcpb",
+          "downloads": 152
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "invoice.mcpb",
+          "downloads": 216
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "job-card.mcpb",
+          "downloads": 45
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "kanban.mcpb",
+          "downloads": 45
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "office-suite.mcpb",
+          "downloads": 136
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "packing-list.mcpb",
+          "downloads": 40
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "pdf.mcpb",
+          "downloads": 205
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "per-diem.mcpb",
+          "downloads": 80
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "petty-cash.mcpb",
+          "downloads": 71
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 130
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "quotes.mcpb",
+          "downloads": 220
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "recurring.mcpb",
+          "downloads": 47
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "resume.mcpb",
+          "downloads": 78
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 154
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "statement-of-account.mcpb",
+          "downloads": 71
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 153
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "timezone.mcpb",
+          "downloads": 77
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "work-order.mcpb",
+          "downloads": 50
+        },
+        {
+          "tag": "v0.21.0",
+          "name": "zip.mcpb",
+          "downloads": 203
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "amortization.mcpb",
+          "downloads": 25
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "asset-register.mcpb",
+          "downloads": 25
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 18
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "barcode.mcpb",
+          "downloads": 24
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 22
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "calendar.mcpb",
+          "downloads": 24
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "cash-book.mcpb",
+          "downloads": 24
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "catalogue.mcpb",
+          "downloads": 25
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "change-order.mcpb",
+          "downloads": 23
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "clauses.mcpb",
+          "downloads": 25
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "currency.mcpb",
+          "downloads": 18
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "deposits.mcpb",
+          "downloads": 23
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "docx.mcpb",
+          "downloads": 29
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "image.mcpb",
+          "downloads": 20
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "invoice.mcpb",
+          "downloads": 18
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "kanban.mcpb",
+          "downloads": 20
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "office-suite.mcpb",
+          "downloads": 18
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "pdf.mcpb",
+          "downloads": 18
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "per-diem.mcpb",
+          "downloads": 24
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "petty-cash.mcpb",
+          "downloads": 23
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 20
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "quotes.mcpb",
+          "downloads": 24
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "recurring.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "resume.mcpb",
+          "downloads": 25
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 22
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "statement-of-account.mcpb",
+          "downloads": 24
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "timezone.mcpb",
+          "downloads": 22
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "work-order.mcpb",
+          "downloads": 24
+        },
+        {
+          "tag": "v0.20.0",
+          "name": "zip.mcpb",
+          "downloads": 69
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "amortization.mcpb",
+          "downloads": 19
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "asset-register.mcpb",
+          "downloads": 21
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "barcode.mcpb",
+          "downloads": 19
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 21
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "calendar.mcpb",
+          "downloads": 22
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "cash-book.mcpb",
+          "downloads": 21
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "catalogue.mcpb",
+          "downloads": 21
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "clauses.mcpb",
+          "downloads": 19
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "currency.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "deposits.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "docx.mcpb",
+          "downloads": 25
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "image.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "invoice.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "kanban.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "office-suite.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "pdf.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "per-diem.mcpb",
+          "downloads": 20
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "petty-cash.mcpb",
+          "downloads": 21
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "quotes.mcpb",
+          "downloads": 20
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "recurring.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "resume.mcpb",
+          "downloads": 19
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 18
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "statement-of-account.mcpb",
+          "downloads": 20
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "timezone.mcpb",
+          "downloads": 20
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "work-order.mcpb",
+          "downloads": 19
+        },
+        {
+          "tag": "v0.19.0",
+          "name": "zip.mcpb",
+          "downloads": 30
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "amortization.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "asset-register.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "barcode.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "calendar.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "cash-book.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "clauses.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "currency.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "deposits.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "docx.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "image.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "invoice.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "kanban.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "office-suite.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "pdf.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "per-diem.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "petty-cash.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "quotes.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "recurring.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "resume.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "statement-of-account.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "timezone.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "work-order.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.18.0",
+          "name": "zip.mcpb",
+          "downloads": 35
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "amortization.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "asset-register.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "barcode.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "calendar.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "cash-book.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "clauses.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "currency.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "deposits.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "docx.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "image.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "invoice.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "kanban.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "office-suite.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "pdf.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "per-diem.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "petty-cash.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "quotes.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "recurring.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "resume.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 18
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "statement-of-account.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "timezone.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.17.0",
+          "name": "zip.mcpb",
+          "downloads": 29
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "amortization.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "asset-register.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "barcode.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "calendar.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "cash-book.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "clauses.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "currency.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "deposits.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "docx.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "image.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "invoice.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "kanban.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "office-suite.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "pdf.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "per-diem.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "quotes.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "recurring.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "resume.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "statement-of-account.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "timezone.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.16.0",
+          "name": "zip.mcpb",
+          "downloads": 40
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "asset-register.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "barcode.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "calendar.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "cash-book.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "clauses.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "currency.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "deposits.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "docx.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "image.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "invoice.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "kanban.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "office-suite.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "pdf.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "per-diem.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "quotes.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "recurring.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "resume.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "statement-of-account.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "timezone.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.15.0",
+          "name": "zip.mcpb",
+          "downloads": 31
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "asset-register.mcpb",
+          "downloads": 19
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "barcode.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "calendar.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "clauses.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "currency.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "deposits.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "docx.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "image.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "invoice.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "kanban.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "office-suite.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "pdf.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "per-diem.mcpb",
+          "downloads": 18
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "quotes.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "recurring.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "resume.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "statement-of-account.mcpb",
+          "downloads": 18
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "timezone.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.14.0",
+          "name": "zip.mcpb",
+          "downloads": 34
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "asset-register.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "barcode.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "calendar.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "clauses.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "currency.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "deposits.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "docx.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "image.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "invoice.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "kanban.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "office-suite.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "pdf.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "per-diem.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "quotes.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "recurring.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "resume.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "timezone.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.13.0",
+          "name": "zip.mcpb",
+          "downloads": 41
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "barcode.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "calendar.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "clauses.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "currency.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "deposits.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "docx.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "image.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "invoice.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "kanban.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "office-suite.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "pdf.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "per-diem.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "quotes.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "recurring.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "resume.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "timezone.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.12.0",
+          "name": "zip.mcpb",
+          "downloads": 38
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "barcode.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "calendar.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "clauses.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "currency.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "deposits.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "docx.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "image.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "invoice.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "kanban.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "office-suite.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "pdf.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "quotes.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "recurring.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "resume.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "timezone.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.11.0",
+          "name": "zip.mcpb",
+          "downloads": 41
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "barcode.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "billing-docs.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "calendar.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "clauses.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "currency.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "docx.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "image.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "invoice.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "kanban.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "office-suite.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "pdf.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "quotes.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "recurring.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "resume.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "timezone.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.10.0",
+          "name": "zip.mcpb",
+          "downloads": 37
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "bank-statement.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "barcode.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "calendar.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "clauses.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "currency.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "docx.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "expense-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "image.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "invoice.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "kanban.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "office-suite.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "pdf.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "price-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "quotes.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "recurring.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "resume.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "spreadsheet.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "time-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "timezone.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.5",
+          "name": "zip.mcpb",
+          "downloads": 37
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "bank-statement.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "barcode.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "calendar.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "clauses.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "currency.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "docx.mcpb",
+          "downloads": 18
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "expense-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "image.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "invoice.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "kanban.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "office-suite.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "pdf.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "price-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "quotes.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "recurring.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "resume.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "spreadsheet.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "time-tracker.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "timezone.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.9.4",
+          "name": "zip.mcpb",
+          "downloads": 35
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "bank-statement.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "barcode.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "calendar.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "clauses.mcpb",
+          "downloads": 19
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "currency.mcpb",
+          "downloads": 19
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "docx.mcpb",
+          "downloads": 20
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "expense-tracker.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "image.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "invoice.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "kanban.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "office-suite.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "pdf.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "price-tracker.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "quotes.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "recurring.mcpb",
+          "downloads": 19
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "resume.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "spreadsheet.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "time-tracker.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "timezone.mcpb",
+          "downloads": 17
+        },
+        {
+          "tag": "v0.9.3",
+          "name": "zip.mcpb",
+          "downloads": 33
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "bank-statement.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "barcode.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "calendar.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "clauses.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "currency.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "docx.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "expense-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "image.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "invoice.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "kanban.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "office-suite.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "pdf.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "price-tracker.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "quotes.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "recurring.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "resume.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "spreadsheet.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "time-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "timezone.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.2",
+          "name": "zip.mcpb",
+          "downloads": 41
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "bank-statement.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "barcode.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "calendar.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "clauses.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "currency.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "docx.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "expense-tracker.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "image.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "invoice.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "kanban.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "office-suite.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "pdf.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "price-tracker.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "quotes.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "recurring.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "resume.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "spreadsheet.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "time-tracker.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "timezone.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.1",
+          "name": "zip.mcpb",
+          "downloads": 22
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "barcode.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "calendar.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "clauses.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "currency.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "docx.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "image.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "invoice.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "kanban.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "office-suite.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "pdf.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "quotes.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "recurring.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "resume.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "timezone.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.9.0",
+          "name": "zip.mcpb",
+          "downloads": 19
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "barcode.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "calendar.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "clauses.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "currency.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "docx.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "image.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "invoice.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "kanban.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "office-suite.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "pdf.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "quotes.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "recurring.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "resume.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.8.0",
+          "name": "timezone.mcpb",
+          "downloads": 16
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "calendar.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "clauses.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "currency.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "docx.mcpb",
+          "downloads": 15
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "image.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "invoice.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "kanban.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "office-suite.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "pdf.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "quotes.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "recurring.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "resume.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.7.0",
+          "name": "timezone.mcpb",
+          "downloads": 14
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "bank-statement.mcpb",
+          "downloads": 8
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "calendar.mcpb",
+          "downloads": 8
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "clauses.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "currency.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "docx.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "expense-tracker.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "image.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "invoice.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "kanban.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "office-suite.mcpb",
+          "downloads": 8
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "pdf.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "price-tracker.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "recurring.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "resume.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "spreadsheet.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "time-tracker.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.6.1",
+          "name": "timezone.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "bank-statement.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "calendar.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "clauses.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "currency.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "docx.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "image.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "invoice.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "kanban.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "office-suite.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "pdf.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "recurring.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "resume.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.6.0",
+          "name": "timezone.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "calendar.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "clauses.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "currency.mcpb",
+          "downloads": 8
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "docx.mcpb",
+          "downloads": 11
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "expense-tracker.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "invoice.mcpb",
+          "downloads": 8
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "office-suite.mcpb",
+          "downloads": 10
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "pdf.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "price-tracker.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "recurring.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "resume.mcpb",
+          "downloads": 12
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "spreadsheet.mcpb",
+          "downloads": 13
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "time-tracker.mcpb",
+          "downloads": 9
+        },
+        {
+          "tag": "v0.5.0",
+          "name": "timezone.mcpb",
+          "downloads": 9
+        }
+      ],
+      "release_downloads_total": 28012,
+      "registry_entries": [
+        "io.github.theluckystrike/ab-test-sample-size-calculator-mcp@1.0.0",
+        "io.github.theluckystrike/aca-premium-tax-credit-calculator-mcp@1.0.0",
+        "io.github.theluckystrike/address-to-census-tract-mcp@1.0.0",
+        "io.github.theluckystrike/aging@0.14.0",
+        "io.github.theluckystrike/aging@0.15.0",
+        "io.github.theluckystrike/aging@0.16.0",
+        "io.github.theluckystrike/aging@0.17.0",
+        "io.github.theluckystrike/aging@0.18.0",
+        "io.github.theluckystrike/aging@0.19.0",
+        "io.github.theluckystrike/aging@0.20.0",
+        "io.github.theluckystrike/aging@0.21.0",
+        "io.github.theluckystrike/aging@0.22.0",
+        "io.github.theluckystrike/aging@0.22.5",
+        "io.github.theluckystrike/agreement@0.10.0",
+        "io.github.theluckystrike/agreement@0.11.0",
+        "io.github.theluckystrike/agreement@0.12.0",
+        "io.github.theluckystrike/agreement@0.13.0",
+        "io.github.theluckystrike/agreement@0.14.0",
+        "io.github.theluckystrike/agreement@0.15.0",
+        "io.github.theluckystrike/agreement@0.16.0",
+        "io.github.theluckystrike/agreement@0.17.0",
+        "io.github.theluckystrike/agreement@0.18.0",
+        "io.github.theluckystrike/agreement@0.19.0",
+        "io.github.theluckystrike/agreement@0.20.0",
+        "io.github.theluckystrike/agreement@0.21.0",
+        "io.github.theluckystrike/agreement@0.22.5",
+        "io.github.theluckystrike/agreement@0.5.0",
+        "io.github.theluckystrike/agreement@0.6.0",
+        "io.github.theluckystrike/agreement@0.6.1",
+        "io.github.theluckystrike/agreement@0.7.0",
+        "io.github.theluckystrike/agreement@0.8.0",
+        "io.github.theluckystrike/agreement@0.9.0",
+        "io.github.theluckystrike/agreement@0.9.1",
+        "io.github.theluckystrike/agreement@0.9.2",
+        "io.github.theluckystrike/agreement@0.9.3",
+        "io.github.theluckystrike/agreement@0.9.4",
+        "io.github.theluckystrike/agreement@0.9.5",
+        "io.github.theluckystrike/amortization@0.16.0",
+        "io.github.theluckystrike/amortization@0.17.0",
+        "io.github.theluckystrike/amortization@0.18.0",
+        "io.github.theluckystrike/amortization@0.19.0",
+        "io.github.theluckystrike/amortization@0.20.0",
+        "io.github.theluckystrike/amortization@0.21.0",
+        "io.github.theluckystrike/amortization@0.22.0",
+        "io.github.theluckystrike/amortization@0.22.5",
+        "io.github.theluckystrike/amortization@0.22.6",
+        "io.github.theluckystrike/amortization@0.23.0",
+        "io.github.theluckystrike/ap-score-distributions-mcp@1.0.0",
+        "io.github.theluckystrike/application@0.10.0",
+        "io.github.theluckystrike/application@0.11.0"
+      ],
+      "npm_weekly_downloads": {
+        "time-tracker": 242,
+        "price-tracker": 250,
+        "spreadsheet": 257,
+        "invoice": 380
+      },
+      "billing_health": true
     }
   ]
 }

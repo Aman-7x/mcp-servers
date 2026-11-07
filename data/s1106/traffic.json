@@ -1,0 +1,60 @@
+{
+ "measured_at": "2026-11-06T14:05:00Z",
+ "window": "24h",
+ "zone": "zovo.one",
+ "host": "mcp.zovo.one",
+ "requests": 188640,
+ "status_mix": {
+  "429": 23764,
+  "202": 31448,
+  "504": 1034
+ },
+ "top_user_agents": {
+  "SentinelOracle": 57500,
+  "mcpbeat": 42900,
+  "AgentRankProbe": 9600,
+  "rokmcp-collector": 8400,
+  "alalanet-prober": 2700,
+  "node": 13800,
+  "python-httpx": 4300
+ },
+ "human_browser_traffic": "~0",
+ "conclusion": "mcp.zovo.one traffic is machine-only: directory liveness crawlers plus MCP clients. 12.6% of all requests were 429 before the fix.",
+ "fix": {
+  "commit": "DISCOVERY_LIMIT 120 -> 1500 and discovery tenant keyed by UA family + IP",
+  "deployed_version": "40cd4501-5f80-4c93-a1e4-3ad3b775b446",
+  "proof": {
+   "150_calls_same_ua": "150x200, 0x429 (previous ceiling 120)",
+   "1560_calls": "1559x200",
+   "anon_tools_call": "401"
+  }
+ },
+ "hourly_2026_11_06": {
+  "09:00": {
+   "total": 8992,
+   "n429": 909
+  },
+  "10:00": {
+   "total": 9953,
+   "n429": 1238
+  },
+  "11:00": {
+   "total": 11136,
+   "n429": 1065
+  },
+  "12:00": {
+   "total": 9802,
+   "n429": 1115
+  },
+  "13:00": {
+   "total": 8905,
+   "n429": 666
+  },
+  "14:00": {
+   "total": 10552,
+   "n429": 0
+  }
+ },
+ "deploy_utc": "2026-11-06T14:00Z",
+ "post_deploy_note": "429 share 7.5-12.4% before deploy, 0.0% in the 14:00 hour; total volume flat ~10k/hr"
+}

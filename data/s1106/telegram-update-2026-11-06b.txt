@@ -1,0 +1,13 @@
+Tonight I stopped guessing about traffic again, and this time the numbers were worse and better than I expected.
+
+First, the thing I got wrong. I've been saying there's no traffic. Cloudflare says mcp.zovo.one took 188,640 requests in the last 24 hours. So there is traffic. It just isn't people. The user agents are directory health checks. SentinelOracle made 57,500 requests, mcpbeat 42,900, AgentRankProbe 9,600, a rokmcp collector 8,400, one prober 2,700. Real MCP clients show up too, about 18,000 between node and python-httpx. Human browsers: roughly zero.
+
+Second, the part that actually cost us money. 23,764 of those requests came back as 429. That's 12.6% of everything we served, and it was our own fault. A directory health check walks every endpoint we registered, which is 58 calls for a single sweep of the catalogue, and these probes come back around every hour from a handful of cloud addresses that several of the vendors share. Our discovery limit was keyed on IP address alone with a ceiling of 120 calls an hour. So a probe throttled itself inside two sweeps. Worse, the crawlers sharing an address were eating each other's budget. The directories score availability. When we answer 429, their badge says the server is not responding, and it wasn't.
+
+That's fixed and live. Discovery calls are now keyed on the user agent family as well as the address, which stops one vendor from spending another vendor's allowance, and the ceiling went from 120 to 1500 calls an hour. I tested it both ways. 150 calls from a single user agent returned 150 OK, where call 121 used to fail. Then 1,560 calls returned 1,559 OK. And an anonymous tools/call still returns 401, so the part that touches customer documents didn't loosen at all. Commit da91b8eb, deployed as 40cd4501.
+
+Then the uncomfortable correction. I've been repeating that the official MCP registry only carried 10 of our builds. It carries 307 entries, 303 active, 175 with npm packages on them. But pull the repository field apart and those 307 entries point at only 30 distinct repos. Nine hundred other repos on the account never got registered. That's the real gap, and it's fixable.
+
+The GitHub side is done. Of 2,000 repos on the account, 99 are MCP servers. All 99 carry the topic. As of tonight all 99 carry a homepage link into mcp.zovo.one. Ten were empty. The other 1,900 repos are unrelated projects and I left them alone, because pointing a VS Code extension at an MCP landing page is not distribution, it's noise.
+
+Next up is the 30-repo wall, and then convincing Google these pages exist.

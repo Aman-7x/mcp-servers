@@ -465,7 +465,7 @@ const WAIVERS = [
   // with nothing to sell; the waiver says why instead of leaving a bare FAIL in the row.
   {
     check: "product",
-    servers: ["hourly-rate"],
+    servers: ["hourly-rate", "ingredient-convert"],
     why: "2026-10-12: no Stripe product on purpose — every tool is free, there is no license gate to sell, and checkout.test.mjs enforces the absence. The $39 bundle is the only paid path.",
   },
   // 2026-09-17: the wave-C hosted-row waiver for supplier-list, service-agreement,
@@ -473,13 +473,18 @@ const WAIVERS = [
   // distribution.json rows reconciled to "published https://mcp.zovo.one/mcp/<server>".
   {
     check: "gif",
-    servers: ["supplier-list", "service-agreement", "maintenance-log", "mileage-log"],
-    why: "2026-09-17: the four newest servers have no demo GIF yet; a GIF needs a scripted UI session per server. Queue for the next content round.",
+    servers: ["supplier-list", "service-agreement", "maintenance-log", "mileage-log", "ingredient-convert"],
+    why: "2026-09-17: the four newest servers have no demo GIF yet; a GIF needs a scripted UI session per server. Queue for the next content round. 2026-11-07: ingredient-convert added, same reason.",
   },
   {
     check: "logo",
-    servers: ["supplier-list", "service-agreement", "maintenance-log", "mileage-log"],
-    why: "2026-09-17: no logo PNG generated for the four newest servers; same content round as the GIFs.",
+    servers: ["supplier-list", "service-agreement", "maintenance-log", "mileage-log", "ingredient-convert"],
+    why: "2026-09-17: no logo PNG generated for the four newest servers; same content round as the GIFs. 2026-11-07: ingredient-convert added, same reason.",
+  },
+  {
+    check: "children",
+    servers: ["ingredient-convert"],
+    why: "2026-11-06: kept out of office-suite CHILDREN on purpose. A cooking converter is not a business-document child, and adding it would require rebuilding every child dist to regenerate data/office-suite-tool-inventory.json, which records 50 children against 58 declared. It ships standalone and hosted instead.",
   },
 ];
 const waived = new Map(); // "server:check" -> why
@@ -574,14 +579,26 @@ function coveredTestDirs() {
   return covered;
 }
 
-/** Every directory under ROOT holding at least one *.test.mjs, as repo-relative paths. */
+/** Every directory under ROOT holding at least one tracked *.test.mjs, as repo-relative paths.
+
+    Tracked, not merely present on disk: this tree also holds a nested worktree
+    (data/s1103/salvage-deploy/wt), cloned satellite repos and data/s1102 source
+    checkouts, each with its own test/ directories. Walking the filesystem ran
+    several hundred foreign test files and pushed this gate past 15 minutes, when
+    its job is our suites only. git ls-files answers exactly that question. */
+const TRACKED_TESTS = new Set(
+  execFileSync("git", ["ls-files", "--", "*.test.mjs"], { cwd: ROOT, encoding: "utf8" })
+    .split("\n").filter(Boolean).map((p) => dirname(p).replace(/\\/g, "/") || ".")
+);
+
 function allTestDirs(dir = ROOT, rel = "") {
   const out = [];
   for (const e of readdirSync(dir, { withFileTypes: true })) {
     if (!e.isDirectory() || e.name.startsWith(".") || SKIP_DIRS.has(e.name)) continue;
     const childRel = rel ? `${rel}/${e.name}` : e.name;
     const child = join(dir, e.name);
-    if (readdirSync(child).some((f) => f.endsWith(".test.mjs"))) out.push(childRel);
+    const names = readdirSync(child);
+    if (names.some((f) => f.endsWith(".test.mjs")) && TRACKED_TESTS.has(childRel)) out.push(childRel);
     out.push(...allTestDirs(child, childRel));
   }
   return out;

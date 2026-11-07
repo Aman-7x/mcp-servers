@@ -1,0 +1,106 @@
+[
+ {
+  "dimensions": {
+   "date": "2026-10-31"
+  },
+  "sum": {
+   "bytes": 3094077376,
+   "pageViews": 19590,
+   "requests": 445660
+  },
+  "uniq": {
+   "uniques": 13611
+  }
+ },
+ {
+  "dimensions": {
+   "date": "2026-11-04"
+  },
+  "sum": {
+   "bytes": 1401307758,
+   "pageViews": 11186,
+   "requests": 415599
+  },
+  "uniq": {
+   "uniques": 12203
+  }
+ },
+ {
+  "dimensions": {
+   "date": "2026-11-05"
+  },
+  "sum": {
+   "bytes": 1343506456,
+   "pageViews": 10857,
+   "requests": 388921
+  },
+  "uniq": {
+   "uniques": 11254
+  }
+ },
+ {
+  "dimensions": {
+   "date": "2026-11-01"
+  },
+  "sum": {
+   "bytes": 2286831945,
+   "pageViews": 10683,
+   "requests": 391023
+  },
+  "uniq": {
+   "uniques": 11463
+  }
+ },
+ {
+  "dimensions": {
+   "date": "2026-11-02"
+  },
+  "sum": {
+   "bytes": 1488089382,
+   "pageViews": 11223,
+   "requests": 410134
+  },
+  "uniq": {
+   "uniques": 11542
+  }
+ },
+ {
+  "dimensions": {
+   "date": "2026-11-06"
+  },
+  "sum": {
+   "bytes": 1002132822,
+   "pageViews": 13008,
+   "requests": 228691
+  },
+  "uniq": {
+   "uniques": 7087
+  }
+ },
+ {
+  "dimensions": {
+   "date": "2026-11-03"
+  },
+  "sum": {
+   "bytes": 1591465813,
+   "pageViews": 19870,
+   "requests": 443201
+  },
+  "uniq": {
+   "uniques": 11695
+  }
+ },
+ {
+  "dimensions": {
+   "date": "2026-10-30"
+  },
+  "sum": {
+   "bytes": 1790930861,
+   "pageViews": 11698,
+   "requests": 413959
+  },
+  "uniq": {
+   "uniques": 13655
+  }
+ }
+]

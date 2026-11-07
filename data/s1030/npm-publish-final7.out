@@ -1,0 +1,131 @@
+=== publish-all.sh  (mode: EXECUTE) ===
+
+npm authenticated as: theluckystrike
+
+--- dependency cycle(s) detected ---
+# CYCLE: @theluckystrike/mcp-license depends on @theluckystrike/mcp-timezone which depend(s) back on it (directly or transitively); publishing @theluckystrike/mcp-license first, breaking the edge to @theluckystrike/mcp-timezone
+
+--- publish order (59 packages) ---
+  1. @theluckystrike/mcp-budget@0.22.6
+  2. @theluckystrike/mcp-loan-calculator@0.22.6
+  3. @theluckystrike/mcp-payroll@0.22.6
+  4. @theluckystrike/mcp-pomodoro@0.22.6
+  5. @theluckystrike/mcp-receipts@0.22.6
+  6. @theluckystrike/mcp-stripe-billing@0.22.6
+  7. @theluckystrike/mcp-tax-calc@0.22.6
+  8. @theluckystrike/mcp-license@0.22.7
+  9. @theluckystrike/mcp-backlink-checker@0.22.6
+  10. @theluckystrike/mcp-barcode@0.22.6
+  11. @theluckystrike/mcp-bill-of-sale@0.22.6
+  12. @theluckystrike/mcp-credit-note@0.22.8
+  13. @theluckystrike/mcp-currency@0.22.6
+  14. @theluckystrike/mcp-docx@0.22.6
+  15. @theluckystrike/mcp-duplicate-invoice-check@0.22.8
+  16. @theluckystrike/mcp-expense-tracker@0.22.9
+  17. @theluckystrike/mcp-hourly-rate@0.22.6
+  18. @theluckystrike/mcp-image@0.22.6
+  19. @theluckystrike/mcp-invoice@0.22.6
+  20. @theluckystrike/mcp-job-card@0.22.6
+  21. @theluckystrike/mcp-kanban@0.22.6
+  22. @theluckystrike/mcp-maintenance-log@0.22.6
+  23. @theluckystrike/mcp-mileage-log@0.22.6
+  24. @theluckystrike/mcp-pdf@0.22.6
+  25. @theluckystrike/mcp-price-tracker@0.22.6
+  26. @theluckystrike/mcp-service-agreement@0.22.6
+  27. @theluckystrike/mcp-spreadsheet@0.22.9
+  28. @theluckystrike/mcp-supplier-list@0.22.6
+  29. @theluckystrike/mcp-supplier-statement-check@0.25.0
+  30. @theluckystrike/mcp-three-way-match@0.22.8
+  31. @theluckystrike/mcp-time-tracker@0.22.6
+  32. @theluckystrike/mcp-timezone@0.22.6
+  33. @theluckystrike/mcp-zip@0.22.6
+  34. @theluckystrike/mcp-asset-register@0.22.6
+  35. @theluckystrike/mcp-bank-statement@0.22.6
+  36. @theluckystrike/mcp-calendar@0.22.6
+  37. @theluckystrike/mcp-clauses@0.22.6
+  38. @theluckystrike/mcp-per-diem@0.22.6
+  39. @theluckystrike/mcp-quotes@0.22.6
+  40. @theluckystrike/mcp-recurring@0.22.6
+  41. @theluckystrike/mcp-resume@0.22.6
+  42. @theluckystrike/mcp-amortization@0.22.6
+  43. @theluckystrike/mcp-billing-docs@0.22.6
+  44. @theluckystrike/mcp-change-order@0.22.6
+  45. @theluckystrike/mcp-checklist@0.22.6
+  46. @theluckystrike/mcp-delivery-schedule@0.22.7
+  47. @theluckystrike/mcp-dunning-letters@0.22.6
+  48. @theluckystrike/mcp-goods-receipt@0.22.6
+  49. @theluckystrike/mcp-leave@0.22.6
+  50. @theluckystrike/mcp-office-suite@0.25.0
+  51. @theluckystrike/mcp-onboarding@0.22.6
+  52. @theluckystrike/mcp-packing-list@0.22.8
+  53. @theluckystrike/mcp-purchase-requisition@0.22.8
+  54. @theluckystrike/mcp-catalogue@0.22.6
+  55. @theluckystrike/mcp-deposits@0.22.6
+  56. @theluckystrike/mcp-work-order@0.22.6
+  57. @theluckystrike/mcp-statement-of-account@0.22.6
+  58. @theluckystrike/mcp-cash-book@0.22.6
+  59. @theluckystrike/mcp-petty-cash@0.22.6
+
+#    PACKAGE                                VERSION    STATUS                  
+---- -------------------------------------- ---------- ------------------------
+1    @theluckystrike/mcp-budget             0.22.6     FAILED (not on registry)
+2    @theluckystrike/mcp-loan-calculator    0.22.6     FAILED (not on registry)
+3    @theluckystrike/mcp-payroll            0.22.6     FAILED (not on registry)
+4    @theluckystrike/mcp-pomodoro           0.22.6     FAILED (not on registry)
+5    @theluckystrike/mcp-receipts           0.22.6     FAILED (not on registry)
+6    @theluckystrike/mcp-stripe-billing     0.22.6     FAILED (not on registry)
+7    @theluckystrike/mcp-tax-calc           0.22.6     FAILED (not on registry)
+8    @theluckystrike/mcp-license            0.22.7     SKIP: already on npm    
+9    @theluckystrike/mcp-backlink-checker   0.22.6     SKIP: already on npm    
+10   @theluckystrike/mcp-barcode            0.22.6     SKIP: already on npm    
+11   @theluckystrike/mcp-bill-of-sale       0.22.6     SKIP: already on npm    
+12   @theluckystrike/mcp-credit-note        0.22.8     SKIP: already on npm    
+13   @theluckystrike/mcp-currency           0.22.6     SKIP: already on npm    
+14   @theluckystrike/mcp-docx               0.22.6     SKIP: already on npm    
+15   @theluckystrike/mcp-duplicate-invoice-check 0.22.8     SKIP: already on npm    
+16   @theluckystrike/mcp-expense-tracker    0.22.9     SKIP: already on npm    
+17   @theluckystrike/mcp-hourly-rate        0.22.6     SKIP: already on npm    
+18   @theluckystrike/mcp-image              0.22.6     SKIP: already on npm    
+19   @theluckystrike/mcp-invoice            0.22.6     SKIP: already on npm    
+20   @theluckystrike/mcp-job-card           0.22.6     SKIP: already on npm    
+21   @theluckystrike/mcp-kanban             0.22.6     SKIP: already on npm    
+22   @theluckystrike/mcp-maintenance-log    0.22.6     SKIP: already on npm    
+23   @theluckystrike/mcp-mileage-log        0.22.6     SKIP: already on npm    
+24   @theluckystrike/mcp-pdf                0.22.6     SKIP: already on npm    
+25   @theluckystrike/mcp-price-tracker      0.22.6     SKIP: already on npm    
+26   @theluckystrike/mcp-service-agreement  0.22.6     SKIP: already on npm    
+27   @theluckystrike/mcp-spreadsheet        0.22.9     SKIP: already on npm    
+28   @theluckystrike/mcp-supplier-list      0.22.6     SKIP: already on npm    
+29   @theluckystrike/mcp-supplier-statement-check 0.25.0     SKIP: already on npm    
+30   @theluckystrike/mcp-three-way-match    0.22.8     SKIP: already on npm    
+31   @theluckystrike/mcp-time-tracker       0.22.6     SKIP: already on npm    
+32   @theluckystrike/mcp-timezone           0.22.6     SKIP: already on npm    
+33   @theluckystrike/mcp-zip                0.22.6     SKIP: already on npm    
+34   @theluckystrike/mcp-asset-register     0.22.6     SKIP: already on npm    
+35   @theluckystrike/mcp-bank-statement     0.22.6     SKIP: already on npm    
+36   @theluckystrike/mcp-calendar           0.22.6     SKIP: already on npm    
+37   @theluckystrike/mcp-clauses            0.22.6     SKIP: already on npm    
+38   @theluckystrike/mcp-per-diem           0.22.6     SKIP: already on npm    
+39   @theluckystrike/mcp-quotes             0.22.6     SKIP: already on npm    
+40   @theluckystrike/mcp-recurring          0.22.6     SKIP: already on npm    
+41   @theluckystrike/mcp-resume             0.22.6     SKIP: already on npm    
+42   @theluckystrike/mcp-amortization       0.22.6     SKIP: already on npm    
+43   @theluckystrike/mcp-billing-docs       0.22.6     SKIP: already on npm    
+44   @theluckystrike/mcp-change-order       0.22.6     SKIP: already on npm    
+45   @theluckystrike/mcp-checklist          0.22.6     SKIP: already on npm    
+46   @theluckystrike/mcp-delivery-schedule  0.22.7     SKIP: already on npm    
+47   @theluckystrike/mcp-dunning-letters    0.22.6     SKIP: already on npm    
+48   @theluckystrike/mcp-goods-receipt      0.22.6     SKIP: already on npm    
+49   @theluckystrike/mcp-leave              0.22.6     SKIP: already on npm    
+50   @theluckystrike/mcp-office-suite       0.25.0     SKIP: already on npm    
+51   @theluckystrike/mcp-onboarding         0.22.6     SKIP: already on npm    
+52   @theluckystrike/mcp-packing-list       0.22.8     SKIP: already on npm    
+53   @theluckystrike/mcp-purchase-requisition 0.22.8     SKIP: already on npm    
+54   @theluckystrike/mcp-catalogue          0.22.6     SKIP: already on npm    
+55   @theluckystrike/mcp-deposits           0.22.6     SKIP: already on npm    
+56   @theluckystrike/mcp-work-order         0.22.6     SKIP: already on npm    
+57   @theluckystrike/mcp-statement-of-account 0.22.6     SKIP: already on npm    
+58   @theluckystrike/mcp-cash-book          0.22.6     SKIP: already on npm    
+59   @theluckystrike/mcp-petty-cash         0.22.6     SKIP: already on npm    
+
+=== done. Verify with scripts/registry-check.sh. ===

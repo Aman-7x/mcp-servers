@@ -23,6 +23,7 @@ import { createServer as createTimeTracker } from "./vendor/time-tracker/index.j
 import { createServer as createPriceTracker } from "./vendor/price-tracker/index.js";
 import { createServer as createInvoice } from "./vendor/invoice/index.js";
 import { createServer as createExpenseTracker } from "./vendor/expense-tracker/index.js";
+import { createServer as createIngredientConvert } from "./vendor/ingredient-convert/index.js";
 import { createServer as createSpreadsheet } from "./vendor/spreadsheet/index.js";
 import { createServer as createCurrency } from "./vendor/currency/index.js";
 import { createServer as createTimezone } from "./vendor/timezone/index.js";
@@ -36,6 +37,20 @@ import { createServer as createKanban } from "./vendor/kanban/index.js";
 import { createServer as createImage } from "./vendor/image/index.js";
 import { createServer as createBankStatement } from "./vendor/bank-statement/index.js";
 import { createServer as createQuotes } from "./vendor/quotes/index.js";
+// Recovered 2026-11-06: twelve catalog servers were 404 on /mcp/<name> because the worker
+// had no import for them. Eleven are now vendored under src/vendor/ and wired below;
+// office-suite stays unhosted (it spawns local child processes, impossible in a Worker).
+import { createServer as createBudget } from "./vendor/budget/index.js";
+import { createServer as createHourlyRate } from "./vendor/hourly-rate/index.js";
+import { createServer as createLoanCalculator } from "./vendor/loan-calculator/index.js";
+import { createServer as createPayroll } from "./vendor/payroll/index.js";
+import { createServer as createPomodoro } from "./vendor/pomodoro/index.js";
+import { createServer as createReceipts } from "./vendor/receipts/index.js";
+import { createServer as createStripeBilling } from "./vendor/stripe-billing/index.js";
+import { createServer as createTaxCalc } from "./vendor/tax-calc/index.js";
+import { createServer as createDuplicateInvoiceCheck } from "./vendor/duplicate-invoice-check/index.js";
+import { createServer as createSupplierStatementCheck } from "./vendor/supplier-statement-check/index.js";
+import { createServer as createThreeWayMatch } from "./vendor/three-way-match/index.js";
 import { createServer as createBarcode } from "./vendor/barcode/index.js";
 import { createServer as createZip } from "./vendor/zip/index.js";
 import { createServer as createBillingDocs } from "./vendor/billing-docs/index.js";
@@ -65,6 +80,7 @@ import { createServer as createOnboarding } from "./vendor/onboarding/index.js";
 import { createServer as createLeave } from "./vendor/leave/index.js";
 import { createServer as createPurchaseRequisition } from "./vendor/purchase-requisition/index.js";
 import { createServer as createBacklinkChecker } from "./vendor/backlink-checker/index.js";
+import { SATELLITES, satelliteUrl, toolsPage } from "./satellites.js";
 
 export interface Env { REMOTE_DATA: KVNamespace; FUNNEL: DurableObjectNamespace; SWEEP_SECRET?: string }
 
@@ -201,7 +217,20 @@ const SERVERS: Record<string, ServerCfg> = {
   },
   "price-tracker": { factory: createPriceTracker as () => McpServer },
   "prices-deal": { factory: createPriceTracker as () => McpServer },
+  // Recovered 2026-11-06 — see the import block above.
+  "budget": { factory: createBudget as () => McpServer },
+  "hourly-rate": { factory: createHourlyRate as () => McpServer },
+  "loan-calculator": { factory: createLoanCalculator as () => McpServer },
+  "payroll": { factory: createPayroll as () => McpServer },
+  "pomodoro": { factory: createPomodoro as () => McpServer },
+  "receipts": { factory: createReceipts as () => McpServer },
+  "stripe-billing": { factory: createStripeBilling as () => McpServer },
+  "tax-calc": { factory: createTaxCalc as () => McpServer },
+  "duplicate-invoice-check": { factory: createDuplicateInvoiceCheck as () => McpServer },
+  "supplier-statement-check": { factory: createSupplierStatementCheck as () => McpServer },
+  "three-way-match": { factory: createThreeWayMatch as () => McpServer },
   "invoice": { factory: createInvoice as () => McpServer },
+  "ingredient-convert": { factory: createIngredientConvert as () => McpServer },
   "expense-tracker": {
     factory: createExpenseTracker as () => McpServer,
     // Everything the export tool writes; never the ledger itself.
@@ -2337,9 +2366,13 @@ function rpcEnvelope(body: string): { method: string | null; id: unknown; hasId:
  * Methods that cannot touch a tenant document. They are answered without hydrating KV at
  * all - three reads saved on the two calls every client makes before it does any work.
  */
-/** Calls per hour an unauthenticated discovery probe may make. Generous enough for any
- * directory health check, small enough that it is not a free anonymous tier. */
-const DISCOVERY_LIMIT = 120;
+/** Calls per hour an unauthenticated discovery probe may make, per user-agent family and
+ * IP (see the discovery key in the request path). Directory health checks walk every
+ * registered endpoint, so one sweep of the catalogue is ~58 calls and a probe that re-runs
+ * hourly-plus needs several hundred; 120 was the number that made our own liveness checks
+ * fail as 429 and read to directories as an unhealthy server. Discovery stays dataless -
+ * DATALESS_METHODS only - so this ceiling cannot be used to reach a tool or a document. */
+const DISCOVERY_LIMIT = 1500;
 
 const DATALESS_METHODS = new Set(["tools/list", "initialize", "notifications/initialized", "ping", "prompts/list", "resources/list", "resources/templates/list"]);
 
@@ -2601,6 +2634,15 @@ export default {
     }
 
     if (path === "/mcp") return json(indexDoc(base));
+
+    // /tools is the public index of the 36 satellite servers that run on workers.dev and
+    // were never linked from this domain. Each entry was probed live before it was listed;
+    // the JSON twin exists so a client or a crawler can read the list without parsing HTML.
+    if (path === "/mcp/tools" || path === "/mcp/tools.json") {
+      if (req.method !== "GET" && req.method !== "HEAD") return json({ error: "method_not_allowed" }, 405, { allow: "GET" });
+      if (path === "/mcp/tools.json") return json({ count: SATELLITES.length, tools: SATELLITES.map((s) => ({ name: s.name, description: s.desc, endpoint: `${satelliteUrl(s.name)}/mcp`, page: satelliteUrl(s.name) })) });
+      return new Response(toolsPage(base), { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=300" } });
+    }
 
     // A price-tracker fixture: a real page, on a host this suite controls, with a price in
     // JSON-LD. `?price=` changes the asking price so a drop and an alert can be demonstrated.
@@ -2993,7 +3035,11 @@ export default {
 
     let auth: Auth;
     if (isDiscovery) {
-      auth = { tenant: `discovery:${req.headers.get("cf-connecting-ip") ?? "unknown"}`, isPro: false, kind: "anon", limit: DISCOVERY_LIMIT };
+      // Keyed on the user-agent family as well as the IP: the probes run from a handful of
+      // cloud addresses and several vendors share one, so an IP-only key let one crawler
+      // exhaust another's budget and answered real liveness checks with 429.
+      const uaFamily = (req.headers.get("user-agent") ?? "unknown").split(/[/ ]/)[0].replace(/[^A-Za-z0-9]/g, "").slice(0, 24) || "unknown";
+      auth = { tenant: `discovery:${uaFamily}:${req.headers.get("cf-connecting-ip") ?? "unknown"}`, isPro: false, kind: "anon", limit: DISCOVERY_LIMIT };
     } else {
       const authed = await authenticate(req, env, product, urlToken, urlTokenForm,
         resourceMetadataUrl(base, clean ? `${path}/v1` : path));

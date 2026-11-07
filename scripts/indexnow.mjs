@@ -27,6 +27,10 @@ if (!ALL) {
   // client x product setup permutations, which measured 73-78% similar to
   // each other and earned 8 human views in 7 days across 224 URLs.
   urls = urls.filter((u) => !/\/setup\/[^/]+\/[^/]+/.test(u));
+  // /mcp/<id> answers application/json (measured 2026-11-06): it is the JSON-RPC
+  // descriptor, not a page. Asking engines to crawl it spends budget on a
+  // document with no title and nothing to rank.
+  urls = urls.filter((u) => !/\/mcp\/(?!connect$)[^/]+$/.test(u));
 }
 console.log(`sitemap ${before} URLs -> submitting ${urls.length}${ALL ? " (all)" : " (permutations excluded)"}`);
 if (DRY) { console.log(urls.slice(0, 10).join("\n"), "\n..."); process.exit(0); }
