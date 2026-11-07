@@ -1,0 +1,16 @@
+import w3lib
+S = w3lib.S
+m = S('mileage-log')
+m.call('keep-a-mileage-log', 0, 'rate_set', {'jurisdiction': 'US federal', 'category': 'business', 'rate': 0.76, 'unit': 'miles', 'currency': 'USD', 'effective_from': '2026-07-01'})
+m.call('keep-a-mileage-log', 1, 'trip_add', {'date': '2026-10-06', 'from': 'Studio, 210 Pine St, Denver', 'to': 'Harbor Dental, Aurora', 'distance': 14.2, 'unit': 'miles', 'purpose': 'Kickoff meeting for website redesign', 'category': 'business'})
+m.call('keep-a-mileage-log', 0, 'trip_add', {'date': '2026-10-20', 'from': 'Studio, 210 Pine St, Denver', 'to': 'Mile High Print Co, Lakewood', 'distance': 9.8, 'unit': 'miles', 'purpose': 'Approve banner proof', 'category': 'business'}, False)
+m.call('keep-a-mileage-log', 0, 'trip_add', {'date': '2026-10-24', 'from': 'Studio, 210 Pine St, Denver', 'to': 'Home', 'distance': 6.1, 'unit': 'miles', 'purpose': 'Commute', 'category': 'personal'}, False)
+m.call('keep-a-mileage-log', 2, 'mileage_summary', {'from_date': '2026-10-01', 'to_date': '2026-10-31'})
+l = S('leave')
+l.call('track-employee-leave', 0, 'leave_employee_add', {'name': 'Sam Lee', 'annualAllowance': 15, 'carriedOver': 2}, False)
+l.call('track-employee-leave', 0, 'leave_employee_add', {'name': 'Priya Shah', 'annualAllowance': 15}, False)
+l.call('track-employee-leave', 1, 'leave_request', {'employee': 'Sam Lee', 'type': 'vacation', 'start': '2026-12-21', 'end': '2026-12-24', 'reason': 'Family visit'})
+l.call('track-employee-leave', 0, 'leave_approve', {'id': 'LV-0001'}, False)
+l.call('track-employee-leave', 0, 'leave_request', {'employee': 'Priya Shah', 'type': 'vacation', 'start': '2026-12-23', 'end': '2026-12-23', 'halfDay': True, 'reason': 'Afternoon off'}, False)
+l.call('track-employee-leave', 2, 'leave_balance', {'employee': 'Sam Lee'})
+l.call('track-employee-leave', 3, 'leave_out_range', {'start': '2026-12-21', 'end': '2026-12-24'})

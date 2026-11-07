@@ -1,0 +1,1865 @@
+{
+ "generated_at": "2026-11-05T14:15:50Z",
+ "count": 33,
+ "satellites": [
+  {
+   "repo": "ab-test-sample-size-calculator-mcp",
+   "repo_url": "https://github.com/theluckystrike/ab-test-sample-size-calculator-mcp",
+   "hosted_url": "https://ab-test-sample-size-calculator-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Exact A/B test sample size, duration, z-test, chi-square, Fisher-Freeman-Halton and peeking risk.",
+   "license": "MIT",
+   "knows": [
+    "Exact inverse normal quantiles and the full sample size formula. Models round z-values, drop the pooled variance term or confuse relative and absolute MDE, and the answer moves by thousands of users.",
+    "Why calculators disagree. The result shows both the standard pooled formula (as R `power.prop.test`) and Evan Miller's published formula, so a 37,513 vs 36,314 gap has an explanation.",
+    "Exact hypergeometric sums. A Fisher-Freeman-Halton p-value for a 4 x 4 table needs millions of tables summed; it cannot be estimated in your head.",
+    "Sequential testing numbers: checking 5 times at p < 0.05 gives a 14.2% false positive rate, and the boundaries that fix it."
+   ],
+   "tools": [
+    {
+     "name": "calculate_sample_size",
+     "description": "Exact sample size per variant for an A/B test on a conversion rate (two independent proportions): baseline rate, minimum detectable effect (relative or absolute), alpha, power, one or two-sided, several variants with optional Bonferroni, and unequal allocation. Uses the pooled/unpooled normal formula (same as R power.prop.test) and also reports the figure Evan Miller's calculator gives, so the two can be reconciled."
+    },
+    {
+     "name": "estimate_test_duration",
+     "description": "How many days an A/B test must run: from a known sample size per variant, or from baseline rate and MDE (computed as in calculate_sample_size), plus daily visitors and the share of traffic in the test. Returns exact days and the recommended whole weeks (to cover weekday effects)."
+    },
+    {
+     "name": "test_ab_significance",
+     "description": "Is an A/B test result statistically significant? From visitors and conversions per group: two-proportion z-test (pooled), one or two-sided p-value, Wald confidence interval for the difference, relative lift, Pearson chi-square with and without Yates correction (R prop.test), Fisher exact p for the same 2x2 table, and a sample ratio mismatch (SRM) check against the planned split."
+    },
+    {
+     "name": "fisher_exact_test",
+     "description": "Exact p-value for a contingency table of counts. 2x2: Fisher exact test (two-sided, greater or less, as R fisher.test). Larger r x c tables (for example 3 variants x converted/not, or 4 x 4 survey tables): Fisher-Freeman-Halton exact test by a network algorithm. Also returns Pearson chi-square and how many cells have expected counts below 5, so you can see when the chi-square approximation is unsafe."
+    },
+    {
+     "name": "check_peeking_risk",
+     "description": "What peeking does to an A/B test: the real false positive rate if you check a fixed-horizon test K times and stop at the first p < alpha (for example about 14% at 5 looks with alpha 0.05), and the Pocock and O'Brien-Fleming group sequential boundaries (z and nominal p per look) that keep the overall rate at alpha, for up to 10 equally spaced looks."
+    }
+   ],
+   "example": {
+    "prompt": "My checkout converts at 4%. How many users per variant do I need to detect a 10% relative lift?",
+    "tool": "calculate_sample_size",
+    "arguments": {
+     "baseline_rate": 0.04,
+     "mde": 0.1
+    },
+    "summary": "To detect a change from 4.00% to 4.40% (10.0% relative MDE) with 80% power at alpha 0.05 two-sided, you need 39,475 users in control and in each variant: 78,950 in total across 2 arms. Evan Miller's calculator gives 38,210 per arm for the same inputs (it uses the baseline variance in both terms and always two-sided alpha).",
+    "as_of": "2026-11-03",
+    "source": "https://github.com/theluckystrike/ab-test-sample-size-calculator-mcp/blob/main/DATA_SOURCES.md",
+    "more": "https://abwex.com/tools/sample-size-calculator.html?utm_source=mcp&utm_medium=ab-test-sample-size-calculator-mcp",
+    "called_at": "2026-11-03T09:00:24Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1102/ab-test-sample-size-calculator-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/ab-test-sample-size-calculator-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-ab-test-sample-size/",
+     "h1": "Can Claude calculate A/B test sample size?"
+    }
+   ]
+  },
+  {
+   "repo": "aca-premium-tax-credit-calculator-mcp",
+   "repo_url": "https://github.com/theluckystrike/aca-premium-tax-credit-calculator-mcp",
+   "hosted_url": "https://aca-premium-tax-credit-calculator-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "2026 ACA premium tax credit: expired enhanced subsidy, 400% FPL cliff, FPL, APTC repayment rules.",
+   "license": "MIT",
+   "knows": [
+    "The enhanced credits ended after tax year 2025. No public law through P.L. 119-136 (October 22, 2026) amends IRC sec. 36B to extend them. Checked 2026-11-02.",
+    "For 2026 coverage there is no premium tax credit above 400% of the federal poverty line. One dollar over the line can cost a family thousands.",
+    "The 2026 applicable percentage table (Rev. Proc. 2025-25) runs from 2.10% of income below 133% FPL to 9.96% at 300% to 400% FPL. The 2025 table ran from 0% to 8.5%.",
+    "The 2026 required contribution percentage (employer coverage affordability) is 9.96%. It was 9.02% for 2025.",
+    "2026 coverage uses the 2025 HHS poverty guidelines: $15,650 for one person in the 48 states and DC, $19,550 in Alaska, $17,990 in Hawaii, plus $5,500, $6,880 or $6,330 for each extra person.",
+    "From tax year 2026 there is no cap on repaying excess advance credit. The One Big Beautiful Bill Act (P.L. 119-21 sec. 71305) repealed it. For 2025 the caps were $375 to $1,625 (single) and $750 to $3,250 (other filers) below 400% FPL."
+   ],
+   "tools": [
+    {
+     "name": "get_federal_poverty_level",
+     "description": "Returns the federal poverty line (FPL) used for the ACA premium tax credit for a coverage year, household size and state, plus the 100%, 133%, 138%, 150%, 200%, 250%, 300% and 400% income thresholds. Coverage year Y uses the HHS guidelines published in year Y-1: 2026 coverage uses the 2025 guidelines ($15,650 for one person in the 48 states and DC, $19,550 Alaska, $17,990 Hawaii); 2025 coverage uses 2024; 2027 coverage uses 2026. Copied from the Federal Register notices, not model memory."
+    },
+    {
+     "name": "calculate_premium_tax_credit",
+     "description": "Calculates the ACA Marketplace premium tax credit (IRC sec. 36B) the way Form 8962 does. For 2026 coverage the enhanced ARPA/IRA credits have expired (no extension enacted as of 2026-11-02): the IRS Rev. Proc. 2025-25 table applies (2.10% of income below 133% FPL rising to 9.96% at 300-400% FPL) and there is NO credit above 400% FPL. For 2025 the enhanced table applies (0% up to 150% FPL, 8.5% cap, no income limit). Returns FPL percentage, applicable figure, expected contribution, annual and monthly credit, and net premium. Models trained before 2026 often still apply the 8.5% cap to 2026."
+    },
+    {
+     "name": "check_subsidy_cliff",
+     "description": "Shows the dollar effect of the 400% federal poverty line subsidy cliff that returned for 2026 coverage after the enhanced premium tax credits expired: the cliff income for the household, the credit at exactly 400% FPL, the credit at $1 more (zero), and the loss. With household_income it also gives the credit under 2026 rules, what the expired 2021-2025 enhanced rules would have given, and how much modified AGI must drop (for example through HSA or retirement contributions) to get back under the cliff."
+    },
+    {
+     "name": "get_aptc_repayment_cap",
+     "description": "Returns the cap on repaying excess advance premium tax credit (APTC) at tax time. For tax year 2025: Form 8962 Table 5 ($375/$750 below 200% FPL, $975/$1,950 at 200-300%, $1,625/$3,250 at 300-400%, single/other filing status; no cap at 400% or more). For tax year 2026 and later there is NO cap: the One Big Beautiful Bill Act (P.L. 119-21 sec. 71305) repealed it, so the full excess is repaid. Many models trained before 2026 still quote the old caps."
+    }
+   ],
+   "example": {
+    "prompt": "A couple in Texas earns $68,000 and the benchmark plan is $1,150 a month. What is their 2026 premium tax credit?",
+    "tool": "calculate_premium_tax_credit",
+    "arguments": {
+     "household_income": 68000,
+     "household_size": 2,
+     "state": "TX",
+     "benchmark_premium": 1150,
+     "year": 2026,
+     "premium_period": "monthly"
+    },
+    "summary": "2026 premium tax credit: income $68,000.00 is 321.51% of the $21,150.00 poverty line, applicable figure 9.96%, so the household is expected to pay $6,772.80 a year ($564.40 a month) toward the $13,800.00 benchmark plan. Credit: $7,027.20 a year ($585.60 a month). 2026 rules: enhanced credits expired, 400% FPL limit applies.\n\nGeneral information, not tax advice. The Marketplace and Form 8962 decide the official amounts. Benchmark (second lowest cost silver) premiums vary by ZIP code, age and household; get yours from HealthCare.gov or your state Marketplace.",
+    "as_of": "2026-11-02",
+    "source": "https://www.irs.gov/pub/irs-drop/rp-25-25.pdf",
+    "more": "https://taxbreakcalc.com/hsa-calculator/?utm_source=mcp&utm_medium=aca-premium-tax-credit-calculator-mcp",
+    "called_at": "2026-11-03T09:00:31Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1102/aca-premium-tax-credit-calculator-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/aca-premium-tax-credit-calculator-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-aca-premium-tax-credit/",
+     "h1": "Can Claude calculate my 2026 ACA premium tax credit?"
+    }
+   ]
+  },
+  {
+   "repo": "address-to-census-tract-mcp",
+   "repo_url": "https://github.com/theluckystrike/address-to-census-tract-mcp",
+   "hosted_url": "https://address-to-census-tract-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "US address to census tract, block group, county FIPS and districts, from the Census Geocoder.",
+   "license": "MIT",
+   "knows": [
+    "Which census tract a given address is in. Tract lines follow streets, rivers and rail lines, and the two sides of one street can be in different tracts. A model cannot work that out from an address.",
+    "The 11, 12 and 15 digit GEOIDs that census data, CRA, LIHTC and grant eligibility lists are keyed on.",
+    "The congressional and state legislative districts the Census Bureau currently publishes for that point."
+   ],
+   "tools": [
+    {
+     "name": "get_census_tract_for_address",
+     "description": "Look up the census tract for a US street address with the official US Census Bureau Geocoder. Returns the matched address, latitude and longitude, the 11-digit tract GEOID and tract number, block group and block GEOIDs, state and county FIPS, incorporated place, county subdivision, congressional district, state senate and house districts, urban area and combined statistical area. Use it for CRA, LIHTC, opportunity zone, grant eligibility and demographic lookups that start from an address."
+    },
+    {
+     "name": "get_census_tract_for_coordinates",
+     "description": "Census tract, block group, block, county, place and congressional and state legislative districts for a latitude and longitude, from the US Census Bureau Geocoder."
+    },
+    {
+     "name": "explain_census_geoid",
+     "description": "Split a census GEOID (2 digits state, 5 county, 11 tract, 12 block group, 15 block, or with a 1400000US style prefix) into state and county FIPS, tract code, the tract number as Census displays it (012405 is 124.05), block group and block. No network call."
+    }
+   ],
+   "example": {
+    "prompt": "Which census tract is San Francisco City Hall in?",
+    "tool": "get_census_tract_for_address",
+    "arguments": {
+     "address": "1 Dr Carlton B Goodlett Pl, San Francisco, CA 94102"
+    },
+    "summary": "1 DR CARLTON P GOODLETT PL, SAN FRANCISCO, CA, 94102 is in Census Tract 124.05 (GEOID 06075012405), block group 3 (060750124053), San Francisco County, California. Congressional District 11 (120th Congressional Districts). Census vintage Current_Current.",
+    "as_of": "2026-11-05T14:15:18.035Z",
+    "source": "https://geocoding.geo.census.gov/geocoder/geographies/onelineaddress?address=1%20Dr%20Carlton%20B%20Goodlett%20Pl%2C%20San%20Francisco%2C%20CA%2094102&benchmark=Public_AR_Current&vintage=Current_Current&format=json",
+    "more": "https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=address-to-census-tract-mcp",
+    "called_at": "2026-11-05T14:15:17Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1105/reports/sat-evidence-1105/address-to-census-tract-mcp-remote.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/address-to-census-tract-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/find-the-census-tract-for-an-address/",
+     "h1": "Can Claude find the census tract for an address?"
+    }
+   ]
+  },
+  {
+   "repo": "ap-score-distributions-mcp",
+   "repo_url": "https://github.com/theluckystrike/ap-score-distributions-mcp",
+   "hosted_url": "https://ap-score-distributions-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Official College Board AP score distributions 2026, 2025, 2024: percentiles, pass rates.",
+   "license": "MIT",
+   "knows": [
+    "The May 2026 results. College Board posted the 2026 AP Score Distributions after the 2026 exams, which is newer than most model training data. For example, 46% of AP Calculus BC students scored a 5 in 2026, and AP Biology's pass rate was 71%.",
+    "Exact 2024 and 2025 counts. 287,232 students took AP Biology in May 2025 and 70.4% scored 3 or higher, with a mean of 3.24. All 49 rows per year (40 exams, 3 subscores, 6 Standard Group language rows) pass a check that counts add to the printed total and 5 + 4 + 3 equals the printed 3 or higher count.",
+    "Which cut charts exist. College Board does not publish cut scores for live exams. The estimator uses only the 7 conversion charts College Board printed in its practice exams (Calculus AB 2012, Biology 2013, Statistics 2012, World History 2013, Psychology 2012, Macroeconomics 2012, Microeconomics 2012) and refuses every other exam rather than invent a cut."
+   ],
+   "tools": [
+    {
+     "name": "get_ap_score_distribution",
+     "description": "Returns the College Board score distribution (percent of students scoring 5, 4, 3, 2, 1 and 3 or higher) for an AP exam and year, plus student counts, mean and standard deviation where College Board published them (2024 and 2025 PDFs). Includes the May 2026 results from the College Board 2026 AP Score Distributions page, which are newer than most model training data. Shows the 2024/2025/2026 history for the exam."
+    },
+    {
+     "name": "estimate_ap_percentile",
+     "description": "For an AP exam, year and score from 1 to 5, returns the percent of test takers who scored lower, the same and higher, and the midpoint percentile rank, from the official College Board distribution. Uses exact counts for 2024 and 2025 and the published whole percents for 2026."
+    },
+    {
+     "name": "compare_ap_exams",
+     "description": "Ranks AP exams for one year by pass rate (share scoring 3 or higher), share of 5s, mean score or number of test takers (mean and test takers for 2024 and 2025 only), using the official College Board distributions. Give a list of exams to compare a few, or leave it empty to rank all of them."
+    },
+    {
+     "name": "list_ap_exams",
+     "description": "Lists every AP exam with College Board score distributions in this server, the years available for each, the source of each year, and which exams have a College Board scoring worksheet for composite score estimates."
+    },
+    {
+     "name": "estimate_ap_score_from_composite",
+     "description": "Converts multiple-choice correct answers and free-response points into a weighted composite and an estimated AP score, using the scoring worksheet and conversion chart College Board printed in its official practice exams. Only for the 7 exams with such a worksheet: AP Calculus AB (2012), AP Biology (2013), AP Statistics (2012), AP World History (2013), AP Psychology (2012), AP Macroeconomics (2012), AP Microeconomics (2012). Cut scores are never invented; other exams return an error."
+    }
+   ],
+   "example": {
+    "prompt": "What were the AP Calculus AB score distributions in 2026?",
+    "tool": "get_ap_score_distribution",
+    "arguments": {
+     "exam": "AP Calculus AB",
+     "year": 2026
+    },
+    "summary": "AP Calculus AB, May 2026: 20% scored 5, 28% 4, 17% 3, 24% 2, 11% 1; 65% scored 3 or higher. 2026 figures are the whole-number percentages College Board posted on its 2026 AP Score Distributions page; College Board has not published 2026 student counts, means or standard deviations.",
+    "as_of": "2026-11-02",
+    "source": "https://apstudents.collegeboard.org/about-ap-scores/score-distributions",
+    "more": "https://examscorecalc.com/ap/ap-calculus-ab/?utm_source=mcp&utm_medium=ap-score-distributions-mcp",
+    "called_at": "2026-11-03T09:00:37Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1102/ap-score-distributions-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/ap-score-distributions-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/look-up-ap-score-distributions/",
+     "h1": "Can Claude look up 2026 AP score distributions?"
+    }
+   ]
+  },
+  {
+   "repo": "car-loan-interest-deduction-calculator-mcp",
+   "repo_url": "https://github.com/theluckystrike/car-loan-interest-deduction-calculator-mcp",
+   "hosted_url": "https://car-loan-interest-deduction-calculator-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "2025-2028 car loan interest deduction, SALT cap, child tax credit and 2026 tax brackets (IRS).",
+   "license": "MIT",
+   "knows": [
+    "The car loan interest deduction started in tax year 2025, after most models were trained. You can take it without itemizing.",
+    "Its phase-out is $200 for each $1,000 or part of $1,000 over the threshold. One dollar over $149,000 (single) wipes out the last $200. Schedule 1-A line 28 rounds up.",
+    "Only new vehicles with final assembly in the US qualify, the loan must be originated after December 31, 2024, and leases never count.",
+    "Married filing separately can claim it, with the same $100,000 threshold as single filers.",
+    "The SALT cap is $40,000 for 2025 and $40,400 for 2026, not $10,000. Above $500,000 of MAGI it shrinks by 30 cents per dollar, but never below $10,000.",
+    "The 2026 standard deduction is $16,100 single and $32,200 joint (Rev. Proc. 2025-32). The child tax credit is $2,200, with up to $1,700 refundable.",
+    "The IRS has not published 2027 amounts yet (checked 2026-11-02). The tools say so instead of guessing."
+   ],
+   "tools": [
+    {
+     "name": "calculate_car_loan_interest_deduction",
+     "description": "Calculates the 2025-2028 federal deduction for car loan interest created by the One Big Beautiful Bill Act (P.L. 119-21, IRC 163(h)(4)) the way IRS Schedule 1-A Part IV does: up to $10,000 of qualified passenger vehicle loan interest, then $200 off for each $1,000 or part of $1,000 of MAGI over $100,000 ($200,000 married filing jointly), so it reaches $0 at $149,001 ($249,001 joint). Checks the eligibility tests: loan originated after Dec 31 2024, new vehicle, final assembly in the US, personal use, car/minivan/van/SUV/pickup/motorcycle under 14,000 lb GVWR, first lien, not a lease. Available whether or not you itemize. Rules copied from the 2025 Schedule 1-A, Form 1040 instructions and IRS Notice 2025-57."
+    },
+    {
+     "name": "calculate_salt_deduction",
+     "description": "Calculates the deductible state and local tax (SALT) on Schedule A under the One Big Beautiful Bill Act cap (IRC 164(b)(6)-(7)): $40,000 for 2025 and $40,400 for 2026 ($20,000 / $20,200 married filing separately), rising 1% a year through 2029, reduced by 30% of MAGI over $500,000 (2025) or $505,000 (2026) but never below $10,000, then back to a flat $10,000 in 2030. Uses the IRS State and Local Tax Deduction Worksheet. Optionally compares itemizing with the standard deduction. Amounts copied from the 2025 Schedule A instructions, the 2026 draft Schedule A and the statute."
+    },
+    {
+     "name": "get_tax_brackets_and_standard_deduction",
+     "description": "Returns the official 2025 and 2026 federal income tax brackets and standard deductions after the One Big Beautiful Bill Act: 2026 standard deduction $16,100 single, $32,200 joint, $24,150 head of household (Rev. Proc. 2025-32), 2025 $15,750 / $31,500 / $23,625, plus the additional amount for age 65 or blind. Optionally computes the tax and marginal rate on a taxable income. Says plainly that 2027 amounts are not yet published (checked against the Internal Revenue Bulletin and irs-drop on 2026-11-02)."
+    },
+    {
+     "name": "calculate_child_tax_credit",
+     "description": "Calculates the child tax credit as Schedule 8812 does after the One Big Beautiful Bill Act: $2,200 per qualifying child under 17 for 2025 and 2026, $500 per other dependent, reduced by 5% of MAGI over $400,000 joint / $200,000 others (excess rounded up to the next $1,000), limited by tax liability, with the refundable additional child tax credit of up to $1,700 per child at 15% of earned income over $2,500. Amounts from the 2025 Schedule 8812 and Rev. Proc. 2025-32."
+    }
+   ],
+   "example": {
+    "prompt": "I paid $2,400 of interest in 2025 on a loan for a new US-assembled car bought in March 2025. Single, MAGI $85,000. How much can I deduct?",
+    "tool": "calculate_car_loan_interest_deduction",
+    "arguments": {
+     "filing_status": "single",
+     "magi": 85000,
+     "tax_year": 2025,
+     "interest_paid": 2400,
+     "loan_origination_date": "2025-03-15",
+     "new_vehicle": true,
+     "us_final_assembly": true,
+     "personal_use": true
+    },
+    "summary": "Interest counted $2,400, $2,400 after the $10,000 cap. MAGI $85,000 is not over the $100,000 threshold, so nothing is phased out. Car loan interest deduction for 2025: $2,400. Assumed: the gross vehicle weight rating is under 14,000 pounds; the loan is secured by a first lien on the vehicle; the vehicle is a car, minivan, van, SUV, pickup truck or motorcycle.\n\nThis is an estimate, not tax advice. Check the IRS instructions or ask a tax professional before you file.",
+    "as_of": "2026-11-02",
+    "source": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf ; https://www.irs.gov/pub/irs-pdf/i1040gi.pdf ; https://www.irs.gov/pub/irs-drop/n-25-57.pdf",
+    "more": "https://taxbreakcalc.com/car-loan-interest-calculator/?utm_source=mcp&utm_medium=car-loan-interest-deduction-calculator-mcp",
+    "called_at": "2026-11-03T09:00:44Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1102/car-loan-interest-deduction-calculator-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/car-loan-interest-deduction-calculator-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-car-loan-interest-deduction/",
+     "h1": "Can Claude calculate the car loan interest deduction?"
+    }
+   ]
+  },
+  {
+   "repo": "cpi-inflation-calculator-mcp",
+   "repo_url": "https://github.com/theluckystrike/cpi-inflation-calculator-mcp",
+   "hosted_url": "https://cpi-inflation-calculator-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Inflation calculator with official BLS CPI 1913 to the latest month, raise vs inflation, SS COLA.",
+   "license": "MIT",
+   "knows": [
+    "CPI index values through September 2026 (CPI-U 336.940), with a live check for anything newer.",
+    "Inflation was 3.7% over the 12 months to September 2026 (CPI-U, not seasonally adjusted). Core CPI was 2.6%.",
+    "BLS published no October 2025 CPI. Data were not collected during the 2025 lapse in appropriations. The tools say so instead of inventing a value, and still use the official 2025 annual average (321.943, 2.6% inflation).",
+    "The 2027 Social Security COLA is 3.6%. The tool reproduces it from Q3 2026 CPI-W (average 328.746 against 317.265), and also reproduces 2023 to 2026."
+   ],
+   "tools": [
+    {
+     "name": "calculate_inflation",
+     "description": "Adjusts a dollar amount for inflation between any two periods from 1913 to the latest month the U.S. Bureau of Labor Statistics has published, using the official CPI-U (or CPI-W or core CPI). Checks the BLS Public Data API live for months newer than its bundled data (bundled through September 2026, fetched 2026-11-03), so it knows CPI figures newer than a model's training data. Handles the October 2025 gap: BLS published no October 2025 CPI because of the 2025 lapse in appropriations. Returns the adjusted amount, cumulative and average annual inflation, and the exact index values used."
+    },
+    {
+     "name": "get_latest_cpi",
+     "description": "Returns the most recent CPI index values published by the Bureau of Labor Statistics, checked live against the BLS Public Data API: the latest month, the 12-month inflation rate for headline CPI-U, CPI-W and core CPI (less food and energy), the not seasonally adjusted 1-month change, and the year-to-date change. Use it to answer 'what is inflation right now'. If the live check fails it says so and falls back to bundled BLS data (through September 2026)."
+    },
+    {
+     "name": "get_inflation_rate",
+     "description": "Returns the official U.S. inflation rate for a calendar year from BLS CPI data: annual-average change (BLS annual averages, including the 2025 average published despite the missing October 2025 index), December-to-December change, and for the current year the latest 12-month rate. Years 1914 to the present for CPI-U and CPI-W, 1958 onward for core CPI."
+    },
+    {
+     "name": "compare_raise_to_inflation",
+     "description": "Compares a pay change with CPI inflation over the same period using official BLS data through the latest published month (checked live). Returns the nominal raise, inflation, the real (inflation-adjusted) raise, the pay needed to keep pace, and the gain or shortfall. Works for salaries, hourly wages, rents or any recurring amount."
+    },
+    {
+     "name": "calculate_social_security_cola",
+     "description": "Computes the Social Security cost-of-living adjustment for a year with the statutory formula: average CPI-W for July-September of the prior year over the same quarter a year earlier, rounded to 0.1%. Uses official BLS CPI-W values (live check). Reproduces the 3.6% COLA for 2027 that SSA announced in October 2026, and shows the Q3 index values behind it. Covers 1976 onward."
+    }
+   ],
+   "example": {
+    "prompt": "What is $1,000 from January 2000 worth today, using official CPI data?",
+    "tool": "calculate_inflation",
+    "arguments": {
+     "amount": 1000,
+     "from": "2000-01",
+     "to": "latest"
+    },
+    "summary": "$1,000.00 in January 2000 has the same buying power as $1,996.09 in September 2026 (CPI-U 168.8 to 336.94). Cumulative inflation 99.61%, about 2.63% a year over 26.67 years. Note: Live BLS API check failed (BLS API REQUEST_NOT_PROCESSED: Request could not be serviced, as the daily threshold for total number of requests allocated to the user with registration key  has been reached.). Using bundled BLS data through September 2026, fetched 2026-11-03. Newer months, if any, are not included.\n\nIndex values from the U.S. Bureau of Labor Statistics. General information, not financial advice.",
+    "as_of": "2026-11-03",
+    "source": "https://data.bls.gov/timeseries/CUUR0000SA0 (BLS Public Data API https://api.bls.gov/publicAPI/v1/timeseries/data/)",
+    "more": "https://statewage.com/pay-raise-calculator/?utm_source=mcp&utm_medium=cpi-inflation-calculator-mcp",
+    "called_at": "2026-11-03T09:00:51Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1103/cpi-inflation-calculator-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/cpi-inflation-calculator-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/adjust-for-inflation/",
+     "h1": "Can Claude adjust a price for inflation?"
+    }
+   ]
+  },
+  {
+   "repo": "cups-to-grams-mcp",
+   "repo_url": "https://github.com/theluckystrike/cups-to-grams-mcp",
+   "hosted_url": "https://cups-to-grams-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Cups to grams for 271 ingredients with USDA and King Arthur densities, recipe scaling, oven temps.",
+   "license": "MIT",
+   "knows": [
+    "Measured weights. A cup of all-purpose flour is 120 g, granulated sugar 200 g, butter 227 g, honey 339 g, water 237 g. Models often apply one density to everything or mix up fluid ounces and weight ounces. Each of the 271 rows carries its source, and USDA rows carry the FDC id.",
+    "Which cup. A US cup is 236.5882365 mL, a metric cup 250 mL, an imperial cup 284.13 mL, the US nutrition-label cup 240 mL and a Japanese cup 200 mL. A 1 cup of flour in an Australian recipe is about 127 g, not 120 g. The server states the cup it used.",
+    "Exact unit constants. US units come from the US gallon of 231 cubic inches (NIST SP 811). Imperial units come from the UK Weights and Measures Act 1985 (gallon = 4.54609 L). The pound is exactly 453.59237 g.",
+    "Where published tables disagree. For 23 ingredients USDA and King Arthur differ by more than 5% (cornstarch, bread flour, oats, baking soda and others). The result names the value used and lists the other published value, so the user can see the spread."
+   ],
+   "tools": [
+    {
+     "name": "convert_ingredient",
+     "description": "Converts a kitchen amount between volume and weight for a specific ingredient, using measured grams-per-cup values (USDA FoodData Central portion weights with FDC ids, and the King Arthur Baking ingredient weight chart) instead of guessed densities. 271 ingredients. Units: US cup (236.5882365 mL), metric cup (250 mL), imperial cup, US legal cup (240 mL), Japanese cup, US/metric/Australian tablespoons, teaspoons, US and imperial fl oz, pints, quarts, gallons, mL, dL, L, g, mg, kg, oz, lb and sticks of butter. Volume to volume and weight to weight need no ingredient. States which cup definition it used and cites the density source."
+    },
+    {
+     "name": "search_ingredients",
+     "description": "Fuzzy search over the ingredient table (flours, sugars, fats, dairy, liquids, nuts, grains, fruit, produce). Returns canonical names, grams per US cup and per tablespoon, and the source (USDA FDC id or King Arthur Baking chart). Use it to pick the exact ingredient before converting."
+    },
+    {
+     "name": "scale_recipe",
+     "description": "Scales a list of recipe ingredient lines (\"1 1/2 cups all-purpose flour\", \"2 tbsp honey\", \"3 eggs\") by a factor or from original to target servings. Parses mixed numbers and fraction characters. With to_metric_weights, converts cup and spoon amounts to grams with the measured density table and weights to grams, and reports lines it could not match."
+    },
+    {
+     "name": "convert_oven_temperature",
+     "description": "Converts an oven setting between Fahrenheit, Celsius and UK gas mark (1/4 to 10, from the standard recipe table) and optionally adjusts for a fan (convection) oven by 20 C, the manufacturer guidance. Returns the nearest gas mark and whether it is an exact table value."
+    }
+   ],
+   "example": {
+    "prompt": "How many grams is 1 cup of all-purpose flour?",
+    "tool": "convert_ingredient",
+    "arguments": {
+     "amount": 1,
+     "from_unit": "cup",
+     "to_unit": "g",
+     "ingredient": "all-purpose flour"
+    },
+    "summary": "1 us_cup of All-purpose flour = 120 g. Density 120 g per US cup from King Arthur Baking ingredient weight chart (1 cup = 120 g). Cup definition used: US cup (236.5882365 mL). Dry values assume spoon-and-level filling; scooping packs more in.",
+    "as_of": "2026-10-30",
+    "source": "https://www.kingarthurbaking.com/learn/ingredient-weight-chart",
+    "more": "https://ingredientcalculator.com/cups-to-grams?utm_source=mcp&utm_medium=cups-to-grams-mcp",
+    "called_at": "2026-11-03T09:00:59Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1030/cups-to-grams-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/cups-to-grams-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/convert-cups-to-grams/",
+     "h1": "Can Claude convert cups to grams?"
+    }
+   ]
+  },
+  {
+   "repo": "drug-shortage-list-mcp",
+   "repo_url": "https://github.com/theluckystrike/drug-shortage-list-mcp",
+   "hosted_url": "https://drug-shortage-list-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "FDA drug shortage list: is a drug in shortage now, by name or NDC, with status and reason.",
+   "license": "MIT",
+   "knows": [
+    "Which drugs FDA lists as in shortage today. Shortages start and end every week, and openFDA refreshes the list daily.",
+    "Package level detail. Each listing is one NDC from one company, with its own availability and update date.",
+    "Whether a shortage was resolved or the product is being discontinued, with the date and the FDA note."
+   ],
+   "tools": [
+    {
+     "name": "search_drug_shortages",
+     "description": "Is a drug in shortage now? Searches the FDA Drug Shortages database (via openFDA, updated daily) by generic name, brand name or active ingredient, for example \"amoxicillin\", \"Adderall\", \"semaglutide\", \"lidocaine\". Returns listings grouped by product with counts by status (Current, To Be Discontinued, Resolved) and availability (Available, Limited, Unavailable), shortage reasons, companies, presentations and dates. Your training data cannot know today's shortage list."
+    },
+    {
+     "name": "get_drug_shortage_by_ndc",
+     "description": "FDA shortage status for one National Drug Code, either a package NDC (0641-6059-01) or a product NDC (0641-6059), in the dashed form printed on the label. Returns the exact listing and related packages of the same product."
+    },
+    {
+     "name": "list_recent_drug_shortages",
+     "description": "The FDA drug shortage list, most recently updated listings first. Defaults to status Current. Filter by therapeutic category, for example Anesthesia, Oncology, Pediatric, Psychiatry, Cardiovascular, Infectious Disease."
+    },
+    {
+     "name": "count_drug_shortages",
+     "description": "How many FDA drug shortage listings there are now, grouped by status, therapeutic_category, shortage_reason or drug (distinct products). Defaults to Current listings by therapeutic category."
+    }
+   ],
+   "example": {
+    "prompt": "Is Adderall on the FDA drug shortage list right now?",
+    "tool": "search_drug_shortages",
+    "arguments": {
+     "drug": "Adderall"
+    },
+    "summary": "FDA lists 73 shortage listings matching \"Adderall\" across 1 product, 73 with status Current. Amphetamine Aspartate Monohydrate, Amphetamine Sulfate, Dextroamphetamine Saccharate, Dextroamphetamine Sulfate Tablet: 73 Current; availability 10 Limited Availability, 44 Available, 19 Unavailable; reason Shortage of an active ingredient, Other, Demand increase for the drug; last updated 2026-11-03.",
+    "as_of": "2026-11-05T14:15:08.441Z",
+    "source": "https://api.fda.gov/drug/shortages.json?search=(generic_name:%22Adderall%22+openfda.brand_name:%22Adderall%22+openfda.generic_name:%22Adderall%22+openfda.substance_name:%22Adderall%22)&limit=100",
+    "more": "https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=drug-shortage-list-mcp",
+    "called_at": "2026-11-05T14:15:10Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1105/reports/sat-evidence-1105/drug-shortage-list-mcp-remote.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/drug-shortage-list-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/check-the-fda-drug-shortage-list/",
+     "h1": "Can Claude check if a drug is on the FDA shortage list?"
+    }
+   ]
+  },
+  {
+   "repo": "dscr-loan-calculator-mcp",
+   "repo_url": "https://github.com/theluckystrike/dscr-loan-calculator-mcp",
+   "hosted_url": "https://dscr-loan-calculator-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "DSCR loan calculator for rental property: DSCR, lender tiers, max loan, rent needed, amortization.",
+   "license": "MIT",
+   "knows": [
+    "Cent-exact payments. Language models often get the annuity formula wrong by a few dollars, or round in the wrong place. This server uses the standard annuity formula with monthly compounding and rounds each part half up to the cent, the way a lender schedule does.",
+    "The real definition of PITIA (Fannie Mae Selling Guide B3-6-03): principal, interest, taxes, insurance, association dues, ground rent, special assessments.",
+    "Exact tier edges. A DSCR of 1.2499 is not 1.25. Tiers are decided on the exact ratio with integer math, and the 2-decimal DSCR is truncated, not rounded up.",
+    "Solvers. Max loan and rent needed are solved exactly against the rounded payment, not estimated.",
+    "How lenders actually differ. Some lenders look for 1.25, some accept 1.00, some go down to 0.75, and some offer no-ratio programs. Sources are in each result."
+   ],
+   "tools": [
+    {
+     "name": "calculate_dscr",
+     "description": "Debt service coverage ratio for a DSCR (investor) mortgage: qualifying rent / PITIA. Computes exact principal and interest with the annuity formula (monthly compounding, half-up cents) or the interest-only payment, adds tax, insurance, HOA and other housing costs per the Fannie Mae PITIA definition, and places the result in the common lender bands (1.25+, 1.00-1.24, 0.75-0.99, under 0.75) with sourced notes that minimums vary by lender. Returns JSON plus a plain summary and a dscrradar.com link."
+    },
+    {
+     "name": "max_loan_for_target_dscr",
+     "description": "Solves for the largest whole-dollar loan whose PITIA keeps the DSCR at or above a target (default 1.25), given rent, rate, term, interest-only choice, tax, insurance and HOA. Optional purchase_price and max_ltv_pct give the minimum down payment and which limit binds. Exact cents arithmetic, checked against the rounded payment."
+    },
+    {
+     "name": "rent_needed_for_target_dscr",
+     "description": "Solves for the smallest monthly rent (to the cent, and rounded up to whole dollars) that reaches a target DSCR (default 1.25) for a given loan, rate, term, tax, insurance, HOA and vacancy. Also returns the rent for 0.75, 1.00 and 1.25. Rounds up, never down, so the rent always meets the target."
+    },
+    {
+     "name": "compare_scenarios",
+     "description": "Compares 1 to 5 financing scenarios (rate, down payment, term, interest-only) on one property: loan amount, P&I, PITIA, DSCR, lender band, rent minus PITIA and total interest over the term. Names the scenario with the highest DSCR."
+    },
+    {
+     "name": "amortization_summary",
+     "description": "Exact month-by-month amortization: monthly payment, number of payments, final payment, total interest, total paid and the remaining balance after chosen years. Supports an interest-only period followed by amortization over the remaining term, as many DSCR loans use. Interest is rounded half up to the cent each month, like a lender schedule."
+    }
+   ],
+   "example": {
+    "prompt": "Rent is $2,400 on a $300,000 rental with 25% down at 7.25%. What is the DSCR?",
+    "tool": "calculate_dscr",
+    "arguments": {
+     "monthly_rent": 2400,
+     "purchase_price": 300000,
+     "down_payment_pct": 25,
+     "annual_rate_pct": 7.25,
+     "term_years": 30,
+     "annual_property_tax": 3600,
+     "annual_insurance": 1500,
+     "vacancy_pct": 5
+    },
+    "summary": "A $225,000.00 loan at 7.25% over 30 years has a monthly payment of $1,534.90 and PITIA of $1,959.90. Qualifying rent of $2,280.00 gives a DSCR of 1.16 (exact 1.163325), in the 1.00 to 1.24 band. Rent covers PITIA. Many DSCR programs accept 1.00 or more; lenders that want 1.25 will not. DSCR minimums and pricing bands vary by lender and change over time. These tiers are common market labels, not an approval decision.",
+    "as_of": "2026-10-30",
+    "source": "https://selling-guide.fanniemae.com/sel/b3-6-03/monthly-housing-expense-subject-property",
+    "more": "https://dscrradar.com/dscr-loan-calculator/?utm_source=mcp&utm_medium=dscr-loan-calculator-mcp",
+    "called_at": "2026-11-03T09:01:05Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1030/dscr-loan-calculator-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/dscr-loan-calculator-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-dscr/",
+     "h1": "Can Claude calculate DSCR for a rental loan?"
+    }
+   ]
+  },
+  {
+   "repo": "estate-gift-tax-exemption-calculator-mcp",
+   "repo_url": "https://github.com/theluckystrike/estate-gift-tax-exemption-calculator-mcp",
+   "hosted_url": "https://estate-gift-tax-exemption-calculator-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "2026 US estate and gift tax: $15M exemption (P.L. 119-21), 40% rates, annual exclusion, DSUE.",
+   "license": "MIT",
+   "knows": [
+    "The 2026 basic exclusion amount is $15,000,000 per person ($30,000,000 for a married couple using portability). P.L. 119-21 sec. 70106 replaced the $5,000,000 base in sec. 2010(c)(3) with $15,000,000 and struck the TCJA sunset. Amounts after 2026 are indexed and rounded to the nearest $10,000.",
+    "The 2025 amount was $13,990,000 (Rev. Proc. 2024-40). The applicable credit is $5,945,800 for 2026 and $5,541,800 for 2025.",
+    "The 2026 annual gift exclusion is $19,000 per recipient, the same as 2025, or $38,000 with gift splitting.",
+    "Gifts to a spouse who is not a US citizen get no unlimited marital deduction. The annual exclusion for them is $194,000 for 2026 (Rev. Proc. 2025-32) and was $190,000 for 2025 (Rev. Proc. 2024-40).",
+    "The 2026 GST exemption is $15,000,000 (Rev. Proc. 2025-32).",
+    "The top rate is still 40% above $1,000,000 on the unified schedule in 26 USC 2001(c).",
+    "A surviving spouse can add the deceased spouse's unused exclusion (DSUE) only if the executor files a timely Form 706 and elects portability."
+   ],
+   "tools": [
+    {
+     "name": "get_exemption_amounts",
+     "description": "Returns the federal basic exclusion amount (estate and lifetime gift tax exemption), the applicable credit, the filing threshold, the annual gift exclusion per recipient (and doubled with gift splitting), the annual exclusion for gifts to a non-citizen spouse, the 2026 GST exemption and the 40% top rate. Years 2011-2026 from the IRS. 2026: $15,000,000 under P.L. 119-21 (One Big Beautiful Bill Act) sec. 70106, NOT the scheduled TCJA sunset to about half; 2025: $13,990,000; 2026 annual exclusion $19,000; non-citizen spouse $194,000 (Rev. Proc. 2025-32). Models trained before mid-2025 often predict the sunset."
+    },
+    {
+     "name": "calculate_estate_tax",
+     "description": "Calculates US federal estate tax the Form 706 way: taxable estate (gross estate minus deductions such as debts, expenses, marital and charitable bequests), plus adjusted taxable gifts, tentative tax on the unified rate schedule of 26 USC 2001(c) (18% to 40%), minus gift tax payable, minus the applicable credit on the basic exclusion amount plus any DSUE (portability) from a deceased spouse. Years 2013-2026. Uses $15,000,000 for 2026 deaths (P.L. 119-21), $13,990,000 for 2025. Federal only."
+    },
+    {
+     "name": "check_gift",
+     "description": "Checks a gift against the federal gift tax rules for a year (2013-2026): annual exclusion per recipient ($19,000 in 2025 and 2026), gift splitting with a spouse (sec. 2513, doubles it to $38,000), unlimited marital deduction for a US citizen spouse, and the separate annual exclusion for a non-citizen spouse ($190,000 in 2025, $194,000 in 2026 under Rev. Procs. 2024-40 and 2025-32). Returns taxable gifts, whether Form 709 is required, lifetime exemption used and left (2026: $15,000,000), and any gift tax due."
+    },
+    {
+     "name": "compare_years",
+     "description": "Compares two years (2013-2026) side by side: basic exclusion amount, applicable credit, annual gift exclusion and non-citizen spouse exclusion, and, with a taxable estate, the federal estate tax in each year. Default 2025 vs 2026, the year P.L. 119-21 raised the exemption to $15,000,000 instead of letting it fall to about half."
+    }
+   ],
+   "example": {
+    "prompt": "How much federal estate tax is due on a $20 million estate for a death in 2026?",
+    "tool": "calculate_estate_tax",
+    "arguments": {
+     "gross_estate": 20000000
+    },
+    "summary": "2026 federal estate tax: $2,000,000. Taxable estate $20,000,000 plus $0 of lifetime taxable gifts is $20,000,000, which is $5,000,000 over the $15,000,000 exclusion, taxed at 40%. A surviving spouse keeps any unused exclusion only if the executor files Form 706 and elects portability.\n\nFederal estate and gift tax only. State estate and inheritance taxes are not included. General information, not legal or tax advice; Forms 706 and 709 and their instructions decide the official amounts.",
+    "as_of": "2026-11-02",
+    "source": "https://www.law.cornell.edu/uscode/text/26/2001",
+    "more": "https://taxbreakcalc.com/charitable-deduction-calculator/?utm_source=mcp&utm_medium=estate-gift-tax-exemption-calculator-mcp",
+    "called_at": "2026-11-03T09:01:12Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1102/estate-gift-tax-exemption-calculator-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/estate-gift-tax-exemption-calculator-mcp/",
+   "stamp_can_claude": []
+  },
+  {
+   "repo": "gold-price-per-gram-mcp",
+   "repo_url": "https://github.com/theluckystrike/gold-price-per-gram-mcp",
+   "hosted_url": "https://gold-price-per-gram-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Live gold price per gram by karat and currency, metal prices, jewelry melt value, unit conversion.",
+   "license": "MIT",
+   "knows": [
+    "Today's gold price. Spot moves every minute and a model's training data is months old.",
+    "Today's exchange rate for INR, AED, SAR, PKR, EUR, GBP and about 150 more currencies.",
+    "Exact unit constants. A troy ounce is 31.1034768 g and a grain is 64.79891 mg by definition (NIST Handbook 44). A tola is 180 grains. A Thai bullion baht is 15.244 g, not 15 g. A kitchen-scale ounce is 28.349523125 g, not a troy ounce.",
+    "Karat purity as an exact fraction (karat / 24), so 22K is 91.6667% and 14K is 58.3333%."
+   ],
+   "tools": [
+    {
+     "name": "get_gold_price_per_gram",
+     "description": "Today's gold price per gram, per troy ounce, per tola and per kilogram, read live from the gold spot market, for 24K, 22K, 21K, 18K, 14K, 10K and 9K gold, in any of about 160 currencies (central-bank FX). Returns the spot time stamp, the FX date and the sources. Your training data cannot know today's gold price. Omit karat to get every karat."
+    },
+    {
+     "name": "get_metal_prices",
+     "description": "Live spot prices of gold (XAU), silver (XAG), platinum (XPT) and palladium (XPD) per troy ounce, per gram and per kilogram, in any major currency. A metal whose feed is down is reported with its error instead of failing the whole call."
+    },
+    {
+     "name": "calculate_jewelry_value",
+     "description": "Melt value of a gold item (ring, chain, bracelet, scrap) from its weight, unit and karat at the live spot price, in any currency. Optional dealer_spread_percent returns the likely buyer offer. The result states that melt value is not the retail or buyback price."
+    },
+    {
+     "name": "convert_gold_units",
+     "description": "Convert a gold weight between gram, kilogram, troy ounce, pennyweight, grain, avoirdupois ounce, tola, Thai baht (bullion and jewellery), Vietnamese chi and luong, Hong Kong gold tael, Taiwan tael and China liang. Uses exact defined constants (1 troy ounce = 31.1034768 g, 1 grain = 64.79891 mg, NIST Handbook 44) and returns the definition and source of each unit. Omit \"to\" to get every unit."
+    }
+   ],
+   "example": {
+    "prompt": "What is the gold price per gram right now, by karat?",
+    "tool": "get_gold_price_per_gram",
+    "arguments": {
+     "currency": "USD"
+    },
+    "summary": "24K gold is 125.33 USD per gram (3,898.10 USD per troy ounce, 1,461.79 USD per tola) at a spot of 3,898.10 USD per troy ounce of fine gold, as of 2026-11-03T09:00:56Z. Per gram by karat: 22K 114.88 USD, 21K 109.66 USD, 18K 94.00 USD, 14K 73.11 USD, 10K 52.22 USD, 9K 47.00 USD. These are melt (spot) values. Shops sell jewellery above this and buy it back below it.",
+    "as_of": "2026-11-03T09:00:56Z",
+    "source": "https://gold-api.com/",
+    "more": "https://goldgramprice.com/?utm_source=mcp&utm_medium=gold-price-per-gram-mcp",
+    "called_at": "2026-11-03T09:01:19Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1030/gold-price-per-gram-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/gold-price-per-gram-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/check-gold-price/",
+     "h1": "Can Claude check the current gold price?"
+    }
+   ]
+  },
+  {
+   "repo": "i-bond-rate-mcp",
+   "repo_url": "https://github.com/theluckystrike/i-bond-rate-mcp",
+   "hosted_url": "https://i-bond-rate-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Current I bond rate, what your I bond earns by issue month, and value estimates from TreasuryDirect.",
+   "license": "MIT",
+   "knows": [
+    "The November 2026 rates (5.51 percent composite, 1.40 percent fixed, 2.04 percent semiannual inflation). Treasury announced them on November 1, 2026.",
+    "That an existing bond does not earn the new-bond rate. It keeps its own fixed rate and gets a new inflation rate every 6 months from its issue month, so a bond bought in April 2022 earns 3.34 percent from October 2026 while a bond bought in January 2023 earns 3.75 percent until January 2027.",
+    "The exact rounding and the zero floor. The formula reproduces all 1,711 composite rates in the Treasury chart."
+   ],
+   "tools": [
+    {
+     "name": "get_current_i_bond_rate",
+     "description": "Current Series I savings bond composite rate, fixed rate and semiannual inflation rate for new purchases, read at call time from the TreasuryDirect \"I bonds interest rates\" page with the built-in rate chart as fallback. November 2026 to April 2027: 5.51 percent with a 1.40 percent fixed rate. Also returns the next announcement date and the $10,000 limit, 12-month hold and 3-month penalty rules."
+    },
+    {
+     "name": "get_i_bond_rate_for_issue_date",
+     "description": "For an I bond bought in a given month: its fixed rate, the composite rate it earns in the current (or given) 6-month period, the months its rate changes, whether it can be cashed and the penalty, and every rate period since issue. Computed from the TreasuryDirect rate chart effective November 1, 2026."
+    },
+    {
+     "name": "estimate_i_bond_value",
+     "description": "Estimate what I bonds are worth for an issue month and purchase amount at the start of a month: value with all interest and the redemption value after the 3-month penalty for bonds under 5 years. Uses semiannual compounding per $25 with the TreasuryDirect rates. An estimate; Treasury values can differ by cents."
+    },
+    {
+     "name": "calculate_i_bond_composite_rate",
+     "description": "Apply the Treasury formula fixed + 2 x semiannual inflation + fixed x semiannual inflation, rounded to 0.01 percent with a floor of zero. Use it for rate predictions."
+    },
+    {
+     "name": "get_i_bond_rate_history",
+     "description": "Fixed rate for new bonds, semiannual inflation rate and composite rate for every May and November announcement since September 1998, newest first, from the TreasuryDirect rate chart."
+    }
+   ],
+   "example": {
+    "prompt": "What is the I bond rate for bonds bought in November 2026?",
+    "tool": "get_current_i_bond_rate",
+    "arguments": {},
+    "summary": "I bonds bought from November 2026 through April 2027 earn 5.51% a year for their first 6 months: a 1.40% fixed rate that lasts for the life of the bond plus 2.04% semiannual inflation rate. Treasury sets the next rates on May 1, 2027. Limit $10,000 in electronic I bonds per Social Security number per calendar year, $25 minimum, held at least 12 months, last 3 months of interest lost if cashed before 5 years.",
+    "as_of": "2026-11-05T14:15:34.347Z",
+    "source": "https://www.treasurydirect.gov/savings-bonds/i-bonds/i-bonds-interest-rates/",
+    "more": "https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=i-bond-rate-mcp",
+    "called_at": "2026-11-05T14:15:42Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1105/reports/sat-evidence-1105/i-bond-rate-mcp-remote.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/i-bond-rate-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/check-the-i-bond-rate/",
+     "h1": "Can Claude tell me the current I bond rate?"
+    }
+   ]
+  },
+  {
+   "repo": "irs-mileage-rate-per-diem-mcp",
+   "repo_url": "https://github.com/theluckystrike/irs-mileage-rate-per-diem-mcp",
+   "hosted_url": "https://irs-mileage-rate-per-diem-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "IRS mileage rates 2011-2026 (76 cents from July 2026), GSA per diem by ZIP FY2026-27, high-low.",
+   "license": "MIT",
+   "knows": [
+    "The IRS raised the 2026 business mileage rate mid-year: 72.5 cents a mile from Jan. 1 to June 30, 2026 and 76 cents from July 1, 2026 (Announcement 2026-11). Medical and military moving went from 20.5 to 23.5 cents. Charity stays at 14 cents.",
+    "The depreciation part of the 2026 business rate is 35 cents a mile. The FAVR and employer-vehicle maximum value for 2026 is $61,700 (Notice 2026-10).",
+    "FY2027 GSA per diem (from Oct. 1, 2026): standard CONUS rate $113 lodging and $68 M&IE, and the rates for 295 named destinations by month.",
+    "IRS high-low method from Oct. 1, 2026: $329 high and $230 low, with $86 and $74 treated as meals (Notice 2026-60). Tucson, San Mateo, Albuquerque and Cody were added; Panama City was removed.",
+    "The IRS had not announced the 2027 mileage rates on 2026-11-03. The tools say so."
+   ],
+   "tools": [
+    {
+     "name": "get_mileage_rate",
+     "description": "Returns the official IRS standard mileage rates in cents per mile for business, medical, charity and military moving use, for a year or a specific date. Knows the mid-year 2026 change: 72.5 cents for business from Jan. 1 to June 30, 2026 (Notice 2026-10) and 76 cents from July 1, 2026 (Announcement 2026-11, fuel price increase), medical/moving 20.5 then 23.5 cents, charity 14 cents. Also returns the depreciation (basis reduction) part of the business rate (35 cents for 2026) and the FAVR / employer-vehicle maximum value ($61,700 for 2026). 2027 rates are not announced yet and the tool says so."
+    },
+    {
+     "name": "calculate_mileage_deduction",
+     "description": "Calculates the deduction or tax-free reimbursement for driven miles at the IRS standard mileage rates, splitting by the date each trip was driven. Applies the 2026 mid-year increase automatically (72.5 cents before July 1, 76 cents from July 1). Supports business, medical, charity and military moving miles, returns the amount per rate period and purpose, and the depreciation basis reduction for business miles. Notes who can and cannot deduct (employees' unreimbursed mileage is not deductible after the One, Big, Beautiful Bill Act)."
+    },
+    {
+     "name": "get_per_diem_rates",
+     "description": "Returns the official GSA federal per diem rates for a U.S. (CONUS) destination by ZIP code or city/state: maximum lodging per night by month and the meals and incidental expenses (M&IE) rate with its breakfast/lunch/dinner/incidentals breakdown and the 75% first/last-day amount. Covers FY2026 (Oct. 1, 2025 - Sept. 30, 2026) and FY2027 (from Oct. 1, 2026; standard rate $113 lodging and $68 M&IE). Data from GSA's FY2026 and FY2027 ZIP code files, so it knows rates newer than a model's training data."
+    },
+    {
+     "name": "calculate_trip_per_diem",
+     "description": "Calculates the maximum federal per diem for a business trip: lodging for each night at that month's GSA rate (crossing seasons and the Oct. 1 fiscal year change), M&IE for each day with 75% on the first and last day, minus meals provided at the GSA breakdown amounts. Uses the official FY2026 and FY2027 GSA rates for trips between Oct. 1, 2025 and Sept. 30, 2027."
+    },
+    {
+     "name": "get_high_low_per_diem",
+     "description": "Returns the IRS high-low substantiation method rates for a date and whether a city is a high-cost locality then: from Oct. 1, 2026 $329 high / $230 low with $86 / $74 treated as meals (Notice 2026-60); Oct. 1, 2025 - Sept. 30, 2026 $319 / $225 (Notice 2025-54). Also the transportation industry M&IE ($80 CONUS, $86 OCONUS) and the $5 incidental-expenses-only rate. Checks the 91 FY2027 high-cost localities and their seasonal portions (e.g. Tucson added, Panama City removed)."
+    }
+   ],
+   "example": {
+    "prompt": "What is the IRS standard mileage rate for 2026?",
+    "tool": "get_mileage_rate",
+    "arguments": {
+     "year": 2026
+    },
+    "summary": "IRS standard mileage rates for 2026: Jan. 1 - June 30, 2026: business 72.5 cents, medical/moving 20.5 cents, charity 14 cents (Notice 2026-10, IR-2025-128); July 1 - Dec. 31, 2026: business 76 cents, medical/moving 23.5 cents, charity 14 cents (Announcement 2026-11 (IRB 2026-29)). The rate changed mid-year, so split miles by date. Depreciation part of the business rate: 35 cents a mile.\n\nRates from IRS and GSA publications. General information, not tax advice.",
+    "as_of": "2026-11-03",
+    "source": "https://www.irs.gov/pub/irs-drop/n-26-10.pdf ; https://www.irs.gov/irb/2026-29_irb ; https://www.irs.gov/tax-professionals/standard-mileage-rates",
+    "more": "https://taxbreakcalc.com/self-employed-set-aside-calculator/?utm_source=mcp&utm_medium=irs-mileage-rate-per-diem-mcp",
+    "called_at": "2026-11-03T09:01:26Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1103/irs-mileage-rate-per-diem-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/irs-mileage-rate-per-diem-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-mileage-deduction/",
+     "h1": "Can Claude calculate a 2026 mileage deduction?"
+    },
+    {
+     "url": "https://www.mcpstamp.com/can-claude/look-up-per-diem-rates/",
+     "h1": "Can Claude look up GSA per diem rates?"
+    }
+   ]
+  },
+  {
+   "repo": "lake-level-mcp",
+   "repo_url": "https://github.com/theluckystrike/lake-level-mcp",
+   "hosted_url": "https://lake-level-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Live US lake and reservoir water levels from USGS, USACE, CDEC, USBR and TWDB gauges.",
+   "license": "MIT",
+   "knows": [
+    "Today's water level. Lakes move every hour and a model's training data is months old.",
+    "Which gauge to read for each lake. The bindings (USGS site and parameter, CDEC station, Reclamation RISE item, TWDB reservoir, USACE CWMS time series) are the verified set lakelevelnow.com uses.",
+    "Full-pool elevations and published seasonal guide curves (USACE, TVA, Alabama Power), so \"8 ft low\" can be read against the winter target, not only against summer full pool.",
+    "How to handle feed quirks: unpadded CDEC dates, CWMS loggers that stamp local time as UTC, USGS 15-minute data collapsed to one reading per day."
+   ],
+   "tools": [
+    {
+     "name": "search_lakes",
+     "description": "List the 44 US lakes and reservoirs this server reads live (Lake Mead, Lake Powell, Lake Travis, Shasta, Oroville, Lanier, Texoma, Kentucky Lake and more) by name, river, operator or state. Returns each slug, full-pool elevation, the gauge agency and the lakelevelnow.com page. Call with no arguments to list them all."
+    },
+    {
+     "name": "get_lake_level",
+     "description": "Current water surface elevation (ft above sea level) of a US lake or reservoir, read now from its government gauge (USGS, USACE CWMS, CDEC, Reclamation or TWDB). Returns the measurement time, change over 24 hours, 7 days and 30 days, feet below full pool, the operator seasonal target where one is published, percent full where the agency publishes storage, and the gauge id and data URL. Your training data cannot know today's level."
+    },
+    {
+     "name": "get_lake_history",
+     "description": "Daily (or weekly) water elevation series for a US lake or reservoir over the last 2 to 365 days, from the same government gauge as get_lake_level, one reading per day. Includes first, last, low, high and mean with dates. Use it for trends, drawdown and refill questions."
+    },
+    {
+     "name": "compare_lakes",
+     "description": "Current levels of 2 to 10 US lakes side by side, read live from their gauges: elevation, feet below full pool, percent full, seasonal target and 24 h / 7 day / 30 day change, ranked by distance below full pool. A lake whose gauge is down is reported with its error instead of failing the whole call."
+    }
+   ],
+   "example": {
+    "prompt": "What is the water level of Lake Travis right now?",
+    "tool": "get_lake_level",
+    "arguments": {
+     "lake": "Lake Travis"
+    },
+    "summary": "Lake Travis (TX) is at 677.09 ft above sea level per the USGS gauge, measured 2026-11-03T02:30:00-06:00. That is 3.91 ft below full pool (681.0 ft). Change: -0.02 ft in 24 h, -0.05 ft in 7 days, -0.72 ft in 30 days.",
+    "as_of": "2026-11-03T09:01:34.878Z",
+    "source": "https://waterdata.usgs.gov/monitoring-location/USGS-08154500/",
+    "more": "https://lakelevelnow.com/lake/lake-travis/?utm_source=mcp&utm_medium=lake-level-mcp",
+    "called_at": "2026-11-03T09:01:34Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1030/lake-level-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/lake-level-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/check-lake-levels/",
+     "h1": "Can Claude check lake levels?"
+    }
+   ]
+  },
+  {
+   "repo": "minimum-wage-mcp",
+   "repo_url": "https://github.com/theluckystrike/minimum-wage-mcp",
+   "hosted_url": "https://minimum-wage-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "US state minimum wage 2026-2027: rates, tipped wages and scheduled increases for 50 states and DC.",
+   "license": "MIT",
+   "knows": [
+    "Rates that changed after most training cutoffs: July 1, 2026 changes (Alaska, DC, Oregon), Florida's September 30, 2026 step to $15.00, and the January 1, 2027 increases already enacted or announced (for example Michigan to $15.00).",
+    "Which 2027 rates are fixed in law, which inflation-indexed rates have been published, and which are still unannounced. It never invents an unannounced number.",
+    "Tipped cash wages and tip credits by state, which differ widely and change with the base rate.",
+    "When the federal $7.25 floor overrides a lower or missing state rate (Alabama, Georgia, Wyoming and others)."
+   ],
+   "tools": [
+    {
+     "name": "get_minimum_wage",
+     "description": "Minimum wage for one US state or DC on a date in 2026-2027: standard hourly rate, tipped cash wage, tip credit and the date the rate took effect. Uses the US DOL July 2026 tables and state labor department pages checked October 2026, including increases on July 1, September 30 and January 1, 2027 that postdate most model training data. Applies the $7.25 federal floor when a state has no law or a lower rate, and says so. Inflation-indexed 2027 rates not yet published are reported as not announced, never estimated. State-level only: city and county rates are not included."
+    },
+    {
+     "name": "list_upcoming_increases",
+     "description": "Every scheduled state minimum wage change from a date (default today) through 2027-12-31, sorted by date, with the new rate, the previous rate, the change and the tipped cash wage. Includes 2027-01-01 increases already enacted in law or announced under inflation indexing, and lists indexed changes whose number is not published yet as announced:false. Optional filter by states."
+    },
+    {
+     "name": "compare_states",
+     "description": "Side-by-side minimum wages for 2 to 10 US states (or DC) on one date in 2026-2027: standard rate, tipped cash wage, tip credit, effective date and full-time annual pay (40 h x 52 weeks), sorted highest first, with the gap between highest and lowest. State-level only."
+    },
+    {
+     "name": "annual_income_at_minimum_wage",
+     "description": "Gross weekly, monthly and annual pay at a state's minimum wage on a date in 2026-2027, for given hours per week (default 40) and weeks per year (default 52). Uses the state rate in force on that date (with the federal floor where it applies). Pre-tax; ignores overtime and tips."
+    }
+   ],
+   "example": {
+    "prompt": "What is the minimum wage in California today?",
+    "tool": "get_minimum_wage",
+    "arguments": {
+     "state": "CA"
+    },
+    "summary": "California's minimum wage on 2026-11-03 is $16.90 an hour, in force since 2026-01-01. No tip credit is allowed: tipped workers get the full $16.90 in cash. State-level rates only. City and county minimum wages (for example Seattle, Denver, Chicago, San Francisco) are out of scope and can be higher.",
+    "as_of": "2026-10-30",
+    "source": "https://dof.ca.gov/media/docs/whats-new/Minimum-Wage-Increase-Notification-Governor-and-Legislative-Letter.pdf",
+    "more": "https://statewage.com/states/california/?utm_source=mcp&utm_medium=minimum-wage-mcp",
+    "called_at": "2026-11-03T09:01:41Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1030/minimum-wage-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/minimum-wage-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/look-up-minimum-wage/",
+     "h1": "Can Claude look up the current minimum wage?"
+    }
+   ]
+  },
+  {
+   "repo": "mortgage-rates-today-mcp",
+   "repo_url": "https://github.com/theluckystrike/mortgage-rates-today-mcp",
+   "hosted_url": "https://mortgage-rates-today-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Mortgage rates today: Freddie Mac weekly 30 and 15 year fixed averages, history and payment math.",
+   "license": "MIT",
+   "knows": [
+    "This week's rate. Freddie Mac publishes a new national average every Thursday at noon Eastern, so any number in a model's training data is out of date.",
+    "The exact weekly history since 1971, for questions like \"what was the rate when I bought in March 2021\".",
+    "Payment math tied to the current average, so the comparison with a year ago uses real numbers."
+   ],
+   "tools": [
+    {
+     "name": "get_mortgage_rates_today",
+     "description": "Latest Freddie Mac PMMS weekly average 30-year and 15-year fixed mortgage rates, read at call time from freddiemac.com: rate, week-over-week change, rate a year ago, 52-week high, low and average, the week date and the next expected release. National averages for well-qualified conventional purchase borrowers."
+    },
+    {
+     "name": "get_mortgage_rate_on_date",
+     "description": "The Freddie Mac PMMS weekly average 30-year and 15-year fixed rates (plus 5/1 ARM and points where published) in force on a date, from 1971-04-02 to today."
+    },
+    {
+     "name": "get_mortgage_rate_history",
+     "description": "Freddie Mac PMMS 30-year or 15-year fixed averages between two dates as weekly rows or monthly or annual averages, with the high, low and change over the range. Default is the last 52 weeks of the 30-year rate."
+    },
+    {
+     "name": "calculate_mortgage_payment",
+     "description": "Monthly principal and interest and total interest for a fixed-rate loan. Without a rate it uses this week's Freddie Mac average for 30-year or 15-year terms, and compares it with the average a year earlier. Taxes, insurance and PMI are not included."
+    }
+   ],
+   "example": {
+    "prompt": "What are mortgage rates today?",
+    "tool": "get_mortgage_rates_today",
+    "arguments": {},
+    "summary": "The Freddie Mac average 30-year fixed mortgage rate is 7.24% for the week of 2026-10-29 (down 0.08 points from the week before, 6.17% a year ago). The 15-year fixed average is 6.60%. These are national averages for well-qualified borrowers, released on Thursdays; the next release is due 2026-11-05. Source: Freddie Mac Primary Mortgage Market Survey (PMMS), U.S. weekly averages.",
+    "as_of": "2026-11-05T14:15:50.572Z",
+    "source": "https://www.freddiemac.com/pmms",
+    "more": "https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=mortgage-rates-today-mcp",
+    "called_at": "2026-11-05T14:15:50Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1105/reports/sat-evidence-1105/mortgage-rates-today-mcp-remote.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/mortgage-rates-today-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/check-mortgage-rates-today/",
+     "h1": "Can Claude check mortgage rates today?"
+    }
+   ]
+  },
+  {
+   "repo": "no-tax-on-overtime-mcp",
+   "repo_url": "https://github.com/theluckystrike/no-tax-on-overtime-mcp",
+   "hosted_url": "https://no-tax-on-overtime-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "No tax on overtime, tips and senior deductions for 2025-2028 (OBBBA), with IRS caps and phase-outs.",
+   "license": "MIT",
+   "knows": [
+    "These deductions started in tax year 2025, after most models were trained. The law was signed on July 4, 2025.",
+    "The phase-out is $100 for each full $1,000 of MAGI over the threshold, rounded down, as Schedule 1-A lines 16-21 do it. It is not a smooth percentage.",
+    "Only the FLSA premium qualifies. Ten double-time hours at $20 give $100 of qualified overtime, not $200 (IRS FS-2026-13 A16).",
+    "From 2026 you may not use more than the amount in Form W-2 box 12 code TT. If your employer leaves it out, you need a Form W-2c (FS-2026-13, August 2026).",
+    "The tips cap is $25,000 per return even on a joint return. The overtime cap doubles for joint returns. The senior reduction applies to each spouse separately.",
+    "Married filing separately gets nothing from any of the three.",
+    "2025 and 2026 brackets from Rev. Proc. 2024-40 and Rev. Proc. 2025-32, including the OBBBA standard deduction amounts."
+   ],
+   "tools": [
+    {
+     "name": "calculate_overtime_deduction",
+     "description": "Calculates the 2025-2028 federal deduction for qualified overtime pay under the One Big Beautiful Bill Act (P.L. 119-21, IRC 225) as IRS Schedule 1-A Part III does: the $12,500 cap ($25,000 joint), then $100 off per full $1,000 of MAGI over $150,000 ($300,000 joint). Only the FLSA half-time premium qualifies, so it converts hourly rate, overtime hours and multiplier (or total overtime pay) to the qualified amount; double time does not double it. Married filing separately gets $0. Figures copied from irs.gov in Oct 2026."
+    },
+    {
+     "name": "calculate_tips_deduction",
+     "description": "Calculates the 2025-2028 federal deduction for qualified tips under the One Big Beautiful Bill Act (P.L. 119-21, IRC 224) as IRS Schedule 1-A Part II does: a $25,000 cap per return for every filing status, then $100 off per full $1,000 of MAGI over $150,000 ($300,000 joint). Self-employed tips count only up to that business's net income. Married filing separately gets $0. Figures copied from irs.gov in Oct 2026."
+    },
+    {
+     "name": "calculate_senior_deduction",
+     "description": "Calculates the 2025-2028 enhanced deduction for seniors under the One Big Beautiful Bill Act (P.L. 119-21) as IRS Schedule 1-A Part V does: $6,000 per person age 65 or older by Dec 31, each reduced by 6% of MAGI over $75,000 ($150,000 joint). On a joint return the reduction applies to each spouse's $6,000. Married filing separately gets $0. Figures copied from irs.gov in Oct 2026."
+    },
+    {
+     "name": "estimate_tax_savings",
+     "description": "Estimates the federal income tax saved in 2025-2028 by the One Big Beautiful Bill Act overtime, tips and senior deductions combined. It applies each deduction's cap and phase-out, then runs taxable income through the IRS bracket tables for that year (Rev. Proc. 2024-40 for 2025, Rev. Proc. 2025-32 for 2026) before and after. 2027-2028 brackets are not published yet, so it uses 2026 and says so. Federal income tax only."
+    },
+    {
+     "name": "explain_eligibility",
+     "description": "Explains who can claim the 2025-2028 One Big Beautiful Bill Act deductions for overtime, tips and seniors: years covered, excluded filing status (married filing separately), the valid-SSN rule, FLSA overtime eligibility, and exactly where the amounts are reported (Form W-2 box 12 codes TT and TP, Form 1099-NEC/1099-MISC/1099-K boxes, Schedule 1-A lines), including the 2026 change that only W-2 box 12 code TT amounts count. Taken from IRS FAQs and forms fetched Oct 2026."
+    }
+   ],
+   "example": {
+    "prompt": "I earn $24 an hour and worked 300 overtime hours at time and a half in 2025. Single, MAGI $68,000. What is my no tax on overtime deduction?",
+    "tool": "calculate_overtime_deduction",
+    "arguments": {
+     "filing_status": "single",
+     "magi": 68000,
+     "tax_year": 2025,
+     "hourly_rate": 24,
+     "overtime_hours": 300,
+     "multiplier": 1.5
+    },
+    "summary": "Qualified overtime premium $3,600. After the $12,500 cap: $3,600. MAGI $68,000 is not above the $150,000 threshold, so there is no phase-out. Deduction for 2025: $3,600. Only the FLSA premium (the \"half\" in time-and-a-half) qualifies, not the straight-time part or any extra premium.\n\nThis is an estimate, not tax advice. Check the IRS instructions for Schedule 1-A or ask a tax professional before you file.",
+    "as_of": "2026-10-30",
+    "source": "https://www.irs.gov/pub/irs-pdf/f1040s1a.pdf ; https://www.irs.gov/pub/taxpros/fs-2026-13.pdf",
+    "more": "https://noovertimetax.com/?utm_source=mcp&utm_medium=no-tax-on-overtime-mcp",
+    "called_at": "2026-11-03T09:01:47Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1030/no-tax-on-overtime-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/no-tax-on-overtime-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-no-tax-on-overtime/",
+     "h1": "Can Claude calculate the no tax on overtime deduction?"
+    }
+   ]
+  },
+  {
+   "repo": "paycheck-calculator-mcp",
+   "repo_url": "https://github.com/theluckystrike/paycheck-calculator-mcp",
+   "hosted_url": "https://paycheck-calculator-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Take-home pay for 2025-2026: IRS brackets, FICA wage base and state income tax for 50 states + DC.",
+   "license": "MIT",
+   "knows": [
+    "The 2025 standard deduction changed mid-year. P.L. 119-21 (signed July 4, 2025) raised it to $15,750 single, $31,500 joint and $23,625 head of household, replacing the $15,000 / $30,000 / $22,500 in Rev. Proc. 2024-40.",
+    "The 2026 brackets and standard deduction ($16,100 / $32,200 / $24,150) from Rev. Proc. 2025-32.",
+    "The Social Security wage base: $176,100 for 2025 and $184,500 for 2026.",
+    "Additional Medicare tax is owed over $200,000 single, $250,000 joint and $125,000 separate, but employers withhold it over $200,000 for everyone. The tool returns both.",
+    "A 401(k) deferral lowers income tax but not Social Security or Medicare. A payroll HSA contribution lowers all three.",
+    "Exact 2026 state schedules for California, New York, New Jersey, Illinois, Pennsylvania, Georgia and North Carolina, including each state's deductions or exemptions and its treatment of 401(k) and HSA money (Pennsylvania taxes 401(k) deferrals; California and New Jersey tax HSA contributions). New York's 2026 rate cuts and its tax-benefit recapture over $107,650 are included.",
+    "Michigan, Virginia and Ohio run through their own schedules and exemptions, but are labeled `method: \"estimate\"` until their 2026 sources are re-checked (see Limitations).",
+    "Every other state's figure is a single-rate estimate and is labeled `method: \"estimate\"`. States with no wage income tax are labeled `no_wage_income_tax`."
+   ],
+   "tools": [
+    {
+     "name": "calculate_take_home_pay",
+     "description": "Calculates take-home (net) pay for a US employee in any of the 50 states or DC for tax year 2025 or 2026: federal income tax from the IRS Rev. Proc. 2024-40 / 2025-32 bracket tables with the One Big Beautiful Bill Act standard deduction ($15,750 single for 2025, $16,100 for 2026), Social Security with the wage base ($176,100 in 2025, $184,500 in 2026), Medicare plus the 0.9% Additional Medicare tax, and state income tax. State tax is exact from each state's 2026 schedule for CA, NY, NJ, IL, PA, GA, NC; other states return a labeled effective-rate estimate (method: \"estimate\"). Handles pre-tax 401(k) (not FICA-exempt) and payroll HSA (FICA-exempt), and Pennsylvania/New Jersey rules that tax 401(k) or HSA money. Returns per-period and annual figures. Local taxes (NYC etc.) are out of scope. Figures copied from irs.gov and state revenue sites in Oct 2026."
+    },
+    {
+     "name": "compare_states_take_home",
+     "description": "Runs the same gross pay through 2 to 10 states (or DC) and ranks them by annual take-home pay for tax year 2025 or 2026, showing state income tax, the method for each state (exact 2026 schedule for CA, NY, NJ, IL, PA, GA, NC; labeled estimate elsewhere; no wage income tax in AK, FL, NV, NH, SD, TN, TX, WA, WY) and how far each trails the best. Federal tax and FICA use the IRS 2025/2026 tables and wage base. Use it for relocation and remote-work offers."
+    },
+    {
+     "name": "salary_to_hourly",
+     "description": "Converts an annual salary to an hourly rate and to weekly, biweekly (26), semimonthly (24) and monthly gross pay. Defaults: 40 hours a week, 52 weeks (2,080 hours). Gross pay only; use calculate_take_home_pay for net."
+    },
+    {
+     "name": "hourly_to_salary",
+     "description": "Converts an hourly wage to weekly, monthly and annual gross pay, with optional weekly overtime hours at a multiplier (1.5 by default). Defaults: 40 hours a week, 52 weeks. Gross pay only; use calculate_take_home_pay for net."
+    },
+    {
+     "name": "get_federal_tax_brackets",
+     "description": "Returns the exact federal income tax brackets (rate, lower and upper bound, tax on lower brackets) and standard deduction for tax year 2025 or 2026 and a filing status, from IRS Rev. Proc. 2024-40 and Rev. Proc. 2025-32, including the One Big Beautiful Bill Act (P.L. 119-21) standard deduction increase for 2025 ($15,750 / $31,500 / $23,625). Also returns the Social Security wage base and Medicare thresholds for that year."
+    }
+   ],
+   "example": {
+    "prompt": "What is my 2026 take-home pay on $92,000 in North Carolina, paid every two weeks, with 6% to a 401(k)?",
+    "tool": "calculate_take_home_pay",
+    "arguments": {
+     "state": "NC",
+     "filing_status": "single",
+     "tax_year": 2026,
+     "gross_annual": 92000,
+     "pay_frequency": "biweekly",
+     "pretax_401k_percent": 6
+    },
+    "summary": "North Carolina, single, 2026: gross $92,000.00 a year ($3,538.46 biweekly). Federal income tax $10,195.60 on taxable income $70,380.00 after the $16,100.00 standard deduction (marginal 22%). Social Security $5,704.00 (6.2% up to the $184,500.00 wage base), Medicare $1,334.00. State income tax $2,941.83 (exact 2026 schedule). Take-home $66,304.57 a year, $2,550.18 per biweekly paycheck; effective tax rate 21.93%.\n\nEstimate of annual tax on wages, not tax advice and not your employer's W-4 withholding. Uses the standard deduction and no credits. Local taxes (NYC, Yonkers, Ohio cities, Pennsylvania EIT, Maryland and Indiana counties) and state payroll taxes such as CA SDI are not included.",
+    "as_of": "2026-10-30",
+    "source": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf ; https://www.irs.gov/pub/irs-pdf/p15.pdf ; https://www.irs.gov/pub/irs-pdf/i8959.pdf ; https://www.ncdor.gov/taxes-forms/individual-income-tax/tax-rate-schedules",
+    "more": "https://statewage.com/states/north-carolina/?utm_source=mcp&utm_medium=paycheck-calculator-mcp",
+    "called_at": "2026-11-03T09:01:53Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1030/paycheck-calculator-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/paycheck-calculator-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-take-home-pay/",
+     "h1": "Can Claude calculate my take-home pay?"
+    }
+   ]
+  },
+  {
+   "repo": "raw-to-cooked-weight-mcp",
+   "repo_url": "https://github.com/theluckystrike/raw-to-cooked-weight-mcp",
+   "hosted_url": "https://raw-to-cooked-weight-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Raw to cooked weight of meat and poultry by cut and cooking method from USDA cooking yields.",
+   "license": "MIT",
+   "knows": [
+    "Yields differ by cut, fat level and method. A flat \"meat loses 25%\" rule is wrong for most cuts. USDA measured bacon at 29 to 32% of its raw weight, 80/20 ground beef crumbles at 67%, a grilled bone-in rib eye steak at 85.7% and a boneless cured ham at 94 to 96%.",
+    "The exact USDA number, its sample count and its range. Roast chicken thigh is 69%, but USDA samples ran from 58% to 79%. The tools return both.",
+    "Ground meat lean ratios. \"80/20\", \"93% lean\" and \"73/27\" map to the USDA low, medium and high fat classes for beef (under 12%, 12 to 22%, over 22% fat) and pork (under 10%, 10 to 27%, over 27%).",
+    "What is not covered. Fish, seafood, rice, pasta and vegetables are not in the USDA table. The tools say so instead of guessing."
+   ],
+   "tools": [
+    {
+     "name": "convert_raw_to_cooked",
+     "description": "Cooked weight of raw meat or poultry using the USDA measured cooking yield for that cut and cooking method (USDA Table of Cooking Yields for Meat and Poultry). Returns the expected cooked weight in g, oz, lb and kg, the range seen across USDA samples, the weight lost, and the USDA row used. Understands ground beef lean ratios such as 80/20 or 93% lean."
+    },
+    {
+     "name": "convert_cooked_to_raw",
+     "description": "Raw weight that a cooked portion of meat or poultry came from, using the USDA measured cooking yield. Use it to log a cooked portion against raw nutrition data (labels and most databases list raw meat) or to scale a recipe written in cooked weight. Returns raw weight in g, oz, lb and kg, and the raw weight if the yield was at the USDA high or low end."
+    },
+    {
+     "name": "calculate_raw_weight_to_buy",
+     "description": "How much raw meat or poultry to buy for a number of cooked servings, from the USDA cooking yield for that cut and method. Default cooked serving is 3 oz (85 g)."
+    },
+    {
+     "name": "find_cooking_yield",
+     "description": "Look up the USDA cooking yield percent for a cut of meat or poultry and a cooking method, with the yield range, sample count, moisture change and fat change measured by USDA, plus up to 4 close alternative rows with their yield_id."
+    },
+    {
+     "name": "list_cooking_yields",
+     "description": "List rows of the USDA Table of Cooking Yields for Meat and Poultry, filtered by category (beef, pork, poultry, chicken, turkey, lamb, veal, game, sausage) and cooking method."
+    }
+   ],
+   "example": {
+    "prompt": "How much does 1 lb of raw chicken breast weigh after roasting?",
+    "tool": "convert_raw_to_cooked",
+    "arguments": {
+     "food": "chicken breast",
+     "method": "roast",
+     "raw_weight": 1,
+     "unit": "lb"
+    },
+    "summary": "1 pound raw chicken, broiler-fryer, breast, meat and skin (baked or roasted, unspecified) cooks down to about 0.72 pounds (327 g) at the USDA cooking yield of 72%; USDA samples ranged 0.61-0.82 pounds. USDA yield is hot cooked weight divided by raw weight of the same piece, measured in USDA research kitchens; your result moves with doneness, trim, bone and pan juices.",
+    "as_of": "2014-09 (USDA Table of Cooking Yields for Meat and Poultry, Release 2; file checked 2026-11-03)",
+    "source": "https://www.ars.usda.gov/ARSUserFiles/80400535/Data/retn/USDA_CookingYields_MeatPoultry02.pdf",
+    "more": "https://recipetool.net/tools/raw-to-cooked-weight-calculator?utm_source=mcp&utm_medium=raw-to-cooked-weight-mcp",
+    "called_at": "2026-11-03T09:02:00Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1103/raw-to-cooked-weight-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/raw-to-cooked-weight-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/convert-raw-to-cooked-weight/",
+     "h1": "Can Claude convert raw to cooked weight?"
+    }
+   ]
+  },
+  {
+   "repo": "recipe-nutrition-calculator-mcp",
+   "repo_url": "https://github.com/theluckystrike/recipe-nutrition-calculator-mcp",
+   "hosted_url": "https://recipe-nutrition-calculator-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Recipe nutrition from ingredient lines: USDA FoodData Central values, per serving, FDA rounding.",
+   "license": "MIT",
+   "knows": [
+    "Exact USDA values. Each of the 406 ingredients carries the FoodData Central nutrient values and FDC id: 398 from SR Legacy and 8 from the April 2026 Foundation Foods release where that release has all eight nutrients. A model recalls nutrition roughly and changes its answer between runs.",
+    "Food-specific cup weights. A cup of flour is 125 g, packed brown sugar 220 g, shredded cheddar 113 g, chopped onion 160 g, whole milk 244 g. These are the USDA household measures for that food, not one density for everything.",
+    "The label rounding rules. Calories round to 5 up to 50 and to 10 above, fat to 0.5 g under 5 g, sodium to 5 mg up to 140 mg and to 10 mg above, with the \"less than 1g\" cases for carbohydrate, fiber, sugars and protein. Copied from the eCFR text of 21 CFR 101.9.",
+    "The current Daily Values. Fat 78 g, saturated fat 20 g, sodium 2,300 mg, carbohydrate 275 g, fiber 28 g, added sugars 50 g."
+   ],
+   "tools": [
+    {
+     "name": "lookup_ingredient_nutrition",
+     "description": "Returns USDA FoodData Central nutrient values per 100 g (calories, protein, total fat, saturated fat, carbohydrate, fiber, total sugars, sodium) for a common recipe ingredient, with its FDC id, the USDA household measures (1 cup, 1 tbsp, 1 large, 1 clove) in grams, and optionally the nutrients for an amount such as 1.5 cup or 3 large. 406 ingredients from SR Legacy and Foundation Foods, embedded, no API key. Use it instead of estimating nutrition from memory."
+    },
+    {
+     "name": "calculate_recipe_nutrition",
+     "description": "Parses ingredient lines (\"2 cups flour\", \"1 stick butter\" as 8 tbsp, \"3 large eggs\", \"1 lb ground beef\"), converts cups, spoons and counted items to grams with USDA household measure weights for that specific food, and sums USDA FoodData Central nutrients. Returns per-line grams and matches, recipe totals, per-serving values, and the per-serving values rounded by the FDA Nutrition Facts rules (21 CFR 101.9) with percent Daily Value. Lines it cannot match are listed, never guessed."
+    },
+    {
+     "name": "round_nutrition_label",
+     "description": "Applies the FDA Nutrition Facts rounding rules from 21 CFR 101.9(c) to unrounded per-serving values: calories (under 5 = 0, nearest 5 up to 50, nearest 10 above), fat and saturated fat (nearest 0.5 g under 5 g), sodium (nearest 5 mg up to 140 mg, nearest 10 above), carbohydrate, fiber, sugars, added sugars and protein (nearest gram, \"less than 1g\" rules). Adds percent Daily Value from the 2,000-calorie DRVs (fat 78 g, saturated fat 20 g, sodium 2,300 mg, carbohydrate 275 g, fiber 28 g, added sugars 50 g). Rules copied from the eCFR text."
+    },
+    {
+     "name": "scale_recipe_nutrition",
+     "description": "Scales ingredient lines by a factor or from original to target servings (parses mixed numbers and fraction characters), then recomputes total and per-serving nutrition with USDA FoodData Central values and FDA label rounding for the scaled recipe."
+    }
+   ],
+   "example": {
+    "prompt": "What are the calories per serving of this 12-serving cake recipe?",
+    "tool": "calculate_recipe_nutrition",
+    "arguments": {
+     "lines": [
+      "2 cups all-purpose flour",
+      "1/2 cup butter",
+      "1 cup sugar",
+      "2 large eggs",
+      "1 cup milk",
+      "2 tsp baking powder"
+     ],
+     "servings": 12
+    },
+    "summary": "Recipe of 6 lines (916.7 g matched): 2799.5 kcal total, 233.3 kcal per serving over 12 servings. Per serving: 3.9 g protein, 9.4 g fat, 33.8 g carbohydrate, 0.6 g fiber, 162.2 mg sodium. FDA label rounding gives 230 calories per serving. Every line was matched to a USDA FoodData Central food. Values are for the raw ingredients as listed; cooking losses and water evaporation are not modeled.",
+    "as_of": "2026-11-02",
+    "source": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+    "more": "https://recipetool.net/nutrition-calculator?utm_source=mcp&utm_medium=recipe-nutrition-calculator-mcp",
+    "called_at": "2026-11-03T09:02:07Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1102/recipe-nutrition-calculator-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/recipe-nutrition-calculator-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-recipe-nutrition/",
+     "h1": "Can Claude calculate calories and nutrition for a recipe?"
+    }
+   ]
+  },
+  {
+   "repo": "retirement-contribution-limits-2027-mcp",
+   "repo_url": "https://github.com/theluckystrike/retirement-contribution-limits-2027-mcp",
+   "hosted_url": "https://retirement-contribution-limits-2027-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "401(k), IRA, HSA limits, age 60-63 catch-up, Roth catch-up rule, Social Security COLA, 2025-2027.",
+   "license": "MIT",
+   "knows": [
+    "2026 limits (IRS Notice 2025-67): 401(k) $24,500, catch-up $8,000, age 60-63 catch-up $11,250, IRA $7,500 plus $1,100 at 50+, 415(c) $72,000, compensation limit $360,000.",
+    "2027 HSA limits (Rev. Proc. 2026-24): $4,500 self-only and $9,000 family, plus the $1,000 catch-up at 55.",
+    "2027 Social Security (SSA notice, Federal Register Oct. 26, 2026): COLA 3.6%, wage base $192,300, earnings test $25,560 under full retirement age and $67,920 in the year you reach it.",
+    "The age 60-63 catch-up applies only if you are 60, 61, 62 or 63 on December 31. At 64 you drop back to the regular catch-up.",
+    "Roth catch-up rule: from 2026, if your prior-year FICA wages from the employer were over $150,000, catch-ups must be Roth. The final regulations apply from 2027 (IR-2025-91).",
+    "The IRS had not announced the 2027 401(k), IRA or SIMPLE limits on 2026-11-02. The tools say so and point to 2026."
+   ],
+   "tools": [
+    {
+     "name": "get_contribution_limits",
+     "description": "Returns official IRS contribution limits for 2025, 2026 and 2027: 401(k)/403(b)/TSP and 457(b) elective deferral ($24,500 for 2026), age 50+ catch-up ($8,000 for 2026), the SECURE 2.0 age 60-63 super catch-up ($11,250), IRA limit and catch-up ($7,500 + $1,100 for 2026), SIMPLE limits, 415(c) total ($72,000), 401(a)(17) compensation limit, highly compensated employee threshold, Roth IRA phase-outs, HSA self/family limits (2027: $4,500 / $9,000, Rev. Proc. 2026-24) and the Social Security wage base (2027: $192,300). Also states the Roth catch-up rule status. Figures copied from IRS Notices 2024-80 and 2025-67 and the HSA Rev. Procs. 2027 plan and IRA limits were not yet announced on 2026-11-02 and the tool says so instead of guessing."
+    },
+    {
+     "name": "calculate_max_contribution",
+     "description": "Calculates the most a person can contribute for a year given age (on Dec. 31), plans held (401k, 403b, 457b, tsp, simple, ira, hsa_self, hsa_family) and optional wages. Applies the age 50+ catch-up, the SECURE 2.0 age 60-63 super catch-up (eligible only if age 60, 61, 62 or 63 at year end; 64 drops back), the HSA $1,000 catch-up at 55, the shared 402(g) limit across 401(k)/403(b)/TSP/SIMPLE, the separate 457(b) limit, and the compensation cap. With prior_year_fica_wages it tells whether catch-ups must be Roth under SECURE 2.0 section 603 (2026: over $150,000 of 2025 FICA wages)."
+    },
+    {
+     "name": "get_social_security_cola",
+     "description": "Returns the Social Security cost-of-living adjustment and related figures from SSA's official annual notice in the Federal Register: 2027 COLA 3.6% (announced October 2026), 2027 taxable maximum (wage base) $192,300, retirement earnings test limits ($25,560 under full retirement age, $67,920 in the year you reach it, for 2027), quarter of coverage, SGA amounts and SSI federal payment. Covers 2025, 2026 and 2027."
+    },
+    {
+     "name": "compare_years",
+     "description": "Shows each retirement, IRA, HSA and Social Security figure for two years side by side with the dollar and percent change: 401(k) deferral, catch-ups, 415(c), compensation limit, HCE threshold, SIMPLE, IRA, Roth catch-up threshold, HSA, wage base, earnings test and COLA. Items the IRS has not yet published (2027 plan limits on 2026-11-02) come back as null, never estimated."
+    }
+   ],
+   "example": {
+    "prompt": "What are the 401(k), IRA and HSA contribution limits for 2027?",
+    "tool": "get_contribution_limits",
+    "arguments": {
+     "year": 2027
+    },
+    "summary": "2027 limits: HSA $4,500 self-only / $9,000 family plus $1,000 at 55+; Social Security wage base $192,300. The IRS has not announced the 2027 401(k), 403(b), 457, IRA, SIMPLE, 415(c), compensation or HCE limits. On 2026-11-02 the IRS news release list ran through IR-2026-129 (Oct. 29, 2026) with no cost-of-living notice for 2027 (the 2026 notice, IR-2025-111 / Notice 2025-67, came out in November 2025). This server does not guess or forecast. Use 2026 as the latest published year.\n\nThis is general information, not tax or financial advice. Your plan document may allow less (for example no age 60-63 catch-up). Check with your plan administrator or a tax professional.",
+    "as_of": "2026-11-02",
+    "source": "https://www.irs.gov/newsroom/news-releases-for-current-month (checked 2026-11-02: no 2027 notice yet)",
+    "more": "https://statewage.com/401k-paycheck-calculator/?utm_source=mcp&utm_medium=retirement-contribution-limits-2027-mcp",
+    "called_at": "2026-11-03T09:02:15Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1102/retirement-contribution-limits-2027-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/retirement-contribution-limits-2027-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/look-up-401k-limits/",
+     "h1": "Can Claude look up the 2027 401(k) limits?"
+    }
+   ]
+  },
+  {
+   "repo": "river-level-mcp",
+   "repo_url": "https://github.com/theluckystrike/river-level-mcp",
+   "hosted_url": "https://river-level-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Live US river levels, streamflow and NWS flood forecasts from USGS stream gauges.",
+   "license": "MIT",
+   "knows": [
+    "Today's river level. Gauges report every 5 to 60 minutes and a river can rise 10 feet in a day. A model's training data is months old.",
+    "Whether a river is near flood stage right now, using the NWS action, minor, moderate and major flood stages for that gauge.",
+    "The latest NWS river forecast and its crest, reissued several times a day.",
+    "The new USGS Water Data API. The legacy waterservices.usgs.gov service shuts down on February 22, 2027, so code that calls it will stop working. This server already uses api.waterdata.usgs.gov."
+   ],
+   "tools": [
+    {
+     "name": "find_river_gauges",
+     "description": "Search USGS stream gauges nationwide by river and place name (for example \"mississippi st louis\", \"potomac little falls\"), by state, or within a radius of a latitude and longitude. Returns site numbers with whether each is reporting now and its latest stage and flow, active gauges first."
+    },
+    {
+     "name": "get_river_level",
+     "description": "Current river stage (gage height in feet), streamflow (discharge in cubic feet per second) and water temperature where measured, read now from a USGS stream gauge (readings every 5 to 60 minutes). Adds the NWS flood stages (action, minor, moderate, major), the current flood category, feet below flood stage and the record crest when the gauge is an NWS forecast point. Flags readings over 48 hours old. Your training data cannot know today's river level."
+    },
+    {
+     "name": "get_river_history",
+     "description": "Daily mean streamflow (default) or stage for a USGS gauge over the last 2 to 366 days, with first, last, low, high, mean and change. Use it for trend, drought and \"is the river rising\" questions. Many gauges publish daily means for discharge only."
+    },
+    {
+     "name": "get_flood_forecast",
+     "description": "The current NOAA National Water Prediction Service river forecast for a gauge: the forecast stage and flow series, the forecast crest with its flood category, the latest observation, flood stages and the record crest. Works for NWS forecast points (accepts the NWS id or the USGS site number). Forecasts are reissued several times a day."
+    }
+   ],
+   "example": {
+    "prompt": "What is the Mississippi River level at St. Louis right now?",
+    "tool": "get_river_level",
+    "arguments": {
+     "site": "07010000"
+    },
+    "summary": "Mississippi River at St. Louis, MO (USGS 07010000): gage height (river stage) 3.59 ft, discharge (streamflow) 126,000 ft3/s, measured 2026-11-03T08:30:00+00:00. NWS flood status: below flood stage, 26.41 ft below flood stage (30 ft). USGS real-time data are provisional and can be revised.",
+    "as_of": "2026-11-03T08:30:00+00:00",
+    "source": "https://waterdata.usgs.gov/monitoring-location/USGS-07010000/",
+    "more": "https://lakelevelnow.com/?utm_source=mcp&utm_medium=river-level-mcp",
+    "called_at": "2026-11-03T09:02:26Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1103/river-level-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/river-level-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/check-river-levels/",
+     "h1": "Can Claude check river levels?"
+    }
+   ]
+  },
+  {
+   "repo": "sat-score-percentiles-mcp",
+   "repo_url": "https://github.com/theluckystrike/sat-score-percentiles-mcp",
+   "hosted_url": "https://sat-score-percentiles-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "SAT score percentiles and class of 2026 SAT averages and participation by state (College Board).",
+   "license": "MIT",
+   "knows": [
+    "Class of 2026 SAT results, published by College Board in fall 2026: 1,954,833 test takers nationally with a mean total of 1045 (528 Reading and Writing, 517 Math), and the same figures for every state.",
+    "Each state's participation rate, which explains most of the gap between state averages. States that test every 11th grader have lower means than states where only college-bound students test.",
+    "The 25th, 50th and 75th percentile SAT scores for each state's class of 2026.",
+    "The exact College Board percentile for every 10-point score, in both reference groups, instead of a rounded guess."
+   ],
+   "tools": [
+    {
+     "name": "get_sat_percentile",
+     "description": "Percentile rank of a digital SAT total score (400-1600) or section score (200-800, Reading and Writing or Math), from the College Board percentile tables: the user group percentile (actual SAT takers, past three graduating classes) and the nationally representative percentile (all US 11th and 12th graders). Also compares the score with the class of 2026 national mean (1,954,833 test takers) and score band."
+    },
+    {
+     "name": "get_score_for_sat_percentile",
+     "description": "The lowest SAT total or section score whose College Board percentile is at or above a target (for example the 75th or 90th percentile), for the user group (SAT takers) or the nationally representative group."
+    },
+    {
+     "name": "get_sat_scores_by_state",
+     "description": "Class of 2026 SAT results for one state, DC, Puerto Rico or the US Virgin Islands from the College Board 2026 SAT Suite Annual Report state supplement: test takers, participation rate, mean total, Reading and Writing and Math scores, percent meeting college readiness benchmarks, 25th/50th/75th percentile scores, rank by mean, and the national comparison."
+    },
+    {
+     "name": "rank_states_by_sat",
+     "description": "Rank the 50 states and DC by class of 2026 SAT mean total, mean Math, mean Reading and Writing, participation rate, percent meeting both benchmarks, or number of test takers. Use min_participation_pct (for example 50) to compare only states where most students take the SAT, since low-participation states have higher means."
+    }
+   ],
+   "example": {
+    "prompt": "What percentile is a 1350 on the SAT?",
+    "tool": "get_sat_percentile",
+    "arguments": {
+     "score": 1350,
+     "section": "total"
+    },
+    "summary": "An SAT total score of 1350 is at the 89th percentile of recent SAT takers (College Board user group percentile) and the 94th percentile of all US 11th and 12th graders (nationally representative percentile). It is 305 points above the class of 2026 mean of 1045 (1,954,833 test takers). 19% of the class of 2026 (377,381 students) scored 1200-1390.",
+    "as_of": "2026-11-03",
+    "source": "https://research.collegeboard.org/reports/sat-suite/understanding-scores/sat",
+    "more": "https://examscorecalc.com/digital-sat-score-calculator/?utm_source=mcp&utm_medium=sat-score-percentiles-mcp",
+    "called_at": "2026-11-03T09:02:33Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1103/sat-score-percentiles-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/sat-score-percentiles-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/look-up-sat-percentiles/",
+     "h1": "Can Claude tell me my SAT percentile?"
+    }
+   ]
+  },
+  {
+   "repo": "section-179-deduction-calculator-mcp",
+   "repo_url": "https://github.com/theluckystrike/section-179-deduction-calculator-mcp",
+   "hosted_url": "https://section-179-deduction-calculator-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Section 179 limits, 100% bonus depreciation, heavy SUV caps and asset loan cost (2025-2026, IRS).",
+   "license": "MIT",
+   "knows": [
+    "The One Big Beautiful Bill Act raised the Section 179 limit to $2,500,000 for 2025. Rev. Proc. 2025-32 set $2,560,000 and a $4,090,000 phase-out start for 2026.",
+    "Bonus depreciation is 100% again, permanently, for property acquired after January 19, 2025. The acquisition date is the date of a written binding contract, not delivery.",
+    "Property acquired on or before January 19, 2025 and placed in service in 2025 gets 40%, not 100% (60% for long production property).",
+    "In the first tax year ending after January 19, 2025 you can elect 40% instead of 100%.",
+    "The 2026 heavy SUV cap is $32,000, and the 2026 first-year cap on a car of 6,000 lb or less is $20,300 with bonus (Rev. Proc. 2026-15).",
+    "The IRS has not published the 2027 limits yet (checked 2026-11-02). The tools say so instead of guessing."
+   ],
+   "tools": [
+    {
+     "name": "calculate_section_179",
+     "description": "Calculates the Section 179 expense deduction as Form 4562 Part I does, with the limits raised by the One Big Beautiful Bill Act: $2,500,000 for 2025 with a dollar-for-dollar phase-out above $4,000,000 of section 179 property (2025 Form 4562 instructions, Pub. 946), and $2,560,000 / $4,090,000 for 2026 (Rev. Proc. 2025-32 section 4.24). Applies the business income limit and reports the carryover. 2027 limits are not published yet (checked 2026-11-02) and the tool says so."
+    },
+    {
+     "name": "calculate_bonus_depreciation",
+     "description": "Finds the special (bonus) depreciation rate under IRC 168(k) from the acquisition and placed-in-service dates and applies it after any Section 179 deduction. The One Big Beautiful Bill Act made it 100% permanently for property acquired after January 19, 2025 (written binding contract date), with an election to take 40% (60% for long production property and certain aircraft) in the first tax year ending after that date. Property acquired before January 20, 2025 keeps the TCJA phase-down: 40% if placed in service in 2025 (60% long production). Rules from IRS Notice 2026-11, the 2025 Form 4562 instructions and Pub. 946."
+    },
+    {
+     "name": "get_vehicle_depreciation_limits",
+     "description": "Returns the first-year write-off limits for a business vehicle by gross vehicle weight rating: passenger automobiles of 6,000 lb or less are held to the IRC 280F caps ($20,300 first year with bonus, $12,300 without, for 2026 per Rev. Proc. 2026-15; $20,200 / $12,200 for 2025 per Rev. Proc. 2025-16), heavy SUVs over 6,000 and up to 14,000 lb have a Section 179 cap of $31,300 (2025) or $32,000 (2026) with bonus depreciation for the rest, and vehicles over 14,000 lb or exempt designs have no vehicle cap. Applies the more-than-50% business use rule and scales by business use."
+    },
+    {
+     "name": "calculate_asset_loan_payment",
+     "description": "Calculates the exact monthly payment, total interest and first-year interest for an equipment, truck, tractor, RV, land, manufactured home, ATV, pontoon or other asset loan, and, for business assets, the after-tax cost: first-year tax saving from the Section 179 or bonus deduction plus deductible interest at your marginal rate, first-year net cash, and lifetime after-tax cost. Pair it with calculate_section_179 for the deduction amount."
+    }
+   ],
+   "example": {
+    "prompt": "I bought $180,000 of equipment in 2026 and my business income is $250,000. How much can I expense under Section 179?",
+    "tool": "calculate_section_179",
+    "arguments": {
+     "tax_year": 2026,
+     "total_section_179_property_cost": 180000,
+     "business_taxable_income": 250000
+    },
+    "summary": "2026 Section 179 limit $2,560,000. Property cost $180,000 is under the $4,090,000 threshold, so the full limit applies. Elected $180,000. Deduction this year $180,000.\n\nThis is an estimate, not tax advice. Check Form 4562, its instructions and Pub. 946, or ask a tax professional before you file.",
+    "as_of": "2026-11-02",
+    "source": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+    "more": "https://assetloancalculator.com/section-179-deduction-calculator/?utm_source=mcp&utm_medium=section-179-deduction-calculator-mcp",
+    "called_at": "2026-11-03T09:02:39Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1102/section-179-deduction-calculator-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/section-179-deduction-calculator-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-section-179-deduction/",
+     "h1": "Can Claude calculate a Section 179 deduction?"
+    }
+   ]
+  },
+  {
+   "repo": "silver-price-per-gram-mcp",
+   "repo_url": "https://github.com/theluckystrike/silver-price-per-gram-mcp",
+   "hosted_url": "https://silver-price-per-gram-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Live silver price per gram by fineness and currency, junk silver coin value, gold silver ratio.",
+   "license": "MIT",
+   "knows": [
+    "Today's silver price. Spot moves every minute and a model's training data is months old.",
+    "Today's exchange rate for EUR, GBP, INR, CAD, MXN and about 150 more currencies.",
+    "Exact coin silver content from statute. A 1965 to 1970 Kennedy half holds 4.6 g of silver (Coinage Act of 1965), not the 90% of earlier halves. One dollar face of pre-1965 dimes, quarters or halves holds 22.5 g, which is 0.723392 troy ounces.",
+    "What the words mean. \"Sterling\" needs at least 925 parts per thousand of silver and \"coin silver\" at least 900 (16 CFR 23.5). Britannia silver is 958.4 (UK Hallmarking Act 1973).",
+    "Exact units. A troy ounce is 31.1034768 g (NIST Handbook 44). A kitchen-scale ounce is 28.349523125 g. Mixing them up is a 9.7% error."
+   ],
+   "tools": [
+    {
+     "name": "get_silver_price_per_gram",
+     "description": "Today's silver price per gram, per troy ounce, per kilogram and per tola, read live from the silver spot market, for fine .999, Britannia .9584, sterling .925, coin .900 and 800 silver, in any of about 160 currencies (central-bank FX). Returns the spot time stamp, FX date and sources. Your training data cannot know today's silver price. Omit fineness to get every grade."
+    },
+    {
+     "name": "calculate_silver_value",
+     "description": "Melt value of a silver item (sterling flatware, tea set, jewellery, bar, round, scrap) from its weight, unit and fineness at the live silver spot price, in any currency. Optional dealer_spread_percent returns the likely buyer offer. Sterling means at least 925/1000 silver under 16 CFR 23.5. Default fineness is sterling."
+    },
+    {
+     "name": "calculate_junk_silver_value",
+     "description": "Melt value of US silver coins at the live silver spot: pre-1965 90% dimes, quarters and halves, 1965-1970 40% Kennedy halves (4.6 g silver, Coinage Act of 1965), 1942-1945 35% war nickels, Morgan and Peace dollars and American Silver Eagles. Pass coins with counts, or face_value_90 for a bag of mixed 90% coin (1 dollar face = 22.5 g silver). Returns silver ounces per coin, totals and melt per dollar face."
+    },
+    {
+     "name": "get_gold_silver_ratio",
+     "description": "Live gold to silver ratio (ounces of silver one ounce of gold buys), with both spot prices per troy ounce and per gram in any currency. Read now from the spot feed; the ratio moves every minute."
+    }
+   ],
+   "example": {
+    "prompt": "What is the silver price per gram right now?",
+    "tool": "get_silver_price_per_gram",
+    "arguments": {},
+    "summary": "Fine silver .999 (bullion bars and rounds) is 1.5667 USD per gram (48.73 USD per troy ounce, 1,566.68 USD per kilogram) at a silver spot of 48.78 USD per troy ounce of pure silver, as of 2026-11-03T09:02:25Z. Per gram by grade: 958.4 1.5030 USD, 925 1.4506 USD, 900 1.4114 USD, 800 1.2546 USD. Melt (spot) value only. Dealers sell bullion and coins above spot (premium) and buy below it; numismatic coins can be worth far more than melt.",
+    "as_of": "2026-11-03T09:02:25Z",
+    "source": "https://gold-api.com/",
+    "more": "https://goldgramprice.com/silver-price-per-gram/?utm_source=mcp&utm_medium=silver-price-per-gram-mcp",
+    "called_at": "2026-11-03T09:02:46Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1103/silver-price-per-gram-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/silver-price-per-gram-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/check-silver-price/",
+     "h1": "Can Claude check the current silver price?"
+    }
+   ]
+  },
+  {
+   "repo": "social-security-cola-2027-mcp",
+   "repo_url": "https://github.com/theluckystrike/social-security-cola-2027-mcp",
+   "hosted_url": "https://social-security-cola-2027-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Social Security COLA 2027, full retirement age, earnings test and 2027 limits from SSA notices.",
+   "license": "MIT",
+   "knows": [
+    "The 2027 COLA (3.6 percent) and the 2027 amounts. SSA published them on 2026-10-26, after most models were trained.",
+    "The full retirement age rules as written. A January 1 birthday counts as the year before. You reach an age the day before your birthday. Before full retirement age you must be 62 for the whole month, so most people start the month after they turn 62.",
+    "The exact reduction and delayed-credit arithmetic with SSA rounding. The two worked examples in 20 CFR 404.410 and 404.313 are test fixtures."
+   ],
+   "tools": [
+    {
+     "name": "get_social_security_cola",
+     "description": "Social Security cost-of-living adjustment (COLA) for a payable year, from the SSA \"Cost-of-Living Increase and Other Determinations\" notice in the Federal Register. The 2027 COLA is 3.6 percent (effective December 2026, paid January 2027, published 2026-10-26). Also returns the COLA history back to 1996. Without a year it checks the Federal Register API for a newer notice."
+    },
+    {
+     "name": "calculate_cola_increase",
+     "description": "Apply a year's Social Security COLA to a monthly benefit. Rounds down to the next lower 10 cents and shows the whole-dollar payment, as SSA does. Default year 2027 (3.6 percent)."
+    },
+    {
+     "name": "get_full_retirement_age",
+     "description": "Full retirement age for Social Security from a birth date (20 CFR 404.409, including the January 1 rule and the day-before-birthday rule), the exact date and month it is reached, the earliest month benefits can start at 62 and the percent cut, the spouse percent at 62, delayed retirement credits to age 70 and the survivor full retirement age."
+    },
+    {
+     "name": "calculate_claiming_age_benefit",
+     "description": "Monthly Social Security retirement benefit if claimed at a given age between 62 and 70, from the full-retirement-age amount (PIA). Uses 5/9 of 1 percent a month for the first 36 early months, 5/12 of 1 percent after that, and 2/3 of 1 percent a month of delayed credits for people born after 1942, with SSA dime rounding."
+    },
+    {
+     "name": "get_social_security_limits",
+     "description": "Social Security program amounts for 2023 to 2027 from the Federal Register notices: maximum taxable earnings (2027: $192,300), retirement earnings test limits (2027: $25,560 and $67,920), earnings per work credit, substantial gainful activity, trial work month, maximum federal SSI and PIA bend points."
+    },
+    {
+     "name": "calculate_earnings_test",
+     "description": "How much Social Security withholds under the retirement earnings test for a year and annual earnings: $1 for every $2 over the limit, or $1 for every $3 in the year you reach full retirement age."
+    }
+   ],
+   "example": {
+    "prompt": "What is the Social Security COLA for 2027?",
+    "tool": "get_social_security_cola",
+    "arguments": {},
+    "summary": "The Social Security cost-of-living adjustment paid from January 2027 is 3.6 percent. It applies to December 2026 benefits and to SSI payments for January 2027. SSA published it in the Federal Register on 2026-10-26 (document 2026-21796).",
+    "as_of": "2026-11-05",
+    "source": "https://www.federalregister.gov/d/2026-21796",
+    "more": "https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=social-security-cola-2027-mcp",
+    "called_at": "2026-11-05T14:15:25Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1105/reports/sat-evidence-1105/social-security-cola-2027-mcp-remote.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/social-security-cola-2027-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/check-the-social-security-cola-2027/",
+     "h1": "Can Claude tell me the Social Security COLA for 2027?"
+    }
+   ]
+  },
+  {
+   "repo": "student-loan-repayment-assistance-plan-calculator-mcp",
+   "repo_url": "https://github.com/theluckystrike/student-loan-repayment-assistance-plan-calculator-mcp",
+   "hosted_url": "https://student-loan-repayment-assistance-plan-calculator-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.1",
+   "description": "Student loan RAP payment calculator, 2026 federal loan limits, SAVE/PAYE/ICR end dates (OBBBA).",
+   "license": "MIT",
+   "knows": [
+    "RAP base payment is a percent of the whole AGI by band: $120 a year at $10,000 or less, then 1% (over $10,000) up to 10% (over $100,000). Divide by 12, subtract $50 per dependent, and never pay less than $10.",
+    "Because the percent applies to all of AGI, $50,001 pays 5% ($208.34 a month) while $50,000 pays 4% ($166.67).",
+    "On-time RAP payments that do not cover the month's interest: the unpaid interest is not charged. If principal drops by less than $50, the Department adds a match so it drops by the lesser of $50 or the payment.",
+    "The remaining balance is cancelled after 360 qualifying payments. On-time RAP payments and 10-year Standard payments count for PSLF (HEA 455(m)(1)(A) as amended by P.L. 119-21 sec. 82004). The Tiered Standard plan does not (StudentAid.gov).",
+    "Tiered Standard: 10 years under $25,000, 15 under $50,000, 20 under $100,000, 25 at $100,000 or more.",
+    "From July 1, 2026: Grad PLUS ends for new borrowers, graduate loans cap at $20,500 a year and $100,000, professional at $50,000 and $200,000, Parent PLUS at $20,000 a year and $65,000 per student, and $257,500 lifetime.",
+    "A court order ended SAVE in March 2026. Servicers send 90-day notices from July 1, 2026, then a final 30-day notice. PAYE and ICR end no later than July 1, 2028, when remaining borrowers go to RAP or IBR."
+   ],
+   "tools": [
+    {
+     "name": "calculate_rap_payment",
+     "description": "Calculates the federal student loan Repayment Assistance Plan (RAP) payment created by the One Big Beautiful Bill Act (P.L. 119-21, HEA sec. 455(q)), open since July 1, 2026. Base payment is 1% to 10% of the WHOLE AGI by $10,000 band ($120 a year flat at $10,000 or less, 10% above $100,000), divided by 12, minus $50 per dependent, never below $10. With balance and rate it also shows the first month: interest paid first, unpaid interest waived (interest subsidy), the up-to-$50 principal match, and a constant-income projection to payoff or cancellation after 360 qualifying payments. Copied from the statute text, not model memory."
+    },
+    {
+     "name": "compare_rap_vs_standard",
+     "description": "Compares the new Repayment Assistance Plan with the Tiered Standard plan (P.L. 119-21: 10 years under $25,000, 15 under $50,000, 20 under $100,000, 25 at $100,000 or more) and, for borrowers with no loan made on or after July 1, 2026, the 10-year Standard plan. Returns monthly payment, months, total paid, interest waived, principal match and the amount cancelled after 360 RAP payments, assuming constant income and on-time payments. Names the plan with the lowest monthly payment and the lowest total paid across all plans shown, and says which count for PSLF (RAP and 10-year Standard yes, Tiered Standard no; HEA 455(m)(1)(A))."
+    },
+    {
+     "name": "get_federal_loan_limits",
+     "description": "Returns federal Direct Loan borrowing limits in force on a date. From July 1, 2026 (P.L. 119-21 sec. 81001): Grad PLUS ends for new borrowers; graduate unsubsidized $20,500 a year / $100,000 aggregate; professional $50,000 a year / $200,000 aggregate; Parent PLUS $20,000 a year and $65,000 total per dependent student across all parents; $257,500 lifetime cap; less-than-full-time proration; the interim exception for students enrolled with a loan on June 30, 2026. Undergraduate limits ($5,500-$7,500 dependent, $9,500-$12,500 independent) from the FSA Handbook."
+    },
+    {
+     "name": "get_plan_transition_dates",
+     "description": "Lists the dated steps of the federal student loan repayment overhaul: SAVE ended by court order (March 2026) with 90-day servicer notices from July 1, 2026 plus a final 30-day notice; RAP and the Tiered Standard plan from July 1, 2026; deferment and forbearance limits on loans from July 1, 2027; PAYE and ICR end and remaining borrowers move to RAP or IBR on July 1, 2028; the Parent PLUS consolidation deadline of June 30, 2028. Marks each as past or upcoming against a date and gives the current status of every plan."
+    }
+   ],
+   "example": {
+    "prompt": "I owe $38,000 at 6.5%, AGI $52,000, one dependent. What would I pay on RAP compared with the standard plan?",
+    "tool": "compare_rap_vs_standard",
+    "arguments": {
+     "balance": 38000,
+     "rate": 6.5,
+     "agi": 52000,
+     "dependents": 1
+    },
+    "summary": "For $38,000.00 at 6.5% and AGI $52,000.00: RAP $166.67 a month, $19,869.14 cancelled after 360 payments, total $60,001.20. Tiered Standard (15 years) $331.02 a month, total $59,583.79. 10-year Standard $431.48 a month, total $51,778.01. Lowest monthly payment: RAP. Lowest total paid: 10-year Standard. RAP and the 10-year Standard plan count toward PSLF; Tiered Standard does not.\n\nGeneral information, not financial or legal advice. Your servicer computes the official payment from your certified income and loan records. Use the StudentAid.gov Loan Simulator to confirm.",
+    "as_of": "2026-11-02",
+    "source": "https://www.govinfo.gov/content/pkg/PLAW-119publ21/html/PLAW-119publ21.htm",
+    "more": "https://www.mcpstamp.com/free-servers/?utm_source=mcp&utm_medium=student-loan-repayment-assistance-plan-calculator-mcp",
+    "called_at": "2026-11-03T09:02:53Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1102/student-loan-repayment-assistance-plan-calculator-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/student-loan-repayment-assistance-plan-calculator-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-rap-student-loan-payment/",
+     "h1": "Can Claude calculate a RAP student loan payment?"
+    }
+   ]
+  },
+  {
+   "repo": "subdomain-finder-mcp",
+   "repo_url": "https://github.com/theluckystrike/subdomain-finder-mcp",
+   "hosted_url": "https://subdomain-finder-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Passive subdomain enumeration from certificate transparency (certspotter, crt.sh) with DNS checks.",
+   "license": "MIT",
+   "knows": [
+    "A domain's current subdomains. New hosts appear in CT logs within minutes of getting a certificate; a model's training data is months old and never had most of them.",
+    "Which hosts resolve right now, which CNAMEs point at a deleted cloud resource, and whether the zone has wildcard DNS.",
+    "Certificate history: when each name first got a certificate, which CAs issued it, and when the current one expires.",
+    "How to read CT data cleanly: precertificate and certificate rows merged, e-mail SANs and out-of-scope names dropped, `*.` entries reported as wildcards instead of hosts."
+   ],
+   "tools": [
+    {
+     "name": "find_subdomains",
+     "description": "Passive subdomain enumeration for a domain from live certificate transparency logs: certspotter (unexpired certificates) with crt.sh as fallback or for expired history. Returns deduplicated hostnames with first seen and last seen issuance dates, certificate count, issuers and whether a wildcard certificate covers the name, plus the list of wildcard entries. Set resolve=true to also check the first 40 names with DNS over HTTPS and mark live hosts. Passive lookup of public certificate transparency logs; nothing is sent to the target. Use it on assets you own or are authorised to test."
+    },
+    {
+     "name": "resolve_subdomains",
+     "description": "Resolve up to 40 hostnames now through Cloudflare DNS over HTTPS (A, AAAA and the CNAME chain). Each host is marked live, nxdomain, no_records or dangling_cname (a CNAME whose target does not exist, a subdomain takeover lead), and CNAME targets on cloud platforms (S3, Azure, Heroku, GitHub Pages, Netlify, Vercel and others) are named. Also probes a random label per parent domain to detect wildcard DNS. DNS lookups only; no connection is made to the hosts."
+    },
+    {
+     "name": "get_certificate_history",
+     "description": "Certificates logged in certificate transparency for one hostname (or a whole domain with include_subdomains): issuer organisation and DN, not_before and not_after dates, every SAN on the certificate, revocation status and SHA-256 where certspotter has them. Summarises first and last issuance and the issuers used, which shows CA changes and renewal cadence. Default source certspotter (unexpired); include_expired uses crt.sh for the full history."
+    },
+    {
+     "name": "summarize_attack_surface",
+     "description": "Reads a domain's subdomains from live certificate transparency and groups them for recon triage: development and test, staging, admin and internal tools, APIs, authentication, mail, remote access (VPN), storage and CDN, legacy and backup. Each group has a count, examples and why it matters. Also returns naming clusters (for example *.eu.example.com), certificate issuers in use, wildcard entries and the 10 newest names. Passive only."
+    }
+   ],
+   "example": {
+    "prompt": "Which subdomains of zovo.one show up in certificate transparency logs?",
+    "tool": "find_subdomains",
+    "arguments": {
+     "domain": "zovo.one",
+     "limit": 20
+    },
+    "summary": "101 unique hostnames under zovo.one in 218 certificates from certspotter (first 3 pages only; raise max_pages for more). 100 wildcard entries (*.anon.zovo.one, *.ar-aging.zovo.one, *.avery-labels.zovo.one, ...), so some hosts will never appear in CT. Newest: ar-aging.zovo.one (2026-10-26), cap-table.zovo.one (2026-10-26), client-report.zovo.one (2026-10-26), depreciation.zovo.one (2026-10-26), gradebook.zovo.one (2026-10-26). Showing 20 of 101. certspotter lists unexpired certificates only. Use source \"crtsh\" with include_expired for older names.",
+    "as_of": "2026-11-03T09:02:59.727Z",
+    "source": "https://api.certspotter.com/v1/issuances?domain=zovo.one&include_subdomains=true&expand=dns_names&expand=issuer",
+    "more": "https://bugbountyreality.com/tools/subdomain-finder-real/?utm_source=mcp&utm_medium=subdomain-finder-mcp",
+    "called_at": "2026-11-03T09:02:59Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1102/subdomain-finder-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/subdomain-finder-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/find-subdomains/",
+     "h1": "Can Claude find the subdomains of a website?"
+    }
+   ]
+  },
+  {
+   "repo": "uk-income-tax-salary-mcp",
+   "repo_url": "https://github.com/theluckystrike/uk-income-tax-salary-mcp",
+   "hosted_url": "https://uk-income-tax-salary-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "UK income tax and take-home pay 2025/26 and 2026/27: Scottish bands, NI, student loans, 60% trap.",
+   "license": "MIT",
+   "knows": [
+    "The 2026/27 Scottish bands. The starter band now runs to £16,537 and the basic band to £29,526 (2025/26: £15,397 and £27,491).",
+    "The 2026/27 student loan thresholds: Plan 1 £26,900, Plan 2 £29,385, Plan 4 £33,795, Postgraduate £21,000, and the first Plan 5 threshold of £25,000. Plan 5 has no threshold in 2025/26.",
+    "The 2026/27 NI lower earnings limit of £6,708 and the 8% / 2% employee rates by category letter.",
+    "The taper takes £1 of allowance for every complete £2 over £100,000. That makes the marginal rate 62% in England with NI, and 69.5% in Scotland's 45% advanced band.",
+    "With relief at source you pay 80% and claim the rest above 20% yourself, and the grossed-up contribution lowers adjusted net income for the taper. Salary sacrifice also cuts NI and student loan.",
+    "Several student loan plans repay 9% over the lowest threshold, plus 6% over the Postgraduate threshold, as gov.uk describes."
+   ],
+   "tools": [
+    {
+     "name": "calculate_uk_take_home",
+     "description": "Calculates UK take-home pay for an employee in tax year 2025/26 or 2026/27 from HMRC's published rates: income tax by band (England, Wales and NI, or the six Scottish bands incl. the 2026/27 Scottish starter and basic bands), employee Class 1 National Insurance (8% / 2%), student loan repayments (Plan 1, 2, 4, 5 and Postgraduate, with 2026/27 thresholds), and pension by salary sacrifice or relief at source. Applies the Personal Allowance taper above £100,000 (£1 per £2, the 60% trap) and reads tax codes such as 1257L, S1257L, K475, BR and D0. Returns net pay a year, a month and a week. Figures copied from gov.uk and HMRC in Oct 2026."
+    },
+    {
+     "name": "get_uk_tax_bands",
+     "description": "Returns the official UK income tax bands for 2025/26 or 2026/27, for England, Wales and Northern Ireland or for Scotland (starter 19%, basic 20%, intermediate 21%, higher 42%, advanced 45%, top 48%), both as taxable-income bands from HMRC's employer tables and as gross-salary bands with the standard £12,570 allowance. Also returns the £100,000 allowance taper, Class 1 NI thresholds and employee rates by category letter, and student loan thresholds for each plan. A figure that is not published is marked unannounced, never guessed. Copied from gov.uk and HMRC in Oct 2026."
+    },
+    {
+     "name": "compare_salaries",
+     "description": "Compares 1 to 5 UK gross salaries after income tax, National Insurance, student loan and pension for 2025/26 or 2026/27, with the same region, tax code and options for each. Shows net pay a year, month and week, effective and marginal rates, and how much of each pay rise you keep compared with the first salary. Shows when a rise lands in the £100,000 to £125,140 Personal Allowance taper (60% in England, 69.5% in Scotland in 2026/27 with NI). Uses HMRC 2025/26 and 2026/27 rates fetched in Oct 2026."
+    },
+    {
+     "name": "marginal_rate_at_income",
+     "description": "Returns the true UK marginal rate on the next pounds of salary in 2025/26 or 2026/27: income tax band rate, employee NI and student loan together, plus the Personal Allowance taper between £100,000 and £125,140 that makes it 60% plus NI in England, Wales and NI and 67.5% plus NI in Scotland's advanced band. Handles salary sacrifice, relief at source, Scottish bands and tax codes. Measured as the change in deductions over the next `step` pounds (default £100). Rates from gov.uk and HMRC, fetched Oct 2026."
+    }
+   ],
+   "example": {
+    "prompt": "What is my take-home pay on a 45,000 pound salary in England for 2026/27?",
+    "tool": "calculate_uk_take_home",
+    "arguments": {
+     "gross_salary": 45000,
+     "tax_year": "2026/27"
+    },
+    "summary": "On £45,000 in 2026/27 (England, Wales or NI, code 1257L) take-home pay is £35,919.60 a year, £2,993.30 a month or £690.76 a week. Income tax £6,486, National Insurance £2,594.40.\n\nEstimate for one employment, worked out on annual figures. Payroll works per pay period, so a payslip can differ by a few pounds. Not tax advice.",
+    "as_of": "2026-10-30",
+    "source": "https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027 ; https://www.gov.uk/income-tax-rates ; https://www.gov.uk/national-insurance-rates-letters",
+    "more": "https://ukmoneycalc.com/calculators/take-home-pay/?utm_source=mcp&utm_medium=uk-income-tax-salary-mcp",
+    "called_at": "2026-11-03T09:03:06Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1030/uk-income-tax-salary-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/uk-income-tax-salary-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-uk-take-home-pay/",
+     "h1": "Can Claude work out UK take-home pay for 2026/27?"
+    }
+   ]
+  },
+  {
+   "repo": "uk-statutory-sick-pay-maternity-pay-calculator-mcp",
+   "repo_url": "https://github.com/theluckystrike/uk-statutory-sick-pay-maternity-pay-calculator-mcp",
+   "hosted_url": "https://uk-statutory-sick-pay-maternity-pay-calculator-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "UK Statutory Sick Pay (April 2026 rules), Maternity Pay and National Living Wage from gov.uk.",
+   "license": "MIT",
+   "knows": [
+    "From 6 April 2026 the Employment Rights Act 2025 (ss.10 and 11, commenced by SI 2026/373) removed the 3 SSP waiting days and the lower earnings limit. SSP is now the lower of £123.25 a week or 80% of average weekly earnings, paid from the first qualifying day.",
+    "Before 6 April 2026 SSP was £118.75 flat, needed earnings of at least £125 a week and 4 days of sickness in a row, and the first 3 qualifying days were unpaid.",
+    "HMRC's 2026/27 SSP day tables round the unrounded daily rate times days up to the next penny, so 4 days on a 6-day week is £82.17.",
+    "The 2026/27 family pay flat rate is £194.32 (2025/26: £187.18). The SMP rate changed on Sunday 5 April 2026, so a maternity pay period that crosses April uses both.",
+    "The lower earnings limit for maternity, paternity, adoption and shared parental pay is £129 a week in 2026/27 (£125 in 2025/26).",
+    "The National Living Wage is £12.71 an hour from 1 April 2026, with £10.85 for 18 to 20 and £8 for under 18s and apprentices. The April 2027 rates are already published: £13.21, £11.27 and £8.31."
+   ],
+   "tools": [
+    {
+     "name": "calculate_statutory_sick_pay",
+     "description": "Works out UK Statutory Sick Pay (SSP) for a period of sickness. Knows the Employment Rights Act 2025 changes in force from 6 April 2026: SSP is paid from the first qualifying day (no 3 waiting days), the lower earnings limit is gone, and the weekly rate is the lower of £123.25 or 80% of average weekly earnings. For sickness starting 6 April 2025 to 5 April 2026 it applies the old rules (£118.75 flat, £125 lower earnings limit, 3 waiting days, 4-day period of incapacity) and flags the SI 2026/373 transitional rules. Uses HMRC's unrounded daily rates and 28-week cap. Rates fetched from gov.uk and legislation.gov.uk on 2026-11-02."
+    },
+    {
+     "name": "calculate_statutory_maternity_pay",
+     "description": "Works out UK Statutory Maternity Pay (SMP) week by week for 39 weeks: 90% of average weekly earnings for 6 weeks, then the lower of the flat rate or 90% for 33 weeks. Flat rate £187.18 from 6 April 2025 and £194.32 from 5 April 2026, switching for pay weeks that start after the April uprating. Finds the expected week of childbirth, the qualifying week (15th week before), the latest employment start date for 26 weeks' service and the lower earnings limit for that week (£125 in 2025/26, £129 in 2026/27). Same structure applies to Statutory Adoption Pay. Figures from gov.uk, fetched 2026-11-02."
+    },
+    {
+     "name": "get_minimum_wage_rates",
+     "description": "Returns the UK National Living Wage and National Minimum Wage hourly rates in force on a date, by age band and apprentice rate, and the rate that applies to a given age. Holds April 2024, April 2025, April 2026 (£12.71 for 21 and over, £10.85 for 18 to 20, £8 under 18 and apprentices) and the published April 2027 rates (£13.21, £11.27, £8.31). Can also give weekly and annual pay at the rate for given hours. Rates fetched from gov.uk on 2026-11-02."
+    },
+    {
+     "name": "check_eligibility",
+     "description": "Checks the qualifying conditions for UK Statutory Sick Pay, Maternity, Paternity, Adoption or Shared Parental Pay and returns each condition as met, not met or not checkable, plus the weekly amounts. Knows that from 6 April 2026 SSP has no earnings threshold and no waiting days, and applies the 26 weeks' continuous employment test into the qualifying week (15th week before the due week, or the matching week for adoption) and the lower earnings limit (£125 in 2025/26, £129 in 2026/27). Data from gov.uk and legislation.gov.uk, fetched 2026-11-02."
+    }
+   ],
+   "example": {
+    "prompt": "An employee on 400 pounds a week is off sick for 10 working days from 4 May 2026. How much Statutory Sick Pay is due?",
+    "tool": "calculate_statutory_sick_pay",
+    "arguments": {
+     "average_weekly_earnings": 400,
+     "qualifying_days": 5,
+     "days_off": 10,
+     "start_date": "2026-05-04"
+    },
+    "summary": "Under the 2026/27 rules SSP is £123.25 a week (flat weekly rate). For 10 qualifying days off on a 5-day week, 10 days are payable from day one: total £246.50.\n\nEstimate from gov.uk rates, not legal or payroll advice. Check special cases with HMRC or the gov.uk calculators.",
+    "as_of": "2026-11-02",
+    "source": "https://www.gov.uk/guidance/rates-and-thresholds-for-employers-2026-to-2027 ; https://www.gov.uk/guidance/statutory-sick-pay-manually-calculate-your-employees-payments ; https://www.legislation.gov.uk/ukpga/2025/36/section/10 ; https://www.legislation.gov.uk/uksi/2026/373/made",
+    "more": "https://ukmoneycalc.com/calculators/take-home-pay/?utm_source=mcp&utm_medium=uk-statutory-sick-pay-maternity-pay-calculator-mcp",
+    "called_at": "2026-11-03T09:03:12Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1102/uk-statutory-sick-pay-maternity-pay-calculator-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/uk-statutory-sick-pay-maternity-pay-calculator-mcp/",
+   "stamp_can_claude": []
+  },
+  {
+   "repo": "us-federal-holidays-business-days-mcp",
+   "repo_url": "https://github.com/theluckystrike/us-federal-holidays-business-days-mcp",
+   "hosted_url": "https://us-federal-holidays-business-days-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Exact U.S. federal holidays and business days 1971-2100, OPM and Federal Reserve observance.",
+   "license": "MIT",
+   "knows": [
+    "The observance rule. A Saturday holiday is observed on Friday by federal employees (5 U.S.C. 6103(b)). A Sunday holiday is observed on Monday (E.O. 11582). The Friday can fall in the previous year.",
+    "The Federal Reserve rule is different. When a holiday falls on Saturday, Reserve Banks are open on Friday (K.8). So 2026-07-03 is a federal holiday but a banking day. Use `calendar: \"fed_banking\"` for ACH, wire and settlement dates.",
+    "The rule history. Juneteenth from 2021. MLK Day from 1986. Veterans Day was the fourth Monday in October from 1971 to 1977.",
+    "Inauguration Day. It applies only to DC-area federal employees, every four years. It moves to Monday when January 20 is a Sunday and has no substitute day when it is a Saturday (2029).",
+    "All 212 holiday rows in OPM's published tables for 2011-2030 match this server's output. A test checks this."
+   ],
+   "tools": [
+    {
+     "name": "list_federal_holidays",
+     "description": "Exact U.S. federal holidays for any year 1971-2100 under 5 U.S.C. 6103: legal date, OPM observed date (Saturday -> Friday, Sunday -> Monday, so New Year's Day 2022 is observed Friday 2021-12-31) and the Federal Reserve closure date (Fed Banks stay OPEN the Friday before a Saturday holiday). Applies the rule history a model tends to get wrong: Juneteenth from 2021, MLK Day from 1986, Veterans Day on the 4th Monday of October 1971-1977, and Inauguration Day (DC area only, flagged optional). No network calls."
+    },
+    {
+     "name": "is_business_day",
+     "description": "Says whether a date (1971-2100) is a business day on the U.S. federal (OPM) calendar or the Federal Reserve banking calendar, names the holiday if any, and returns the previous and next business day. The two calendars differ when a holiday falls on Saturday: 2026-07-03 is a federal holiday but a Fed banking day."
+    },
+    {
+     "name": "add_business_days",
+     "description": "Adds (or with a negative number subtracts) N business days to a date, skipping weekends and observed U.S. federal or Federal Reserve holidays exactly. The start date is not counted. With 0, returns the start date if it is a business day, otherwise the next one. Lists every holiday skipped."
+    },
+    {
+     "name": "count_business_days",
+     "description": "Counts business days between two dates (1971-2100) on the U.S. federal or Federal Reserve calendar, excluding weekends and observed holidays. include_start and include_end default to true, like Excel NETWORKDAYS. If end is before start the count is negative. Lists the weekday holidays that were excluded."
+    },
+    {
+     "name": "invoice_due_date",
+     "description": "Computes an invoice due date from an issue date and net terms in calendar days (Net 30 = 30), then optionally rolls a weekend or U.S. holiday due date: following (next business day), preceding, or modified_following (next business day unless it crosses into the next month). Uses exact observed federal or Federal Reserve holidays."
+    }
+   ],
+   "example": {
+    "prompt": "How many business days are there from December 1, 2026 to January 15, 2027, excluding US federal holidays?",
+    "tool": "count_business_days",
+    "arguments": {
+     "start_date": "2026-12-01",
+     "end_date": "2027-01-15"
+    },
+    "summary": "There are 32 business days from 2026-12-01 to 2027-01-15 (start included, end included) on the federal calendar: 46 calendar days, 12 weekend days. Excluded weekday holidays: 2026-12-25 Christmas Day; 2027-01-01 New Year's Day.",
+    "as_of": "2026-10-30",
+    "source": "https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/",
+    "more": "https://mcp.zovo.one/?utm_source=mcp&utm_medium=us-federal-holidays-business-days-mcp",
+    "called_at": "2026-11-03T09:03:19Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1030/us-federal-holidays-business-days-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/us-federal-holidays-business-days-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/count-business-days/",
+     "h1": "Can Claude count business days?"
+    }
+   ]
+  },
+  {
+   "repo": "uv-index-today-mcp",
+   "repo_url": "https://github.com/theluckystrike/uv-index-today-mcp",
+   "hosted_url": "https://uv-index-today-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Today's UV Index forecast by US ZIP code or city, with hourly peak and UV Alert, from EPA and NWS.",
+   "license": "MIT",
+   "knows": [
+    "Today's UV Index for your ZIP code. It changes every day with season, cloud cover and ozone, so a model's training data cannot know it.",
+    "The hour when the sun is strongest today and the hours when EPA says protection is needed.",
+    "Whether NWS and EPA have issued a UV Alert for the place today."
+   ],
+   "tools": [
+    {
+     "name": "get_uv_index_today",
+     "description": "Today's UV Index forecast for a US ZIP code or city and state, read now from EPA (the NWS daily forecast). Returns the UV Index, the EPA category and sun protection advice, whether a UV Alert is in effect, the hourly peak and the local hours when UV is 3 or higher. Your training data cannot know today's UV Index."
+    },
+    {
+     "name": "get_uv_index_hourly",
+     "description": "Hour by hour UV Index forecast for a US ZIP code or city and state, in the local time of that place, read now from EPA. Returns each hour with its EPA band, the peak hour and the window when UV is 3 or higher. Use it for \"when is the sun strongest today\" and \"what time is safe to be outside\" questions."
+    },
+    {
+     "name": "explain_uv_index",
+     "description": "What a UV Index number means on the EPA scale (0 to 2 Low, 3 to 7 Moderate to High, 8 and above Very High to Extreme) and the EPA sun protection advice for it, plus the NWS UV Alert rule. No network call."
+    }
+   ],
+   "example": {
+    "prompt": "What is the UV Index today in Miami, ZIP 33101?",
+    "tool": "get_uv_index_today",
+    "arguments": {
+     "zip": "33101"
+    },
+    "summary": "EPA UV Index forecast for Miami, FL (ZIP 33101) on 2026-11-05 is 5, Moderate to High (3 to 7). Protection needed. The hourly forecast peaks at 6 at 1 PM local time, and is 3 or higher from 10 AM to 3 PM. No UV Alert is in effect.",
+    "as_of": "2026-11-05T14:14:57.128Z",
+    "source": "https://data.epa.gov/dmapservice/getEnvirofactsUVDAILY/ZIP/33101/JSON",
+    "more": "https://www.mcpstamp.com/servers/?utm_source=mcp&utm_medium=uv-index-today-mcp",
+    "called_at": "2026-11-05T14:15:00Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1105/reports/sat-evidence-1105/uv-index-today-mcp-remote.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/uv-index-today-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/check-the-uv-index-today/",
+     "h1": "Can Claude check the UV index today?"
+    }
+   ]
+  },
+  {
+   "repo": "vegetable-yield-percentage-mcp",
+   "repo_url": "https://github.com/theluckystrike/vegetable-yield-percentage-mcp",
+   "hosted_url": "https://vegetable-yield-percentage-mcp.lipmichal.workers.dev/mcp",
+   "version": "1.0.0",
+   "description": "Vegetable and fruit yield percentage, trim waste and how much produce to buy, from USDA refuse data.",
+   "license": "MIT",
+   "knows": [
+    "The USDA trim loss for each item, and what it is. Corn on the cob is 36% edible (35% husk, silk and trimmings, 29% cob). Pineapple is 51% (8% core, 16% crown, 26% parings). Cauliflower is 39%, leeks 44%, asparagus 53%, bananas 64%, onions 90%, cucumbers 97%.",
+    "USDA household weights for the edible part. A medium onion (2-1/2 inch) is 110 g and a cup of chopped onion is 160 g, so 2 cups chopped needs about 3 medium onions and 356 g as bought.",
+    "The difference between as purchased and edible portion. Recipe costing, food cost and portion planning need both. The tools return both, plus the waste."
+   ],
+   "tools": [
+    {
+     "name": "get_vegetable_yield",
+     "description": "USDA edible yield percent for a raw vegetable or fruit (the share left after removing peel, seeds, core, stems and trimmings), the refuse percent and what the refuse is, plus USDA household weights (1 medium, 1 cup chopped, 1 clove) and the as-purchased weight of one whole item. From USDA SR28 refuse data."
+    },
+    {
+     "name": "calculate_edible_weight",
+     "description": "Edible weight and trim waste from a purchased (as purchased, untrimmed) weight of a raw vegetable or fruit, using the USDA edible yield percent."
+    },
+    {
+     "name": "calculate_amount_to_buy",
+     "description": "How much of a raw vegetable or fruit to buy for a recipe amount. Give the prepared amount in g, kg, oz or lb, or as a USDA household measure such as \"cup chopped\", \"cup sliced\", \"medium\" or \"clove\". Returns the edible weight needed, the as-purchased weight to buy at the USDA edible yield, and the number of whole items (for example medium onions) to buy."
+    },
+    {
+     "name": "list_vegetable_yields",
+     "description": "List raw vegetables and fruits with their USDA edible yield percent, filtered to fruit or vegetable and sorted by name, lowest yield or highest yield."
+    }
+   ],
+   "example": {
+    "prompt": "How many onions do I need to buy for 3 cups chopped?",
+    "tool": "calculate_amount_to_buy",
+    "arguments": {
+     "food": "onion",
+     "amount": 3,
+     "measure": "cup chopped"
+    },
+    "summary": "For 3 x cup, chopped (160 g each, USDA) of onions, raw you need 480 g edible, so buy about 533 g (1.18 lb) as purchased at the USDA edible yield of 90%, or about 4.4 x medium (2-1/2\" dia) (round up to 5).",
+    "as_of": "2015-09 (USDA National Nutrient Database for Standard Reference, Release 28; file checked 2026-11-03)",
+    "source": "https://www.ars.usda.gov/ARSUserFiles/80400535/DATA/SR/sr28/dnload/sr28asc.zip",
+    "more": "https://ingredientcalculator.com/vegetable-yield-percentage-calculator?utm_source=mcp&utm_medium=vegetable-yield-percentage-mcp",
+    "called_at": "2026-11-03T09:03:25Z"
+   },
+   "npx_github_ok": true,
+   "lane_json": "data/s1103/vegetable-yield-percentage-mcp.json",
+   "stamp_free_server": "https://www.mcpstamp.com/free-servers/vegetable-yield-percentage-mcp/",
+   "stamp_can_claude": [
+    {
+     "url": "https://www.mcpstamp.com/can-claude/calculate-vegetable-yield/",
+     "h1": "Can Claude calculate vegetable yield after peeling and trimming?"
+    }
+   ]
+  }
+ ],
+ "skipped": []
+}

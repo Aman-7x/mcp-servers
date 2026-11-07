@@ -14,7 +14,7 @@ Fresh completed-history MCP Stripe Checkout gross is $0 with 0 paid matches and 
 
 Hosted readers and billing were deployed in that order through a staged configuration comparison and the supported billing gate. Actual edge probes retain two singles and bundle access across old-key replay; independent bindings follow signed license validity, while anonymous token/data retention still applies. Already-lost purchases require valid-key reactivation; missing history is not reconstructed. Real paid fulfillment and inbox delivery remain untested. Resend is connected and zovo.one can send; the local research queue has no eligible email contacts and no outreach was sent. Further access needs are in `docs/OUTREACH_RESEND_SETUP.md`.
 
-The original R38 observation deadline is 2026-10-26T09:11:29.917Z. Do not reset it after a restart. The loop finished at 09:11:34 UTC with 48 samples and passing final checks. A confirmed process gap is recorded in `data/r38_watch.json`; actual PID liveness, not a statefile, establishes an active watch. Source, exact archives, live behavior, platform publication and commercial results have separate receipts in `intel/R38-session.md`. Use `/Users/mike/bin/buildslot` with the user's 20 GB floor and bounded wait; its path is not on this shell's default PATH. npm uses `npm_config_cache=/Users/mike/.npm-cache-local`. Current npm identity is 401 and Smithery is unauthenticated; no newly created account or fabricated install route is claimed.
+The original R38 observation deadline is 2026-10-26T09:11:29.917Z. Do not reset it after a restart. The loop finished at 09:11:34 UTC with 48 samples and passing final checks. A confirmed process gap is recorded in `data/r38_watch.json`; actual PID liveness, not a statefile, establishes an active watch. Source, exact archives, live behavior, platform publication and commercial results have separate receipts in `intel/R38-session.md`. Use `/Users/mike/bin/buildslot` with the user's 20 GB floor and bounded wait; its path is not on this shell's default PATH. npm uses `npm_config_cache=/Users/mike/.npm-cache-local`. npm login EXPIRED by 2026-11-05 (npm whoami E401); all 68 packages were live on 10-30. Ship new satellites as Worker + public repo + registry remotes, which needs no npm (mcp-publisher login github --token "$(gh auth token)" renews the registry token); Smithery is unauthenticated; no newly created account or fabricated install route is claimed.
 
 
 ## Prior revenue review, 2026-10-17
@@ -90,8 +90,28 @@ test reaches from the other direction.
    stateful sequence fail against a different worker version. Re-run before believing it.
 9. **The registry binds one hosted URL to exactly one server name**, so a hosted server cannot
    be published under two namespaces and there is no A/B test. `(name, version)` is immutable.
-10. **npm is human-gated**, proven not assumed: OIDC returns `ENEEDAUTH` because npmjs.com
-    requires a package to exist before trusted publishing can be enabled on it.
+10. **npm publishing needs a per-publish 2FA approval.** Since 2026-10-30 all 68 packages are live
+    (59 estate packages plus 9 satellites). Seven plain-JS servers (budget, loan-calculator, payroll, pomodoro, receipts,
+    stripe-billing, tax-calc) run from src/ with no build; they were renamed to @theluckystrike/mcp-<id> because
+    mcp-budget and mcp-payroll belong to other npm users. `publish-all.sh --go` refuses a package only when it
+    has a build script and no dist/, or its bin file is missing. One approval with the 5-minute box ticked covered all 7.
+    The account requires 2FA on every publish, and npm runs its web 2FA flow only on a TTY, so the scripts wrap
+    each `npm publish` in `script -a -q "$NPM_TTY_LOG"` with `npm_config_browser=false`. Watch that log for
+    `https://www.npmjs.com/auth/cli/<id>` and open each URL for the owner. Each approval link expires after about
+    5 minutes (`404 .../-/v1/done`). The registry lags a few minutes after `+ name@ver`, so a direct
+    `npm view` right after publishing reports a false FAILED; recheck later. Registry state is in
+    data/s1030/npm-registry-check.tsv.
+
+11. **mcpstamp.com deploys come from ~/mcp-site-2026-10-30/repo, never from a stale site/ copy.** On 11-05 the local
+    tree was 22 commits behind origin and publish.sh would have reverted them; it now refuses. The CI artifact must
+    include site/lib or the Pages Functions build fails (fixed 11-05). Answer-page drafts failed two truth gates on
+    "Claude cannot": code execution, file creation and memory are on by default for Free, Pro and Max.
+
+12. **Deploy billing only from a branch that contains origin/main.** On 2026-11-06 two billing deploys
+    (74c1cf9e, e20d8527) came from the long-lived r38-supplier-monetization branch, which lacked the
+    McpStamp services code on main, so /buy/svc-* returned 404 and every mcpstamp.com/services/ buy
+    button broke. e20d8527 also skipped the approved-version pin, so the gate then refused every
+    release. Before `npm run deploy`, `git merge-base --is-ancestor origin/main HEAD` must succeed.
 
 ## Rules
 

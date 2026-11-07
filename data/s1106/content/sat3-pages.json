@@ -1,0 +1,58 @@
+{
+ "generated": "2026-11-06",
+ "note": "Drafts only. Examples are verbatim summaries from live remote tools/call (sat-evidence-1106/<server>-remote.json). Not merged into pages.json or jobs.json.",
+ "pages": [
+  {
+   "server": "usps-holiday-shipping-deadlines-mcp",
+   "slug": "check-usps-holiday-shipping-deadlines",
+   "title": "Can Claude check USPS holiday shipping deadlines?",
+   "question": "Can Claude tell me if it is too late to ship a package for Christmas with USPS?",
+   "answer": "Without a tool, Claude answers from training data, and that data is fixed at a cutoff. USPS publishes new send-by dates every fall, so a remembered answer can be last year's dates. With web search turned on, Claude can find the USPS page and read it, but you still have to check that it read this year's table and the right row for your destination. The free usps-holiday-shipping-deadlines-mcp server reads the USPS 2026 holiday shipping page at call time. It returns the send-by date for each mail class to the lower 48, Alaska and Hawaii, about 120 countries and APO/FPO/DPO ZIP codes. It counts the days left from today in US Eastern time and names the slowest service that still makes December 25. Add the hosted URL as a custom connector. No key or sign-up is needed.",
+   "example": {
+    "tool": "check_holiday_ship_by_date",
+    "arguments": {
+     "destination": "Germany",
+     "ship_date": "2026-12-10"
+    },
+    "result": "Shipping on Thursday, December 10 to Germany (USPS region Europe), Priority Mail Express International is still within the USPS recommended send-by date for December 25. The slowest service still on time is Priority Mail Express International (send by Wednesday, December 16, 6 days left). USPS 2026 recommendations, not guarantees.",
+    "called_at": "2026-11-05T18:07:09.009632+00:00"
+   },
+   "worker_url": "https://usps-holiday-shipping-deadlines-mcp.lipmichal.workers.dev/mcp",
+   "repo": "https://github.com/theluckystrike/usps-holiday-shipping-deadlines-mcp"
+  },
+  {
+   "server": "heating-oil-propane-prices-mcp",
+   "slug": "check-heating-oil-and-propane-prices",
+   "title": "Can Claude check heating oil and propane prices?",
+   "question": "Can Claude tell me this week's heating oil or propane price in my state?",
+   "answer": "Without a tool, Claude cannot know this week's price. The U.S. Energy Information Administration (EIA) publishes new residential heating oil and propane prices every Wednesday from October to March, and a model's training data is fixed at a cutoff. With web search on, Claude may find a news story or a dealer page, which is often a different number from the official state average. The free heating-oil-propane-prices-mcp server reads the EIA weekly survey at call time. It returns the price per gallon for the US or any of the 21 heating oil states and 38 propane states, the change from last week and a year ago, and the cost of a delivery. It also compares heating oil and propane per million Btu. For a state EIA does not survey, it says so and lists the covered states.",
+   "example": {
+    "tool": "estimate_heating_fuel_cost",
+    "arguments": {
+     "fuel": "heating_oil",
+     "gallons": 200,
+     "state": "CT"
+    },
+    "result": "200 gallons of heating oil at $5.991 a gallon (EIA residential heating oil average, Connecticut, week of 2026-11-02) costs $1,198.20. Per million Btu of fuel that is $43.26. At Connecticut averages, heating oil is $43.26 and propane $48.64 per million Btu.",
+    "called_at": "2026-11-05T18:07:16.979184+00:00"
+   },
+   "worker_url": "https://heating-oil-propane-prices-mcp.lipmichal.workers.dev/mcp",
+   "repo": "https://github.com/theluckystrike/heating-oil-propane-prices-mcp"
+  },
+  {
+   "server": "postage-stamp-price-mcp",
+   "slug": "tell-me-how-much-a-stamp-costs",
+   "title": "Can Claude tell me how much a stamp costs?",
+   "question": "Can Claude tell me how much a Forever stamp costs right now?",
+   "answer": "Without a tool, Claude gives the stamp price it saw in training data. USPS changes prices once or twice a year, so that number can be out of date. With web search on, Claude can look it up, but older articles about past price changes rank well and are easy to repeat. The free postage-stamp-price-mcp server reads USPS Notice 123, the official retail price list, at call time and reports its effective date. It returns the Forever stamp price, the extra ounce, postcards, large envelopes, the surcharge for square cards and the Global Forever price. It also works out postage for a stack of holiday cards and lists flat rate box prices.",
+   "example": {
+    "tool": "get_stamp_price",
+    "arguments": {},
+    "result": "A Forever stamp (First-Class Mail, 1 oz letter) costs $0.82 under the USPS price list effective October 4, 2026. Each extra ounce adds $0.29 (2 oz $1.11, 3 oz $1.40, 3.5 oz $1.69). A postcard stamp is $0.65, a 1 oz large envelope $1.69, and an international 1 oz letter or Global Forever stamp $1.75. Square or rigid letters add a $0.49 nonmachinable surcharge.",
+    "called_at": "2026-11-05T18:07:31.000975+00:00"
+   },
+   "worker_url": "https://postage-stamp-price-mcp.lipmichal.workers.dev/mcp",
+   "repo": "https://github.com/theluckystrike/postage-stamp-price-mcp"
+  }
+ ]
+}

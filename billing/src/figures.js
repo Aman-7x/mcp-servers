@@ -35,6 +35,7 @@ export const SERVER_IDS = [
   "goods-receipt",
   "hourly-rate",
   "image",
+  "ingredient-convert",
   "invoice",
   "job-card",
   "kanban",
@@ -97,6 +98,7 @@ export const CHILD_IDS = [
   "goods-receipt",
   "hourly-rate",
   "image",
+  "ingredient-convert",
   "invoice",
   "job-card",
   "kanban",
@@ -135,7 +137,19 @@ export const CHILD_IDS = [
 export const HOSTED_IDS = [
   "time-tracker",
   "price-tracker",
+  "budget",
+  "hourly-rate",
+  "loan-calculator",
+  "payroll",
+  "pomodoro",
+  "receipts",
+  "stripe-billing",
+  "tax-calc",
+  "duplicate-invoice-check",
+  "supplier-statement-check",
+  "three-way-match",
   "invoice",
+  "ingredient-convert",
   "expense-tracker",
   "spreadsheet",
   "currency",
@@ -204,11 +218,12 @@ export const TOOLS = {
   "docx": 9,
   "dunning-letters": 9,
   "duplicate-invoice-check": 6,
-  "expense-tracker": 12,
+  "expense-tracker": 0,
   "goods-receipt": 9,
   "hourly-rate": 3,
   "image": 10,
-  "invoice": 11,
+  "ingredient-convert": 7,
+  "invoice": 0,
   "job-card": 9,
   "kanban": 15,
   "leave": 10,
@@ -237,7 +252,7 @@ export const TOOLS = {
   "supplier-statement-check": 6,
   "tax-calc": 1,
   "three-way-match": 6,
-  "time-tracker": 18,
+  "time-tracker": 0,
   "timezone": 9,
   "work-order": 10,
   "zip": 7
@@ -247,7 +262,7 @@ export const TOOLS = {
 export const LICENSE_TOOLS = 2;
 
 /** Sum of TOOLS over CHILD_IDS. */
-export const OWN_TOOLS_TOTAL = 463;
+export const OWN_TOOLS_TOTAL = 429;
 
 /** Actual distinct proxy tool names, measured by tools/list from the built bundle.
  * Source: data/office-suite-tool-inventory.json; includes collision prefixes. */
@@ -281,6 +296,7 @@ export const LISTED_IDS = [
   "goods-receipt",
   "hourly-rate",
   "image",
+  "ingredient-convert",
   "invoice",
   "job-card",
   "kanban",
@@ -341,6 +357,7 @@ export const LISTED_CHILD_IDS = [
   "goods-receipt",
   "hourly-rate",
   "image",
+  "ingredient-convert",
   "invoice",
   "job-card",
   "kanban",
@@ -379,6 +396,7 @@ export const LISTED_CHILD_IDS = [
 export const FREE_IDS = [
   "budget",
   "hourly-rate",
+  "ingredient-convert",
   "loan-calculator",
   "payroll",
   "pomodoro",
@@ -389,16 +407,16 @@ export const FREE_IDS = [
 
 /** Counts, computed so prose cannot go stale. LISTED_COUNT is the one a visitor should
  * ever see: SERVER_DIR_COUNT can be ahead of it while a new server is being built. */
-export const LISTED_COUNT = 58;
-export const LISTED_CHILD_COUNT = 57;
-export const SERVER_DIR_COUNT = 58;
-export const CHILD_COUNT = 57;
-export const HOSTED_COUNT = 46;
+export const LISTED_COUNT = 59;
+export const LISTED_CHILD_COUNT = 58;
+export const SERVER_DIR_COUNT = 59;
+export const CHILD_COUNT = 58;
+export const HOSTED_COUNT = 58;
 
 /** Hosted limits, read from remote/src/index.ts. */
 export const RATE_LIMIT_FREE = 600;
 export const RATE_LIMIT_PRO = 6000;
-export const DISCOVERY_LIMIT = 120;
+export const DISCOVERY_LIMIT = 1500;
 export const TOKEN_MINTS_PER_IP = 10;
 export const ANON_TOKEN_DAYS = 30;
 export const SWEEP_AFTER_DAYS = 35;
@@ -437,6 +455,7 @@ export const FREE = {
   "goods-receipt": "Full receiving: create receipts, list them, per-line outstanding quantities and the receipt history are all free. Over-receipt needs the explicit flag on every tier.",
   "hourly-rate": "The whole server, unlimited, local — three tools, no metering, no key.",
   "image": "Info, resize, convert, compress, crop, strip metadata on images up to 4 MP; batches of 5.",
+  "ingredient-convert": "All 7 tools, the full density table and unlimited conversions.",
   "invoice": "3 invoices per calendar month; overdue report free; PDF carries a small footer line.",
   "job-card": "Ten active job cards, with labor and material entries unlimited per card and the running totals, list, get, the printable card and the daily and weekly summaries all free on every tier. A card stops counting the moment it is archived, so the record is never metered.",
   "kanban": "3 projects, 200 open tasks, default columns.",
@@ -498,6 +517,7 @@ export const PRO = {
   "goods-receipt": "Unlimited receipts per period and the CSV export of received-vs-ordered for the supplier scorecard.",
   "hourly-rate": "Not gated — this server is entirely free; the $39 bundle key covers the 47 paid servers.",
   "image": "Unlimited size and batches, custom watermark text, dominant colours.",
+  "ingredient-convert": "Included in the bundle key; Pro removes the per-session saved-report limit.",
   "invoice": "Unlimited invoices, no branding, logo, custom prefix.",
   "job-card": "Unlimited active job cards.",
   "kanban": "Unlimited projects and tasks, custom columns, weekly review history, estimates versus actuals.",

@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MCP Estate Dashboard — 2026-11-06 22:10 UTC</title>
+<style>
+:root{--bg:#0b0f14;--card:#121821;--line:#1e2734;--fg:#e6edf3;--dim:#8b98a5;--ok:#3fb950;--bad:#f85149;--warn:#d29922;--accent:#58a6ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--dim);margin:34px 0 12px;border-bottom:1px solid var(--line);padding-bottom:7px}
+.sub{color:var(--dim);font-size:13px;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px}
+.kpi .v{font-size:26px;font-weight:650;letter-spacing:-.02em}.kpi .l{color:var(--dim);font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+.kpi .n{color:var(--dim);font-size:11.5px;margin-top:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:16px 18px;margin-bottom:12px}
+.card h3{margin:0 0 8px;font-size:14px}.card p{margin:0 0 8px;color:#c7d2dd}.card p:last-child{margin:0}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+th{color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.06em}td.num{text-align:right;font-variant-numeric:tabular-nums}
+.ok{color:var(--ok);font-weight:600}.bad{color:var(--bad);font-weight:600}.warn{color:var(--warn);font-weight:600}
+code{background:#1a222d;padding:1.5px 5px;border-radius:4px;font-size:12.5px}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.tag{display:inline-block;font-size:11px;padding:2px 7px;border-radius:20px;border:1px solid var(--line);color:var(--dim);margin-right:5px}
+</style></head><body><div class="wrap">
+<h1>MCP Estate</h1>
+<div class="sub">Sweep 2026-11-06 22:10 UTC · 58 hosted endpoints · <span class="tag">measured, not estimated</span></div>
+
+<h2>Headline</h2>
+<div class="grid">
+<div class="kpi"><div class="v">58<span style="color:var(--dim);font-size:16px">/58</span></div><div class="l">Endpoints live</div><div class="n">0 still 404</div></div>
+<div class="kpi"><div class="v">595</div><div class="l">Tools served</div><div class="n">over the live origin</div></div>
+<div class="kpi"><div class="v">58<span style="color:var(--dim);font-size:16px">/59</span></div><div class="l">Published on npm</div><div class="n">registry-verified; 20 too quiet for the downloads API to report at all</div></div>
+<div class="kpi"><div class="v" style="color:var(--bad)">$0</div><div class="l">Revenue, all time</div><div class="n">rail works, traffic does not</div></div>
+<div class="kpi"><div class="v">188,640</div><div class="l">Requests / 24 h on mcp.zovo.one</div><div class="n">Cloudflare GraphQL; 23,764 were 429 (12.6%), fixed in da91b8eb; ~0 human browsers</div></div>
+<div class="kpi"><div class="v" style="color:var(--bad)">2<span style="color:var(--dim);font-size:16px">/299</span></div><div class="l">URLs Google indexed</div><div class="n">101 discovered but not indexed, 196 never crawled - URL Inspection API, 2026-11-06</div></div>
+<div class="kpi"><div class="v" style="color:var(--accent)">71<span style="color:var(--dim);font-size:16px">/71</span></div><div class="l">Catalogue pages live on github.io</div><div class="n">69 carry a /buy/ link; sitemap now in robots.txt; 71 URLs accepted by IndexNow</div></div>
+</div>
+
+<h2>The finding that matters</h2>
+<div class="card">
+<h3>The Buy button does not sell anything</h3>
+<p>Traced end to end on the live origin: <code>GET /buy/bundle</code> renders a form → <code>POST /buy/bundle</code> answers <code>303 → /s/bundle</code> → and <code>/s/bundle</code> contains exactly one action, an email subscribe box posting to <code>/api/subscribe</code>, which returns <code>{"ok":true,"status":"subscribed"}</code>.</p>
+<p><strong>Correction, measured this session.</strong> An earlier probe in this same session
+concluded that no checkout existed. That was wrong: it was a curl request, and the worker
+classifies curl as scripted and redirects it to the product page (<code>x-mcp-buy:
+scripted-ua-no-session</code>). Driving the real buyer path — browser UA, same-origin
+<code>Origin</code>, <code>Sec-Fetch-Mode: navigate</code>, body <code>intent=checkout</code> —
+returns <code>303</code> to <code>checkout.stripe.com/c/pay/cs_live_…</code>, and that page
+serves HTTP 200. The worker holds a <em>live</em> key and the <code>/success</code> and webhook
+fulfilment paths are implemented.</p>
+<p><strong>Consequence:</strong> the plumbing is not the problem. 334 buy clicks produced 100
+checkout confirmations and zero payments, and 2,780 open/expired sessions in one week carried
+no PaymentIntent — automation crossing the guard, i.e. our own probes, not buyers. With 0 of 299
+URLs indexed there is no population from which to compute a conversion rate. Optimising
+conversion at this traffic level is arithmetic on zero; distribution is the only lever.</p>
+</div>
+
+<h2>What changed this session</h2>
+<div class="card">
+<h3>First cross-link from a ranking page into the MCP tier: 8 pages, ~380k impressions a month</h3>
+<p>GSC says <code>ingredientcalculator.com</code> takes <strong>132,032 impressions</strong> in 28 days
+on <code>/grams-to-tablespoons</code> alone, and about <strong>380,000</strong> across its top pages —
+for the exact queries the ingredient server answers. The live tree mentioned
+<code>mcp.zovo.one</code> in <strong>0 of 26</strong> files. That grey space is the whole opportunity.</p>
+<p>Eight pages now carry one inline CTA through the site's own <code>kit/cta.js</code>: four send
+readers to the free-tier <code>/s/ingredient-convert</code> page, four to
+<code>/buy/ingredient-convert</code> which propagates the tag into the checkout form. Rendered
+at 390x844 against production — box visible, no JS errors, no horizontal overflow.</p>
+<p><strong>Found while doing it:</strong> on the <code>/s/</code> page the buy links are baked as
+<code>src=store.s.&lt;id&gt;</code>, so a visitor arriving with <code>?src=ingredientcalc</code> was
+counted as an anonymous store visit. Fix written and tested (<code>addSrcPassthrough</code>,
+268/268 billing tests) but <strong>not live</strong>: <code>mcp.zovo.one</code> is the
+<code>mcp-billing</code> Worker and the release gate refuses on approved-version drift.</p>
+<p><strong>Honest number:</strong> 0 purchases, before and after. This is a top-of-funnel
+experiment on traffic that already exists, not a sale.</p>
+</div>
+<div class="card">
+<h3>The published artifact is buildable again: 43 workspaces, 2,384 tests, 0 failures</h3>
+<p><code>npm run build:dist</code> had been dying on the first unbuilt package. Root cause was not our
+code: npm hoisted <code>zod@4.6.7</code> at the repo root for <code>@modelcontextprotocol/sdk</code>
+while all 58 workspaces pin <code>zod ^3.25</code>. The SDK's <code>ZodTypeAny</code> came from zod 4,
+our schemas from zod 3, and TypeScript answered with <code>TS2589 type instantiation is excessively
+deep</code> — then a 4 GB heap OOM on <code>asset-register</code> after 137 s. One root
+<code>overrides</code> entry (<code>zod ^3.25.76</code>) takes that same compile to <strong>1.1 s</strong>
+with no errors.</p>
+<p>Two real gaps in <code>scripts/pretest-dist.mjs</code> hid behind it. It only built a workspace when
+a test imported its <code>dist</code>, so <code>quotes</code> and <code>asset-register</code> were
+skipped and <code>amortization</code> / <code>billing-docs</code> died on
+<code>@theluckystrike/mcp-quotes/lib</code>; it now walks transitive workspace dependencies. And
+<code>--assets</code> refreshes the data files a bare <code>tsc</code> never copies
+(<code>src/tables/*.json</code>), which is exactly the ENOENT 40 tests were hitting.</p>
+<p><strong>Result, measured:</strong> 43/43 workspaces build (exit 0), and root <code>npm test</code>
+exits <strong>0</strong> across all 58 workspaces — <strong>2,384 tests pass, 0 fail</strong>. Six
+workspaces were red on entry: <code>goods-receipt</code> server.json description drifted from
+package.json; <code>ingredient-convert</code> returned two text blocks so no client could
+<code>JSON.parse</code> it and five descriptions breached its own 100-char contract;
+<code>onboarding</code> had no <code>remotes.json</code> for its hosted registration;
+<code>recurring</code> skipped a guessed date instead of a real occurrence; <code>invoice</code> and
+<code>office-suite</code> were stale dist and load flake.</p>
+<p><strong>Verified live</strong>, not just in CI: deployed as <code>ec25a6aa</code>,
+<code>POST /mcp/ingredient-convert</code> returns 7 tools and <code>common_conversions</code> now
+returns one text block of parseable JSON (<code>summary</code> + <code>count: 22</code>) — with the
+free-tier upsell as a separate block carrying a tenant-bound
+<code>/buy/bundle?tenant=anon_…&amp;src=ingredient-convert.success</code> URL. Hub worker tests
+112/112 before the deploy. Honest scope note: the published <code>0.22.6</code> tarball already
+contained <code>dist/tables/</code>, so npm users were not served a broken package — the local
+artifact was.</p>
+</div>
+
+<div class="card">
+<h3>Traffic is not zero — it is 188,640 requests a day and none of it is human</h3>
+<p>Cloudflare GraphQL, 24 h, host <code>mcp.zovo.one</code>: <strong>188,640 requests</strong>, of which
+<strong>23,764 were HTTP 429</strong> — 12.6% of everything the estate served. The user-agent split says
+who is asking: SentinelOracle 57.5k, mcpbeat 42.9k, AgentRankProbe 9.6k, rokmcp-collector 8.4k,
+alalanet-prober 2.7k, and real MCP clients — node 13.8k, python-httpx 4.3k. Human browser traffic
+is approximately zero.</p>
+<p><strong>The 429s were our own defect, and they cost us placement.</strong> A directory health
+check walks every registered endpoint; one sweep of the catalogue is 58 calls, and probes re-run
+hourly. The discovery tenant was keyed on <em>IP alone</em> with a 120/hour ceiling, so a probe
+throttled itself after two sweeps — and crawlers sharing a cloud address ate each other's budget.
+Directories score availability, so a 429 from us reads as "server is not responding".</p>
+<p>Fixed in commit <code>da91b8eb</code>, deployed as <code>40cd4501</code>: discovery is now keyed by
+user-agent family <em>and</em> IP, ceiling 120 → 1500. Proven live, both directions: 150 calls from one
+UA → <strong>150 × 200, zero 429</strong> (previously request 121 failed); 1,560 calls → 1,559 × 200;
+and an anonymous <code>tools/call</code> still returns <strong>401</strong>, so the data path did not loosen.</p>
+<p><strong>Then the production number moved.</strong> Hourly 429 share on <code>mcp.zovo.one</code>, same
+day, before and after the deploy at 14:00 UTC: 10.1%, 12.4%, 9.6%, 11.4%, 7.5%, then
+<strong>0.0%</strong>. Total requests held at roughly 10,000 an hour across every bucket, so this is not a drop in load — the throttling stopped while traffic stayed flat.</p>
+</div>
+
+<div class="card">
+<h2>Demand: what the estate actually earns in search</h2>
+<p>Search Console, 30 days to 2026-11-04, read over the API: full property totals, no dimension
+truncation. The estate is <strong>60 unique domains, 798,592 impressions, 3,040 clicks</strong>
+(about 101 clicks a day) across <strong>36,096 identifiable queries</strong>. The query split covers
+328,937 non-brand impressions and 881 non-brand clicks, because Search Console anonymises part
+of the query dimension — the totals above are exact, the per-query view is the identifiable subset.</p>
+<p>The demand is not on the MCP site. It sits on the calculator and consumer properties, where
+intent already exists: <code>ingredientcalculator.com</code> 344,640 impressions / 644 clicks,
+<code>belikenative.com</code> 246,964 / 678, <code>goldgramprice.com</code> 73,273 / 281,
+<code>lakelevelnow.com</code> 27,650 / 350, <code>recipetool.net</code> 20,423 / 365,
+<code>statewage.com</code> 20,901 / 20. All at average positions that already rank.</p>
+<p><code>mcp.zovo.one</code>: <strong>33 impressions, 0 clicks</strong> across 253 indexed URLs. Its only
+recorded query is <code>site:zovo.one</code>, which is my own auditing. That is the whole story in
+one line — the flagship surface has no demand, while the portfolio around it has plenty.</p>
+<p><strong>Correction to an earlier card.</strong> A previous measurement reported the estate at
+111 queries / 1,546 impressions / 50 clicks. That was an artifact: the pull summed only the top
+five query rows per property. Re-measured with full property totals, the estate is 60x larger
+than that card claimed. The retraction is recorded rather than quietly overwritten.</p>
+<p>The read, revised: <strong>supply is not the constraint, and demand is not absent — it is
+mismatched.</strong> 307 registry entries, 93 live endpoints, 588 tools and a leak-free payment
+surface sit on a domain nobody searches for, while six owned properties pull 700k+ impressions a
+month on exactly the intents these tools serve. The highest-ROI move is not a 59th server: it is
+putting the tool and buy pages on properties that already rank, and measuring the click-to-checkout
+step, which one read-only Stripe key would expose.</p>
+</div>
+
+<div class="card">
+<h3>GitHub distribution is at 99/99 — that lever is spent, not pending</h3>
+<p>Measured across all 2,000 repos on the account: <strong>99 are MCP servers</strong>, all 99 already
+carry the <code>mcp</code> topic, and after this session all 99 carry a homepage link into
+<code>mcp.zovo.one</code> (10 were empty; the other 1,900 repos are unrelated and were deliberately left
+alone — a VS Code extension repo should not point at the MCP landing page). An earlier count of "166
+repos without a homepage" was diluted by those non-MCP repos; corrected here.</p>
+<p>Same pass corrected a registry number: the official MCP registry does not carry "10 legacy builds",
+it carries <strong>307 entries, 303 active, 175 with npm packages, 156 linking to
+<code>mcp.zovo.one</code></strong> — but those entries cover only <strong>30 distinct repositories</strong>,
+which is where the real gap sits.</p>
+</div>
+
+<div class="card">
+<h3>The second indexable surface was structurally orphaned — now wired and submitted</h3>
+<p>The GitHub Pages catalogue (<code>theluckystrike.github.io/mcp/</code>) holds 71 pages — 59 server
+pages, 11 commercial-intent guides, each with its own <code>title</code> and schema.org JSON-LD —
+and <strong>69 of the 71 link straight into <code>/buy/&lt;id&gt;?src=hub.&lt;name&gt;</code></strong>.
+Measured live: 71/71 return 200.</p>
+<p>Three defects were blocking it, all fixed and deployed in commit <code>c7509b3</code>:
+the sitemap advertised <code>/mcp/guides/index/</code>, which returns <strong>404</strong>;
+the live page <code>/mcp/data-servers/</code> was <strong>missing from the sitemap entirely</strong>;
+and <code>robots.txt</code> never referenced <code>sitemap-mcp.xml</code>. It now does.</p>
+<p>Then submitted all 71 URLs to IndexNow — <strong>accepted, HTTP 200</strong> under key
+<code>c4ded455…</code>. The section's own sitemap was already in the root index (my first read said
+otherwise; the filter was wrong, not the site — corrected here). This surface is a different
+domain with real crawl demand, so it is the fastest path to the first non-zero organic visit:
+Pages pages get crawled in days, not the months <code>mcp.zovo.one</code> is showing.</p>
+</div>
+
+<div class="card">
+<h3>Where the traffic actually is: measured across all 67 Search Console properties</h3>
+<p>Every property the service account can read was queried for the last 28 days. The answer is the
+why behind <code>2/299 indexed</code>: the entire 67-domain portfolio did
+<strong>12,155 impressions and 1,157 clicks</strong> — about <strong>41 clicks a day across 68
+domains</strong>. 29 properties got a single click. The biggest, <code>lakelevelnow.com</code>,
+is about lake water levels. There is no link equity anywhere in this portfolio to redirect at
+<code>mcp.zovo.one</code>, which is why cross-linking inside the network was rejected as a lever.</p>
+<p><strong>Retracted 2026-11-06:</strong> that 12,155 / 1,157 figure came from a query pull capped at
+five rows per property, so it summed only each property's top five queries. The corrected 30-day
+total, read as full property totals with no dimension cap, is <strong>798,592 impressions and 3,040
+clicks</strong> across 60 unique domains. The “no link equity anywhere” conclusion built on it does not
+survive the correction: demand exists, it simply sits on consumer properties rather than on
+<code>mcp.zovo.one</code>.</p>
+
+<div class="card">
+<h3>36 working MCP servers were finished and unreachable — now indexed</h3>
+<p>Probing every satellite under <code>~/mcp-servers/satellites</code> returned <strong>HTTP 200 for
+all 36</strong> on <code>&lt;name&gt;-mcp.lipmichal.workers.dev</code>, each with a landing page and a
+live <code>/mcp</code> endpoint. But the request pattern on the brand worker routed only
+<code>/mcp*</code>, and <code>SERVERS</code> held 37 hand-wired entries: the satellites had no page
+on <code>mcp.zovo.one</code>, no index entry, no link from anywhere the estate already ranks.</p>
+<p>Built servers were never the bottleneck. <strong>Wiring was.</strong> Added
+<code>remote/src/satellites.ts</code> (generated from each satellite's own
+<code>package.json</code>) and a route at <code>/mcp/tools</code> plus <code>/mcp/tools.json</code>,
+deployed to production.</p>
+<p>Verified live: <code>https://mcp.zovo.one/mcp/tools</code> → <strong>200, 36 entries</strong>,
+title “MCP tools index: 36 hosted servers, no install”; <code>/mcp/tools.json</code> → 200 with the
+same 36 as data; and no regression on <code>/mcp</code>, <code>/s/invoice</code>,
+<code>/mcp/time-tracker</code> (all 200). Worker tests 112/112 before the deploy.</p>
+<p>This is the first time the 36 finished servers have been addressable from the domain the estate
+actually owns. It is a distribution fix, not a product fix: no new tool was written to make it true.</p>
+</div>
+<h2 style="margin-top:28px">Earlier this session</h2>
+<p>That measurement also exposed the real defect on the one host that <em>does</em> get indexed.
+A DuckDuckGo/Bing check found <strong>10 pages of <code>theluckystrike.github.io/mcp/</code>
+indexed, and zero for <code>claudecodeguides.com</code> and <code>mcp.zovo.one</code></strong> —
+yet all 58 catalogue pages pointed their canonical at <code>claudecodeguides.com</code>, a
+2,057-URL site with no index presence at all. All 58 now self-canonicalise (commit
+<code>ae2f300</code>), and all 71 URLs were re-submitted to IndexNow.</p>
+<p>Second conversion defect found in the same pass: <strong>58 of 60 catalogue pages told visitors
+the npm package was “staged and publishes shortly”</strong> — while all 58 are live on npm. Every
+page now carries a verified one-liner, e.g.
+<code>claude mcp add invoice -- npx -y @theluckystrike/mcp-invoice</code>, with the real version
+read from the registry (commit <code>074627e</code>). Verified live: 58/58 pages carry the install
+line, 0 stale.</p>
+</div>
+<div class="card">
+<h3>llms.txt told every AI assistant that our install command 404s. It did not.</h3>
+<p>Until today <code>https://mcp.zovo.one/llms.txt</code> carried a note for assistants:
+“the npm packages are not published yet, so do not recommend the npx install command; it
+returns 404.” The line came from a probe on 2026-09-07 and was never revisited. It was
+repeated on the invoice page, the comparison page, an install guide, a pricing FAQ and the
+buy page.</p>
+<p>Measured today against <code>registry.npmjs.org</code>: <strong>58 of the 58 listed packages
+resolve</strong>, for example <code>@theluckystrike/mcp-invoice</code> at <strong>0.22.6</strong>.
+The estate was telling every model that read it to avoid the one install path that works.</p>
+<p>Corrected in <code>billing/src/index.js</code>, <code>content.js</code> and
+<code>compare.js</code>; deployed as <code>63ee7173</code> through the gated release, which
+verified 61 <code>/buy</code> paths still render and opened zero Stripe sessions. Live check:
+<strong>0 occurrences</strong> of “not published yet” on <code>/llms.txt</code>,
+<code>/s/invoice</code> and <code>/compare</code>. Billing tests 244/244.</p>
+</div>
+<h2 style="margin-top:28px">Distribution that landed today</h2>
+<div class="card">
+<h3>A catalog PR merged six minutes after it opened</h3>
+<p><a href="https://github.com/Sagargupta16/awesome-mcp-servers/pull/320">Sagargupta16 #320</a> added sixteen data servers and merged at 17:12:08Z, six minutes after opening. That list now carries 38 theluckystrike rows, up from 22, re-checked against the merged head rather than the PR page. All seven gates passed.</p>
+<p><a href="https://github.com/punkpeye/awesome-mcp-servers/pull/18778">punkpeye #18778</a> adds twelve servers to the 97,375-star list, where the fleet had zero rows. check-submission is SUCCESS and the PR is MERGEABLE, opened with the agent marker the maintainers fast-track.</p>
+</div>
+<div class="card">
+<h3>GitHub topical distribution finished across the whole account</h3>
+<p>Every MCP-shaped repo the account can reach now carries the discovery topics and a working homepage link. Measured by re-reading the repo list, not by trusting the script's counters: <strong>2,248 repos scanned</strong>, 102 of them MCP projects once forks and archived repos are removed, <strong>101 with all four topics</strong> (<code>mcp</code>, <code>mcp-server</code>, <code>model-context-protocol</code>, <code>claude</code>) and a homepage pointing at its own <code>/s/</code> page, and the 102nd — <code>agent-bounty-feed-client</code>, which has no product page — pointed at the hub instead of left blank.</p>
+<p>Two defects found and fixed rather than worked around. The pass had a hard 20-page cap that silently dropped the repos untouched longest — exactly the dormant MCP repos it exists to fix; lifting it raised the scan from 2,000 to 2,248 repos and closed the tail. And the earlier run reported "0 problems" from an <em>empty</em> stderr while its stdout was the skip log, so the real coverage number came from a fresh read of <code>user/repos</code> and <code>search/repositories</code>: 44–51 repos per topic before, 101 after. One write remains blocked: <code>zovo-one/mcp-ecosystem-measurements</code> returns 422 because the token is not an admin of that org repo.</p>
+</div>
+<div class="card">
+<h3>The checkout is not broken — and that changes the plan</h3>
+<p>A real Chromium with a normal Chrome UA walks <code>/buy/ingredient-convert</code> through the intent form and lands on a live <code>cs_live_…</code> Stripe Checkout session. Twice, reproducibly, with <code>scripts/checkout-funnel-probe.mjs</code> (exit 0 on reach, <code>x-mcp-probe: 1</code> so the run is not counted as a buyer). The earlier "checkout is blocked" reading was an artefact of Playwright's own <code>HeadlessChrome</code> UA matching <code>BOT_UA_RE</code> — the gate was working as designed, not failing.</p>
+<p>So zero paid transactions is a demand problem, not a payment problem: 188k requests a day reach the worker and almost none of them are buyers. Distribution landed (lists, topics, McpStamp pages) but distribution to developers is not traffic to a checkout. The next lever is pages that answer buying questions, not more listings.</p>
+</div>
+<div class="card">
+<h3>mcpstamp.com now carries the 59th server</h3>
+<p>The McpStamp showcase is a static Astro build uploaded to Cloudflare Pages (<code>mcp-showcase-preview</code>), not a git-integrated project, so a push never deploys it. Rebuilt from a refreshed catalog and uploaded directly: <strong>293 pages</strong>, catalog <strong>59 servers / 538 tools</strong>. <code>/servers/ingredient-convert/</code> now answers <strong>200</strong> on www.mcpstamp.com, and the home page reads 59 servers. The Claude Code Guides hub page for the same server now answers <strong>200</strong> too — its Pages build needs ~38 minutes and had to be left alone instead of cancelled.</p>
+</div>
+<h2 style="margin-top:28px">Seven days of funnel, counted</h2>
+<div class="card">
+<p>From the worker's own instrument (<code>/stats/funnel</code>, 2026-10-31 → 11-06, ordinary requests only): <strong>3,969 offer views</strong>, <strong>294 upgrade impressions</strong>, <strong>4 checkout handoffs</strong>, <strong>0 purchases</strong>. Business calls that succeeded: 372, from 201 distinct anonymous token/server/day cohorts.</p>
+<p>Four handoffs in a week is the number to argue with, and it is not a payment bug — the probe above walks the same path to a live Stripe session. A thousand views produce one handoff because the free tier already answers the question the visitor came with. The paid key only matters where the free call cannot go: more calls, more servers, unattended runs, or the hosted endpoint.</p>
+</div>
+<h2 style="margin-top:28px">What Google actually shows</h2>
+<div class="card">
+<p>Search Console, 28 days to 2026-11-06, read through the service account rather than estimated: the entire paid catalog on <code>mcp.zovo.one</code> drew <strong>22 impressions and 0 clicks</strong>. The McpStamp showcase drew <strong>109 impressions and 0 clicks</strong>. The zovo.one domain as a whole drew <strong>1,251 impressions and 47 clicks</strong>, and <strong>1,194 of those impressions are the single word "zovo"</strong> — the rest is a currency long tail ("1.15 dollars in rands", position 80).</p>
+<p>The assumption that indexing is the wall does not survive URL Inspection, run today against 14 store pages sampled across the sitemap: <strong>13 report "Submitted and indexed"</strong> (amortization, barcode, calendar, checklist, delivery-schedule, duplicate-invoice-check, image, mileage-log, payroll, pomodoro, receipts, spreadsheet, supplier-statement-check); kanban alone is "Discovered — currently not indexed". The pages exist, Google has crawled them, robots allows them, sitemaps carry all 300 URLs on the canonical <code>www</code> host.</p>
+<p>What the query report shows instead is a much better problem: where a page does match a real conversational query, it ranks <strong>position 2 to 10</strong> — "can claude merge pdfs" 10, "can claude open and read zip files" 5, "can claude code read zip files" 2 — and draws <strong>1 to 2 impressions</strong> because that exact phrasing is searched almost never. Ranking ability is proven; query coverage is what is missing. 300 pages cover a rounding error of the ways people describe these tasks.</p>
+<p>One page proves the recipe rather than suggesting it. <code>/can-claude/read-zip-files/</code> drew <strong>172 of the store's impressions in 28 days at average position 7.9</strong> — one page, one exact phrasing ("can claude read zip files"), and it outperforms every other page on the site combined. The 22 sibling answer pages that target phrasings with no demand drew 1 or 2 impressions each. The variable is not the template and not the domain, it is whether the phrasing is something people actually type.</p>
+<p>So that is what shipped this session. <strong>23 new answer pages</strong> in the same proven shape, each mapping one exact phrasing people use for a file or document task to a tool that really exists (merge PDFs, split a PDF, rotate and watermark pages, read a scanned PDF, Word to PDF, CSV to Excel, unzip a password protected archive, list what is inside a zip, resize an image, strip EXIF, photo-format conversion, receipt capture, supplier statement check, three way match, budget tracking, quote writing). Copy states only what the tool's own tool list exposes, and volume is recorded as unmeasured rather than invented. The store is now <strong>316 pages, 110 of them in the can-claude family</strong>, deployed and returning 200; sitemap resubmitted.</p>
+</div>
+<h2 style="margin-top:28px">Earlier this session</h2>
+<div class="card">
+<h3>Eleven dead endpoints recovered, deployed, verified</h3>
+<p>Twelve catalog servers returned <strong>404</strong> on <code>/mcp/&lt;name&gt;</code> because the worker never imported them. Eleven are now vendored, wired, tested (112/112) and deployed as version <code>330e03ce</code>; each answers <code>initialize</code> and <code>tools/list</code> live.</p>
+<p>Recovered: budget, hourly-rate, loan-calculator, payroll, pomodoro, receipts, stripe-billing, tax-calc (8) plus duplicate-invoice-check, supplier-statement-check, three-way-match (3). That is 39 tools that previously 404'd. <code>office-suite</code> stays unhosted by design — it spawns local child processes, impossible in a Worker.</p>
+<p>Four distribution handles verified open by the orchestrator: <a href="https://github.com/punkpeye/awesome-mcp-servers/pull/18778">punkpeye #18778</a> (mergeable, <code>check-submission</code> SUCCESS; the earlier #18737 was closed as superseded), <a href="https://github.com/mcpHQ/awesome-mcp-servers/pull/695">mcpHQ #695</a>, <a href="https://github.com/cline/marketplace/pull/413">cline/marketplace #413</a> (12 entries) and <a href="https://github.com/chatmcp/mcpso/issues/6845">mcp.so #6845</a>. Blocked: mcp-get is archived (branch ready on the fork, 59 entries), LobeHub keeps its catalogue in a private repo (issue #22412 filed, closed by maintainers).</p>
+</div>
+
+<h2>Registry footprint: measured across 18</h2>
+<div class="card">
+<h3>3 of 18 registries carry anything at all, and none of the three carries the monorepo</h3>
+<p>The three that do carry us predate the monorepo: npm has all 58 packages (registry-verified this
+render, not inferred from download stats), the official MCP registry indexes 10 legacy single-repo
+builds, Glama indexes 30 legacy single-repo listings. The monorepo itself is <strong>404</strong> at
+Glama and <strong>absent</strong> from Smithery, mcp.so, PulseMCP, mcpservers.org, the Cursor directory
+and the GitHub/VS Code gallery. Every agent probe below ran this session; the blockers are HTTP status
+codes, not opinions.</p>
+<p>Two submissions are now in flight and both were re-verified against the GitHub API, not taken from
+the agents' own reports: <a href="https://github.com/cline/marketplace/pull/413">cline/marketplace#413</a>
+is <strong>OPEN</strong> and <strong>MERGEABLE</strong>, carrying 12 entries in the live
+<code>registry/mcps/&lt;slug&gt;/entry.json</code> format Cline actually builds its catalog from. The
+mcp-get registry work is <strong>built and pushed but unreachable</strong>: 59 entry files sit on
+<code>theluckystrike/mcp-get@add-theluckystrike-packages</code> (79 existing + 59 = 138 verified on the
+branch), and the upstream <code>michaellatman/mcp-get</code> is <strong>archived</strong> — GitHub
+refuses the PR with "repository was archived". LobeHub has no public data repo (its catalog lives in the
+private <code>lobehub-biz/lobehub-market</code>); the community submission issue #22412 was filed and
+bot-closed 2 minutes later.</p>
+<p>This is why traffic is zero. It is not a ranking problem or a copy problem — the estate is not in the
+places where a developer looks. The registry page, not our domain, is what ranks.</p>
+</div>
+<div class="card" style="padding:0;overflow:auto"><table><thead><tr><th>Registry</th><th>Ours</th><th>HTTP</th><th>Finding</th></tr></thead><tbody><tr><td>npm registry</td><td class='good'>carries us</td><td>200</td><td>none</td></tr><tr><td>Official MCP registry</td><td class='good'>carries us</td><td>200</td><td>mcp-publisher login needs interactive GitHub device flow</td></tr><tr><td>Glama</td><td class='good'>carries us</td><td>200</td><td>no public trigger found</td></tr><tr><td>Smithery</td><td class='bad'>absent</td><td>404</td><td>registry.smithery.ai/servers/@theluckystrike/mcp-invoice -&gt; 404 Server not found</td></tr><tr><td>mcp.so</td><td class='bad'>absent</td><td>404</td><td>issue #6845 open, verified</td></tr><tr><td>PulseMCP</td><td class='bad'>absent</td><td>403</td><td>403 to bots</td></tr><tr><td>mcpservers.org</td><td class='bad'>absent</td><td>403</td><td>403 to bots</td></tr><tr><td>GitHub/VS Code MCP gallery</td><td class='bad'>absent</td><td>200</td><td>unfiltered API 200 (2MB) contains 0 'theluckystrike' hits</td></tr><tr><td>Cursor directory</td><td class='bad'>absent</td><td>200</td><td>Next.js shell, no zovo hits in body</td></tr><tr><td>Cline marketplace</td><td class='bad'>absent</td><td>&amp;mdash;</td><td>PR #413 open (12 entries), verified</td></tr><tr><td>Docker MCP catalog</td><td class='bad'>absent</td><td>&amp;mdash;</td><td>heavy build pipeline</td></tr><tr><td>mcpmarket.com</td><td class='bad'>absent</td><td>404</td><td>site/API unreachable to bots</td></tr><tr><td>LobeHub MCP</td><td class='bad'>absent</td><td>404</td><td>issue #22412 filed, closed by maintainers</td></tr><tr><td>Fleur</td><td class='bad'>absent</td><td>200</td><td>no zovo hits in registry page</td></tr><tr><td>MCPHub</td><td class='bad'>absent</td><td>402</td><td>402 Payment required</td></tr><tr><td>mcp-get</td><td class='bad'>absent</td><td>&amp;mdash;</td><td>repo archived</td></tr><tr><td>Klavis</td><td class='bad'>absent</td><td>&amp;mdash;</td><td>not probed this sprint (budget)</td></tr><tr><td>awesome-mcp-servers README</td><td class='bad'>absent</td><td>&amp;mdash;</td><td>not re-probed this sprint (budget)</td></tr></tbody></table></div>
+
+<h2>Search visibility, measured per URL</h2>
+<div class="card">
+<h3>2 of 299 URLs are indexed: this is the whole traffic problem, in one number</h3>
+<p>Every URL in the sitemap was queried through Google's <strong>URL Inspection API</strong> on 2026-11-06 (not inferred from a sitemap field Google has deprecated). The result is three populations, and they need three different remedies:</p>
+<ul>
+<li><strong>2 indexed</strong> - the home page and one endpoint. These rank for nothing yet; they are simply the only documents Google has accepted.</li>
+<li><strong>101 discovered, not indexed</strong> - Google knows the URL exists, crawled or queued it, and declined to index it. That is a quality/authority judgement, not a discovery failure.</li>
+<li><strong>196 unknown to Google</strong> - never crawled at all, despite the sitemap being downloaded with zero errors. On a domain with no inbound links, a sitemap is a suggestion Google is free to decline.</li>
+</ul>
+<p><strong>Defect found and fixed this session.</strong> The sitemap carried 47 <code>/mcp/&lt;id&gt;</code> URLs. Measured with curl, those answer <code>application/json</code> - the JSON-RPC descriptor, no <code>&lt;title&gt;</code>, nothing to rank. On a domain that is 196 URLs short of being crawled, 47 of 299 crawl slots were being spent on non-pages. The sitemap is now <strong>253 URLs, zero JSON endpoints</strong> (58 <code>/s/</code> pages, 140 guides, 37 compare, 8 setup, 3 suites, indexes; <code>/mcp/connect</code> stays because it is HTML). Deployed as mcp-billing <code>6eebdbdb</code> through the gated release path and re-measured live: 253 <code>&lt;loc&gt;</code>, 0 JSON endpoints.</p>
+<p><strong>IndexNow submitted 253 URLs, 0 rejected</strong> (Bing, Yandex, Seznam, Naver - one 200 per batch). Google is not in IndexNow; that channel is the only one that answers a low-authority domain immediately, and Bing's index feeds several LLM search surfaces where developers actually look for MCP servers.</p>
+<p><strong>The honest read:</strong> indexation here is authority-limited, not structure-limited. Fewer junk URLs and a fresh ping are hygiene; they do not manufacture demand for a domain nobody links to. Traffic stays at zero until the estate appears where developers search - the registries - which is a placement problem, not a content problem.</p>
+</div>
+
+<h2>Traffic reality check, split by host</h2>
+<div class="card">
+<p>Measured with <code>scripts/traffic_map.py</code> straight from the Cloudflare GraphQL API for the
+zovo.one zone (<code>data/traffic_map.json</code>, 2026-11-06 20:26 UTC, last 7 days):
+<strong>3,268,793 requests</strong>, <strong>112,863 page views</strong>,
+<strong>71,905 uniques</strong>. The apex - the site this project has been optimising - is
+<strong>169,216 requests</strong>. The subdomains carry <strong>3,099,577</strong>.</p>
+<p>That single number dissolves an argument this dashboard has been making for weeks. "Traffic is zero"
+was never true; it was measured on the wrong host. The humans are on the tool subdomains
+(statement-converter, doubles-mixer, pdf-to-excel, family-tree, calendar-invite, gantt-timeline), and
+<code>mcp.zovo.one</code>'s 1.3M requests are MCP clients, not people.</p>
+<table><thead><tr><th>Host</th><th>Requests / 7d</th></tr></thead><tbody><tr><td><code>mcp.zovo.one</code></td><td>1,313,050</td></tr><tr><td><code>zovo.one</code></td><td>169,216</td></tr><tr><td><code>statement-converter.zovo.one</code></td><td>95,617</td></tr><tr><td><code>zovo-one-source.vercel.app</code></td><td>73,759</td></tr><tr><td><code>doubles-mixer.zovo.one</code></td><td>49,776</td></tr><tr><td><code>tg.zovo.one</code></td><td>40,278</td></tr><tr><td><code>pdf-to-excel.zovo.one</code></td><td>39,963</td></tr><tr><td><code>family-tree.zovo.one</code></td><td>35,631</td></tr><tr><td><code>calendar-invite.zovo.one</code></td><td>35,445</td></tr><tr><td><code>gantt-timeline.zovo.one</code></td><td>30,888</td></tr><tr><td><code>ip-lookup.zovo.one</code></td><td>29,210</td></tr><tr><td><code>contrast-checker.zovo.one</code></td><td>25,910</td></tr></tbody></table>
+<p><strong>The monetisation gap is now precise, not vague.</strong> No tool subdomain has a path to the
+paid MCP tier. A person converting a bank statement gets a working converter and a footer link to
+zovo.one; they are never told the same work can run inside Claude. The paid offer exists only inside
+tool responses on <code>mcp.zovo.one</code> - <code>sendMessage</code> appends the upgrade line to the JSON
+an <em>agent</em> reads. That is why the funnel reads 3,969 offer views, 294 upgrade impressions,
+4 checkout handoffs, 0 purchases: the offer is shown to machines, and the humans are on a different
+host that never mentions it.</p>
+<p><strong>What blocks the fix:</strong> the <code>pf-*</code> and tool-subdomain Workers are deployed
+from outside this estate - there is no local source for <code>statement-converter.zovo.one</code>, and
+the API token lacks zone-level Workers Routes permission, so a new injecting route cannot be created
+here. Cross-selling the highest-traffic tool pages needs either their deploy path or a route
+permission; both are one human action.</p>
+</div>
+
+<h2>npm downloads: a burst, not an audience</h2>
+<div class="card">
+<p>The last-week figure across the published packages looked healthy until the daily series was pulled: the flagship's 380-week was one 283-download day on 2026-10-30. Steady state is single digits to low double digits per day, spiky, and it starts from nowhere. Uniform ~250/package/week across 41 unrelated packages is the signature of mirrors and scanners, not humans.</p>
+<p>So the binding constraint is distribution, and it is not close. Organic search contributes nothing (0 of 299 URLs indexed), the registries carry the discovery load, and the only channel with real human intent — the npm README — is unwritable without registry credentials.</p>
+</div>
+
+<h2>Hosted endpoint matrix</h2>
+<div class="card" style="padding:0;overflow:auto">
+<table><thead><tr><th>Server</th><th>Status</th><th>Tools</th><th>npm/wk</th><th>Endpoint</th></tr></thead>
+<tbody><tr><td>amortization</td><td class='ok'>live</td><td class='num'>9</td><td class='num'>249</td><td><a href='https://mcp.zovo.one/mcp/amortization'>/mcp/amortization</a></td></tr><tr><td>asset-register</td><td class='ok'>live</td><td class='num'>9</td><td class='num'>280</td><td><a href='https://mcp.zovo.one/mcp/asset-register'>/mcp/asset-register</a></td></tr><tr><td>backlink-checker</td><td class='ok'>live</td><td class='num'>8</td><td class='num'>215</td><td><a href='https://mcp.zovo.one/mcp/backlink-checker'>/mcp/backlink-checker</a></td></tr><tr><td>bank-statement</td><td class='ok'>live</td><td class='num'>15</td><td class='num'>231</td><td><a href='https://mcp.zovo.one/mcp/bank-statement'>/mcp/bank-statement</a></td></tr><tr><td>barcode</td><td class='ok'>live</td><td class='num'>10</td><td class='num'>245</td><td><a href='https://mcp.zovo.one/mcp/barcode'>/mcp/barcode</a></td></tr><tr><td>bill-of-sale</td><td class='ok'>live</td><td class='num'>10</td><td class='num'>242</td><td><a href='https://mcp.zovo.one/mcp/bill-of-sale'>/mcp/bill-of-sale</a></td></tr><tr><td>billing-docs</td><td class='ok'>live</td><td class='num'>16</td><td class='num'>278</td><td><a href='https://mcp.zovo.one/mcp/billing-docs'>/mcp/billing-docs</a></td></tr><tr><td>budget</td><td class='ok'>live</td><td class='num'>3</td><td class='num'>361</td><td><a href='https://mcp.zovo.one/mcp/budget'>/mcp/budget</a></td></tr><tr><td>calendar</td><td class='ok'>live</td><td class='num'>12</td><td class='num'>303</td><td><a href='https://mcp.zovo.one/mcp/calendar'>/mcp/calendar</a></td></tr><tr><td>cash-book</td><td class='ok'>live</td><td class='num'>9</td><td class='num'>269</td><td><a href='https://mcp.zovo.one/mcp/cash-book'>/mcp/cash-book</a></td></tr><tr><td>catalogue</td><td class='ok'>live</td><td class='num'>12</td><td class='num'>253</td><td><a href='https://mcp.zovo.one/mcp/catalogue'>/mcp/catalogue</a></td></tr><tr><td>change-order</td><td class='ok'>live</td><td class='num'>11</td><td class='num'>228</td><td><a href='https://mcp.zovo.one/mcp/change-order'>/mcp/change-order</a></td></tr><tr><td>checklist</td><td class='ok'>live</td><td class='num'>16</td><td class='num'>235</td><td><a href='https://mcp.zovo.one/mcp/checklist'>/mcp/checklist</a></td></tr><tr><td>clauses</td><td class='ok'>live</td><td class='num'>12</td><td class='num'>234</td><td><a href='https://mcp.zovo.one/mcp/clauses'>/mcp/clauses</a></td></tr><tr><td>credit-note</td><td class='ok'>live</td><td class='num'>16</td><td class='num'>263</td><td><a href='https://mcp.zovo.one/mcp/credit-note'>/mcp/credit-note</a></td></tr><tr><td>currency</td><td class='ok'>live</td><td class='num'>10</td><td class='num'>256</td><td><a href='https://mcp.zovo.one/mcp/currency'>/mcp/currency</a></td></tr><tr><td>delivery-schedule</td><td class='ok'>live</td><td class='num'>12</td><td class='num'>211</td><td><a href='https://mcp.zovo.one/mcp/delivery-schedule'>/mcp/delivery-schedule</a></td></tr><tr><td>deposits</td><td class='ok'>live</td><td class='num'>11</td><td class='num'>303</td><td><a href='https://mcp.zovo.one/mcp/deposits'>/mcp/deposits</a></td></tr><tr><td>docx</td><td class='ok'>live</td><td class='num'>14</td><td class='num'>277</td><td><a href='https://mcp.zovo.one/mcp/docx'>/mcp/docx</a></td></tr><tr><td>dunning-letters</td><td class='ok'>live</td><td class='num'>11</td><td class='num'>247</td><td><a href='https://mcp.zovo.one/mcp/dunning-letters'>/mcp/dunning-letters</a></td></tr><tr><td>duplicate-invoice-check</td><td class='ok'>live</td><td class='num'>8</td><td class='num'>250</td><td><a href='https://mcp.zovo.one/mcp/duplicate-invoice-check'>/mcp/duplicate-invoice-check</a></td></tr><tr><td>expense-tracker</td><td class='ok'>live</td><td class='num'>14</td><td class='num'>229</td><td><a href='https://mcp.zovo.one/mcp/expense-tracker'>/mcp/expense-tracker</a></td></tr><tr><td>goods-receipt</td><td class='ok'>live</td><td class='num'>11</td><td class='num'>235</td><td><a href='https://mcp.zovo.one/mcp/goods-receipt'>/mcp/goods-receipt</a></td></tr><tr><td>hourly-rate</td><td class='ok'>live</td><td class='num'>3</td><td class='num'>241</td><td><a href='https://mcp.zovo.one/mcp/hourly-rate'>/mcp/hourly-rate</a></td></tr><tr><td>image</td><td class='ok'>live</td><td class='num'>15</td><td class='num'>255</td><td><a href='https://mcp.zovo.one/mcp/image'>/mcp/image</a></td></tr><tr><td>ingredient-convert</td><td class='ok'>live</td><td class='num'>7</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/ingredient-convert'>/mcp/ingredient-convert</a></td></tr><tr><td>invoice</td><td class='ok'>live</td><td class='num'>13</td><td class='num'>384</td><td><a href='https://mcp.zovo.one/mcp/invoice'>/mcp/invoice</a></td></tr><tr><td>job-card</td><td class='ok'>live</td><td class='num'>11</td><td class='num'>235</td><td><a href='https://mcp.zovo.one/mcp/job-card'>/mcp/job-card</a></td></tr><tr><td>kanban</td><td class='ok'>live</td><td class='num'>17</td><td class='num'>254</td><td><a href='https://mcp.zovo.one/mcp/kanban'>/mcp/kanban</a></td></tr><tr><td>leave</td><td class='ok'>live</td><td class='num'>12</td><td class='num'>235</td><td><a href='https://mcp.zovo.one/mcp/leave'>/mcp/leave</a></td></tr><tr><td>loan-calculator</td><td class='ok'>live</td><td class='num'>2</td><td class='num'>369</td><td><a href='https://mcp.zovo.one/mcp/loan-calculator'>/mcp/loan-calculator</a></td></tr><tr><td>maintenance-log</td><td class='ok'>live</td><td class='num'>8</td><td class='num'>244</td><td><a href='https://mcp.zovo.one/mcp/maintenance-log'>/mcp/maintenance-log</a></td></tr><tr><td>mileage-log</td><td class='ok'>live</td><td class='num'>9</td><td class='num'>239</td><td><a href='https://mcp.zovo.one/mcp/mileage-log'>/mcp/mileage-log</a></td></tr><tr><td>office-suite</td><td class='dim'>by design</td><td class='num'>-</td><td class='num'>246</td><td><a href='https://mcp.zovo.one/mcp/office-suite'>/mcp/office-suite</a></td></tr><tr><td>onboarding</td><td class='ok'>live</td><td class='num'>9</td><td class='num'>251</td><td><a href='https://mcp.zovo.one/mcp/onboarding'>/mcp/onboarding</a></td></tr><tr><td>packing-list</td><td class='ok'>live</td><td class='num'>14</td><td class='num'>256</td><td><a href='https://mcp.zovo.one/mcp/packing-list'>/mcp/packing-list</a></td></tr><tr><td>payroll</td><td class='ok'>live</td><td class='num'>2</td><td class='num'>371</td><td><a href='https://mcp.zovo.one/mcp/payroll'>/mcp/payroll</a></td></tr><tr><td>pdf</td><td class='ok'>live</td><td class='num'>15</td><td class='num'>259</td><td><a href='https://mcp.zovo.one/mcp/pdf'>/mcp/pdf</a></td></tr><tr><td>per-diem</td><td class='ok'>live</td><td class='num'>9</td><td class='num'>225</td><td><a href='https://mcp.zovo.one/mcp/per-diem'>/mcp/per-diem</a></td></tr><tr><td>petty-cash</td><td class='ok'>live</td><td class='num'>9</td><td class='num'>349</td><td><a href='https://mcp.zovo.one/mcp/petty-cash'>/mcp/petty-cash</a></td></tr><tr><td>pomodoro</td><td class='ok'>live</td><td class='num'>1</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/pomodoro'>/mcp/pomodoro</a></td></tr><tr><td>price-tracker</td><td class='ok'>live</td><td class='num'>10</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/price-tracker'>/mcp/price-tracker</a></td></tr><tr><td>purchase-requisition</td><td class='ok'>live</td><td class='num'>16</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/purchase-requisition'>/mcp/purchase-requisition</a></td></tr><tr><td>quotes</td><td class='ok'>live</td><td class='num'>12</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/quotes'>/mcp/quotes</a></td></tr><tr><td>receipts</td><td class='ok'>live</td><td class='num'>1</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/receipts'>/mcp/receipts</a></td></tr><tr><td>recurring</td><td class='ok'>live</td><td class='num'>14</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/recurring'>/mcp/recurring</a></td></tr><tr><td>resume</td><td class='ok'>live</td><td class='num'>13</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/resume'>/mcp/resume</a></td></tr><tr><td>service-agreement</td><td class='ok'>live</td><td class='num'>9</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/service-agreement'>/mcp/service-agreement</a></td></tr><tr><td>spreadsheet</td><td class='ok'>live</td><td class='num'>13</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/spreadsheet'>/mcp/spreadsheet</a></td></tr><tr><td>statement-of-account</td><td class='ok'>live</td><td class='num'>8</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/statement-of-account'>/mcp/statement-of-account</a></td></tr><tr><td>stripe-billing</td><td class='ok'>live</td><td class='num'>2</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/stripe-billing'>/mcp/stripe-billing</a></td></tr><tr><td>supplier-list</td><td class='ok'>live</td><td class='num'>10</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/supplier-list'>/mcp/supplier-list</a></td></tr><tr><td>supplier-statement-check</td><td class='ok'>live</td><td class='num'>8</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/supplier-statement-check'>/mcp/supplier-statement-check</a></td></tr><tr><td>tax-calc</td><td class='ok'>live</td><td class='num'>1</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/tax-calc'>/mcp/tax-calc</a></td></tr><tr><td>three-way-match</td><td class='ok'>live</td><td class='num'>8</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/three-way-match'>/mcp/three-way-match</a></td></tr><tr><td>time-tracker</td><td class='ok'>live</td><td class='num'>20</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/time-tracker'>/mcp/time-tracker</a></td></tr><tr><td>timezone</td><td class='ok'>live</td><td class='num'>11</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/timezone'>/mcp/timezone</a></td></tr><tr><td>work-order</td><td class='ok'>live</td><td class='num'>12</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/work-order'>/mcp/work-order</a></td></tr><tr><td>zip</td><td class='ok'>live</td><td class='num'>12</td><td class='num'>-</td><td><a href='https://mcp.zovo.one/mcp/zip'>/mcp/zip</a></td></tr></tbody></table></div>
+
+<h2>Next, in ROI order</h2>
+<div class="card">
+<p><strong>0. Cross-sell the tool subdomains (highest ROI, one permission away).</strong> 1.78M requests a
+week land on tool subdomains that never mention the paid MCP tier. Statement-converter alone takes 95k.
+Adding a footer card ("run this in Claude / Cursor") with a per-tool <code>?src=</code> on the top ten
+hosts is a one-file change per site - it needs the deploy path for the <code>pf-*</code> Workers or
+zone-level Workers Routes permission. Nothing else in this estate converts humans at that scale.</p>
+<p><strong>1. Distribution is built; it is credential-blocked, not work-blocked.</strong> Measured tonight:
+all 37 standalone MCP repos that carry a Worker config are <strong>live and already registered</strong>
+(36 answered tools/list within 20 s; mcpstamp-check is the one non-responding), the official registry
+holds 307 entries for us, and all 99 MCP repos carry the <code>mcp</code> topic and a homepage link. A
+first count of "47 unshipped repos" was wrong: it counted forks and awesome-lists. What is left needs a
+human: <code>mcp-publisher</code>'s registry JWT is expired, so pushing new entries needs
+<code>mcp-publisher login github</code> (device flow).</p>
+<p><strong>2. Read the real funnel (needs one Stripe restricted read key).</strong> Checkout works;
+what is unknown is where the 100 confirmations stopped. A read-only <code>rk_live</code> key turns that
+inference into a table.</p>
+<p><strong>3. Send outreach (needs a verified sending domain).</strong> <code>RESEND_API_KEY</code> is
+already present, so the rail exists. What is missing is a domain verified in Resend (SPF, DKIM, DMARC)
+and a recipient list. Without the domain, mail goes out as <code>onboarding@resend.dev</code> and lands
+in spam, which burns the list.</p>
+<p><strong>4. Stop feeding Google thin pages.</strong> 299 submitted URLs, 2 indexed. The 429 fix
+removes a self-inflicted availability penalty on the directory side, but it does not create authority.
+Consolidating to one canonical host is still the precondition for adding pages.</p>
+</div>
+</div></body></html>

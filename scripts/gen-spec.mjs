@@ -25,12 +25,12 @@ const REPO = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 const SERVERS = [
   "amortization", "asset-register", "bank-statement", "cash-book", "billing-docs", "calendar", "catalogue", "change-order", "clauses", "currency", "delivery-schedule", "deposits", "docx",
-  "expense-tracker", "image", "invoice", "kanban", "pdf", "per-diem", "petty-cash", "price-tracker", "recurring",
+  "expense-tracker", "image", "ingredient-convert", "invoice", "kanban", "pdf", "per-diem", "petty-cash", "price-tracker", "recurring",
   "resume", "spreadsheet", "statement-of-account", "time-tracker", "timezone", "work-order",
   "packing-list", "checklist",
   "bill-of-sale", "credit-note", "job-card", "dunning-letters",
   "supplier-list", "service-agreement", "maintenance-log", "mileage-log",
-  "purchase-requisition", "goods-receipt", "leave", "onboarding", "backlink-checker", "hourly-rate",
+  "purchase-requisition", "goods-receipt", "leave", "onboarding", "backlink-checker", "hourly-rate", "ingredient-convert",
 ].sort();
 
 const COMMON_INVARIANTS = [
@@ -895,6 +895,18 @@ const CURATED = {
       "Every money value printed by a tool carries its ISO currency code. A bare number is a defect.",
       "A missing business profile never blocks an invoice; the PDF prints a placeholder issuer and the response says so.",
       "`overdue_report` is free. A report about money owed is not a paywall surface.",
+    ],
+  },
+  "ingredient-convert": {
+    summary: "Converts cooking amounts between cups, tablespoons, teaspoons, millilitres, fluid ounces, grams and ounces using a real per-ingredient density table, scales recipes, and returns fractions.",
+    storageFiles: [],
+    primaryFile: null,
+    caps: [],
+    extra: [
+      "Stateless: every tool is a pure function of its arguments and the built-in density table, so there is no data directory, no file and no licence gate.",
+      "Density is grams per US cup per ingredient; a conversion to weight divides by density, and the table is validated at startup so a bad row fails fast rather than returning a silent zero.",
+      "Unknown ingredients are refused with the closest known names instead of guessing a density.",
+      "Recipe scaling preserves ratios and renders amounts as cookable fractions with a denominator cap.",
     ],
   },
   "price-tracker": {

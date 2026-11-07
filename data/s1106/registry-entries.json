@@ -1,0 +1,3513 @@
+{
+ "io.github.theluckystrike/ab-test-sample-size-calculator-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/ab-test-sample-size-calculator-mcp",
+  "web": "https://abwex.com/tools/sample-size-calculator.html",
+  "remotes": [
+   "https://ab-test-sample-size-calculator-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/aca-premium-tax-credit-calculator-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/aca-premium-tax-credit-calculator-mcp",
+  "web": "https://github.com/theluckystrike/aca-premium-tax-credit-calculator-mcp",
+  "remotes": [
+   "https://aca-premium-tax-credit-calculator-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/address-to-census-tract-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/address-to-census-tract-mcp",
+  "web": null,
+  "remotes": [
+   "https://address-to-census-tract-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/aging": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/statement-of-account",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/statement-of-account.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/agreement": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/clauses",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/clauses.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/amortization": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/amortization/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/amortization"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/amortization.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/ap-score-distributions-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/ap-score-distributions-mcp",
+  "web": "https://examscorecalc.com/ap-score-distributions/",
+  "remotes": [
+   "https://ap-score-distributions-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/application": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/resume",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/resume.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/appointment": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/calendar",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/calendar.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/archive": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/zip",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/zip.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/asset-register": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/asset-register/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/asset-register"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/asset-register.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/availability": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/calendar",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/calendar.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/avery-labels": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://avery-labels.zovo.one/",
+  "remotes": [
+   "https://avery-labels.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/baby-names": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://baby-names.zovo.one/",
+  "remotes": [
+   "https://baby-names.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/backlink-checker": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/backlink-checker/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/backlink-checker"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/backlink-checker.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/backlink-checker-seo-link-checker": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/backlink-checker",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/backlink-checker.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/bank-reconciliation": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://bank-reconciliation.zovo.one/",
+  "remotes": [
+   "https://bank-reconciliation.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/bank-statement": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/bank-statement",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bank-statement.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/bank-statement-csv-categorize-reconcile-ledger": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/bank-statement",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/bank-statement"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/bank-statement.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/bank-statement-pdf": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/bank-statement",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/bank-statement-pdf"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/bank-statement.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/barcode": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/barcode",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/barcode.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/barcode-maker": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://barcode-maker.zovo.one/",
+  "remotes": [
+   "https://barcode-maker.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/barcode-qr-code-sepa-payment-ean13": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/barcode",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/barcode"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/barcode.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/bill-of-sale": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/bill-of-sale/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/bill-of-sale"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bill-of-sale.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/bill-of-sale-generator": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/bill-of-sale",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/bill-of-sale.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/bill-splitter": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://bill-splitter.zovo.one/",
+  "remotes": [
+   "https://bill-splitter.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/billing-docs": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/billing-docs",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/billing-docs.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/billing-docs-credit-notes-purchase-orders": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/billing-docs/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/billing-docs"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/billing-docs.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/billwise-invoice-maker": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://invoice-maker.zovo.one/",
+  "remotes": [
+   "https://invoice-maker.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/bingo-cards": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://bingo-cards.zovo.one/",
+  "remotes": [
+   "https://bingo-cards.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/bracket-maker": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://bracket-maker.zovo.one/",
+  "remotes": [
+   "https://bracket-maker.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/budget": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": null,
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/budget.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/budget-tracker": {
+  "ver": "0.22.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/expense-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/budget-tracker"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/expense-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/business-expenses": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/expense-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/business-expenses"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/expense-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/calendar": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/timezone",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/timezone.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/calendar-ics-reader-events-freebusy-conflicts": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/calendar",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/calendar"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/calendar.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/calendar-invite": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://calendar-invite.zovo.one/",
+  "remotes": [
+   "https://calendar-invite.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/car-loan-interest-deduction-calculator-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/car-loan-interest-deduction-calculator-mcp",
+  "web": "https://taxbreakcalc.com",
+  "remotes": [
+   "https://car-loan-interest-deduction-calculator-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/career": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/resume",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/resume.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/carton-consignment-waybill-pack-list": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/packing-list/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/packing-list"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/packing-list.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/cash-book": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/cash-book/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/cash-book"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/cash-book.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/cash-float": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/petty-cash",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/petty-cash.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/cashflow": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/bank-statement",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/bank-statement.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/catalogue": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/catalogue/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/catalogue"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/catalogue.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/categorize-transactions": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/bank-statement",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/categorize-transactions"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/bank-statement.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/census-geocode": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://census-geocode.zovo.one/",
+  "remotes": [
+   "https://census-geocode.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/change-order": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/change-order/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/change-order"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/change-order.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/checklist": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/checklist/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/checklist"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/checklist.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/chord-transposer": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://chord-transposer.zovo.one/",
+  "remotes": [
+   "https://chord-transposer.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/citation-generator": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://citation-generator.zovo.one/",
+  "remotes": [
+   "https://citation-generator.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/clauses": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/clauses",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/clauses.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/commission-calculator": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://commission-calculator.zovo.one/",
+  "remotes": [
+   "https://commission-calculator.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/common-ground": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/common-ground",
+  "web": "https://common-ground.lipmichal.workers.dev",
+  "remotes": [
+   "https://common-ground.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/contract-awards": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://contract-awards.zovo.one/",
+  "remotes": [
+   "https://contract-awards.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/contract-clause-library-proposal-template-docx": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/clauses",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/clauses"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/clauses.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/contrast-checker": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://contrast-checker.zovo.one/",
+  "remotes": [
+   "https://contrast-checker.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/convert-pdf-to-word-docx": {
+  "ver": "0.23.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/pdf",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/convert-pdf-to-word-docx"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/cpi-inflation-calculator-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/cpi-inflation-calculator-mcp",
+  "web": "https://statewage.com/pay-raise-calculator/",
+  "remotes": [
+   "https://cpi-inflation-calculator-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/credit-memo": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/credit-note/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/credit-note"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/credit-note.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/credit-note": {
+  "ver": "0.22.8",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/credit-note",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/credit-note-ics"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/credit-note.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/critical-path": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://critical-path.zovo.one/",
+  "remotes": [
+   "https://critical-path.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/cron-explorer": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://cron-explorer.zovo.one/",
+  "remotes": [
+   "https://cron-explorer.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/cups-to-grams-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/cups-to-grams-mcp",
+  "web": "https://ingredientcalculator.com/cups-to-grams",
+  "remotes": [
+   "https://cups-to-grams-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/currency": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/currency",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/currency.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/currency-converter": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://currency-converter.zovo.one/",
+  "remotes": [
+   "https://currency-converter.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/currency-converter-ecb-rates-daily-keyless": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/currency",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/currency"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/currency.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/currency-exchange": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/currency",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/currency-exchange"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/currency.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/cv-maker-resume-templates": {
+  "ver": "0.23.2",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/resume",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/cv-maker-resume-templates"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/date-calculator": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://date-calculator.zovo.one/",
+  "remotes": [
+   "https://date-calculator.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/decision-matrix": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://decision-matrix.zovo.one/",
+  "remotes": [
+   "https://decision-matrix.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/delegacja": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/per-diem",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/per-diem.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/deliverable-tracker": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/delivery-schedule/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/delivery-schedule"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/delivery-schedule.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/delivery-note": {
+  "ver": "0.22.7",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/delivery-schedule",
+  "remotes": [],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/delivery-schedule": {
+  "ver": "0.22.7",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/delivery-schedule",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/delivery-schedule.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/deposit": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/deposits",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/deposits.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/deposits": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/deposits/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/deposits"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/deposits.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/depreciation": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/asset-register",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/asset-register.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/dns-checker": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://dns-checker.zovo.one/",
+  "remotes": [
+   "https://dns-checker.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/documents": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/docx",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/docx.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/docx": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/docx",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/docx.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/docx-document-generator-proposal-contract-markdown": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/docx",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/docx"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/docx.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/domain-lookup": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://domain-lookup.zovo.one/",
+  "remotes": [
+   "https://domain-lookup.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/doubles-mixer": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://doubles-mixer.zovo.one/",
+  "remotes": [
+   "https://doubles-mixer.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/drug-shortage-list-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/drug-shortage-list-mcp",
+  "web": null,
+  "remotes": [
+   "https://drug-shortage-list-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/dscr-loan-calculator-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/dscr-loan-calculator-mcp",
+  "web": "https://dscrradar.com/dscr-loan-calculator/",
+  "remotes": [
+   "https://dscr-loan-calculator-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/dunning": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/statement-of-account",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/statement-of-account.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/dunning-letters": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/dunning-letters/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/dunning-letters"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/dunning-letters.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/duplicate-invoice-check": {
+  "ver": "0.22.8",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/duplicate-invoice-check?utm_source=mcp-registry&utm_medium=registry&utm_campaign=duplicate-invoice-check",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/estate-gift-tax-exemption-calculator-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/estate-gift-tax-exemption-calculator-mcp",
+  "web": "https://github.com/theluckystrike/estate-gift-tax-exemption-calculator-mcp",
+  "remotes": [
+   "https://estate-gift-tax-exemption-calculator-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/estimate-template": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/quotes",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/estimate-template"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/quotes.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/estimates": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/quotes",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/quotes.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/excel-spreadsheet-xlsx-csv": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/spreadsheet",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/spreadsheet"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/spreadsheet.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/exchange-fx": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/currency",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/currency.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/exchange-rates": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/currency",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/exchange-rates"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/currency.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/expense-report": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/expense-tracker",
+  "remotes": [],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/expense-tracker": {
+  "ver": "0.22.9",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/expense-tracker",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.9/expense-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/expense-tracker-receipts-mileage": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/expense-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/expense-tracker"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/expense-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/expenses": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/expense-tracker",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/expense-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/expenses-tracker": {
+  "ver": "0.22.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/expense-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/expenses-tracker"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/expense-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/family-tree": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://family-tree.zovo.one/",
+  "remotes": [
+   "https://family-tree.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/fed-register": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://fed-register.zovo.one/",
+  "remotes": [
+   "https://fed-register.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/fixed-assets": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/asset-register",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/asset-register.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/flashcard-studio": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://flashcard-studio.zovo.one/",
+  "remotes": [
+   "https://flashcard-studio.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/focus-timer": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://focus-timer.zovo.one/",
+  "remotes": [
+   "https://focus-timer.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/freelance": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/quotes",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/quotes.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/freelance-invoice": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/invoice",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/freelance-invoice"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/invoice.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/freelance-rate-calculator": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": null,
+  "remotes": [],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/gantt-chart": {
+  "ver": "0.22.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/spreadsheet",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/gantt-chart"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/spreadsheet.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/gantt-timeline": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://gantt-timeline.zovo.one/",
+  "remotes": [
+   "https://gantt-timeline.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/gift-exchange": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://gift-exchange.zovo.one/",
+  "remotes": [
+   "https://gift-exchange.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/glossary-terms-definitions-library": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/clauses",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/clauses.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/gold-price-per-gram-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/gold-price-per-gram-mcp",
+  "web": "https://goldgramprice.com",
+  "remotes": [
+   "https://gold-price-per-gram-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/golden-hour": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://golden-hour.zovo.one/",
+  "remotes": [
+   "https://golden-hour.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/goods-receipt": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/goods-receipt/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/goods-receipt"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/goods-receipt.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/gpa-calculator": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://gpa-calculator.zovo.one/",
+  "remotes": [
+   "https://gpa-calculator.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/grant-finder": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://grant-finder.zovo.one/",
+  "remotes": [
+   "https://grant-finder.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/handwriting-sheets": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://handwriting-sheets.zovo.one/",
+  "remotes": [
+   "https://handwriting-sheets.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/heating-oil-propane-prices-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/heating-oil-propane-prices-mcp",
+  "web": null,
+  "remotes": [
+   "https://heating-oil-propane-prices-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/hourly-rate": {
+  "ver": "0.22.7",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": null,
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.5/hourly-rate.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/i-bond-rate-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/i-bond-rate-mcp",
+  "web": null,
+  "remotes": [
+   "https://i-bond-rate-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/image": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/image",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/image.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/image-resize-convert-compress-watermark": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/image",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/image"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/image.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/imprest-account": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/petty-cash",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/petty-cash.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/inflation-calculator": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://inflation-calculator.zovo.one/",
+  "remotes": [
+   "https://inflation-calculator.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/invoice": {
+  "ver": "0.1.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/invoice",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.1.1/invoice.mcpb"
+  ],
+  "status": "deprecated",
+  "latest": true
+ },
+ "io.github.theluckystrike/invoice-generator": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/invoice",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/invoice-generator"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/invoice.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/invoice-generator-freelancers": {
+  "ver": "0.23.2",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/invoice",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/invoice-generator-freelancers"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/invoice-maker": {
+  "ver": "0.22.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/invoice",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/invoice-maker"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/invoice.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/invoice-pdf-billing-generator": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/invoice",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/invoice"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/invoice.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/invoices-invoicing": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/invoice",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/invoice.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/ip-lookup": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://ip-lookup.zovo.one/",
+  "remotes": [
+   "https://ip-lookup.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/irs-mileage-rate-per-diem-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/irs-mileage-rate-per-diem-mcp",
+  "web": "https://taxbreakcalc.com/self-employed-set-aside-calculator/",
+  "remotes": [
+   "https://irs-mileage-rate-per-diem-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/itinerary-travel-plan-schedule-events": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/calendar",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/calendar.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/job-card": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/job-card/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/job-card"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/job-card.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/job-card-template": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/job-card",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/job-card.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/json-diff": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://json-diff.zovo.one/",
+  "remotes": [
+   "https://json-diff.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/kanban": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/kanban",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/kanban.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/kanban-todo-tasks-projects-board": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/kanban",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/kanban"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/kanban.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/label": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/barcode",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/barcode.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/lake-level-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/lake-level-mcp",
+  "web": "https://lakelevelnow.com",
+  "remotes": [
+   "https://lake-level-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/lease-schedule": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/amortization",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/amortization.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/leave": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/leave/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/leave"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/leave.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/leave-pto-requests-approvals": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/leave",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/leave.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/ledger": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/cash-book",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/cash-book.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/lei-lookup": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://lei-lookup.zovo.one/",
+  "remotes": [
+   "https://lei-lookup.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/letterhead": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/docx",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/docx.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/loan-calculator": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": null,
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/loan-calculator.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/loan-planner": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://loan-planner.zovo.one/",
+  "remotes": [
+   "https://loan-planner.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/loan-schedule": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/amortization",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/amortization.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/mail-merge": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://mail-merge.zovo.one/",
+  "remotes": [
+   "https://mail-merge.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/maintenance-log": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/maintenance-log/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/maintenance-log"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/maintenance-log.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/maintenance-schedule": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/maintenance-log",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/maintenance-log.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/mcpstamp-check": {
+  "ver": "1.2.0",
+  "repo": "https://github.com/theluckystrike/mcpstamp-check",
+  "web": "https://www.mcpstamp.com/check/",
+  "remotes": [
+   "https://mcp.zovo.one/stamp/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/meeting-notes-transcript-summary": {
+  "ver": "0.23.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/docx",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/meeting-notes-transcript-summary"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/meeting-planner": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://meeting-planner.zovo.one/",
+  "remotes": [
+   "https://meeting-planner.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/merge-pdf": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/pdf",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/merge-pdf"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/pdf.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/metronome": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://metronome.zovo.one/",
+  "remotes": [
+   "https://metronome.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/mileage-log": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/mileage-log/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/mileage-log"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/mileage-log.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/mileage-logbook": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/mileage-log",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/mileage-log.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/mileage-tracker": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/expense-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/mileage-tracker"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/expense-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/milestone-schedule": {
+  "ver": "0.22.7",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/delivery-schedule",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/delivery-schedule.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/minimum-wage-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/minimum-wage-mcp",
+  "web": "https://statewage.com",
+  "remotes": [
+   "https://minimum-wage-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/mortgage-rates-today-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/mortgage-rates-today-mcp",
+  "web": null,
+  "remotes": [
+   "https://mortgage-rates-today-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/name-wheel": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://name-wheel.zovo.one/",
+  "remotes": [
+   "https://name-wheel.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/new-hire-onboarding-tasks": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/onboarding",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/no-tax-on-overtime-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/no-tax-on-overtime-mcp",
+  "web": "https://noovertimetax.com",
+  "remotes": [
+   "https://no-tax-on-overtime-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/npi-lookup": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://npi-lookup.zovo.one/",
+  "remotes": [
+   "https://npi-lookup.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/odometry-mileage-log": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://mileage-log.zovo.one/",
+  "remotes": [
+   "https://mileage-log.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/ofac-screening": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://ofac-screening.zovo.one/",
+  "remotes": [
+   "https://ofac-screening.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/office-suite": {
+  "ver": "0.25.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/bundle",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/office-suite.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/office-suite-time-invoice-expense-excel-price": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/bundle",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/office-suite.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/onboarding": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/onboarding/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/onboarding"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/onboarding.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/onboarding-checklist-inspection-runs": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/checklist",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/checklist.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/onboarding-goods-receipt-inspection-runs": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/goods-receipt",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/goods-receipt.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/onboarding-purchase-requisition-inspection-runs": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/purchase-requisition/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/purchase-requisition"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/purchase-requisition.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/org-chart": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://org-chart.zovo.one/",
+  "remotes": [
+   "https://org-chart.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/overdue-invoice-reminder": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/dunning-letters",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/dunning-letters.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/packing-checklist": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://packing-checklist.zovo.one/",
+  "remotes": [
+   "https://packing-checklist.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/packing-list": {
+  "ver": "0.22.8",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/packing-list",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/packing-slip"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/packing-list.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/packing-slip-cartons-shipment-weights": {
+  "ver": "0.22.8",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/packing-list",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/packing-list.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/paycheck-calculator": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://paycheck-calculator.zovo.one/",
+  "remotes": [
+   "https://paycheck-calculator.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/paycheck-calculator-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/paycheck-calculator-mcp",
+  "web": "https://statewage.com",
+  "remotes": [
+   "https://paycheck-calculator-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/payment-reminder": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/dunning-letters",
+  "remotes": [],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/payroll": {
+  "ver": "1.0.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": null,
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/payroll.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/pdf": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/pdf",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pdf.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/pdf-merge-split-stamp-extract-pages": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/pdf",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/pdf"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/pdf.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/pdf-merger": {
+  "ver": "0.22.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/pdf",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/pdf-merger"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pdf.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/pdf-split-merge-compress": {
+  "ver": "0.23.2",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/pdf",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/pdf-split-merge-compress"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/pdf-splitter": {
+  "ver": "0.22.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/pdf",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/pdf-splitter"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pdf.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/pdf-to-excel": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://pdf-to-excel.zovo.one/",
+  "remotes": [
+   "https://pdf-to-excel.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/pdfs": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/pdf",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/pdf.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/per-diem": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/per-diem/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/per-diem"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/per-diem.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/personality-test": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://personality-test.zovo.one/",
+  "remotes": [
+   "https://personality-test.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/petty-cash": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/petty-cash/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/petty-cash"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/petty-cash.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/pivot": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/spreadsheet",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/spreadsheet.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/pomodoro": {
+  "ver": "1.0.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": null,
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/pomodoro.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/pomodoro-timer": {
+  "ver": "0.22.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/time-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/pomodoro-timer"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/time-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/postage-stamp-price-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/postage-stamp-price-mcp",
+  "web": null,
+  "remotes": [
+   "https://postage-stamp-price-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/price-drop-alert-tracker": {
+  "ver": "0.23.2",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/price-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/price-drop-alert-tracker"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/price-list": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/catalogue",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/catalogue.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/price-tracker": {
+  "ver": "0.1.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/price-tracker",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.1.1/price-tracker.mcpb"
+  ],
+  "status": "deprecated",
+  "latest": true
+ },
+ "io.github.theluckystrike/price-tracker-drop-alert-watch": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/price-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/price-tracker"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/price-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/prices-deal": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/price-tracker",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/price-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/printable-calendar": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://printable-calendar.zovo.one/",
+  "remotes": [
+   "https://printable-calendar.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/product-recalls": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://product-recalls.zovo.one/",
+  "remotes": [
+   "https://product-recalls.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/purchase-order": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/billing-docs",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/billing-docs.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/purchase-requisition": {
+  "ver": "0.22.8",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/purchase-requisition",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/purchase-requisition.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/puzzle-maker": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://puzzle-maker.zovo.one/",
+  "remotes": [
+   "https://puzzle-maker.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/qr-code": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/barcode",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/barcode.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/qr-code-studio": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://qr-code-studio.zovo.one/",
+  "remotes": [
+   "https://qr-code-studio.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/quote-template": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/quotes",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/quote-template"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/quotes.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/quotes": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/quotes",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/quotes.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/quotes-estimates-proposals-vat-win-rate": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/quotes",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/quotes"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/quotes.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/rate-card": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/catalogue",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/catalogue.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/raw-to-cooked-weight-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/raw-to-cooked-weight-mcp",
+  "web": "https://recipetool.net/tools/raw-to-cooked-weight-calculator",
+  "remotes": [
+   "https://raw-to-cooked-weight-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/receipt-expense-scanner-reports": {
+  "ver": "0.23.2",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/expense-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/receipt-expense-scanner-reports"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/receipt-scanner": {
+  "ver": "0.22.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/expense-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/receipt-scanner"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/expense-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/receipts": {
+  "ver": "1.0.2",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": null,
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/receipts.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/recipe-nutrition-calculator-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/recipe-nutrition-calculator-mcp",
+  "web": "https://recipetool.net/nutrition-calculator",
+  "remotes": [
+   "https://recipe-nutrition-calculator-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/recurring": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/recurring",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/recurring.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/recurring-invoice-scheduler-subscription-billing-due-reminders": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/recurring",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/recurring"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/recurring.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/rent-ledger": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://rent-ledger.zovo.one/",
+  "remotes": [
+   "https://rent-ledger.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/resume": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/resume",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/resume.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/resume-builder-ats-checker": {
+  "ver": "0.23.2",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/resume",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/resume-builder-ats-checker"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/resume-cover-letter-docx-generator": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/resume",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/resume"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/resume.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/retainer": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/recurring",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/recurring.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/retirement-contribution-limits-2027-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/retirement-contribution-limits-2027-mcp",
+  "web": "https://statewage.com/401k-paycheck-calculator/",
+  "remotes": [
+   "https://retirement-contribution-limits-2027-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/river-level-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/river-level-mcp",
+  "web": "https://lakelevelnow.com",
+  "remotes": [
+   "https://river-level-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/sat-score-percentiles-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/sat-score-percentiles-mcp",
+  "web": "https://examscorecalc.com",
+  "remotes": [
+   "https://sat-score-percentiles-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/scheduling": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/timezone",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/timezone.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/schengen-days": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://schengen-days.zovo.one/",
+  "remotes": [
+   "https://schengen-days.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/scope-change": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/change-order",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/change-order.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/score-keeper": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://score-keeper.zovo.one/",
+  "remotes": [
+   "https://score-keeper.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/seating-chart": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://seating-chart.zovo.one/",
+  "remotes": [
+   "https://seating-chart.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/sec-filings": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://sec-filings.zovo.one/",
+  "remotes": [
+   "https://sec-filings.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/section-179-deduction-calculator-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/section-179-deduction-calculator-mcp",
+  "web": "https://assetloancalculator.com",
+  "remotes": [
+   "https://section-179-deduction-calculator-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/self-employment-tax": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://self-employment-tax.zovo.one/",
+  "remotes": [
+   "https://self-employment-tax.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/service-agreement": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/service-agreement/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/service-agreement"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/service-agreement.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/service-contract": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/service-agreement",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/service-agreement.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/service-report": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/work-order",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/work-order.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/sheet-compare": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://sheet-compare.zovo.one/",
+  "remotes": [
+   "https://sheet-compare.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/sheet-join": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://sheet-join.zovo.one/",
+  "remotes": [
+   "https://sheet-join.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/sheets": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/spreadsheet",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/spreadsheet.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/shift-scheduler": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://shift-scheduler.zovo.one/",
+  "remotes": [
+   "https://shift-scheduler.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/silver-price-per-gram-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/silver-price-per-gram-mcp",
+  "web": "https://goldgramprice.com",
+  "remotes": [
+   "https://silver-price-per-gram-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/site-status": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://site-status.zovo.one/",
+  "remotes": [
+   "https://site-status.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/sky-keepsake": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://sky-keepsake.zovo.one/",
+  "remotes": [
+   "https://sky-keepsake.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/snag-list-defect-handover-signoff": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/checklist",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/checklist.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/social-security-cola-2027-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/social-security-cola-2027-mcp",
+  "web": null,
+  "remotes": [
+   "https://social-security-cola-2027-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/sow": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/docx",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/docx.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/speed-reader": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://speed-reader.zovo.one/",
+  "remotes": [
+   "https://speed-reader.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/split-pdf": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/pdf",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/split-pdf"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/pdf.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/spreadsheet": {
+  "ver": "0.1.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/spreadsheet",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.1.1/spreadsheet.mcpb"
+  ],
+  "status": "deprecated",
+  "latest": true
+ },
+ "io.github.theluckystrike/spreadsheet-builder": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/spreadsheet",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/spreadsheet-builder"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/spreadsheet.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/spreadsheet-generator": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/spreadsheet",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/spreadsheet-generator"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/spreadsheet.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/standup": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/kanban",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/kanban.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/statement-converter": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://statement-converter.zovo.one/",
+  "remotes": [
+   "https://statement-converter.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/statement-of-account": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/statement-of-account/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/statement-of-account"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/statement-of-account.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/stripe-billing": {
+  "ver": "1.0.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": null,
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/stripe-billing.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/student-loan-repayment-assistance-plan-calculator-mcp": {
+  "ver": "1.0.1",
+  "repo": "https://github.com/theluckystrike/student-loan-repayment-assistance-plan-calculator-mcp",
+  "web": "https://github.com/theluckystrike/student-loan-repayment-assistance-plan-calculator-mcp",
+  "remotes": [
+   "https://student-loan-repayment-assistance-plan-calculator-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/study-flashcards-exam-prep": {
+  "ver": "0.23.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/kanban",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/study-flashcards-exam-prep"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/subdomain-finder-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/subdomain-finder-mcp",
+  "web": "https://bugbountyreality.com/tools/subdomain-finder-real/",
+  "remotes": [
+   "https://subdomain-finder-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/subscription-manager-track-renewals": {
+  "ver": "0.23.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/recurring",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/subscription-manager-track-renewals"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/subscriptions": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/recurring",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/recurring.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/supplier-directory": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/supplier-list",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/supplier-list.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/supplier-invoice-duplicates": {
+  "ver": "0.22.8",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/duplicate-invoice-check?utm_source=mcp-registry&utm_medium=registry&utm_campaign=duplicate-invoice-check",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/duplicate-invoice-check.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/supplier-invoice-matching": {
+  "ver": "0.22.8",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/three-way-match?utm_source=mcp-registry&utm_medium=registry&utm_campaign=three-way-match",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/supplier-list": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/supplier-list/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/supplier-list"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/supplier-list.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/supplier-statement-check": {
+  "ver": "0.25.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/supplier-statement-check?utm_source=mcp-registry&utm_medium=registry&utm_campaign=supplier-statement-check",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/supplier-statement-check.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/task-board-todo-kanban": {
+  "ver": "0.23.2",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/kanban",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/task-board-todo-kanban"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/tax-calc": {
+  "ver": "1.0.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": null,
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/tax-calc.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/teleprompter": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://teleprompter.zovo.one/",
+  "remotes": [
+   "https://teleprompter.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/templates": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/docx",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/docx.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/terms": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/clauses",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/clauses.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/three-way-match": {
+  "ver": "0.22.8",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/three-way-match?utm_source=mcp-registry&utm_medium=registry&utm_campaign=three-way-match",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.8/three-way-match.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/thumbnails": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/image",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/image.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/time-card": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://time-card.zovo.one/",
+  "remotes": [
+   "https://time-card.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/time-tracker": {
+  "ver": "0.1.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/time-tracker",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.1.1/time-tracker.mcpb"
+  ],
+  "status": "deprecated",
+  "latest": true
+ },
+ "io.github.theluckystrike/time-tracker-timesheet-billable-hours": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/time-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/time-tracker"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/time-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/time-tracking": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/time-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/time-tracking"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/time-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/time-tracking-billing-hours": {
+  "ver": "0.23.2",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/time-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/time-tracking-billing-hours"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/timer-tracking": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/time-tracker",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/time-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/timesheet": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/time-tracker",
+  "remotes": [],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/timesheets": {
+  "ver": "0.21.1",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/time-tracker",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/timesheets"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.21.0/time-tracker.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/timezone": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/timezone",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/timezone.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/timezone-world-clock-meeting-slots-overlap-ics": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/timezone",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/timezone"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/timezone.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/travel-allowance": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/per-diem",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/per-diem.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/trial-balance": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/cash-book",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/cash-book.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/typing-test": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://typing-test.zovo.one/",
+  "remotes": [
+   "https://typing-test.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/uk-income-tax-salary-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/uk-income-tax-salary-mcp",
+  "web": "https://ukmoneycalc.com",
+  "remotes": [
+   "https://uk-income-tax-salary-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/uk-statutory-sick-pay-maternity-pay-calculator-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/uk-statutory-sick-pay-maternity-pay-calculator-mcp",
+  "web": "https://ukmoneycalc.com/calculators/maternity-pay/",
+  "remotes": [
+   "https://uk-statutory-sick-pay-maternity-pay-calculator-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/us-federal-holidays-business-days-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/us-federal-holidays-business-days-mcp",
+  "web": "https://us-federal-holidays-business-days-mcp.lipmichal.workers.dev/",
+  "remotes": [
+   "https://us-federal-holidays-business-days-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/usps-holiday-shipping-deadlines-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/usps-holiday-shipping-deadlines-mcp",
+  "web": null,
+  "remotes": [
+   "https://usps-holiday-shipping-deadlines-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/uv-index-today-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/uv-index-today-mcp",
+  "web": null,
+  "remotes": [
+   "https://uv-index-today-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/variation-order": {
+  "ver": "0.22.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/change-order",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/change-order.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/vat-check": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://vat-check.zovo.one/",
+  "remotes": [
+   "https://vat-check.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/vegetable-yield-percentage-mcp": {
+  "ver": "1.0.0",
+  "repo": "https://github.com/theluckystrike/vegetable-yield-percentage-mcp",
+  "web": "https://ingredientcalculator.com/vegetable-yield-percentage-calculator",
+  "remotes": [
+   "https://vegetable-yield-percentage-mcp.lipmichal.workers.dev/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/vehicle-recalls": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://vehicle-recalls.zovo.one/",
+  "remotes": [
+   "https://vehicle-recalls.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/vendor-statement-open-items": {
+  "ver": "0.25.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/supplier-statement-check?utm_source=mcp-registry&utm_medium=registry&utm_campaign=vendor-statement-open-items",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.25.0/supplier-statement-check.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/weather-history": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://weather-history.zovo.one/",
+  "remotes": [
+   "https://weather-history.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/word-counter": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://word-counter.zovo.one/",
+  "remotes": [
+   "https://word-counter.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/word-guess": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://word-guess.zovo.one/",
+  "remotes": [
+   "https://word-guess.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/word-solver": {
+  "ver": "1.0.1",
+  "repo": null,
+  "web": "https://word-solver.zovo.one/",
+  "remotes": [
+   "https://word-solver.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/work-order": {
+  "ver": "0.23.0",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://www.mcpstamp.com/servers/work-order/",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/work-order"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/work-order.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/zip": {
+  "ver": "0.22.6",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/s/zip",
+  "remotes": [],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.22.0/zip.mcpb"
+  ],
+  "status": "active",
+  "latest": true
+ },
+ "io.github.theluckystrike/zip-archive-create-extract-bomb-guard": {
+  "ver": "0.9.5",
+  "repo": "https://github.com/theluckystrike/mcp-servers",
+  "web": "https://mcp.zovo.one/buy/zip",
+  "remotes": [
+   "https://mcp.zovo.one/mcp/zip"
+  ],
+  "pkgs": [
+   "https://github.com/theluckystrike/mcp-servers/releases/download/v0.9.5/zip.mcpb"
+  ],
+  "status": "active",
+  "latest": false
+ },
+ "io.github.theluckystrike/zovo-per-diem-calculator": {
+  "ver": "1.0.0",
+  "repo": null,
+  "web": "https://per-diem.zovo.one/",
+  "remotes": [
+   "https://per-diem.zovo.one/mcp"
+  ],
+  "pkgs": [],
+  "status": "active",
+  "latest": true
+ }
+}

@@ -1,0 +1,16 @@
+[
+ {
+  "repo": "mcp-showcase-site",
+  "homepage": "https://mcp.zovo.one",
+  "readme_bytes": 136,
+  "links_zovo": 0,
+  "has_price": false
+ },
+ {
+  "repo": "mcp-servers",
+  "homepage": "https://mcp.zovo.one",
+  "readme_bytes": 30752,
+  "links_zovo": 85,
+  "has_price": true
+ }
+]

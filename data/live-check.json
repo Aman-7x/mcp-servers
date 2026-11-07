@@ -1,0 +1,780 @@
+{
+ "checked_at": "2026-11-06 22:10 UTC",
+ "total": 58,
+ "live": 58,
+ "dead": 0,
+ "throttled": 0,
+ "by_design": 1,
+ "npm_week_total": 10307,
+ "npm_presence": {
+  "@theluckystrike/mcp-amortization": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-asset-register": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-backlink-checker": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-bank-statement": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-barcode": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-bill-of-sale": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-billing-docs": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-budget": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-calendar": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-cash-book": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-catalogue": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-change-order": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-checklist": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-clauses": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-credit-note": {
+   "present": true,
+   "latest": "0.22.8"
+  },
+  "@theluckystrike/mcp-currency": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-delivery-schedule": {
+   "present": true,
+   "latest": "0.22.7"
+  },
+  "@theluckystrike/mcp-deposits": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-docx": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-dunning-letters": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-duplicate-invoice-check": {
+   "present": true,
+   "latest": "0.22.8"
+  },
+  "@theluckystrike/mcp-expense-tracker": {
+   "present": true,
+   "latest": "0.22.9"
+  },
+  "@theluckystrike/mcp-goods-receipt": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-hourly-rate": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-image": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-ingredient-convert": {
+   "present": false,
+   "latest": null
+  },
+  "@theluckystrike/mcp-invoice": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-job-card": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-kanban": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-leave": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-loan-calculator": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-maintenance-log": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-mileage-log": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-office-suite": {
+   "present": true,
+   "latest": "0.25.0"
+  },
+  "@theluckystrike/mcp-onboarding": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-packing-list": {
+   "present": true,
+   "latest": "0.22.8"
+  },
+  "@theluckystrike/mcp-payroll": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-pdf": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-per-diem": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-petty-cash": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-pomodoro": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-price-tracker": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-purchase-requisition": {
+   "present": true,
+   "latest": "0.22.8"
+  },
+  "@theluckystrike/mcp-quotes": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-receipts": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-recurring": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-resume": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-service-agreement": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-spreadsheet": {
+   "present": true,
+   "latest": "0.22.9"
+  },
+  "@theluckystrike/mcp-statement-of-account": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-stripe-billing": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-supplier-list": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-supplier-statement-check": {
+   "present": true,
+   "latest": "0.25.0"
+  },
+  "@theluckystrike/mcp-tax-calc": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-three-way-match": {
+   "present": true,
+   "latest": "0.22.8"
+  },
+  "@theluckystrike/mcp-time-tracker": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-timezone": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-work-order": {
+   "present": true,
+   "latest": "0.22.6"
+  },
+  "@theluckystrike/mcp-zip": {
+   "present": true,
+   "latest": "0.22.6"
+  }
+ },
+ "results": [
+  {
+   "name": "amortization",
+   "live": true,
+   "status": 200,
+   "tools": 9,
+   "npm_week": 249,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "asset-register",
+   "live": true,
+   "status": 200,
+   "tools": 9,
+   "npm_week": 280,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "backlink-checker",
+   "live": true,
+   "status": 200,
+   "tools": 8,
+   "npm_week": 215,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "bank-statement",
+   "live": true,
+   "status": 200,
+   "tools": 15,
+   "npm_week": 231,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "barcode",
+   "live": true,
+   "status": 200,
+   "tools": 10,
+   "npm_week": 245,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "bill-of-sale",
+   "live": true,
+   "status": 200,
+   "tools": 10,
+   "npm_week": 242,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "billing-docs",
+   "live": true,
+   "status": 200,
+   "tools": 16,
+   "npm_week": 278,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "budget",
+   "live": true,
+   "status": 200,
+   "tools": 3,
+   "npm_week": 361,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "calendar",
+   "live": true,
+   "status": 200,
+   "tools": 12,
+   "npm_week": 303,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "cash-book",
+   "live": true,
+   "status": 200,
+   "tools": 9,
+   "npm_week": 269,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "catalogue",
+   "live": true,
+   "status": 200,
+   "tools": 12,
+   "npm_week": 253,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "change-order",
+   "live": true,
+   "status": 200,
+   "tools": 11,
+   "npm_week": 228,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "checklist",
+   "live": true,
+   "status": 200,
+   "tools": 16,
+   "npm_week": 235,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "clauses",
+   "live": true,
+   "status": 200,
+   "tools": 12,
+   "npm_week": 234,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "credit-note",
+   "live": true,
+   "status": 200,
+   "tools": 16,
+   "npm_week": 263,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "currency",
+   "live": true,
+   "status": 200,
+   "tools": 10,
+   "npm_week": 256,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "delivery-schedule",
+   "live": true,
+   "status": 200,
+   "tools": 12,
+   "npm_week": 211,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "deposits",
+   "live": true,
+   "status": 200,
+   "tools": 11,
+   "npm_week": 303,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "docx",
+   "live": true,
+   "status": 200,
+   "tools": 14,
+   "npm_week": 277,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "dunning-letters",
+   "live": true,
+   "status": 200,
+   "tools": 11,
+   "npm_week": 247,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "duplicate-invoice-check",
+   "live": true,
+   "status": 200,
+   "tools": 8,
+   "npm_week": 250,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "expense-tracker",
+   "live": true,
+   "status": 200,
+   "tools": 14,
+   "npm_week": 229,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "goods-receipt",
+   "live": true,
+   "status": 200,
+   "tools": 11,
+   "npm_week": 235,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "hourly-rate",
+   "live": true,
+   "status": 200,
+   "tools": 3,
+   "npm_week": 241,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "image",
+   "live": true,
+   "status": 200,
+   "tools": 15,
+   "npm_week": 255,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "ingredient-convert",
+   "live": true,
+   "status": 200,
+   "tools": 7,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "invoice",
+   "live": true,
+   "status": 200,
+   "tools": 13,
+   "npm_week": 384,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "job-card",
+   "live": true,
+   "status": 200,
+   "tools": 11,
+   "npm_week": 235,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "kanban",
+   "live": true,
+   "status": 200,
+   "tools": 17,
+   "npm_week": 254,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "leave",
+   "live": true,
+   "status": 200,
+   "tools": 12,
+   "npm_week": 235,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "loan-calculator",
+   "live": true,
+   "status": 200,
+   "tools": 2,
+   "npm_week": 369,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "maintenance-log",
+   "live": true,
+   "status": 200,
+   "tools": 8,
+   "npm_week": 244,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "mileage-log",
+   "live": true,
+   "status": 200,
+   "tools": 9,
+   "npm_week": 239,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "office-suite",
+   "live": false,
+   "status": null,
+   "tools": null,
+   "npm_week": 246,
+   "throttled": false,
+   "by_design": true
+  },
+  {
+   "name": "onboarding",
+   "live": true,
+   "status": 200,
+   "tools": 9,
+   "npm_week": 251,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "packing-list",
+   "live": true,
+   "status": 200,
+   "tools": 14,
+   "npm_week": 256,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "payroll",
+   "live": true,
+   "status": 200,
+   "tools": 2,
+   "npm_week": 371,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "pdf",
+   "live": true,
+   "status": 200,
+   "tools": 15,
+   "npm_week": 259,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "per-diem",
+   "live": true,
+   "status": 200,
+   "tools": 9,
+   "npm_week": 225,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "petty-cash",
+   "live": true,
+   "status": 200,
+   "tools": 9,
+   "npm_week": 349,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "pomodoro",
+   "live": true,
+   "status": 200,
+   "tools": 1,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "price-tracker",
+   "live": true,
+   "status": 200,
+   "tools": 10,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "purchase-requisition",
+   "live": true,
+   "status": 200,
+   "tools": 16,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "quotes",
+   "live": true,
+   "status": 200,
+   "tools": 12,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "receipts",
+   "live": true,
+   "status": 200,
+   "tools": 1,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "recurring",
+   "live": true,
+   "status": 200,
+   "tools": 14,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "resume",
+   "live": true,
+   "status": 200,
+   "tools": 13,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "service-agreement",
+   "live": true,
+   "status": 200,
+   "tools": 9,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "spreadsheet",
+   "live": true,
+   "status": 200,
+   "tools": 13,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "statement-of-account",
+   "live": true,
+   "status": 200,
+   "tools": 8,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "stripe-billing",
+   "live": true,
+   "status": 200,
+   "tools": 2,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "supplier-list",
+   "live": true,
+   "status": 200,
+   "tools": 10,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "supplier-statement-check",
+   "live": true,
+   "status": 200,
+   "tools": 8,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "tax-calc",
+   "live": true,
+   "status": 200,
+   "tools": 1,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "three-way-match",
+   "live": true,
+   "status": 200,
+   "tools": 8,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "time-tracker",
+   "live": true,
+   "status": 200,
+   "tools": 20,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "timezone",
+   "live": true,
+   "status": 200,
+   "tools": 11,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "work-order",
+   "live": true,
+   "status": 200,
+   "tools": 12,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  },
+  {
+   "name": "zip",
+   "live": true,
+   "status": 200,
+   "tools": 12,
+   "npm_week": null,
+   "throttled": false,
+   "by_design": false
+  }
+ ]
+}

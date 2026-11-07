@@ -1,0 +1,17 @@
+deleted_at	bytes	path
+2026-11-05T18:11:20Z	28672	/Users/mike/mcp-servers-work/sat3/probe
+2026-11-05T18:11:20Z	405504	/Users/mike/mcp-servers-work/sat3/fc
+2026-11-05T18:11:20Z	24576	/Users/mike/mcp-servers-work/sat3/gen
+2026-11-05T18:11:20Z	49152	/Users/mike/mcp-servers-work/sat3/usps-nr.html
+2026-11-05T18:11:20Z	73728	/Users/mike/mcp-servers-work/sat3/usps-holiday.html
+2026-11-05T18:11:20Z	90112	/Users/mike/mcp-servers-work/sat3/usps-dates.html
+2026-11-05T18:11:20Z	32768	/Users/mike/mcp-servers-work/sat3/eia-ho.html
+2026-11-05T18:11:20Z	40960	/Users/mike/mcp-servers-work/sat3/eia-pr.html
+2026-11-05T18:11:20Z	24576	/Users/mike/mcp-servers-work/sat3/eia-gas.html
+2026-11-05T18:11:20Z	77824	/Users/mike/mcp-servers-work/sat3/eia-btu.html
+2026-11-05T18:11:20Z	2154496	/Users/mike/mcp-servers-work/sat3/n123.html
+2026-11-05T18:11:20Z	106496	/Users/mike/mcp-servers-work/sat3/hist-W_EPD2F_PRS_NUS_DPG.html
+2026-11-05T18:11:20Z	106496	/Users/mike/mcp-servers-work/sat3/hist-W_EPLLPA_PRS_NUS_DPG.html
+2026-11-05T18:11:20Z	4096	/Users/mike/mcp-servers-work/sat3/deploy-usps-holiday-shipping-deadlines-mcp.log
+2026-11-05T18:11:20Z	4096	/Users/mike/mcp-servers-work/sat3/deploy-heating-oil-propane-prices-mcp.log
+2026-11-05T18:11:20Z	4096	/Users/mike/mcp-servers-work/sat3/deploy-postage-stamp-price-mcp.log

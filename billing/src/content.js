@@ -92,10 +92,10 @@ ${addLines}</code></pre>
 ${jsonEntries}
   }
 }</code></pre>
-<p>The npm packages are not published yet, so the <code>npx</code> form below returns a 404 today. It is
-kept because it is what that config becomes the day the publish lands, with nothing else changed;
-<a href="/guides/install-mcp-servers-without-npm">installing these servers when npx does not work yet</a>
-has the whole picture.</p>
+<p>The npm packages are published: 58 of the 60 servers resolve on <code>registry.npmjs.org</code>
+(checked 2026-11-06), so the <code>npx</code> form below installs today. If a name ever misses,
+<a href="/guides/install-mcp-servers-without-npm">installing these servers without npm</a>
+covers the fallbacks.</p>
 <pre><code>${npxLines}</code></pre>`;
 }
 
@@ -3369,10 +3369,10 @@ whichever child owns the name, and merges their license state. Nothing is reimpl
 keeps its own local JSON storage, exactly as it does standalone.</p>
 
 <h2>Install it</h2>
-<p>The npm packages are not published yet, so the working paths are the one-click bundle and a clone
-and build. A probe of <code>registry.npmjs.org</code> on 2026-09-07 returned no versions for the
-<code>@theluckystrike/mcp-*</code> packages, which matches the npm status section of the repository
-README.</p>
+<p>The package is published on npm, so the <code>npx</code> one-liner is the fastest path. The one-click
+bundle and a clone and build remain for offline or pinned installs. A probe of
+<code>registry.npmjs.org</code> on 2026-11-06 resolved 58 of the 60
+<code>@theluckystrike/mcp-*</code> packages.</p>
 <p><strong>One click.</strong> Download <code>office-suite.mcpb</code> from the
 <a href="https://mcp.zovo.one/downloads">bundle catalog</a> and
 double-click it in Claude Desktop. It runs on the Node runtime Claude Desktop ships with, so nothing
@@ -3748,7 +3748,7 @@ ${FOOT}`,
       { q: "Why does npx work in my terminal but not in Claude Desktop?", a: "Because the app does not run your shell profile. Your terminal PATH is built by .zshrc or .bash_profile; a stdio server spawned by a GUI app inherits a smaller, platform-dependent environment. Run `which npx` and paste the absolute result into the command field." },
       { q: "Do I have to restart after every config change?", a: "In Claude Desktop, yes, and it has to be a full quit rather than closing the window. Claude Code does not need one at all: the entry is live in the next session and /mcp reconnects on demand. Cursor picks the server up when its Customize page next lists it." },
       { q: "Is there a way to test the server without a client at all?", a: "Yes. Run the server binary directly from a terminal and it speaks JSON-RPC over stdio. If it prints a startup banner and waits, the server is fine and the problem is in the client config. If it exits, you have the error text in front of you." },
-      { q: "Which install path actually works for these servers today?", a: "The .mcpb bundle or a clone and build. The npm packages are not published yet: a probe of registry.npmjs.org on 2026-09-07 returned no versions for @theluckystrike/mcp-invoice, mcp-time-tracker, mcp-spreadsheet, mcp-zip, mcp-pdf or mcp-quotes, which matches the npm status section of the repository README. The hosted URLs need no install." },
+      { q: "Which install path actually works for these servers today?", a: "All of them. The npm packages are published: a probe of registry.npmjs.org on 2026-11-06 resolved 58 of the 60 @theluckystrike/mcp-* packages, including mcp-invoice at 0.22.6, so npx -y @theluckystrike/mcp-invoice installs today. The .mcpb bundle and a clone and build work too, and the hosted URLs need no install at all." },
     ],
   },
   "where-is-claude-desktop-config-json": {
@@ -8016,8 +8016,9 @@ which is the cost of the same design.</p>
 <p>One server is $${SINGLE_USD} once. All ${LISTED_CHILD_COUNT} servers that are sold singly are $${BUNDLE_USD}
 once, which is where the office-suite server gets its key from as well, since it has no price of its own.
 Lifetime, no subscription, no seat count. Checkout is Stripe's own page, the card never touches this
-site, and if you lose the key you can recover it at <a href="/recover">/recover</a> with the email Stripe
-collected.</p>
+site, and the key is shown on the <code>/success</code> page right after payment. If you lose it, open
+<code>/recover?session_id=...</code> with the Checkout session id from that page's address, or email
+support@zovo.one with your Stripe receipt and the key is sent back.</p>
 <p>The free tier is not a trial. It has no expiry, needs no card and no account, and on most servers it is
 meant to be the whole product for light use. Three examples, read from
 <code>data/facts.json</code>:</p>
@@ -8040,8 +8041,8 @@ follow you when you switch that URL to a Pro key, because they are different ten
 export before you switch.</li>
 <li>A one-time key means there is no funded support contract behind it. Refunds are within 14 days by
 email, and issues are read on GitHub. No phone number, and no ticket queue.</li>
-<li>The npm packages are not published yet, so any purchase you make is used through the bundle, a clone
-or a hosted URL. If your workflow depends on <code>npx</code>, wait.</li>
+<li>The npm packages are published (58 of 60 resolve on <code>registry.npmjs.org</code>, checked
+2026-11-06), so a purchase works through <code>npx</code>, the one-click bundle or a hosted URL.</li>
 <li>Nothing here is escrowed. If this project stops, the stdio servers you already installed keep
 working offline forever and the hosted endpoints do not. That asymmetry is the main reason to install
 locally if the work matters.</li>

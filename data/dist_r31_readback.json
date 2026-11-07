@@ -1,0 +1,288 @@
+[
+ {
+  "repo": "ExMapo/awesome-productivity-mcp-servers",
+  "prs": [
+   {
+    "mergedAt": null,
+    "number": 24,
+    "state": "CLOSED",
+    "title": "Add Zovo Spreadsheet MCP to Data & Spreadsheets"
+   }
+  ],
+  "artifact_links": {
+   "README.md": 0
+  }
+ },
+ {
+  "repo": "Albertchamberlain/Awesome-MCP",
+  "prs": [
+   {
+    "mergedAt": null,
+    "number": 75,
+    "state": "CLOSED",
+    "title": "Add Statement of Account MCP (finance, hosted remote)"
+   },
+   {
+    "mergedAt": "2026-09-18T02:56:02Z",
+    "number": 52,
+    "state": "MERGED",
+    "title": "Add Zovo MCP Servers (+ fix catalog merge conflict breaking CI)"
+   }
+  ],
+  "artifact_links": {
+   "data/catalog.yaml": 1,
+   "README.md": 1
+  }
+ },
+ {
+  "repo": "mcpHQ/awesome-mcp-servers",
+  "prs": [
+   {
+    "mergedAt": null,
+    "number": 695,
+    "state": "OPEN",
+    "title": "Add MCP Price Tracker and MCP Time Tracker"
+   },
+   {
+    "mergedAt": "2026-10-09T17:57:30Z",
+    "number": 175,
+    "state": "MERGED",
+    "title": "Add Zovo Time Tracker (communication-and-productivity)"
+   },
+   {
+    "mergedAt": "2026-09-23T20:48:36Z",
+    "number": 72,
+    "state": "MERGED",
+    "title": "Add Zovo Invoice Generator and Zovo E-commerce Suite"
+   },
+   {
+    "mergedAt": "2026-09-17T18:32:51Z",
+    "number": 62,
+    "state": "MERGED",
+    "title": "Add Zovo Office Suite to communication and productivity"
+   },
+   {
+    "mergedAt": "2026-09-17T06:10:44Z",
+    "number": 61,
+    "state": "MERGED",
+    "title": "Add Zovo Invoice MCP to finance"
+   }
+  ],
+  "artifact_links": {
+   "data/servers.json": 5,
+   "README.md": 1
+  }
+ },
+ {
+  "repo": "MobinX/awesome-mcp-list",
+  "prs": [
+   {
+    "mergedAt": null,
+    "number": 966,
+    "state": "CLOSED",
+    "title": "Add theluckystrike/common-ground to Art & Culture"
+   },
+   {
+    "mergedAt": null,
+    "number": 517,
+    "state": "CLOSED",
+    "title": "Add Zovo billing & productivity MCP servers (6 entries)"
+   },
+   {
+    "mergedAt": "2026-09-14T11:10:12Z",
+    "number": 420,
+    "state": "MERGED",
+    "title": "Add office-suite MCP server bundle to Utilities"
+   }
+  ],
+  "artifact_links": {
+   "README.md": 2
+  }
+ },
+ {
+  "repo": "abordage/awesome-mcp",
+  "prs": [
+   {
+    "mergedAt": "2026-09-14T06:52:29Z",
+    "number": 106,
+    "state": "MERGED",
+    "title": "Add six local freelance-office MCP servers"
+   }
+  ],
+  "artifact_links": {
+   "repositories.yaml": 0,
+   "README.md": 0
+  }
+ },
+ {
+  "repo": "AIAnytime/Awesome-MCP-Server",
+  "prs": [],
+  "artifact_links": {
+   "README.md": 1
+  }
+ },
+ {
+  "repo": "DhanushNehru/awesome-mcp-servers",
+  "prs": [
+   {
+    "mergedAt": null,
+    "number": 95,
+    "state": "OPEN",
+    "title": "Add Zovo Invoice Generator"
+   },
+   {
+    "mergedAt": null,
+    "number": 85,
+    "state": "CLOSED",
+    "title": "Add Zovo Office Suite to Productivity & Collaboration"
+   }
+  ],
+  "artifact_links": {
+   "README.md": 0
+  }
+ },
+ {
+  "repo": "collabnix/awesome-mcp-lists",
+  "prs": [
+   {
+    "mergedAt": "2026-10-13T03:04:37Z",
+    "number": 117,
+    "state": "MERGED",
+    "title": "Add 3 offline office MCP servers to DevOps & Infrastructure"
+   },
+   {
+    "mergedAt": "2026-10-03T01:57:40Z",
+    "number": 112,
+    "state": "MERGED",
+    "title": "Add mcp-office-suite to Development Tools"
+   }
+  ],
+  "artifact_links": {
+   "README.md": 0
+  }
+ },
+ {
+  "repo": "habitoai/awesome-mcp-servers",
+  "prs": [
+   {
+    "mergedAt": "2026-10-02T15:26:20Z",
+    "number": 144,
+    "state": "MERGED",
+    "title": "Add Bank Statement, Expense Tracker and Invoice to Finance"
+   }
+  ],
+  "artifact_links": {
+   "README.md": 0
+  }
+ },
+ {
+  "repo": "punkpeye/awesome-mcp-servers",
+  "prs": [
+   {
+    "mergedAt": null,
+    "number": 18778,
+    "state": "OPEN",
+    "title": "Add twelve theluckystrike data MCP servers (rates, prices, CPI, census, USPS) \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 18737,
+    "state": "CLOSED",
+    "title": "Add zovo-one/mcp-price-tracker and zovo-one/mcp-time-tracker \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 18434,
+    "state": "OPEN",
+    "title": "Add theluckystrike/lake-level-mcp to Environment & Nature"
+   },
+   {
+    "mergedAt": null,
+    "number": 14681,
+    "state": "OPEN",
+    "title": "Add mcp-office-suite MCP server"
+   },
+   {
+    "mergedAt": null,
+    "number": 14565,
+    "state": "CLOSED",
+    "title": "Add theluckystrike/mcp-checklist to Other Tools and Integrations \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 14564,
+    "state": "CLOSED",
+    "title": "Add theluckystrike/mcp-packing-list to Other Tools and Integrations \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 14563,
+    "state": "CLOSED",
+    "title": "Add theluckystrike/mcp-job-card to Other Tools and Integrations \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 14562,
+    "state": "CLOSED",
+    "title": "Add theluckystrike/mcp-dunning-letters to Finance & Fintech \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 14561,
+    "state": "CLOSED",
+    "title": "Add theluckystrike/mcp-credit-note to Finance & Fintech \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 14560,
+    "state": "CLOSED",
+    "title": "Add theluckystrike/mcp-bill-of-sale to Finance & Fintech \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 14559,
+    "state": "CLOSED",
+    "title": "Add theluckystrike/mcp-office-suite to Other Tools and Integrations \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 13966,
+    "state": "OPEN",
+    "title": "Add zovo-one/mcp-barcode to Other Tools and Integrations \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 13965,
+    "state": "OPEN",
+    "title": "Add zovo-one/mcp-pdf to Other Tools and Integrations \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 13964,
+    "state": "OPEN",
+    "title": "Add zovo-one/mcp-spreadsheet to Data Science Tools \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": "2026-10-18T01:35:10Z",
+    "number": 13963,
+    "state": "MERGED",
+    "title": "Add theluckystrike/mcp-statement-of-account to Finance & Fintech \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   },
+   {
+    "mergedAt": null,
+    "number": 13473,
+    "state": "CLOSED",
+    "title": "Add four theluckystrike MCP servers: time-tracker, price-tracker, spreadsheet, invoice"
+   },
+   {
+    "mergedAt": null,
+    "number": 5768,
+    "state": "CLOSED",
+    "title": "Add BeLikeNative Grammar Server \ud83e\udd16\ud83e\udd16\ud83e\udd16"
+   }
+  ],
+  "artifact_links": {
+   "README.md": 0
+  }
+ }
+]

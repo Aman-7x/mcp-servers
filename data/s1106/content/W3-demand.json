@@ -1,0 +1,14 @@
+{
+ "create-invoices": "suggest2.txt: \"can claude create invoices\", \"can claude create an invoice\", \"can claude do invoices\" (no /can-claude/ invoice page exists; /use-cases/create-invoice-in-claude/ is the how-to page, GSC \"invoiced to claude\" 5 imp pos 74.8 there)",
+ "find-overdue-invoices": "suggest2.txt: \"claude overdue invoice\", \"claude billing overdue\"",
+ "make-a-credit-note": "suggest2.txt: \"claude credit note\", \"claude credit memo\"",
+ "create-purchase-orders": "suggest2.txt: \"claude purchase order\", \"claude ai purchase order\"",
+ "write-a-payment-reminder": "suggest2.txt: \"claude invoice chaser\", \"claude overdue invoice\"; GSC 1020-1105: \"chase overdue invoices automatically\" 30 imp pos 85.5 and \"chase overdue invoices\" 1 imp pos 84 (both on /use-cases/chase-overdue-invoices/)",
+ "track-accounts-receivable": "suggest2.txt: \"claude accounts receivable\" (seed \"claude aging report\" returned no rows)",
+ "read-bank-statements": "suggest2.txt: \"can claude read bank statements\", \"can claude analyze bank statements\", \"claude bank statement analysis\", \"giving claude bank statements\"",
+ "calculate-depreciation": "suggest2.txt: \"claude depreciation schedule\", \"claude depreciation\" (seed \"can claude calculate depreciation\" returned no rows)",
+ "make-an-onboarding-plan": "suggest2.txt: \"claude employee onboarding\"",
+ "create-work-orders": "GSC 1020-1105: \"work order mcp server\" 4 imp pos 11.2 on /servers/work-order/; GSC 1106 page row /servers/work-order/ 4 imp pos 11.2 (no autocomplete row; seed \"claude work order\" returned none)",
+ "track-employee-leave": "weak: GSC 1106 page row /use-cases/employee-leave-tracker/ 1 imp 1 click pos 2; seeds \"claude leave tracker\" and \"claude pto tracker\" returned no rows",
+ "keep-a-mileage-log": "weak: GSC 1106 page row /servers/mileage-log/ 2 imp pos 5.5; seed \"claude mileage\" returned no rows"
+}

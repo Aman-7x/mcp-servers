@@ -1,0 +1,95 @@
+{
+ "id": "2026-11-06",
+ "title": "S1106 wave 3: 12 buyer pages, 3 seasonal free servers (36), checkout fallback",
+ "verdict": "CHECKOUT RESTORED 2026-11-06. New non-expiring restricted key (Checkout Sessions write) on mcp-billing; tagged probes 303 to live Stripe Checkout for $19, $39, $490 and Leave; gated deploy 696bdd4b shipped PRs 116, 123, 125. Revenue still $0 so far; organic pages and 36 free servers live.",
+ "kpis": [
+  {
+   "label": "Checkout working",
+   "value": "YES since 2026-11-06",
+   "note": "Restricted key 'mcp-billing checkout' (Checkout Sessions write, no expiry). Tagged probes: invoice 1900, bundle 3900, svc-audit 49000, leave 1900, all 303 to checkout.stripe.com cs_live_, Stripe page 200. Gate: 68 GET /buy intent pages, 0 new sessions."
+  },
+  {
+   "label": "mcpstamp.com Google impressions per day",
+   "value": "150 on 11-04",
+   "note": "6 on 10-30, 49, 72, 100, 122, 150 on 11-04. GSC searchAnalytics dataState all, data/s1106/gsc_1106.json"
+  },
+  {
+   "label": "Answer pages live",
+   "value": "about 103",
+   "note": "12 W3 pages (gate 90/100, 0 BLOCK, 3 FIX applied) plus 3 satellite pages. can-claude-live.json 82 entries. IndexNow 200 twice."
+  },
+  {
+   "label": "Free satellites live",
+   "value": "36",
+   "note": "+usps-holiday-shipping-deadlines-mcp, heating-oil-propane-prices-mcp, postage-stamp-price-mcp. Worker + public repo + registry active, 12/12 live tool calls ok. data/s1106/reports/satellites-ship.md"
+  },
+  {
+   "label": "Pages with impressions 11-01..11-06",
+   "value": "79",
+   "note": "Top: /can-claude/read-zip-files/ 164 impressions, 1 click, position 7.9"
+  },
+  {
+   "label": "Revenue",
+   "value": "$0",
+   "note": "No checkout can complete while the key is expired."
+  }
+ ],
+ "owner": [
+  "One real $19 test purchase plus refund, to verify fulfilment and the license email.",
+  "npm login (5 min) for the 3 servers waiting on npm.",
+  "mcpservers.org and mcp.so submissions; send the outreach batch."
+ ],
+ "files": [
+  "billing/src/index.js",
+  "data/s1106/gsc_1106.json",
+  "data/s1105/restore_checkout.sh",
+  "data/s1106/reports/gate-w3.md",
+  "data/s1106/reports/satellites-ship.md",
+  "data/s1106/content/W3-live.json",
+  "data/s1106/content/sat3-live.json"
+ ],
+ "shipped": [
+  {
+   "url": "https://mcp.zovo.one/",
+   "title": "Checkout restored, gated billing deploy",
+   "detail": "Secret rotated (version 0a9b2434), then deploy 696bdd4b via npm run deploy (290/290 tests). Previous live 2bcaa00c. Rollback: npx wrangler rollback 0a9b2434-a20e-444c-9d51-7d923c20ea2d in billing/ and reset the monitor:approved-version KV pin."
+  },
+  {
+   "url": "https://github.com/theluckystrike/mcp-servers/pull/123",
+   "title": "Failed checkout becomes an email capture",
+   "detail": "Status stays 502. No Stripe error text reaches the buyer. Address goes to /api/subscribe with source checkout-down:<id>. Billing preflight passed. Not deployed yet, the release gate needs the Stripe CLI."
+  },
+  {
+   "url": "https://www.mcpstamp.com/can-claude/create-invoices/",
+   "title": "12 buyer-intent answer pages",
+   "detail": "Invoices, overdue invoices, credit notes, purchase orders, payment reminders, receivables, bank statements, depreciation, onboarding, work orders, leave, mileage. Each with a real hosted tools/call. Prod a71e92c9, previous 02c8e8da."
+  },
+  {
+   "url": "https://www.mcpstamp.com/free-servers/",
+   "title": "3 seasonal free servers",
+   "detail": "USPS holiday shipping deadlines, heating oil and propane prices (EIA), postage stamp price (USPS Notice 123). Prod fa5d6e25, previous a71e92c9."
+  },
+  {
+   "url": "https://github.com/theluckystrike/mcp-servers/pull/125",
+   "title": "Leave product copy matches the server",
+   "detail": "Buy page promised features the server lacks. Ships with the gated billing deploy."
+  }
+ ],
+ "next": [
+  {
+   "title": "Owner makes one real $19 purchase and refunds it",
+   "detail": "Confirms webhook fulfilment, license email via Resend and hosted Pro binding end to end. Probes stop at the Stripe page.",
+   "colour": "amber"
+  },
+  {
+   "title": "Add a direct Get Pro link on paid answer pages",
+   "detail": "The 12 W3 pages mention $19 Pro but link only to the server page; one click fewer to checkout.",
+   "colour": "amber"
+  },
+  {
+   "title": "Re-measure GSC per new answer page",
+   "detail": "11-12 and 11-19, data/s1106/gsc_1106.json is the baseline.",
+   "colour": "amber"
+  }
+ ]
+}

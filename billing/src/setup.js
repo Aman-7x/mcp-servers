@@ -1197,6 +1197,25 @@ export const SETUP_SERVERS = {
     pro: "Nothing is gated; the $39 bundle key covers the 47 paid servers instead.",
     measured: "The contract suite walks a real stdio case through the formula: 60,000 income plus 10,000 expenses over 1,150 billable hours at a 30 percent tax rate returns an 86.96 break-even-style rate, hostile inputs are refused with a reason, and nothing hangs.",
   },
+  "ingredient-convert": {
+    title: "MCP Ingredient Converter",
+    slug: "ingredient-convert",
+    toolCount: "7 tools",
+    pkg: "@theluckystrike/mcp-ingredient-convert",
+    sPage: "/s/ingredient-convert",
+    hosted: "ingredient-convert",
+    tagline: "Convert cups, tablespoons and grams per ingredient, with a real density table and friendly fractions.",
+    does: "convert_ingredient turns an amount of a named ingredient between cups, tablespoons, teaspoons, milliliters, fluid ounces, grams and ounces using a per-ingredient density table; scale_recipe doubles or halves a list of recipe lines into friendly fractions; convert_bulk converts many amounts at once and reports unknown ingredients per item; decimal_to_fraction and fraction_to_decimal handle the 1 1/2 cup style; common_conversions lists the most-googled conversions; list_ingredients dumps the table with sources.",
+    prompts: [
+      ["How many grams is 1 cup of all-purpose flour?", "convert_ingredient"],
+      ["Double this recipe: 1 1/2 cups flour, 1/2 cup sugar, 100 g butter.", "scale_recipe"],
+      ["Convert 250 g butter and 120 ml honey to cups.", "convert_bulk"],
+    ],
+    free: "Everything: seven tools, the full density table, no metering, no key.",
+    pro: "Nothing is gated; the $39 bundle key covers the 47 paid servers instead.",
+    measured: "The contract suite walks a real stdio case through the density table: 1 cup of all-purpose flour comes back as 125 grams with cups, tablespoons and ounces alongside, unknown ingredients are refused with a reason, and nothing hangs.",
+  },
+
 };
 
 export const SERVER_ORDER = Object.keys(SETUP_SERVERS);
@@ -1673,6 +1692,15 @@ const ANGLE = {
     windsurf: "Three tools against the 100-tool ceiling; the assumptions are stated in the source, which is the honesty you want from a number you defend to clients.",
     cline: "Pure function, no state: auto-approve without hesitation, the worst outcome is a planning number you would sanity-check anyway.",
   },
+  "ingredient-convert": {
+    "claude-desktop": "Halfway through a recipe you hit \u201c1 cup of honey\u201d and a scale; here the grams come back in one line with the density assumption visible, so swapping ingredients means editing one word.",
+    "claude-code": "The density table lives next to your code, so a conversion sits in the same terminal as the recipe file you are writing; bulk conversion keeps a whole ingredient list consistent in one call.",
+    cursor: "Agent mode can chain it: convert the list, then rewrite the recipe file itself, two calls the model makes without a browser tab of unit-converter ads.",
+    vscode: "Pure math over a static table, no writes, no network: auto-approve in agent mode so a conversion inside a recipe-notes task costs no clicks.",
+    windsurf: "Seven tools against the 100-tool ceiling; the density source for every ingredient is stated in list_ingredients, which is the honesty you want from a number you bake with.",
+    cline: "Pure function, no state: auto-approve without hesitation, the worst outcome is a gram count you would sanity-check against the bag anyway.",
+  },
+
 };
 
 /** One sentence per server for the claude-web (claude.ai / Claude Desktop connector) client.
@@ -1680,6 +1708,7 @@ const ANGLE = {
 const WEB_ANGLE = {
   "time-tracker": "This is the client with no terminal and no filesystem of its own, so the free tier's history window matters more here than anywhere else: a report is read in the chat, not exported to a file you would open elsewhere.",
   "price-tracker": "A watch runs server-side against a URL you gave it, which is exactly the shape a browser tab full of Claude.ai can hold without a local process: no install, no machine that has to stay on.",
+  "ingredient-convert": "You are in a chat window, not a kitchen, so the grams come back as a small table you can paste into the recipe you are already editing, with the density assumption stated.",
   spreadsheet: "The file never touches your disk: it is read from wherever the connector fetched it and any output comes back as a one-hour download link, since a hosted call has nowhere local to write to.",
   invoice: "The PDF is generated server-side and handed back as a download link rather than a path, which is the one thing that changes about this server between a local install and the connector.",
   "expense-tracker": "receipt_attach still wants a path, and the connector has no local filesystem, so the practical route here is amounts and a description rather than a stored receipt file.",
