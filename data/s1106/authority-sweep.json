@@ -1,0 +1,35 @@
+{
+ "measured_at": "2026-11-06",
+ "window_days": 28,
+ "properties": 67,
+ "total_impressions": 12155,
+ "total_clicks": 1157,
+ "properties_with_clicks": 29,
+ "top": [
+  {
+   "property": "https://lakelevelnow.com/",
+   "impressions": 1653,
+   "clicks": 77
+  },
+  {
+   "property": "sc-domain:zovo.one",
+   "impressions": 1265,
+   "clicks": 51
+  },
+  {
+   "property": "sc-domain:recipetool.net",
+   "impressions": 1029,
+   "clicks": 56
+  },
+  {
+   "property": "https://recipetool.net/",
+   "impressions": 1029,
+   "clicks": 56
+  },
+  {
+   "property": "sc-domain:ingredientcalculator.com",
+   "impressions": 813,
+   "clicks": 169
+  }
+ ]
+}

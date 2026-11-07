@@ -1,0 +1,9 @@
+Three more free MCP servers went live, for questions that come up every December.
+
+- USPS Holiday Shipping Deadlines gives the 2026 send-by date for each mail class and destination, counts the days left and names the slowest service that still makes the USPS date for December 25.
+- Heating Oil and Propane Prices gives this week's EIA price per gallon for the US or your state, with the change from last week and a year ago.
+- Postage Stamp Price gives the current Forever stamp price from USPS Notice 123 and works out postage for a stack of holiday cards.
+
+Each answer names its source and date. They are free, with no key and no sign-up.
+
+https://www.mcpstamp.com/free-servers/

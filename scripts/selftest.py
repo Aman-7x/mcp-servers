@@ -72,7 +72,37 @@ def main():
         run("scripts/build_hub.py", "--site", tmp,
             "--base-url", "https://example.invalid", "--layout", "page")
         hub = os.path.join(tmp, "mcp")
-        pages = sorted(f for f in os.listdir(hub) if f.endswith(".md") and f != "index.md")
+        slugs = {x["slug"] for x in servers}
+        pages = sorted(f for f in os.listdir(hub) if f.endswith(".md") and f[:-3] in slugs)
+        sat_path = os.path.join(ROOT, "data", "satellite_hub.json")
+        sats = json.load(open(sat_path))["satellites"] if os.path.exists(sat_path) else []
+        sat_pages = sorted(f for f in os.listdir(hub) if f.endswith(".md") and f != "index.md" and f[:-3] not in slugs)
+        check(len(sat_pages) == len(sats), "hub emitted %d satellite pages for %d satellites" % (len(sat_pages), len(sats)))
+        idx_md = open(os.path.join(hub, "index.md"), encoding="utf-8").read()
+        if sats:
+            check("## Free live-data MCP servers (no key)" in idx_md, "hub index lacks the free live-data section")
+            check(json.loads(jsonld_blocks(idx_md)[0]) is not None, "hub index JSON-LD does not parse")
+        for x in sats:
+            name = x["repo"] + ".md"
+            check("](/mcp/%s/)" % x["repo"] in idx_md, "hub index does not link %s" % x["repo"])
+            p = os.path.join(hub, name)
+            if not os.path.exists(p):
+                check(False, "no page for satellite %s" % x["repo"]); continue
+            src = open(p, encoding="utf-8").read()
+            check(x["hosted_url"] in src and x["hosted_url"].endswith(".lipmichal.workers.dev/mcp"),
+                  "%s lacks its no-token hosted URL" % name)
+            check("npx -y github:theluckystrike/%s" % x["repo"] in src, "%s lacks the npx github: form" % name)
+            check("](%s)" % x["repo_url"] in src, "%s does not link its GitHub repo" % name)
+            check("](https://www.mcpstamp.com/free-servers/" in src, "%s does not link mcpstamp /free-servers/" % name)
+            for c in x.get("stamp_can_claude") or []:
+                check("](%s)" % c["url"] in src, "%s does not link %s" % (name, c["url"]))
+            check(x["example"]["summary"][:60] in src, "%s lacks its live example output" % name)
+            check("utm_source=claudecodeguides&utm_medium=mcp-hub&utm_campaign=%s" % x["repo"] in src,
+                  "%s has no tagged money-site link" % name)
+            check("permalink: /mcp/%s/" % x["repo"] in src, "%s has the wrong permalink" % name)
+            check("mcp.zovo.one/buy/" not in src, "%s carries a buy link (satellites are free)" % name)
+            check(len(x["tools"]) >= 1 and all("`%s`" % t["name"] in src for t in x["tools"]),
+                  "%s is missing a tool row" % name)
         check(len(pages) == 58, "hub emitted %d server pages" % len(pages))
         check(os.path.exists(os.path.join(hub, "index.json")), "hub emitted no index.json")
         # truth-in-advertising gate: a page may only promise a hosted URL if the
@@ -126,8 +156,9 @@ def main():
 
         idx = json.load(open(os.path.join(hub, "index.json")))
         check(len(idx.get("servers") or idx) == 58, "index.json is not 58 rows")
+        check(not re.search(r"\{\{|\{%", idx_md), "index.md contains a Liquid token")
 
-        for name in pages:
+        for name in pages + sat_pages:
             src = open(os.path.join(hub, name), encoding="utf-8").read()
             check(not re.search(r"\{\{|\{%", src), "%s contains a Liquid token" % name)
             head = src.split("---")[1]

@@ -83,7 +83,9 @@ def measure_gsc():
 
 def measure_hosted(fast=False):
     cat = json.load(open(os.path.join(ROOT, "data", "mcp_catalog.json")))
-    servers = cat["servers"]
+    # office-suite spawns local child processes and cannot run in a Worker: it is
+    # unhosted by design, so probing it would report a permanent false "dead".
+    servers = [s for s in cat["servers"] if s["id"] != "office-suite"]
     if fast and os.path.exists(HOSTED_CACHE):
         L = json.load(open(HOSTED_CACHE))
         return {

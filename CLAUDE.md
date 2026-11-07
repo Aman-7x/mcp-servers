@@ -107,6 +107,12 @@ test reaches from the other direction.
     include site/lib or the Pages Functions build fails (fixed 11-05). Answer-page drafts failed two truth gates on
     "Claude cannot": code execution, file creation and memory are on by default for Free, Pro and Max.
 
+12. **Deploy billing only from a branch that contains origin/main.** On 2026-11-06 two billing deploys
+    (74c1cf9e, e20d8527) came from the long-lived r38-supplier-monetization branch, which lacked the
+    McpStamp services code on main, so /buy/svc-* returned 404 and every mcpstamp.com/services/ buy
+    button broke. e20d8527 also skipped the approved-version pin, so the gate then refused every
+    release. Before `npm run deploy`, `git merge-base --is-ancestor origin/main HEAD` must succeed.
+
 ## Rules
 
 No emoji anywhere. No paid APIs, listings, featured slots or paid reviews. No account

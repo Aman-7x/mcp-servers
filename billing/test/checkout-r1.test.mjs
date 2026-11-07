@@ -512,7 +512,7 @@ test("VALIDATION and BILLING_TEST_COUNT match the files they claim to report", (
 
   const dir = join(dirname(fileURLToPath(import.meta.url)));
   const files = readdirSync(dir).filter((f) => f.endsWith(".test.mjs"));
-  const declared = files.reduce((n, f) => n + (readFileSync(join(dir, f), "utf8").match(/^test\(/gm) || []).length, 0);
+  const declared = files.reduce((n, f) => n + (readFileSync(join(dir, f), "utf8").match(/^(?:test|run)\(/gm) || []).length, 0);
   assert.equal(BILLING_TEST_COUNT, declared, `the page says ${BILLING_TEST_COUNT} unit tests, ${declared} are declared`);
 });
 

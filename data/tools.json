@@ -1924,7 +1924,7 @@
     },
     {
       "name": "report_page",
-      "description": "Read free pages of records, group summaries, record reasons or one group’s members. Unsaved preview ids last 30 minutes for the last two checks in this process."
+      "description": "Read free pages of records, group summaries, record reasons or one group\u2019s members. Unsaved preview ids last 30 minutes for the last two checks in this process."
     },
     {
       "name": "report_delete",
@@ -1958,7 +1958,7 @@
     },
     {
       "name": "report_page",
-      "description": "Read free pages of either source list, group summaries or one group’s source members. Unsaved previews last 30 minutes for the last two checks in this process."
+      "description": "Read free pages of either source list, group summaries or one group\u2019s source members. Unsaved previews last 30 minutes for the last two checks in this process."
     },
     {
       "name": "report_delete",
@@ -1967,6 +1967,153 @@
     {
       "name": "report_export_csv",
       "description": "Export free CSV pages from a saved report or unsaved preview. One row per supplied source item, with side, group and issues. Formula-like cells are escaped; no amount-loss or balance total is calculated."
+    }
+  ],
+  "ingredient-convert": [
+    {
+      "name": "convert_ingredient",
+      "description": "Convert a cooking ingredient amount between cups, tablespoons, teaspoons, milliliters, fluid ounces, grams and ounces using a per-ingredient density table (e.g. 1 cup flour = 125 g).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ingredient": {
+            "type": "string",
+            "description": "Ingredient name, e.g. 'all-purpose flour', 'butter', 'honey'"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Amount to convert from"
+          },
+          "unit": {
+            "type": "string",
+            "description": "Unit the amount is in: cups, tbsp, tsp, ml, floz, g, oz"
+          }
+        },
+        "required": [
+          "ingredient",
+          "amount",
+          "unit"
+        ]
+      }
+    },
+    {
+      "name": "list_ingredients",
+      "description": "List the full ingredient density table (grams per US cup) with sources and aliases.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "scale_recipe",
+      "description": "Scale recipe ingredient amounts by a factor (double, halve, 1.5x...). Output in friendly fractions like 1 1/2 cups.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ingredient": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": [
+                    "number",
+                    "string"
+                  ]
+                },
+                "unit": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Recipe lines to scale"
+          },
+          "factor": {
+            "type": "number",
+            "description": "Scale factor, e.g. 2 to double, 0.5 to halve"
+          }
+        },
+        "required": [
+          "items",
+          "factor"
+        ]
+      }
+    },
+    {
+      "name": "convert_bulk",
+      "description": "Convert many ingredient amounts at once (grams to cups, cups to grams, etc.). Unknown ingredients are reported per item instead of failing the batch.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ingredient": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "unit": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Each entry: ingredient, amount, unit"
+          }
+        },
+        "required": [
+          "items"
+        ]
+      }
+    },
+    {
+      "name": "decimal_to_fraction",
+      "description": "Convert a decimal amount to a friendly cooking fraction (e.g. 0.5 -> 1/2, 1.75 -> 1 3/4) with a denominator cap.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "max_denominator": {
+            "type": "integer",
+            "description": "Largest denominator allowed (default 8)"
+          }
+        },
+        "required": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "fraction_to_decimal",
+      "description": "Convert a fraction string used in recipes ('1/2', '1 1/2', '3/4') or a plain number into a decimal amount.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "Fraction string like '1/2' or '1 1/2', or a plain number"
+          }
+        },
+        "required": [
+          "value"
+        ]
+      }
+    },
+    {
+      "name": "common_conversions",
+      "description": "Free lookup of the most-googled cooking conversions (1 cup flour in grams, 1 tbsp butter in grams, cup to tablespoons...).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {}
+      }
     }
   ]
 }

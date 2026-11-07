@@ -20,3 +20,8 @@ node_modules/
 data/s1102/kpi/
 data/s1102/scout/
 data/s1105/calls/
+data/s1106/calls/
+data/probe-token.json
+
+# nested working tree left by an old salvage run
+data/s1103/salvage-deploy/wt/

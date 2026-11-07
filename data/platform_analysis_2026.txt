@@ -1,0 +1,716 @@
+ 
+ Developer Distribution Platforms 2026 
+ Where to point a solo build pipeline in 2026 
+ Thirty-nine developer distribution platforms, scored on organic traffic, willingness to pay, saturation, speed to publish and solo monetizability. Chrome Web Store is the incumbent baseline and it is measured with first-party data, not estimated. 
+ Measured 2026-09-01, revised after a second measurement round · 39 platforms · 19 live APIs · ~90,000 listings with outcome data · 55 framework repos verified 
+ Section 0 · Final decision · consolidated 2026-09-02 · confidence 91/100 
+ Allocate 70% of build capacity to Telegram Mini Apps behind a 14-day gate, 20% to MCP servers, 10% to Atlassian Forge. Standardise on TypeScript. Ship nothing new to Chrome. 
+ The decision, leg by leg, each carried by measurement: 
+ 70% — Telegram Mini Apps (framework: grammY , reliability 91/100). The only surface measured here that combines absorption of a 30–50bn-token pipeline (no listing review, no meaningful cap shape), a documented native billing rail (Stars/XTR, mandatory for digital goods), a billion-plus user pool (Durov’s channel, verbatim), a nearly empty shelf (ton.app catalog: ~259 apps total; GitHub: 490 Mini App repos vs 26,879 MCP), and a measured demand upper tail — indie badge-holders median 83,714 MAU, max 1.30M, via the t.me badge instrument found in the challenge round. Gated: capacity flows only after 2 unpromoted bots run 14 days; the t.me badge (~10k threshold) and bot logs score the result objectively. Fail → the 70% moves to MCP. 
+ 20% — MCP servers (framework: @modelcontextprotocol/sdk , 89/100, still 1.x). Fully measured: capture ratio 1.17 vs Chrome’s 0.033, zero publish friction, protocol verified end-to-end on this machine in under a minute — and zero billing, so it is an option on 2027, never the revenue. Start with the two measured empty slots: price tracker and time tracker (0 MCP servers vs 683 and 897 Chrome listings). 
+ 10% — Atlassian Forge (3–5 apps by hand; the toolchain blocks agents — scaffold produced zero files without credentials). The revenue anchor: $0.80/user/month median price measured across 1,277 live pricing pages, $960/yr per 100-seat customer, 19.3% median fair-share capture — both instruments point here independently, and the pessimistic conversion case still clears 508× a Chrome listing. 
+ 0% — Chrome Web Store, on every branch. All four accounts at the 20-listing cap, $8.42/listing/yr measured, new-entrant capture 0.033. The estate is a maintenance asset: the retrofit play on the 8 listings holding 96.72% of installs remains the only Chrome action with positive expected value. 
+ How the decision moved as data arrived — the audit trail: 
+ Round Evidence added Decision state 
+ 1 39 platforms scored; capture ratios; first-party Chrome economics Shopify/Atlassian lead on inference; MCP beats Chrome; exit Chrome 
+ 2 4 platforms promoted to direct measurement — all 4 fell (mean −8) Atlassian becomes #1 measured; Shopify drops 1st→6th on 94.4% zero reviews 
+ 3 5 frameworks scaffolded and executed; churn measured; user-base denominators (SEC) Atlassian for revenue + TypeScript stack; fair-share capture 19.3% vs 0.095% confirms from a second axis 
+ 4 Volume lens; Telegram measured (1bn+ users, Stars, limits, catalog, t.me MAU instrument) Final: 70/20/10 gated allocation, 91/100 — Telegram is the only leg that absorbs the pipeline and bills 
+ The last 9 points of confidence are three tests, none runnable without your accounts: +3 the 14-day demand gate (2 bots, ~$0, objectively scored); +2 the 21st-bot cap test (minutes); +4 one Atlassian app converting one paying customer (E13). First physical action of the plan: mint two bot tokens with BotFather and let the pipeline ship the two gate probes the same day. 
+ Framework reliability, scored on measured components 
+ Score = major version bumps in 12 months (30) + dependency count (20) + credential-free local verification (20) + install time (10) + lines to a working product (10) + clean typecheck (10). Every input measured on this machine today; commands and outputs in RESULTS.md . 
+ grammY Telegram bots 91 
+ @modelcontextprotocol/sdk MCP, TypeScript 89 
+ fastmcp MCP, Python 72 
+ @forge/cli Atlassian 39 
+ @shopify/cli Shopify 36 
+ Framework Major bumps 12mo Releases 12mo Deps Install LOC to working Verified this run 
+ grammY 1.46.0 0 17 14 3s 13 tsc clean; bot constructs offline with .api present. 1 major since 2021-03-26. 
+ @modelcontextprotocol/sdk 1.30.0 0 29 95 9s 18 tsc clean; stdio initialize + tools/list + tools/call all returned. PASS. 
+ fastmcp 4.0.0 (PyPI) 2 58 71 19s 11 Full protocol PASS, schema auto-derived from type hints. But 4 majors lifetime — v3 code does not run on v4. 
+ @forge/cli 13.5.0 2 162 — 17s blocked Produced no files. Non-TTY consent prompt, then “Not logged in”. 13 majors lifetime. 
+ @shopify/cli 4.7.0 2 895 — 7s blocked Produced no files. Requires --organization-id or --client-id in non-interactive environments. 
+ Why this decides the framework question. An agent pipeline breaks on two things: an API that changes underneath generated code, and a command that stops to ask a human something. grammY and the MCP TypeScript SDK have neither — zero major bumps in a year, and both went from empty directory to verified running product with no account, no key and no network login . The Forge and Shopify CLIs both stopped and asked for credentials before emitting a single file. That is the whole argument. 
+ Limitations of the top three — what each one costs you 
+ Atlassian Forge opportunity 71 · measured 
+ Discovery is the worst measured anywhere. Median app: 11 installs. 76.2% under 100. 52.9% have never received a review. You will not be carried by the marketplace. 
+ No open-source ecosystem. Top GitHub result for “forge atlassian” has 2 stars. Everything comes from forge create and official docs. 
+ Agent-hostile toolchain: scaffold blocked without credentials, 13 majors lifetime, 162 releases in 12 months. 
+ Unresolved: Cloud apps are free under 10 users, so an unknown share of those 11 installs pay nothing. $960 is a measured price , not measured revenue (E13). 
+ Telegram + grammY opportunity 71 · inferred 
+ Demand is entirely unmeasured. No public registry exists. It tops the raw table only because nobody has checked it; every one of the four platforms that was checked lost a mean of 8 points. 
+ One manual step per product: a bot token comes from BotFather, an interactive chat. The build is fully automatable; minting the token is not. 
+ Platform risk: monetization terms are set unilaterally and have changed before. 
+ MCP registries opportunity 63 · measured 
+ No billing rail on any registry. Official registry, Smithery, Glama and mcp.so all checked. Revenue is entirely your own to build. 
+ The median server has never been used. 66.3% of 4,811 sampled servers sit at zero uses. 
+ The window is closing measurably: 9,355 servers first published in August 2026, 36% of all-time supply in one month. 
+ Do not pick the Python path for agent work — fastmcp has taken 2 major bumps in 12 months. Use the TypeScript SDK, still on 1.x. 
+ Scale you can actually produce 
+ Platform Publish cap Review Agent-scaffoldable Realistic output, 12 months 
+ MCP registries none none yes Unbounded. Publish is minutes. estimate constrained by product substance, not by the platform. 
+ Telegram none none build yes Unbounded on build; one BotFather step per bot is manual. 
+ Atlassian none found yes no 3–5 apps. estimate Method: no OSS scaffolding + credential-gated CLI + review, so build cost is dominated by hand work. 
+ Shopify none found yes, heavy no Not recommended. Scaffold blocked; 94.4% of listings have zero reviews. 
+ Chrome Web Store 20 / account yes yes Zero new slots. All four accounts are already at the 20-published cap. Throughput is not the binding constraint — slots and $8.42/listing/yr are. 
+ The scale answer in one line: your pipeline can produce more products than any of these markets can absorb profitably, which is why the correct move is to raise revenue per product rather than product count. Chrome proves the failure mode with a measured number — 75 listings, $3,711.76 lifetime, and no remaining publish slots. 
+ Next three actions, ranked by the number that justifies each 
+ Set Forge credentials and scaffold one Jira app. Justified by $960/customer measured against $0.079/install/yr — a 12,100× gap. Exact commands are in NEEDS_APPROVAL.md ; they need your Atlassian account, so this run did not execute them. 
+ Publish two unpromoted Telegram bots and count 30-day organic installs. Justified by Telegram holding the #1 raw rank on zero measurements while all four measured platforms lost a mean of 8 points. Under ~50 installs each and it drops out of the top ten. Cost: 3s install, 13 LOC. 
+ Ship MCP servers on the TypeScript SDK for the two empty slots. price tracker and time tracker returned zero MCP servers against 683 and 897 competing Chrome listings. Publish cost is minutes and there is no review. Treat as an option on 2027, not as revenue. 
+ The verdict as it stood after round 2 — kept verbatim for the audit trail; Section 0 above is current 
+ Neither side of your live decision wins. Chrome Web Store ranks 33rd of 39 (opportunity 49). MCP ranks 7th (63). MCP is the better of the two by a clear margin — but both lose to marketplaces where the buyer is a business and the platform collects the money for you. 
+ Second measurement round changed the answer. Shopify, Atlassian, JetBrains and WordPress have now been measured directly rather than inferred, and every single one scored lower afterwards (mean −8 points). Shopify fell from 1st to 6th on a single number: 94.4% of a 449-app random sample have zero reviews . Treat every row still marked inferred as similarly overstated — including Telegram, which now sits at the top of the raw table only because nobody has measured it. 
+ Your volume advantage is being spent on the wrong axis. 75 listings have produced $3,711.76 lifetime. The measured rate is $0.079 per install per year , so a new Chrome listing is worth $8.42/year . A pipeline that can ship 40 products a year is worth $337/year on Chrome and roughly $40,000–$120,000/year on a marketplace with native billing and business buyers. The constraint was never throughput. 
+ Round-2 commit (superseded by Section 0’s final allocation, kept as the audit trail): Atlassian Marketplace. It is the top-ranked platform that has actually been measured (71), and the economics now rest on measured prices rather than inference: the median cloud app charges $0.80 per user per month at the 100-seat tier, so one 100-seat customer is worth $960/year . Against your Chrome rate of $0.079 per install per year, a single Atlassian customer is worth more than 12,000 Chrome installs . The median Atlassian app has only 11 installs — discovery there is genuinely bad — but 11 installs at business prices beats 23 installs at consumer-free prices by three orders of magnitude. 
+ Keep MCP as the cheap option (publish cost is minutes, top slots still winnable), stop opening new Chrome listings , and do not start on Shopify until you have personally verified the review-count finding — it is the number that moved it from 1st to 6th. 
+ 0.033 Chrome new-entrant capture ratio — 2026 listings are 43.5% of the catalogue but hold 1.43% of its install mass 593 dated listings, ds:0 epochs 
+ 1.17 MCP new-entrant capture ratio — 2026 servers are 70.5% of the catalogue and hold 82.5% of its use mass 4,811 servers, Smithery use counts 
+ 35.5× Like-for-like advantage: new entrants capture 35.5× more of the MCP ecosystem than of Chrome’s ratio of ratios, both measured today 
+ $8.42 Measured value of one new Chrome listing per year, at your own Stripe-verified rate 106 installs/yr × $0.07934 
+ $960 Median Atlassian cloud app, annual value of ONE 100-seat customer — measured from published prices 1,277 apps priced live 
+ 94.4% Shopify apps with zero reviews in a 449-app random sample — the number that cost it first place random draw from 25,778 listings 
+ 19.3% Share of its fair share captured by the median Atlassian app — against 0.095% on Chrome, a 203× gap 350,000 customers / 6,137 apps 
+ −8 Mean opportunity points lost by a platform once it was measured rather than inferred (4 of 4) round-2 measurement 
+ 1  How this was measured 
+ Everything labelled measured was pulled live from a public API on 2026-09-01. Nothing in that class is recalled from training. 
+ Chrome Web Store — the store's own ds:1 search payload and ds:0 detail payload. 53,555 unique listings with install counts (sweep of 224 query slots, 2026-08-18); 199 top-10 listings and a random 600-listing catalogue sample dated by first-published epoch ds0[0][17][0] , resolved today. 
+ MCP — full crawl of registry.modelcontextprotocol.io/v0/servers?version=latest , 261 pages, 26,098 unique servers. Smithery registry.smithery.ai/servers for the top 500 by use, plus a 63-term query sweep yielding 4,811 unique servers with use counts. 
+ Others — VS Code extensionquery API (138,357 listings, install statistics for 1,800 of them), Firefox AMO v5 search API, WordPress.org plugins API, Atlassian rest/2/addons , Raycast store_listings (33 pages), Open VSX search, Homebrew formula + 365-day analytics JSON, Obsidian community-plugin-stats.json , npm replicate doc_count , PyPI simple index, GitHub topic search. 
+ First-party Chrome economics — your own Stripe live export and fleet install baseline, previously reconciled against checkout_sessions.ndjson . This is why Chrome is the only platform here with a verified revenue-per-install figure. 
+ Second round — the four platforms whose scores decided the top of the ranking were promoted from inference to measurement: Atlassian (full 6,137-app crawl plus live pricing for 1,277), Shopify (25,778 sitemap URLs, 449 sampled for structured data and prices), JetBrains (full 10,000-plugin crawl) and WordPress (4,000 plugins across 40 random pages). Plus 55 framework repositories via the authenticated GitHub API and six npm download series. 
+ What still could not be measured. Slack, Figma, Google Workspace, Edge Add-ons, Microsoft Store and the mobile stores render their counts client-side with no reachable JSON endpoint, and the browser bridge is not connected this session; top.gg and PulseMCP sit behind Cloudflare or a sunset API; Glama requires an API key. Those rows stay Low or Med confidence, are marked inferred in the ranked table, and every number in them is listed in section 10. 
+ Read the ranked table with section 4 open. Every platform that moved from inferred to measured scored lower — four for four, mean −8 points. The inferred rows have not had that correction applied, so they sit higher than they probably deserve. 
+ 2  The finding that decides it 
+ Saturation is usually reported as catalogue size. Catalogue size is the wrong measure — what matters is whether a new listing can reach the top. 
+ Chrome's catalogue is young : 43.5% of a random sample of 593 live listings were first published in 2026, and the median swept listing is 0.8 years old. Chrome's top slots are old : across 20 common queries, the 199 listings holding a top-10 position have a median age of 6.6 years , and only 3 of them (1.5%) were published in 2026. New supply floods in at roughly 4.8% of the catalogue per month and captures almost nothing. 
+ MCP inverts this. Across an independent 63-term sweep of 4,811 servers , the 2026 cohort is 70.5% of servers and holds 82.5% of all recorded use — new entrants are over -represented in outcomes, not under-represented. The same measurement on Chrome’s dated sample gives 43.5% of listings holding 1.43% of install mass. As a capture ratio (share of outcome ÷ share of catalogue): MCP 1.17, Chrome 0.033 — a 35.5× like-for-like difference. 
+ How this finding was hardened. Its first version used Smithery’s default 500-result ranking, where 87% of entries are 2026 vintage. That listing turned out not to be strictly usage-ranked — the independent sweep found 241 servers with use counts above the listing’s floor that were absent from it — so the 500-list is reported here only as what a browsing user sees, never as “most used”. The capture ratios above are derived instead from the 4,811-server sweep and the 593-listing Chrome sample, both independent of any platform sort order. Chrome’s ratio also triangulates: from top-10 search rankings it is 0.0347 , from install mass 0.0329 . Two methods, same answer. 
+ The cohort medians say it more bluntly. A Chrome listing first published in 2026 has a median of 7 installs ; one published earlier has 113 . Arriving late on Chrome costs you 16× before you write a line of code. 
+ Competing listings per query, same 20 intents 
+ Chrome Web Store — exact result count MCP official registry — matching servers 
+ dark mode 
+ 640 
+ 0 
+ screenshot 
+ 582 
+ 15 
+ translate 
+ 631 
+ 8 
+ pdf 
+ 563 
+ 95 
+ calendar 
+ 736 
+ 33 
+ github 
+ 987 
+ 100 
+ notion 
+ 512 
+ 11 
+ database 
+ 691 
+ 19 
+ postgres 
+ 5 
+ 21 
+ weather 
+ 596 
+ 70 
+ email 
+ 919 
+ 85 
+ slack 
+ 371 
+ 19 
+ youtube 
+ 786 
+ 41 
+ stripe 
+ 191 
+ 12 
+ price tracker 
+ 683 
+ 0 
+ time tracker 
+ 897 
+ 0 
+ spreadsheet 
+ 564 
+ 4 
+ jira 
+ 659 
+ 15 
+ clipboard 
+ 706 
+ 5 
+ invoice 
+ 414 
+ 60 
+ Median depth: 640 competing Chrome listings per intent versus 17 MCP servers . Two intents ( price tracker , time tracker ) return zero MCP servers against 683 and 897 Chrome listings respectively. Those are unclaimed slots on the AI side of the same user need. 
+ New servers first published in the official MCP registry, by month 
+ 350 25-09 
+ 232 25-10 
+ 144 25-11 
+ 216 25-12 
+ 300 26-01 
+ 920 26-02 
+ 1,599 26-03 
+ 1,951 26-04 
+ 2,507 26-05 
+ 3,430 26-06 
+ 4,924 26-07 
+ 9,355 26-08 
+ Read this as a warning, not only as an opportunity. 9,355 servers were first published in August 2026 alone — 36% of the registry's entire all-time supply arrived in the last complete month. The registry is compounding at roughly 27× year-on-year. The window that makes MCP attractive is closing at a measurable rate, and on this trajectory MCP's slot depth reaches Chrome's current depth within about 12–18 months. 
+ 3  Ranked table — all 39 platforms 
+ Each dimension scored 1–5. Organic traffic and willingness to pay are weighted 2×. Weighted total ranges 7–35; Opportunity = round(weighted / 35 × 100). Saturation is scored 5 = early. Confidence refers to the supply and outcome data behind the row, not to the score. 
+ # Platform Organic ×2 Pays ×2 Early Speed Solo $ Wtd Opp /100 Conf Data 
+ 1 
+ Other Telegram Bots / Mini Apps no public registry Telegram Stars = native billing, zero review, instant publish. Rewards volume more than any other paying channel. 
+ 3 3 4 
+ 5 4 
+ 25 
+ 71 
+ Low 
+ inferred 
+ 2 
+ SaaS Atlassian Marketplace 6,137 cloud apps (full crawl) MEASURED: median app has 11 installs, but median price is $0.80/user/mo at 100 seats = $960/yr per customer. 69.5% of catalogue is paid. 
+ 2 5 3 
+ 3 5 
+ 25 
+ 71 
+ High 
+ measured 
+ 3 
+ Editor Figma Community ~10k plugins (est.) Native paid plugins since 2024. Designers pay. Publish is same-day. 
+ 3 3 3 
+ 4 4 
+ 23 
+ 66 
+ Low 
+ inferred 
+ 4 
+ Editor JetBrains Marketplace 10,000 plugins (full crawl) MEASURED: median plugin 2,866 downloads - best floor of any editor store. But only 4.3% are paid or freemium. 
+ 3 3 4 
+ 3 4 
+ 23 
+ 66 
+ High 
+ measured 
+ 5 
+ SaaS HubSpot App Marketplace ~1,900 apps (est.) Business buyers, thin catalogue, native install flow. Under-shipped relative to demand. 
+ 2 4 4 
+ 3 4 
+ 23 
+ 66 
+ Low 
+ inferred 
+ 6 
+ SaaS Shopify App Store 25,778 apps (measured) MEASURED: 94.4% of a 449-app random sample have ZERO reviews. Entry price median $9.99/mo, tier median $35/mo. Real money, almost no discovery. 
+ 2 5 2 
+ 2 5 
+ 23 
+ 66 
+ High 
+ measured 
+ 7 
+ AI-native MCP server registries 26,098 servers (measured) Top slots genuinely winnable (capture ratio 1.23). No native billing anywhere. Median server: 0 uses. 
+ 3 2 4 
+ 5 3 
+ 22 
+ 63 
+ High 
+ measured 
+ 8 
+ SaaS Salesforce AppExchange ~7,000 listings (est.) Highest contract values in scope. Security review is a multi-month, paid gate. 
+ 2 5 3 
+ 1 4 
+ 22 
+ 63 
+ Low 
+ inferred 
+ 9 
+ AI-native Claude Desktop Extensions no public count One-click MCP install inside the client. Earliest surface in scope; no billing rail yet. 
+ 3 2 5 
+ 4 2 
+ 21 
+ 60 
+ Low 
+ inferred 
+ 10 
+ Other Discord App Directory no public count Native app subscriptions exist. Discovery is server-side, not directory-side. 
+ 3 3 3 
+ 3 3 
+ 21 
+ 60 
+ Low 
+ inferred 
+ 11 
+ Desktop Mac App Store ~35k apps (est.) Real prices, thinner competition than iOS. Requires native Mac builds. 
+ 2 4 3 
+ 2 4 
+ 21 
+ 60 
+ Low 
+ inferred 
+ 12 
+ Browser Safari Extensions ~2k (est.) Thinnest browser catalogue with real paid conversion. Gated behind Xcode + Apple review. 
+ 2 4 4 
+ 2 3 
+ 21 
+ 60 
+ Low 
+ inferred 
+ 13 
+ Mobile iOS App Store ~1.9M apps (est.) Consumers pay, but discovery is ASO warfare and build cost per unit is 10-50x a Chrome extension. 
+ 2 5 1 
+ 2 4 
+ 21 
+ 60 
+ Med 
+ inferred 
+ 14 
+ SaaS monday / ClickUp / Airtable low hundreds each Genuinely pre-saturation. Small absolute audiences. 
+ 2 3 4 
+ 4 3 
+ 21 
+ 60 
+ Low 
+ inferred 
+ 15 
+ Editor VS Code Marketplace 138,357 extensions (measured) Huge reach, zero billing rail. Deep-sample median: 188 installs. 
+ 3 2 2 
+ 5 3 
+ 20 
+ 57 
+ High 
+ measured 
+ 16 
+ AI-native Claude Code plugin marketplaces no central registry Earliest surface measured. Discovery is git URLs and word of mouth. No billing. 
+ 2 2 5 
+ 5 2 
+ 20 
+ 57 
+ Low 
+ inferred 
+ 17 
+ Editor Raycast Store 3,232 listings (measured) Best in-product discovery per listing in scope. No third-party billing at all. 
+ 4 1 5 
+ 3 1 
+ 19 
+ 54 
+ High 
+ measured 
+ 18 
+ SaaS Google Workspace Marketplace ~5,000 apps (est.) OAuth verification + CASA security assessment is the slowest gate in scope. 
+ 3 3 3 
+ 1 3 
+ 19 
+ 54 
+ Low 
+ inferred 
+ 19 
+ Desktop Setapp ~260 apps (est.) Curated; acceptance is the gate, not discovery. Usage-pool payouts you do not control. 
+ 3 3 4 
+ 1 2 
+ 19 
+ 54 
+ Low 
+ inferred 
+ 20 
+ AI-native Cursor / Windsurf ecosystems served by Open VSX Not a distinct channel: they consume Open VSX. No billing. 
+ 2 2 4 
+ 5 2 
+ 19 
+ 54 
+ Med 
+ inferred 
+ 21 
+ Browser Edge Add-ons ~35k (est.) Near-zero marginal cost if you already ship Chrome. Small base, weak search competition. 
+ 2 2 4 
+ 3 4 
+ 19 
+ 54 
+ Low 
+ inferred 
+ 22 
+ Package GitHub Marketplace / Actions ~26k actions (est.) Actions are free listings; paid GitHub Apps convert poorly for solo devs. 
+ 3 2 3 
+ 3 2 
+ 18 
+ 51 
+ Low 
+ inferred 
+ 23 
+ Editor Obsidian community plugins 7,149 plugins (measured) Median plugin: 534 downloads; 59.2% under 1,000. Loyal but small, non-paying audience. 
+ 3 2 3 
+ 3 2 
+ 18 
+ 51 
+ High 
+ measured 
+ 24 
+ Mobile Google Play ~2.3M apps (est.) Faster review than iOS, lower ARPU, brutal saturation. 
+ 2 3 1 
+ 3 4 
+ 18 
+ 51 
+ Med 
+ inferred 
+ 25 
+ Desktop Microsoft Store no public count Low competition because low traffic. Weak discovery. 
+ 2 2 4 
+ 3 3 
+ 18 
+ 51 
+ Low 
+ inferred 
+ 26 
+ SaaS Notion integrations gallery, not a store No install-count surface, no billing, no ranking. Directory, not a channel. 
+ 2 2 4 
+ 4 2 
+ 18 
+ 51 
+ Low 
+ inferred 
+ 27 
+ SaaS Slack Marketplace ~2,600 apps (est.) Heavy review, workspace-admin install friction, no native billing. 
+ 2 3 3 
+ 2 3 
+ 18 
+ 51 
+ Low 
+ inferred 
+ 28 
+ SaaS WordPress.org plugins 67,113 plugins (measured) MEASURED: median plugin has 10 active installs; 77.5% under 100; 46.4% not updated in 2 years. The search demand does not reach new plugins. 
+ 2 3 2 
+ 2 4 
+ 18 
+ 51 
+ High 
+ measured 
+ 29 
+ Browser Chrome Web Store 53,555 measured in sweep Your baseline. Measured: 106 installs/listing/yr, $8.42/listing/yr, capture ratio 0.035. 
+ 2 3 1 
+ 2 4 
+ 17 
+ 49 
+ High 
+ measured 
+ 30 
+ Browser Firefox AMO 99,501 extensions (measured) Declining browser share; catalogue larger than the audience justifies. 
+ 2 2 3 
+ 3 3 
+ 17 
+ 49 
+ High 
+ measured 
+ 31 
+ AI-native Hugging Face Spaces ~600k spaces (est.) Real traffic, researcher audience, no billing rail, GPU costs are yours. 
+ 3 1 2 
+ 5 1 
+ 16 
+ 46 
+ Low 
+ inferred 
+ 32 
+ Other Product Hunt (launch only) n/a A one-day traffic event, not a distribution channel. Do not model as recurring. 
+ 3 1 2 
+ 5 1 
+ 16 
+ 46 
+ Med 
+ inferred 
+ 33 
+ Package Open VSX 17,260 extensions (measured) The registry Cursor/Windsurf/VSCodium actually read. Zero monetization. 
+ 2 1 4 
+ 5 1 
+ 16 
+ 46 
+ High 
+ measured 
+ 34 
+ AI-native ChatGPT Apps / GPT Store no public count Largest audience in scope with the weakest developer payout rail. Repeatedly promised, never delivered at scale. 
+ 3 1 2 
+ 4 1 
+ 15 
+ 43 
+ Low 
+ inferred 
+ 35 
+ Package PyPI 882,403 projects (measured) Same as npm. A distribution rail for a product, never the product. 
+ 3 1 1 
+ 5 1 
+ 15 
+ 43 
+ High 
+ measured 
+ 36 
+ SaaS Zapier 9,000+ apps (measured) Slow partner review; you monetize your own SaaS, not the listing. 
+ 3 2 2 
+ 1 2 
+ 15 
+ 43 
+ Med 
+ measured 
+ 37 
+ Package npm 4,348,881 packages (measured) Publishing is instant and free; so is the revenue. 
+ 3 1 1 
+ 5 1 
+ 15 
+ 43 
+ High 
+ measured 
+ 38 
+ SaaS Make ~2,500 apps (est.) Smaller Zapier with the same economics. 
+ 2 2 3 
+ 2 2 
+ 15 
+ 43 
+ Low 
+ inferred 
+ 39 
+ Desktop Homebrew 8,582 formulae / 7,718 casks (measured) Median formula: 5 installs/year. Notability rules reject new work. Zero monetization. 
+ 2 1 2 
+ 2 1 
+ 11 
+ 31 
+ High 
+ measured 
+ Tie-break rule: where weighted totals tie, the higher organic-traffic score ranks first — organic reach is the scarcest input for an operator who has ruled out paid acquisition. That is what puts Shopify above Atlassian and Figma above HubSpot. 
+ 4  What measurement did to the scores 
+ Four platforms were promoted from inference to direct measurement in a second round. All four fell. None rose. 
+ Platform Was Now Δ What the measurement found Score change 
+ Shopify App Store 77 66 −11 94.4% of sampled apps have zero reviews; catalogue is 25,778 not ~13,000 organic 4→2, saturation held 
+ Atlassian Marketplace 77 71 −6 median app has 11 installs organic 3→2; WTP held at 5, now measured 
+ JetBrains Marketplace 71 66 −5 median plugin 2,866 downloads; only 4.3% paid WTP 4→3 
+ WordPress.org plugins 63 51 −12 median plugin 10 active installs; 46.4% abandoned organic 4→2 
+ Chrome Web Store 49 49 — already measured in round 1 unchanged 
+ MCP registries 63 63 — already measured in round 1 unchanged 
+ This is a systematic bias, not four coincidences . Inferred scores are built from a platform’s pricing model and buyer type — the things marketplaces advertise — while measurement reaches the outcome distribution, which they do not publish. Assume the same roughly −8-point correction applies to every row still marked inferred . That includes Telegram, Figma and HubSpot, which occupy three of the top six places on inference alone. 
+ The ranking to act on: measured platforms only 
+ Stripping every row that has not been measured directly leaves this. It is a shorter and much more trustworthy list than the full table above. 
+ # Platform Opp /100 Why it sits here — measured 
+ 1 Atlassian Marketplace 71 Median app 11 installs, but median price $0.80/user/month at 100 seats and 69.5% of the catalogue is paid. Worst discovery, best unit economics. 
+ 2 JetBrains Marketplace 66 Median plugin 2,866 downloads — the best floor of any store measured. Undercut by only 4.3% of plugins being paid or freemium. 
+ 3 Shopify App Store 66 Genuine prices ($9.99/mo entry, $35/mo median tier) attached to almost no discovery: 94.4% of sampled apps have zero reviews, across 25,778 listings. 
+ 4 MCP server registries 63 Only ecosystem where new entrants hold the top (capture ratio 1.17). No billing rail anywhere, and the median server has never been used. 
+ 5 VS Code Marketplace 57 138,357 extensions, huge reach, zero billing rail. 
+ 6 Raycast Store 54 Best discovery-per-listing measured (3,232 total listings) and no third-party billing at all. 
+ 7 Obsidian / WordPress / Firefox 51 Median outcomes of 534 downloads, 10 active installs and a shrinking browser share respectively. 
+ 8 Chrome Web Store 49 Your baseline. The only platform here with verified revenue — and it verifies at $8.42 per listing per year. 
+ 9 Open VSX / npm / PyPI 43–46 Rails, not channels. No buyer at the end of any of them. 
+ 10 Homebrew 31 Median formula: 5 installs per year. 
+ 5  Platform economics, measured 
+ The core error in comparing marketplaces is treating an install as a unit. It is not: one install is worth $0.079 a year on Chrome and up to $960 a year on Atlassian. Prices below are read from live pricing endpoints and listing pages on 2026-09-01. 
+ Platform Sample Median listing gets Measured price Annual value per customer Billing 
+ Atlassian Marketplace 6,137 apps, full crawl 11 installs $0.80 / user / month at the 100-seat tier $960 / yr per 100-seat customer 69.5% of catalogue is paid 
+ Shopify App Store 449 of 25,778 sampled 0 reviews (94.4% have none) $9.99 / month entry, $35 / month median tier $120-$420 / yr per customer 10.5% quote a price on the listing 
+ JetBrains Marketplace 10,000 plugins, full crawl 2,866 downloads not captured not captured 4.3% paid or freemium 
+ WordPress.org plugins 4,000 of 67,113 sampled 10 active installs no billing rail on .org off-platform upsell only free repo by policy 
+ Chrome Web Store 53,555 listings + own Stripe 23 installs your own $99 / $4.99 tiers $0.079 / install / yr measured no store billing since 2020 
+ MCP registries 4,811 servers sampled 0 uses no rail on any registry $0 no registry has billing 
+ The comparison that should drive the decision 
+ A 100-seat Atlassian customer at the median app price is worth $960/year . At your own measured Chrome rate of $0.07934 per install per year, matching that single customer requires 12,100 Chrome installs — roughly 114 years of output from one median Chrome listing, or a third of your entire 40,102-install estate. 
+ The same logic, stated as the trap you are currently in: your fleet’s 8 best listings hold 96.72% of 40,102 installs and the whole estate produced $3,711.76 in 22 months. Four 100-seat Atlassian customers would beat it. This is why the recommendation is to change platform rather than to ship more listings — and why “median installs” is the wrong metric to have optimised for. 
+ 6  User base — the denominator, and who actually reaches it 
+ Every number so far measured supply and per-listing outcomes. Neither says how big the pool is. This does, and it changes which platform looks crowded. 
+ Buyer pools, from the source 
+ Atlassian: more than 350,000 customers as of 2026-06-30. Verbatim from the FY2026 Form 10-K filed 2026-08-14: “As of June 30, 2026, we had more than 350,000 customers.” measured 
+ Shopify: merchant count is no longer disclosed. The FY2025 10-K filed 2026-02-11 reports GMV only — merchants generated $378 billion in gross merchandise volume, up 29%. Treat any circulating merchant figure as unsourced. measured 
+ WordPress: 58.9% of all websites whose CMS is known (W3Techs, read 2026-09-01). measured 
+ Telegram, Chrome, JetBrains, Figma: unknown. Telegram publishes no MAU figure on telegram.org, its press page or core.telegram.org; Statcounter serves browser share only as a client-side chart; JetBrains states no user count on its company page; Figma’s 10-K defines monthly active users as a metric but the figure sits in a table this extraction could not resolve. Unknown stays unknown. Resolving sources: Telegram’s own announcement channel, a Statcounter CSV export with a valid session, Figma’s 10-K “Key Business Metrics” table read in a browser. unresolved 
+ Fair-share capture — the metric that reframes saturation 
+ Divide a platform’s total demand by its listing count and you get the fair share : what one listing would receive if demand were spread evenly. Compare that against what the median listing actually gets, and you have the share of its own fair share that a typical listing captures. Because it is a ratio computed inside each platform, it is comparable across platforms even though the underlying units are not. 
+ Platform Total demand pool Listings Fair share per listing Median actually gets Share of fair share captured 
+ Atlassian Marketplace customers (10-K 2026-08-14) 350,000 6,137 57 11 19.288% 
+ Obsidian plugins downloads 143,205,249 7,144 20,046 534 2.664% 
+ JetBrains Marketplace downloads (full crawl) 2,361,770,509 10,000 236,177 2,866 1.213% 
+ Chrome Web Store installs (own sweep) 1,301,028,615 53,555 24,293 23 0.095% 
+ WordPress.org active installs (extrap.) 945,182,915 67,113 14,083 10 0.071% 
+ MCP (Smithery) uses (extrap.) 7,968,019 11,214 711 0 0.000% 
+ What this says 
+ Atlassian’s median app captures 19.3% of its fair share. Chrome’s captures 0.095%. That is a 203× difference, and it arrives from a completely different direction than the pricing data — no prices are involved in this calculation at all. Two independent measurements now point at the same platform. 
+ The mechanism is the pool size, and it is counter-intuitive: Atlassian has the smallest buyer pool in this table by four orders of magnitude — 350,000 customers against Chrome’s 1.3 billion measured installs. A small pool is normally a reason to avoid a market. Here it is the reason to enter one: 350,000 customers spread over 6,137 apps is 57 customers per app , a target a single listing can realistically win a fifth of. 1.3 billion installs spread over 53,555 listings is 24,293 per listing, and the median listing gets 23 of them. 
+ The correction this forces on the earlier reading. Section 4 treated Atlassian’s median of 11 installs as its central weakness, and my pre-registered falsifier fired on exactly that number. Against the denominator, 11 installs is not weak — it is 19.3% of everything available, the highest capture rate measured anywhere in this analysis. The weakness is the ceiling, not the capture. An Atlassian app cannot become large; it can become well-paid. That is the correct way to hold the recommendation, and it is a materially different claim from the one section 4 made. 
+ Ceiling per product, bounded 
+ Combining the denominator with the measured prices gives a bounded estimate rather than a point figure. derived — assumptions stated inline 
+ Case Assumption Median Atlassian app/yr vs median Chrome listing 
+ Upper bound all 11 installs pay at the 100-seat median $10,560 5,802× 
+ Mid case 20% of installs above the free-under-10-users tier $2,112 1,160× 
+ Pessimistic 10% paying, at the $70/mo 10-user flat tier $924 508× 
+ Measured baseline Chrome: 23 installs × $0.07934, first-party $1.82 1× 
+ The recommendation does not depend on which case is true. Even the pessimistic case — 10% conversion at the cheapest published tier — is 508× a median Chrome listing. That is the entire argument for changing platform, and it survives its own worst case. 
+ 7  The volume lens — 30–50bn tokens of build capacity, and who can absorb it 
+ Reframing added 2026-09-02: if the pipeline can produce hundreds of products a year, the binding question flips from “where is a listing worth most” to “which platform physically accepts that much supply from one operator”. 
+ Platform Listing cap Review per listing Broadcast / reach limits Account risk at volume Absorbs a 100–500 product/yr pipeline? 
+ MCP registries none none n/a none observed Yes, entirely. The ecosystem itself absorbed 9,355 servers in Aug 2026. But $0 flows through any of it. 
+ Telegram Bots / Mini Apps ~20 bots/account, unverified none 30 msg/s free 1,000 msg/s paid unknown Yes, with structure. The cap is per phone-number account and is not in official docs (BotFather-enforced; test: create a 21st bot). One bot hosts multiple Mini Apps, so products-per-bot > 1. Billing (Stars, XTR) is official and documented. 
+ Atlassian Marketplace none found yes n/a low No — absorbs 1–2% of it. Review-gated, credential-gated scaffold, no OSS ecosystem. 3–5 apps/yr. That is the point: it is the revenue anchor, not the volume sink. 
+ Shopify / Workspace / mobile none found yes, heavy n/a delisting risk No. Every listing passes human review; flooding is the profile these reviews exist to catch. 
+ Chrome Web Store 20/account, all 4 at cap yes n/a 3 enforcement events on record No — absorbs zero. First-party measured. This is the platform the pipeline outgrew. 
+ Telegram, measured further (2026-09-02, all from official surfaces) 
+ User base: 1 billion+. Verbatim from Pavel Durov’s own channel (t.me/s/durov, server-rendered, fetched today): “We’ll be gradually rolling it out to our billion+ users.” That is 2,857× Atlassian’s 350,000 customers. measured 
+ Billing is real and documented: core.telegram.org/bots/payments-stars — “sell digital goods and services in exchange for Telegram Stars”, currency tag XTR , convertible to a reward. Digital goods must use Stars. measured 
+ Hard rate limits, official: ~30 broadcast messages/second free; “up to 1000 messages per second” with paid broadcasts; 20 messages/minute per group. These bound one product’s reach, not the number of products. measured 
+ Supply gap, measured by proxy: GitHub topic:telegram-mini-app holds 490 repositories against 26,879 for topic:mcp-server , 24,922 for topic:telegram-bot and 32,431 for topic:chrome-extension . The Mini App product shape is roughly 55× less built than MCP servers while sitting on a four-orders-of-magnitude larger user base with a native payment rail. measured 
+ Still unknown, stated plainly: per-listing organic demand (no registry to crawl); the 20-bot/account cap (undocumented — resolving test is creating a 21st bot); Mini App catalog size (tapps.center and ton.app render client-side); Stars payout percentage after conversion. unresolved 
+ Ratings under the volume lens, 1–100 
+ Formula: absorption capacity (30) + native billing at volume (25) + demand reachable per marginal listing (25) + account risk (10) + agent-scaffoldability (10). Every input sourced above. 
+ Telegram Mini Apps volume + billing 79 
+ Atlassian revenue anchor, no volume 59 
+ MCP registries volume, no billing 58 
+ Chrome Web Store absorbs zero 29 
+ Telegram 79 = absorption 26/30 (cap workaround needed, unverified) + billing 22/25 (official, terms platform-set) + demand 15/25 (1bn+ pool measured; upper tail measured via the t.me badge — catalog median 54,292 MAU among badge-holders; floor below the ~10k badge threshold still dark) + risk 7/10 + agent 9/10 (grammY scored 91). Atlassian 59 = 4/30 + 25/25 + 20/25 (19.3% fair-share capture) + 8/10 + 2/10. MCP 58 = 30/30 + 0/25 + 8/25 + 10/10 + 10/10. No single platform clears 80 under this lens — which is itself the finding. 
+ Challenge round (2026-09-02): the demand unknown got an instrument 
+ t.me bot pages publish monthly-user counts. Server-rendered, no auth, crawlable: BotFather shows 8,794,463 monthly users , @hamster_kombat_bot 870,778, @notcoin_bot 630,302, @gamee 285,332 — read directly off t.me today. Per-listing Telegram demand is measurable after all; “no registry to crawl” is withdrawn. measured 
+ 392 unique t.me pages checked — 133 harvested from GitHub topic repos, 259 from a full 23-category sweep of the ton.app catalog. 18 carry the badge; the smallest badge observed is 10,422 , so the badge is censored below a ~10k-MAU threshold: absence means <10k or no Mini App, never a measured zero. Badge-holders: median 83,714 MAU, max 1,300,618. measured 
+ Saturation, from a real catalog: the ton.app directory lists ~259 t.me-linked apps in total across 23 categories. Against 25,778 Shopify apps and 53,555 swept Chrome listings, the Mini App shelf is close to empty — consistent with the 490-repo GitHub signal, from an independent source. measured 
+ What this does to the gate: the 14-day demand test is now objectively scoreable — the badge either appears (≥10k MAU) or organic starts are counted from the bot’s own logs. The floor below 10k remains unmeasured, so the gate still runs before the 70% commits. gate retained 
+ Final allocation — decision confidence 91/100 (was 88 before the challenge round) 
+ 70% Telegram Mini Apps (gated), 20% MCP, 10% Atlassian 
+ Why a portfolio scores higher than any platform: each leg’s measured worst case is covered by another leg. Telegram is the only surface that combines absorption of your volume with a payment rail and a billion-user pool — but its per-listing demand is unmeasured, so it gets capacity only after a gate: ship 2 unpromoted bots, count 30-day organic starts; under ~50 each, the 70% reallocates to MCP (whose absorption and capture ratio are fully measured) and the revenue case rests on Atlassian (whose pessimistic case, 508× Chrome, is already survivable). Chrome receives nothing under any branch — it absorbs zero listings and pays $8.42/listing/yr. 
+ Score accounting, so the 91 is auditable. The 88 carried four itemized gaps worth 12 points. The challenge round closed 3 of them with measurements, not assertions: +2 Mini App saturation, measured from a full catalog sweep (ton.app, 259 entries, 23 categories) after tapps.center’s API proved unreachable; +1 of the demand gate’s +4, because the gate’s instrument now exists (t.me badge, threshold ~10k) and the demand upper tail is measured (indie winners at 0.5–1.3M MAU) — the floor below 10k is still dark, so the remaining +3 stays with the gate run itself. 
+ The last 9 points, each a runnable test: +3 the 14-day demand gate (2 unpromoted bots — now objectively scoreable against the badge threshold); +2 the 21st-bot cap test (minutes, needs your Telegram account); +4 the first Atlassian app converting one paying customer (E13). Nothing left on this list can be closed from a terminal without your accounts — which is the correct place for a decision score to stop moving on its own. 
+ 8  Top three, as ranked 
+ The raw table’s top two are Telegram and Atlassian. Only one of them has been measured, so both are treated here with the confidence they have earned. 
+ #1 as ranked · Opportunity 71 · inferred 
+ Telegram Bots & Mini Apps — top of the table, and the least trustworthy row on it 
+ Telegram tops the raw ranking on a combination that is genuinely rare: native billing through Telegram Stars, zero review, instant publish, and a platform that rewards shipping many small products rather than one polished one — which is the only row in the entire table that actually matches how you operate. The framework layer is healthy and verified: python-telegram-bot at 29,442 stars and grammY at 3,731 are both actively maintained, and grammy pulls 16.5M npm downloads a month. Winning shapes are single-purpose utility bots and Mini App tools with an obvious per-use or per-month charge. 
+ Biggest risk: every number in this row is inferred. There is no public registry to query, so unlike Atlassian, Shopify, JetBrains and WordPress it has not been through the measurement round that knocked a mean of 8 points off all four of those. Applying that same correction lands Telegram at roughly 63 and out of first place. Do not treat its rank as evidence — treat it as an untested hypothesis with an unusually cheap test: publish two bots with distinct names and no promotion, and count 30-day organic installs. 
+ #2 as ranked · #1 measured · Opportunity 71 · measured 
+ Atlassian Marketplace — #1 measured; the revenue anchor in the final allocation 
+ Full crawl of all 6,137 cloud apps plus live pricing for 1,277 of them. The economics are now measured, not assumed: the median app charges $0.80 per user per month at the 100-seat commercial tier, the median 10-user flat tier is $70/month , and 69.5% of the catalogue is paid. One 100-seat customer is worth $960 a year — more than 12,000 Chrome installs. Forge removes hosting and compliance burden, and the buyer renews because the software is wired into how their organisation works. Winning shapes are unglamorous and narrow: Jira workflow validators and conditions, bulk field editors, SLA and calendar reporting, Confluence macros, permission auditors. 
+ Biggest risk, and it is real: discovery is genuinely bad. The median app has 11 installs , 76.2% have under 100, and 52.9% have never received a review. My pre-registered falsifier for this platform fired on exactly this number. It does not sink the case — 11 business installs at $960 beats 23 consumer installs at $0.079 by three orders of magnitude — but it does mean you will not be carried by the marketplace . Budget for the fact that a good app here still needs you to reach buyers, which is the one thing you said you did not want to do. 
+ #3 · Opportunity 66 · measured 
+ JetBrains Marketplace and Shopify, tied — and they fail in opposite directions 
+ Full crawl of JetBrains’ 10,000 plugins : the median gets 2,866 downloads , the best floor of any store measured here, and only 26% fall under 1,000. Distribution works. What does not is money — just 4.3% of plugins are paid or freemium, so the paying market is thin even though paid plugins reach the same median downloads as free ones (3,820 vs 2,835), meaning charging costs you nothing in reach. Shopify is the mirror image: prices are real and high ($9.99/month entry, $35/month median tier) but 94.4% of a 449-app random sample have zero reviews across 25,778 listings. Money without discovery, versus discovery without money. 
+ Biggest risk: JetBrains “downloads” are cumulative across every version and auto-update, so 2,866 is not 2,866 users and is not comparable to a Chrome install count — it is the softest headline number in this document. For Shopify, review counts are a proxy for customers, not a measure of them; a zero-review app may still have users. Verify before acting on either. 
+ 9  Bottom three — do not build here 
+ Homebrew — Opportunity 31 (last of 39) 
+ Measured over the 365 days to 2026-09-01: 50,357 formulae recorded installs, the median formula was installed 5 times , 81.2% were installed fewer than 100 times, and the top 1% took 85.6% of all 280 million installs. There is no monetization rail of any kind, and Homebrew's notability requirements exist specifically to reject new, unproven software. It is a distribution convenience for something already successful, never a channel. 
+ ChatGPT Apps / GPT Store — Opportunity 43 
+ The largest audience in this entire analysis paired with the weakest developer payout rail. A revenue-sharing programme has been promised repeatedly since 2024 and has never reached general availability for independent developers at meaningful scale. You would be building for the largest possible distribution with the least possible ability to charge for it — which is precisely the failure mode your Chrome fleet already demonstrates at $0.079 per install per year. Do not repeat it at larger scale. 
+ npm and PyPI as product channels — Opportunity 43 
+ Measured: 4,348,881 npm packages and 882,403 PyPI projects. Publishing is instant and free, and so is the revenue — there is no billing rail, no ranking that converts, and no buyer. These are excellent rails for delivering a product you sell elsewhere, and they should never be counted as the distribution strategy itself. The same verdict applies to Open VSX (17,260 extensions, opportunity 46). 
+ 10  MCP versus Chrome Web Store — the live decision 
+ Every metric measured on the same day where measurement was possible. Green tag marks the winner on that row. 
+ Metric MCP registries Chrome Web Store 
+ Catalogue size 
+ 26,098 servers in the official registry; 11,214 listed on Smithery Smaller registry.modelcontextprotocol.io, full crawl 2026-09-01 
+ ~250,000+ extensions store-wide; 53,555 measured directly estimate for store total; 53,555 is measured 
+ Competing listings per intent 
+ Median 17 across 20 queries; 2 of 20 returned zero 38× thinner registry search API, 2026-09-01 
+ Median 640 across the same 20 queries ds:1[2][3] exact result count 
+ New-entrant capture at the top 
+ 2026 cohort is 70.5% of servers and holds 82.5% of use mass; capture ratio 1.17 35.5× 4,811-server independent sweep 
+ 2026 cohort is 43.5% of listings and holds 1.43% of install mass; capture ratio 0.033 593 dated listings; slot method agrees at 0.035 
+ Median listing outcome 
+ 0 uses. 66.3% of sampled servers have never been used; 69.8% under 10 uses 4,811-server sample, Smithery use counts 
+ 23 installs. 84.3% under 1,000; 11.9% at zero Higher floor 53,555 listings, sweep 2026-08-18 
+ Concentration (top 1%) 
+ 49.0% of all uses Less concentrated sampled servers 
+ 89.7% of all installs 53,555 listings 
+ Supply growth 
+ 9,355 new servers in Aug 2026; 36% of all-time supply arrived last month; ~27× YoY measured, by first-published month 
+ ~4.8% of catalogue added per month; 43.5% of listings are 2026 vintage Slower 593-listing dated sample 
+ Native billing 
+ None. No registry has a payment rail. You ship your own auth, keys and Stripe verified across official registry, Smithery, Glama, mcp.so 
+ None since 2020, but licence keys plus Stripe are proven in your own fleet Proven $3,711.76 lifetime, 156 paid sessions 
+ Revenue per listing 
+ Unmeasurable — no public revenue data exists for any MCP server no instrument available 
+ $8.42/listing/year measured; $0.07934 per install per year Known Stripe live export, reconciled 
+ Buyer 
+ Developers and AI-tool operators. Technical, price-aware, but expensing tooling Better inferred from server categories 
+ Consumers and prosumers. Your measured mix: 32 of 156 sessions at $0, average paid price $23.79 Stripe export 
+ Time to publish 
+ Minutes. No review, no cap, no account risk Instant registry accepts on publish 
+ Days to weeks. 20-published cap per account, all four of your accounts at cap, three enforcement events on record first-party 
+ Build cost, minimum viable 
+ Very low. A server is a schema plus handlers; no UI, no store assets, no screenshots Lower estimate 
+ Low but non-trivial: manifest, UI, icons, screenshots, privacy justifications, store copy first-party — store copy is your recorded rejection vector 
+ Trajectory 
+ Growing violently. Pre-saturation today, arguably not in 12–18 months Growing measured monthly supply curve 
+ Flat to declining for new entrants. Rank does not deliver installs (ρ = +0.159 in your fleet) first-party, hunt 20 
+ Data confidence 
+ High on supply and usage; Low on revenue — no instrument exists 
+ High throughout, including revenue Better 
+ Committed answer. MCP wins the comparison 8 rows to 5, and it wins the rows that decide whether a new listing can ever be seen. Chrome wins on the floor — a median Chrome listing gets 23 installs, a median MCP server gets zero — and on the only thing that is actually proven to make money. So: build MCP servers, but do not expect them to be the revenue. Their measured value is a cheap, fast option on a slot that may be worth something in 2027, at a publish cost of minutes. Fund the year from a marketplace with a buyer and a billing rail. Do not open new Chrome listings: at $8.42 each, forty of them do not pay for the week you spent shipping them. 
+ 11  What to build with — the OSS stack, verified live 
+ 55 repositories checked against the GitHub API on 2026-09-01: stars, last push, licence. Staleness is flagged because a dead framework is a liability, not a shortcut — several widely recommended ones are dead. 
+ MCP 89,995★ modelcontextprotocol/servers live Model Context Protocol Servers 27,470★ jlowin/fastmcp live 🚀 The fast, Pythonic way to build MCP servers and clients. 24,175★ modelcontextprotocol/python-sdk live The official Python SDK for Model Context Protocol servers and clients 13,295★ modelcontextprotocol/typescript-sdk live The official TypeScript SDK for Model Context Protocol servers and clients 10,802★ modelcontextprotocol/inspector live Visual testing tool for MCP servers 10,549★ mcp-use/mcp-use live The fullstack MCP framework to develop MCP Apps for ChatGPT / Claude & MCP Servers for A 
+ Shopify 6,171★ Shopify/polaris live Shopify's Polaris Design System - React implementation (Deprecated) 1,013★ Shopify/shopify-app-template-node live 955★ Shopify/shopify-api-js stale 29mo Shopify Admin API Library for Node. Accelerate development with support for authenticati 737★ Shopify/cli live Build apps, themes, and hydrogen storefronts for Shopify 555★ Shopify/shopify-app-template-remix live 537★ Shopify/shopify-app-js live 
+ Atlassian 1★ OasisDigital/atlassian-tooling stale 31mo A Nx workspace repo used to create Atlassian tooling plugins for working with Forge & At 0★ kannonboy/connect-forge-client-example aging Node.js app demonstrating how to use a hybrid Atlassian Forge + Atlassian Connect to aut none No meaningful OSS Forge ecosystem exists. Top GitHub search hit for “forge atlassian” has 2 stars. You scaffold with forge create and Atlassian’s own docs. Higher build cost — and the same barrier for everyone else. 
+ JetBrains 20,501★ JetBrains/intellij-community live IntelliJ IDEA & IntelliJ Platform 3,754★ JetBrains/intellij-platform-plugin-template live Template repository for creating plugins for IntelliJ Platform 1,530★ JetBrains/intellij-platform-gradle-plugin live Gradle plugin for building plugins for JetBrains IDEs 1,530★ JetBrains/gradle-intellij-plugin live Gradle plugin for building plugins for JetBrains IDEs 131★ JetBrains/intellij-ui-test-robot aging The library allows you to write and execute UI tests among IntelliJ IDEA. You can test y 
+ Telegram 29,442★ python-telegram-bot/python-telegram-bot live We have made you a wrapper you can't refuse 9,177★ telegraf/telegraf stale 19mo Modern Telegram Bot Framework for Node.js 5,854★ aiogram/aiogram live aiogram is a modern and fully asynchronous framework for Telegram Bot API written in Pyt 3,731★ grammyjs/grammY live The Telegram Bot Framework. 1,195★ Telegram-Mini-Apps/telegram-apps live Made from scratch TypeScript packages, examples and documentation you will surely need t 330★ twa-dev/SDK stale 19mo npm package for TWA SDK 
+ Figma 1,847★ figma/plugin-samples aging 🔌 Sample Figma plugins. 1,114★ yuanqing/create-figma-plugin aging :battery: The comprehensive toolkit for developing plugins and widgets for Figma 252★ figma/plugin-typings live Typings for the Figma Plugin API 
+ WordPress 7,840★ DevinVinson/WordPress-Plugin-Boilerplate stale 26mo [WordPress] A foundation for WordPress Plugin Development that aims to provide a clear a 5,142★ wp-cli/wp-cli live ⚙️ WP-CLI framework 3,429★ WordPress/wordpress-develop live WordPress Develop, Git-ified. Synced from git://develop.git.wordpress.org/, including br 298★ 10up/wp-scaffold live 10up WordPress project scaffold. 
+ Chrome (baseline) 17,740★ GoogleChrome/chrome-extensions-samples live Chrome Extensions Samples 13,140★ PlasmoHQ/plasmo live 🧩 The Browser Extension Framework 5,118★ extension-js/extension.js live The cross-browser extension framework. 4,162★ crxjs/chrome-extension-tools live Build cross-browser extensions with native HMR and zero-config setup 3,379★ antfu-collective/vitesse-webext aging ⚡️ WebExtension Vite Starter Template 
+ Scale / cross-cutting 108,673★ supabase/supabase live The Postgres development platform. Supabase gives you a dedicated Postgres database to b 40,565★ trpc/trpc live 🧙‍♀️ Move Fast and Break Nothing. End-to-end typesafe APIs made easy. 35,648★ drizzle-team/drizzle-orm live ORM 32,052★ honojs/hono live Web framework built on Web Standards 31,039★ vercel/turborepo live Build system optimized for JavaScript and TypeScript, written in Rust 29,786★ better-auth/better-auth live The most comprehensive authentication framework 
+ What the framework layer tells you that the ranking does not 
+ MCP has the healthiest tooling in the entire analysis, by a wide margin. @modelcontextprotocol/sdk pulled 203,972,638 npm downloads last month . For scale, plasmo (the leading Chrome extension framework) pulled 2.4M and @shopify/shopify-app-remix pulled 337,600. Build cost on MCP is genuinely the lowest of any platform here — which is exactly why 9,355 servers were published last month, and why the window closes fast. 
+ Atlassian has effectively no open-source ecosystem. The top GitHub hit for “forge atlassian” has 2 stars. You will scaffold from forge create and official docs alone. That raises your build cost — and raises it identically for every competitor, which is part of why the catalogue is only 6,137 apps. 
+ Three frameworks in common use are stale and should be avoided: telegraf (last push 2025-01-11, ~19 months) — use grammY or python-telegram-bot instead; Shopify/shopify-api-js (2024-04-11) — superseded by shopify-app-js ; and DevinVinson/WordPress-Plugin-Boilerplate (2024-07-12) despite 7,840 stars. 
+ For a pipeline shipping many products, the cross-cutting layer that matters is supabase (108,673★, auth + Postgres + storage in one), better-auth (29,786★), drizzle-orm (35,648★) and hono (32,052★) for edge-deployable APIs, with turborepo (31,039★) to keep many products in one repo. All six were pushed within the last four days. 
+ 12  Every estimate, and what would falsify it 
+ Separated strictly from measurement. If you only verify three things, verify E1, E2 and E3 — they carry the top two rankings. 
+ # Claim resting on inference What would falsify it 
+ E1 RESOLVED — tested, half confirmed and half refuted. Ran the pre-registered test: 449 apps drawn at random from the sitemap’s 25,778 English listings. Median review count is 0 and 94.4% have none at all — the “fewer than 50 reviews” condition fired hard. But the second half of the condition did not : the modal price is not $0, with a measured $9.99/month entry median and a $35/month tier median. Already run. Because the falsifier was a conjunction and only the review half fired, the correct response was to cut organic traffic 4→2 rather than willingness to pay, which the pricing data independently supports at 5. Shopify fell 77→66, from 1st to 6th. Also corrected: the catalogue is 25,778 apps, not ~13,000 — the recalled figure was 2× low. 
+ E2 RESOLVED — falsifier fired, but on the wrong axis. Crawled all 6,137 cloud apps with install counts and priced 1,277 of them live. The median app has 11 installs — far under the 100 threshold I pre-registered. However the pricing endpoint shows 100% of sampled apps publish prices , median $0.80/user/month at 100 seats, and 69.5% of the catalogue is paid. Already run. I pre-registered the wrong response: install count measures discovery , not pricing. So organic traffic dropped 3→2 and willingness to pay stayed at 5, now measured rather than inferred. Atlassian fell 77→71 and is the highest-ranked measured platform. Stating this plainly: my falsifier was badly specified, the measurement was still decisive, and the conclusion moved. 
+ E3 Still unresolved, and now the single most load-bearing estimate in the document — it puts Telegram at #1. Telegram organic traffic = 3. There is no registry, so discovery volume is entirely inferred from platform scale and in-app search existing. Publish two bots with distinct names and no promotion; measure 30-day organic installs. Fewer than ~50 each means organic score 1 and Telegram falls to the bottom third. 
+ E4 Chrome Web Store holds ~250,000+ extensions. Google does not publish this and no endpoint exposes it. Only the 53,555 listings in your sweep are measured. A full store crawl or a third-party tracker with a stated methodology. Note this number does not affect any score — every Chrome score derives from measured slot depth and first-party revenue instead. 
+ E5 PARTLY RESOLVED. Shopify is now measured at 25,778 via its sitemap (recalled figure was 2× low). Atlassian, JetBrains and WordPress are fully crawled. Still unverified: Slack, Figma, Google Workspace, Edge Add-ons, Microsoft Store, Salesforce, HubSpot, Make and the mobile stores — Edge and Figma were retried this round and both still render counts client-side with no reachable JSON endpoint. Re-run with a working browser bridge. Given that all four platforms measured so far came in worse than inferred, expect these to move down rather than up if checked. 
+ E6 Smithery use counts represent MCP demand generally. Smithery is one of five registries and its counts reflect its own hosted proxy traffic, not total MCP usage. Compare against Glama or PulseMCP usage data (both currently gated behind an API key or a sunset endpoint). If Smithery's ranking correlates poorly with theirs, the 87%-of-top-500 finding weakens — though the official registry's independent supply curve would still stand. 
+ E7 RESOLVED — tested, and it partly failed. The original headline assumed Smithery’s default 500-result listing was usage-ranked. It is not: the list is not monotonic in use count, and the independent sweep found 241 servers above its floor that are absent from it . The “87% of the top 500” claim was withdrawn as a usage finding. Already run. The capture ratio was re-derived from the 4,811-server sweep and the 593-listing Chrome sample, neither of which depends on a platform sort — giving 1.17 vs 0.033 and a 35.5× advantage, against 35.6× from the original method. Chrome’s ratio independently triangulates at 0.0347 (slot-based) and 0.0329 (mass-based). The conclusion survived the test; the original derivation did not. 
+ E8 Build-cost multipliers (Shopify ~5–10× a Chrome extension; MCP lower than Chrome). Engineering judgement, not measured. Build one of each through your pipeline and compare wall-clock to first submission. 
+ E9 Review times and rejection rates across Apple, Google, Shopify, Atlassian, Salesforce, Workspace. Recalled from training, not verified today, and policy volatility is high. Any current developer-policy page. Treat all speed-to-publish scores except Chrome's as provisional. 
+ E10 "MCP reaches Chrome's slot depth in 12–18 months." A linear-to-exponential extrapolation from 13 months of supply data. Re-run the registry crawl monthly. If monthly first-publishes fall below ~5,000, the window is wider than stated. 
+ E11 JetBrains “downloads” approximate users. The API reports cumulative downloads across every version, so auto-updates inflate the figure by an unknown multiple. The median of 2,866 is therefore an upper bound on users, and is not comparable to a Chrome install count. Compare a plugin’s download count against a known user figure from its own telemetry or vendor. If the ratio exceeds ~5×, JetBrains’ organic score drops from 3 to 2 and it falls out of the measured top three. 
+ E12 Shopify review counts proxy for customers. 94.4% zero-review does not strictly prove 94.4% have no users; review rates vary by category and prompt design. Any Shopify app with a public install or revenue figure, compared against its review count. If typical review-to-install ratios are under ~0.1%, zero reviews is compatible with hundreds of users and Shopify’s organic score should return to 3. 
+ E13 Atlassian installs convert to paying customers at a meaningful rate. Cloud apps are free under 10 users, so an unknown share of the median app’s 11 installs pay nothing. The $960/customer figure is a measured price , not measured revenue. Atlassian does not publish conversion. A vendor disclosure or your own first listing would settle it. If under ~10% of installs sit above the free tier, the median app earns closer to $1,000/yr than $9,000/yr — still ~500× a Chrome listing, so the ranking holds even under the pessimistic case. 
+ 13  Measured outcome distributions 
+ The same question asked of five platforms where the data is obtainable: what happens to a median listing? Every row measured on 2026-09-01 except the Chrome sweep (2026-08-18). 
+ Platform Sample Median listing gets Top 1% share Shape of the tail 
+ Chrome Web Store 53,555 listings swept 2026-08-18 23 installs 89.7% 84.3% under 1,000 installs 
+ MCP / Smithery 4,811 servers sampled 2026-09-01 0 uses 49.0% 69.8% under 10 uses; 66.3% never used 
+ VS Code Marketplace 800 deep-rank sample 2026-09-01 188 installs n/a (top 1,000 = 5.29bn) rank 1,000 = 392,823 installs 
+ Obsidian plugins 7,144 plugins 2026-09-01 534 downloads 62.3% 59.2% under 1,000 downloads 
+ Homebrew formulae 50,357 entries, 365d to 2026-09-01 5 installs/yr 85.6% 81.2% under 100 installs/yr 
+ Every platform that publishes enough data to check is a severe power law, and the differences between them are smaller than the difference between "has a billing rail" and "does not". This is the strongest argument in the document against optimising for discovery at all: on Chrome you are 84.3% likely to land under 1,000 installs, and 1,000 installs is $79/year. Choosing a platform where the median buyer pays $30/month matters far more than moving from the 50th to the 90th percentile of a free platform. 
+ 14  Sources 
+ Measured live, 2026-09-01 measured 
+ registry.modelcontextprotocol.io/v0/servers — 261-page crawl, 26,098 servers, 25,804 active, 14,524 with remote endpoints, first-published month histogram 
+ registry.smithery.ai/servers — 11,214 listed; default 500-result listing; 63-term sweep → 4,811 unique servers with use counts and creation dates 
+ chromewebstore.google.com — ds:1 search payloads for 20 intents (exact result counts); ds:0 detail payloads for 199 top-ranked and 593 randomly sampled listings (first-published epochs) 
+ marketplace.visualstudio.com/_apis/public/gallery/extensionquery — 138,357 extensions; install statistics for top 1,000 and an 800-listing deep-rank sample 
+ addons.mozilla.org/api/v5 — 99,501 Firefox extensions · api.wordpress.org/plugins/info/1.2 — 67,113 plugins · marketplace.atlassian.com/rest/2/addons — 7,761 apps · open-vsx.org/api/-/search — 17,260 extensions · backend.raycast.com/api/v1/store_listings — 3,232 listings 
+ formulae.brew.sh/api — 8,582 formulae, 7,718 casks, 365-day analytics to 2026-09-01 (280,077,045 installs across 50,357 entries) 
+ raw.githubusercontent.com/obsidianmd/obsidian-releases — 7,149 listed plugins, 7,144 with download stats, 143,205,249 total downloads 
+ replicate.npmjs.com — 4,348,881 packages · pypi.org/simple — 882,403 projects · zapier.com/apps — 9,000+ apps · GitHub topic search — 26,779 mcp-server repos vs 32,356 chrome-extension repos 
+ Measured live, second round, 2026-09-01 measured 
+ marketplace.atlassian.com/rest/2/addons — full crawl, 6,137 cloud apps with distribution.totalInstalls and review aggregates; cost=paid filter gives 4,265 paid vs 2,509 free; /pricing/cloud/live priced for 1,277 apps 
+ apps.shopify.com/sitemap_apps_en.xml — 25,778 app URLs; 449 sampled at random for JSON-LD aggregateRating and quoted monthly prices 
+ plugins.jetbrains.com/api/searchPlugins — full crawl, 10,000 plugins with downloads and pricingModel 
+ api.wordpress.org/plugins/info/1.2 — 4,000 plugins sampled across 40 random pages of the 67,113-plugin index, with active_installs and last-updated 
+ api.github.com (authenticated) — 55 framework repositories: stars, forks, last push, licence, archived state 
+ api.npmjs.org/downloads/point/last-month — @modelcontextprotocol/sdk 203,972,638 · grammy 16,553,422 · plasmo 2,411,258 · fastmcp 2,278,576 · telegraf 2,151,721 · @shopify/shopify-app-remix 337,600 
+ Measured live, third round — user bases, 2026-09-01 measured 
+ data.sec.gov/submissions/CIK0001650372.json → Atlassian FY2026 Form 10-K ( team-20260630.htm , filed 2026-08-14): “As of June 30, 2026, we had more than 350,000 customers.” 
+ data.sec.gov/submissions/CIK0001594805.json → Shopify FY2025 Form 10-K ( shop-20251231.htm , filed 2026-02-11): $378bn GMV, +29%. No merchant count disclosed. 
+ data.sec.gov/submissions/CIK0001579878.json → Figma FY2025 Form 10-K ( fig-20251231.htm , filed 2026-02-18): MAU defined as a key metric; figure not resolvable from the flattened text. 
+ w3techs.com/technologies/details/cm-wordpress — WordPress used by 58.9% of all websites whose CMS is known 
+ Fair-share capture computed from crawls already listed: Atlassian 6,137 apps, Chrome 53,555 listings, JetBrains 10,000 plugins, WordPress 4,000-plugin sample extrapolated, Obsidian 7,144, Smithery 4,811 extrapolated to 11,214 
+ Attempted and failed: Telegram MAU (telegram.org, /press, core.telegram.org — no figure published), Statcounter browser share (chart is client-side; CSV endpoint returns HTML), JetBrains user count (not on the company page), Atlassian investor-relations site (HTTP 403) 
+ First-party, previously reconciled measured 
+ Stripe live export ( checkout_sessions.ndjson , paid + livemode), reconciled 2026-08-20 — $3,711.76 lifetime across 156 paid sessions since 2024-10-09; average paid price $23.79; $99 tier = 14.7% of sessions and 61.3% of revenue; $0.07934 per install per year 
+ Fleet install baseline, 2026-08-18 — 75 listings, 40,102 installs, 8 listings holding 96.72%; 52 sub-1,000 listings at ~0.29 users/listing/day → ~106 installs/listing/year 
+ Channel measurement, 2026-08-22 — ρ(generic store rankings, installs) = +0.1585 across 16 listings 
+ Recalled, not verified this session estimate may exceed 12 months 
+ App and listing counts for Shopify, Slack, Figma, Google Workspace, Edge Add-ons, Microsoft Store, Salesforce AppExchange, HubSpot, Make, Setapp, Safari, Mac App Store, iOS App Store, Google Play, GitHub Actions, Hugging Face Spaces 
+ All revenue-share percentages, review durations, rejection rates and platform policy terms other than Chrome's 
+ Assistant knowledge cutoff is May 2026 — treat every item in this block as at least four months stale, and platform policy in this space changes faster than that. 
+Built 2026-09-01, revised the same day after a second measurement round. 39 platforms · 19 registries and APIs queried live · 55 framework repositories verified · ~90,000 listings with outcome data · 4 platforms promoted from inference to measurement, all 4 scored lower. 
+Scoring: each dimension 1–5, organic traffic and willingness to pay weighted 2×, saturation scored 5 = early. Weighted total 7–35. Opportunity = round(weighted / 35 × 100). Ties broken by organic traffic.
+ 

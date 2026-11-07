@@ -29,7 +29,13 @@ test('buyer guide serves the same engine compiled for the browser with fresh sou
 });
 
 test("download catalog covers every listed server with an explicit release asset", async () => {
-  assert.deepEqual(Object.keys(BUNDLE_DOWNLOADS).sort(), [...LISTED_IDS].sort());
+  // A listed server may sit in BUNDLE_PENDING for a release while its .mcpb is queued;
+  // /downloads then prints the source install path rather than a link that 404s.
+  const { BUNDLE_PENDING } = await import("../src/downloads-pending.js");
+  const covered = [...Object.keys(BUNDLE_DOWNLOADS), ...Object.keys(BUNDLE_PENDING)].sort();
+  assert.deepEqual(covered, [...LISTED_IDS].sort());
+  assert.deepEqual(Object.keys(BUNDLE_PENDING), ["ingredient-convert"],
+    "only the server whose bundle is queued may be pending");
   const response = await worker.fetch(new Request("https://mcp.zovo.one/downloads"), {}, { waitUntil() {} });
   assert.equal(response.status, 200);
   const html = await response.text();

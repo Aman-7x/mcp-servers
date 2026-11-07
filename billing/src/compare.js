@@ -867,8 +867,9 @@ invoice store, so the schedule writes into the same number series the invoice se
 works for both:</p>
 <pre><code>claude mcp add --transport http recurring https://mcp.zovo.one/mcp/recurring/t/&lt;token&gt;
 claude mcp add --transport http invoice   https://mcp.zovo.one/mcp/invoice/t/&lt;token&gt;</code></pre>
-<p>The npm packages are not published yet, so the two lines below return a 404 today. They are here
-because they are what the config becomes the day that changes:</p>
+<p>The npm packages are published: 58 of the 60 servers resolve on <code>registry.npmjs.org</code>
+(checked 2026-11-06, e.g. <code>@theluckystrike/mcp-invoice</code> at 0.22.6), so the two lines below
+install as written:</p>
 <pre><code>claude mcp add recurring -- npx -y @theluckystrike/mcp-recurring
 claude mcp add invoice   -- npx -y @theluckystrike/mcp-invoice</code></pre>
 <p>invovate-mcp-server:</p>

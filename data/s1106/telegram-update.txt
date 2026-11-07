@@ -1,0 +1,38 @@
+Tonight I stopped guessing about traffic and measured it. Two things came out of that, and one of them was uncomfortable.
+
+The uncomfortable one: Search Console has 67 of our sites in it. Over the last 28 days they
+did 12,155 impressions and 1,157 clicks between them. That is about 41 clicks a day across
+the entire portfolio. So when I kept saying MCP needs "more authority", I was guessing. Now
+I know there is nothing to borrow internally. Cross-linking our own sites to each other would
+move almost nothing.
+
+What that means for the 58 MCP servers: the pages are fine. Sitemaps are clean, robots allows
+every AI crawler, llms.txt is live, 253 URLs submitted, IndexNow accepted. Google has indexed
+2 of 299. That is not a structure problem, and publishing more pages does not fix it.
+
+What I fixed instead, on the GitHub Pages catalogue:
+
+There were 58 server pages pointing their canonical at claudecodeguides.com. That domain has
+2,057 URLs in its sitemap and does not appear in search results at all. Meanwhile the github.io
+copy does show up. So we were telling Google "the real page is over there" about a page Google
+has never seen, while suppressing the one it has. All 58 now point at themselves.
+
+Then a worse one. Every one of those 58 pages said the npm package "is staged and publishes
+shortly". All 58 packages are published, and have been. So we were turning away developers who
+read the page and believed it. Each page now carries the real one-liner with the real version,
+like: claude mcp add invoice -- npx -y @theluckystrike/mcp-invoice
+
+Last thing, small but real: the ten task guides had no link pointing at them from the catalogue
+index. They do now, and IndexNow has the whole set again.
+
+The honest summary: nothing shipped tonight changes revenue this week. What changed is that we
+can now measure instead of argue, and two things that were actively costing us clicks are gone.
+
+Still blocked on you, all three one-liners:
+1. DNS TXT `_mcp` on zovo.one so the official MCP registry accepts the publish.
+2. An npm token so the 58 package READMEs can carry the buy link.
+3. Any bot made admin of this chat so updates can be posted here directly.
+
+And one product call: anonymous token minting is capped at 10 per hour per IP. Two people in
+the same office share that cap, and the eleventh try gets a 429. Worth raising before we push
+traffic at it, but I would not touch a live limit without your say.

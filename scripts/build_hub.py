@@ -12,6 +12,7 @@ Usage:
   python3 scripts/build_hub.py --site /path/to/csg
 """
 import argparse
+import html
 import json
 import os
 import re
@@ -40,6 +41,7 @@ CATEGORIES = [
         "supplier-list", "price-tracker",
     ]),
     ("Web and SEO", ["backlink-checker"]),
+    ("Cooking and recipes", ["ingredient-convert"]),
 ]
 
 VERBS = {
@@ -99,8 +101,318 @@ GUIDE_FOR = {
 }
 
 
+# Free live-data satellites (data/satellite_hub.json, written by collect_satellite_hub.py).
+# Editorial copy only: a short name, the search phrase that follows "MCP server", and the
+# back-office server pages that should link to the satellite. Every fact on a satellite page
+# comes from the json (README, live tools/list, live tools/call), never from this table.
+SATELLITE_COPY = {
+    "ab-test-sample-size-calculator-mcp": ("A/B test sample size calculator", "that calculates A/B test sample size and significance", []),
+    "aca-premium-tax-credit-calculator-mcp": ("ACA premium tax credit calculator", "for the 2026 ACA premium tax credit", ["tax-calc"]),
+    "address-to-census-tract-mcp": ("Address to census tract", "that finds the census tract for a US address", []),
+    "ap-score-distributions-mcp": ("AP score distributions", "with the 2026 AP score distributions", []),
+    "car-loan-interest-deduction-calculator-mcp": ("Car loan interest deduction calculator", "that calculates the new car loan interest deduction", ["tax-calc", "loan-calculator"]),
+    "cpi-inflation-calculator-mcp": ("CPI inflation calculator", "that adjusts a dollar amount for inflation with official CPI data", ["currency"]),
+    "cups-to-grams-mcp": ("Cups to grams converter", "that converts cups to grams by ingredient", []),
+    "drug-shortage-list-mcp": ("FDA drug shortage list", "that checks the FDA drug shortage list", []),
+    "dscr-loan-calculator-mcp": ("DSCR loan calculator", "that calculates DSCR for a rental property loan", ["amortization", "loan-calculator"]),
+    "estate-gift-tax-exemption-calculator-mcp": ("Estate and gift tax exemption calculator", "that knows the 2026 estate and gift tax exemption", ["tax-calc"]),
+    "gold-price-per-gram-mcp": ("Gold price per gram", "for the current gold price per gram", ["currency", "price-tracker"]),
+    "i-bond-rate-mcp": ("I bond rate", "for the current I bond rate", []),
+    "irs-mileage-rate-per-diem-mcp": ("IRS mileage rate and per diem", "for the 2026 IRS mileage rate and current per diem rates", ["mileage-log", "per-diem", "expense-tracker"]),
+    "lake-level-mcp": ("Lake level", "for current lake and reservoir water levels", []),
+    "minimum-wage-mcp": ("Minimum wage", "that looks up the minimum wage for a US state", ["payroll", "hourly-rate"]),
+    "mortgage-rates-today-mcp": ("Mortgage rates today", "for mortgage rates today from Freddie Mac", ["amortization", "loan-calculator"]),
+    "no-tax-on-overtime-mcp": ("No tax on overtime calculator", "that calculates the no tax on overtime deduction", ["payroll", "tax-calc"]),
+    "paycheck-calculator-mcp": ("Paycheck calculator", "that calculates take-home pay after federal and state tax", ["payroll", "hourly-rate"]),
+    "raw-to-cooked-weight-mcp": ("Raw to cooked weight", "that converts raw meat weight to cooked weight", []),
+    "recipe-nutrition-calculator-mcp": ("Recipe nutrition calculator", "that calculates recipe nutrition per serving", []),
+    "retirement-contribution-limits-2027-mcp": ("Retirement contribution limits", "that knows the current 401(k) contribution limits", ["payroll"]),
+    "river-level-mcp": ("River level", "for the current water level of a river", []),
+    "sat-score-percentiles-mcp": ("SAT score percentiles", "that looks up SAT score percentiles", []),
+    "section-179-deduction-calculator-mcp": ("Section 179 deduction calculator", "that calculates the Section 179 deduction for 2026", ["asset-register", "tax-calc"]),
+    "silver-price-per-gram-mcp": ("Silver price per gram", "for the current silver price per gram", ["currency", "price-tracker"]),
+    "social-security-cola-2027-mcp": ("Social Security COLA 2027", "for the 2027 Social Security COLA and full retirement age", []),
+    "student-loan-repayment-assistance-plan-calculator-mcp": ("Student loan RAP calculator", "that calculates the new RAP student loan payment", []),
+    "subdomain-finder-mcp": ("Subdomain finder", "that finds subdomains from certificate transparency logs", ["backlink-checker"]),
+    "uk-income-tax-salary-mcp": ("UK income tax and salary", "that calculates UK take-home pay for 2026/27", ["payroll"]),
+    "uk-statutory-sick-pay-maternity-pay-calculator-mcp": ("UK Statutory Sick Pay and Maternity Pay", "that calculates UK Statutory Sick Pay under the April 2026 rules", ["leave"]),
+    "us-federal-holidays-business-days-mcp": ("US federal holidays and business days", "that counts business days excluding US federal holidays", ["calendar", "recurring", "invoice"]),
+    "uv-index-today-mcp": ("UV index today", "for the UV index today by ZIP code", []),
+    "vegetable-yield-percentage-mcp": ("Vegetable yield percentage", "for vegetable yield and trim loss", []),
+}
+SAT_SECTION_ANCHOR = "free-live-data-mcp-servers-no-key"
+
+
+def sat_copy(sat):
+    name, phrase, related = SATELLITE_COPY.get(
+        sat["repo"], (sat["repo"][:-4].replace("-", " ").capitalize(), "for " + sat["repo"][:-4].replace("-", " "), []))
+    return name, phrase, related
+
+
+def hub_link(url, repo):
+    """The satellite's own money-site link, re-tagged so hub clicks are told apart from tool results."""
+    if not url:
+        return None
+    u = re.sub(r"[?&]utm_[a-z]+=[^&]*", "", url).rstrip("?&")
+    return u + ("&" if "?" in u else "?") + "utm_source=claudecodeguides&utm_medium=mcp-hub&utm_campaign=" + repo
+
+
+def first_sentence(text, limit=170):
+    t = re.sub(r"\s+", " ", text or "").strip()
+    # split only after a lowercase word, digit or ")" so "U.S." and "e.g." stay whole
+    m = re.match(r"(.+?[a-z0-9)][.!?])(?:\s+(?=[A-Z])|$)", t)
+    t = m.group(1) if m else t
+    if len(t) > limit:
+        t = t[: limit - 1].rsplit(" ", 1)[0].rstrip(" ,;:") + "..."
+    return t.replace("|", "/")
+
+
+def load_satellites(path):
+    if not path or not os.path.exists(path):
+        return []
+    return json.load(open(path, encoding="utf-8")).get("satellites", [])
+
+
+def satellite_page(sat, sats, by_id, base="https://claudecodeguides.com", layout="default", canonical_base=""):
+    repo = sat["repo"]
+    name, phrase, related_ids = sat_copy(sat)
+    short = repo[:-4]
+    url = sat["hosted_url"]
+    ex = sat["example"]
+    question = "Is there an MCP server %s?" % phrase
+    money = hub_link(ex.get("more"), repo)
+    money_host = re.sub(r"^https?://(www\.)?", "", money).split("/")[0] if money else None
+    called = (ex.get("called_at") or "")[:10]
+    tools_md = "| Tool | What it does |\n| --- | --- |\n" + "\n".join(
+        "| `%s` | %s |" % (t["name"], first_sentence(t["description"])) for t in sat["tools"])
+    knows_md = "\n".join("%d. %s" % (i + 1, k) for i, k in enumerate(sat["knows"]))
+    stamp_free = sat.get("stamp_free_server") or "https://www.mcpstamp.com/free-servers/"
+    can = sat.get("stamp_can_claude") or []
+    can_md = "".join(
+        "\n- [%s](%s) on mcpstamp.com, the plain-English answer with a live call" % (
+            html.unescape(c.get("h1") or "Can Claude " + c["url"].rstrip("/").rsplit("/", 1)[-1].replace("-", " ") + "?"),
+            c["url"])
+        for c in can)
+    links_md = (
+        "- [github.com/theluckystrike/%s](%s), source, README and data sources (MIT)\n"
+        "- [%s](%s) on the mcpstamp.com free server list%s" % (repo, sat["repo_url"], stamp_free.replace("https://", ""), stamp_free, can_md)
+    )
+    if money:
+        links_md += "\n- [%s](%s), the companion site this server's results link to" % (money_host, money)
+    sib = [x for x in sats if x["repo"] != repo]
+    # three neighbours in the alphabetical list, wrapping, so every page gets distinct links
+    i = [x["repo"] for x in sats].index(repo)
+    neigh = [sats[(i + k) % len(sats)] for k in (1, 2, 3) if sats[(i + k) % len(sats)]["repo"] != repo][:3]
+    rel_lines = ["- [%s MCP server](/mcp/%s/). %s" % (sat_copy(x)[0], x["repo"], first_sentence(x["description"], 200)) for x in neigh]
+    rel_lines += ["- [%s MCP server](/mcp/%s/) from the back-office collection" % (by_id[r]["human"], by_id[r]["slug"])
+                  for r in related_ids if r in by_id]
+    rel_md = "\n".join(rel_lines[:5])
+    desc = sat["description"].rstrip(".") + "."
+    lead = (
+        "Looking for an MCP server %s? `%s` is free, MIT licensed and needs no API key and no "
+        "account. Paste %s into any MCP client that takes a remote server URL. %s"
+        % (phrase, repo, url, desc)
+    )
+    faq = [
+        (question,
+         "Yes. %s (%s) is a free MCP server. %s It is hosted at %s with no token, and it also runs "
+         "locally with npx -y github:theluckystrike/%s." % (name, repo, desc, url, repo)),
+        ("Does the %s MCP server need an API key?" % name,
+         "No. The hosted endpoint answers tools/list and tools/call without a token or sign-up. "
+         "The example on this page was called that way on %s." % called),
+        ("Is it free?",
+         "Yes. The code is MIT licensed and the hosted endpoint is free to call. This server has no paid tier "
+         "at all."),
+        ("Where do the numbers come from?",
+         "Each result carries an as_of date and a source. In the live call on this page the source "
+         "was %s. The full source list is in DATA_SOURCES.md in the repository."
+         % (ex.get("source") or "listed in the result")),
+    ]
+    faq_md = "\n".join("### %s\n\n%s\n" % (q, a) for q, a in faq)
+    page_url = base + "/mcp/%s/" % repo
+    ld = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "SoftwareApplication",
+                "name": "%s MCP server" % name,
+                "alternateName": repo,
+                "applicationCategory": "DeveloperApplication",
+                "operatingSystem": "macOS, Windows, Linux, any MCP client over Streamable HTTP",
+                "description": desc,
+                "softwareVersion": sat.get("version") or "1.0.0",
+                "url": page_url,
+                "codeRepository": sat["repo_url"],
+                "license": "https://opensource.org/licenses/MIT",
+                "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD",
+                           "description": "Free. Hosted endpoint with no API key, or run locally with npx."},
+                "isPartOf": {"@type": "ItemList", "name": "Free live-data MCP servers (no key)",
+                             "url": base + "/mcp/#" + SAT_SECTION_ANCHOR},
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
+                    for q, a in faq
+                ],
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Home", "item": base + "/"},
+                    {"@type": "ListItem", "position": 2, "name": "MCP servers", "item": base + "/mcp/"},
+                    {"@type": "ListItem", "position": 3, "name": name, "item": page_url},
+                ],
+            },
+        ],
+    }
+    canon = ("canonical_url: %s/mcp/%s/\ncanonical: %s/mcp/%s/\n" % (canonical_base, repo, canonical_base, repo)
+             ) if canonical_base else ""
+    return """---
+layout: %(layout)s
+title: "%(name)s MCP server (free, no API key)"
+description: "%(meta)s"
+permalink: /mcp/%(repo)s/
+%(canon)sdate: %(date)s
+---
+
+# %(name)s MCP server (free, no API key)
+
+<script type="application/ld+json">
+%(ld)s
+</script>
+
+%(lead)s
+
+Tools %(ntools)d, version %(ver)s, licence MIT. Part of the [free live-data MCP servers](/mcp/#%(anchor)s) on this hub.
+
+## What it answers that a model cannot answer alone
+
+A language model answers from training data that is months old and does arithmetic from memory. This server returns the current figure with its source. In the words of its README, it knows these things that your model does not.
+
+%(knows)s
+
+## Connect it with no key
+
+Hosted URL for Claude.ai custom connectors, ChatGPT developer mode and any client that takes a remote MCP server. Paste it as is. No token, no sign-up.
+
+```
+%(url)s
+```
+
+Claude Code, hosted or local:
+
+```
+claude mcp add --transport http %(short)s %(url)s
+claude mcp add %(short)s -- npx -y github:theluckystrike/%(repo)s
+```
+
+Claude Desktop (`claude_desktop_config.json`), runs locally with Node 20 or newer:
+
+```json
+{
+  "mcpServers": {
+    "%(short)s": { "command": "npx", "args": ["-y", "github:theluckystrike/%(repo)s"] }
+  }
+}
+```
+
+Cursor (`~/.cursor/mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "%(short)s": { "url": "%(url)s" }
+  }
+}
+```
+
+## Tools it exposes
+
+%(tools)s
+
+## Example output from a live call
+
+Called on %(called)s against the hosted URL above, with no token. The prompt was "%(prompt)s" and the client sent this call.
+
+```json
+{"name": "%(tool)s", "arguments": %(args)s}
+```
+
+The server answered with this plain-English summary (the structured JSON that follows it in the result is left out here).
+
+```text
+%(summary)s
+```
+
+Data as of `%(as_of)s`. The result also returns the source URL and a link for more detail.
+
+## Questions people actually ask
+
+%(faq)s
+
+## Links
+
+%(links)s
+
+## More free live-data servers
+
+%(related)s
+
+---
+
+[All MCP servers on this hub](/mcp/) &middot; [free live-data servers with no key](/mcp/#%(anchor)s)
+""" % {
+        "layout": layout,
+        "name": name,
+        "meta": meta_desc("Free MCP server %s. No API key: paste the hosted URL. %s" % (phrase, desc)),
+        "repo": repo,
+        "canon": canon,
+        "date": called or "2026-11-03",
+        "ld": json.dumps(ld, indent=1, ensure_ascii=False),
+        "lead": lead,
+        "ntools": len(sat["tools"]),
+        "ver": sat.get("version") or "1.0.0",
+        "anchor": SAT_SECTION_ANCHOR,
+        "knows": knows_md,
+        "url": url,
+        "short": short,
+        "tools": tools_md,
+        "called": called,
+        "prompt": ex["prompt"].replace('"', "'"),
+        "tool": ex["tool"],
+        "args": json.dumps(ex["arguments"], ensure_ascii=False),
+        "summary": ex["summary"],
+        "as_of": ex.get("as_of") or "see result",
+        "faq": faq_md,
+        "links": links_md,
+        "related": rel_md,
+    }
+
+
+def satellite_index_section(sats):
+    if not sats:
+        return ""
+    rows = ["| Server | Ask it | Hosted URL (no key) |", "| --- | --- | --- |"]
+    for x in sats:
+        name, phrase, _ = sat_copy(x)
+        rows.append("| [%s](/mcp/%s/) | Is there an MCP server %s? Yes, this one. | `%s` |"
+                    % (name, x["repo"], phrase, x["hosted_url"]))
+    return """
+## Free live-data MCP servers (no key)
+
+These %(n)d servers answer what a model cannot answer from training data alone: today's prices and
+water levels, tax rules and limits that changed in 2025 and 2026, and exact calendar and table
+lookups. Each one is free, MIT licensed and hosted with no API key, so you can paste the URL into
+Claude.ai, ChatGPT developer mode, Cursor or Claude Code. Each page shows a real call made against
+the hosted URL.
+
+%(table)s
+""" % {"n": len(sats), "table": "\n".join(rows)}
+
+
 def page_body(s, cat, siblings, total=58, base="https://claudecodeguides.com", layout="default",
-              canonical_base=""):
+              canonical_base="", sat_links=None):
     tools = s["tools"]
     rows = []
     for t in tools:
@@ -140,6 +452,10 @@ def page_body(s, cat, siblings, total=58, base="https://claudecodeguides.com", l
         "- [%s MCP server](/mcp/%s/) — %s" % (r["human"], r["slug"], r["description"][:110])
         for r in related
     )
+    if sat_links:
+        rel_md += "\n\n## Free live-data servers that pair with this one\n\n" + "\n".join(
+            "- [%s MCP server](/mcp/%s/), free with no API key. %s" % (n, r, d) for n, r, d in sat_links
+        )
     mcpb_line = (
         "- **Claude Desktop, one click:** [download the `.mcpb` bundle](%s)"
         % s["mcpb"]
@@ -316,7 +632,7 @@ hosted endpoint's saved-report cap, never the tools. All %(total)d servers toget
     }
 
 
-def index_page(cat_map, total, bundle, base="https://claudecodeguides.com", layout="default"):
+def index_page(cat_map, total, bundle, base="https://claudecodeguides.com", layout="default", sats=None):
     sections = []
     for cat, rows in cat_map:
         lines = ["### " + cat, "", "| Server | Tools | What it does | Price |", "| --- | --- | --- | --- |"]
@@ -350,6 +666,24 @@ def index_page(cat_map, total, bundle, base="https://claudecodeguides.com", layo
             for i, s in enumerate([s for _, rows in cat_map for s in rows])
         ],
     }
+    if sats:
+        ld = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {k: v for k, v in ld.items() if k != "@context"},
+                {
+                    "@type": "ItemList",
+                    "name": "Free live-data MCP servers (no key)",
+                    "url": base + "/mcp/#" + SAT_SECTION_ANCHOR,
+                    "numberOfItems": len(sats),
+                    "itemListElement": [
+                        {"@type": "ListItem", "position": i + 1,
+                         "name": sat_copy(x)[0] + " MCP server", "url": base + "/mcp/%s/" % x["repo"]}
+                        for i, x in enumerate(sats)
+                    ],
+                },
+            ],
+        }
     return """---
 layout: %(layout)s
 title: "%(total)d MCP servers for invoicing, documents and back-office work"
@@ -364,15 +698,15 @@ date: 2026-10-28
 
 # %(total)d MCP servers for back-office work
 
-Every server on this page is MIT licensed, runs against local files, and speaks the Model
+Every back-office server on this page is MIT licensed, runs against local files, and speaks the Model
 Context Protocol, so Claude Desktop, Claude Code, Cursor, Windsurf and your own agent can all
-use the same tool. Nothing here needs an account to try.
+use the same tool. Nothing here needs an account to try.%(satintro)s
 
 **The map:** pick the row for your task, open the server page for the exact tool names and
 install steps. Prices are one-time; there is no subscription anywhere in this collection.
 
 %(table)s
-
+%(satsec)s
 ## Pricing
 
 | What you get | Price | Notes |
@@ -418,7 +752,11 @@ hosting, not to unlock tools.
 
 [github.com/theluckystrike/mcp-servers](https://github.com/theluckystrike/mcp-servers) — one
 directory per server, MIT licensed, with the registry manifest next to the code.
-""" % {"total": total, "bundle": bundle, "price": 19, "table": table, "layout": layout, "ld": json.dumps(ld, indent=1, ensure_ascii=False)}
+""" % {"total": total, "bundle": bundle, "price": 19, "table": table, "layout": layout,
+       "ld": json.dumps(ld, indent=1, ensure_ascii=False), "satsec": satellite_index_section(sats or []),
+       "satintro": ("\n\nLooking for live data instead, such as a gold or silver price per gram, a river level or "
+                    "the 2026 IRS mileage rate? See the [%d free live-data MCP servers with no key](#%s)."
+                    % (len(sats), SAT_SECTION_ANCHOR)) if sats else ""}
 
 
 def main():
@@ -428,6 +766,8 @@ def main():
     ap.add_argument("--canonical-base", default="",
                     help="emit canonical: <base>/mcp/<slug>/ so a weaker mirror does not compete")
     ap.add_argument("--layout", default="default")
+    ap.add_argument("--satellites", default=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "satellite_hub.json"),
+                    help="data/satellite_hub.json from collect_satellite_hub.py; pass '' to skip satellite pages")
     ap.add_argument("--catalog", default=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "mcp_catalog.json"))
     args = ap.parse_args()
 
@@ -449,21 +789,30 @@ def main():
     if leftover:
         cat_map.append(("More servers", leftover))
 
+    sats = sorted(load_satellites(args.satellites), key=lambda x: x["repo"])
+    pair = {}
+    for x in sats:
+        for rid in sat_copy(x)[2]:
+            pair.setdefault(rid, []).append((sat_copy(x)[0], x["repo"], first_sentence(x["description"], 200)))
+
     written = 0
     for name, rows in cat_map:
         for s in rows:
             body = page_body(s, name, [x for _, rs in cat_map for x in rs], total, args.base_url, args.layout,
-                             args.canonical_base)
+                             args.canonical_base, pair.get(s["id"]))
             p = os.path.join(out_dir, s["slug"] + ".md")
             open(p, "w", encoding="utf-8").write(body)
             written += 1
     # fix the "%(total)d" placeholders that survived inside prose
     open(os.path.join(out_dir, "index.md"), "w", encoding="utf-8").write(
-        index_page(cat_map, total, cat["bundle_price_usd"], args.base_url, args.layout)
+        index_page(cat_map, total, cat["bundle_price_usd"], args.base_url, args.layout, sats)
     )
+    for x in sats:
+        open(os.path.join(out_dir, x["repo"] + ".md"), "w", encoding="utf-8").write(
+            satellite_page(x, sats, by_id, args.base_url, args.layout, args.canonical_base))
     json.dump(cat, open(os.path.join(out_dir, "index.json"), "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 
-    print("wrote %d server pages + index.md + index.json into %s" % (written, out_dir))
+    print("wrote %d server pages + %d satellite pages + index.md + index.json into %s" % (written, len(sats), out_dir))
     print("categories:", [(n, len(r)) for n, r in cat_map])
 
 

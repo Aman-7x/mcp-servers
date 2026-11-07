@@ -6,6 +6,6 @@
   "version": "1.0.0",
   "scripts": {
     "deploy": "node ../scripts/deploy-billing-gated.mjs",
-    "test": "node --test test/*.test.mjs"
+    "test": "node scripts/require-node.mjs && node --test test/*.test.mjs"
   }
 }

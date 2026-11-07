@@ -1,0 +1,2394 @@
+[
+ {
+  "url": "https://mcp.zovo.one/",
+  "status": 200,
+  "bytes": 116418,
+  "title": "MCP servers for Claude: invoices, time tracking and freelance tools",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/servers",
+  "status": 200,
+  "bytes": 17875,
+  "title": "All MCP servers on mcp.zovo.one",
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/downloads",
+  "status": 200,
+  "bytes": 22310,
+  "title": "Claude Desktop MCP bundle downloads",
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/connect",
+  "status": 200,
+  "bytes": 12185,
+  "title": "Connect to mcp.zovo.one",
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/bundle",
+  "status": 200,
+  "bytes": 22595,
+  "title": "49 MCP servers for Claude, one $39 key",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/changelog",
+  "status": 200,
+  "bytes": 39139,
+  "title": "Changelog: v0.25.0, 58 servers",
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides",
+  "status": 200,
+  "bytes": 84351,
+  "title": "Guides for MCP servers in Claude and Cursor",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare",
+  "status": 200,
+  "bytes": 23145,
+  "title": "MCP server comparisons: ours against the closest alternatives",
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/privacy",
+  "status": 200,
+  "bytes": 14634,
+  "title": "Privacy",
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/suites/freelancer",
+  "status": 200,
+  "bytes": 16102,
+  "title": "Free MCP Servers for Freelancers | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/suites/documents",
+  "status": 200,
+  "bytes": 16805,
+  "title": "Free MCP Servers for Documents | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/suites/field-ops",
+  "status": 200,
+  "bytes": 23660,
+  "title": "Free MCP Servers for Field Ops | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/supplier-statement-check",
+  "status": 200,
+  "bytes": 51237,
+  "title": "MCP Supplier Statement Check - Supplied AP Open-Item Evidence | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/duplicate-invoice-check",
+  "status": 200,
+  "bytes": 50827,
+  "title": "MCP Duplicate Invoice Check \u2014 Supplier Invoice History Review | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/three-way-match",
+  "status": 200,
+  "bytes": 51759,
+  "title": "MCP Three-Way Invoice Match \u2014 Supplier Invoice, PO and Receipt Checks | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/time-tracker",
+  "status": 200,
+  "bytes": 54445,
+  "title": "MCP Time Tracking Server \u2014 Free, No Install | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/price-tracker",
+  "status": 200,
+  "bytes": 51910,
+  "title": "MCP Price Tracker | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/spreadsheet",
+  "status": 200,
+  "bytes": 55826,
+  "title": "MCP Spreadsheet | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/invoice",
+  "status": 200,
+  "bytes": 53934,
+  "title": "MCP Server for Invoices \u2014 Generate Invoices from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/expense-tracker",
+  "status": 200,
+  "bytes": 50678,
+  "title": "MCP Expense Tracker \u2014 Log Expenses from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/currency",
+  "status": 200,
+  "bytes": 43964,
+  "title": "MCP Currency Converter | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/timezone",
+  "status": 200,
+  "bytes": 54332,
+  "title": "MCP Timezone Planner | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/docx",
+  "status": 200,
+  "bytes": 53566,
+  "title": "MCP Word Document Server \u2014 Create .docx from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/resume",
+  "status": 200,
+  "bytes": 49998,
+  "title": "MCP Resume and Cover Letter | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/recurring",
+  "status": 200,
+  "bytes": 52402,
+  "title": "MCP Recurring Invoices | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/clauses",
+  "status": 200,
+  "bytes": 45335,
+  "title": "MCP Clause Library | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/pdf",
+  "status": 200,
+  "bytes": 52179,
+  "title": "MCP PDF Server \u2014 Merge, Split, Fill Forms | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/calendar",
+  "status": 200,
+  "bytes": 45542,
+  "title": "MCP Calendar | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/kanban",
+  "status": 200,
+  "bytes": 43173,
+  "title": "MCP Kanban Server \u2014 Boards from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/image",
+  "status": 200,
+  "bytes": 52883,
+  "title": "MCP Image Tools | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/bank-statement",
+  "status": 200,
+  "bytes": 43899,
+  "title": "MCP Bank Statement | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/quotes",
+  "status": 200,
+  "bytes": 48642,
+  "title": "MCP Quotes | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/barcode",
+  "status": 200,
+  "bytes": 41882,
+  "title": "MCP Barcode | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/zip",
+  "status": 200,
+  "bytes": 44485,
+  "title": "MCP Zip | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/billing-docs",
+  "status": 200,
+  "bytes": 40681,
+  "title": "MCP Billing Docs | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/deposits",
+  "status": 200,
+  "bytes": 41773,
+  "title": "MCP Deposits | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/per-diem",
+  "status": 200,
+  "bytes": 45123,
+  "title": "MCP Per Diem Calculator \u2014 Employee Travel Allowances from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/asset-register",
+  "status": 200,
+  "bytes": 47468,
+  "title": "MCP Server for Fixed Asset Register \u2014 Depreciation from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/statement-of-account",
+  "status": 200,
+  "bytes": 45928,
+  "title": "MCP Server for Statements of Account \u2014 Customer Balances from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/cash-book",
+  "status": 200,
+  "bytes": 42416,
+  "title": "MCP Server for Cash Book \u2014 Receipts, Payments and Balances from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/amortization",
+  "status": 200,
+  "bytes": 42636,
+  "title": "MCP Amortization | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/petty-cash",
+  "status": 200,
+  "bytes": 41498,
+  "title": "MCP Petty Cash Server \u2014 Track a Petty Cash Float from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/work-order",
+  "status": 200,
+  "bytes": 44281,
+  "title": "MCP Work Order | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/catalogue",
+  "status": 200,
+  "bytes": 44640,
+  "title": "MCP Catalogue | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/change-order",
+  "status": 200,
+  "bytes": 45240,
+  "title": "MCP Change Order | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/delivery-schedule",
+  "status": 200,
+  "bytes": 42491,
+  "title": "MCP Server for Delivery Schedules \u2014 Late Deliverables from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/packing-list",
+  "status": 200,
+  "bytes": 40967,
+  "title": "MCP Server for Packing Lists \u2014 Packing Slips from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/checklist",
+  "status": 200,
+  "bytes": 43007,
+  "title": "MCP Checklist | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/bill-of-sale",
+  "status": 200,
+  "bytes": 39360,
+  "title": "MCP Server for Bill of Sale \u2014 Draft and Sign from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/credit-note",
+  "status": 200,
+  "bytes": 40620,
+  "title": "MCP Credit Note | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/job-card",
+  "status": 200,
+  "bytes": 39124,
+  "title": "MCP Job Card | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/dunning-letters",
+  "status": 200,
+  "bytes": 40122,
+  "title": "MCP Dunning Letters Server \u2014 Automated Payment Reminders | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/supplier-list",
+  "status": 200,
+  "bytes": 38614,
+  "title": "MCP Supplier List | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/service-agreement",
+  "status": 200,
+  "bytes": 39391,
+  "title": "MCP Service Agreement | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/maintenance-log",
+  "status": 200,
+  "bytes": 38675,
+  "title": "MCP Server for Maintenance Log \u2014 Equipment and Vehicle Service from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/mileage-log",
+  "status": 200,
+  "bytes": 39816,
+  "title": "MCP Server for Mileage Log \u2014 Deductible Trips from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/purchase-requisition",
+  "status": 200,
+  "bytes": 42549,
+  "title": "MCP Server for Purchase Requisitions \u2014 Approvals from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/goods-receipt",
+  "status": 200,
+  "bytes": 41171,
+  "title": "MCP Server for Goods Receipt Notes (GRN) \u2014 Receive Against POs from Claude | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/onboarding",
+  "status": 200,
+  "bytes": 41863,
+  "title": "MCP Onboarding | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/leave",
+  "status": 200,
+  "bytes": 37934,
+  "title": "MCP Leave | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/backlink-checker",
+  "status": 200,
+  "bytes": 35107,
+  "title": "MCP Backlink Checker | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/hourly-rate",
+  "status": 200,
+  "bytes": 34624,
+  "title": "MCP Hourly Rate Calculator, free, no install | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/office-suite",
+  "status": 200,
+  "bytes": 39988,
+  "title": "MCP Office Suite (bundle server) | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/pomodoro",
+  "status": 200,
+  "bytes": 34333,
+  "title": "MCP Pomodoro | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/budget",
+  "status": 200,
+  "bytes": 33961,
+  "title": "MCP Budget | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/loan-calculator",
+  "status": 200,
+  "bytes": 34210,
+  "title": "MCP Loan Calculator | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/payroll",
+  "status": 200,
+  "bytes": 33753,
+  "title": "MCP Payroll | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/receipts",
+  "status": 200,
+  "bytes": 33807,
+  "title": "MCP Receipts | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/stripe-billing",
+  "status": 200,
+  "bytes": 34312,
+  "title": "MCP Stripe Billing | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/s/tax-calc",
+  "status": 200,
+  "bytes": 33999,
+  "title": "MCP Tax Calculator | zovo.one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/compare-supplier-statement-ap-open-items-in-claude",
+  "status": 200,
+  "bytes": 25917,
+  "title": "Compare supplier statement open items with an AP ledger in Claude",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/check-duplicate-supplier-invoice-references-in-claude",
+  "status": 200,
+  "bytes": 31000,
+  "title": "Review duplicate supplier invoice references in Claude",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/match-supplier-invoice-purchase-order-delivery-note-in-claude",
+  "status": 200,
+  "bytes": 24689,
+  "title": "Check a supplier invoice against a purchase order and delivery note in Claude",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/track-time-in-claude-code",
+  "status": 200,
+  "bytes": 21926,
+  "title": "How to track billable hours inside Claude Code and Cursor",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/invoice-pdf-from-chat",
+  "status": 200,
+  "bytes": 22070,
+  "title": "Create an invoice PDF from a chat message with an MCP server",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/read-excel-in-cursor",
+  "status": 200,
+  "bytes": 20991,
+  "title": "Ask questions about an Excel or CSV file from Cursor or Claude",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/price-drop-alerts-with-claude",
+  "status": 200,
+  "bytes": 21691,
+  "title": "Watch a product price with Claude and get told when it drops",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-server-free-vs-pro",
+  "status": 200,
+  "bytes": 20349,
+  "title": "What the free tier includes and what Pro adds",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/expense-tracking-in-claude",
+  "status": 200,
+  "bytes": 25165,
+  "title": "Log expenses and mileage in Claude, split VAT, rebill to an invoice",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/currency-conversion-ecb-rates-in-claude",
+  "status": 200,
+  "bytes": 23100,
+  "title": "Convert currencies in Claude with real ECB rates, no API key",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/word-documents-proposals-from-chat",
+  "status": 200,
+  "bytes": 24079,
+  "title": "Generate Word proposals and contracts from a chat message",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/meeting-slots-across-time-zones",
+  "status": 200,
+  "bytes": 23784,
+  "title": "Find a meeting time across time zones without doing the arithmetic",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/resume-and-cover-letter-from-chat",
+  "status": 200,
+  "bytes": 24632,
+  "title": "Write a resume and a cover letter from chat, without inventing anything",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/recurring-invoices-on-a-schedule",
+  "status": 200,
+  "bytes": 25032,
+  "title": "Bill a retainer on a schedule without a billing SaaS",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/contract-clauses-library-assembly",
+  "status": 200,
+  "bytes": 24727,
+  "title": "Assemble a contract from your own clause library, in chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/connect-mcp-servers-without-installing",
+  "status": 200,
+  "bytes": 21723,
+  "title": "Connect MCP servers to Claude.ai, Claude Desktop, Cursor and VS Code without installing anything",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/pdf-merge-split-stamp-from-chat",
+  "status": 200,
+  "bytes": 22891,
+  "title": "Merge, split and stamp PDFs from chat, and why some come back as glyph numbers",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/calendar-ics-free-busy-in-claude",
+  "status": 200,
+  "bytes": 22293,
+  "title": "Read a .ics calendar in Claude: free and busy, conflicts, and billable meetings",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/kanban-board-in-claude-with-time-tracking",
+  "status": 200,
+  "bytes": 22624,
+  "title": "Run a kanban board in Claude, with time tracking on the same task",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/image-resize-compress-watermark-from-chat",
+  "status": 200,
+  "bytes": 22639,
+  "title": "Resize, compress and watermark images from a chat message",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/bank-statement-csv-categorize-reconcile",
+  "status": 200,
+  "bytes": 26683,
+  "title": "Categorize and reconcile a bank CSV export from chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/quotes-and-estimates-to-invoice-in-claude",
+  "status": 200,
+  "bytes": 27590,
+  "title": "Send a quote from chat, then turn the yes into an invoice",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/sepa-payment-qr-codes-on-invoices-from-chat",
+  "status": 200,
+  "bytes": 26378,
+  "title": "Put a SEPA payment QR code on an invoice from chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/zip-archives-safely-from-chat",
+  "status": 200,
+  "bytes": 24522,
+  "title": "Zip and unzip archives safely from Claude or Cursor",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/client-deposits-and-retainers-from-chat",
+  "status": 200,
+  "bytes": 26635,
+  "title": "Client deposits and retainers from chat, applied to your real invoices",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/fixed-assets-and-depreciation-from-chat",
+  "status": 200,
+  "bytes": 32747,
+  "title": "Fixed assets and depreciation from chat, on the rates the tax authorities publish",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/per-diem-and-travel-allowances-from-chat",
+  "status": 200,
+  "bytes": 29041,
+  "title": "Per diem and travel allowances from chat, on the rate tables the tax authorities publish",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/one-ledger-from-every-server",
+  "status": 200,
+  "bytes": 31092,
+  "title": "One double-entry ledger out of every server you already run",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/loan-and-lease-schedules-from-chat",
+  "status": 200,
+  "bytes": 29200,
+  "title": "Loan and lease schedules from chat, closing exactly on zero",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/work-orders-and-job-cards-from-chat",
+  "status": 200,
+  "bytes": 31346,
+  "title": "Work orders and job cards from chat, and why the markup goes on the unit cost",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/price-lists-and-rate-cards-from-chat",
+  "status": 200,
+  "bytes": 30325,
+  "title": "Price lists and rate cards from chat, and the 100x scale gap between the invoice and the quote",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/change-orders-and-contract-value-from-chat",
+  "status": 200,
+  "bytes": 30912,
+  "title": "Change orders and the running contract value from chat, and why a changed line is two items",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/petty-cash-float-from-chat",
+  "status": 200,
+  "bytes": 29927,
+  "title": "A petty cash float from chat, and why the cheque is not the sum of the vouchers",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/client-statements-and-dunning-from-chat",
+  "status": 200,
+  "bytes": 31900,
+  "title": "Client statements and payment chasers from chat, aged as at any date you name",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/credit-notes-and-purchase-orders-from-chat",
+  "status": 200,
+  "bytes": 29117,
+  "title": "Credit notes and purchase orders from chat, against your real invoices",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/one-install-office-suite",
+  "status": 200,
+  "bytes": 29566,
+  "title": "One install, every server: the office-suite bundle",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/month-end-close-with-mcp-servers",
+  "status": 200,
+  "bytes": 30851,
+  "title": "Close a month in chat: invoice, credit note, retainer, bank reconciliation, statement",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-server-not-showing-up-in-claude-desktop",
+  "status": 200,
+  "bytes": 20487,
+  "title": "MCP server not showing up in Claude Desktop: the six checks that find it",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/where-is-claude-desktop-config-json",
+  "status": 200,
+  "bytes": 18343,
+  "title": "Where is claude_desktop_config.json, and what goes in it",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/claude-mcp-add-command-reference",
+  "status": 200,
+  "bytes": 18684,
+  "title": "claude mcp add: every flag, and the scope that silently loses your server",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-on-windows-paths-and-npx",
+  "status": 200,
+  "bytes": 18926,
+  "title": "MCP servers on Windows: spawn npx ENOENT, backslashes and the PATH",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/install-mcp-servers-without-npm",
+  "status": 200,
+  "bytes": 19065,
+  "title": "Installing these MCP servers when npx does not work yet",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/cursor-mcp-json-setup",
+  "status": 200,
+  "bytes": 18643,
+  "title": "Cursor MCP setup: mcp.json, the required type field, and where the servers appear",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-servers-that-work-offline",
+  "status": 200,
+  "bytes": 18677,
+  "title": "Which MCP servers work with no network at all",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/vat-and-reverse-charge-invoices-from-chat",
+  "status": 200,
+  "bytes": 18630,
+  "title": "Invoicing an EU client with reverse charge, from a chat message",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/quote-to-cash-in-claude",
+  "status": 200,
+  "bytes": 19030,
+  "title": "Quote, deposit, invoice, statement: the whole cycle in one conversation",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/project-profitability-hours-versus-budget",
+  "status": 200,
+  "bytes": 18842,
+  "title": "Is this project making money? Hours against costs, without a spreadsheet",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/self-employed-tax-year-pack-from-chat",
+  "status": 200,
+  "bytes": 19774,
+  "title": "Building a tax year pack for your accountant from chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mileage-log-for-tax-from-chat",
+  "status": 200,
+  "bytes": 18998,
+  "title": "Keeping a mileage log in chat, with the rate you actually claim",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/reconcile-a-bank-export-with-your-invoices",
+  "status": 200,
+  "bytes": 19009,
+  "title": "Reconciling a bank CSV against what you invoiced and spent",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/rebill-client-expenses-with-a-markup",
+  "status": 200,
+  "bytes": 18675,
+  "title": "Rebilling client expenses, with a markup and the VAT handled honestly",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/chase-unpaid-invoices-without-a-crm",
+  "status": 200,
+  "bytes": 19167,
+  "title": "Chasing an unpaid invoice: aging, then the letter",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/bill-of-sale-from-chat",
+  "status": 200,
+  "bytes": 18595,
+  "title": "A bill of sale from chat, with the identifiers checked and the signature lines printed",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/price-a-job-with-a-rate-card-and-a-change-order",
+  "status": 200,
+  "bytes": 19524,
+  "title": "Pricing a job from a rate card, and what to do when the scope changes",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/set-a-freelance-hourly-rate-from-your-own-numbers",
+  "status": 200,
+  "bytes": 18671,
+  "title": "Working out your hourly rate from what you actually billed",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/csv-to-excel-and-back-in-claude",
+  "status": 200,
+  "bytes": 18671,
+  "title": "Converting CSV to xlsx and back without opening Excel",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/answer-questions-about-a-spreadsheet-without-formulas",
+  "status": 200,
+  "bytes": 18118,
+  "title": "Asking a spreadsheet questions in plain language",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/combine-receipts-into-one-pdf-for-your-accountant",
+  "status": 200,
+  "bytes": 17732,
+  "title": "Merging a folder of receipts into one PDF from chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/split-a-scanned-pdf-into-separate-documents",
+  "status": 200,
+  "bytes": 17699,
+  "title": "Splitting one big scan into separate documents",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/send-a-month-of-paperwork-as-one-zip",
+  "status": 200,
+  "bytes": 18034,
+  "title": "Sending a month of paperwork as one archive, safely",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-servers-in-vs-code-copilot-agent-mode",
+  "status": 200,
+  "bytes": 18491,
+  "title": "MCP servers in VS Code: the one-word mistake that breaks every config",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-servers-in-windsurf-and-cline",
+  "status": 200,
+  "bytes": 19031,
+  "title": "MCP servers in Windsurf and Cline: two defaults that waste an afternoon",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/local-mcp-servers-versus-hosted-connectors",
+  "status": 200,
+  "bytes": 19302,
+  "title": "Local MCP server or hosted URL: which one, and what you give up",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/free-mcp-servers-for-freelancers",
+  "status": 200,
+  "bytes": 20978,
+  "title": "What these MCP servers actually do on the free tier",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/choosing-an-mcp-server-for-invoicing",
+  "status": 200,
+  "bytes": 19871,
+  "title": "Choosing an MCP server for invoicing: the seven questions worth asking",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/do-you-need-an-mcp-server-or-just-a-prompt",
+  "status": 200,
+  "bytes": 19210,
+  "title": "When you need an MCP server, and when a prompt is enough",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-client-config-file-locations",
+  "status": 200,
+  "bytes": 21436,
+  "title": "MCP config file locations and JSON keys, every client",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/why-an-mcp-server-does-not-appear",
+  "status": 200,
+  "bytes": 22761,
+  "title": "Why an MCP server does not appear, in order of likelihood",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/how-mcp-registry-search-works",
+  "status": 200,
+  "bytes": 23163,
+  "title": "How MCP registry search actually works, measured",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/what-is-in-the-mcp-registry",
+  "status": 200,
+  "bytes": 20394,
+  "title": "What is actually in the MCP registry: 6,000 rows counted",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/stdio-or-streamable-http",
+  "status": 200,
+  "bytes": 22175,
+  "title": "stdio or streamable HTTP: which MCP transport, and what breaks",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-protocol-versions",
+  "status": 200,
+  "bytes": 19885,
+  "title": "MCP protocol versions: what each one changed",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-server-json-fields-by-client",
+  "status": 200,
+  "bytes": 21327,
+  "title": "Every field in an MCP server config entry, by client",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-config-scopes-and-precedence",
+  "status": 200,
+  "bytes": 20660,
+  "title": "MCP config scopes: which definition wins when a server is defined twice",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-server-logs-and-what-they-say",
+  "status": 200,
+  "bytes": 18886,
+  "title": "Where each MCP client writes its logs",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/shipping-an-mcp-server-bundle-or-hosted-url",
+  "status": 200,
+  "bytes": 20536,
+  "title": "Shipping an MCP server: a bundle to download or a URL to paste",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/what-is-inside-an-mcpb-bundle",
+  "status": 200,
+  "bytes": 19752,
+  "title": "What is inside a .mcpb MCP bundle",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/licensing-a-paid-mcp-server",
+  "status": 200,
+  "bytes": 20922,
+  "title": "Charging for an MCP server: how licensing actually works",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-tool-description-and-output-limits",
+  "status": 200,
+  "bytes": 19501,
+  "title": "How much text an MCP server may return, and how much it may describe",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-server-security-review",
+  "status": 200,
+  "bytes": 20840,
+  "title": "What to check before letting an MCP server run",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/hosted-mcp-server-discovery-without-a-token",
+  "status": 200,
+  "bytes": 22757,
+  "title": "Why a directory says your hosted MCP server is not responding",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-registry-remote-url-is-unique",
+  "status": 200,
+  "bytes": 21185,
+  "title": "The MCP registry binds one remote URL to one server name",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-registry-rank-and-letter-case",
+  "status": 200,
+  "bytes": 21169,
+  "title": "Capital letters in your GitHub username change your MCP registry rank",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/how-crowded-is-an-mcp-server-name",
+  "status": 200,
+  "bytes": 21655,
+  "title": "How many MCP servers already have your word in the name",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/server-json-field-reference",
+  "status": 200,
+  "bytes": 22514,
+  "title": "server.json field reference for the MCP registry",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-tool-errors-versus-protocol-errors",
+  "status": 200,
+  "bytes": 20074,
+  "title": "When an MCP tool fails, do not return a JSON-RPC error",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-structured-tool-output",
+  "status": 200,
+  "bytes": 20384,
+  "title": "structuredContent and outputSchema in MCP, and what MUST hold",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/naming-mcp-tools",
+  "status": 200,
+  "bytes": 21224,
+  "title": "Rules for naming an MCP tool, and the collision nobody plans for",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-stateful-tools-and-handles",
+  "status": 200,
+  "bytes": 20468,
+  "title": "MCP has no session, so how do two tool calls share state",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/x-mcp-header-tool-parameters",
+  "status": 200,
+  "bytes": 19566,
+  "title": "x-mcp-header: mirroring tool parameters into HTTP headers",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/how-a-directory-scores-your-mcp-server",
+  "status": 200,
+  "bytes": 21568,
+  "title": "How a directory scores an MCP server, and why your worst tool decides it",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/what-ai-crawlers-fetch-that-googlebot-does-not",
+  "status": 200,
+  "bytes": 21079,
+  "title": "What AI crawlers fetch that Googlebot does not, measured on 141 URLs",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/search-console-url-inspection-coverage-is-unstable",
+  "status": 200,
+  "bytes": 20026,
+  "title": "Search Console's URL Inspection API changes its answer between calls",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/which-mcp-servers-work-by-pasting-a-url",
+  "status": 200,
+  "bytes": 27829,
+  "title": "Which MCP servers work by pasting a URL, with nothing installed",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/paid-mcp-servers-and-how-you-pay-for-one",
+  "status": 200,
+  "bytes": 24453,
+  "title": "Where to find MCP servers that cost money, and how you actually pay",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/fill-a-quote-or-estimate-template-from-chat",
+  "status": 200,
+  "bytes": 21792,
+  "title": "Getting an assistant to fill in a quote or estimate for a customer",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/petty-cash-book-and-cash-ledger-mcp-servers",
+  "status": 200,
+  "bytes": 23177,
+  "title": "Is there an MCP server for a petty cash book or a cash ledger",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/currency-conversion-mcp-servers-compared",
+  "status": 200,
+  "bytes": 21550,
+  "title": "Currency conversion in an assistant, and which MCP server to use",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/zip-and-unzip-mcp-servers-compared",
+  "status": 200,
+  "bytes": 21256,
+  "title": "Zipping and unzipping archives from an assistant, and what the guards do",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/delivery-schedule-and-work-order-documents-from-mcp",
+  "status": 200,
+  "bytes": 26388,
+  "title": "Producing a delivery schedule or a work order document from a chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/will-an-mcp-server-email-the-invoice-to-my-client",
+  "status": 200,
+  "bytes": 21398,
+  "title": "Will an MCP server email the invoice to my client",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/can-an-mcp-server-read-a-photo-of-a-receipt",
+  "status": 200,
+  "bytes": 21344,
+  "title": "Can an assistant read a photo of a receipt and log the expense",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/what-mcp-server-generates-invoices",
+  "status": 200,
+  "bytes": 20698,
+  "title": "Which MCP server can generate invoice PDFs from a chat message?",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/mcp-server-that-reads-bank-statements-and-categorizes",
+  "status": 200,
+  "bytes": 21071,
+  "title": "Can an MCP server read a bank statement PDF and categorise the transactions?",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/best-mcp-servers-for-small-business-accounting",
+  "status": 200,
+  "bytes": 19661,
+  "title": "Best MCP servers for small business accounting and paperwork in 2026",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/supplier-directory-from-chat",
+  "status": 200,
+  "bytes": 21350,
+  "title": "MCP Supplier Directory: keep supplier lists from rotting in a spreadsheet",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/service-agreements-from-chat",
+  "status": 200,
+  "bytes": 21271,
+  "title": "MCP Service Agreement: stop copying a rotting contract template off the internet",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/equipment-maintenance-log-from-chat",
+  "status": 200,
+  "bytes": 21201,
+  "title": "MCP Maintenance Log: know what service is due without anyone remembering",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/vehicle-mileage-log-from-chat",
+  "status": 200,
+  "bytes": 21314,
+  "title": "MCP Mileage Log: keep the deductible log at the moment of the drive, not in April",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/invoice-payment-terms-best-practices",
+  "status": 200,
+  "bytes": 19271,
+  "title": "Invoice payment terms best practices: Net 30, due date and late fees",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/how-to-categorize-bank-transactions",
+  "status": 200,
+  "bytes": 18396,
+  "title": "How to categorize bank transactions",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/petty-cash-log-template",
+  "status": 200,
+  "bytes": 18434,
+  "title": "Petty cash log template",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/ask-a-spreadsheet-questions-in-chat",
+  "status": 200,
+  "bytes": 17001,
+  "title": "Ask questions about a spreadsheet in chat, no formulas needed",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/quotes-and-estimates-to-invoices",
+  "status": 200,
+  "bytes": 17468,
+  "title": "Turn a quote or estimate into an invoice without retyping it",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/delivery-schedule-and-work-order-from-chat",
+  "status": 200,
+  "bytes": 17442,
+  "title": "Produce a delivery schedule and a work order from a chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/use-mcp-servers-without-installing-anything",
+  "status": 200,
+  "bytes": 17872,
+  "title": "Use MCP servers without installing anything, by pasting a URL",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/small-business-accounting-mcp-roundup",
+  "status": 200,
+  "bytes": 15472,
+  "title": "MCP servers for small business accounting: the roundup",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/how-to-find-and-pay-for-mcp-servers",
+  "status": 200,
+  "bytes": 17309,
+  "title": "How to find and pay for MCP servers",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/timesheet-hour-tracking",
+  "status": 200,
+  "bytes": 17261,
+  "title": "Track billable hours as timesheet entries instead of a wall-clock timer",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/csv-to-json-conversion",
+  "status": 200,
+  "bytes": 17058,
+  "title": "Convert a CSV into JSON for an API import or a dev tool",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/nda-agreement-templates",
+  "status": 200,
+  "bytes": 17421,
+  "title": "Build an NDA or mutual confidentiality agreement from clauses",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/packing-list-and-delivery-note-from-chat",
+  "status": 200,
+  "bytes": 16272,
+  "title": "Make a packing list or delivery note from the order in chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/barcode-inventory-count-from-chat",
+  "status": 200,
+  "bytes": 16661,
+  "title": "Run a stock count with barcodes and update the catalogue in chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/merge-pdf-files-in-claude-or-cursor",
+  "status": 200,
+  "bytes": 16181,
+  "title": "Merge PDF files in Claude or Cursor without uploading them anywhere",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/split-pdf-pages-in-chat",
+  "status": 200,
+  "bytes": 16252,
+  "title": "Split a PDF into separate documents from the chat window",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/track-expenses-and-budgets-in-claude",
+  "status": 200,
+  "bytes": 16513,
+  "title": "Track expenses and budgets inside Claude without a SaaS subscription",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/pomodoro-focus-sessions-in-claude",
+  "status": 200,
+  "bytes": 16222,
+  "title": "Run pomodoro focus sessions from Claude and bill the hours after",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/track-prices-and-drop-alerts-in-claude-or-cursor",
+  "status": 200,
+  "bytes": 16281,
+  "title": "Track product prices and get drop alerts from your AI chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/track-billable-hours-in-claude",
+  "status": 200,
+  "bytes": 16091,
+  "title": "Track billable time and export timesheets from your AI chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/invoice-numbering-and-sequence-from-chat",
+  "status": 200,
+  "bytes": 16678,
+  "title": "Keep invoice numbers sequential and never reuse one",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/ats-resume-check-in-claude-and-cursor",
+  "status": 200,
+  "bytes": 17599,
+  "title": "ATS resume check and cover letter from chat: pass the parser before the recruiter",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/freelancer-invoice-and-billable-hours-in-chat",
+  "status": 200,
+  "bytes": 17410,
+  "title": "Freelancer invoicing from chat: billable hours to invoice lines to PDF without a SaaS subscription",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/price-drop-alerts-and-pdf-cleanup-from-chat",
+  "status": 200,
+  "bytes": 16969,
+  "title": "Price drop alerts and PDF cleanup from chat: two small jobs you keep postponing",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/convert-usd-to-ghs-zar-kes-in-claude",
+  "status": 200,
+  "bytes": 17651,
+  "title": "Convert USD to cedis, rand and shillings in Claude with real rates",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/loan-amortization-schedule-excel-from-chat",
+  "status": 200,
+  "bytes": 17490,
+  "title": "Build a loan amortization schedule from chat and export it for Excel",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/how-much-do-mcp-servers-cost",
+  "status": 200,
+  "bytes": 16398,
+  "title": "How much do MCP servers cost? One-time licenses vs monthly subscriptions",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/bank-statement-pdf-to-excel-in-chat",
+  "status": 200,
+  "bytes": 19032,
+  "title": "Turn a bank CSV export into Excel rows from chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/barcode-and-qr-code-generation-from-chat",
+  "status": 200,
+  "bytes": 17800,
+  "title": "Generate barcodes and QR codes from chat with an MCP server",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/guides/spreadsheet-mcp-servers-compared",
+  "status": 200,
+  "bytes": 18143,
+  "title": "Spreadsheet MCP servers compared: building Excel files from chat",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/supplier-statement-check",
+  "status": 200,
+  "bytes": 14943,
+  "title": "Supplier statement open-item comparison: local MCP and integrated alternatives",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/duplicate-invoice-check",
+  "status": 200,
+  "bytes": 16569,
+  "title": "Duplicate supplier invoice checks: local MCP, Oracle and Invoice Triage Copilot",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/three-way-match",
+  "status": 200,
+  "bytes": 16615,
+  "title": "Three-way invoice matching MCP servers: line evidence and installation compared",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/time-tracker",
+  "status": 200,
+  "bytes": 21199,
+  "title": "MCP Time Tracker vs clockify-mcp and timesheet-mcp - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/price-tracker",
+  "status": 200,
+  "bytes": 20647,
+  "title": "MCP Price Tracker vs keepa-mcp and pricetrack-mcp - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/spreadsheet",
+  "status": 200,
+  "bytes": 20875,
+  "title": "MCP Spreadsheet vs agent-spreadsheet and mcp-server-spreadsheet - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/invoice",
+  "status": 200,
+  "bytes": 21015,
+  "title": "MCP Invoice vs einvoice-mcp and IMW Invoice - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/expense-tracker",
+  "status": 200,
+  "bytes": 20941,
+  "title": "MCP Expense Tracker vs Expense Budget Tracker and Expense by Labnotes - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/currency",
+  "status": 200,
+  "bytes": 21518,
+  "title": "MCP Currency Converter vs exchange-mcp and tcmb_mcp - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/docx",
+  "status": 200,
+  "bytes": 21687,
+  "title": "MCP Docx vs docx-mcp and usejunior docx-mcp - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/timezone",
+  "status": 200,
+  "bytes": 22062,
+  "title": "MCP Timezone Planner vs meeting-mcp and timezone-toolkit - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/resume",
+  "status": 200,
+  "bytes": 22380,
+  "title": "MCP Resume and Cover Letter vs cv-forge and mcp-resume - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/recurring",
+  "status": 200,
+  "bytes": 23774,
+  "title": "MCP Recurring Invoices vs invovate-mcp-server and paddle-mcp - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/clauses",
+  "status": 200,
+  "bytes": 24858,
+  "title": "MCP Clause Library vs OpenAgreements and dingdawg-legal-agent - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/pdf",
+  "status": 200,
+  "bytes": 21513,
+  "title": "MCP PDF Tools vs pdf-mcp and DocWand - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/calendar",
+  "status": 200,
+  "bytes": 21541,
+  "title": "MCP Calendar vs mcp-ical and google-calendar-mcp - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/kanban",
+  "status": 200,
+  "bytes": 22008,
+  "title": "MCP Kanban vs KanbanThing and SwiftKanban CLI - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/image",
+  "status": 200,
+  "bytes": 21806,
+  "title": "MCP Image Tools vs Pictomancer and Image Resize API - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/bank-statement",
+  "status": 200,
+  "bytes": 23280,
+  "title": "MCP Bank Statement vs MainBook and bankstatementparser-mcp - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/quotes",
+  "status": 200,
+  "bytes": 24045,
+  "title": "MCP Quotes vs SendQuoteNow and estimate-invoice - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/barcode",
+  "status": 200,
+  "bytes": 22586,
+  "title": "MCP Barcode vs qrcode and Barcode Generator API - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/per-diem",
+  "status": 200,
+  "bytes": 20655,
+  "title": "MCP Per Diem vs gsa-perdiem-mcp - which MCP server to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/mileage-log",
+  "status": 200,
+  "bytes": 18682,
+  "title": "MCP Mileage Log vs MileIQ and Stride: which mileage tracker to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/goods-receipt",
+  "status": 200,
+  "bytes": 18753,
+  "title": "MCP Goods Receipt vs Sortly and Zoho Inventory: which receiving tool to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/backlink-checker",
+  "status": 200,
+  "bytes": 18311,
+  "title": "MCP Backlink Checker vs BacklinkMCP and OpenSEO: which link tool to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/hourly-rate",
+  "status": 200,
+  "bytes": 17573,
+  "title": "MCP Hourly Rate Calculator vs Trove Vault's Freelancer Rate Calculator: which rate tool to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/leave",
+  "status": 200,
+  "bytes": 18493,
+  "title": "MCP Leave vs Vacation Tracker and BambooHR: which PTO tracker to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/onboarding",
+  "status": 200,
+  "bytes": 18164,
+  "title": "MCP Onboarding vs Tango and Trainual: which onboarding tracker to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/purchase-requisition",
+  "status": 200,
+  "bytes": 18522,
+  "title": "MCP Purchase Requisition vs Coupa and Procurify: which requisition tool to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/maintenance-log",
+  "status": 200,
+  "bytes": 18257,
+  "title": "MCP Maintenance Log vs UpKeep and Snipe-IT: which maintenance tracker to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/service-agreement",
+  "status": 200,
+  "bytes": 18552,
+  "title": "MCP Service Agreement vs Bonsai: which contract builder to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/deposits",
+  "status": 200,
+  "bytes": 17786,
+  "title": "MCP Deposits vs landlord software: which deposit tracker to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/cash-book",
+  "status": 200,
+  "bytes": 17877,
+  "title": "MCP Cash Book vs Wave and QuickBooks: which cash book to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/work-order",
+  "status": 200,
+  "bytes": 17968,
+  "title": "MCP Work Order vs Jobber and ServiceTitan: which work-order tool to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/asset-register",
+  "status": 200,
+  "bytes": 18145,
+  "title": "MCP Asset Register vs Snipe-IT and spreadsheets: which asset register to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/compare/supplier-list",
+  "status": 200,
+  "bytes": 17654,
+  "title": "MCP Supplier List vs a CRM and a spreadsheet: which supplier list to pick",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/setup",
+  "status": 200,
+  "bytes": 39215,
+  "title": "Set up an MCP server in your client",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/setup/claude-desktop",
+  "status": 200,
+  "bytes": 26064,
+  "title": "MCP servers for Claude Desktop: install guides",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/setup/claude-code",
+  "status": 200,
+  "bytes": 25564,
+  "title": "MCP servers for Claude Code: install guides",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/setup/cursor",
+  "status": 200,
+  "bytes": 24754,
+  "title": "MCP servers for Cursor: install guides",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/setup/vscode",
+  "status": 200,
+  "bytes": 24980,
+  "title": "MCP servers for VS Code: install guides",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/setup/windsurf",
+  "status": 200,
+  "bytes": 25025,
+  "title": "MCP servers for Windsurf: install guides",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/setup/cline",
+  "status": 200,
+  "bytes": 24893,
+  "title": "MCP servers for Cline: install guides",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/setup/claude-web",
+  "status": 200,
+  "bytes": 24725,
+  "title": "MCP servers for Claude.ai and Claude Desktop connectors: install guides",
+  "jsonld": true,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/time-tracker",
+  "status": 200,
+  "bytes": 1172,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/price-tracker",
+  "status": 200,
+  "bytes": 1167,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/invoice",
+  "status": 200,
+  "bytes": 1175,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/expense-tracker",
+  "status": 200,
+  "bytes": 1306,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/spreadsheet",
+  "status": 200,
+  "bytes": 1313,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/currency",
+  "status": 200,
+  "bytes": 1075,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/timezone",
+  "status": 200,
+  "bytes": 1232,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/docx",
+  "status": 200,
+  "bytes": 1437,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/resume",
+  "status": 200,
+  "bytes": 1349,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/recurring",
+  "status": 200,
+  "bytes": 1361,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/clauses",
+  "status": 200,
+  "bytes": 1230,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/pdf",
+  "status": 200,
+  "bytes": 1390,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/calendar",
+  "status": 200,
+  "bytes": 1227,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/kanban",
+  "status": 200,
+  "bytes": 1243,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/image",
+  "status": 200,
+  "bytes": 1393,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/bank-statement",
+  "status": 200,
+  "bytes": 1494,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/quotes",
+  "status": 200,
+  "bytes": 1376,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/barcode",
+  "status": 200,
+  "bytes": 1205,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/zip",
+  "status": 200,
+  "bytes": 1463,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/billing-docs",
+  "status": 200,
+  "bytes": 1589,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/deposits",
+  "status": 200,
+  "bytes": 1559,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/per-diem",
+  "status": 200,
+  "bytes": 1336,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/asset-register",
+  "status": 200,
+  "bytes": 1641,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/statement-of-account",
+  "status": 200,
+  "bytes": 1702,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/cash-book",
+  "status": 200,
+  "bytes": 1821,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/amortization",
+  "status": 200,
+  "bytes": 1787,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/petty-cash",
+  "status": 200,
+  "bytes": 1438,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/work-order",
+  "status": 200,
+  "bytes": 2106,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/catalogue",
+  "status": 200,
+  "bytes": 1989,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/change-order",
+  "status": 200,
+  "bytes": 2326,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/bill-of-sale",
+  "status": 200,
+  "bytes": 1593,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/credit-note",
+  "status": 200,
+  "bytes": 1589,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/job-card",
+  "status": 200,
+  "bytes": 1930,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/dunning-letters",
+  "status": 200,
+  "bytes": 1658,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/checklist",
+  "status": 200,
+  "bytes": 2050,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/packing-list",
+  "status": 200,
+  "bytes": 2164,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/delivery-schedule",
+  "status": 200,
+  "bytes": 2214,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/supplier-list",
+  "status": 200,
+  "bytes": 1821,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/service-agreement",
+  "status": 200,
+  "bytes": 2098,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/maintenance-log",
+  "status": 200,
+  "bytes": 1905,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/mileage-log",
+  "status": 200,
+  "bytes": 1892,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/goods-receipt",
+  "status": 200,
+  "bytes": 821,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/onboarding",
+  "status": 200,
+  "bytes": 812,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/leave",
+  "status": 200,
+  "bytes": 797,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/purchase-requisition",
+  "status": 200,
+  "bytes": 842,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ },
+ {
+  "url": "https://mcp.zovo.one/mcp/backlink-checker",
+  "status": 200,
+  "bytes": 830,
+  "title": null,
+  "jsonld": false,
+  "err": null
+ }
+]

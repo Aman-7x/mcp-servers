@@ -746,3 +746,385 @@
 {"at":"2026-10-27T03:06:57.233Z","path":"/Users/mike/mcp-servers-work/traffic-users-browser-7QUzBb","bytes":8708648,"lsof_clear":true,"reason":"Completed owned traffic/users tab browser QA; browser closed"}
 {"at":"2026-10-27T03:07:47.771Z","path":"/Users/mike/mcp-servers-work/traffic-users-browser-5HVph4","bytes":8570178,"lsof_clear":true,"reason":"Completed mobile table follow-up; owned browser closed"}
 {"path":"/Users/mike/mcp-servers-work/r37-cap-KLco1E","bytes":1122,"lsof":"no open handles","at":"2026-10-28T04:09:16.221Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-UKwim3","bytes":194,"lsof":"no open handles","at":"2026-10-28T05:56:08.086Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-TV2nMF","bytes":1047,"lsof":"no open handles","at":"2026-10-28T05:56:19.887Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-admxg6","bytes":1122,"lsof":"no open handles","at":"2026-10-28T05:56:45.560Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-0PruN8","bytes":23961,"lsof":"no open handles","at":"2026-10-28T05:58:09.760Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-bt8V3i","bytes":3247,"lsof":"no open handles","at":"2026-10-28T05:58:14.468Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-FuAl0Q","bytes":42727,"lsof":"no open handles","at":"2026-10-28T05:58:24.151Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-GETMLc","bytes":11295,"lsof":"no open handles","at":"2026-10-28T05:58:27.483Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-hDN6pm","bytes":11229,"lsof":"no open handles","at":"2026-10-28T05:58:27.680Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-42glkn","bytes":11229,"lsof":"no open handles","at":"2026-10-28T05:58:27.869Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-0HkmBB","bytes":14972,"lsof":"no open handles","at":"2026-10-28T05:58:28.120Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-NQ9dWm","bytes":0,"lsof":"no open handles","at":"2026-10-28T05:58:28.131Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-pTXELT","bytes":0,"lsof":"no open handles","at":"2026-10-28T05:58:28.335Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-L7vkys","bytes":72,"lsof":"no open handles","at":"2026-10-28T05:58:28.395Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-OeaOnL","bytes":14972,"lsof":"no open handles","at":"2026-10-28T05:58:28.552Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-1Zt1zr","bytes":52965,"lsof":"no open handles","at":"2026-10-28T05:58:29.903Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ZCQMgL","bytes":744,"lsof":"no open handles","at":"2026-10-28T05:58:35.467Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-V7oix2","bytes":5659,"lsof":"no open handles","at":"2026-10-28T05:58:52.097Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-lCLSnz","bytes":52692,"lsof":"no open handles","at":"2026-10-28T05:58:57.330Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-L4O58h","bytes":4552,"lsof":"no open handles","at":"2026-10-28T06:00:05.733Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-PWqjTn","bytes":6865,"lsof":"no open handles","at":"2026-10-28T06:00:20.876Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-7l2SrB","bytes":1288,"lsof":"no open handles","at":"2026-10-28T06:00:21.433Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-f18X3I","bytes":1662,"lsof":"no open handles","at":"2026-10-28T06:00:36.906Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-y09E62","bytes":31304,"lsof":"no open handles","at":"2026-10-28T06:01:00.454Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-pI8eOr","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:01:01.688Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-u91Deh","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:01:02.038Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-boxGxP","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:01:02.444Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-QrA8sz","bytes":26953,"lsof":"no open handles","at":"2026-10-28T06:01:27.834Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-m0KK31","bytes":1827,"lsof":"no open handles","at":"2026-10-28T06:01:31.429Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-wGSMTf","bytes":9421,"lsof":"no open handles","at":"2026-10-28T06:01:44.627Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-RIk5ee","bytes":1122,"lsof":"no open handles","at":"2026-10-28T06:07:25.610Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ddZLY4","bytes":194,"lsof":"no open handles","at":"2026-10-28T06:07:27.653Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-GgbuwF","bytes":1047,"lsof":"no open handles","at":"2026-10-28T06:07:37.474Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-EbYfDa","bytes":23961,"lsof":"no open handles","at":"2026-10-28T06:09:26.122Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-4YucO0","bytes":3247,"lsof":"no open handles","at":"2026-10-28T06:09:31.086Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-JwgdWk","bytes":42728,"lsof":"no open handles","at":"2026-10-28T06:09:40.121Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-ySiEjW","bytes":11295,"lsof":"no open handles","at":"2026-10-28T06:09:43.274Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-oHeuLs","bytes":11229,"lsof":"no open handles","at":"2026-10-28T06:09:43.546Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-e2bltu","bytes":11229,"lsof":"no open handles","at":"2026-10-28T06:09:43.688Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-jYxruM","bytes":0,"lsof":"no open handles","at":"2026-10-28T06:09:43.944Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-NgMy95","bytes":14972,"lsof":"no open handles","at":"2026-10-28T06:09:43.982Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-rMgen7","bytes":0,"lsof":"no open handles","at":"2026-10-28T06:09:44.152Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-BJjXDB","bytes":72,"lsof":"no open handles","at":"2026-10-28T06:09:44.188Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-7VaaH8","bytes":14972,"lsof":"no open handles","at":"2026-10-28T06:09:44.389Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-BqvW2u","bytes":52965,"lsof":"no open handles","at":"2026-10-28T06:09:45.699Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-LRKdjz","bytes":744,"lsof":"no open handles","at":"2026-10-28T06:09:50.654Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-DXcvLW","bytes":5659,"lsof":"no open handles","at":"2026-10-28T06:10:05.824Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-QlW0yU","bytes":52692,"lsof":"no open handles","at":"2026-10-28T06:10:10.627Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-8kMP6Z","bytes":4552,"lsof":"no open handles","at":"2026-10-28T06:11:12.646Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-S2jQOT","bytes":6865,"lsof":"no open handles","at":"2026-10-28T06:11:26.162Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-41w7C2","bytes":1288,"lsof":"no open handles","at":"2026-10-28T06:11:26.552Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-zk9fR3","bytes":1662,"lsof":"no open handles","at":"2026-10-28T06:11:37.594Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-usG2yi","bytes":31304,"lsof":"no open handles","at":"2026-10-28T06:11:44.880Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-txIQca","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:11:45.395Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-DCnbe5","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:11:45.641Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-fkZL7o","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:11:45.877Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-xC1Hqp","bytes":26953,"lsof":"no open handles","at":"2026-10-28T06:11:57.497Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-gRrpC3","bytes":1827,"lsof":"no open handles","at":"2026-10-28T06:11:58.594Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-cWCj6E","bytes":9421,"lsof":"no open handles","at":"2026-10-28T06:12:03.759Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-TBaHcp","bytes":744,"lsof":"no open handles","at":"2026-10-28T06:14:47.575Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-0qLzgt","bytes":9421,"lsof":"no open handles","at":"2026-10-28T06:15:04.992Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-NFVyyW","bytes":26953,"lsof":"no open handles","at":"2026-10-28T06:15:10.296Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-3nGzZX","bytes":194,"lsof":"no open handles","at":"2026-10-28T06:15:24.412Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-El9NrV","bytes":9421,"lsof":"no open handles","at":"2026-10-28T06:15:34.905Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-VczEcx","bytes":26953,"lsof":"no open handles","at":"2026-10-28T06:15:58.882Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-jcjlAB","bytes":9421,"lsof":"no open handles","at":"2026-10-28T06:16:27.987Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Tw04YI","bytes":26953,"lsof":"no open handles","at":"2026-10-28T06:16:38.101Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ObqyaD","bytes":1122,"lsof":"no open handles","at":"2026-10-28T06:17:12.107Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ZUzl8d","bytes":194,"lsof":"no open handles","at":"2026-10-28T06:17:13.955Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-H02mUV","bytes":1047,"lsof":"no open handles","at":"2026-10-28T06:17:23.855Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-eCUeQw","bytes":23961,"lsof":"no open handles","at":"2026-10-28T06:19:12.817Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-LJoWrM","bytes":3247,"lsof":"no open handles","at":"2026-10-28T06:19:17.548Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Uu7x4K","bytes":42725,"lsof":"no open handles","at":"2026-10-28T06:19:26.951Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-wAVXx9","bytes":11295,"lsof":"no open handles","at":"2026-10-28T06:19:30.086Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-AGvTUO","bytes":11229,"lsof":"no open handles","at":"2026-10-28T06:19:30.325Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-C7ok9R","bytes":11229,"lsof":"no open handles","at":"2026-10-28T06:19:30.461Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-WY3P4q","bytes":0,"lsof":"no open handles","at":"2026-10-28T06:19:30.715Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-CzWHA5","bytes":14972,"lsof":"no open handles","at":"2026-10-28T06:19:30.753Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-hgLJaC","bytes":72,"lsof":"no open handles","at":"2026-10-28T06:19:31.016Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-C8GFxt","bytes":0,"lsof":"no open handles","at":"2026-10-28T06:19:31.016Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-Y5uMcv","bytes":14972,"lsof":"no open handles","at":"2026-10-28T06:19:31.142Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-dfdcwU","bytes":52965,"lsof":"no open handles","at":"2026-10-28T06:19:32.591Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-2hy0Bq","bytes":744,"lsof":"no open handles","at":"2026-10-28T06:19:37.555Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-wQ5neb","bytes":5659,"lsof":"no open handles","at":"2026-10-28T06:19:52.433Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-r3Hi6D","bytes":52692,"lsof":"no open handles","at":"2026-10-28T06:19:57.181Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-XKvZCP","bytes":4552,"lsof":"no open handles","at":"2026-10-28T06:20:50.851Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-4ySTkK","bytes":6865,"lsof":"no open handles","at":"2026-10-28T06:21:02.370Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-p33XUs","bytes":1288,"lsof":"no open handles","at":"2026-10-28T06:21:02.793Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-N9ZGfA","bytes":1662,"lsof":"no open handles","at":"2026-10-28T06:21:13.792Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-sx6pJk","bytes":31304,"lsof":"no open handles","at":"2026-10-28T06:21:21.145Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-4yLS5p","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:21:21.674Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-TdDn31","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:21:21.914Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-x7ngqA","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:21:22.150Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-GiJArV","bytes":26953,"lsof":"no open handles","at":"2026-10-28T06:21:35.857Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-g1Vs4f","bytes":1827,"lsof":"no open handles","at":"2026-10-28T06:21:37.253Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-QrTwlL","bytes":9421,"lsof":"no open handles","at":"2026-10-28T06:21:42.900Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-10-28T06:21:47.437Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858031,"lsof":"no open handles","reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-10-28T06:21:47.591Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-77Y2YH","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Y3M57N","bytes":1122,"lsof":"no open handles","at":"2026-10-28T06:23:48.753Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-3MkS9d","bytes":194,"lsof":"no open handles","at":"2026-10-28T06:23:51.337Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-INvaar","bytes":1047,"lsof":"no open handles","at":"2026-10-28T06:24:01.834Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-JKSdbV","bytes":23961,"lsof":"no open handles","at":"2026-10-28T06:25:55.631Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-4kEj0d","bytes":3247,"lsof":"no open handles","at":"2026-10-28T06:26:00.545Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-iW1kdR","bytes":42725,"lsof":"no open handles","at":"2026-10-28T06:26:10.037Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-WdF7zn","bytes":11295,"lsof":"no open handles","at":"2026-10-28T06:26:13.339Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-dcc2Gi","bytes":11229,"lsof":"no open handles","at":"2026-10-28T06:26:13.551Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-nVU69r","bytes":11229,"lsof":"no open handles","at":"2026-10-28T06:26:13.684Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-7KLgeN","bytes":0,"lsof":"no open handles","at":"2026-10-28T06:26:13.917Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-4xRR4K","bytes":14972,"lsof":"no open handles","at":"2026-10-28T06:26:13.953Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-FhFH5i","bytes":72,"lsof":"no open handles","at":"2026-10-28T06:26:14.151Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-YzJFf8","bytes":0,"lsof":"no open handles","at":"2026-10-28T06:26:14.205Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-y31Yy9","bytes":14972,"lsof":"no open handles","at":"2026-10-28T06:26:14.356Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-2qcHv0","bytes":52965,"lsof":"no open handles","at":"2026-10-28T06:26:15.779Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-XCFUAv","bytes":744,"lsof":"no open handles","at":"2026-10-28T06:26:20.723Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-iaJVFx","bytes":5659,"lsof":"no open handles","at":"2026-10-28T06:26:37.452Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-PE51ke","bytes":52692,"lsof":"no open handles","at":"2026-10-28T06:26:43.363Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-LlctJ8","bytes":4552,"lsof":"no open handles","at":"2026-10-28T06:28:28.161Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-zWp3wQ","bytes":6865,"lsof":"no open handles","at":"2026-10-28T06:28:53.873Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-fH7ZFZ","bytes":1288,"lsof":"no open handles","at":"2026-10-28T06:28:54.274Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-TJ31JO","bytes":1662,"lsof":"no open handles","at":"2026-10-28T06:29:05.128Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-rKx1P8","bytes":31304,"lsof":"no open handles","at":"2026-10-28T06:29:15.676Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ef5U6j","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:29:15.897Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-vnfwr9","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:29:16.165Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-OCGCbO","bytes":64447,"lsof":"no open handles","at":"2026-10-28T06:29:16.408Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-xWKOiO","bytes":26953,"lsof":"no open handles","at":"2026-10-28T06:29:32.183Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-daKdwW","bytes":1827,"lsof":"no open handles","at":"2026-10-28T06:29:33.984Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-4uFH2P","bytes":9421,"lsof":"no open handles","at":"2026-10-28T06:29:39.801Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-10-28T06:29:45.253Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858031,"lsof":"no open handles","reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-10-28T06:29:45.424Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-8R7Fwf","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-xkOn77","bytes":1122,"lsof":"no open handles","at":"2026-10-28T11:14:56.076Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-LgmGGV","bytes":194,"lsof":"no open handles","at":"2026-10-28T11:14:58.659Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-7zn0yx","bytes":1047,"lsof":"no open handles","at":"2026-10-28T11:15:11.985Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-EVKePN","bytes":23961,"lsof":"no open handles","at":"2026-10-28T11:17:00.157Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ufmmC3","bytes":3247,"lsof":"no open handles","at":"2026-10-28T11:17:04.751Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-2YS3oB","bytes":1122,"lsof":"no open handles","at":"2026-10-28T11:17:05.562Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-5f7q6V","bytes":194,"lsof":"no open handles","at":"2026-10-28T11:17:08.245Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-F5T4Hk","bytes":42723,"lsof":"no open handles","at":"2026-10-28T11:17:16.763Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-putBTs","bytes":1047,"lsof":"no open handles","at":"2026-10-28T11:17:20.277Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-6vt6vb","bytes":11295,"lsof":"no open handles","at":"2026-10-28T11:17:20.288Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-4AEq3y","bytes":11229,"lsof":"no open handles","at":"2026-10-28T11:17:20.597Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-dGsUVl","bytes":11229,"lsof":"no open handles","at":"2026-10-28T11:17:20.698Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-wcSs7M","bytes":0,"lsof":"no open handles","at":"2026-10-28T11:17:20.958Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-IdQ82g","bytes":14972,"lsof":"no open handles","at":"2026-10-28T11:17:21.024Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-97metx","bytes":72,"lsof":"no open handles","at":"2026-10-28T11:17:21.210Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-r2PBYo","bytes":0,"lsof":"no open handles","at":"2026-10-28T11:17:21.279Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-6PsurM","bytes":14972,"lsof":"no open handles","at":"2026-10-28T11:17:21.436Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-WaJhfP","bytes":52965,"lsof":"no open handles","at":"2026-10-28T11:17:22.697Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-KxCXE4","bytes":744,"lsof":"no open handles","at":"2026-10-28T11:17:27.450Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-j72yCC","bytes":5659,"lsof":"no open handles","at":"2026-10-28T11:17:41.769Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Ywrzbk","bytes":52692,"lsof":"no open handles","at":"2026-10-28T11:17:46.134Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ueHpvk","bytes":4558,"lsof":"no open handles","at":"2026-10-28T11:18:34.816Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-IZGlMn","bytes":6865,"lsof":"no open handles","at":"2026-10-28T11:18:45.130Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-jbBpUt","bytes":1288,"lsof":"no open handles","at":"2026-10-28T11:18:45.531Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-TpBseC","bytes":1662,"lsof":"no open handles","at":"2026-10-28T11:18:58.422Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-bXVeZn","bytes":31304,"lsof":"no open handles","at":"2026-10-28T11:19:07.828Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-SdtC2e","bytes":64447,"lsof":"no open handles","at":"2026-10-28T11:19:08.558Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-U386SB","bytes":64447,"lsof":"no open handles","at":"2026-10-28T11:19:08.889Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-2sypYn","bytes":64447,"lsof":"no open handles","at":"2026-10-28T11:19:09.197Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-7HrXPj","bytes":23961,"lsof":"no open handles","at":"2026-10-28T11:19:13.319Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-9ymORu","bytes":3247,"lsof":"no open handles","at":"2026-10-28T11:19:18.593Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-BxkUFI","bytes":26953,"lsof":"no open handles","at":"2026-10-28T11:19:26.598Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-vWuK1L","bytes":1827,"lsof":"no open handles","at":"2026-10-28T11:19:28.287Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-EFzU1Z","bytes":42724,"lsof":"no open handles","at":"2026-10-28T11:19:29.984Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-tOyJeP","bytes":11295,"lsof":"no open handles","at":"2026-10-28T11:19:33.662Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-R0AMM7","bytes":11229,"lsof":"no open handles","at":"2026-10-28T11:19:33.905Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-HRAOxH","bytes":11229,"lsof":"no open handles","at":"2026-10-28T11:19:34.144Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-NHpFTX","bytes":0,"lsof":"no open handles","at":"2026-10-28T11:19:34.565Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-lq8ILI","bytes":14972,"lsof":"no open handles","at":"2026-10-28T11:19:34.658Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-sXSKFT","bytes":72,"lsof":"no open handles","at":"2026-10-28T11:19:34.885Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ywf2pv","bytes":9421,"lsof":"no open handles","at":"2026-10-28T11:19:34.886Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-s42jSq","bytes":0,"lsof":"no open handles","at":"2026-10-28T11:19:34.967Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-mD8w5L","bytes":14972,"lsof":"no open handles","at":"2026-10-28T11:19:35.148Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-iL9ZeP","bytes":52965,"lsof":"no open handles","at":"2026-10-28T11:19:36.748Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-10-28T11:19:41.048Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858031,"lsof":"no open handles","reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-10-28T11:19:41.277Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-Gn48IX","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-s9dsZP","bytes":744,"lsof":"no open handles","at":"2026-10-28T11:19:42.081Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Fxj2G2","bytes":5659,"lsof":"no open handles","at":"2026-10-28T11:19:57.177Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-O2Nbdh","bytes":52692,"lsof":"no open handles","at":"2026-10-28T11:20:01.652Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-B8nqsi","bytes":4558,"lsof":"no open handles","at":"2026-10-28T11:20:50.361Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-dGFTdQ","bytes":6865,"lsof":"no open handles","at":"2026-10-28T11:21:00.972Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-CX3bPq","bytes":1288,"lsof":"no open handles","at":"2026-10-28T11:21:01.404Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-1g1nuR","bytes":1662,"lsof":"no open handles","at":"2026-10-28T11:21:13.617Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-DpJQ6r","bytes":31304,"lsof":"no open handles","at":"2026-10-28T11:21:20.793Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-NCTYR6","bytes":64447,"lsof":"no open handles","at":"2026-10-28T11:21:21.267Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-P7lvCg","bytes":64447,"lsof":"no open handles","at":"2026-10-28T11:21:21.534Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-F60hnG","bytes":64447,"lsof":"no open handles","at":"2026-10-28T11:21:21.797Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-mrfUl5","bytes":26953,"lsof":"no open handles","at":"2026-10-28T11:21:35.548Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-2r9Icz","bytes":1827,"lsof":"no open handles","at":"2026-10-28T11:21:36.956Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-uFZXy8","bytes":9421,"lsof":"no open handles","at":"2026-10-28T11:21:42.110Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-10-28T11:21:47.080Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858031,"lsof":"no open handles","reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-10-28T11:21:47.229Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-gew8h4","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-BYyCZp","bytes":1122,"lsof":"no open handles","at":"2026-10-28T11:26:19.119Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Q97qhl","bytes":194,"lsof":"no open handles","at":"2026-10-28T11:26:20.685Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-552cgZ","bytes":1047,"lsof":"no open handles","at":"2026-10-28T11:26:30.870Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-kbBnvA","bytes":1122,"lsof":"no open handles","at":"2026-10-28T11:28:23.726Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-2yhJFj","bytes":194,"lsof":"no open handles","at":"2026-10-28T11:28:25.892Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-y4jIWI","bytes":1047,"lsof":"no open handles","at":"2026-10-28T11:28:36.731Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-htiRVs","bytes":1122,"lsof":"no open handles","at":"2026-10-28T11:30:38.616Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-qzH3UA","bytes":194,"lsof":"no open handles","at":"2026-10-28T11:30:41.792Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-n2BEp3","bytes":1047,"lsof":"no open handles","at":"2026-10-28T11:30:53.334Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-kGYry1","bytes":1122,"lsof":"no open handles","at":"2026-10-28T11:33:28.099Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-w9Wj2B","bytes":194,"lsof":"no open handles","at":"2026-10-28T11:33:31.039Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-x9VESs","bytes":1047,"lsof":"no open handles","at":"2026-10-28T11:33:45.305Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-uwXqBQ","bytes":23961,"lsof":"no open handles","at":"2026-10-28T11:35:38.644Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Z7w7Sh","bytes":3247,"lsof":"no open handles","at":"2026-10-28T11:35:43.737Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-mtUtBZ","bytes":42726,"lsof":"no open handles","at":"2026-10-28T11:35:57.152Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-vARn9l","bytes":11295,"lsof":"no open handles","at":"2026-10-28T11:36:00.265Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-jy6iCG","bytes":11229,"lsof":"no open handles","at":"2026-10-28T11:36:00.493Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-vZzqPV","bytes":11229,"lsof":"no open handles","at":"2026-10-28T11:36:00.693Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-yeBYYv","bytes":14972,"lsof":"no open handles","at":"2026-10-28T11:36:00.947Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-JNWkfU","bytes":0,"lsof":"no open handles","at":"2026-10-28T11:36:00.971Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-SXpRsq","bytes":0,"lsof":"no open handles","at":"2026-10-28T11:36:01.091Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-SQZ1ON","bytes":72,"lsof":"no open handles","at":"2026-10-28T11:36:01.244Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-rX1PdD","bytes":14972,"lsof":"no open handles","at":"2026-10-28T11:36:01.385Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-veeCww","bytes":52965,"lsof":"no open handles","at":"2026-10-28T11:36:02.946Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-vKMBTY","bytes":744,"lsof":"no open handles","at":"2026-10-28T11:36:07.996Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-JiME8h","bytes":5659,"lsof":"no open handles","at":"2026-10-28T11:36:23.812Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-OFYIfU","bytes":52692,"lsof":"no open handles","at":"2026-10-28T11:36:29.251Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-NCiP8U","bytes":4558,"lsof":"no open handles","at":"2026-10-28T11:37:26.248Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-xQ63jR","bytes":6865,"lsof":"no open handles","at":"2026-10-28T11:37:39.615Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-7mdgak","bytes":1288,"lsof":"no open handles","at":"2026-10-28T11:37:40.052Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-daWy92","bytes":1662,"lsof":"no open handles","at":"2026-10-28T11:37:53.263Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-1aXzCB","bytes":31304,"lsof":"no open handles","at":"2026-10-28T11:38:03.795Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-eqR3kd","bytes":64447,"lsof":"no open handles","at":"2026-10-28T11:38:04.394Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-oaVjFE","bytes":64447,"lsof":"no open handles","at":"2026-10-28T11:38:04.690Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-eZ3YTD","bytes":64447,"lsof":"no open handles","at":"2026-10-28T11:38:04.979Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-RRGQ2u","bytes":26953,"lsof":"no open handles","at":"2026-10-28T11:38:20.772Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-yeMR3I","bytes":1827,"lsof":"no open handles","at":"2026-10-28T11:38:22.320Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-mTOOz8","bytes":9421,"lsof":"no open handles","at":"2026-10-28T11:38:28.063Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-10-28T11:38:33.829Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858031,"lsof":"no open handles","reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-10-28T11:38:33.970Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-HhnBfe","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-01T12:06:30.496Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858031,"lsof":"no open handles","reason":"Regenerate derived hosted source from local server inputs"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-4j78V4","bytes":0,"lsof":"no open handles","at":"2026-11-06T10:12:24.193Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-httLaE","bytes":0,"lsof":"no open handles","at":"2026-11-06T10:12:24.769Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-CgdP9y","bytes":0,"lsof":"no open handles","at":"2026-11-06T10:12:25.895Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-pFEfKq","bytes":0,"lsof":"no open handles","at":"2026-11-06T10:12:27.712Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ziN2x5","bytes":3247,"lsof":"no open handles","at":"2026-11-06T10:12:28.585Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-11-06T10:19:01.662Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2953890,"lsof":"no open handles","reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T10:19:01.689Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-YtobON","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T10:19:12.837Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T10:19:12.997Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-POBv2U","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T10:19:20.114Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T10:19:20.306Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-wnA7tE","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T10:57:19.018Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:07:35.592Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:07:39.640Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:07:39.779Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-jaRwFf","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T11:08:44.301Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:08:44.385Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-O96oy1","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T11:09:54.067Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:09:59.438Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:09:59.603Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-HxKnwY","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T11:13:51.321Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-sbT5xk","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T11:13:51.321Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-HVM3en","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:15:12.740Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-LOKqCC","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:15:13.289Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-H4jy7z","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:15:14.317Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-saDvIr","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:15:15.913Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-FJqyOo","bytes":3247,"lsof":"no open handles","at":"2026-11-06T11:15:16.658Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-11-06T11:17:16.900Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:17:16.998Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-0m4HBm","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T11:17:18.019Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:17:24.348Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:17:24.493Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-WrXEbR","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T11:25:12.302Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-OMkcAa","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T11:25:12.302Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:25:37.934Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:25:38.055Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-r5g7HK","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-P5YGUQ","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:26:32.749Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-BHGkOn","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:26:33.291Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-lVzn6O","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:26:34.350Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-KotHs5","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:26:36.069Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-CfQ1lX","bytes":3247,"lsof":"no open handles","at":"2026-11-06T11:26:36.840Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-WiAgWK","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:28:01.909Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-HUZH9i","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:28:02.722Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-t4P4VD","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:28:02.722Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-XOobUp","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:28:03.077Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-TmuUrY","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:28:03.690Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-wa6cgj","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:28:04.822Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-8qqeNZ","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:28:05.397Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-hq3lYw","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:28:06.110Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-tbVK7X","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:28:09.784Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-5t95k9","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:28:10.881Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-OkZpPn","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:28:11.204Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-11-06T11:28:33.354Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:28:33.476Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-Hzf4Ji","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T11:28:56.521Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:28:56.640Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-9nJIpg","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T11:48:15.331Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-T2a7g0","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-11-06T11:54:08.955Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T11:54:09.094Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-81e2yV","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T11:55:56.993Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-J0sk4C","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T11:55:56.994Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-izvrcs","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:56:33.549Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-fIuQD9","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:56:34.097Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Z0FsLy","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:56:35.193Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-RNwwfb","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:56:36.862Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-LqxMMp","bytes":3247,"lsof":"no open handles","at":"2026-11-06T11:56:37.649Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-QW14D3","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:57:43.079Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-kMyzfW","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:57:43.888Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-WfeC3d","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:57:43.888Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-6jLLnQ","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:57:44.264Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-TsM8Gj","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:57:44.859Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-hTtfEU","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:57:45.995Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-O2HDmd","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:57:46.585Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-fs4TfU","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:57:47.304Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-KsCish","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:57:50.606Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-5lTc9q","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:57:51.663Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-M3phxl","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:57:51.986Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-IZDkoE","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:59:08.179Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-oh9XyM","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:59:08.734Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-hBecuK","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:59:09.799Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-Tz47c3","bytes":0,"lsof":"no open handles","at":"2026-11-06T11:59:11.474Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-ZyEDRs","bytes":3247,"lsof":"no open handles","at":"2026-11-06T11:59:12.245Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-11-06T13:24:04.086Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-kpQUg9","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-11-06T13:24:04.104Z","session":"r37","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-route-ci-J6p3Bz","bytes":2776630,"lsof_clear":true,"reason":"Completed isolated ephemeral-signer billing route fixture"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-EfL1Na","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:25:23.172Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-bggbS4","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:25:23.729Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-rIuhZr","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:25:24.873Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-MirAmM","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:25:26.585Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-jhF29t","bytes":3247,"lsof":"no open handles","at":"2026-11-06T13:25:27.461Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-9V1kzE","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:28:52.069Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-ZqdleN","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:28:52.899Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-W6DmCm","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:28:52.899Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/duplicate-invoice-check-gxf1cG","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:28:53.280Z","purpose":"duplicate-invoice-check test"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-qSce7g","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:28:53.948Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-cnaNCa","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:28:55.178Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-D1wvwW","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:28:55.820Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-u5fWQq","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:28:56.779Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-A8RS3g","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:29:00.594Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-jVXvD1","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:29:01.907Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-KcnYee","bytes":0,"lsof":"no open handles","at":"2026-11-06T13:29:02.279Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-11-06T13:53:10.120Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-O0o7ad","bytes":0,"lsof":"no open handles","at":"2026-11-06T14:20:00.829Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-MERi77","bytes":0,"lsof":"no open handles","at":"2026-11-06T14:20:01.503Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-CNi7Tp","bytes":0,"lsof":"no open handles","at":"2026-11-06T14:20:02.838Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-NYSxkr","bytes":0,"lsof":"no open handles","at":"2026-11-06T14:20:05.063Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-EnlzYk","bytes":3247,"lsof":"no open handles","at":"2026-11-06T14:20:06.207Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-lb3tcy","bytes":0,"lsof":"no open handles","at":"2026-11-06T14:24:12.423Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-LFb2BY","bytes":3247,"lsof":"no open handles","at":"2026-11-06T14:28:24.948Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-xFpFVZ","bytes":3247,"lsof":"no open handles","at":"2026-11-06T14:33:55.235Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-LsS4o5","bytes":3247,"lsof":"no open handles","at":"2026-11-06T14:45:59.725Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-11-06T15:06:09.358Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T15:06:09.515Z","path":"/Users/mike/mcp-servers-work/r38-mirror-closure-test-LyXrCx","bytes":1990,"lsof":"no open handles","reason":"Completed minimal Office mirror dependency regression fixtures"}
+{"at":"2026-11-06T15:27:12.047Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858029,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T15:29:16.086Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858036,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-lOjjgx","bytes":5679,"lsof":"no open handles","at":"2026-11-06T15:48:54.033Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-11-06T15:50:55.576Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-SLbL3T","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-3Bdcnd","bytes":5679,"lsof":"no open handles","at":"2026-11-06T15:55:38.035Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-11-06T15:57:08.461Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-fGd2Mp","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-1ZJMzU","bytes":5679,"lsof":"no open handles","at":"2026-11-06T16:02:20.512Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-11-06T16:11:52.091Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-GpkeoD","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-11-06T16:13:58.127Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-iGjuSW","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-0NZKoZ","bytes":5679,"lsof":"no open handles","at":"2026-11-06T16:28:46.320Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-PyWxxB","bytes":52965,"lsof":"no open handles","at":"2026-11-06T16:29:33.171Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-dLeg8X","bytes":26953,"lsof":"no open handles","at":"2026-11-06T16:30:03.881Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-NQBbVK","bytes":26953,"lsof":"no open handles","at":"2026-11-06T16:30:35.952Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-lkBE7F","bytes":5679,"lsof":"no open handles","at":"2026-11-06T16:30:45.129Z","purpose":"R37 real free-cap stdio regression"}
+{"path":"/Users/mike/mcp-servers-work/r37-cap-h5P1GF","bytes":52965,"lsof":"no open handles","at":"2026-11-06T16:30:50.184Z","purpose":"R37 real free-cap stdio regression"}
+{"at":"2026-11-06T16:41:42.082Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2858036,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T16:42:10.383Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":227760,"lsof":"no open handles","removed_dirs":4,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T16:51:08.041Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2859831,"lsof":"no open handles","removed_dirs":46,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T17:22:41.538Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-OqTeGF","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-11-06T17:22:41.538Z","session":"r37","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-route-ci-Fgb1s7","bytes":2782225,"lsof_clear":true,"reason":"Completed isolated ephemeral-signer billing route fixture"}
+{"at":"2026-11-06T17:22:51.839Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-BKzS7y","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-11-06T17:22:51.986Z","session":"r37","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-route-ci-5QWefp","bytes":2782225,"lsof_clear":true,"reason":"Completed isolated ephemeral-signer billing route fixture"}
+{"at":"2026-11-06T17:26:10.885Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-2aL9np","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-11-06T17:26:11.006Z","session":"r37","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-route-ci-f24QaR","bytes":2782225,"lsof_clear":true,"reason":"Completed isolated ephemeral-signer billing route fixture"}
+{"at":"2026-11-06T17:35:11.999Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-bHAxjA","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-11-06T17:35:11.999Z","session":"r37","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-route-ci-4UHFzj","bytes":2785169,"lsof_clear":true,"reason":"Completed isolated ephemeral-signer billing route fixture"}
+{"at":"2026-11-06T17:35:26.405Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-f8V7TO","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-11-06T17:35:26.405Z","session":"r37","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-route-ci-BcbK7i","bytes":2785169,"lsof_clear":true,"reason":"Completed isolated ephemeral-signer billing route fixture"}
+{"at":"2026-11-06T17:48:16.270Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-iA7PmY","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-11-06T17:48:16.270Z","session":"r37","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-route-ci-hvWNWU","bytes":2785970,"lsof_clear":true,"reason":"Completed isolated ephemeral-signer billing route fixture"}
+{"at":"2026-11-06T17:48:22.836Z","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-deploy-hash-kJ0YmO","bytes":445,"lsof_clear":true,"reason":"Completed owned billing deployment source-hash fixture"}
+{"at":"2026-11-06T17:48:22.941Z","session":"r37","path":"/var/folders/nd/3cp8d1r97q9fn3chr1rd48qh0000gn/T/mcp-billing-route-ci-7gtKPc","bytes":2785970,"lsof_clear":true,"reason":"Completed isolated ephemeral-signer billing route fixture"}
+{"at":"2026-11-06T18:09:35.799Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2884660,"lsof":"no open handles","removed_dirs":47,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T18:09:42.587Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2884750,"lsof":"no open handles","removed_dirs":47,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T19:26:50.083Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2884750,"lsof":"no open handles","removed_dirs":47,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T19:27:24.501Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2884750,"lsof":"no open handles","removed_dirs":47,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T19:27:31.675Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2884750,"lsof":"no open handles","removed_dirs":47,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T19:28:39.665Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2884750,"lsof":"no open handles","removed_dirs":47,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}
+{"at":"2026-11-06T21:17:54.164Z","path":"/Users/mike/mcp-servers/remote/src/vendor","bytes":2884799,"lsof":"no open handles","removed_dirs":47,"preserved":["budget","duplicate-invoice-check","hourly-rate","loan-calculator","payroll","pomodoro","receipts","stripe-billing","supplier-statement-check","tax-calc","three-way-match"],"reason":"Regenerate derived hosted source from local server inputs"}

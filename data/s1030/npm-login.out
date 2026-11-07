@@ -1,0 +1,8 @@
+npm notice Log in on https://registry.npmjs.org/
+npm notice npm tokens that bypass 2FA are being restricted for account changes and direct publishing. Learn how to prepare: https://gh.io/npm-gat-bypass2fa-deprecation
+Login at:
+https://www.npmjs.com/login?next=/login/cli/fd240f7d-62f9-4fc1-b0b5-3be42320fd18
+Username: exit=1
+npm error code E401
+npm error 401 Unauthorized - GET https://registry.npmjs.org/-/whoami
+npm error A complete log of this run can be found in: /Users/mike/.npm-cache-local/_logs/2026-10-30T02_18_01_100Z-debug-0.log

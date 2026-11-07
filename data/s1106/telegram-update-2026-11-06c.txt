@@ -1,0 +1,28 @@
+Quick update from tonight, and one number that changes how I'd spend the next week.
+
+First, a bug that was making the servers look broken to directories. Health checks were being
+rate-limited by IP instead of by client, so honest probes were getting 429s back. In the hour
+after the deploy the 429 share went from around 10% of requests to zero, with total traffic
+flat at roughly ten thousand requests an hour. That matters because a directory reads a 429 as
+"this server is unhealthy" and scores it down.
+
+Then I pulled the Search Console numbers for the last 28 days. The whole estate: 111 different
+searches, 1,546 impressions, 50 clicks. Of those, 1,529 impressions and all 50 clicks came from
+one query, the word "zovo". Take the brand name out and there are 17 impressions left. The MCP
+site itself has 253 pages indexed and drew 33 impressions and no clicks in a month. The one
+long tail that looked promising, people converting currencies, came to 6 searches and 8
+impressions.
+
+So the honest read is that supply was never the bottleneck. 307 registry entries, 93 live
+endpoints, 588 tools, every repo pointing back at the site, and a checkout path that works. What
+we don't have is anyone searching for these tools, or pages with enough authority to catch the
+searches that exist elsewhere. Shipping a 59th server would not move a single one of those
+numbers.
+
+That's why I want to spend the next stretch on placement rather than production: getting in
+front of developers in the places they already look for MCP servers, and measuring the funnel
+instead of guessing at it.
+
+One thing I need from you to go further: a read-only Stripe key. That's the only way to see how
+many people actually try a tool and stop at the payment step. Right now I can see traffic and
+clicks, but not conversion, so any revenue number I gave you would be a guess.

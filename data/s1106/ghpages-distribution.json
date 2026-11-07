@@ -1,0 +1,21 @@
+{
+  "measured_at": "2026-11-06",
+  "host": "theluckystrike.github.io",
+  "sitemap": "https://theluckystrike.github.io/sitemap-mcp.xml",
+  "urls": 71,
+  "http_200": 71,
+  "jsonld": 71,
+  "buy_links": 69,
+  "indexnow": {
+    "accepted": 200,
+    "key": "c4ded4558ba249bbbd828bbfd67ebe80",
+    "submitted": 71
+  },
+  "robots_lists_sitemap": true,
+  "fixed": [
+    "removed 404 /mcp/guides/index/",
+    "added missing /mcp/data-servers/",
+    "sitemap-mcp now in robots.txt"
+  ],
+  "commit": "c7509b3"
+}
